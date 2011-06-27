@@ -1,0 +1,191 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-nodenew"></a><h4>New Node</h4>
+<a name="indexterm-197"></a><p>Use the New Node page to create a GlassFish Server node. A
+node represents a host on which the GlassFish Server software is installed.
+A node must exist for every host on which GlassFish Server instances reside.
+</p>
+
+<p>The New Node page contains the following options:</p>
+
+<dl><dt>Name</dt>
+<dd><p>The name of the node.</p>
+
+<p>The name must meet the following requirements:</p>
+
+
+<ul><li><p>The name must start with a letter, a number, or an underscore.</p>
+
+</li>
+<li><p>The name may contain only the following characters:</p>
+
+
+<ul><li><p>Lowercase letters</p>
+
+</li>
+<li><p>Uppercase letters</p>
+
+</li>
+<li><p>Numbers</p>
+
+</li>
+<li><p>Hyphen</p>
+
+</li>
+<li><p>Period</p>
+
+</li>
+<li><p>Underscore</p>
+
+</li></ul>
+</li>
+<li><p>The name must be unique in the domain and must not be the name of another node, a cluster, a named configuration, or a GlassFish Server instance.</p>
+
+</li>
+<li><p>The name must not be <tt>domain</tt>, <tt>server</tt>, or any other keyword that is reserved by GlassFish Server.</p>
+
+</li></ul>
+</dd>
+<dt>Type</dt>
+<dd><p>Drop-down list to specify the type of the node, which is one of the following types:</p>
+
+<dl><dt>SSH</dt>
+<dd><p>The node supports communication over secure shell (SSH).</p>
+
+</dd>
+<dt>CONFIG</dt>
+<dd><p>The node does not support remote communication. If CONFIG, is selected, no options for SSH configuration are displayed and the Installation Directory field is cleared.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Node Host</dt>
+<dd><p>The name of the host that the node represents. Whether this field is mandatory depends on the type of the node:</p>
+
+
+<ul><li><p>If the type of the node is CONFIG, the name of the host may be omitted. The name of the host can be determined when instances that reside on the node are created.</p>
+
+</li>
+<li><p>If the type of the node is SSH, the name of the host must be specified. Otherwise, an error occurs.</p>
+
+</li></ul>
+</dd>
+<dt>Node Directory</dt>
+<dd><p>The path to the directory that is to contain GlassFish Server instances that are created on the node. If a relative path is specified, the path is relative to the <i>as-install</i> directory.</p>
+
+<p>The default depends on the type of the node:</p>
+
+
+<ul><li><p>If the type of the node is CONFIG, no directory for instances is specified for the node in the domain administration server (DAS) configuration. The node directory can be determined when instances that reside on the node are created.</p>
+
+</li>
+<li><p>If the type of the node is SSH, the default is <tt></tt><i>as-install</i><tt>/nodes</tt>, where <i>as-install</i> is the base installation directory of the GlassFish Server software on the host.</p>
+
+</li></ul>
+</dd>
+<dt>Installation Directory</dt>
+<dd><p>The full path to the parent of the base installation directory of the GlassFish Server software on the host, for example, <tt>/export/glassfish3</tt>.</p>
+
+<p>The default depends on the type of the node:</p>
+
+
+<ul><li><p>If the type of the node is CONFIG, no installation directory is specified for the node in the DAS configuration. The installation directory can be determined when instances that reside on the node are created.</p>
+
+</li>
+<li><p>If the type of the node is SSH, the default is the parent of the default base installation directory of the GlassFish Server software for the DAS. This default is useful only if GlassFish Server is installed in the same location on all hosts.</p>
+
+</li></ul>
+</dd>
+<dt>Force</dt>
+<dd><p>If the Enabled option is selected, the node is created in the DAS configuration even if validation of the node's parameters fails. To validate a node's parameters, the DAS must be able to contact the node's host through SSH.</p>
+
+</dd>
+<dt>SSH Port</dt>
+<dd><p>The port to use for SSH connections to this node's host. The default is 22. If the Node Host option is set to <tt>localhost-<i>domain</i></tt>, the SSH port option is ignored.</p>
+
+</dd>
+<dt>SSH User Name</dt>
+<dd><p>The user on this node's host that is to run the process for connecting to the host through SSH. The default is the user that is running the DAS process. To ensure that the DAS can read this user's SSH private key file, specify the user that is running the DAS process. If the Node Host option is set to <tt>localhost-<i>domain</i></tt>, the User Name option is ignored.</p>
+
+</dd>
+<dt>SSH User Authentication</dt>
+<dd><p>Drop-down list to specify how the SSH user is authenticated when logging in to this node's host. The possible methods for authentication are as follows:</p>
+
+<dl><dt>Key File</dt>
+<dd><p>The SSH user is authenticated through an SSH private key file. If you select this option, specify the absolute path to the file in the Key File field.</p>
+
+</dd>
+<dt>Password</dt>
+<dd><p>The SSH user is authenticated through a password that is stored in the DAS configuration.</p>
+
+
+<hr><p><b>Caution - </b>This password is stored in clear text in the DAS configuration. For enhanced security, use a key file or a password alias.</p>
+
+
+<hr>
+<p>If you select this option, the SSH Password field and the Confirm SSH Password field are activated to enable you to provide the password.</p>
+
+</dd>
+<dt>Password Alias</dt>
+<dd><p>The SSH user is authenticated through a password alias. If you select this option, select the password alias from the Password Alias drop-down list.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>SSH Password</dt>
+<dd><p>The password that the SSH user will use when logging in to this node's host.</p>
+
+</dd>
+<dt>Confirm SSH Password</dt>
+<dd><p>Confirmation of the password that the SSH user will use when logging in to this node's host. The content of this field must match exactly the content of the SSH Password field.</p>
+
+</dd>
+<dt>Password Alias</dt>
+<dd><p>Drop-down list of password aliases that are defined for this domain.</p>
+
+</dd>
+<dt>Key File</dt>
+<dd><p>The absolute path to the SSH private key file for user that the User Name option specifies. This file is used for authentication to the <tt>sshd</tt> daemon on the node's host.</p>
+
+
+<hr><p><b>Note - </b>GlassFish Server also supports password authentication through the <tt>AS_ADMIN_SSHPASSWORD</tt> entry in the password file. The password file is specified in the <tt>--paswordfile</tt> option of the <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> utility.</p>
+
+
+<hr>
+<p>If the SSH private key file is protected by a passphrase, the password file must contain the <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt> entry.</p>
+
+<p>The path to the key file must be reachable by the DAS and the key file must be readable by the DAS.</p>
+
+<p>The default is a key file in the user's <tt>.ssh</tt> directory. If multiple key files are found, GlassFish Server uses the following order of preference:</p>
+
+
+<ol><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>identity</tt></p>
+
+</li></ol>
+</dd>
+</dl>
+<h5>Related Tasks</h5>
+
+<ul><li><p><a href="task-createnode.html">To Create a Node</a></p>
+
+</li></ul>
+<h5>Equivalent <tt>asadmin</tt> Subcommands</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-config-1"><tt>create-node-config</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-ssh-1"><tt>create-node-ssh</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
