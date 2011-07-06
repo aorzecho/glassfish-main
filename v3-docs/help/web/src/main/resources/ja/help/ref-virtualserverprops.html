@@ -1,0 +1,183 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-virtualserverprops"></a><h4>仮想サーバーに固有のプロパティー</h4>
+<a name="indexterm-61"></a><a name="indexterm-62"></a><p>仮想サーバーに使用できる追加のプロパティーは次のとおりです。</p>
+
+<dl><dt><tt>sso-max-inactive-seconds</tt></dt>
+<dd><p>クライアントが活動を停止後、何秒後にユーザーのシングルサインオンの記録を削除可能にするかを指定します。シングルサインオンは同一仮想サーバー上の複数のアプリケーションに適用されるので、これらのアプリケーションのいずれかにアクセスすることでシングルサインオンの記録は有効なまま確保されます。</p>
+
+<p>デフォルト値は 300 秒 (5 分) です。値を大きくするとユーザーのシングルサインオンの持続時間は長くなりますが、サーバー上のメモリー消費量も増加します。</p>
+
+</dd>
+<dt><tt>sso-reap-interval-seconds</tt></dt>
+<dd><p>有効期限が切れたシングルサインオンの記録の削除を行う間隔を秒単位で指定します。</p>
+
+<p>デフォルト値は 60 です。</p>
+
+</dd>
+<dt><tt>ssoCookieSecure</tt></dt>
+<dd><p>この仮想サーバーに配備された Web アプリケーションに関連付けられた、<tt>JSESSIONIDSSO</tt> クッキーの <tt>Secure</tt> 属性を設定します。このプロパティーは、シングルサインオンが有効な場合にのみ適用されます。使用できる値は次のとおりです。</p>
+
+<dl><dt><tt>true</tt></dt>
+<dd><p><tt>Secure</tt> を true に設定します。 </p>
+
+</dd>
+<dt><tt>false</tt></dt>
+<dd><p><tt>Secure</tt> を false に設定します。</p>
+
+</dd>
+<dt><tt>dynamic</tt></dt>
+<dd><p><tt>JSESSIONIDSSO</tt> クッキーは、SSO の最初のセッションの <tt>Secure</tt> 設定を継承します。</p>
+
+</dd>
+</dl>
+<p><tt>JSESSIONID</tt> クッキーの Secure 属性を設定するには、<tt>sun-web.xml</tt> ファイルの <tt>cookieSecure</tt> <tt>cookie-properties</tt> プロパティーを使用します。詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beash"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「cookie-properties」</a>を参照してください。</p>
+
+</dd>
+<dt><tt>setCacheControl</tt></dt>
+<dd><p><tt>Cache-Control</tt> 応答指令のコンマ区切りのリストを指定します。有効な指令のリストについては、<a href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt </a> の文書のセクション 14.9 を参照してください。</p>
+
+</dd>
+<dt><tt>accessLogBufferSize</tt></dt>
+<dd><p>アクセスログの呼び出しが格納されるバッファーのサイズをバイト単位で指定します値が 5120 未満の場合は警告メッセージが表示され、値が 5120 に設定されます。デフォルト値は 32768 です。</p>
+
+</dd>
+<dt><tt>accessLogWriterInterval</tt></dt>
+<dd><p>ログがディスクに書き込まれるまでの時間 (秒単位) を指定します。アクセスログは、バッファーがいっぱいになるか、指定した時間が経過すると書き込まれます。0 を指定すると、バッファーがいっぱいでなくても常に書き込まれます。つまり、サーバーアクセスがあるたびに、ログメッセージはファイルに直接格納されます。デフォルト値は 300 です。</p>
+
+</dd>
+<dt><tt>allowRemoteAddress</tt></dt>
+<dd><p>リモートクライアントの IP アドレスを比較する、正規表現パターンのコンマ区切りのリストを指定します。このプロパティーが指定されている場合、要求を受け入れるためにはリモートアドレスが「一致している」必要があります。<b></b>このプロパティーが指定されていない場合、リモートアドレスが <tt>denyRemoteAddress</tt> パターンと「一致していない限り」、すべての要求が受け入れられます。<b></b></p>
+
+</dd>
+<dt><tt>denyRemoteAddress</tt></dt>
+<dd><p>リモートクライアントの IP アドレスを比較する、正規表現パターンのコンマ区切りのリストを指定します。このプロパティーが指定されている場合、要求を受け入れるためにはリモートアドレスが「一致していない」必要があります。<b></b>このプロパティーが指定されていない場合、要求の受け入れは <tt>allowRemoteAddress</tt> プロパティーのみで制御されます。</p>
+
+</dd>
+<dt><tt>allowRemoteHost</tt></dt>
+<dd><p>リモートクライアントのホスト名 (<tt>[java.net.]Socket.getInetAddress().getHostName() </tt> によって返される) を比較する正規表現パターンのコンマ区切りのリストを指定します。このプロパティーが指定されている場合、要求を受け入れるためにはリモートホスト名が「一致している」必要があります。<b></b>このプロパティーが指定されていない場合、リモートホスト名が <tt>denyRemoteHost</tt> パターンと「一致していない限り」、すべての要求が受け入れられます。<b></b></p>
+
+</dd>
+<dt><tt>denyRemoteHost</tt></dt>
+<dd><p>リモートクライアントのホスト名 (<tt>[java.net.]Socket.getInetAddress().getHostName() </tt> によって返される) を比較する正規表現パターンのコンマ区切りのリストを指定します。このプロパティーが指定されている場合、要求を受け入れるためにはリモートホスト名が「一致していない」必要があります。<b></b>このプロパティーが指定されていない場合、要求の受け入れは <tt>allowRemoteHost</tt> プロパティーのみで制御されます。</p>
+
+<p>GlassFish サーバー ドメインが、「JK リスナー」オプションが有効なネットワークリスナーを通してアクセスされる場合、このプロパティーを設定しても影響はありません。</p>
+
+</dd>
+<dt><tt>authRealm</tt></dt>
+<dd><p>認証レルムの名前を指定します。この値は、この仮想サーバーに配備されているスタンドアロン Web アプリケーションの、サーバーインスタンスのデフォルトレルムをオーバーライドします。スタンドアロンの Web アプリケーションの <tt>web.xml</tt> ファイルに定義されているレルムは、仮想サーバーのレルムをオーバーライドします。詳細については、<a href="../../../common/ja/help/ref-realms.html">レルム</a>を参照してください。</p>
+
+</dd>
+<dt><tt>securePagesWithPragma</tt></dt>
+<dd><p>このプロパティーを <tt>false</tt> に設定すると、この仮想サーバー上のすべての Web アプリケーションで、SSL を使用したファイルのダウンロードが Internet Explorer で必ず正しく機能します。 </p>
+
+<p>個々の Web アプリケーションでこの設定をオーバーライドできます。それには、<tt>sun-web.xml</tt> ファイルの <tt>sun-web-app</tt> 要素を使用します。詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「glassfish-web-app」</a>を参照してください。</p>
+
+<p>デフォルト値は <tt>true</tt> です。</p>
+
+</dd>
+<dt><tt>alternatedocroot_<i>n</i></tt></dt>
+<dd><p>代替ドキュメントルート (docroot) を指定します。ここで、<i>n</i> は正の整数で複数の指定が可能になります。代替 docroot により、Web アプリケーションは特定のリソースに対するそれぞれの docroot 以外からの要求に対応できます。これは、それらの要求が Web アプリケーションの代替 docroot の URI パターンの 1 つ (または複数) に一致するかどうかに基づきます。</p>
+
+<p>要求が代替 docroot の URI パターンと一致する場合、要求の URI (Web アプリケーションのコンテキストルートをマイナスしたもの) を代替 docroot の物理的な位置 (ディレクトリ) に付加することによって、要求を代替 docroot にマップします。要求が複数の URI パターンに一致する場合、代替 docroot は次の優先順位で判断されます。</p>
+
+
+<ul><li><p>完全一致</p>
+
+</li>
+<li><p>最長パス一致</p>
+
+</li>
+<li><p>拡張一致</p>
+
+</li></ul>
+<p>たとえば、次のプロパティーは 3 つの代替 docroot を指定します。最初の代替 docroot の URI パターンは完全一致を使用し、2 番目と 3 番目の代替 docroot の URI パターンは拡張および最長パスプレフィックス一致をそれぞれ使用しています。</p>
+
+<pre>&#60;property name="alternatedocroot_1" 
+   value="from=/my.jpg dir=/srv/images/jpg"/>
+&#60;property name="alternatedocroot_2" 
+   value="from=*.jpg dir=/srv/images/jpg"/>
+&#60;property name="alternatedocroot_3" 
+   value="from=/jpg/* dir=/src/images"/></pre><p>各代替 docroot の <tt>value</tt> には 2 つの構成要素があります。最初の構成要素の <tt>from</tt> は代替 docroot の URI パターンを指定し、2 番目の構成要素の <tt>dir</tt> は代替 docroot の物理的な位置 (ディレクトリ) を指定します。<tt> dir</tt> 構成要素にはスペースが許容されています。</p>
+
+<p>個々の Web アプリケーションでこの設定をオーバーライドできます。それには、<tt>sun-web.xml</tt> ファイルの <tt>sun-web-app</tt> 要素を使用します。詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「glassfish-web-app」</a>を参照してください。</p>
+
+</dd>
+<dt><tt>contextXmlDefault</tt></dt>
+<dd><p>使用されている場合は、この仮想サーバーに対して、<tt>context.xml</tt> ファイルの <i>domain-dir</i> に相対的な位置を指定します。<tt>context.xml</tt> ファイルの詳細については、<a href="http://tomcat.apache.org/tomcat-5.5-doc/config/context.html">コンテキストルートコンテナ</a> を参照してください。</p>
+
+</dd>
+<dt><tt>allowLinking</tt></dt>
+<dd><p><tt>true</tt> の場合、この仮想サーバー上に配備されているすべての Web アプリケーションに対し、シンボリックリンクのリソースが提供されます。個々の Web アプリケーションでこの設定をオーバーライドできます。それには、<tt>sun-web.xml</tt> ファイル内で <tt>sun-web-app</tt> のプロパティー <tt>allowLinking</tt> を次のように指定します。</p>
+
+<pre>&#60;sun-web-app>
+   &#60;property name="allowLinking" 
+      value="{true|false}"/>
+&#60;/sun-web-app></pre><p>詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「glassfish-web-app」</a>を参照してください。</p>
+
+<p>デフォルト値は <tt>false</tt> です。</p>
+
+
+<hr><p><b>注意 - </b>Windows システムでこのプロパティーを true に設定すると、JSP ソースコードが公開されます。 </p>
+
+
+<hr>
+</dd>
+<dt><tt>send-error_<i>n</i></tt></dt>
+<dd><p>仮想サーバー上に配備されているすべての Web アプリケーションで継承する、仮想サーバーのカスタムエラーページのマッピングを指定します。Web アプリケーションは、<tt>web.xml</tt> 配備記述子のこれらカスタムエラーページのマッピングをオーバーライドできます。各 <tt>send-error_<i> n</i></tt> プロパティーの値には 3 つの構成要素があり、任意の順番で指定できます。</p>
+
+
+<ul><li><p>最初の構成要素の <tt>code</tt> は、応答でカスタムエラーページを返す必要がある 3 桁の HTTP 応答状態コードを指定します。</p>
+
+</li>
+<li><p>2 番目の構成要素の <tt>path</tt> は、カスタムエラーページの絶対、または相対ファイルシステムパスを指定します。相対ファイルシステムパスは、<tt></tt><i>domain-dir</i><tt>/config</tt> ディレクトリに相対的なものとして解釈されます。</p>
+
+</li>
+<li><p>3 番目の構成要素の <tt>reason</tt> はオプションで、返される理由文字列のテキスト (<tt>Unauthorized</tt> または <tt> Forbidden</tt>) を指定します。</p>
+
+</li></ul>
+<p>次に例を示します。</p>
+
+<pre>&#60;property name="send-error_1"
+   value="code=401 path=/myhost/401.html reason=MY-401-REASON"/></pre><p>この例のプロパティー定義では、<tt>/myhost/401.html </tt> の内容が 401 応答で返されるとともに、次の応答が返されます。</p>
+
+<pre>HTTP/1.1 401 MY-401-REASON</pre></dd>
+<dt><tt>redirect_<i>n</i></tt></dt>
+<dd><p>古い URL に対する要求を新しい URL に対する要求として処理するように指定します。これらのプロパティーは、仮想サーバー上に配備されているすべての Web アプリケーションで継承されます。各 <tt>redirect_<i>n</i></tt> プロパティーの値には 2 つの構成要素があり、任意の順番で指定できます。</p>
+
+
+<ul><li><p>最初の構成要素の <tt>from</tt> は、照合する要求された URI のプレフィックスを指定します。</p>
+
+</li>
+<li><p>2 番目の構成要素の <tt>url-prefix</tt> はクライアントに返す新しい URL プレフィックスを指定します。 <tt>from</tt> プレフィックスは、この URL プレフィックスで単純に置き換えられます。</p>
+
+</li></ul>
+<p>次に例を示します。</p>
+
+<pre>&#60;property name="redirect_1" 
+  value="from=/dummy url-prefix=http://etude"/></pre></dd>
+<dt><tt>valve_<i>n</i></tt></dt>
+<dd><p>カスタム値の完全修飾クラス名を指定します。<i>n</i> は正の整数で、複数の指定が可能です。値クラスは、Tomcat または GlassFish サーバー の以前のリリースの <tt>org.apache.catalina.Valve</tt> インタフェースを実装するか、GlassFish サーバー の現在のリリースの <tt>org.glassfish.web.valve.GlassFishValve</tt> インタフェースを実装する必要があります。次に例を示します。</p>
+
+<pre>&#60;property name="valve_1"
+value="org.glassfish.extension.Valve"/></pre><p>このプロパティーは、特定の Web アプリケーションに対して設定できます。詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「glassfish-web-app」</a>を参照してください。</p>
+
+</dd>
+<dt><tt>listener_<i>n</i></tt></dt>
+<dd><p>カスタム Catalina リスナーの完全修飾クラス名を指定します。<i>n</i> は正の整数で、複数の指定が可能です。リスナークラスは、 <tt>org.apache.catalina.ContainerListener</tt> または <tt>org.apache.catalina.LifecycleListener</tt> インタフェースを実装する必要があります。次に例を示します。</p>
+
+<pre>&#60;property name="listener_1"
+value="org.glassfish.extension.MyLifecycleListener"/></pre><p>このプロパティーは、特定の Web アプリケーションに対して設定できます。詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「glassfish-web-app」</a>を参照してください。</p>
+
+</dd>
+<dt><tt>errorReportValve</tt></dt>
+<dd><p>この仮想サーバー上で、アプリケーションのデフォルトのエラーページを生成するカスタム値の完全修飾クラス名を指定します。この仮想サーバーのデフォルトのエラーページメカニズムを無効にするには、空の文字列を指定します。</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

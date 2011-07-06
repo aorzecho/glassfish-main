@@ -1,0 +1,50 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jaccprovidernew"></a><h4>Pour cr&#233;er un fournisseur JACC</h4><a name="indexterm-101"></a><a name="indexterm-102"></a><a name="indexterm-103"></a><p>Utilisez la page Nouveau fournisseur JACC pour cr&#233;er un nouveau fournisseur JACC
+(Java Authorization Contract for Containers) conforme &#224; JSR-115/196 pouvant &#234;tre utilis&#233; par
+des modules d'autorisation tiers pour des applications s'ex&#233;cutant sur GlassFish Server. Le
+fournisseur JACC est cr&#233;&#233; en tant qu'&#233;l&#233;ment <tt>jacc-provider</tt> &#224; l'int&#233;rieur de l'&#233;l&#233;ment
+<tt>security-service</tt> dans le fichier <tt>domaine.xml</tt> du domaine.</p>
+
+<p>L'installation GlassFish Server par d&#233;faut inclut deux fournisseurs JACC nomm&#233;s <tt>default</tt> et
+<tt>simple </tt>. Tous les nouveaux fournisseurs JACC que vous cr&#233;ez s'ajoutent &#224; ces
+deux fournisseurs par d&#233;faut. Les fournisseurs JACC GlassFish Server par d&#233;faut mettent
+en &#339;uvre un moteur d'autorisation simple, bas&#233; sur des fichiers et conforme
+&#224; la sp&#233;cification JACC.</p>
+
+<p>Pour en savoir plus sur l&#8217;&#233;criture de classes d&#8217;impl&#233;mentation pour un fournisseur
+JACC, consultez la sp&#233;cification JACC sur <a href="http://jcp.org/en/jsr/detail?id=115">http://jcp.org/en/jsr/detail?id=115</a>.</p>
+
+<ol>
+<li><b>Sous le n&#339;ud Configurations dans l'arborescence de navigation, d&#233;veloppez le cluster ou
+l'instance GlassFish Server pour lequel vous souhaitez cr&#233;er un fournisseur JACC. </b><p>Pour cr&#233;er un fournisseur qui sera disponible pour toutes les instances et
+clusters, choisissez le n&#339;ud <tt>default-config</tt>. </p></li>
+<li><b>Sous le n&#339;ud Configuration du cluster ou de l'instance d&#233;velopp&#233;, d&#233;veloppez le
+n&#339;ud S&#233;curit&#233;.</b></li>
+<li><b>Sous le n&#339;ud S&#233;curit&#233;, s&#233;lectionnez le n&#339;ud Fournisseurs JACC.</b><p>La page Fournisseurs JACC s&#8217;ouvre.</p></li>
+<li><b>Sur la page Fournisseurs JACC, cliquez sur Nouveau.</b><p>La page Nouveau fournisseur JACC s&#8217;ouvre.</p></li>
+<li><b>Sur la page Nouveau fournisseur JACC, dans le champ Nom, saisissez le
+nom qui identifiera ce fournisseur.</b><p>Ce nom est utilis&#233; pour r&#233;f&#233;rencer l'&#233;l&#233;ment <tt>jacc-provider</tt> dans <tt>domaine.xml</tt>. </p></li>
+<li><b>Dans le champ Configuration des strat&#233;gies, saisissez le nom de la classe
+qui impl&#233;mente la fabrique de configuration de strat&#233;gies.</b><p>Le fournisseur <tt>par d&#233;faut </tt> utilise <tt>com.sun.enterprise.security.provider.PolicyConfigurationFactoryImpl </tt>. Le fournisseur <tt>simple</tt> utilise <tt>com.sun.enterprise.security.jacc.provider.SimplePolicyConfigurationFactory </tt>.</p></li>
+<li><b>Dans le champ Fournisseur de strat&#233;gies, saisissez le nom de la classe
+qui impl&#233;mente la fabrique de strat&#233;gies.</b><p>Le fournisseur <tt>par d&#233;faut</tt> utilise <tt>com.sun.enterprise.security.provider.PolicyWrapper</tt>. Le fournisseur <tt>simple</tt> utilise <tt>com.sun.enterprise.security.jacc.provider.SimplePolicyProvider </tt>.</p></li>
+<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
+ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
+champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</p><p>Pour obtenir une description des autres propri&#233;t&#233;s disponibles pour les fournisseurs JACC,
+consultez <a href="ref-jaccproviderprop.html">Propri&#233;t&#233;s propres aux fournisseurs JACC</a>.</p></li>
+<li><b>Cliquez sur OK.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-jaccprovideredit.html">Pour modifier un fournisseur JACC</a></p>
+
+</li>
+<li><p><a href="task-jaccproviderdelete.html">Pour supprimer un fournisseur JACC</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

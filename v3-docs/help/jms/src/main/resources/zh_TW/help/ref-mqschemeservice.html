@@ -1,0 +1,113 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-mqschemeservice"></a><h4>MQ 方案和 MQ 服務位址語法</h4>
+<p>訊息服務位址的完整語法為</p>
+
+<pre><i>scheme</i>://<i>address-syntax</i></pre><p>其中，<i>scheme</i> 和 <i>address-syntax</i> 將在下表中說明。</p>
+
+<p>MQ 方案和 MQ 服務是下表的前兩欄中顯示的值。</p>
+
+<table><col width="16%"><col width="16%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"><p>方案名稱</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>連線服務</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>說明</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>位址語法</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mq</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt> 和 <tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue 用戶端執行階段將連線位於指定主機和連接埠的 MQ 連接埠對映器。該連接埠對映器傳回動態建立的連線服務連接埠之清單，然後 Message Queue
+用戶端執行階段將連線託管指定連線服務的連接埠。</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>[</tt><i>hostName</i><tt>][:</tt><i> port</i><tt>][/</tt><i>serviceName</i><tt> ]</tt></p>
+
+<p>預設值： <i>hostName</i> = <tt>localhost</tt>, <i>port</i> = <tt>7676</tt>, <i>serviceName </i> = <tt>jms</tt></p>
+
+<p>預設值僅適用於 <tt>jms</tt> 連線服務。對於
+<tt>ssljms</tt> 連線服務，需要指定所有的變數。</p>
+
+<p>範例： <tt>mq:MyHost:7677/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqtcp</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue 用戶端執行階段將透過與指定的主機和連接埠建立 TCP 連線 (略過 MQ 連接埠對映器) 來建立連線。</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /jms</tt></p>
+
+<p>範例： <tt>mqtcp:localhost:7676/jms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqssl</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message
+Queue 用戶端執行階段將透過與指定的主機和連接埠建立安全 SSL 連線 (略過 MQ 連接埠對映器) 來建立連線。</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /ssljms</tt></p>
+
+<p>範例： <tt>mqssl:localhost:7676/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue 用戶端執行階段將與指定 URL
+處的 Message Queue 通道 Servlet 建立 HTTP 連線。(必須配置代理程式以存取 HTTP 通道 Servlet，如「Message Queue
+<b>管理員指南</b>」中所述。)</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>如果多個代理程式實例使用同一個通道 Servlet，則連線到特定代理程式實例 (而不是隨機選取的實例) 的語法為：<tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>https</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpsjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue 用戶端執行階段將與指定的 Message Queue 通道 Servlet URL 建立安全
+HTTPS 連線。(必須配置代理程式以存取 HTTPS 通道 Servlet，如「Message Queue <b>管理員指南</b>」中所述。)</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>如果多個代理程式實例使用同一個通道 Servlet，則連線到特定代理程式實例 (而不是隨機選取的實例) 的語法為：<tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
+
+</td>
+</tr>
+</table>
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

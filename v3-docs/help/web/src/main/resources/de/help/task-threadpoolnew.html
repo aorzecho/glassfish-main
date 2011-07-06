@@ -1,0 +1,43 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-threadpoolnew"></a><h4>So erstellen Sie einen Threadpool</h4><a name="indexterm-36"></a><p>Threadpools werden von Netzwerk-Zielger&#228;ten und vom ORB verwendet. In der Regel nutzt
+ein Netzwerk-Zielger&#228;t einen der beiden Threadpools, die bei der Installation von GlassFish-Server
+erstellt werden, und der ORB nutzt den anderen. Sie k&#246;nnen beide standardm&#228;&#223;igen
+Threadpools bearbeiten und Einstellungen entsprechend Ihren jeweiligen Anwendungen oder Hardwaresystemen festlegen, oder
+Sie k&#246;nnen einen Threadpool mit den betreffenden Einstellungen erstellen und diesen verwenden.</p>
+
+<ol>
+<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
+<li><b>W&#228;hlen Sie unter dem Konfigurationsknoten den Knoten "Threadpools".</b><p>Die Seite "Threadpools" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Threadpools" auf "Neu".</b><p>Die Seite "Neuer Threadpool" wird ge&#246;ffnet. </p></li>
+<li><b>Geben Sie in das Feld "Name" einen Namen f&#252;r den Threadpool ein.</b></li>
+<li><b>Geben Sie im Feld "Klassenname" den vollst&#228;ndig qualifizierten Namen der Klasse ein,
+die den Threadpool implementiert.</b><p>Der Standardwert ist <tt>com.sun.grizzly.http.StatsThreadPool </tt>.</p></li>
+<li><b>Geben Sie im Feld "Maximale Zahl in der Warteschlange" die maximale Anzahl
+von Meldungen ein, die in die Warteschlange gestellt werden k&#246;nnen, bis Threads
+f&#252;r ihre Verarbeitung zur Verf&#252;gung stehen.</b><p>Der Wert &#8211;1 zeigt an, dass die Warteschlangengr&#246;&#223;e unbegrenzt ist. Der Standardwert
+ist 4096.</p></li>
+<li><b>Geben Sie im Feld "Maximale Gr&#246;&#223;e des Threadpools" die H&#246;chstzahl an Threads
+ein, die ein Threadpool enthalten soll.</b><p>Der Standardwert ist 5. Dies ist der empfohlene Wert f&#252;r Threadpools von
+Netzwerkzielger&#228;ten. </p></li>
+<li><b>Geben Sie im Feld "Minimale Gr&#246;&#223;e des Threadpools" die Mindestzahl an Threads
+ein, die ein Threadpool enthalten soll.</b><p>Diese Threads werden bei der Instanziierung des Threadpools erstellt. Der Standardwert ist
+2.</p></li>
+<li><b>Geben Sie im Feld "Leerlaufzeit&#252;berschreitung" die maximale Dauer (in Sekunden) an, die
+ein Thread im Pool im Leerlauf bleiben kann.</b><p>Nach Ablauf dieser Zeitspanne wird der Thread aus dem Pool entfernt. Der
+Standardwert ist 900.</p></li>
+<li><b>Klicken Sie auf "OK".</b></li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="task-threadpooledit.html">So bearbeiten Sie einen Threadpool</a></p>
+
+</li>
+<li><p><a href="task-threadpooldelete.html">So l&#246;schen Sie einen Threadpool</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

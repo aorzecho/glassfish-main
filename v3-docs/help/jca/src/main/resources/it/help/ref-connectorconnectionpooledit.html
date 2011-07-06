@@ -1,0 +1,134 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpooledit"></a><h4>Modifica del pool di connessione del connettore</h4>
+<a name="indexterm-42"></a><p>Utilizzare la pagina Edit Connector Connection Pool per modificare le impostazioni di
+pool di connessione del connettore.</p>
+
+<p>La pagina Edit Connector Connection Pool contiene le opzioni seguenti.</p>
+
+<dl><dt>Load Defaults</dt>
+<dd><p>Pulsante che consente di ripristinare i valori predefiniti di tutte le impostazioni.</p>
+
+</dd>
+<dt>Flush</dt>
+<dd><p>Pulsante che consente di reinizializzare le connessioni nel pool di connessione. Se si fa clic su questo pulsante vengono eliminate le connessioni esistenti, ricreate le connessioni stabilite per il pool e ripristinate le dimensioni minime e iniziali del pool.</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>Pulsante che consente di verificare se il pool di connessione &#232; utilizzabile.</p>
+
+</dd>
+<dt>Pool Name</dt>
+<dd><p>Nome univoco che identifica il pool di connessione del connettore. Il campo &#232; di sola lettura. &#200; possibile specificare il nome del pool soltanto quando si crea un pool di connessione del connettore.</p>
+
+</dd>
+<dt>Resource Adapter</dt>
+<dd><p>Adattatore di risorsa associato al pool di connessione del connettore.</p>
+
+</dd>
+<dt>Connection Definition</dt>
+<dd><p>Definizione della connessione per il pool di connessione del connettore. Le opzioni nell'elenco dipendono dall'adattatore di risorsa selezionato. La definizione della connessione identifica un elemento <tt>connection-definition</tt> dell'adattatore di risorsa nel file <tt>ra.xml</tt>.</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>Se questa opzione &#232; abilitata, durante il processo di creazione o riconfigurazione viene eseguito il ping del pool di connessione per identificare e segnalare eventuali valori non corretti per i relativi attributi. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>Description</dt>
+<dd><p>Descrizione del pool di connessione del connettore. </p>
+
+</dd>
+<dt>Initial and Minimum Pool Size</dt>
+<dd><p>Numero minimo di connessioni per il pool di connessione del connettore. Il valore predefinito &#232; 8.</p>
+
+</dd>
+<dt>Maximum Pool Size</dt>
+<dd><p>Numero massimo di connessioni per il pool di connessione del connettore. Il valore predefinito &#232; 32.</p>
+
+</dd>
+<dt>Pool Resize Quantity</dt>
+<dd><p>Numero di connessioni da rimuovere allo scadere del timeout di inattivit&#224; del pool. Il valore predefinito &#232; 2.</p>
+
+</dd>
+<dt>Idle Timeout</dt>
+<dd><p>Numero massimo di secondi durante i quali una connessione pu&#242; rimanere inattiva nel pool. Il valore predefinito &#232; 300.</p>
+
+</dd>
+<dt>Max Wait Time</dt>
+<dd><p>Tempo di attesa per una richiesta di connessione da parte dell'applicazione prima che si verifichi di un timeout. Il valore predefinito &#232; 60000.</p>
+
+</dd>
+<dt>Connection Validation</dt>
+<dd><p>Se la casella di controllo Required &#232; selezionata, le connessioni vengono convalidate prima di essere fornite all'applicazione. Se la convalida non viene eseguita, la risorsa viene eliminata. Viene creata e restituita una risorsa nuova. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>On Any Failure</dt>
+<dd><p>Se la casella di controllo Close All Connections &#232; selezionata, in GlassFish Server tutte le connessioni del pool vengono chiuse e quindi ristabilite in caso di errore di una singola connessione. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>Transaction Support</dt>
+<dd><p>Il supporto delle transazioni scelto sovrascrive l'attributo relativo al supporto delle transazioni nell'adattatore di risorsa associato a questo pool di connessione compatibilmente con gli elementi derivati. In altre parole, pu&#242; supportare un livello di transazione inferiore a quello specificato nell'adattatore di risorsa, oppure un livello di transazione uguale a quello specificato nell'adattatore di risorsa, ma non un livello superiore.</p>
+
+<p>Il valore pu&#242; essere uno qualsiasi dei seguenti:</p>
+
+<dl><dt>XATransaction</dt>
+<dd><p>L'adattatore di risorsa supporta le transazioni locali e JTA del gestore delle risorse tramite l'implementazione delle interfacce LocalTransaction e  XAResource. Le transazioni XA sono controllate e coordinate da un gestore delle transazioni esterno a un gestore delle risorse.</p>
+
+</dd>
+<dt>LocalTransaction</dt>
+<dd><p>L'adattatore di risorsa supporta le transazioni locali tramite l'implementazione dell'interfaccia LocalTransaction. Le transazioni locali sono gestite internamente a un gestore delle risorse e non coinvolgono gestori di transazioni esterni.</p>
+
+</dd>
+<dt>NoTransaction</dt>
+<dd><p>L'adattatore di risorsa non supporta le transazioni locali o JTA del gestore delle risorse e non implementa le interfacce XAResource o  LocalTransaction.</p>
+
+</dd>
+</dl>
+</dd>
+</dl>
+<a name="gkoko"></a><h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">Creare un pool di connessione del connettore</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">Modificare un pool di connessione del connettore</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">Modificare gli attributi avanzati del pool di connessione del connettore</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">Modificare le propriet&#224; del pool di connessione del connettore</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">Creare una mappa di sicurezza per un pool di connessione del connettore</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">Modificare una mappa di sicurezza per un pool di connessione del connettore</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">Eliminare una mappa di sicurezza per un pool di connessione del connettore</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">Eliminare un pool di connessione del connettore</a></p>
+
+</li></ul>
+<a name="gkold"></a><h5>Comandi <tt>asadmin</tt> correlati</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=flush-connection-pool-1"><tt>flush-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

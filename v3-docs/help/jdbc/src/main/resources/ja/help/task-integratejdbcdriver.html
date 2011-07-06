@@ -1,0 +1,60 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-integratejdbcdriver"></a><h4>JDBC ドライバを統合する</h4><a name="indexterm-3"></a><p>JDBC API をサポートするドライバ (JDBC ドライバ) は、アプリケーションの JDBC 呼び出しを、データベースサーバーのプロトコルに変換します。</p>
+
+<ul>
+<li><b>JDBC ドライバを GlassFish サーバー ドメインに統合するには、次のいずれかの操作を実行します。</b><ul>
+<li><b>共通クラスローダーにアクセスできるドライバを作成します。</b><ol style="list-style-type: lower-alpha">
+<li><b>ドライバの JAR ファイルおよび ZIP ファイルを <i>domain-dir</i><tt>/lib</tt> ディレクトリにコピーする</b>
+<hr><p><b>注 - </b>この手順では、例外が 1 つあります。Oracle JDBC ドライバを使用していて、Oracle データベースで使用可能な EclipseLink 拡張機能を利用する場合は、Oracle JDBC ドライバの JAR ファイルを
+<i>domain-dir</i><tt>/lib/ext</tt> ディレクトリに配置する必要があります。</p>
+
+
+<hr>
+</li>
+<li><b>ドメインを再起動します。</b></li></ol></li>
+<li><b>システムクラスローダーにアクセスできるドライバを作成する</b><ol style="list-style-type: lower-alpha">
+<li><b>ナビゲーションツリーで、「設定」ノードを展開します。</b></li>
+<li><b>「設定」ノードの下で、「JVM 設定」ノードを選択します。</b><p>「JVM 一般設定」ページが開きます。</p></li>
+<li><b>「JVM 一般設定」ページで、「パス設定」タブをクリックします。</b></li>
+<li><b>「クラスパスのサフィックス」フィールドで、ドライバの JAR ファイルの完全修飾パス名を入力します。</b></li>
+<li><b>「保存」をクリックします。</b></li>
+<li><b>サーバーを再起動します。</b></li></ol></li></ul></li></ul><h6>参照</h6>
+<ul><li><p><a href="task-setdbaccess.html">「データベースアクセスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">「JDBC リソースを作成する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">「JDBC リソースを編集する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">「JDBC リソースを削除する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">「JDBC 接続プールを作成する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">「JDBC 接続プールの一般設定を編集する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">「JDBC 接続プールの詳細属性を編集する」</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">「接続プール設定を検証する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">「JDBC 接続プールのプロパティーを編集する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">「JDBC 接続プールを削除する」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

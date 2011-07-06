@@ -1,0 +1,83 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-standaloneinstancenew"></a><h4>Nouvelle instance de serveur autonome</h4>
+<a name="indexterm-202"></a><a name="indexterm-203"></a><a name="indexterm-204"></a><p>La page Nouvelle instance de serveur autonome permet de cr&#233;er une instance
+de GlassFish Server autonome.</p>
+
+<p>Elle contient les options suivantes.</p>
+
+<dl><dt>Nom d&#8217;instance</dt>
+<dd><p>Nom de l'instance en cours de cr&#233;ation. </p>
+
+<p>Le nom doit respecter les exigences suivantes&#160;:</p>
+
+
+<ul><li><p>Le nom doit commencer par une lettre, un chiffre ou un caract&#232;re de soulignement.</p>
+
+</li>
+<li><p>Le nom ne peut contenir que les caract&#232;res suivants&#160;:</p>
+
+
+<ul><li><p>Lettres minuscules</p>
+
+</li>
+<li><p>Lettres majuscules</p>
+
+</li>
+<li><p>Chiffres</p>
+
+</li>
+<li><p>Trait d'union</p>
+
+</li>
+<li><p>Point</p>
+
+</li>
+<li><p>Caract&#232;re de soulignement</p>
+
+</li></ul>
+</li>
+<li><p>Le nom doit &#234;tre unique dans le domaine et ne doit pas &#234;tre le nom d'une autre instance de GlassFish Server, d'un cluster, d'une configuration nomm&#233;e ou d'un n&#339;ud.</p>
+
+</li>
+<li><p>Le nom ne doit pas &#234;tre <tt>domain</tt>, <tt>server</tt> ou tout autre mot-cl&#233; r&#233;serv&#233; par GlassFish Server.</p>
+
+</li></ul>
+</dd>
+<dt>N&#339;ud</dt>
+<dd><p>Liste d&#233;roulante des n&#339;uds existants d&#233;finissant les h&#244;tes sur lesquels l'instance peut r&#233;sider. Un n&#339;ud doit &#234;tre s&#233;lectionn&#233; dans la liste. Si l'instance doit &#234;tre cr&#233;&#233;e sur l'h&#244;te h&#233;bergeant le serveur d'administration de domaine (DAS), utilisez le n&#339;ud pr&#233;d&#233;fini <tt>localhost-<i>domain</i></tt>.</p>
+
+</dd>
+<dt>Configuration</dt>
+<dd><p>Liste d&#233;roulante des configurations nomm&#233;es existantes pouvant &#234;tre utilis&#233;es par l'instance. Une configuration doit &#234;tre s&#233;lectionn&#233;e dans la liste. L'instance utilise la configuration s&#233;lectionn&#233;e lors de sa cr&#233;ation.</p>
+
+</dd>
+<dt>Cr&#233;er une copie de la configuration s&#233;lectionn&#233;e</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, la configuration s&#233;lectionn&#233;e est copi&#233;e lors de la cr&#233;ation de l'instance. Le nom <tt><i>instance-name</i>-config</tt> est affect&#233; &#224; la copie de la configuration, <i>instance-name</i> &#233;tant le nom de l'instance tel que vous l'avez saisi dans le champ Nom d'instance.</p>
+
+<p>Si <tt>default-config</tt> est s&#233;lectionn&#233; dans la liste d&#233;roulante Configuration, vous devez s&#233;lectionner cette option. La configuration <tt>default-config</tt> peut &#234;tre copi&#233;e, mais ne peut pas &#234;tre utilis&#233;e comme r&#233;f&#233;rence.</p>
+
+</dd>
+<dt>Utiliser la configuration s&#233;lectionn&#233;e comme r&#233;f&#233;rence </dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, l'instance utilise la configuration nomm&#233;e existante indiqu&#233;e.</p>
+
+<p>Si <tt>default-config</tt> est s&#233;lectionn&#233; dans la liste d&#233;roulante Configuration, vous ne devez <b>pas</b> s&#233;lectionner cette option. La configuration <tt> default-config</tt> peut &#234;tre copi&#233;e, mais ne peut pas &#234;tre utilis&#233;e comme r&#233;f&#233;rence.</p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-create-standalone-instance.html">Cr&#233;er une instance de GlassFish Server autonome</a></p>
+
+</li></ul>
+<h5>Sous-commande <tt>asadmin</tt> &#233;quivalente</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-instance-1"><tt>create-instance</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

@@ -1,0 +1,87 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-connectorconnectionpoolnew"></a><h4>建立連接器連線池</h4><a name="indexterm-4"></a><h6>開始之前</h6><p>在建立池之前，請先部署與該池關聯的連接器模組 (資源介面)。為新池指定的值取決於所部署的連接器模組。</p>
+
+<ol>
+<li><b>在瀏覽樹狀結構中，展開 [資源] 節點。</b></li>
+<li><b>展開 [連接器] 節點。</b></li>
+<li><b>在 [連接器] 節點下，選取 [連接器連線池] 節點。</b><p>[連接器連線池] 頁面會隨即開啟。</p></li>
+<li><b>在 [連接器連線池] 頁面上按一下 [新建]。</b><p>[新建連接器連線池 (步驟 1，共 2 步)] 頁面會隨即開啟。</p></li>
+<li><b>在 [池名稱] 欄位中，為池鍵入唯一的名稱。</b><p>在建立連接器資源時指定該名稱。</p></li>
+<li><b>從 [資源配接卡] 下拉式清單中，在部署的資源配接卡 (連接器模組) 清單中選取。</b></li>
+<li><b>從 [連線定義] 下拉式清單中，選取連接器連線池的連線定義。</b><p>清單中提供的選項會視您所選取的資源配接卡而定。連線定義會識別資源配接卡在 <tt>ra.xml</tt> 檔案中的 <tt>connection-definition</tt> 元素。</p></li>
+<li><b>按 [下一步]。</b><p>[新建連接器連線池 (步驟 2，共 2 步)] 頁面會隨即開啟。</p></li>
+<li><b>選取 [啟用 Ping] 核取方塊，可在連線池建立或重新配置期間 Ping 連線池，以識別並警告任何錯誤的屬性值。</b><p>此選項預設為停用。</p></li>
+<li><b>在 [說明] 欄位中，鍵入連線池的說明。</b></li>
+<li><b>在 [池的初始大小和最小大小] 欄位中，指定池中的最小連線數目。</b><p>預設值為 8。</p></li>
+<li><b>在 [池的最大大小] 欄位中，指定池中的最大連線數目。</b><p>預設值為 32。</p></li>
+<li><b>在 [池設定大小數量] 欄位中，指定池的閒置逾時過期時要移除的連線數目。</b><p>預設值為 2。</p></li>
+<li><b>在 [閒置逾時] 欄位中，指定連線可以在池中閒置的最長時間 (以秒為單位)。</b><p>預設值為 300。</p></li>
+<li><b>在 [最大等待時間] 欄位中，指定請求連線的應用程式在連線逾時前等待的時間。</b><p>預設值為 60000。</p></li>
+<li><b>選取 [需要連線驗證] 核取方塊以啟用連線驗證。</b><p>若選取了 [需要連線驗證] 核取方塊，指定連線給應用程式之前會先驗證。若資源的驗證失敗，則會銷毀該資源，然後建立並傳回新的資源。此選項預設為停用。</p></li>
+<li><b>選取 [一旦失敗便關閉所有連線] 核取方塊，可讓 GlassFish Server 在任何一個連線失敗時，關閉池中的所有連線並重新建立連線。</b><p>如果未選取此核取方塊，則僅在使用個別連線時才會重新建立這些連線。此選項預設為停用。</p></li>
+<li><b>從 [作業事件支援] 下拉式清單中，為連線池選取作業事件支援類型。</b><p>選擇的作業事件支援以向下相容方式置換與此連線池關聯的資源介面中的作業事件支援屬性。也就是說，它可以支援比資源配接卡中指定的作業事件層級低或與其相同的作業事件層級，但它不能指定更高的層級。</p><p>下拉式清單中可用的選項如下：</p><ul>
+<li><b>NoTransaction：表示資源配接卡不支援資源管理員的本機或 JTA 作業事件，且不會實作 XAResource 或 LocalTransaction 介面。</b></li>
+<li><b>LocalTransaction：表示資源配接卡會透過實作 LocalTransaction 介面來支援本機作業事件。</b><p>本機作業事件的管理在資源管理員內部進行，不涉及任何外部作業事件管理員。</p></li>
+<li><b>XATransaction：表示資源配接卡會透過實作 LocalTransaction 和 XAResource 介面來支援資源管理員的本機和 JTA 作業事件。</b><p>XA 作業事件由作業事件管理員在資源管理員外部進行控制和協調。</p></li></ul></li>
+<li>(可選擇) <b>在 [其他特性] 區段中，指定連接器連線池的其他特性。</b><p>可用的特性會視連接器連線池的資源配接卡而定。</p><p>若要增加特性，請按一下 [增加特性] 按鈕。在出現的空白列中，於 [名稱] 欄位中鍵入特性名稱，然後在 [值] 欄位中鍵入特性值。</p><p>若您為特性指定了名稱但沒有指定值，連線池建立完成時，會從表中移除該特性。若您不想立即為特性設定值，但希望將該特性保留在表中，待稍後為其設定值，請在 [值] 欄位中鍵入一組空的圓括號：</p><pre>()</pre></li>
+<li><b>按一下 [確定]。</b></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-connectorresourcenew.html">建立連接器資源</a></p>
+
+</li>
+<li><p><a href="task-connectorresourceedit.html">編輯連接器資源</a></p>
+
+</li>
+<li><p><a href="task-connectorresourcesdelete.html">刪除連接器資源</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">編輯連接器連線池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">編輯連接器連線池進階屬性</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">編輯連接器連線池特性</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">建立連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">編輯連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">刪除連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">刪除連接器連線池</a></p>
+
+</li>
+<li><p><a href="task-setupeisaccess.html">設定 EIS 存取</a></p>
+
+</li>
+<li><p><a href="task-adminobjectnew.html">建立管理物件資源</a></p>
+
+</li>
+<li><p><a href="task-adminobjectedit.html">編輯管理物件資源</a></p>
+
+</li>
+<li><p><a href="task-administeredobjectresourcedelete.html">刪除受管理物件資源</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapnew.html">建立工作安全性對映</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapedit.html">編輯工作安全性對映</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapdelete.html">刪除工作安全性對映</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

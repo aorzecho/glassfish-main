@@ -1,0 +1,161 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterapplications"></a><h4>应用程序</h4>
+<a name="indexterm-171"></a><a name="indexterm-172"></a><p>使用&#8220;应用程序&#8221;页面可对当前群集执行以下任务：</p>
+
+
+<ul><li><p>查看和管理已部署到群集的应用程序</p>
+
+</li>
+<li><p>将多个应用程序部署到群集</p>
+
+</li></ul>
+<p>&#8220;群集名称&#8221;字段是只读字段，其中显示当前群集的名称。</p>
+
+<p>&#8220;应用程序&#8221;页面显示已部署到当前群集的应用程序的列表。对于每个应用程序，均提供以下信息：</p>
+
+<dl><dt>名称</dt>
+<dd><p>应用程序名称。</p>
+
+<p>名称可包含可选的版本标识符，它跟在名称后面，并与名称以冒号(<tt>:</tt>) 分隔。有关模块和应用程序版本的更多信息，请参见<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv"><i>《Oracle GlassFish Server 3.1 Application Deployment Guide》</i>中的"Module and Application Versions"</a>。</p>
+
+</dd>
+<dt>已启用</dt>
+<dd><p>指示应用程序是否已启用：</p>
+
+
+<ul><li><p>如果应用程序已启用，将会显示复选标记 (&#10003;)。</p>
+
+</li>
+<li><p>如果应用程序已禁用，将会显示十字标记 (&#10007;)。</p>
+
+</li></ul>
+</dd>
+<dt>已启用 LB</dt>
+<dd><p>指示用于负载平衡的应用程序是否已启用：</p>
+
+
+<ul><li><p>如果用于负载平衡的应用程序已启用，将会显示复选标记 (&#10003;)。</p>
+
+</li>
+<li><p>如果用于负载平衡的应用程序已禁用，将会显示十字标记 (&#10007;)。</p>
+
+</li></ul>
+</dd>
+<dt>引擎</dt>
+<dd><p>应用程序所用的容器类型。容器类型可为以下类型的任意一种：</p>
+
+
+<ul><li><p><tt>web</tt></p>
+
+</li>
+<li><p><tt>webservices</tt></p>
+
+</li>
+<li><p><tt>ejb</tt></p>
+
+</li>
+<li><p><tt>connector</tt></p>
+
+</li>
+<li><p><tt>appclient</tt></p>
+
+</li>
+<li><p><tt>weld</tt>－Java EE 平台应用程序的 Contexts 和 DependencyInjection 的容器</p>
+
+</li></ul>
+</dd>
+</dl>
+<p>已部署应用程序表还包含以下选项。</p>
+
+<dl><dt>部署</dt>
+<dd><p>用于部署应用程序的按钮。</p>
+
+</dd>
+<dt>取消部署</dt>
+<dd><p>用于取消部署一个或多个选定应用程序的按钮。</p>
+
+<p>取消部署应用程序会从所有目标和域中删除该应用程序。取消部署应用程序时，该应用程序将不再列在<a href="../../../common/zh_CN/help/ref-applications.html">应用程序</a>页面上，该页面显示所有已部署到 GlassFish Server 中的应用程序。</p>
+
+<p>要仅从当前目标中删除应用程序，请使用该页面上的&#8220;删除&#8221;按钮。</p>
+
+</dd>
+<dt>删除</dt>
+<dd><p>用于删除一个或多个选定应用程序的按钮。</p>
+
+<p>删除应用程序只会从当前目标中删除该应用程序。将应用程序从目标中删除时，该应用程序会继续列在<a href="../../../common/zh_CN/help/ref-applications.html">应用程序</a>页面上，该页面显示所有已部署到 GlassFish Server 中的应用程序。在曾经部署了该应用程序的任何其他目标中，该应用程序也仍保持处于部署状态。</p>
+
+<p>要从所有目标和域中删除应用程序，请使用该页面上的&#8220;取消部署&#8221;按钮。</p>
+
+</dd>
+<dt>更多操作</dt>
+<dd><p>在一个或多个选定应用程序上执行其他操作的下拉式列表。</p>
+
+<dl><dt>启用</dt>
+<dd><p>启用一个或多个选定应用程序。</p>
+
+</dd>
+<dt>禁用</dt>
+<dd><p>禁用一个或多个选定应用程序。</p>
+
+</dd>
+<dt>负载平衡器启用</dt>
+<dd><p>启用一个或多个用于负载平衡的选定应用程序。</p>
+
+</dd>
+<dt>负载平衡器禁用</dt>
+<dd><p>禁用一个或多个用于负载平衡的选定应用程序。</p>
+
+</dd>
+</dl>
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-cluster-app-deploy.html">将应用程序部署到群集</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-list.html">列出已部署到群集的应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-undeploy.html">从群集中取消部署应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-remove.html">从群集中删除应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-edit.html">编辑已部署到群集的应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-enable-disable.html">启用或禁用已部署到群集的应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-lb-enable-disable.html">启用或禁用已部署到群集的应用程序的负载平衡</a></p>
+
+</li></ul>
+<h5>等效的 <tt>asadmin</tt> 子命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=disable-1"><tt>disable</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=disable-http-lb-application-1"><tt>disable-http-lb-application</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=enable-1"><tt>enable</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=enable-http-lb-application-1"><tt>enable-http-lb-application</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

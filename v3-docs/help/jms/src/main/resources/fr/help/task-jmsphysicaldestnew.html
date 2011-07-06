@@ -1,0 +1,90 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsphysicaldestnew"></a><h4>Cr&#233;ation d&#8217;une destination physique JMS</h4><a name="indexterm-17"></a><a name="indexterm-18"></a><p>Vous n&#8217;avez g&#233;n&#233;ralement pas besoin de cr&#233;er de destinations physiques, car vous sp&#233;cifiez
+un nom de destination physique lorsque vous cr&#233;ez une ressource de destination
+JMS , et GlassFish Server cr&#233;e automatiquement la destination physique si n&#233;cessaire.</p>
+
+<ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
+<li><b>Sous le n&#339;ud Configuration, d&#233;veloppez le n&#339;ud Java Message Service.</b></li>
+<li><b>Sous le noeud Java Message Service, s&#233;lectionnez le noeud Destinations physiques.</b><p>La page Destinations physiques s&#8217;ouvre.</p></li>
+<li><b>Sur la page Destinations physiques, cliquez sur Nouveau.</b><p>La page Nouvelle destination physique s&#8217;ouvre.</p></li>
+<li><b>Dans le champ Nom, saisissez le nom de la destination physique.</b></li>
+<li><b>Dans la liste d&#233;roulante Type, s&#233;lectionnez <tt>javax.jms.Topic</tt> ou <tt>javax.jms.Queue</tt>.</b></li>
+<li><b>Dans le champ Nombre maximal de messages non consomm&#233;s, saisissez le nombre
+maximal de messages non consomm&#233;s autoris&#233;s pour la destination.</b><p>Une valeur de -1 signifie que le nombre de messages non consomm&#233;s
+est illimit&#233;. La valeur par d&#233;faut est &#8211;1.</p></li>
+<li><b>Dans le champ Taille maximale d&#8217;un message, saisissez la taille maximale, en
+octets, d&#8217;un message.</b><p>Une valeur de &#8211;1 signifie que la taille des messages est illimit&#233;e.
+La valeur par d&#233;faut est &#8211;1.</p></li>
+<li><b>Dans le champ M&#233;moire totale maximale, saisissez la m&#233;moire totale maximale, en
+octets, des messages non consomm&#233;s.</b><p>Une valeur de -1 signifie que la taille de la m&#233;moire pour
+les messages non consomm&#233;s est illimit&#233;e. La valeur par d&#233;faut est &#8211;1.</p></li>
+<li><b>Dans la liste d&#233;roulante Comportement de limite de seuil, s&#233;lectionnez le comportement que
+le courtier doit suivre lorsque la limite de m&#233;moire est atteinte.</b><ul>
+<li><b><tt>Reject newest messages</tt> indique au courtier de refuser les messages les plus r&#233;cents et
+de notifier le client producteur &#224; l&#8217;aide d&#8217;une exception uniquement si le
+message est persistant.</b><p><tt>Reject newest messages</tt> est la valeur par d&#233;faut.</p></li>
+<li><b><tt>Slow down producers</tt> indique au courtier de ralentir la vitesse &#224; laquelle les producteurs
+de messages envoient des messages.</b></li>
+<li><b><tt>Throw out oldest</tt> indique au courtier d&#8217;&#233;liminer les messages les plus anciens.</b></li>
+<li><b><tt>Throw out lowest-priority messages</tt> indique au courtier d&#8217;&#233;liminer les messages dont le niveau de priorit&#233;
+est le plus bas.</b></li></ul><p>Si la valeur est <tt>Throw out oldest</tt> ou <tt>Throw out lowest-priority messages</tt> et que le param&#232;tre Utiliser
+la file d&#8217;attente des messages bloqu&#233;s est d&#233;fini sur la valeur True,
+les messages en trop sont transf&#233;r&#233;s vers la file d&#8217;attente des messages
+bloqu&#233;s. </p></li>
+<li><b>Dans le champ Nombre maximal de producteurs, saisissez le nombre maximal de
+producteurs de messages qui peuvent &#234;tre associ&#233;s &#224; cette destination physique.</b><p>Lorsque cette limite est atteinte, aucun nouveau producteur ne peut &#234;tre cr&#233;&#233;.
+Une valeur de -1 indique un nombre illimit&#233; de producteurs. La valeur
+par d&#233;faut est 100.</p></li>
+<li><b>Dans le champ Nombre maximal de messages lors de la distribution par
+lots, saisissez le nombre maximal de messages qui peuvent &#234;tre transmis aux
+consommateurs en un seul lot.</b><p>Une valeur de -1 indique un nombre illimit&#233; de messages. La valeur
+par d&#233;faut est 1000.</p></li>
+<li><b>Dans la liste d&#233;roulante Utiliser la file d&#8217;attente des messages bloqu&#233;s, s&#233;lectionnez
+True pour placer les messages bloqu&#233;s dans la file d&#8217;attente des messages
+bloqu&#233;s. </b><p>Si cette valeur est d&#233;finie sur False, les messages bloqu&#233;s sont ignor&#233;s.
+Cette option est d&#233;finie sur True par d&#233;faut.</p></li>
+<li><b>Dans la liste d&#233;roulante Validation de sch&#233;ma XML, s&#233;lectionnez True pour activer
+la validation de sch&#233;ma XML pour la destination.</b><p>Si la valeur est d&#233;finie sur True, l&#8217;ex&#233;cution du client Message Queue
+tentera de valider un message XML par rapport aux d&#233;finitions de sch&#233;ma
+XML (ou par rapport au DTD, si aucun XSD n&#8217;est sp&#233;cifi&#233;) avant
+de l&#8217;envoyer au courtier. Si le sch&#233;ma sp&#233;cifi&#233; est introuvable ou le
+message ne peut pas &#234;tre valid&#233;, le message n&#8217;est pas envoy&#233; et
+une exception est g&#233;n&#233;r&#233;e. Cette option est d&#233;finie sur False par d&#233;faut.</p></li>
+<li><b>Dans le champ Liste URI du sch&#233;ma XML, tapez une liste s&#233;par&#233;e
+par des espaces de cha&#238;nes d&#8217;URI de d&#233;finitions de sch&#233;ma XML (XSD).</b><p>Si la validation de sch&#233;ma XML est activ&#233;e, les URI pointent vers
+l&#8217;emplacement d&#8217;un ou plusieurs XSDs &#224; utiliser pour la validation de sch&#233;ma
+XML. </p></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-jmsservice.html">Configuration du service JMS</a></p>
+
+</li>
+<li><p><a href="task-jmshostnew.html">Cr&#233;ation d'un h&#244;te JMS</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">Modification d'un h&#244;te JMS</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">Suppression d'un h&#244;te JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestedit.html">Modification d'une destination physique JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestdelete.html">Suppression d'une destination physique JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsflushmessages.html">Suppression des messages &#224; partir d'une destination physique JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldeststats.html">Affichage des statistiques d'une destination physique JMS</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

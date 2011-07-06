@@ -1,0 +1,117 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ejbgeneral"></a><h4>Enterprise Java Beans (EJB)</h4>
+<a name="indexterm-3"></a><a name="indexterm-4"></a><p>Use a p&#225;gina Enterprise Java Beans (EJB) para configurar as defini&#231;&#245;es para
+o recipiente EJB.</p>
+
+<p>Al&#233;m das configura&#231;&#245;es gerais para o beans corporativo, &#233; poss&#237;vel configurar as
+defini&#231;&#245;es do conjunto e do cache.</p>
+
+
+<ul><li><p>As defini&#231;&#245;es do conjunto somente se aplicam a beans de sess&#227;o sem estado. Por padr&#227;o, o recipiente mant&#233;m um conjunto de beans corporativos, para poder responder as solicita&#231;&#245;es do cliente sem a diminui&#231;&#227;o de desempenho que resulta da cria&#231;&#227;o dos beans. </p>
+
+<p>Caso tenha problemas de desempenho em um aplicativo que usa os beans corporativos implementados, voc&#234; pode ajudar a aprimorar o desempenho do aplicativo ao criar um conjunto ou ao aumentar o n&#250;mero de beans mantidos por um conjunto existente.</p>
+
+</li>
+<li><p>As defini&#231;&#245;es do cache somente se aplicam a beans de sess&#227;o com estado. O recipiente mant&#233;m um cache de dados do bean corporativo para os beans corporativos mais usados. Isso permite que o recipiente responda com maior rapidez as solicita&#231;&#245;es de outros m&#243;dulos do aplicativo por dados do bean corporativo.</p>
+
+<p>Os beans corporativos no cache est&#227;o em um de tr&#234;s estados: ativo, ocioso ou passivo. Um bean corporativo ativo est&#225; no momento acessado por clientes. Os dados de um bean corporativo ocioso est&#227;o no momento no cache, mas nenhum cliente est&#225; acessando o bean. Os dados de um bean passivo s&#227;o temporariamente armazenados e s&#227;o lidos de volta para o cache se um cliente solicita o bean.</p>
+
+</li></ul>
+<p>A p&#225;gina Enterprise Java Beans (EJB) cont&#233;m as seguintes op&#231;&#245;es.</p>
+
+<dl><dt>Carregar padr&#245;es</dt>
+<dd><p>Bot&#227;o para restaurar os valores padr&#227;o de todas as configura&#231;&#245;es.</p>
+
+</dd>
+<dt>Nome da configura&#231;&#227;o</dt>
+<dd><p>Nome da configura&#231;&#227;o ao qual as configura&#231;&#245;es desta p&#225;gina ser&#227;o enviadas. Este campo &#233; de somente leitura.</p>
+
+</dd>
+<dt>Localiza&#231;&#227;o de armazenamento da sess&#227;o</dt>
+<dd><p>O diret&#243;rio onde os beans passivos de sess&#227;o com estado e sess&#245;es HTTP com persist&#234;ncia s&#227;o armazenados no sistema de arquivos. O valor padr&#227;o &#233; <tt>${com.sun.aas.instanceRoot}/session-store</tt>.</p>
+
+<p>Os beans passivos s&#227;o beans de sess&#227;o com estados cujos estados foram gravados em um arquivo no sistema de arquivos. Eles normalmente estavam ociosos por um determinado per&#237;odo de tempo e n&#227;o est&#227;o no momento sendo acessados por clientes. Da mesma forma, as sess&#245;es HTTP com persist&#234;ncia s&#227;o sess&#245;es individuais da Web cujos estados foram gravados em um arquivo no sistema de arquivos.</p>
+
+</dd>
+<dt>Op&#231;&#227;o Comprometer </dt>
+<dd><p>Especifica como o recipiente efetua o cache de inst&#226;ncias de beans passivos entre transa&#231;&#245;es. Se voc&#234; seleciona a Op&#231;&#227;o B (a padr&#227;o), o recipiente efetua o cache de uma inst&#226;ncia pronta entre transa&#231;&#245;es. Se voc&#234; seleciona a Op&#231;&#227;o C, o recipiente n&#227;o efetua o cache de uma inst&#226;ncia pronta entre transa&#231;&#245;es.</p>
+
+</dd>
+<dt>Tamanho inicial e m&#237;nimo do conjunto</dt>
+<dd><p>O n&#250;mero m&#237;nimo de beans a serem mantidos no conjunto. O valor padr&#227;o &#233; 0.</p>
+
+</dd>
+<dt>Tamanho m&#225;ximo do conjunto</dt>
+<dd><p>O n&#250;mero m&#225;ximo de beans que o recipiente pode manter no conjunto ao mesmo tempo. O valor padr&#227;o &#233; 32.</p>
+
+</dd>
+<dt>Quantidade de redimensionamento do conjunto</dt>
+<dd><p>O n&#250;mero de beans que s&#227;o removidos do conjunto, se estiverem ociosos por mais tempo do que o especificado no campo Tempo limite de conjunto ocioso. O valor precisa ser ao menos 0 e menor do que o valor de Tamanho m&#225;ximo do conjunto. O valor padr&#227;o &#233; 8.</p>
+
+</dd>
+<dt>Tempo limite de conjunto ocioso</dt>
+<dd><p>O tempo, em segundos, que um conjunto pode permanecer ocioso antes que seja removido do conjunto. Ap&#243;s esta quantidade de tempo, o bean &#233; destru&#237;do. Um valor de 0 significa que um bean pode permanecer ocioso indefinidamente. O valor padr&#227;o &#233; 600.</p>
+
+</dd>
+<dt>Tamanho m&#225;x. do cache</dt>
+<dd><p>O n&#250;mero m&#225;ximo de beans a serem mantidos no cache. Aumente o n&#250;mero m&#225;ximo de beans no cache para eliminar a sobrecarga na cria&#231;&#227;o e destrui&#231;&#227;o do bean. No entanto, se o cache &#233; aumentado, o servidor consome mais mem&#243;ria e recursos. Assegure-se de que seu ambiente operacional seja suficiente para suas configura&#231;&#245;es do cache. Um valor de 0 indica um cache n&#227;o vinculado. O valor padr&#227;o &#233; 512.</p>
+
+</dd>
+<dt>Quantidade de redimensionamento do cache</dt>
+<dd><p>O n&#250;mero m&#225;ximo de beans que ser&#227;o passados para o estado passivo quando o cache est&#225; cheio. Quando o n&#250;mero m&#225;ximo de beans no cache &#233; alcan&#231;ado, o recipiente remove uma quantidade de beans passivos do armazenamento de backup. Este valor tamb&#233;m especifica o n&#250;mero de beans a serem criados se uma solicita&#231;&#227;o chega quando o conjunto n&#227;o tem beans dispon&#237;veis. O valor precisa ser maior do que 1 e menor do que o valor de Tamanho m&#225;ximo do cache. O valor padr&#227;o &#233; 32.</p>
+
+</dd>
+<dt>Tempo limite da remo&#231;&#227;o</dt>
+<dd><p>O n&#250;mero de segundos ap&#243;s o qual o bean passivo &#233; removido do armazenamento da sess&#227;o. Um valor de 0 especifica que o recipiente n&#227;o remove automaticamente os beans inativos. Se o valor da Tempo limite da remo&#231;&#227;o &#233; menor do que ou igual ao valor de Tempo limite de cache ocioso, os beans s&#227;o imediatamente removidos sem passarem para o estado passivo. O valor padr&#227;o &#233; 5.400.</p>
+
+</dd>
+<dt>Diretriz de sele&#231;&#227;o de remo&#231;&#227;o</dt>
+<dd><p>A diretriz usada pelo recipiente para remover beans de sess&#245;es com estado do cache. As escolhas s&#227;o as seguintes:</p>
+
+<dl><dt>N&#227;o recentemente usado (NRU)</dt>
+<dd><p>Remove um bean que n&#227;o tenha sido recentemente usado. Este &#233; o valor padr&#227;o.</p>
+
+</dd>
+<dt>Primeiro a entrar, primeiro a sair (FIFO)</dt>
+<dd><p>Remove o bean mais antigo no cache.</p>
+
+</dd>
+<dt>Usado menos recentemente (NRU)</dt>
+<dd><p>Remove o bean menos recentemente acessado.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Tempo limite de cache ocioso</dt>
+<dd><p>A n&#250;mero m&#225;ximo de segundos que um bean pode permanecer ocioso no cache. Ap&#243;s esta quantidade de tempo, o recipiente pode passar este bean para o estado passivo. Um valor de 0 especifica que os beans nunca se tornam candidatos para passar para o estado passivo. O valor padr&#227;o &#233; 600.</p>
+
+</dd>
+<dt>Propriedades Adicionais</dt>
+<dd><p>Propriedades adicionais do recipiente EJB O Servidor GlassFish n&#227;o define propriedades adicionais para o recipiente EJB.</p>
+
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-ejbgeneral.html">Para configurar as defini&#231;&#245;es EJB</a></p>
+
+</li>
+<li><p><a href="../../../ejb/pt_BR/help/task-ejbmdbpoolsettings.html">Para configurar as defini&#231;&#245;es do conjunto MDB</a></p>
+
+</li>
+<li><p><a href="../../../ejb/pt_BR/help/task-ejbtimerservice.html">Para configurar o servi&#231;o de temporizador EJB</a></p>
+
+</li>
+<li><p><a href="../../../ejb/pt_BR/help/task-ejbcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente EJB</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+<p>Nenhum.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

@@ -1,0 +1,52 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectionservice"></a><h4>连接器服务</h4>
+<a name="indexterm-62"></a><p>使用&#8220;连接器服务&#8221;页面可以修改管理资源适配器的连接器服务的常规设置。</p>
+
+<p>&#8220;连接器服务&#8221;页面包含以下选项。</p>
+
+<dl><dt>装入默认值</dt>
+<dd><p>用于恢复所有设置的默认值的按钮。</p>
+
+</dd>
+<dt>配置名称</dt>
+<dd><p>要应用该页面上的设置的配置的名称。此字段为只读。</p>
+
+</dd>
+<dt>关闭超时</dt>
+<dd><p>在 GlassFish Server 关闭过程中，允许用于完成连接器模块实例的 <tt>ResourceAdapter.stop</tt> 方法的最大秒数。需要更长时间关闭的资源适配器将被忽略，而 GlassFish Server 关闭操作将继续。默认值为 30 秒。</p>
+
+</dd>
+<dt>连接器类加载策略</dt>
+<dd><p>要用于加载类的策略。可用选项为：</p>
+
+<dl><dt><tt>derived</tt></dt>
+<dd><p>指示根据应用程序对任何资源适配器资源的引用来提供资源适配器。此策略为默认策略。</p>
+
+</dd>
+<dt><tt>global</tt></dt>
+<dd><p>指示所有资源适配器对所有应用程序都将是可见的。</p>
+
+</dd>
+</dl>
+<p>此策略不适用于预安装的 JMS 系统资源适配器 <tt>jmsra</tt>，该适配器对所有应用程序始终都是可见的。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-connectionservice.html">配置连接器服务</a></p>
+
+</li>
+<li><p><a href="../../../common/zh_CN/help/task-appdeployconn.html">部署连接器模块</a></p>
+
+</li></ul>
+<h5>相关的 <tt>asadmin</tt> 命令</h5>
+<p>无。</p>
+
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

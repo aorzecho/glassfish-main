@@ -1,0 +1,66 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jaccprovidernew"></a><h4>新建 JACC 提供者</h4>
+<a name="indexterm-224"></a><p>使用 [新建 JACC 提供者] 頁面可建立與 JSR-115/196 相容的新 Java Authorization Contract for Containers
+(JACC) 提供者，其可由協力廠商授權模組用於 GlassFish Server 中執行的應用程式。會將 JACC 提供者建立為網域之 <tt>domain.xml</tt> 檔案中 <tt>security-service</tt> 元素內的 <tt>jacc-provider</tt>
+元素。</p>
+
+<p>預設 GlassFish Server 安裝包括名為 <tt>default</tt> 與 <tt>simple </tt> 的兩個 JACC 提供者。您建立的任何新 JACC 提供者均不是這兩個預設的提供者。預設
+GlassFish Server JACC 提供者會實作符合 JACC 規格的簡單檔案型授權引擎。</p>
+
+<p>所有 GlassFish Server JACC 提供者必須使用 Java 認證和授權服務 (JAAS) API。JAAS 可以讓服務對使用者進行認證，並強制對使用者進行存取控制。JAAS 會實作 Java
+技術版本的標準可插接式驗證模組 (PAM) 架構。</p>
+
+<p>JSR 196 可讓您開發不同層的外掛程式。您可以定義能變更配置新認證機制方式的外掛程式，例如 <tt>AuthConfigProvider</tt> 與 <tt>AuthConfigFactory</tt>。您也可以定義新的認證機制，例如 <tt>ServerAuthModule</tt> 與 <tt>ClientAuthModule</tt>。</p>
+
+<p>[新建 JACC 提供者] 頁面包含下列選項。</p>
+
+<dl><dt>配置名稱</dt>
+<dd><p>套用此頁面上之設定的配置名稱。此欄位是唯讀欄位。</p>
+
+</dd>
+<dt>名稱</dt>
+<dd><p>JACC 提供者的名稱。此名稱用於參照 <tt>domain.xml</tt> 中的 <tt>jacc-provider</tt> 元素。</p>
+
+</dd>
+<dt>策略配置</dt>
+<dd><p><tt>javax.security.jacc.PolicyConfigurationFactory.provider</tt> 的完全合格類別名稱，會實作提供者特定的 <tt>javax.security.jacc.PolicyConfigurationFactory</tt>。</p>
+
+</dd>
+<dt>策略提供者</dt>
+<dd><p><tt>javax.security.jacc.policy.provider</tt> 的完全合格類別名稱，會實作 <tt>java.security.Policy</tt>。</p>
+
+</dd>
+<dt>其他特性</dt>
+<dd><p>JACC 提供者的其他特性。如需適用於 JACC 提供者之其他特性的說明，請參閱<a href="ref-jaccproviderprop.html">JACC 提供者專屬的特性</a>。</p>
+
+</dd>
+</dl>
+<a name="gkont"></a><h5>相關作業</h5>
+
+<ul><li><p><a href="task-jaccprovidernew.html">建立 JACC 提供者</a></p>
+
+</li>
+<li><p><a href="task-jaccprovideredit.html">編輯 JACC 提供者</a></p>
+
+</li>
+<li><p><a href="task-jaccproviderdelete.html">刪除 JACC 提供者</a></p>
+
+</li></ul>
+<a name="gkoov"></a><h5>相關的 <tt>asadmin</tt> 指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

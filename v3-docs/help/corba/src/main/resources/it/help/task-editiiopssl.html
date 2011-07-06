@@ -1,0 +1,53 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-editiiopssl"></a><h4>Modificare impostazioni SSL per un listener IIOP sicuro</h4><a name="indexterm-5"></a><a name="indexterm-6"></a><ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
+<li><b>Nel nodo Configuration, espandere il nodo ORB.</b></li>
+<li><b>Selezionare il nodo IIOP Listeners.</b><p>Viene visualizzata la pagina IIOP Listeners.</p></li>
+<li><b>Nella tabella fare clic sul nome del listener da modificare.</b><p>Viene visualizzata la pagina Edit IIOP Listener.</p></li>
+<li><b>Se la casella di controllo Security Enabled &#232; selezionata, fare clic sul
+riquadro a schede SSL per modificare le impostazioni Secure Socket Layer relative
+a tale listener IIOP.</b><p>Viene visualizzata la pagina SSL.</p></li>
+<li><b>Nella pagina SSL selezionare la casella di controllo SSL3 Enabled per abilitare
+SSL3.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo TLS Enabled per abilitare TLS (Transport Layer
+Security).</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Client Authentication Enabled per richiedere l'identificazione dei
+client a ogni richiesta del server.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Certificate Nickname, immettere il nickname del certificato del server nel
+database dei certificati o nel token PKCS#11.</b><p>Nel certificato, il formato del nome &#232; <tt><i>tokenname</i>:<i>nickname</i></tt>. L'inclusione della parte <tt><i>tokenname</i>:</tt>
+in questo attributo &#232; facoltativa.</p></li>
+<li><b>Nel campo Key Store, immettere il nome del file keystore (ad esempio
+<tt>keystore.jks</tt>).</b></li>
+<li><b>Nel campo Trust Algorithm, immettere il nome dell'algoritmo di gestione attendibile (ad
+esempio PKIX) da utilizzare per la convalida del percorso di certificazione.</b></li>
+<li><b>Nel campo Max Certificate Length, immettere il numero massimo di certificati intermedi
+non autoemessi che possono essere presenti in un percorso di certificazione. </b><p>Il campo viene utilizzato solo se il campo Trust Algorithm &#232; impostato
+su PKIX. Il valore 0 indica che il percorso pu&#242; contenere un
+solo certificato.  Il valore -1 indica che la lunghezza del percorso
+non &#232; vincolata (non esiste un valore massimo). Se si imposta un
+valore inferiore a -1, viene generata un'eccezione.</p></li>
+<li><b>Nel campo Trust Store immettere il nome del file (ad esempio <tt>cacerts.jks</tt>).</b></li>
+<li><b>Nell'area Cipher Suites specificare i pacchetti di crittografia da utilizzare.</b><p>Se non si aggiunge alcun pacchetto di crittografia, verranno utilizzati tutti quelli
+disponibili.</p></li>
+<li><b>Fare clic su OK.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-orb.html">Configurare ORB</a></p>
+
+</li>
+<li><p><a href="task-iioplistenernew.html">Creare un listener IIOP</a></p>
+
+</li>
+<li><p><a href="task-iioplisteneredit.html">Modificare un listener IIOP </a></p>
+
+</li>
+<li><p><a href="task-iioplistenerdelete.html">Eliminare un listener IIOP</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

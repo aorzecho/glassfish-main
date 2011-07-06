@@ -1,0 +1,101 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transportnew"></a><h4>New Transport</h4>
+<a name="indexterm-77"></a><p>Nella pagina New Transport &#232; possibile creare un nuovo trasporto.</p>
+
+<p>In genere non &#232; necessario utilizzare altri trasporti in aggiunta al trasporto
+<tt>tcp</tt> predefinito.</p>
+
+<p>La pagina New Transport contiene le seguenti opzioni.</p>
+
+<dl><dt>Configuration Name</dt>
+<dd><p>Nome della configurazione a cui si applicano le impostazioni visualizzate nella pagina. Campo di sola lettura.</p>
+
+</dd>
+<dt>Transport Name</dt>
+<dd><p>Nome univoco per il trasporto.</p>
+
+</dd>
+<dt>Classname</dt>
+<dd><p>Nome della classe di implementazione del trasporto. Il valore predefinito &#232; <tt>com.sun.grizzly.TCPSelectorHandler</tt>.</p>
+
+</dd>
+<dt>Selection Key Handler</dt>
+<dd><p>Nome della classe del gestore dei tasti di selezione. Per gestore di tasti di selezione si intende una classe astratta che gestisce il ciclo di vita dei tasti di selezione. Se non si specifica un valore viene utilizzata un'implementazione predefinita.</p>
+
+</dd>
+<dt>Byte Buffer Type</dt>
+<dd><p>Tipo di <tt>ByteBuffer</tt> da utilizzare. Le opzioni disponibili sono <tt>HEAP</tt> e <tt>DIRECT</tt>. Il valore predefinito &#232; <tt>HEAP</tt>.</p>
+
+</dd>
+<dt>Acceptor Threads</dt>
+<dd><p>Numero di processori nel computer. Un valore pari a -1 indica che il calcolo dei thread accettori viene eseguito solo tramite Grizzly, sulla base del numero dei processori presenti nel computer. Il valore predefinito &#232; 1.</p>
+
+<p>Per impostare il numero dei thread di elaborazione della richiesta, specificare il valore Max Thread Pool Size del pool di thread utilizzato da un listener di rete che utilizza questo trasporto.</p>
+
+</dd>
+<dt>Max Connections Count</dt>
+<dd><p>Numero massimo di connessioni in attesa su un listener di rete che utilizza questo trasporto. Il valore predefinito &#232; 4096.</p>
+
+</dd>
+<dt>Buffer Size</dt>
+<dd><p>Dimensioni del buffer, in byte, da specificare per i flussi di input creati da un listener di rete che utilizza questo trasporto. Il valore predefinito &#232; 8192.</p>
+
+</dd>
+<dt>Idle Key Timeout</dt>
+<dd><p>Numero di secondi dopo cui un tasto inattivo viene annullato e il canale viene chiuso. Il valore predefinito &#232; 30.</p>
+
+</dd>
+<dt>Read Timeout</dt>
+<dd><p>Numero di millisecondi di attesa di GlassFish Server durante la fase di analisi di intestazione e corpo del testo di un'operazione di lettura. Il valore predefinito &#232; 30.000.</p>
+
+</dd>
+<dt>Selector Poll Timeout</dt>
+<dd><p>Numero di millisecondi durante i quali viene bloccata l'attesa di eventi (richieste utenti) mediante un selettore NIO. Il valore predefinito &#232; 1000.</p>
+
+</dd>
+<dt>Write Timeout</dt>
+<dd><p>Numero di millisecondi di attesa di GlassFish Server prima che venga considerata terminata la connessione del client remoto durante la scrittura della risposta. Il valore predefinito &#232; 30.000.</p>
+
+</dd>
+<dt>Display Configuration</dt>
+<dd><p>Se l'opzione &#232; selezionata, la configurazione interna di Grizzly viene scaricata nei log del server. Questa opzione potrebbe fornire informazioni utili per il debugging. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>Snoop</dt>
+<dd><p>Se l'opzione &#232; selezionata viene eseguito il dump delle informazioni di richiesta/risposta nel log del server. Questa opzione potrebbe fornire informazioni utili per il debugging, tuttavia causa un peggioramento significativo delle prestazioni. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>TCP No Delay</dt>
+<dd><p>Se l'opzione &#232; selezionata, viene abilitato TCP_NODELAY (anche noto come algoritmo di Nagle). Questa opzione &#232; abilitata per impostazione predefinita.</p>
+
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-transportnew.html">Creare un trasporto</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">Modificare un trasporto</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">Eliminare un trasporto</a></p>
+
+</li></ul>
+<h5>Comandi <tt>asadmin</tt> correlati</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-transport-1"><tt>create-transport</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-transports-1"><tt>list-transports</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-transport-1"><tt>delete-transport</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

@@ -1,0 +1,88 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-webcontaineravailability"></a><h4>So konfigurieren Sie Verf&#252;gbarkeitseinstellungen f&#252;r den Webcontainer</h4><a name="indexterm-12"></a><a name="indexterm-13"></a><a name="indexterm-14"></a><a name="indexterm-15"></a><ol>
+<li><b>Erweitern Sie in der Navigationsstruktur den Knoten "Konfiguration".</b></li>
+<li><b>W&#228;hlen Sie die zu &#228;ndernde Konfiguration.</b></li>
+<li><b>W&#228;hlen Sie unter dem Konfigurationsknoten den Verf&#252;gbarkeitsdienst-Knoten aus.</b><p>Die Seite "Verf&#252;gbarkeitsdienst" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Verf&#252;gbarkeitsdienst" auf die Registerkarte  "Webcontainer-Verf&#252;gbarkeit".</b><p>Die Seite "Webcontainer-Verf&#252;gbarkeit" wird angezeigt.</p></li>
+<li><b>Aktivieren Sie im Feld "Verf&#252;gbarkeitsdienst" das Kontrollk&#228;stchen "Aktiviert", um die Verf&#252;gbarkeit f&#252;r
+den Webcontainer zu aktivieren.</b><p>Um die Verf&#252;gbarkeit aufzuheben, deaktivieren Sie das Kontrollk&#228;stchen "Aktiviert" f&#252;r den Verf&#252;gbarkeitsdienst.</p></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Fortdauertyp" den Fortdauermechanismus aus.</b><ul>
+<li><b>Wenn "Aktiviert" f&#252;r den Verf&#252;gbarkeitsdienst <b>nicht</b> aktiviert ist, w&#228;hlen Sie eine der
+folgenden Optionen:</b>
+<ul><li><p><tt>memory</tt> f&#252;r keine Sitzungsfortdauer</p>
+
+</li>
+<li><p><tt>file</tt> f&#252;r Sitzungsfortdauer basierend auf dem Dateisystem, das nicht hochverf&#252;gbar ist</p>
+
+</li></ul>
+</li>
+<li><b>Wenn "Aktiviert" f&#252;r den Verf&#252;gbarkeitsdienst aktiviert ist, w&#228;hlen Sie <tt>replicated</tt> f&#252;r die
+Sitzungsfortdauer basierend auf einem Cluster-Failover, das hochverf&#252;gbar ist.</b></li></ul></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Fortdauerh&#228;ufigkeit" die H&#228;ufigkeit aus, mit der die
+HTTP-Sitzung gespeichert wird:</b>
+<ul><li><p><tt>web-method</tt> (Webmethode) &#8211; Der Sitzungsstatus wird am Ende jeder Webanforderung vor dem Senden einer Antwort an den Client gespeichert. Dieser Modus stellt am besten sicher, dass der Sitzungsstatus bei einem Ausfall vollst&#228;ndig aktualisiert wird. Dies ist die Standardeinstellung.</p>
+
+</li>
+<li><p><tt>time-based</tt> (zeitbasiert) &#8211; Der Sitzungsstatus wird im Hintergrund mit der H&#228;ufigkeit gespeichert, die durch das "Reap Interval" (Reap-Intervall) festgelegt ist. Weitere Informationen &#252;ber diese Einstellung finden Sie unter <a href="task-webcontainermanagerprops.html">So konfigurieren Sie die Manager-Eigenschaften des Webcontainers</a>.</p>
+
+<p>In diesem Modus ist weniger sichergestellt, dass der Sitzungsstatus vollst&#228;ndig aktualisiert wird. Dieser Modus kann die Leistung jedoch erheblich verbessern, da der Status nicht nach jeder Anforderung gespeichert wird.</p>
+
+</li></ul>
+<p>Die Fortdauerh&#228;ufigkeit findet nur dann Anwendung, wenn der Fortdauertyp <tt>replicated</tt> lautet.</p></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Fortdauerumfang" den Umfang der HTTP-Sitzungs&#228;nderungen, die erforderlich
+sind, damit gespeichert werden kann:</b>
+<ul><li><p><tt>session</tt> (Sitzung) &#8211; Der Sitzungsstatus wird bei jedem Speichervorgang vollst&#228;ndig gespeichert. Dieser Modus bietet die beste M&#246;glichkeit, um sicherzustellen, dass die Sitzungsdaten f&#252;r verteilbare Webanwendungen ordnungsgem&#228;&#223; gespeichert werden.</p>
+
+</li>
+<li><p><tt>modified-session</tt> (modifizierte Sitzung) &#8211; Der Sitzungsstatus wird vollst&#228;ndig gespeichert, wenn er ge&#228;ndert wurde. Eine Sitzung gilt als ge&#228;ndert, wenn <tt>HttpSession.setAttribute()</tt> oder <tt>HttpSession.removeAttribute()</tt> aufgerufen wurde. Es muss sichergestellt werden, dass <tt>setAttribute()</tt> bei jeder Attribut&#228;nderung aufgerufen wird. Dies ist keine Anforderung der Java EE-Spezifikation, sondern f&#252;r die ordnungsgem&#228;&#223;e Funktionsweise dieses Modus erforderlich.</p>
+
+</li>
+<li><p><tt>modified-attribute</tt> (modifiziertes Attribut) &#8211; Lediglich ge&#228;nderte Sitzungsattribute werden gespeichert. F&#252;r die ordnungsgem&#228;&#223;e Funktionsweise dieses Modus m&#252;ssen folgende Richtlinien befolgt werden:</p>
+
+
+<ul><li><p>Rufen Sie <tt>setAttribute()</tt> bei jeder &#196;nderung des Sitzungsstatus auf.</p>
+
+</li>
+<li><p>Stellen Sie sicher, dass keine Querverweise zwischen Attributen vorhanden sind. Die Objektdiagramme unter den verschiedenen Attributschl&#252;sseln werden serialisiert und separat gespeichert. Wenn zwischen den Objekten unter den verschiedenen Schl&#252;sseln Querverweise vorhanden sind, ist keine ordnungsgem&#228;&#223;e Serialisierung und Aufhebung der Serialisierung m&#246;glich.</p>
+
+</li>
+<li><p>Verteilen Sie den Sitzungsstatus auf mehrere Attribute oder zumindest zwischen einem schreibgesch&#252;tzten und einem &#228;nderbaren Attribut.</p>
+
+</li></ul>
+</li></ul>
+<p>Der Fortdauerumfang findet nur dann Anwendung, wenn der Fortdauertyp <tt>replicated</tt> lautet.</p></li>
+<li><b>Aktivieren Sie im Feld "Single Sign-On-Status" das Kontrollk&#228;stchen "Aktiviert", um den Single
+Sign-On-Status f&#252;r das Failover verf&#252;gbar zu machen.</b><p>Um die Verf&#252;gbarkeit des Single Sign-On-Status f&#252;r das Failover aufzuheben, entfernen Sie
+das H&#228;kchen aus dem Kontrollk&#228;stchen "Single Sign-On-Status".</p></li>
+<li><b>Um die Standardwerte aller Einstellungen wiederherzustellen, klicken Sie auf die Schaltfl&#228;che "Standardwerte
+laden".</b></li>
+<li>(Optional) <b>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</b><p>GlassFish-Server definiert keine weiteren Eigenschaften f&#252;r die Webcontainer-Verf&#252;gbarkeit.</p><ul>
+<li><b>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
+Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
+"Name" und den Eigenschaftswert in das Feld "Wert" ein.</b></li>
+<li><b>Um eine Eigenschaft zu &#228;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</b></li>
+<li><b>Um eine Eigenschaft zu l&#246;schen, aktivieren Sie das Kontrollk&#228;stchen links neben dem
+Feld "Name" der zu l&#246;schenden Eigenschaft und klicken Sie anschlie&#223;end auf die
+Schaltfl&#228;che "Eigenschaften l&#246;schen".</b></li></ul></li>
+<li><b>Klicken Sie auf "Speichern".</b></li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="task-webcontainergeneral.html">So konfigurieren Sie die allgemeinen Eigenschaften des Webcontainers</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">So konfigurieren Sie die Sitzungseigenschaften des Webcontainers</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">So konfigurieren Sie die Manager-Eigenschaften des Webcontainers</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">So konfigurieren Sie die Speichereigenschaften des Webcontainers</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

@@ -1,0 +1,78 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jaccproviders"></a><h4>Provedores de JACC</h4>
+<a name="indexterm-223"></a><p>Utilize a p&#225;gina Provedores de JACC para configurar os provedores do Java
+Authorization Contract for Containers (JACC) do cluster ou inst&#226;ncia selecionada do Servidor
+GlassFish da .</p>
+
+<p>Os provedores de JACC podem ser utilizados por m&#243;dulos de autoriza&#231;&#227;o de
+terceiros em aplicativos em execu&#231;&#227;o no Servidor GlassFish da . A instala&#231;&#227;o
+padr&#227;o do Servidor GlassFish da  inclui dois provedores de JACC, denominados
+<tt>default</tt> e <tt>simple </tt>. Estes provedores padr&#227;o implementam um mecanismo simples de autoriza&#231;&#227;o
+com base em arquivo que cumpre com a especifica&#231;&#227;o do JACC. Voc&#234;
+tamb&#233;m pode criar seus pr&#243;prios provedores de JACC. Consulte <a href="task-jaccprovidernew.html">Para criar um provedor de JACC</a>.</p>
+
+<p>Para obter informa&#231;&#245;es sobre como gravar as classes de implementa&#231;&#227;o do provedor
+de JACC, consulte a especifica&#231;&#227;o JACC em <a href="http://jcp.org/en/jsr/detail?id=115">http://jcp.org/en/jsr/detail?id=115</a>.</p>
+
+<p>Para cada provedor de JACC, s&#227;o fornecidas as seguintes informa&#231;&#245;es.</p>
+
+<dl><dt>Nome</dt>
+<dd><p>O nome do provedor JACC. Este nome &#233; utilizado para fazer refer&#234;ncia ao elemento <tt>jacc-provider</tt> no <tt>domain.xml</tt>.</p>
+
+</dd>
+<dt>Configura&#231;&#227;o da Diretiva</dt>
+<dd><p>Nome de classe totalmente qualificado do <tt>javax.security.jacc.PolicyConfigurationFactory.provider </tt> que implementa o <tt>javax.security.jacc.PolicyConfigurationFactory </tt> espec&#237;fico do provedor.</p>
+
+</dd>
+<dt>Provedor de Diretivas</dt>
+<dd><p>Nome de classe totalmente qualificado do <tt>javax.security.jacc.policy.provider </tt> que implementa o <tt>java.security.Policy</tt>.</p>
+
+</dd>
+</dl>
+<p>Os provedores de JACC padr&#227;o tamb&#233;m oferecem suporte a seguinte propriedade.</p>
+
+<dl><dt>reposit&#243;rio</dt>
+<dd><p>O diret&#243;rio que cont&#233;m o arquivo da diretiva do JACC. Para o provedor de JACC <tt>default </tt> do Servidor GlassFish da , o diret&#243;rio padr&#227;o &#233; <tt>${com.sun.aas.instanceRoot}/generated/policy </tt>. Esta propriedade n&#227;o est&#225; definida por padr&#227;o para o provedor de JACC <tt>simple</tt> do Servidor GlassFish da .</p>
+
+</dd>
+</dl>
+<p>A tabela Provedores JACC tamb&#233;m cont&#233;m as seguintes op&#231;&#245;es.</p>
+
+<dl><dt>Novo</dt>
+<dd><p>Bot&#227;o para criar um novo provedor JACC.</p>
+
+</dd>
+<dt>Excluir</dt>
+<dd><p>Bot&#227;o para excluir um ou mais provedores JACC selecionados.</p>
+
+</dd>
+</dl>
+<a name="gkokq"></a><h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-jaccprovidernew.html">Para criar um provedor de JACC</a></p>
+
+</li>
+<li><p><a href="task-jaccprovideredit.html">Para editar um provedor de JACC</a></p>
+
+</li>
+<li><p><a href="task-jaccproviderdelete.html">Para excluir um provedor de JACC</a></p>
+
+</li></ul>
+<a name="gkomu"></a><h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

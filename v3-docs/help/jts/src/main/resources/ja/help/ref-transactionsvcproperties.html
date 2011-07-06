@@ -1,0 +1,48 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transactionsvcproperties"></a><h4>トランザクションサービスに固有のプロパティー</h4>
+<a name="indexterm-9"></a><a name="indexterm-10"></a><p>トランザクションサービスの設定には、次のプロパティーを使用できます。</p>
+
+<dl><dt><tt>oracle-xa-recovery-workaround</tt></dt>
+<dd><p><tt>true</tt> に設定されている場合、Oracle XA Resource 回避方法がトランザクション回復で使用されます。デフォルト値は <tt>true</tt> です。</p>
+
+</dd>
+<dt><tt>disable-distributed-transaction-logging</tt></dt>
+<dd><p><tt>true</tt> に設定した場合、トランザクションログが無効になり、パフォーマンスが向上する場合があります。「再起動時」の「有効」チェックボックスがオンにされている場合、このプロパティーは無視されます。デフォルト値は <tt>false</tt> です。</p>
+
+</dd>
+<dt><tt>xaresource-txn-timeout</tt></dt>
+<dd><p>XAResource <tt> タイムアウトを</tt> 変更します。場合によっては、 <tt>XAResource</tt> のデフォルトタイムアウトが原因でトランザクションが中止されるため、変更する方が望ましいことがあります。デフォルト値は使用される <tt>XAResource</tt> ごとに異なります。</p>
+
+</dd>
+<dt><tt>pending-txn-cleanup-interval</tt></dt>
+<dd><p>非同期スレッドが未完了のトランザクションをチェックし、それらを完了させる間隔を秒数で指定します。このプロパティーが指定されていない場合、デフォルトはありません。このプロパティーはあるが値がない場合、デフォルト値は 60 になります。</p>
+
+</dd>
+<dt><tt>use-last-agent-optimization</tt></dt>
+<dd><p><tt>true</tt> に設定した場合、最終エージェント最適化が有効になり、トランザクションのスループットが改善されます。1 つの非 XA リソースが同じトランザクションで XA リソースと一緒に使われている場合、非 XA リソースが最終エージェントです。デフォルト値は <tt>true</tt> です。</p>
+
+</dd>
+<dt><tt>delegated-recovery</tt></dt>
+<dd><p><tt>true</tt> に設定した場合、クラスタ全体で委任回復が有効になります。デフォルト値は false です。</p>
+
+</dd>
+<dt><tt>wait-time-before-recovery-insec</tt></dt>
+<dd><p>インスタンスがデッドインスタンスに対して回復を開始するまでに待機する秒数を指定します。</p>
+
+</dd>
+<dt><tt>db-logging-resource</tt></dt>
+<dd><p>トランザクションを記録するデータベースの JDBC リソースの JNDI 名を指定します。詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beanm"><i>『Oracle GlassFish Server 3.1 Application Development Guide』</i>の第 15 章「Using the Transaction Service」</a>を参照してください。デフォルト値はありません。</p>
+
+</dd>
+<dt><tt>xa-servername</tt></dt>
+<dd><p>トランザクションサービスがインストールされている GlassFish サーバー で管理されるトランザクションを特定するために使用するホスト名を指定します。これは、GlassFish サーバー を実行している別のホストで作成されたログファイルからトランザクションを回復する場合に便利です。</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

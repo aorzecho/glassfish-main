@@ -1,0 +1,191 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-nodenew"></a><h4>Novo n&#243;</h4>
+<a name="indexterm-197"></a><p>Utilize a p&#225;gina Novo n&#243; para criar um n&#243; do Servidor GlassFish.
+Um n&#243; representa um host no qual o software Servidor GlassFish est&#225;
+instalado. Um n&#243; deve estar presente em cada host na qual as
+inst&#226;ncias Servidor GlassFish residem. </p>
+
+<p>A p&#225;gina Novo n&#243; cont&#233;m as op&#231;&#245;es seguinte:</p>
+
+<dl><dt>Nome</dt>
+<dd><p>O nome do n&#243;. </p>
+
+<p>O nome deve cumprir os seguintes requisitos:</p>
+
+
+<ul><li><p>O nome deve come&#231;ar com uma letra, um n&#250;mero ou um sublinhado.</p>
+
+</li>
+<li><p>O nome pode conter somente os seguintes caracteres:</p>
+
+
+<ul><li><p>Letras min&#250;sculas</p>
+
+</li>
+<li><p>Letras mai&#250;sculas</p>
+
+</li>
+<li><p>N&#250;meros</p>
+
+</li>
+<li><p>H&#237;fen</p>
+
+</li>
+<li><p>Per&#237;odo</p>
+
+</li>
+<li><p>Sublinhado</p>
+
+</li></ul>
+</li>
+<li><p>O nome deve ser &#250;nico no dom&#237;nio e n&#227;o deve ser o nome de outro n&#243;, um cluster, uma configura&#231;&#227;o nomeada ou uma inst&#226;ncia do Servidor GlassFish.</p>
+
+</li>
+<li><p>O nome n&#227;o deve ser <tt>domain</tt>, <tt>server</tt>, nem nenhuma outra palavra-chave que esteja reservada pelo Servidor GlassFish.</p>
+
+</li></ul>
+</dd>
+<dt>Tipo</dt>
+<dd><p>Lista suspensa para especificar o tipo do n&#243;, que s&#227;o os seguintes:</p>
+
+<dl><dt>SSH</dt>
+<dd><p>O n&#243; oferece suporte a comunica&#231;&#245;es com shell seguro (SSH).</p>
+
+</dd>
+<dt>CONFIG</dt>
+<dd><p>O n&#243; n&#227;o oferece suporte &#224; comunica&#231;&#227;o remoto. Se CONFIG estiver selecionado, nenhuma op&#231;&#227;o &#233; exibida para a configura&#231;&#227;o de SSH e o campo Diret&#243;rio de instala&#231;&#227;o &#233; apagado.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Host do n&#243;</dt>
+<dd><p>O nome do host que o n&#243; representa. Se este campo &#233; obrigat&#243;rio ou n&#227;o, depende do tipo de n&#243;:</p>
+
+
+<ul><li><p>Se o tipo de n&#243; for CONFIG, o nome do host pode ser omitido. O nome do host pode ser determinado quando as inst&#226;ncias que residem no n&#243; forem criadas.</p>
+
+</li>
+<li><p>Se o tipo de n&#243; for SSH, o nome do host deve ser especificado. Caso contr&#225;rio, ocorre um erro.</p>
+
+</li></ul>
+</dd>
+<dt>Diret&#243;rio do n&#243;</dt>
+<dd><p>O caminho para o diret&#243;rio que cont&#233;m as inst&#226;ncias Servidor GlassFish que s&#227;o criadas no n&#243;. Se um caminho relativo for especificado, o caminho &#233; relativo ao diret&#243;rio <i>as-install</i>.</p>
+
+<p>O padr&#227;o depende do tipo do n&#243;:</p>
+
+
+<ul><li><p>Se o tipo do n&#243; for CONFIG, nenhum diret&#243;rio das inst&#226;ncias &#233; especificado para o n&#243; na configura&#231;&#227;o do servidor de administra&#231;&#227;o do dom&#237;nio (DAS). O diret&#243;rio do n&#243; pode ser determinado quando as inst&#226;ncias que residem no n&#243; forem criadas.</p>
+
+</li>
+<li><p>Se o tipo do n&#243; for SSH, o padr&#227;o &#233; <tt></tt><i>as-install</i><tt>/nodes</tt>, onde <i>as-install</i> &#233; o diret&#243;rio base de instala&#231;&#227;o do software Servidor GlassFish no host.</p>
+
+</li></ul>
+</dd>
+<dt>Diret&#243;rio de instala&#231;&#227;o</dt>
+<dd><p>O caminho inteiro para o pai do diret&#243;rio de instala&#231;&#227;o de base do software Servidor GlassFish no host, por exemplo, <tt>/export/glassfish3</tt>.</p>
+
+<p>O padr&#227;o depende do tipo do n&#243;:</p>
+
+
+<ul><li><p>Se o tipo do n&#243; for CONFIG, nenhum diret&#243;rio de instala&#231;&#227;o &#233; especificado para o n&#243; na configura&#231;&#227;o do DAS. O diret&#243;rio de instala&#231;&#227;o pode ser determinado quando as inst&#226;ncias que residem no n&#243; forem criadas.</p>
+
+</li>
+<li><p>Se o tipo do n&#243; for SSH, o padr&#227;o &#233; o pai do diret&#243;rio base de instala&#231;&#227;o padr&#227;o do software Servidor GlassFish para o DAS. Esse padr&#227;o &#233; &#250;til apenas se Servidor GlassFish estiver instalado no mesmo local em todos os hosts.</p>
+
+</li></ul>
+</dd>
+<dt>For&#231;ar</dt>
+<dd><p>Se a op&#231;&#227;o Ativo estiver selecionada, o n&#243; &#233; criado na configura&#231;&#227;o DAS mesmo se a valida&#231;&#227;o dos par&#226;metros do n&#243; falhar. Para validar os par&#226;metros de um n&#243;, o DAS deve ser capaz de contactar o host do n&#243; por meio de SSH. </p>
+
+</dd>
+<dt>Porta SSH</dt>
+<dd><p>Porta para utilizar nas conex&#245;es SSH a este host do n&#243;. O padr&#227;o &#233; 22. Se a op&#231;&#227;o Host do n&#243; estiver definida como <tt>localhost-<i>dom&#237;nio</i></tt>, a op&#231;&#227;o Porta SSH &#233; ignorada.</p>
+
+</dd>
+<dt>Nome de usu&#225;rio SSH</dt>
+<dd><p>Usu&#225;rio deste host do n&#243; que deve executar o processo para conex&#227;o com o host atrav&#233;s de SSH. O padr&#227;o &#233; o usu&#225;rio que est&#225; executando o processo DAS. Para garantir que o DAS possa ler o arquivo de chave privada de SSH desse usu&#225;rio, especifique o usu&#225;rio que est&#225; executando o processo DAS. Se a op&#231;&#227;o Host do n&#243; estiver definida como <tt>localhost-<i>dom&#237;nio</i></tt>, a op&#231;&#227;o Nome de usu&#225;rio &#233; ignorada.</p>
+
+</dd>
+<dt>Autentica&#231;&#227;o de usu&#225;rio SSH</dt>
+<dd><p>Lista suspensa para especificar como o usu&#225;rio SSH &#233; autenticado ao efetuar login neste host do n&#243;. Os poss&#237;veis m&#233;todos de autentica&#231;&#227;o s&#227;o os seguintes:</p>
+
+<dl><dt>Arquivo principal</dt>
+<dd><p>O usu&#225;rio SSH &#233; autenticado atrav&#233;s de um arquivo de chave privada SSH. Se selecionar esta op&#231;&#227;o, especifique um caminho absoluto para o arquivo no campo Arquivo principal.</p>
+
+</dd>
+<dt>Senha</dt>
+<dd><p>O usu&#225;rio SSH &#233; autenticado atrav&#233;s de uma senha que &#233; armazenada na configura&#231;&#227;o do DAS.</p>
+
+
+<hr><p><b>Cuidado - </b>Esta senha &#233; armazenada em forma de texto na configura&#231;&#227;o do DAS. Para maior seguran&#231;a, utilize um arquivo de chave ou um alias de senha.</p>
+
+
+<hr>
+<p>Se selecionar esta op&#231;&#227;o, os campos Senha SSH e Confirmar senha SSH s&#227;o ativados para permitir que voc&#234; forne&#231;a a senha.</p>
+
+</dd>
+<dt>Alias de senha</dt>
+<dd><p>O usu&#225;rio SSH &#233; autenticado atrav&#233;s de um alias de senha. Se selecionar esta op&#231;&#227;o, selecione o alias de senha na lista suspensa Alias de senha.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Senha SSH</dt>
+<dd><p>A senha que o usu&#225;rio SSH utilizar&#225; ao efetuar login neste host do n&#243;.</p>
+
+</dd>
+<dt>Confirmar senha SSH</dt>
+<dd><p>Confirma&#231;&#227;o da senha que o usu&#225;rio SSH utilizar&#225; ao efetuar login neste host do n&#243;. O conte&#250;do deste campo deve corresponder exatamente ao conte&#250;do do campo Senha SSH.</p>
+
+</dd>
+<dt>Alias de senha</dt>
+<dd><p>Lista suspensa de aliases de senha definidos para este dom&#237;nio.</p>
+
+</dd>
+<dt>Arquivo principal</dt>
+<dd><p>Caminho absoluto para o arquivo da chave privada de SSH para o usu&#225;rio que a op&#231;&#227;o Nome de usu&#225;rio especifica. Este arquivo &#233; utilizado para autentica&#231;&#227;o do daemon <tt> sshd</tt> no host do n&#243;.</p>
+
+
+<hr><p><b>Observa&#231;&#227;o - </b>O Servidor GlassFish tamb&#233;m oferece suporte &#224; autentica&#231;&#227;o com senha atrav&#233;s da entrada <tt>AS_ADMIN_SSHPASSWORD</tt> no arquivo de senha. O arquivo de senha &#233; especificado na op&#231;&#227;o <tt>--paswordfile</tt> do utilit&#225;rio <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
+
+
+<hr>
+<p>Se o arquivo de chave privada de SSH estiver protegido por uma frase-senha, o arquivo de senha deve conter a entrada <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt>.</p>
+
+<p>O caminho para o arquivo da chave deve ser acess&#237;vel pelo DAS e o arquivo de chave poder&#225; ser lido pelo DAS. </p>
+
+<p>O padr&#227;o &#233; um arquivo de chave no diret&#243;rio <tt>.ssh</tt> do usu&#225;rio. Se forem encontrados v&#225;rios arquivos de chave, o Servidor GlassFish usa a seguinte ordem de prefer&#234;ncia:</p>
+
+
+<ol><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>identity</tt></p>
+
+</li></ol>
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-createnode.html">Para criar um n&#243;</a></p>
+
+</li></ul>
+<h5>Subcomandos <tt>asadmin</tt> equivalentes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-config-1"><tt>create-node-config</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-ssh-1"><tt>create-node-ssh</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

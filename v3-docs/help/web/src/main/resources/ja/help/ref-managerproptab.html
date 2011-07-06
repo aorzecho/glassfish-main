@@ -1,0 +1,66 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-managerproptab"></a><h4>マネージャプロパティ</h4>
+<a name="indexterm-50"></a><a name="indexterm-51"></a><p>セッションマネージャーを使用して、セッションを作成および破棄する方法、セッション状態を格納する場所、および使用可能なセッションの最大数を設定できます。</p>
+
+<p>「マネージャープロパティー」ページを使用して、Web コンテナのセッションマネージャープロパティーを追加または変更します。</p>
+
+<p>「マネージャープロパティ」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>取得間隔</dt>
+<dd><p>アクティブでないセッションデータがストアから削除されるまでの秒数。デフォルト値は 60 です。</p>
+
+<p>この値は、セッションデータが変更される頻度より小さい値に設定してください。たとえば、アクセス頻度の高い Web サイトのアクセスカウンタサーブレットでは、この値をできるだけ小さい値 (1 秒) にしてください。値が大きい場合、サーバーを再起動するごとに、最後の数回のアクセスを取得できない場合があります。</p>
+
+</dd>
+<dt>最大セッション数</dt>
+<dd><p>キャッシュに維持できるセッションの最大数。-1 を指定すると、セッションの数は制限されません。デフォルト値は &#8211;1 です。 </p>
+
+<p>制限に達したあとに新しいセッションを作成しようとすると、<tt>IllegalStateException</tt> がスローされます。</p>
+
+</dd>
+<dt>セッションファイル名</dt>
+<dd><p>状態の保存が可能な場合に、アプリケーションの再起動間でセッション状態を保存するディレクトリの絶対パスまたは相対パス。このパスが設定されていない場合、セッション状態は保存されません。デフォルトでは、このパスは設定されていません。</p>
+
+<p>相対パスは、この Web アプリケーションの一時ディレクトリからの相対で指定します。</p>
+
+</dd>
+<dt>追加プロパティー</dt>
+<dd><p>セッションマネージャーの追加プロパティー。GlassFish サーバー はセッションマネージャーの追加プロパティーを定義しません。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">「Web コンテナの一般プロパティーを設定する」</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">「Web コンテナのセッションプロパティーを設定する」</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">「Web コンテナのマネージャープロパティーを設定する」</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">「Web コンテナのストアプロパティーを設定する」</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">「Web コンテナの可用性を設定する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+<p>ありません。</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

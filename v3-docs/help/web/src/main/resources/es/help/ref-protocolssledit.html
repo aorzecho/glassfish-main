@@ -1,0 +1,90 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolssledit"></a><h4>SSL</h4>
+<a name="indexterm-70"></a><a name="indexterm-71"></a><p>Utilice la p&#225;gina SSL para modificar la configuraci&#243;n de SSL para un
+protocolo de red. </p>
+
+<p>La configuraci&#243;n de esta p&#225;gina &#250;nicamente tiene sentido si se encuentra habilitada
+la seguridad en la p&#225;gina Editar protocolo. </p>
+
+<p>La p&#225;gina SSL contiene las siguientes opciones.</p>
+
+<dl><dt>Nombre de la configuraci&#243;n</dt>
+<dd><p>El nombre de la configuraci&#243;n a la que se aplican los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
+
+</dd>
+<dt>SSL3</dt>
+<dd><p>Si se selecciona esta casilla de verificaci&#243;n, se habilitar&#225; el protocolo SSL3 para el protocolo. Esta opci&#243;n se habilita por defecto.</p>
+
+</dd>
+<dt>TLS</dt>
+<dd><p>Si se selecciona esta casilla de verificaci&#243;n, se habilitar&#225; el protocolo TLS para el protocolo. Esta opci&#243;n se habilita por defecto.</p>
+
+</dd>
+<dt></dt>
+<dt>Autenticaci&#243;n de cliente</dt>
+<dd><p>Si esta casilla de verificaci&#243;n est&#225; seleccionada, los clientes deben identificarse en el servidor con cada solicitud. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Sobrenombre del certificado</dt>
+<dd><p>Sobrenombre del certificado del servidor en la base de datos de certificados o token PKCS#11. En el certificado, el formato del nombre es <tt><i> tokenname</i>:<i>nickname</i></tt>. Incluyendo el <tt>tokenname<i>:</i></tt> parte del nombre de este atributo es opcional.</p>
+
+</dd>
+<dt>Almac&#233;n de claves</dt>
+<dd><p>Nombre de archivo del almac&#233;n de claves (por ejemplo, <tt>keystore.jks</tt>).</p>
+
+</dd>
+<dt>Algoritmo de confianza</dt>
+<dd><p>Nombre del algoritmo de administraci&#243;n de confianza (por ejemplo, PKIX) que se utilizar&#225; para la validaci&#243;n de rutas de certificaci&#243;n.</p>
+
+</dd>
+<dt>Longitud m&#225;xima del certificado</dt>
+<dd><p>N&#250;mero m&#225;ximo de certificados intermedios no autoemitidos que puede haber en una ruta de certificaci&#243;n. Este campo se utiliza solamente en caso de que el campo Algoritmo de confianza est&#233; configurado en PKIX. Un valor de 0 implica que la ruta &#250;nicamente puede contener un certificado. Un valor de -1 implica que la longitud de la ruta no est&#225; restringida (no hay un m&#225;ximo). La configuraci&#243;n en un valor inferior a -1 inicia una excepci&#243;n. </p>
+
+</dd>
+<dt>Almac&#233;n de confianza</dt>
+<dd><p>Nombre de un archivo del almac&#233;n de confianza (por ejemplo, <tt>cacerts.jks</tt>).</p>
+
+</dd>
+<dt>Conjuntos de cifrado</dt>
+<dd><p>&#193;rea en la que puede a&#241;adir o eliminar conjuntos de cifrado. Si no a&#241;ade ning&#250;n conjunto de cifrado, se utilizar&#225;n todos los conjuntos de cifrado.</p>
+
+</dd>
+</dl>
+<h5>Tareas relacionadas</h5>
+
+<ul><li><p><a href="task-protocolnew.html">C&#243;mo crear un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">C&#243;mo editar un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">C&#243;mo editar la configuraci&#243;n SSL para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">C&#243;mo editar la configuraci&#243;n HTTP para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">C&#243;mo editar la cach&#233; de archivos para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">C&#243;mo eliminar un protocolo</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

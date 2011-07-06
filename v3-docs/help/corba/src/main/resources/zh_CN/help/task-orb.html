@@ -1,0 +1,43 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-orb"></a><h4>配置 ORB</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
+<li><b>在树组件中，展开&#8220;配置&#8221;节点。</b></li>
+<li><b>选择要配置的实例：</b><ul>
+<li><b>要配置特定的实例，请选择该实例的配置节点。例如，对于默认实例 <tt>server</tt>，请选择 <tt>server-config</tt> 节点。</b></li>
+<li><b>要为以后使用 <tt>default-config</tt> 副本的实例配置默认设置，请选择 <tt>default-config</tt> 节点。</b></li></ul></li>
+<li><b>选择 "ORB" 节点。</b><p>此时将打开 "ORB" 页面。</p></li>
+<li><b>从&#8220;线程池 ID&#8221;下拉式列表中选择 ORB 使用的线程池。</b><p>ORB 使用线程池响应来自企业 Bean 的远程客户机和其他客户机（使用 RMI-IIOP 进行通信）的请求。ORB 的默认线程池为 <tt>thread-pool-1</tt>，它使用适合 RMI/IIOP 请求的默认值。</p><p>有关更多信息，请参见<a href="../../../web/zh_CN/help/ref-threadpools.html">线程池</a>。</p></li>
+<li><b>从&#8220;最大消息片段大小&#8221;下拉式列表中，选择 IIOP 消息的最大片段大小。</b><p>大于此大小的消息将被分段。默认值为 1024 字节。</p></li>
+<li><b>在&#8220;连接总数&#8221;字段中，设置所有 IIOP 侦听器的最大外来连接数。</b><p>默认值为 1024。</p></li>
+<li><b>选中&#8220;需要进行 IIOP 客户机验证&#8221;复选框以指定需要进行 IIOP 客户机验证。</b><p>如果启用 IIOP 客户机验证，则服务器将拒绝未经验证的请求并在发送给客户机的可交互使用的对象引用 (Interoperable Object Reference, IOR) 中插入需要验证位。默认情况下禁用此选项。</p></li>
+<li>（可选的）<b>在&#8220;其他属性&#8221;区域中，指定其他属性。</b><p>GlassFish Server 不定义 ORB 的任何其他属性。</p><ul>
+<li><b>要添加属性，请单击&#8220;添加属性&#8221;按钮。在显示的空白行中，在&#8220;名称&#8221;字段中键入属性名称，在&#8220;值&#8221;字段中键入属性值。</b></li>
+<li><b>要修改属性，请编辑该属性的&#8220;值&#8221;字段。</b></li>
+<li><b>要删除属性，请选中位于您要删除属性的&#8220;名称&#8221;字段左边的复选框，然后单击&#8220;删除属性&#8221;按钮。</b></li></ul></li>
+<li><b>单击&#8220;保存&#8221;。</b>
+<hr><p><b>提示 - </b>要返回到默认设置，请单击&#8220;装入默认值&#8221;按钮，然后单击&#8220;保存&#8221;。</p>
+
+
+<hr>
+</li>
+<li><b>重新启动 GlassFish Server。</b></li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-iioplistenernew.html">创建 IIOP 侦听器</a></p>
+
+</li>
+<li><p><a href="task-iioplisteneredit.html">编辑 IIOP 侦听器</a></p>
+
+</li>
+<li><p><a href="task-editiiopssl.html">编辑安全 IIOP 侦听器的 SSL 设置</a></p>
+
+</li>
+<li><p><a href="task-iioplistenerdelete.html">删除 IIOP 侦听器</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

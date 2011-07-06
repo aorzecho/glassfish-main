@@ -1,0 +1,103 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-networklistenernew"></a><h4>Creare un listener di rete</h4><a name="indexterm-21"></a><h6>Prima di cominciare</h6><p>Quando si crea un listener di rete, &#232; possibile creare simultaneamente un
+protocollo per il listener di rete, oppure utilizzare un protocollo creato in
+precedenza. In genere tra un listener di rete e il protocollo associato
+viene stabilita una relazione uno-a-uno, ma non si tratta di un requisito
+obbligatorio.</p>
+
+<ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
+<li><b>Nel nodo Configuration, espandere il nodo Network Config.</b></li>
+<li><b>Nel nodo Network Config, selezionare il nodo Network Listeners.</b><p>Viene visualizzata la pagina Network Listeners.</p></li>
+<li><b>Nella pagina Network Listeners, fare clic su New.</b><p>Viene visualizzata la pagina New Network Listener.</p></li>
+<li><b>Nel campo Name, digitare un nome per il listener di rete.</b><p>I nomi di listener di rete non possono iniziare con un numero.</p></li>
+<li><b>Nel campo Protocol, specificare il protocollo da associare al listener di rete.</b><ul>
+<li><b>Selezionare Create a New Protocol per creare un nuovo protocollo con le
+impostazioni predefinite. Inoltre, dall'elenco a discesa Virtual Server, selezionare il server virtuale
+da associare al protocollo.</b><p>Il nome predefinito del protocollo &#232; il nome del listener di rete
+con l'aggiunta del suffisso <tt>-protocol</tt>, ma il valore &#232; modificabile.</p></li>
+<li><b>Selezionare Use an Existing Protocol, quindi selezionare un protocollo dall'elenco a discesa.</b><p>Se si seleziona questa opzione, in genere il protocollo per questo listener
+&#232; gi&#224; stato creato.</p></li></ul><p>&#200; possibile specificare il protocollo solo quando si crea il listener di
+rete. In seguito non sar&#224; possibile modificare il protocollo associato.</p></li>
+<li><b>Selezionare la casella di controllo Status Enabled per abilitare il listener di
+rete.</b><p>Questa opzione &#232; abilitata per impostazione predefinita. Se il listener &#232; disabilitato,
+ogni tentativo di connessione al listener genera un'eccezione nel socket (<tt>java.net.ConnectException</tt>).</p><p>Nelle versioni di GlassFish Server anteriori alla 9.1, in caso di listener
+con attributo Enabled impostato su False, veniva restituito un codice di risposta
+404 per ogni richiesta inviata. Per ottenere questo funzionamento nella versione corrente
+di GlassFish Server, impostare lo stato del listener su Enabled e lo
+stato di ciascun server virtuale associato su OFF. I listener associati a
+un server virtuale vengono riportati nell'elenco a discesa Network Listeners disponibile nel
+server.</p></li>
+<li><b>Selezionare la casella di controllo Security Enabled per abilitare la protezione per
+il protocollo utilizzato dal listener di rete.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo JK Listener Enabled per impostare nel listener
+il supporto del protocollo <tt>mod-jk</tt> di Apache.</b><p>Il protocollo <tt>mod-jk</tt> &#232; un protocollo di comunicazione/rete proprietario tra <tt>httpd</tt> (server
+Web) di Apache e un'istanza backend di GlassFish Server. Se il listener
+supporta il protocollo, tutto il contenuto statico dovrebbe essere gestito mediante <tt>httpd</tt>,
+mentre le richieste di risorse dinamiche (ad esempio servlet e pagine JSP)
+vengono reindirizzate al listener di rete abilitato <tt>mod-jk</tt> di GlassFish Server tramite
+il protocollo <tt>mod-jk</tt>. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Port, digitare il numero della porta di attesa desiderato per
+il listener di rete.</b><p>Sono ammessi i valori compresi tra 1 e 65535. In un sistema
+UNIX, per creare socket in attesa su porte comprese tra 1 e
+1024 sono necessari privilegi di superutente.</p></li>
+<li><b>Nel campo Address, digitare l'indirizzo IP di attesa desiderato per il listener
+di rete.</b><p>L'indirizzo pu&#242; essere specificato utilizzando la notazione per indirizzi IPv6 o con
+separazione mediante coppie di punti. &#200; possibile specificare <tt>any</tt> (per <tt> INADDR_ANY</tt>) per
+impostare tutti gli indirizzi IP per l'attesa. Pu&#242; essere costituito da un
+nome host.</p></li>
+<li><b>Dall'elenco a discesa Thread Pool, selezionare il pool di thread da associare
+al listener di rete.</b><p>In genere si seleziona uno dei due pool di thread configurati durante
+l'installazione di GlassFish Server.</p></li>
+<li><b>Dall'elenco a discesa Transport, selezionare il tipo di trasporto che dovr&#224; essere
+utilizzato dal listener di rete.</b><p>Per impostazione predefinita, l'unica opzione &#232; <tt>tcp</tt>.</p></li>
+<li><b>Fare clic su OK.</b></li></ol><h6>Procedura successiva</h6><p>Se per il listener di rete &#232; stata abilitata la protezione &#232;
+possibile utilizzare la scheda SSL o modificare le impostazioni SSL del protocollo
+utilizzato dal listener di rete.</p>
+
+<h6>Vedere anche</h6>
+<ul><li><p><a href="task-networklisteneredit.html">Modificare un listener di rete</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">Eliminare un listener di rete</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">Creare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Modificare le impostazioni SSL di un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP di un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">Creare un trasporto</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">Modificare un trasporto</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">Eliminare un trasporto</a></p>
+
+</li>
+<li><p><a href="task-virtualservercreate.html">Creare server virtuali</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

@@ -1,0 +1,56 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ejbtimerservice"></a><h4>EJB タイマーサービス</h4>
+<a name="indexterm-18"></a><a name="indexterm-19"></a><a name="indexterm-20"></a><p>EJB タイマーサービスを設定するには、「EJB タイマーサービス」ページを使用します。</p>
+
+<p>タイマーサービスは、エンタープライズ Bean コンテナによって提供され、エンタープライズ Bean が使用する通知やイベントのスケジュールに使用される、持続的なトランザクション通知サービスです。ステートフルセッション Beans 以外のエンタープライズ Beans はすべて、タイマーサービスからの通知を受信できます。このサービスによって設定された持続タイマーは、サーバーのシャットダウンや再起動では破棄されません。</p>
+
+<p>「EJB タイマーサービス」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>最小配信間隔</dt>
+<dd><p>次のタイマーの有効期限が切れて、特定のタイマーの発生が可能になるまでの最短時間 (ミリ秒単位)。この間隔の設定が短すぎると、サーバーがオーバーロードする可能性があります。デフォルト値は 1000 です。</p>
+
+</dd>
+<dt>最大再配信回数</dt>
+<dd><p>例外またはロールバックによるタイマーの有効期限切れの配信を、タイマーサービスが試行する最大数。デフォルト値は 1 です。</p>
+
+</dd>
+<dt>再配信間隔</dt>
+<dd><p>再配信を実行する間隔 (ミリ秒単位)。デフォルト値は 5000 です。</p>
+
+</dd>
+<dt>タイマーデータソース</dt>
+<dd><p>タイマーデータソースとして使用する JDBC リソースの JNDI 名。指定する場合、この値はタイマーサービスシステムアプリケーションの <tt>jdbc/__TimerPool</tt> のデフォルト値を上書きします。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-ejbtimerservice.html">「EJB タイマーサービスを設定する」</a></p>
+
+</li>
+<li><p><a href="../../../ejb-lite/ja/help/task-ejbgeneral.html">EJB を設定する</a></p>
+
+</li>
+<li><p><a href="task-ejbmdbpoolsettings.html">「MDB プールを設定する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-timers-1"><tt>list-timers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

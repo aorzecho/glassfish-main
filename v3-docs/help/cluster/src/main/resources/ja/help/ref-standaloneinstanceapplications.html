@@ -1,0 +1,161 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-standaloneinstanceapplications"></a><h4>アプリケーション</h4>
+<a name="indexterm-208"></a><a name="indexterm-209"></a><p>「アプリケーション」ページを使用して、選択したスタンドアロン GlassFish サーバー インスタンスで次のタスクを実行します。</p>
+
+
+<ul><li><p>インスタンスにすでに配備されているアプリケーションの表示と管理</p>
+
+</li>
+<li><p>インスタンスへの追加のアプリケーションの配備</p>
+
+</li></ul>
+<p>「インスタンス名」フィールドは、現在のインスタンスの名前が表示される読み取り専用のフィールドです。</p>
+
+<p>「アプリケーション」ページには、選択したインスタンスに配備されているアプリケーションの一覧が表示されます。アプリケーションごとに、次の情報が表示されます。</p>
+
+<dl><dt>名前</dt>
+<dd><p>アプリケーションの名前。</p>
+
+<p>名前には、オプションのバージョン ID を含めることができます。このバージョン ID は名前のあとに続き、コロン (<tt>:</tt>) で名前と区切ります。アプリケーションとモジュールのバージョンについては、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「Module and Application Versions」</a>を参照してください。</p>
+
+</dd>
+<dt>使用可能</dt>
+<dd><p>アプリケーションが有効かどうかが表示されます。</p>
+
+
+<ul><li><p>アプリケーションが有効な場合は、チェックマーク (&#10003;) が表示されます。</p>
+
+</li>
+<li><p>アプリケーションが無効な場合は、十字記号 (&#10007;) が表示されます。</p>
+
+</li></ul>
+</dd>
+<dt>LB 有効</dt>
+<dd><p>アプリケーションで負荷分散が有効になっているかどうかが表示されます。</p>
+
+
+<ul><li><p>アプリケーションで負荷分散が有効になっている場合は、チェックマーク (&#10003;) が表示されます。</p>
+
+</li>
+<li><p>アプリケーションで負荷分散が無効になっている場合は、十字記号 (&#10007;) が表示されます。</p>
+
+</li></ul>
+</dd>
+<dt>エンジン</dt>
+<dd><p>アプリケーションが使用するコンテナのタイプ。コンテナのタイプは次のいずれかになります。</p>
+
+
+<ul><li><p><tt>Web</tt></p>
+
+</li>
+<li><p><tt>webservices</tt></p>
+
+</li>
+<li><p><tt>ejb</tt></p>
+
+</li>
+<li><p><tt>connector</tt></p>
+
+</li>
+<li><p><tt>appclient</tt></p>
+
+</li>
+<li><p><tt>weld</tt> &#8212; Java EE プラットフォームアプリケーションの Contexts and Dependency Injection のコンテナ</p>
+
+</li></ul>
+</dd>
+</dl>
+<p>「配備されているアプリケーション」の表には、次のオプションも表示されます。</p>
+
+<dl><dt>配備する</dt>
+<dd><p>アプリケーションを配備するボタン。</p>
+
+</dd>
+<dt>配備取消し</dt>
+<dd><p>選択した 1 つまたは複数のアプリケーションの配備を取り消しするボタン。</p>
+
+<p>アプリケーションの配備取消しでは、すべてのターゲットおよびドメインからアプリケーションを削除します。アプリケーションの配備が取り消された場合、そのアプリケーションは GlassFish サーバー に配備されているすべてのアプリケーションが表示される「<a href="../../../common/ja/help/ref-applications.html">アプリケーション</a>」ページに表示されなくなります。</p>
+
+<p>現在のターゲットからのみアプリケーションを削除するには、このページの「削除」ボタンを使用します。</p>
+
+</dd>
+<dt>削除</dt>
+<dd><p>選択した 1 つまたは複数のアプリケーションを削除するボタン。</p>
+
+<p>アプリケーションの削除では、現在のターゲットからのみアプリケーションを削除します。ターゲットからアプリケーションを削除しても、そのアプリケーションは GlassFish サーバー に配備されているすべてのアプリケーションが表示される「<a href="../../../common/ja/help/ref-applications.html">アプリケーション</a>」ページに引き続き表示されます。配備が行われたほかのターゲットのアプリケーションも配備されたままとなります。</p>
+
+<p>すべてのターゲットおよびドメインからアプリケーションを削除するには、このページの「配備取消し」ボタンを使用します。</p>
+
+</dd>
+<dt>追加の操作</dt>
+<dd><p>選択した 1 つまたは複数のアプリケーションに対して追加の操作を実行するドロップダウンリスト。</p>
+
+<dl><dt>有効</dt>
+<dd><p>選択した 1 つまたは複数のアプリケーションを有効にします。</p>
+
+</dd>
+<dt>無効</dt>
+<dd><p>選択した 1 つまたは複数のアプリケーションを無効にします。</p>
+
+</dd>
+<dt>ロードバランサ有効</dt>
+<dd><p>選択した 1 つまたは複数のアプリケーションで負荷分散を有効にします。</p>
+
+</dd>
+<dt>ロードバランサ無効</dt>
+<dd><p>選択した 1 つまたは複数のアプリケーションで負荷分散を無効にします。</p>
+
+</dd>
+</dl>
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-standalone-instance-app-deploy.html">「アプリケーションをスタンドアロン GlassFish サーバー インスタンスに配備する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-list.html">「スタンドアロン GlassFish サーバー インスタンスに配備されているアプリケーションを一覧表示する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-undeploy.html">「スタンドアロン GlassFish サーバー インスタンスへのアプリケーションの配備を取り消す」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-remove.html">「スタンドアロン GlassFish サーバー インスタンスからアプリケーションを削除する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-edit.html">「スタンドアロン GlassFish サーバー インスタンスに配備されているアプリケーションを編集する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-enable-disable.html">「スタンドアロン GlassFish サーバー インスタンスに配備されているアプリケーションを有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">「スタンドアロン GlassFish サーバー インスタンスに配備されているアプリケーションの負荷分散を有効または無効にする」</a></p>
+
+</li></ul>
+<h5>同等の <tt>asadmin</tt> サブコマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=disable-1"><tt>disable</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=disable-http-lb-application-1"><tt>disable-http-lb-application</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=enable-1"><tt>enable</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=enable-http-lb-application-1"><tt>enable-http-lb-application</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

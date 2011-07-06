@@ -1,0 +1,70 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsconnectionproperties"></a><h4>Propriet&#224; specifiche delle factory di connessione JMS</h4>
+<a name="indexterm-35"></a><a name="indexterm-36"></a><p>Per la factory di connessione sono disponibili le seguenti propriet&#224; aggiuntive.</p>
+
+<dl><dt><tt>ClientId</tt></dt>
+<dd><p>Specifica l'ID client per una factory di connessione da utilizzare in una sottoscrizione durable.</p>
+
+</dd>
+<dt><tt>AddressList</tt></dt>
+<dd><p>Specifica i nomi (e, facoltativamente, i numeri di porta) di una o pi&#249; istanze del broker di messaggi con cui le applicazioni comunicano. Ciascun indirizzo dell'elenco &#232; costituito dal nome host (e facoltativamente dalla porta host e dal servizio di connessione) per la connessione. Ad esempio il valore pu&#242; essere <tt>earth</tt> o <tt>earth:7677</tt>. Il numero di porta va specificato se il broker di messaggi &#232; in esecuzione su una porta diversa da quella predefinita (7676). Se la propriet&#224; &#232; stata impostata per specificare pi&#249; host e porte in un ambiente con cluster, viene utilizzato il primo host disponibile nell'elenco, a meno che la propriet&#224; <tt>AddressListBehavior </tt> non sia impostata su <tt>RANDOM</tt>.</p>
+
+<p>Per dettagli, vedere il <b>manuale per lo sviluppatore di Message Queue per client Java</b>.</p>
+
+<p>I valori predefiniti sono l'host locale e il numero di porta predefinito (7676). Il client tenter&#224; una connessione a un broker sulla porta 7676 dell'host locale.</p>
+
+</dd>
+<dt><tt>UserName</tt></dt>
+<dd><p>Nome utente per la factory di connessione.</p>
+
+<p>Il valore predefinito &#232; <tt>guest</tt>.</p>
+
+</dd>
+<dt><tt>Password</tt></dt>
+<dd><p>Password per la factory di connessione.</p>
+
+<p>Il valore predefinito &#232; <tt>guest</tt>.</p>
+
+</dd>
+<dt><tt>ReconnectEnabled</tt></dt>
+<dd><p>Se impostato su <tt>true</tt>, specifica che il runtime del client tenta di ricollegarsi al server di messaggi (o all'elenco di indirizzi di <tt>AddressList</tt>) quando si perde la connessione.</p>
+
+<p>Il valore predefinito &#232; <tt>true</tt>.</p>
+
+</dd>
+<dt><tt>ReconnectAttempts</tt></dt>
+<dd><p>Specifica il numero di tentativi di connessione (o riconnessione) per ogni indirizzo di <tt>AddressList</tt> prima che il runtime del client tenti di collegarsi al successivo indirizzo dell'elenco. Un valore pari a -1 indica un numero di tentativi di connessione illimitato (il runtime del client tenta di connettersi al primo indirizzo fino a quando il tentativo non riesce).</p>
+
+<p>Il valore predefinito &#232; 3.</p>
+
+</dd>
+<dt><tt>ReconnectInterval</tt></dt>
+<dd><p>Specifica l'intervallo in millisecondi tra i tentativi di riconnessione. Il valore viene applicato ai tentativi per ciascun indirizzo in <tt>AddressList</tt> e per gli indirizzi successivi nell'elenco. Se l'intervallo &#232; troppo breve, il broker non riesce a eseguire il ripristino. Se l'intervallo &#232; troppo lungo, si potrebbe verificare un ritardo eccessivo per la riconnessione.</p>
+
+<p>Il valore predefinito &#232; 30000.</p>
+
+</dd>
+<dt><tt>AddressListBehavior</tt></dt>
+<dd><p>Specifica se i tentativi di connessione vengono eseguiti nell'ordine degli indirizzi nell'attributo <tt>AddressList</tt> (<tt>PRIORITY</tt>) o in ordine casuale (<tt>RANDOM</tt>).</p>
+
+<p><tt>RANDOM</tt> indica che per la riconnessione viene scelto un indirizzo casuale da <tt>AddressList</tt>. Se &#232; probabile che molti client provino a stabilire una connessione mediante la stessa factory di connessione, impostando questo valore si evita che la connessione venga eseguita con lo stesso indirizzo.</p>
+
+<p><tt>PRIORITY</tt> indica che il tentativo di riconnessione viene sempre eseguito con il primo indirizzo server disponibile in <tt>AddressList</tt> quindi, se il primo broker non &#232; disponibile, con un altro indirizzo.</p>
+
+<p>Il valore predefinito &#232; <tt>RANDOM</tt>.</p>
+
+</dd>
+<dt><tt>AddressListIterations</tt></dt>
+<dd><p>Specifica il numero di runtime del client ripetuti in <tt>AddressList</tt> nel tentativo di stabilire o ristabilire una connessione. Un valore pari a -1 indica un numero di tentativi illimitato.</p>
+
+<p>Il valore predefinito &#232; 3.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

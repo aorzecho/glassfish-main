@@ -1,0 +1,147 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-filter-logs"></a><h4>Filtrer les enregistrements de journal affich&#233;s</h4><h6>Avant de commencer</h6><p>Assurez-vous que vous &#234;tes en train d'afficher les fichiers journaux pour le
+serveur d'administration de domaine (DAS), une instance GlassFish Server clusteris&#233;e ou une
+instance autonome. Pour plus d&#8217;informations, consultez les rubriques suivantes :</p>
+
+
+<ul><li><p><a href="task-logviewer.html">Afficher les journaux du DAS </a></p>
+
+</li>
+<li><p><a href="../../../cluster/fr/help/task-view-logs-clustered-instance.html">To&#160;View Log Files for&#160;a Clustered GlassFish Server Instance</a></p>
+
+</li>
+<li><p><a href="../../../cluster/fr/help/task-view-logs-standalone-instance.html">To&#160;View Log Files for&#160;a Standalone GlassFish Server Instance</a></p>
+
+</li></ul>
+<ol>
+<li><b>Dans la zone Crit&#232;res de recherche, filtrez les enregistrements par contenu, p&#233;riode
+et niveau du journal. </b><ol style="list-style-type: lower-alpha">
+<li><b>Pour afficher uniquement les enregistrements contenant un texte sp&#233;cifique, saisissez le texte
+dans le champ Recherche de texte.</b><p>La recherche est sensible &#224; la casse. </p></li>
+<li><b>Pour s&#233;lectionner la p&#233;riode pour laquelle les enregistrements de journal sont affich&#233;s,
+utilisez l'option Horodatage. </b><ul>
+<li><b>Pour afficher les messages les plus r&#233;cents, s&#233;lectionnez Le plus r&#233;cent (valeur
+par d&#233;faut).</b></li>
+<li><b>Pour afficher les messages uniquement sur une p&#233;riode donn&#233;e, s&#233;lectionnez Plage sp&#233;cifique
+et entrez une date et une heure dans les champs De et
+&#192; qui apparaissent.</b><p>La valeur Date doit prendre la forme suivante&#160;: </p><pre><i>MM</i>/<i>DD</i>/<i>YY</i></pre><dl><dt><i>MM</i></dt>
+<dd><p>Nombre entier compris entre 1 et 12 pour d&#233;signer le num&#233;ro du mois, par exemple 1 pour le mois de janvier ou 10 pour le mois d'octobre. </p>
+
+</dd>
+<dt><i>DD</i></dt>
+<dd><p>Nombre entier compris entre 1 et 31 pour d&#233;signer le jour du mois. </p>
+
+</dd>
+<dt><i>YY</i></dt>
+<dd><p>Deux derniers chiffres de l'ann&#233;e, par exemple, 11 pour l'ann&#233;e 2011. </p>
+
+</dd>
+</dl>
+<p>Par exemple, pour sp&#233;cifier la date du 1er f&#233;vrier 2011, saisissez <tt>2/1/11</tt>
+dans le champ Date. </p><p>La valeur Heure doit prendre la forme suivante&#160;: </p><pre><i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i></pre><dl><dt><i>hh</i></dt>
+<dd><p>Nombre entier compris entre 0 et 23 pour indiquer l'heure. Pour les heures de l'apr&#232;s-midi, utilisez des nombres entiers compris entre 12 et 23, par exemple 14 pour indiquer 2 PM. </p>
+
+</dd>
+<dt><i>mm</i></dt>
+<dd><p>Nombre entier compris entre 0 et 59 pour indiquer le nombre de minutes apr&#232;s l'heure. </p>
+
+</dd>
+<dt><i>ss</i></dt>
+<dd><p>Nombre entier compris entre 0 et 59 pour indiquer le nombre de secondes. </p>
+
+</dd>
+<dt><i>SSS</i></dt>
+<dd><p>Nombre entier &#224; trois chiffres, pr&#233;c&#233;d&#233; de z&#233;ros non significatifs si n&#233;cessaire, compris entre 000 et 999 pour indiquer le nombre de millisecondes. </p>
+
+</dd>
+</dl>
+<p>Par exemple, pour indiquer l'heure 5.10 PM, saisissez <tt>17:10:00.000</tt> dans le champ
+Heure. </p><p>Si la valeur de d&#233;but est post&#233;rieure &#224; la valeur de fin,
+un message d&#8217;erreur appara&#238;t.</p></li></ul></li>
+<li><b>Filtrer les messages par niveau de journalisation</b><p>Pour &#234;tre s&#251;r que les messages que vous voulez afficher apparaissent dans
+le journal du serveur, commencez par <a href="task-eelogginglevels.html">d&#233;finir les niveaux de journalisation appropri&#233;s</a> sur la page Niveaux de
+journalisation de module.</p><p>Si vous choisissez de filtrer les messages du journal en fonction du
+niveau de journalisation, seuls les messages correspondant aux crit&#232;res de filtre sp&#233;cifi&#233;s
+s&#8217;affichent. Toutefois, ce filtrage n&#8217;affecte pas les messages consign&#233;s dans le journal
+du serveur.</p><ol style="list-style-type: lower-roman">
+<li><b>Dans la liste d&#233;roulante Niveau de journalisation, s&#233;lectionnez le niveau de journalisation.
+</b></li>
+<li><b>Pour afficher des messages au niveau s&#233;lectionn&#233; uniquement, s&#233;lectionnez l'option Ne pas
+inclure des messages plus graves. </b><p>Par d&#233;faut, tous les messages figurant dans le journal du serveur &#224;
+partir du niveau de journalisation choisi sont affich&#233;s.</p></li></ol></li></ol></li>
+<li><b>Dans la zone Recherche avanc&#233;e, filtrez les enregistrements par espace de noms
+du journal et s&#233;lectionnez la quantit&#233; d'informations qui s'affiche. </b><ol style="list-style-type: lower-alpha">
+<li><b>Cliquez sur le lien Recherche avanc&#233;e. </b><p>La zone Recherche avanc&#233;e est ajout&#233;e &#224; la fen&#234;tre de la visionneuse
+du journal. </p></li>
+<li><b>Pour filtrer par module, s&#233;lectionnez un ou plusieurs espaces de noms dans
+la liste d&#233;roulante Journal.</b><p>Utilisez Maj + clic ou Ctrl + clic pour s&#233;lectionner plusieurs espaces
+de noms.</p><p>Si vous s&#233;lectionnez un espace de noms &#224; un niveau sup&#233;rieur, tous
+les espaces de noms situ&#233;s en dessous seront &#233;galement s&#233;lectionn&#233;s. Par exemple,
+si vous s&#233;lectionnez <tt>javax.enterprise.system</tt>, seront &#233;galement s&#233;lectionn&#233;s les journaux de tous les
+modules situ&#233;s sous cet espace de noms, tels que <tt>javax.enterprise.system.core</tt>, <tt>javax.enterprise.system.tools.admin </tt>, etc.</p></li>
+<li><b>Pour afficher les messages de journaux d'une application particuli&#232;re, saisissez le nom
+de chaque journal sur une ligne distincte dans le champ Journal personnalis&#233;.</b><p>Si l&#8217;application comprend plusieurs modules, vous pouvez les afficher tous ou seulement
+une partie. Par exemple, une application peut disposer des journaux suivants&#160;:</p>
+<ul><li><p><tt>com.example.myapp.module1</tt></p>
+
+</li>
+<li><p><tt>com.example.myapp.module2</tt></p>
+
+</li>
+<li><p><tt>com.example.myapp.module3</tt></p>
+
+</li></ul>
+<p>Pour afficher des messages de tous les modules dans l&#8217;application, tapez <tt>com.mycompany.myapp </tt>.
+Pour afficher les messages du <tt>module2</tt> uniquement, entrez <tt>com.example.myapp.module2</tt>.</p><p>Si vous sp&#233;cifiez un ou plusieurs enregistreurs personnalis&#233;s, les messages des modules
+du GlassFish Server n&#8217;apparaissent que si vous les avez explicitement sp&#233;cifi&#233;s dans
+la zone Enregistreur.</p></li>
+<li><b>Dans la liste d&#233;roulante Afficher, s&#233;lectionnez le nombre de messages &#224; afficher.</b><p>Le nombre de messages affich&#233;s par d&#233;faut est de 40. Les autres
+choix sont 100, 250 et 1000.</p></li>
+<li><b>Pour afficher les suivis de pile, d&#233;s&#233;lectionnez l'option Tronquer les messages trop
+longs.</b><p>Par d&#233;faut, les suivis de pile n&#8217;apparaissent pas dans la visionneuse. Pour
+les afficher, cliquez sur le lien (d&#233;tails) pour un message. </p></li>
+<li><b>Pour masquer la zone Recherche avanc&#233;e, cliquez sur le lien Recherche &#233;l&#233;mentaire.
+</b></li></ol></li>
+<li><b>Pour indiquer l'instance et le fichier journal associ&#233; &#224; afficher, utilisez la
+zone Modifier la recherche. </b><ul>
+<li><b>Dans la liste d&#233;roulante Instance, s&#233;lectionnez l'instance. </b><p>La valeur par d&#233;faut est l'instance s&#233;lectionn&#233;e initialement pour afficher les fichiers
+journaux. Si vous avez choisi d'afficher des fichiers journaux pour le serveur
+d'administration de domaine (DAS), la valeur par d&#233;faut est server, ce qui
+d&#233;signe le DAS.  </p></li>
+<li><b>Dans la liste d&#233;roulante Fichier journal, s&#233;lectionnez le fichier journal.</b><p>La valeur par d&#233;faut est <tt>server.log</tt>. Les autres choix d&#233;pendent des param&#232;tres
+du journal pour la cible s&#233;lectionn&#233;e. </p></li></ul></li>
+<li><b>Dans la zone R&#233;sultats de la recherche, vous pouvez personnaliser l&#8217;affichage des
+messages.</b><p>La zone R&#233;sultats de la recherche affiche les 40 derni&#232;res entr&#233;es dans
+le journal du serveur, en fonction des param&#232;tres d&#233;finis aux pages Param&#232;tres
+de journalisation et Niveaux de journalisation.</p><ul>
+<li><b>Pour trier les messages diff&#233;remment, cliquez sur les fl&#232;ches situ&#233;es dans les
+colonnes. </b></li>
+<li><b>Pour afficher la version format&#233;e d'un message, cliquez sur le lien (d&#233;tails)
+pour le message. </b><p>La fen&#234;tre D&#233;tails de l'entr&#233;e de journal s'ouvre, contenant une version format&#233;e
+du message. </p></li>
+<li><b>Pour afficher les entr&#233;es ant&#233;rieures ou post&#233;rieures du fichier journal, cliquez sur
+Enregistrements avant et Enregistrements apr&#232;s en haut de la table. </b></li></ul></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-eelogging.html">Configurer les param&#232;tres g&#233;n&#233;raux de journalisation</a></p>
+
+</li>
+<li><p><a href="task-eelogginglevels.html">Configurer les niveaux de journalisation</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">Afficher les journaux du DAS </a></p>
+
+</li>
+<li><p><a href="../../../cluster/fr/help/task-view-logs-clustered-instance.html">To&#160;View Log Files for&#160;a Clustered GlassFish Server Instance</a></p>
+
+</li>
+<li><p><a href="../../../cluster/fr/help/task-view-logs-standalone-instance.html">To&#160;View Log Files for&#160;a Standalone GlassFish Server Instance</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

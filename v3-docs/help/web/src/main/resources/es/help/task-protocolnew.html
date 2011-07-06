@@ -1,0 +1,200 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-protocolnew"></a><h4>C&#243;mo crear un protocolo</h4><a name="indexterm-24"></a><ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraci&#243;n.</b></li>
+<li><b>En el nodo Configuraci&#243;n, expanda el nodo Configuraci&#243;n de red.</b></li>
+<li><b>En el nodo Configuraci&#243;n de red, seleccione el nodo Protocolos. </b><p>Se abrir&#225; la p&#225;gina Protocolos.</p></li>
+<li><b>En la p&#225;gina Protocolos, haga clic en Nuevo.</b><p>Se abrir&#225; la p&#225;gina Nuevo protocolo.</p></li>
+<li><b>En el campo Nombre, introduzca un nombre &#250;nico para el protocolo.</b></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Seguridad habilitada para habilitar la seguridad del
+protocolo.</b><p>Esta opci&#243;n se deshabilita por defecto. Si habilita la seguridad, puede utilizar
+la ficha SSL de la p&#225;gina Editar protocolo para modificar la configuraci&#243;n de
+seguridad. </p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Estado habilitado para habilitar la memoria cach&#233;
+de archivos.</b><p>Esta opci&#243;n se habilita por defecto.</p></li>
+<li><b>En el campo Antig&#252;edad m&#225;xima, introduzca la antig&#252;edad m&#225;xima, en segundos, de
+una entrada de cach&#233; v&#225;lida.</b><p>Este par&#225;metro controla el tiempo que se utiliza la informaci&#243;n en cach&#233;
+despu&#233;s de que un archivo se haya almacenado en cach&#233;. Una entrada
+m&#225;s antigua que la antig&#252;edad m&#225;xima se reemplaza por una nueva entrada
+para el mismo archivo. Si su contenido no cambia con frecuencia, aumente
+este valor para mejorar el rendimiento.</p><p>La antig&#252;edad m&#225;xima &#243;ptima depende de si los archivos existentes se modifican
+con regularidad. Por ejemplo, si los archivos se modifican cuatro veces al
+d&#237;a en intervalos regulares, plant&#233;ese establecer la antig&#252;edad m&#225;xima en 21.600 segundos
+(6 horas). De lo contrario, una vez que el archivo haya sido
+modificado, considere establecer la antig&#252;edad m&#225;xima en el per&#237;odo de tiempo mayor
+que desee servir a la versi&#243;n anterior de un archivo.</p><p>El valor predeterminado es 30.</p></li>
+<li><b>En el campo Tama&#241;o m&#225;x. de cach&#233;, escriba el tama&#241;o m&#225;ximo total
+(en bytes) de la memoria cach&#233; de archivo del disco.</b><p>El valor predeterminado es 10485760.</p></li>
+<li><b>En el campo Total m&#225;ximo de archivos, introduzca el n&#250;mero m&#225;ximo de
+archivos que se puede almacenar en la memoria cach&#233; de archivos.</b><p>Si el valor es demasiado grande, el servidor almacena en cach&#233; archivos
+que no son estrictamente necesarios, lo que consume memoria. Si el valor
+es demasiado peque&#241;o, no se aprovechan las ventajas del almacenamiento en cach&#233;.
+Pruebe distintos valores de este atributo para determinar la soluci&#243;n &#243;ptima para
+aplicaciones espec&#237;ficas.</p><p>El valor predeterminado es 1024.</p></li>
+<li><b>En el campo Nombre de servidor, introduzca el nombre del host que
+se va a utilizar en las URL que el servidor env&#237;a al
+cliente.</b><p>Este nombre es el alias si el servidor hace uso de un
+nombre de alias. Si el servidor no utiliza un alias, deje vac&#237;o
+este campo.</p><p>Este valor afecta a las URL que genera autom&#225;ticamente el servidor; no
+afecta a las URL de los directorios y archivos almacenados en el servidor.
+Si el servidor utiliza un alias, el nombre-servidor deber&#237;a ser el nombre de
+alias. Si se a&#241;aden dos puntos y un n&#250;mero de puerto, dicho
+puerto se usar&#225; en las URL que el servidor env&#237;a al cliente.
+</p></li>
+<li><b>En la lista desplegable Servidor virtual predeterminado, seleccione el servidor virtual asociado
+a este protocolo.</b><p>Utilice la p&#225;gina Servidores virtuales para definir los servidores virtuales.</p></li>
+<li><b>En el campo Redireccionar puerto, introduzca el valor del puerto que se
+utilizar&#225; para redireccionar una solicitud a otro puerto. </b><p>GlassFish Server redirige autom&#225;ticamente la solicitud si se dan estas dos condiciones:</p>
+
+
+<ul><li><p>La escucha de red que hace referencia a este protocolo admite otras solicitudes que no son SSL. </p>
+
+</li>
+<li><p>Se recibe una solicitud para la que una restricci&#243;n de seguridad coincidente requiere transporte SSL.</p>
+
+</li></ul>
+<p>Si no se especifica un puerto de redirecci&#243;n, GlassFish Server utiliza el
+n&#250;mero de puerto especificado en la solicitud original. De forma predeterminada, no
+se especifica ning&#250;n puerto. </p></li>
+<li><b>En el campo N&#250;mero m&#225;ximo de conexiones, escriba el n&#250;mero m&#225;ximo de
+solicitudes que se pueden canalizar hasta que el servidor cierra la conexi&#243;n. </b><p>El subsistema de mantenimiento de conexiones sondea peri&#243;dicamente las conexiones inactivas. El
+valor predeterminado es 256.</p><p>Establezca esta propiedad en 1 para deshabilitar el mantenimiento HTTP/1.0, as&#237; como
+la canalizaci&#243;n y el mantenimiento HTTP/1.1. Un valor de 0 significa que
+las solicitudes ser&#225;n siempre rechazadas. Un valor de -1 no establece ning&#250;n l&#237;mite
+en cuanto al n&#250;mero de conexiones de mantenimiento. </p></li>
+<li><b>En el campo Tiempo de espera, introduzca el tiempo m&#225;ximo en segundos
+que una conexi&#243;n puede considerarse inactiva y conservarse en estado de mantenimiento. </b><p>Un valor de 0 o menos significa que las conexiones de mantenimiento
+se mantienen abiertas de forma indefinida. El valor predeterminado es 30 segundos.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n del tiempo de espera de
+carga para que la conexi&#243;n de un servlet que lea bytes lentamente se
+cierre tras alcanzarse el l&#237;mite indicado en Tiempo de espera de carga
+de conexi&#243;n. </b><p>Si esta opci&#243;n se encuentra deshabilitada, las conexiones del servlet no agotan
+el tiempo de espera. Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>En el campo Tiempo de espera de cara de conexi&#243;n, introduzca el
+tiempo de carga, en milisegundos.  </b><p>Este campo &#250;nicamente est&#225; disponible si se ha seleccionado  la casilla de
+verificaci&#243;n destinada a deshabilitar el tiempo de carga de espera. El valor
+predeterminado es 300000 milisegundos.</p></li>
+<li><b>En el campo Tiempo de espera de solicitud, introduzca el n&#250;mero de
+segundos que deben transcurrir antes de que se agote el tiempo de
+espera de una solicitud.</b><p>Si la solicitud no se procesa antes de alcanzarse el valor de tiempo
+de espera, se ignorar&#225; la solicitud. El valor predeterminado es 30 segundos.</p></li>
+<li><b>En el campo Tama&#241;o de b&#250;fer de env&#237;o, introduzca el tama&#241;o, en
+bytes, del b&#250;fer de env&#237;o.</b><p>El valor predeterminado es 8192 bytes.</p></li>
+<li><b>En el campo Longitud del b&#250;fer de encabezado, introduzca el tama&#241;o, en
+bytes, del b&#250;fer que utilizan los subprocesos de procesamiento de solicitudes para
+leer los datos de las solicitudes.</b><p>El valor predeterminado es 8192 bytes.</p></li>
+<li><b>En el campo Tama&#241;o m&#225;ximo de publicaci&#243;n, especifique el tama&#241;o m&#225;ximo en
+bytes de las acciones POST. </b><p>El valor predeterminado es 2097152 bytes.</p></li>
+<li><b>En el campo Codificaci&#243;n de URI, escriba el nombre del conjunto de
+caracteres utilizados para descodificar los URI de solicitudes recibidos. </b><p>El valor debe ser un nombre de conjunto de caracteres IANA v&#225;lido.
+El valor predeterminado es UTF-8.</p></li>
+<li><b>En el campo Versi&#243;n, introduzca la versi&#243;n del protocolo HTTP utilizado.</b><p>El valor predeterminado es  HTTP/1.1.</p></li>
+<li><b>En la lista desplegable Compresi&#243;n, seleccione la compresi&#243;n GZIP HTTP/1.1 para ahorrar
+ancho de banda de servidor.</b><p>Las opciones disponibles son:</p><dl><dt><tt>on</tt></dt>
+<dd><p>Comprime datos.</p>
+
+</dd>
+<dt><tt>off</tt></dt>
+<dd><p>Inhabilita la compresi&#243;n.</p>
+
+</dd>
+<dt><tt>force</tt></dt>
+<dd><p>Fuerza la compresi&#243;n de datos en todos los casos.</p>
+
+</dd>
+</dl>
+<p>El valor predeterminado es <tt>off</tt>.</p></li>
+<li><b>En el campo Tipos MIME comprimibles, escriba una lista separada por comas de
+los tipos MIME para los que se utiliza la compresi&#243;n HTTP. </b><p>El valor predeterminado es <tt>text/html,text/xml,text/plain</tt>.</p></li>
+<li><b>En el campo Tama&#241;o m&#237;nimo de compresi&#243;n, escriba el tama&#241;o m&#237;nimo de un
+archivo cuando se le aplica compresi&#243;n. </b><p>Este valor debe configurarse si Compresi&#243;n se establece en <tt>on</tt> o <tt>force</tt>.
+El valor predeterminado es 2048 bytes.</p></li>
+<li><b>En el campo Agentes de usuario sin compresi&#243;n, escriba una lista separada
+por comas de expresiones regulares que coinciden con agentes de usuario de clientes
+HTTP para los que no se debe usar compresi&#243;n.  </b><p>De forma predeterminada, este valor es una cadena vac&#237;a. </p></li>
+<li><b>En el campo Agente de usuario restringido, escriba una lista de agentes
+de usuario restringidos a los que se les aplica compresi&#243;n HTTP. 
+</b><p>Si no se ha especificado ning&#250;n agente de usuario, se aplica la
+compresi&#243;n HTTP a todos los agentes de usuario. De forma predeterminada, no hay
+agentes de usuario especificados. </p></li>
+<li><b>En el campo Tipo de respuesta predeterminada, escriba una cadena que especifique
+el tipo de respuesta predeterminada. </b><p>El formato es una cadena separada por punto y coma que incluye
+el tipo de contenido, la codificaci&#243;n, el idioma y el conjunto de
+caracteres. El valor predeterminado es <tt>text/html; charset=iso-8859-1</tt>.</p></li>
+<li><b>En el campo Tipo de respuesta forzada, escriba una cadena que especifica
+el tipo de solicitud utilizado en caso de que no haya ninguna
+asignaci&#243;n MIME disponible que coincida con la extensi&#243;n del archivo.</b><p>El formato es una cadena separada por punto y coma que incluye
+el tipo de contenido, la codificaci&#243;n, el idioma y el conjunto de
+caracteres. El valor predeterminado es <tt>text/html; charset=iso-8859-1</tt>.</p></li>
+<li><b>En el campo Adaptador, escriba el nombre de clase del adaptador de
+recursos est&#225;tico. </b><p>El valor predeterminado es <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de Comet para habilitar la
+compatibilidad de Comet para la escucha de red que hace referencia a
+este protocolo. </b><p>De forma predeterminada, esta opci&#243;n se encuentra deshabilitada. Si el servlet o
+la p&#225;gina JSP utiliza tecnolog&#237;a Comet, aseg&#250;rese de que se ha inicializado cuando
+se inicia GlassFish Server al a&#241;adir el elemento <tt>load-on-startup</tt> al archivo <tt>web.xml</tt>.
+Por ejemplo:</p><pre>&#60;servlet>
+&#60;servlet-name>CheckIn&#60;/servlet-name>
+&#60;servlet-class>CheckInServlet&#60;/servlet-class>
+&#60;load-on-startup>0&#60;/load-on-startup>
+&#60;/servlet></pre></li>
+<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de b&#250;squeda de DNS para
+habilitar la b&#250;squeda DNS. </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de la compatibilidad RCM para
+habilitar la administraci&#243;n de configuraci&#243;n de recursos (RCM). </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de seguimiento para habilitar la
+operaci&#243;n TRACE. </b><p>Si esta opci&#243;n se encuentra deshabilitada, GlassFish Server es menos susceptible de
+sufrir ataques de secuencias de comandos entre sitios. Esta opci&#243;n se habilita
+por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n del pase de autenticaci&#243;n para
+indicar que la escucha de red que utiliza este protocolo recibe tr&#225;fico
+ desde un servidor proxy con terminaci&#243;n SSL.  </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de la fragmentaci&#243;n para habilitar
+la fragmentaci&#243;n de la respuesta HTTP. </b><p>Esta opci&#243;n se habilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n XPowered By habilitado para indicar a GlassFish
+Server que utilice los encabezados de <tt>X-Powered-By</tt> conforme a las especificaciones de
+Java Servlet 3.0 y Java Server Pages 2.0.</b><p>Esta opci&#243;n se habilita por defecto.</p></li></ol><h6>Pasos siguientes</h6><p>Despu&#233;s de crear un protocolo, puede crear una escucha de red que utilice
+el protocolo. </p>
+
+<h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-networklistenernew.html">C&#243;mo crear una escucha de red</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">C&#243;mo editar la escucha de red</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">C&#243;mo eliminar una escucha de red</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">C&#243;mo editar un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">C&#243;mo editar la configuraci&#243;n SSL para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">C&#243;mo editar la configuraci&#243;n HTTP para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">C&#243;mo editar la cach&#233; de archivos para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">C&#243;mo eliminar un protocolo</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">C&#243;mo crear un transporte</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">C&#243;mo editar un transporte</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">C&#243;mo eliminar un transporte</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

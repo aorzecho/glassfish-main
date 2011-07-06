@@ -1,0 +1,97 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-create-clustered-instance"></a><h4>將 GlassFish Server 實例增加至叢集</h4><a name="indexterm-45"></a><a name="indexterm-46"></a><a name="indexterm-47"></a><p>GlassFish Server 實例構成了應用程式部署的基礎。叢集實例是叢集的成員。每個實例都屬於單一網域，並且具有自己的目錄結構、配置和已部署的應用程式。每個實例也包括 Java Platform Enterprise Edition (Java EE) Web 容器和 Enterprise
+JavaBeans 技術 (EJB 技術) 容器。每個新實例都必須包含節點的參照，節點用於定義實例將位於的主機。</p>
+
+
+<hr><p><b>備註 - </b>若要在類型為 CONFIG 且代表遠端主機的節點上建立實例，您必須使用 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a> 子指令。您無法使用 管理主控台 來達成此目的。</p>
+
+
+<hr>
+<h6>開始之前</h6><p>請確認下列項目存在：</p>
+
+
+<ul><li><p><a href="task-create-cluster.html">您要向其中增加實例的叢集</a></p>
+
+</li>
+<li><p><a href="task-createnode.html">實例要位於的節點</a></p>
+
+</li></ul>
+<ol>
+<li><b>在瀏覽樹狀結構中，展開 [叢集] 節點。</b></li>
+<li><b>在展開的 [叢集] 節點下，選取該叢集的節點。</b><p>此時將開啟叢集的 [一般資訊] 頁面。</p></li>
+<li><b>在 [一般資訊] 頁面上，按一下 [實例] 標籤。 </b><p>此時將開啟該叢集的 [叢集伺服器實例] 頁面。</p></li>
+<li><b>在 [叢集伺服器實例] 頁面中，按一下 [新建]。</b><p>此時將開啟 [新建叢集伺服器實例] 頁面。</p></li>
+<li><b>在 [名稱] 欄位中，鍵入實例的名稱。</b><p>名稱必須符合下列需求：</p>
+<ul><li><p>名稱必須以字母、數字或底線為開頭。</p>
+
+</li>
+<li><p>名稱只能包含下列字元：</p>
+
+
+<ul><li><p>小寫字母</p>
+
+</li>
+<li><p>大寫字母</p>
+
+</li>
+<li><p>數字</p>
+
+</li>
+<li><p>連字符</p>
+
+</li>
+<li><p>小數點號</p>
+
+</li>
+<li><p>底線</p>
+
+</li></ul>
+</li>
+<li><p>名稱在網域中必須是唯一的，且不得為另一個 GlassFish Server 實例、叢集、已命名配置或節點的名稱。</p>
+
+</li>
+<li><p>名稱不得為 <tt>domain</tt>、<tt>server</tt> 或 GlassFish Server 所保留的任何其他關鍵字。</p>
+
+</li></ul>
+</li>
+<li><b>從 [節點] 下拉式清單中，選取實例將位於的節點。</b></li>
+<li><b>按一下 [確定]。</b></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-delete-clustered-instances.html">刪除叢集 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-start-clustered-instances.html">啟動叢集 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-stop-clustered-instances.html">停止叢集 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-view-logs-clustered-instance.html">檢視叢集 GlassFish Server 實例的記錄檔</a></p>
+
+</li>
+<li><p><a href="task-recovertransactions.html">回復叢集 GlassFish Server 實例的作業事件</a></p>
+
+</li>
+<li><p><a href="task-change-clustered-instance-ports.html">修改叢集 GlassFish Server 實例的連接埠號碼</a></p>
+
+</li>
+<li><p><a href="task-set-props-clustered-instance.html">為叢集 GlassFish Server 實例設定僅限實例的特性</a></p>
+
+</li>
+<li><p><a href="task-mon-app-clustered-instance.html">檢視叢集 GlassFish Server 實例的應用程式監視資料</a></p>
+
+</li>
+<li><p><a href="task-mon-server-clustered-instance.html">檢視叢集 GlassFish Server 實例的虛擬伺服器監視資料</a></p>
+
+</li>
+<li><p><a href="task-mon-resource-clustered-instance.html">檢視叢集 GlassFish Server 實例的資源監視資料</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

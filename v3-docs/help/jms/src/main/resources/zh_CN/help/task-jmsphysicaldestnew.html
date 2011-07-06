@@ -1,0 +1,57 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsphysicaldestnew"></a><h4>创建 JMS 物理目的地</h4><a name="indexterm-17"></a><a name="indexterm-18"></a><p>通常无需创建物理目的地，因为在创建 JMS 目的地资源时，您会指定一个物理目的地名称，而 GlassFish Server 会在需要时自动创建物理目的地。</p>
+
+<ol>
+<li><b>在导航树中，展开&#8220;配置&#8221;节点。</b></li>
+<li><b>在&#8220;配置&#8221;节点下，展开&#8220;Java 消息服务&#8221;节点。</b></li>
+<li><b>在&#8220;Java 消息服务&#8221;节点下，选择&#8220;物理目的地&#8221;节点。</b><p>此时将打开&#8220;物理目的地&#8221;页面。</p></li>
+<li><b>在&#8220;物理目的地&#8221;页面中，单击&#8220;新建&#8221;。</b><p>此时将打开&#8220;新建物理目的地&#8221;页面。</p></li>
+<li><b>在&#8220;名称&#8221;字段中，键入物理目的地的名称。</b></li>
+<li><b>从&#8220;类型&#8221;下拉式列表中，选择 <tt>javax.jms.Topic</tt> 或 <tt>javax.jms.Queue</tt>。</b></li>
+<li><b>在&#8220;未使用消息的最大数量&#8221;字段中，键入目的地允许的未使用消息的最大数量。</b><p>如果值为 -1，则表示未使用消息的数量不受限制。默认值为 &#8211;1。</p></li>
+<li><b>在&#8220;最大消息长度&#8221;字段中，键入任一消息的最大长度（以字节为单位）。</b><p>如果值为 -1，则表示消息长度不受限制。默认值为 &#8211;1。</p></li>
+<li><b>在&#8220;最大总内存&#8221;字段中，键入未使用消息的最大总内存（以字节为单位）。</b><p>如果值为 -1，则表示未使用消息的内存大小不受限制。默认值为 &#8211;1。</p></li>
+<li><b>从&#8220;阈值限制行为&#8221;下拉式列表中，选择达到内存限制阈值时，代理将要遵循的行为。</b><ul>
+<li><b><tt>Reject newest messages</tt> 告诉代理拒绝最新消息，并通知生成消息的客户机（消息为持久性消息的情况除外）。</b><p><tt>Reject newest messages</tt> 为默认值。</p></li>
+<li><b><tt>Slow down producers</tt> 告诉代理降低消息生成方发送消息的速率。</b></li>
+<li><b><tt>Throw out oldest</tt> 告诉代理废弃最旧的消息。</b></li>
+<li><b><tt>Throw out lowest-priority messages</tt> 告诉代理废弃优先级最低的消息。</b></li></ul><p>如果该值为 <tt>Throw out oldest</tt> 或 <tt>Throw out lowest-priority messages</tt>，且&#8220;使用停用消息队列&#8221;设置为 True，则将过量的消息移到停用消息队列。</p></li>
+<li><b>在&#8220;生成方最大数量&#8221;字段中，键入可以与此物理目的地关联的消息生成方的最大数量。</b><p>达到此限制后，将无法创建新的生成方。如果值为 -1，则表示生成方数量不受限制。默认值为 100。</p></li>
+<li><b>在&#8220;批量传送最大消息数量&#8221;字段中，键入可以向使用方一次性传送的最大消息数量。</b><p>如果值为 -1，则表示消息数量不受限制。默认值是 1000。</p></li>
+<li><b>从&#8220;使用停用消息队列&#8221;下拉式列表中，选择 "True" 以将停用消息放入停用消息队列。</b><p>如果该值设置为 False，则废弃停用消息。默认情况下，此选项设置为 True。</p></li>
+<li><b>从&#8220;启用验证 XML 模式&#8221;下拉式列表中，选择 "True"，为目的地启用 XML 模式验证。</b><p>如果该值设置为 True，则 Message Queue 客户机运行时在将 XML 消息发送给代理前，会尝试根据指定的 XML 模式定义（如果未指定 XSD，则根据 DTD）验证 XML
+消息。如果无法找到指定的模式或无法验证消息，则不发送消息并抛出异常。默认情况下，此选项设置为 False。</p></li>
+<li><b>在&#8220;XML 模式 URI 列表&#8221;字段中，键入一个以空格分隔的 XML 模式定义 (XML Schema Definition, XSD) URI 字符串列表。</b><p>如果启用 XML 模式验证，则 URI 将指向要用于 XML 模式验证的一个或多个 XSD 的位置。</p></li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-jmsservice.html">配置 JMS 服务</a></p>
+
+</li>
+<li><p><a href="task-jmshostnew.html">创建 JMS 主机</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">编辑 JMS 主机</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">删除 JMS 主机</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestedit.html">编辑 JMS 物理目的地</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestdelete.html">删除 JMS 物理目的地</a></p>
+
+</li>
+<li><p><a href="task-jmsflushmessages.html">从 JMS 物理目的地删除消息</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldeststats.html">查看 JMS 物理目的地的统计信息</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

@@ -1,0 +1,191 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-nodenew"></a><h4>New Node</h4>
+<a name="indexterm-197"></a><p>Nella pagina New Node &#232; possibile creare un nodo di GlassFish Server.
+Un nodo rappresenta un host in cui &#232; installato il software GlassFish
+Server. &#200; necessario un nodo per ogni host in cui si trovano
+istanze di GlassFish Server. </p>
+
+<p>La pagina New Node contiene le seguenti opzioni:</p>
+
+<dl><dt>Name</dt>
+<dd><p>Nome del nodo. </p>
+
+<p>Il nome deve soddisfare i seguenti requisiti:</p>
+
+
+<ul><li><p>Il nome deve iniziare con una lettera, un numero o un carattere di sottolineatura.</p>
+
+</li>
+<li><p>Il nome pu&#242; contenere solo i seguenti caratteri:</p>
+
+
+<ul><li><p>Lettere minuscole</p>
+
+</li>
+<li><p>Lettere maiuscole</p>
+
+</li>
+<li><p>Numeri</p>
+
+</li>
+<li><p>Trattino</p>
+
+</li>
+<li><p>Punto</p>
+
+</li>
+<li><p>Carattere di sottolineatura</p>
+
+</li></ul>
+</li>
+<li><p>Il nome deve essere univoco nel dominio e non deve essere il nome di un altro cluster, di una configurazione denominata, di un'istanza di GlassFish Server o di un nodo.</p>
+
+</li>
+<li><p>Il nome non deve essere <tt>domain</tt>, <tt>server</tt> n&#233; nessun'altra parola chiave riservata per GlassFish Server.</p>
+
+</li></ul>
+</dd>
+<dt>Type</dt>
+<dd><p>Elenco a discesa che consente di specificare il tipo di nodo. Di seguito sono indicati i tipi possibili:</p>
+
+<dl><dt>SSH</dt>
+<dd><p>Il nodo supporta la comunicazione su SSH (Secure Shell).</p>
+
+</dd>
+<dt>CONFIG</dt>
+<dd><p>Il nodo non supporta la comunicazione remota. Se si seleziona CONFIG, non viene visualizzata alcuna opzione per la configurazione SSH e il campo Installation Directory viene cancellato.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Node Host</dt>
+<dd><p>Nome dell'host che il nodo rappresenta. L'obbligatoriet&#224; di tale campo dipende dal tipo del nodo:</p>
+
+
+<ul><li><p>Se il nodo &#232; di tipo CONFIG, &#232; possibile omettere il nome dell'host. Tale nome potr&#224; essere determinato al momento della creazione delle istanze che risiedono nel nodo.</p>
+
+</li>
+<li><p>Se il nodo &#232; di tipo SSH, &#232; necessario specificare il nome dell'host. Altrimenti si verifica un errore.</p>
+
+</li></ul>
+</dd>
+<dt>Node Directory</dt>
+<dd><p>Percorso della directory destinata a contenere le istanze di GlassFish Server create nel nodo. Se viene specificato un percorso relativo, il percorso si riferisce alla directory <i>as-install</i>.</p>
+
+<p>Il valore predefinito dipende dal tipo del nodo:</p>
+
+
+<ul><li><p>Se il nodo &#232; di tipo CONFIG, per il nodo non viene specificata alcuna directory per le istanze nella configurazione del server di amministrazione del dominio (DAS, Domain Administration Server). La directory del nodo potr&#224; essere determinata al momento della creazione delle istanze che risiedono nel nodo.</p>
+
+</li>
+<li><p>Se il nodo &#232; di tipo SSH, il valore predefinito &#232; <tt></tt><i>as-install</i><tt>/nodes</tt>, dove <i>as-install</i> &#232; la directory base di installazione del software GlassFish Server nell'host.</p>
+
+</li></ul>
+</dd>
+<dt>Installation Directory</dt>
+<dd><p>Percorso completo del livello superiore della directory base di installazione del software GlassFish Server nell'host, ad esempio <tt>/export/glassfish3</tt>.</p>
+
+<p>Il valore predefinito dipende dal tipo del nodo:</p>
+
+
+<ul><li><p>Se il nodo &#232; di tipo CONFIG, per il nodo non viene specificata alcuna directory di installazione nella configurazione del DAS. La directory di installazione potr&#224; essere determinata al momento della creazione delle istanze che risiedono nel nodo.</p>
+
+</li>
+<li><p>Se il nodo &#232; di tipo SSH, il valore predefinito &#232; il livello superiore della directory base di installazione predefinita del software GlassFish Server per il DAS. Questo valore predefinito &#232; utile solo se GlassFish Server &#232; installato nello stesso percorso in tutti gli host.</p>
+
+</li></ul>
+</dd>
+<dt>Force</dt>
+<dd><p>Se viene selezionata l'opzione Enabled, il nodo viene creato nella configurazione DAS anche se la convalida dei parametri del nodo non riesce. Per convalidare i parametri di un nodo, il DAS deve poter contattare l'host del nodo tramite SSH. </p>
+
+</dd>
+<dt>SSH Port</dt>
+<dd><p>Porta da utilizzare per le connessione SSH all'host del nodo. Il valore predefinito &#232; 22. Se l'opzione Node Host &#232; impostata su <tt>localhost-<i>domain</i></tt>, l'opzione SSH Port viene ignorata.</p>
+
+</dd>
+<dt>SSH User Name</dt>
+<dd><p>Utente nell'host del nodo che deve eseguire il processo per la connessione all'host tramite SSH. Il valore predefinito &#232; l'utente che esegue il processo DAS. Per garantire che il DAS possa leggere il file della chiave privata SSH di questo utente, specificare l'utente che esegue il processo DAS. Se l'opzione Node Host &#232; impostata su <tt>localhost-<i>domain</i></tt>, l'opzione User Name viene ignorata.</p>
+
+</dd>
+<dt>SSH User Authentication</dt>
+<dd><p>Elenco a discesa che consente di specificare la modalit&#224; di autenticazione dell'utente SSH per il login all'host del nodo. I metodi possibili per l'autenticazione sono i seguenti:</p>
+
+<dl><dt>Key File</dt>
+<dd><p>L'utente SSH viene autenticato tramite un file di chiave privata SSH. Se si seleziona questa opzione, specificare il percorso assoluto del file nel campo Key File.</p>
+
+</dd>
+<dt>Password</dt>
+<dd><p>L'utente SSH viene autenticato tramite una password memorizzata nella configurazione del DAS.</p>
+
+
+<hr><p><b>Avvertenza - </b>La password viene memorizzata come testo non crittografato nella configurazione del DAS. Per una maggiore sicurezza, utilizzare un file di chiave o un alias di password.</p>
+
+
+<hr>
+<p>Se si seleziona questa opzione, vengono attivati i campi SSH Password e Confirm SSH Password per consentire l'immissione della password.</p>
+
+</dd>
+<dt>Password Alias</dt>
+<dd><p>L'utente SSH viene autenticato tramite un alias di password. Se si seleziona questa opzione, selezionare l'alias di password dall'elenco a discesa Password Alias.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>SSH Password</dt>
+<dd><p>Password che l'utente SSH utilizzer&#224; per il login all'host del nodo.</p>
+
+</dd>
+<dt>Confirm SSH Password</dt>
+<dd><p>Conferma della password che l'utente SSH utilizzer&#224; per il login all'host del nodo. Il contenuto di tale campo deve corrispondere esattamente al contenuto del campo SSH Password.</p>
+
+</dd>
+<dt>Password Alias</dt>
+<dd><p>Elenco a discesa di alias di password definiti per il dominio.</p>
+
+</dd>
+<dt>Key File</dt>
+<dd><p>Percorso assoluto del file della chiave privata SSH per l'utente specificato dall'opzione User Name. Questo file viene usato per l'autenticazione al daemon <tt>sshd</tt> nell'host del nodo.</p>
+
+
+<hr><p><b>Nota - </b>GlassFish Server supporta anche l'autenticazione della password tramite la voce <tt>AS_ADMIN_SSHPASSWORD</tt> nel file delle password. Il file delle password &#232; specificato nell'opzione <tt>--paswordfile</tt> dell'utility <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
+
+
+<hr>
+<p>Se il file della chiave privata SSH &#232; protetto da una passphrase, il file delle password deve contenere la voce <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt>.</p>
+
+<p>Il percorso del file della chiave deve essere raggiungibile dal DAS e il file stesso deve essere leggibile per il DAS. </p>
+
+<p>Il valore predefinito &#232; un file di chiave nella directory <tt>.ssh</tt> dell'utente. Se vengono rilevati pi&#249; file di chiave, GlassFish Server utilizza l'ordine di preferenza seguente:</p>
+
+
+<ol><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>identity</tt></p>
+
+</li></ol>
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-createnode.html">Creare un nodo</a></p>
+
+</li></ul>
+<h5>Comandi secondari <tt>asadmin</tt> equivalenti</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-config-1"><tt>create-node-config</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-ssh-1"><tt>create-node-ssh</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

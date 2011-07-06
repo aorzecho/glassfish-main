@@ -1,0 +1,153 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-create-cluster"></a><h4>Cr&#233;er un cluster</h4><a name="indexterm-1"></a><p>Un <b>cluster</b> est une collection nomm&#233;e d&#8217;instances de GlassFish Server qui partagent
+les m&#234;mes applications, ressources et donn&#233;es de configuration.</p>
+
+<p>Un cluster fournit une haute disponibilit&#233; gr&#226;ce &#224; son &#233;volutivit&#233;, &#224; l'&#233;quilibrage
+de charge et &#224; une protection contre les pannes. Lorsqu'une instance ou
+un h&#244;te d'un cluster est en panne, GlassFish Server d&#233;tecte la d&#233;faillance,
+redirige les requ&#234;tes de l'instance en &#233;chec vers d'autres instances du cluster
+et r&#233;tablit l'&#233;tat de la session utilisateur. Dans la mesure o&#249; les
+m&#234;mes applications et ressources se trouvent sur toutes les instances du cluster,
+une instance peut basculer vers n'importe quelle autre instance du cluster.</p>
+
+<p>GlassFish Server vous permet d'administrer toutes les instances d'un cluster comme une
+unit&#233; unique &#224; partir d'un h&#244;te unique, que les instances r&#233;sident sur
+le m&#234;me h&#244;te ou sur des h&#244;tes diff&#233;rents.</p>
+
+<h6>Avant de commencer</h6><p>Si vous avez l'intention d'ajouter des instances GlassFish Server au cluster que
+vous avez cr&#233;&#233;, assurez-vous que les n&#339;uds sur lesquels les instances r&#233;sideront
+existent d&#233;j&#224;.</p>
+
+<ol>
+<li><b>Dans l&#8217;arborescence de navigation, s&#233;lectionnez le n&#339;ud Clusters.</b><p>La page Clusters s&#8217;ouvre.</p></li>
+<li><b>Cliquez sur le bouton Nouveau de la page Clusters. </b><p>La page Nouveau cluster s&#8217;ouvre.</p></li>
+<li><b>Dans le champ Nom du cluster, attribuez un nom au cluster.</b><p>Le nom doit respecter les exigences suivantes&#160;:</p>
+<ul><li><p>Le nom doit commencer par une lettre, un chiffre ou un caract&#232;re de soulignement.</p>
+
+</li>
+<li><p>Le nom ne peut contenir que les caract&#232;res suivants&#160;:</p>
+
+
+<ul><li><p>Lettres minuscules</p>
+
+</li>
+<li><p>Lettres majuscules</p>
+
+</li>
+<li><p>Chiffres</p>
+
+</li>
+<li><p>Trait d'union</p>
+
+</li>
+<li><p>Point</p>
+
+</li>
+<li><p>Caract&#232;re de soulignement</p>
+
+</li></ul>
+</li>
+<li><p>Le nom du n&#339;ud doit &#234;tre unique dans le domaine et ne doit pas &#234;tre le nom d'un autre cluster, d'une configuration nomm&#233;e, d'une instance de GlassFish Server ou d'un n&#339;ud.</p>
+
+</li>
+<li><p>Le nom ne doit pas &#234;tre <tt>domain</tt>, <tt>server</tt> ou tout autre mot-cl&#233; r&#233;serv&#233; par GlassFish Server.</p>
+
+</li></ul>
+</li>
+<li><b>Dans la liste d&#233;roulante Configuration, s&#233;lectionnez la configuration nomm&#233;e que le cluster
+doit utiliser.</b>
+<hr><p><b>Remarque - </b>Si vous s&#233;lectionnez <tt>default-config</tt>, vous devez sp&#233;cifier dans l'&#233;tape suivante que la
+configuration n'est <b>pas</b> partag&#233;e. La configuration <tt>default-config</tt> ne peut pas &#234;tre partag&#233;e.</p>
+
+
+<hr>
+</li>
+<li><b>Indiquez si la configuration que le cluster utilisera est partag&#233;e.</b><ul>
+<li><b>Si la configuration n'est pas partag&#233;e, laissez l'option Cr&#233;er une copie de
+la configuration s&#233;lectionn&#233;e coch&#233;e. </b><p>La configuration s&#233;lectionn&#233;e est copi&#233;e lors de la cr&#233;ation du cluster. Le
+nom <tt><i>cluster-name</i>-config</tt> est affect&#233; &#224; la copie de la configuration, <i>cluster-name</i> &#233;tant
+le nom du cluster que vous cr&#233;ez.</p></li>
+<li><b>Si la configuration est partag&#233;e, s&#233;lectionnez l'option Utiliser la configuration s&#233;lectionn&#233;e comme
+r&#233;f&#233;rence.</b><p>Le cluster utilisera la configuration nomm&#233;e existante indiqu&#233;e.</p></li></ul></li>
+<li>(Facultatif) <b><a name="indexterm-2"></a>Ajoutez les instances GlassFish Server au cluster.</b>
+<hr><p><b>Remarque - </b>Pour cr&#233;er une instance sur un n&#339;ud de type CONFIG repr&#233;sentant un
+h&#244;te distant, vous devez utiliser la sous-commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a>. Vous ne pouvez pas
+utiliser la Console d'administration  &#224; cette fin. </p>
+
+
+<hr>
+<p>Vous pouvez &#233;galement <a href="task-create-clustered-instance.html">ajouter des instances une fois le cluster cr&#233;&#233;</a>.</p><p>Ajoutez chaque instance comme suit&#160;:</p><ol style="list-style-type: lower-alpha">
+<li><b>Dans la zone Instances de serveur &#224; cr&#233;er, cliquez sur Ajouter.</b><p>Une ligne est ajout&#233;e &#224; la table des instances du cluster.</p></li>
+<li><b>Dans le champ Nom d&#8217;instance, entrez un nom d&#8217;instance.</b></li>
+<li><b>Dans le champ Pond&#233;ration, entrez un entier qui repr&#233;sente la pond&#233;ration de
+l'&#233;quilibrage de charge de l&#8217;instance.</b><p>La pond&#233;ration de l'&#233;quilibrage de charge d&#233;termine la proportion de toutes les
+requ&#234;tes pour le cluster que l'instance doit traiter.</p><p>Par exemple, dans un cluster comportant deux instances, vous pouvez exiger une
+instance pour le traitement de l'une des quatre requ&#234;tes, et une autre
+instance pour le traitement des trois requ&#234;tes restantes. Dans ce cas, d&#233;finissez
+la pond&#233;ration de l'instance qui doit traiter une requ&#234;te sur quatre sur
+1 et celle de l'autre sur 3. Si vous pr&#233;f&#233;rez utiliser des
+pourcentages, d&#233;finissez la pond&#233;ration des instances sur 25 et 75, respectivement.</p><p>La pond&#233;ration par d&#233;faut est de 100.</p></li>
+<li><b>&#192; partir de la liste d&#233;roulante N&#339;ud, s&#233;lectionnez le n&#339;ud dans lequel
+l'instance doit r&#233;sider.</b></li></ol></li>
+<li><b>Cliquez sur OK.</b><p>Vous &#234;tes renvoy&#233; &#224; la page Clusters. Le cluster est ajout&#233; au
+tableau des clusters sur la page.</p></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-delete-cluster.html">Supprimer un cluster</a></p>
+
+</li>
+<li><p><a href="task-availabilityservice.html">Configurer les param&#232;tres de disponibilit&#233; pour un cluster</a></p>
+
+</li>
+<li><p><a href="task-start-cluster.html">D&#233;marrer un cluster</a></p>
+
+</li>
+<li><p><a href="task-stop-cluster.html">Arr&#234;ter un cluster</a></p>
+
+</li>
+<li><p><a href="task-modify-cluster-config.html">Modifier la configuration d'un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-deploy.html">D&#233;ployer une application sur un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-list.html">R&#233;pertorier les applications d&#233;ploy&#233;es dans un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-undeploy.html">Annuler le d&#233;ploiement d'applications d'un cluster </a></p>
+
+</li>
+<li><p><a href="task-cluster-app-remove.html">Supprimer des applications d'un cluster </a></p>
+
+</li>
+<li><p><a href="task-cluster-app-edit.html">Modifier une application d&#233;ploy&#233;e dans un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-enable-disable.html">Activer ou d&#233;sactiver une application d&#233;ploy&#233;e dans un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-lb-enable-disable.html">Activer ou d&#233;sactiver l'&#233;quilibrage de charge pour une application d&#233;ploy&#233;e dans un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-create.html">Cr&#233;er une ressource pour un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-display.html">R&#233;pertorier les ressources d'un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-enable-disable.html">Activer ou d&#233;sactiver une ressource &#224; l'&#233;chelle globale</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-edit.html">Modifier une ressource d'un cluster</a></p>
+
+</li>
+<li><p><a href="task-upgrade-components.html">Pour mettre des composants &#224; niveau sans perte de service</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

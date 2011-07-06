@@ -1,0 +1,103 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-networklisteneredit"></a><h4>네트워크 수신기 편집</h4>
+<a name="indexterm-66"></a><p>네트워크 수신기 편집 페이지에서는 기존 네트워크 수신기를 수정할 수 있습니다.</p>
+
+<p>네트워크 수신기를 편집할 때, 연결된 프로토콜에 대한 SSL, HTTP 및 파일 캐시
+탭을 함께 사용하여 편집할 수 있습니다.</p>
+
+<p>네트워크 수신기 편집 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>기본값 로드</dt>
+<dd><p>모든 설정의 기본값을 복원하는 데 사용하는 버튼입니다.</p>
+
+</dd>
+<dt>구성 이름</dt>
+<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+
+</dd>
+<dt>이름</dt>
+<dd><p>고유한 수신기 이름입니다. 이름 필드는 읽기 전용 필드입니다. 새 네트워크 수신기를 만들 때만 이름을 지정할 수 있습니다.</p>
+
+</dd>
+<dt>프로토콜</dt>
+<dd><p>네트워크 수신기에 연관된 프로토콜입니다. 프로토콜 필드는 읽기 전용 필드입니다. 새 네트워크 수신기를 만들 때만 프로토콜을 만들거나 지정할 수 있습니다.</p>
+
+</dd>
+<dt>상태</dt>
+<dd><p>네트워크 수신기의 상태입니다. 수신기는 사용 가능하거나 사용 가능하지 않을 수 있습니다. 이 옵션은 기본적으로 활성화됩니다. 수신기가 비활성화된 상태에서 수신기에 연결하려고 하면 소켓 예외(<tt>java.net.ConnectException</tt>)가 발생합니다.</p>
+
+<p>GlassFish 서버 9.1 이전 버전에서는 활성화된 속성이 false로 설정된 수신기는 해당 수신기로 전송된 모든 요청에 대해 404 응답 코드를 반환했습니다. 현재 GlassFish 서버 버전에서 이 동작을 수행하려면 수신기의 상태를 사용 가능으로 설정하고 연결된 모든 가상 서버의 상태를 OFF로 설정합니다. 가상 서버의 네트워크 수신기 드롭다운 목록에는 해당 가상 서버와 연결된 수신기가 나열됩니다.</p>
+
+</dd>
+<dt>Security</dt>
+<dd><p>이 옵션을 선택하면 네트워크 수신기에서 사용하는 프로토콜에 대해 보안이 활성화됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>JK 수신기</dt>
+<dd><p>이 옵션을 선택하면 수신기에서 Apache의 <tt>mod-jk</tt> 프로토콜을 지원합니다. <tt>mod-jk</tt> 프로토콜은 Apache의 <tt>httpd</tt>(웹 서버)와 GlassFish 서버 백엔드 인스턴스 사이의 소유 통신/네트워크 프로토콜입니다. 수신기에서 이 프로토콜을 지원하는 경우 <tt>httpd</tt>에서 모든 정적 내용을 처리하는 것으로 간주되지만, 동적 자원(즉, 서블릿 및 JSP)에 대한 요청은 <tt>mod-jk</tt> 프로토콜을 통해 GlassFish 서버의 <tt>mod-jk</tt> 사용 네트워크 수신기에 라우팅됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>포트</dt>
+<dd><p>수신기에서 수신할 포트 번호입니다. 유효한 값은 1 - 65535입니다. UNIX 시스템에서 포트 1 - 1024를 수신하는 소켓을 만들려면 수퍼유저 권한이 필요합니다.</p>
+
+</dd>
+<dt>주소</dt>
+<dd><p>네트워크 수신기에서 수신할 IP 주소입니다. 주소는 점으로 된 쌍이거나 IPv6 표기 형식일 수 있습니다. 모든 IP 주소를 수신하려면 <tt>any</tt>(<tt>INADDR_ANY</tt>의 경우)일 수 있습니다. 호스트 이름일 수 있습니다.</p>
+
+</dd>
+<dt>스레드 풀</dt>
+<dd><p>네트워크 수신기에 연관된 스레드 풀입니다.</p>
+
+</dd>
+<dt>전송</dt>
+<dd><p>네트워크 수신기의 전송 유형입니다. 기본적으로 유일한 전송은 <tt>tcp</tt>입니다.</p>
+
+</dd>
+</dl>
+<h5>관련 작업</h5>
+
+<ul><li><p><a href="task-networklistenernew.html">네트워크 수신기를 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">네트워크 수신기를 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">네트워크 수신기를 삭제하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">프로토콜을 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">프로토콜을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">프로토콜에 대한 SSL 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">프로토콜에 대한 HTTP 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">프로토콜에 대한 파일 캐시 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">프로토콜을 삭제하는 방법</a></p>
+
+</li></ul>
+<h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-network-listener-1"><tt>create-network-listener</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-network-listeners-1"><tt>list-network-listeners</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-network-listener-1"><tt>delete-network-listener</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

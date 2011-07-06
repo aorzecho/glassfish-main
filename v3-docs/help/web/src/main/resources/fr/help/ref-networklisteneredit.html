@@ -1,0 +1,105 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-networklisteneredit"></a><h4>&#201;diter le listener r&#233;seau</h4>
+<a name="indexterm-66"></a><p>La page Modification du listener r&#233;seau vous permet de modifier un listener
+r&#233;seau existant.</p>
+
+<p>Lorsque vous modifiez un auditeur de r&#233;seau, les onglets SSL, HTTP et
+Cache de fichiers pour le protocole associ&#233; sont disponibles pour toute modification
+de votre part. </p>
+
+<p>La page Modification du listener r&#233;seau contient les options suivantes&#160;:</p>
+
+<dl><dt>Charger les valeurs par d&#233;faut</dt>
+<dd><p>Bouton permettant de restaurer les valeurs par d&#233;faut de tous les param&#232;tres.</p>
+
+</dd>
+<dt>Nom de configuration</dt>
+<dd><p>Le nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
+
+</dd>
+<dt>Nom</dt>
+<dd><p>Nom de l&#8217;auditeur unique. Le champ Nom est en lecture seule. Vous pouvez uniquement sp&#233;cifier le nom lorsque vous cr&#233;ez un nouvel auditeur de r&#233;seau.</p>
+
+</dd>
+<dt>Protocole</dt>
+<dd><p>Protocole associ&#233; au listener r&#233;seau. Le champ Protocole est un champ en lecture seule. Vous pouvez cr&#233;er ou sp&#233;cifier un protocole uniquement lorsque vous cr&#233;ez un nouvel auditeur de r&#233;seau. </p>
+
+</dd>
+<dt>Statut</dt>
+<dd><p>Statut du listener de r&#233;seau. Le listener peut &#234;tre activ&#233; ou d&#233;sactiv&#233;. Cette option est activ&#233;e par d&#233;faut. Si l&#8217;auditeur est d&#233;sactiv&#233;, toute tentative de connexion &#224; l&#8217;auditeur a pour r&#233;sultat une exception de socket (<tt>java.net.ConnectException</tt>). </p>
+
+<p>Dans les versions ant&#233;rieures &#224; la version 9.1 de GlassFish Server, un auditeur dont l&#8217;attribut activ&#233; a &#233;t&#233; d&#233;fini sur false renvoyait un code de r&#233;ponse 404 pour toute requ&#234;te qui lui &#233;tait envoy&#233;e. Pour atteindre ce comportement dans la version actuelle de GlassFish Server, r&#233;glez le statut de l&#8217;auditeur sur activ&#233; et d&#233;finissez l&#8217;&#233;tat de chaque serveur virtuel associ&#233; sur OFF. Un serveur virtuel r&#233;pertorie ses auditeurs associ&#233;s dans sa liste d&#233;roulante Auditeurs de r&#233;seau.</p>
+
+</dd>
+<dt>S&#233;curit&#233;</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, la s&#233;curit&#233; est activ&#233;e pour le protocole utilis&#233; par l&#8217;auditeur de r&#233;seau. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Listener JK</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, l&#8217;auditeur prend en charge le protocole<tt>mod-jk</tt> d&#8217;Apache. Le protocole <tt>mod-jk</tt> est un protocole communication/r&#233;seau propri&#233;taire entre <tt>httpd</tt> Apache (serveur Web) et une instance d&#8217;arri&#232;re-plan de GlassFish Server. Si l&#8217;auditeur prend en charge ce protocole, <tt>httpd</tt> est suppos&#233; g&#233;rer tout le contenu statique, tandis qu&#8217;une demande de ressources dynamiques (c&#8217;est-&#224;-dire, de servlets et de JSP) est achemin&#233;e vers l&#8217;auditeur r&#233;seau activ&#233; <tt>mod-jk</tt> de GlassFish Server, utilisant le protocole <tt>mod-jk</tt>. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Port</dt>
+<dd><p>Le num&#233;ro de port sur lequel l&#8217;auditeur &#233;coutera. Les valeurs valides sont comprises entre 1 et 65535. Sur un syst&#232;me UNIX, la cr&#233;ation de sockets &#233;coutant sur les ports 1 &#224; 1024 requiert des privil&#232;ges de superutilisateur.</p>
+
+</dd>
+<dt>Adresse</dt>
+<dd><p>Adresse IP sur laquelle le listener r&#233;seau &#233;coute. L&#8217;adresse peut pr&#233;senter une notation IPv6 ou des paires de chiffres s&#233;par&#233;es par des points. Elle peut &#234;tre d&#233;finie sur <tt>any</tt> (pour <tt>INADDR_ANY</tt>) pour &#233;couter sur toutes les adresses IP. Il peut s&#8217;agir d&#8217;un nom d&#8217;h&#244;te. </p>
+
+</dd>
+<dt>Pool de threads</dt>
+<dd><p>Pool de threads associ&#233; au listener r&#233;seau.</p>
+
+</dd>
+<dt>Transport</dt>
+<dd><p>Type de transport pour le listener r&#233;seau. Par d&#233;faut, le seul choix possible est <tt>tcp</tt>. </p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-networklistenernew.html">Cr&#233;ation d'un listener r&#233;seau</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">Modification d'un listener r&#233;seau</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">Suppression d'un listener r&#233;seau</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">Cr&#233;ation d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Modification d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Modifier les param&#232;tres SSL d'un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Modifier les param&#232;tres HTTP pour un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Modifier les param&#232;tres de cache de fichiers pour un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Suppression d'un protocole</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-network-listener-1"><tt>create-network-listener</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-network-listeners-1"><tt>list-network-listeners</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-network-listener-1"><tt>delete-network-listener</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

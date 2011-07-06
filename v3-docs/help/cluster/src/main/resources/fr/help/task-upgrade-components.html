@@ -1,0 +1,120 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-upgrade-components"></a><h4>Pour mettre des composants &#224; niveau sans perte de service</h4><a name="indexterm-41"></a><a name="indexterm-42"></a><a name="indexterm-43"></a><a name="indexterm-44"></a><p>Dans un environnement clusteris&#233;, une mise &#224; niveau progressive red&#233;ploie une application
+avec une perte minimale de service et de sessions. Une session est
+un artefact qui peut &#234;tre r&#233;pliqu&#233;, par exemple&#160;:</p>
+
+
+<ul><li><p><tt>HttpSession</tt></p>
+
+</li>
+<li><p><tt>SingleSignOn</tt></p>
+
+</li>
+<li><p><tt>ServletTimer</tt></p>
+
+</li>
+<li><p><tt>DialogFragment</tt></p>
+
+</li>
+<li><p>Bean de session avec &#233;tat</p>
+
+</li></ul>
+<p>Vous pouvez utiliser l&#8217;&#233;quilibreur de charge et plusieurs clusters pour mettre des
+&#233;l&#233;ments &#224; niveau dans GlassFish Server sans aucune perte de service. Un
+&#233;l&#233;ment peut &#234;tre, par exemple, une machine virtuelle Java, le logiciel GlassFish
+Server ou une application Web.</p>
+
+<p>Une mise &#224; niveau progressive peut avoir lieu &#224; la lumi&#232;re pour
+mod&#233;rer les charges. La proc&#233;dure n&#233;cessite environ 10 &#224; 15&#160;minutes pour chaque
+instance de GlassFish Server.</p>
+
+<p>Les applications doivent &#234;tre compatibles sur l'ensemble de la mise &#224; niveau.
+Elles doivent fonctionner correctement lors de la transition lorsque certaines instances ex&#233;cutent
+l'ancienne version et d'autres ex&#233;cutent la nouvelle. L'ancienne et la nouvelle version
+doivent avoir la m&#234;me forme de classes s&#233;rialisables qui forment les graphes
+d'objet stock&#233;s dans des sessions (par exemple, variables d'instance non transitoire). Si
+la forme de ces classes doit changer, le d&#233;veloppeur d'application doit s'assurer
+qu'un comportement de s&#233;rialisation se produit. Si l'application n'est pas compatible sur
+l'ensemble de la mise &#224; niveau, le cluster doit &#234;tre arr&#234;t&#233; pour
+un red&#233;ploiement complet.</p>
+
+<p>Cette approche n'est pas possible si la mise &#224; niveau de l'application
+implique une modification du sch&#233;ma de base de donn&#233;es de l'application.</p>
+
+
+<hr><p><b>Attention - </b>Pour &#233;viter le risque d'incompatibilit&#233; de version lors du basculement d'une session,
+mettez &#224; niveau toutes les instances d'un cluster en m&#234;me temps. Sinon,
+une session peut basculer vers une instance sur laquelle d'autres versions des
+composants sont en cours d'ex&#233;cution.</p>
+
+
+<hr>
+<p>Ex&#233;cutez cette t&#226;che sur chaque cluster s&#233;par&#233;ment. Un cluster fonctionne comme une
+limite de s&#233;curit&#233; pour le basculement des instances dans le cluster. Les
+sessions dans un cluster ne peuvent jamais basculer sur les sessions dans
+un autre cluster. Ceci &#233;vite le risque d'incompatibilit&#233;.</p>
+
+<ol>
+<li><b><a href="task-stop-cluster.html">Stop the cluster</a>.</b></li>
+<li><b>Mettez le composant de ce cluster &#224; niveau.</b></li>
+<li><b><a href="task-start-cluster.html">Start the cluster</a>.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-create-cluster.html">Cr&#233;er un cluster</a></p>
+
+</li>
+<li><p><a href="task-delete-cluster.html">Supprimer un cluster</a></p>
+
+</li>
+<li><p><a href="task-availabilityservice.html">Configurer les param&#232;tres de disponibilit&#233; pour un cluster</a></p>
+
+</li>
+<li><p><a href="task-start-cluster.html">D&#233;marrer un cluster</a></p>
+
+</li>
+<li><p><a href="task-stop-cluster.html">Arr&#234;ter un cluster</a></p>
+
+</li>
+<li><p><a href="task-modify-cluster-config.html">Modifier la configuration d'un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-deploy.html">D&#233;ployer une application sur un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-list.html">R&#233;pertorier les applications d&#233;ploy&#233;es dans un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-undeploy.html">Annuler le d&#233;ploiement d'applications d'un cluster </a></p>
+
+</li>
+<li><p><a href="task-cluster-app-remove.html">Supprimer des applications d'un cluster </a></p>
+
+</li>
+<li><p><a href="task-cluster-app-edit.html">Modifier une application d&#233;ploy&#233;e dans un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-enable-disable.html">Activer ou d&#233;sactiver une application d&#233;ploy&#233;e dans un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-lb-enable-disable.html">Activer ou d&#233;sactiver l'&#233;quilibrage de charge pour une application d&#233;ploy&#233;e dans un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-create.html">Cr&#233;er une ressource pour un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-display.html">R&#233;pertorier les ressources d'un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-enable-disable.html">Activer ou d&#233;sactiver une ressource &#224; l'&#233;chelle globale</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-edit.html">Modifier une ressource d'un cluster</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

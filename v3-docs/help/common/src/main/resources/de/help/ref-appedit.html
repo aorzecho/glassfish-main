@@ -1,0 +1,106 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-appedit"></a><h4>Anwendung bearbeiten</h4>
+<a name="indexterm-162"></a><p>Auf der Seite Edit Application (Anwendung bearbeiten) k&#246;nnen Sie eine vorhandene Anwendung
+&#228;ndern.</p>
+
+<p>Die Seite "Anwendung bearbeiten" enth&#228;lt einige oder alle der folgenden Optionen, je
+nach Anwendungstyp.</p>
+
+<dl><dt>Name</dt>
+<dd><p>Schreibgesch&#252;tztes Feld mit dem Namen der Anwendung, die Sie bearbeiten.</p>
+
+<p>Der Name kann eine optionale Versionskennung enthalten, die dem Namen folgt und von diesem durch einen Doppelpunkt (<tt>:</tt>) getrennt ist. Weitere Informationen zu Modul- und Anwendungsversionen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Die Anwendung ist aktiviert, wenn das Kontrollk&#228;stchen Enabled (Aktiviert) aktiviert ist. Diese Option ist standardm&#228;&#223;ig aktiviert.</p>
+
+</dd>
+<dt>Context Root (Kontext-Root)</dt>
+<dd><p>Gibt f&#252;r eine Webanwendung den Pfad zu der Anwendung an. Im URL der Webanwendung folgt die Kontext-Root gleich hinter der Portnummer (<tt>http://<i>host</i>:<i> port</i>/<i>context-root</i>/...</tt>). Die Kontext-Root sollte mit einem Schr&#228;gstrich beginnen, wie z. B. <tt>/hallo</tt>.</p>
+
+</dd>
+<dt>Verf&#252;gbarkeit</dt>
+<dd><p>Wenn dieses Kontrollk&#228;stchen aktiviert ist, wird die Hochverf&#252;gbarkeit f&#252;r Websitzungen und f&#252;r die Stateful Session-Bean (SFSB)-Fixpunktroutine und m&#246;glicherweise die Passivierung aktiviert. Ist der Wert auf false (Standardwert) gesetzt, werden alle Websitzungsspeichervorg&#228;nge und SFSB-Fixpunktroutinen f&#252;r die angegebene Anwendung, Webanwendung oder das EJB-Modul deaktiviert. Ist der Wert auf true gesetzt, wird die angegebene Anwendung oder das Modul f&#252;r Hochverf&#252;gbarkeit aktiviert. Setzen Sie diese Option nur dann auf true, wenn die Hochverf&#252;gbarkeit auf einer h&#246;heren Ebene konfiguriert und aktiviert ist, beispielsweise auf Server- und Containerebene.</p>
+
+<p>Diese Option wird angezeigt, wenn neben der standardm&#228;&#223;igen Serverinstanz (<tt>server</tt>) Cluster oder eigenst&#228;ndige Serverinstanzen vorhanden sind.</p>
+
+</dd>
+<dt>Virtual Servers (Virtuelle Server)</dt>
+<dd><p>Die mit dieser Anwendung verbundenen virtuellen Server.</p>
+
+<p>Die Option "Virtuelle Server" wird angezeigt, wenn nur die standardm&#228;&#223;ige Serverinstanz <tt>server</tt> vorhanden ist. Wenn Cluster oder andere eigenst&#228;ndige Serverinstanzen vorhanden sind, k&#246;nnen Sie nach der Bereitstellung virtuelle Server ausw&#228;hlen. W&#228;hlen Sie auf der Seite "Anwendung bearbeiten" die Registerkarte "Ziel" und anschlie&#223;end "Virtuelle Server verwalten" f&#252;r das gew&#252;nschte Ziel.</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>(Betrifft einige Anwendungstypen) Wenn das Kontrollk&#228;stchen "Aktiviert" aktiviert ist, verwendet die Anwendung Java Web Start-Software. Java Web Start bietet eine browser-unabh&#228;ngige M&#246;glichkeit zum Bereitstellen von Java-Anwendungen f&#252;r die Ausf&#252;hrung auf einer dedizierten Java Virtual Machine.</p>
+
+</dd>
+<dt>Beschreibung</dt>
+<dd><p>Eine kurze Beschreibung der Anwendung.</p>
+
+</dd>
+<dt>Location (Ort)</dt>
+<dd><p>Der Speicherort der bereitgestellten Anwendung. Dies ist ein schreibgesch&#252;tztes Feld.</p>
+
+</dd>
+<dt>Libraries (Bibliotheken)</dt>
+<dd><p>Die Bibliotheken (JAR-Dateien), die von der Anwendung ben&#246;tigt werden. Dies ist ein schreibgesch&#252;tztes Feld.</p>
+
+</dd>
+<dt>Module und Komponenten</dt>
+<dd><p>Tabelle mit den Namen der Module der Anwendung und ihren Engines. Bei einem Webdienst-Endpunkt k&#246;nnen Sie "Endpunkt anzeigen" ausw&#228;hlen, um die Seite "Webdienst-Endpunkt-Informationen" anzuzeigen. Bei einem Anwendungsclient k&#246;nnen Sie "Start" ausw&#228;hlen, um die Seite "Anwendungsclients starten" anzuzeigen. </p>
+
+</dd>
+</dl>
+<h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-appedit.html">So bearbeiten Sie eine bereitgestellte Anwendung</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">So zeigen Sie eine Liste eingesetzter Anwendungen an</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">So stellen Sie eine Webanwendung bereit</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">So stellen Sie eine Unternehmensanwendung bereit</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">So stellen Sie einen Anwendungs-Client bereit</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">So stellen Sie ein Verbindungsmodul bereit</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">So stellen Sie ein EJB Jar bereit</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">So zeigen Sie die Beschreibung einer Anwendung an</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">So zeigen Sie Anwendungsziele an</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">So zeigen Sie Endpunkt-Informationen f&#252;r einen Webdienst an</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">So starten Sie eine Anwendung</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">So starten Sie einen Anwendungs-Client</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">Eine bereitgestellte Anwendung erneut bereitstellen</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">So laden Sie eine bereitgestellte Anwendung erneut</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

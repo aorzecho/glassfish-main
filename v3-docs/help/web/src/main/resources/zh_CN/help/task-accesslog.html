@@ -1,0 +1,136 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-accesslog"></a><h4>配置 HTTP 服务</h4><a name="indexterm-16"></a><a name="indexterm-17"></a><ol>
+<li><b>在导航树中，展开&#8220;配置&#8221;节点。</b></li>
+<li><b>在&#8220;配置&#8221;节点下，选择&#8220;HTTP 服务&#8221;节点。</b><p>此时将打开&#8220;HTTP 服务&#8221;页面。</p></li>
+<li><b>选中&#8220;启用 SSO&#8221;复选框，可以在默认情况下，为此服务器上针对同一领域配置的所有虚拟服务器上的所有 Web 应用程序启用单点登录。</b><p>您可以覆盖单台虚拟服务器的此项设置。默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;启用访问日志记录&#8221;复选框，以对所有未指定此属性的虚拟服务器子元素启用访问日志记录。 </b><p>如果取消选中&#8220;启用访问日志记录&#8221;复选框，则对所有未指定此属性的虚拟服务器子元素禁用访问日志记录。默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;启用轮转&#8221;复选框，以启用日志文件轮转。</b><p>默认情况下启用此选项。</p></li>
+<li><b>从&#8220;轮转策略&#8221;下拉式列表中，选择一种轮转策略。</b><p>唯一可用的轮转策略是 <tt>time</tt>。</p></li>
+<li><b>在&#8220;轮转时间间隔&#8221;字段中，键入访问日志的轮转间隔的分钟数。 </b><p>仅当轮转策略为 <tt>time</tt> 时，此字段才有效。默认值为 1,440 分钟（24 小时）。</p></li>
+<li><b>在&#8220;轮转后缀&#8221;字段中，键入要在轮转后添加到日志文件名末尾的字符串值。</b><p>默认值为 <tt>yyyy-MM-dd</tt>。</p><p>确保轮转后缀包含足够的值来为每个日志轮转创建一个唯一的后缀。例如，如果访问日志每天轮转多次，请在轮转后缀中包括轮转的时刻。</p><p>需要一个唯一的后缀确保访问日志文件在每经过一个轮转时间间隔后都进行轮转。如果新访问日志文件的轮转后缀与现有访问日志文件的轮转后缀相同，则新文件将不轮转。</p></li>
+<li><b>在&#8220;最大文件数&#8221;字段中，键入要保留的轮转访问日志文件的最大数目。</b><p>负值表示文件数不受限制。默认值为 &#8211;1。</p></li>
+<li><b>在&#8220;缓冲区大小&#8221;字段中，键入访问日志缓冲区的大小（以字节为单位）。</b><p>如果值小于或等于 0，则将禁用访问日志缓冲。默认值为 32768。</p></li>
+<li><b>在&#8220;写入间隔&#8221;字段中，键入在将日志写入磁盘之前经过的秒数。</b><p>缓冲区已满或超过时间间隔时写入访问日志。如果该值小于或等于 0，则系统始终会将数据写入缓冲区，即使缓冲区未满也是如此。这意味着每次访问服务器时都将日志消息直接存储到该文件中。默认值为 300。</p></li>
+<li><b>在&#8220;格式&#8221;字段中，键入用于指定访问日志的以下属性的字符串值：</b>
+<ul><li><p>要在访问日志中捕获的信息</p>
+
+</li>
+<li><p>信息捕获的顺序</p>
+
+</li></ul>
+<p>默认值如下：</p><pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>以下值可以包含在格式字符串中：</p><dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
+<dd><p>记录具有给定 <i>name</i> 的请求属性的值（通过调用其 <tt>toString</tt> 方法）</p>
+
+</dd>
+<dt><tt>%auth-user-name%</tt></dt>
+<dd><p>授权用户的名字</p>
+
+</dd>
+<dt><tt>%client.name%</tt></dt>
+<dd><p>客户机主机名</p>
+
+</dd>
+<dt><tt>%client.dns%</tt></dt>
+<dd><p>客户机 DNS</p>
+
+</dd>
+<dt><tt>%cookie.<i>name</i>%</tt></dt>
+<dd><p>具有给定 <i>name</i> 的请求 cookie 的值</p>
+
+</dd>
+<dt><tt>%cookie.value%</tt></dt>
+<dd><p>在请求中找到的第一个 cookie 的值</p>
+
+</dd>
+<dt><tt>%datetime%</tt></dt>
+<dd><p>系统日期</p>
+
+</dd>
+<dt><tt>%request%</tt></dt>
+<dd><p>完整 HTTP 请求行</p>
+
+</dd>
+<dt><tt>%status%</tt></dt>
+<dd><p>状态</p>
+
+</dd>
+<dt><tt>%response.length%</tt></dt>
+<dd><p>响应内容长度</p>
+
+</dd>
+<dt><tt>%header.referer%</tt></dt>
+<dd><p>Referer 标头</p>
+
+</dd>
+<dt><tt>%header.user-agent%</tt></dt>
+<dd><p>User-Agent 标头</p>
+
+</dd>
+<dt><tt>%http-method%</tt></dt>
+<dd><p>HTTP 方法</p>
+
+</dd>
+<dt><tt>%http-uri%</tt></dt>
+<dd><p>HTTP URI</p>
+
+</dd>
+<dt><tt>%query-str%</tt></dt>
+<dd><p>HTTP 查询字符串</p>
+
+</dd>
+<dt><tt>%http-version%</tt></dt>
+<dd><p>HTTP 协议版本</p>
+
+</dd>
+<dt><tt>%header.accept%</tt></dt>
+<dd><p>Accept 标头</p>
+
+</dd>
+<dt><tt>%header.date%</tt></dt>
+<dd><p>Date 标头</p>
+
+</dd>
+<dt><tt>%header.if-mod-since%</tt></dt>
+<dd><p>If-Modified-Since 标头</p>
+
+</dd>
+<dt><tt>%header.auth%</tt></dt>
+<dd><p>Authorization 标头</p>
+
+</dd>
+<dt><tt>%header.<i>any</i>%</tt></dt>
+<dd><p>按照 RFC 2616 定义的任何有效 HTTP 标头值（<tt>any</tt> 也是有效的标头值；此处将其指定为变量）</p>
+
+</dd>
+<dt><tt>%session.<i>name</i>%</tt></dt>
+<dd><p>具有名称 <i>name</i> 的会话属性的值；如果命名属性在会话中不存在，则为 <tt>NULL-SESSION-ATTRIBUTE-<i>name</i></tt>；如果没有会话存在，则为 <tt>NULL-SESSION</tt></p>
+
+</dd>
+<dt><tt>%time-taken%</tt></dt>
+<dd><p>处理每个请求所用的时间（以毫秒为单位）</p>
+
+</dd>
+<dt><tt>%vs.id%</tt></dt>
+<dd><p>虚拟服务器 ID</p>
+
+</dd>
+</dl>
+</li>
+<li>（可选的）<b>在&#8220;其他属性&#8221;部分中，指定其他属性。</b><p>有关可用属性的说明，请参见<a href="ref-httpserviceprops.html">特定于 HTTP 服务的属性</a>。</p><ul>
+<li><b>要添加属性，请单击&#8220;添加属性&#8221;按钮。在显示的空白行中，在&#8220;名称&#8221;字段中键入属性名称，在&#8220;值&#8221;字段中键入属性值。</b></li>
+<li><b>要修改属性，请编辑该属性的&#8220;值&#8221;字段。</b></li>
+<li><b>要删除属性，请选中位于您要删除属性的&#8220;名称&#8221;字段左边的复选框，然后单击&#8220;删除属性&#8221;按钮。</b></li></ul></li>
+<li><b>单击&#8220;保存&#8221;。</b>
+<hr><p><b>提示 - </b>要返回到默认设置，请单击&#8220;装入默认值&#8221;按钮，然后单击&#8220;保存&#8221;。</p>
+
+
+<hr>
+</li></ol>
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

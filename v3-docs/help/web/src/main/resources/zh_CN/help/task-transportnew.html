@@ -1,0 +1,63 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-transportnew"></a><h4>创建传输</h4><a name="indexterm-33"></a><ol>
+<li><b>在导航树中，展开&#8220;配置&#8221;节点。</b></li>
+<li><b>在&#8220;配置&#8221;节点下，展开&#8220;网络配置&#8221;节点。</b></li>
+<li><b>在&#8220;网络配置&#8221;节点下，选择&#8220;传输&#8221;节点。</b><p>此时将打开&#8220;传输&#8221;页面。</p></li>
+<li><b>在&#8220;传输&#8221;页面上，单击&#8220;新建&#8221;。</b><p>此时将打开&#8220;新建传输&#8221;页面。</p></li>
+<li><b>在&#8220;名称&#8221;字段中，键入传输的唯一名称。</b></li>
+<li><b>在&#8220;类名&#8221;字段中，键入传输实现的类名。</b><p>默认值为 <tt>com.sun.grizzly.TCPSelectorHandler</tt>。</p></li>
+<li><b>在&#8220;选择键处理程序&#8221;字段中，键入选择键处理程序的类名。</b><p>选择键处理程序是一个管理选择键的生命周期的抽象类。如果不指定值，则将使用默认实现。</p></li>
+<li><b>从&#8220;字节缓冲区类型&#8221;下拉式列表中，选择要使用的 <tt>ByteBuffer</tt> 的类型。</b><p>可用选项为 <tt>HEAP</tt> 和 <tt>DIRECT</tt>。默认值为 <tt>HEAP</tt>。</p></li>
+<li><b>在&#8220;接收方线程&#8221;字段中，键入计算机中的处理器数。</b><p>如果值为 -1，则表示 Grizzly 将根据计算机中的处理器数，自行计算接收方线程数。默认值为 1。</p><p>要设置请求处理线程的数量，请设置使用此传输的网络侦听器所用线程池的&#8220;最大线程池大小&#8221;值。</p></li>
+<li><b>在&#8220;最大连接数&#8221;字段中，键入使用此传输的网络侦听器上的最大暂挂连接数。</b><p>默认值为 4096。</p></li>
+<li><b>在&#8220;缓冲区大小&#8221;字段中，键入提供给使用此传输的网络侦听器创建的输入流的缓冲区的大小（以字节为单位）。</b><p>默认值为 8192。</p></li>
+<li><b>在&#8220;空闲键超时&#8221;字段中，键入空闲键被取消且通道被关闭之前经过的秒数。</b><p>默认值为 30。</p></li>
+<li><b>在&#8220;读取超时&#8221;字段中，键入在读取操作的标头和正文解析阶段中，GlassFish Server 等待的毫秒数。</b><p>默认值为 30,000。</p></li>
+<li><b>在&#8220;选择器轮询超时&#8221;字段中，键入 NIO 选择器将阻止等待事件（用户请求）的毫秒数。</b><p>默认值是 1000。</p></li>
+<li><b>在&#8220;写入超时&#8221;字段中，键入在写入响应时，GlassFish Server 认为远程客户机已断开之前等待的毫秒数。</b><p>默认值为 30,000。</p></li>
+<li><b>选中&#8220;启用显示配置&#8221;复选框，以将 Grizzly 的内部配置写入到服务器日志中。</b><p>此选项可为调试提供有用的信息。默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;启用探测&#8221;复选框，以将请求/响应信息转储到服务器日志中。</b><p>此选项可为调试提供有用的信息，但会明显降低性能。默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;TCP 无延迟&#8221;复选框，以启用 TCP_NODELAY（也称为 Nagle 算法）。</b><p>默认情况下启用此选项。</p></li>
+<li><b>单击&#8220;确定&#8221;。</b></li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-networklistenernew.html">创建网络侦听器</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">编辑网络侦听器</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">删除网络侦听器</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">创建协议</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">编辑协议</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">编辑协议的 SSL 设置</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">编辑协议的 HTTP 设置</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">编辑协议的文件高速缓存设置</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">删除协议</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">编辑传输</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">删除传输</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

@@ -1,0 +1,64 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-gmscluster"></a><h4>So konfigurieren Sie GMS-Einstellungen f&#252;r einen Cluster</h4><a name="indexterm-152"></a><p>Der Gruppenverwaltungsdienst (GMS, Group Management Service) ist ein prozessinterner Dienst, der Dienste
+f&#252;r Cluster&#252;berwachung, Clustermitgliedschaft und Gruppenkommunikation bereitstellt. Der GMS f&#252;hrt folgende Funktionen aus:</p>
+
+
+<ul><li><p>Benachrichtigt registrierte Module in einer GlassFish-Server-Instanz, wenn mindestens eine Mitgliedsinstanz zum Cluster hinzugef&#252;gt bzw. aus dem Cluster entfernt wurde oder bei denen Fehler vermutet bzw. best&#228;tigt wurden.</p>
+
+</li>
+<li><p>Erm&#246;glicht das Senden und Erhalten von Meldungen zwischen einer Gruppe von Prozessen.</p>
+
+</li></ul>
+<ol>
+<li><b>Erweitern Sie in der Navigationsstruktur den Knoten "Cluster".</b></li>
+<li><b>W&#228;hlen Sie den Cluster, f&#252;r den Sie Einstellungen f&#252;r den Gruppenverwaltungsdienst (GMS,
+Group Management Service) konfigurieren m&#246;chten.</b><p>Die Seite "Allgemeine Informationen" f&#252;r den Cluster wird ge&#246;ffnet.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Aktiviert" f&#252;r den GMS, um den GMS f&#252;r
+den Cluster zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert. Um den GMS f&#252;r den Cluster zu
+deaktivieren, deaktivieren Sie das Kontrollk&#228;stchen "Aktiviert" f&#252;r den GMS.</p><p>Wenn diese Option aktiviert ist, wird der Gruppenverwaltungsdienst (GMS, Group Management Service)
+in jeder Serverinstanz im Cluster und im Dom&#228;nenadministrationsserver (DAS, Domain Administration Server)
+gestartet. Der DAS ist an jedem Cluster beteiligt, f&#252;r den GMS aktiviert
+ist.</p></li>
+<li><b>Geben Sie im Feld "Multicast-Anschluss" den Port ein, den der Gruppenverwaltungsdienst zum
+&#220;berwachen der Gruppenereignisse verwendet.</b><p>Geben Sie eine standardm&#228;&#223;ige UDP-Portnummer im Bereich 2048&#8211;32000 an. Der Standardwert wird
+automatisch in diesem Bereich generiert.</p></li>
+<li><b>Geben Sie im Feld "Multicast-Adresse" die Adresse ein, die der Gruppenverwaltungsdienst zum
+&#220;berwachen der Gruppenereignisse verwendet.</b><p>Geben Sie eine IP-Multicast-Adresse der Klasse D an. IP-Adressen der Klasse D
+liegen im Bereich von <tt>224.0.0.0</tt> bis einschlie&#223;lich <tt>239.255.255.255</tt>. Die Adresse <tt>224.0.0.0</tt> ist
+reserviert und sollte nicht verwendet werden. Der Standardwert ist 228.9.<i>XX</i>.<i> YY</i>. Dabei stehen
+<i>XX</i> und <i>YY </i> f&#252;r automatisch generierte unabh&#228;ngige Werte zwischen 0 und 255.</p></li>
+<li><b>Geben Sie im Feld "Schnittstellenadresse binden" die Netzwerkschnittstellenadresse f&#252;r den Gruppenverwaltungsdienst (GMS,
+Group Management Service) ein, wenn mehrere Netzwerkschnittstellen vorhanden sind.</b><p>Durch diese Einstellung k&#246;nnen Sie festlegen, welche Netzwerkschnittstelle f&#252;r den GMS verwendet
+wird, wenn mehrere Netzwerkschnittstellen auf den Rechnern vorhanden sind, auf denen die
+Serverinstanzen im Cluster gehostet werden. Bei diesem Wert muss die IP-Adresse einer
+lokalen Netzwerkschnittstelle angegeben werden. Standardm&#228;&#223;ig werden alle &#246;ffentlichen Netzwerkschnittstellenadressen verwendet.</p><p>Um eine Adresse anzugeben, die f&#252;r alle GlassFish-Server-Instanzen im Cluster g&#252;ltig ist,
+verwenden Sie eine Systemeigenschaft, mit der die Adresse einzeln f&#252;r jede Instanz
+festgelegt werden kann.</p><p>Erstellen Sie beispielsweise die Systemeigenschaft <tt>GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i></tt> auf dem DAS. Geben Sie anschlie&#223;end
+f&#252;r die Option "Schnittstellenadresse binden" den Wert <tt>${GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i>}</tt> an, um die Systemeigenschaft
+festzulegen. Setzen Sie abschlie&#223;end f&#252;r jede Instanz im Cluster die Systemeigenschaft <tt>GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i></tt>
+auf die erforderliche Netzwerkschnittstellenadresse im Rechner der Instanz.</p></li>
+<li>(Optional) <b>Um weitere Eigenschaften anzugeben, w&#228;hlen Sie auf der Registerkarte "Eigenschaften" die untergeordnete
+Registerkarte "Clustereigenschaften".</b><p>GlassFish-Server definiert keine weiteren Eigenschaften f&#252;r den GMS.</p><ul>
+<li><b>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
+Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
+"Name" und den Eigenschaftswert in das Feld "Wert" ein.</b></li>
+<li><b>Um eine Eigenschaft zu &#228;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</b></li>
+<li><b>Um eine Eigenschaft zu l&#246;schen, aktivieren Sie das Kontrollk&#228;stchen links neben dem
+Feld "Name" der zu l&#246;schenden Eigenschaft und klicken Sie anschlie&#223;end auf die
+Schaltfl&#228;che "Eigenschaften l&#246;schen".</b></li></ul></li>
+<li><b>Klicken Sie auf "Speichern".</b></li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="task-gmsenable.html">So aktivieren Sie den Gruppenverwaltungsdienst</a></p>
+
+</li>
+<li><p><a href="task-gms.html">So konfigurieren Sie den Gruppenverwaltungsdienst</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

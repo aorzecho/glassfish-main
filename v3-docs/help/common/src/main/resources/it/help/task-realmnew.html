@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-realmnew"></a><h4>Creare un settore</h4><a name="indexterm-81"></a><a name="indexterm-82"></a><p>GlassFish Server &#232; preconfigurato con tre settori: <tt>file</tt>, <tt> certificate</tt> e <tt>admin-realm</tt>. &#200;
+inoltre possibile creare settori <tt>ldap</tt>, <tt>JDBC</tt>, <tt>solaris</tt>, <tt>PAM</tt> e personalizzati. In genere
+in un server &#232; disponibile un settore di ciascun tipo. Tuttavia in
+GlassFish Server sono presenti due settori di file: <tt>file</tt> e <tt> admin-realm</tt>. Si
+tratta di due settori dello stesso tipo utilizzati per due scopi differenti.
+&#200; inoltre possibile disporre di un database dei certificati distinto per ciascun
+server virtuale del sistema.</p>
+
+<ol>
+<li><b>Nel nodo Configurations, espandere la configurazione dell'istanza server o del cluster per
+cui si desidera configurare i settori.</b></li>
+<li><b>Espandere il nodo Security.</b></li>
+<li><b>Espandere il nodo Realms.</b><p>Viene visualizzata la pagina Realms.</p></li>
+<li><b>Nella pagina Realms fare clic su New.</b><p>Viene visualizzata la pagina New Realm.</p></li>
+<li><b>Nel campo Name, digitare un nome per il settore.</b></li>
+<li><b>Per specificare il nome della classe per il settore, attenersi a una
+delle seguenti procedure:</b><ul>
+<li><b>Dall'elenco a discesa Nome classe, selezionare il nome della classe per il
+settore da creare.</b><p>Nella tabella seguente sono riportate le opzioni valide.</p><table><col width="16%"><col width="83%"><tr><th align="left" valign="top" scope="column"><p>Nome Realm </p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Nome classe</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>file</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.file.FileRealm</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>certificate</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.certificate.CertificateRealm </tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>ldap</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.ldap.LDAPRealm</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>JDBC</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>solaris</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.solaris.SolarisRealm</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>PAM</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.solaris.PamRealm</tt></p>
+
+</td>
+</tr>
+</table></li>
+<li><b>Selezionare il pulsante di scelta inferiore e digitare il nome della classe
+per il settore personalizzato da creare.</b></li></ul></li>
+<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
+vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
+valore della propriet&#224; nel campo Value.</p><p>Le propriet&#224; valide variano in base al tipo di settore.</p>
+<ul><li><p><a href="ref-editfile-adminrealm.html">Propriet&#224; specifiche della classe <tt> FileRealm</tt></a></p>
+
+</li>
+<li><p><a href="ref-editcertrealm.html">Propriet&#224; specifiche della classe <tt>CertificateRealm </tt></a></p>
+
+</li>
+<li><p><a href="ref-editjdbcrealm.html">Propriet&#224; specifiche della classe <tt>JDBCRealm </tt></a></p>
+
+</li>
+<li><p><a href="ref-ldaprealmprop.html">Propriet&#224; specifiche della classe <tt>LDAPRealm </tt></a></p>
+
+</li>
+<li><p><a href="ref-solarisrealmprop.html">Propriet&#224; specifiche della classe <tt>SolarisRealm </tt></a></p>
+
+</li>
+<li><p><a href="ref-pamrealmprop.html">Propriet&#224; specifiche della classe <tt>PamRealm </tt></a></p>
+
+</li></ul>
+</li>
+<li><b>Fare clic su OK.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-realmedit.html">Modificare un settore</a></p>
+
+</li>
+<li><p><a href="task-todeleterealm.html">Eliminare un settore</a></p>
+
+</li>
+<li><p><a href="task-createcustomrealm.html">Creare un settore personalizzato</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

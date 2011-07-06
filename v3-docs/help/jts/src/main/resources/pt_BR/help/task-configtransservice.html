@@ -1,0 +1,67 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-configtransservice"></a><h4>Para configurar o servi&#231;o de transa&#231;&#227;o</h4><a name="indexterm-1"></a><ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
+<li><b>Selecione a inst&#226;ncia que ser&#225; configurada:</b><ul>
+<li><b>Para configurar uma determinada inst&#226;ncia, selecione o n&#243; de configura&#231;&#227;o da inst&#226;ncia.
+Por exemplo, na inst&#226;ncia padr&#227;o, <tt>server</tt>, selecione o n&#243; <tt>server-config</tt>.</b></li>
+<li><b>Para definir as configura&#231;&#245;es padr&#227;o de todas as inst&#226;ncias, selecione o n&#243;
+<tt>default-config</tt>.</b></li></ul></li>
+<li><b>Selecione o n&#243; Servi&#231;o de transa&#231;&#227;o.</b><p>A p&#225;gina Servi&#231;o de transa&#231;&#227;o &#233; aberta.</p></li>
+<li><b>Na p&#225;gina Servi&#231;o de transa&#231;&#227;o, marque a caixa de sele&#231;&#227;o Habilitado ao
+reiniciar para ativar a recupera&#231;&#227;o de transa&#231;&#245;es incompletas quando o servidor &#233;
+reiniciado.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>No campo Tempo limite de transa&#231;&#227;o, digite o n&#250;mero de segundos que
+o servidor aguarda antes de reverter uma transa&#231;&#227;o que n&#227;o foi conclu&#237;da.</b><p>Um valor de 0 desativa os tempo limite da transa&#231;&#227;o. O valor
+padr&#227;o &#233; 0, significando que o servidor aguarda indefinidamente que uma transa&#231;&#227;o
+seja conclu&#237;da.</p></li>
+<li><b>No campo Tempo limite de tentativa, digite o n&#250;mero de segundos que
+o Servidor GlassFish tenta se conectar a um servidor inacess&#237;vel.</b><p>O valor padr&#227;o &#233; 600 (10 minutos).</p></li>
+<li><b>No campo Local do log de transa&#231;&#227;o, digite o diret&#243;rio em que
+os logs do servidor s&#227;o mantidos.</b><p>Os logs de transa&#231;&#227;o s&#227;o mantidos no subdiret&#243;rio <tt>tx</tt> do diret&#243;rio especificado
+neste campo. O valor padr&#227;o &#233; o diret&#243;rio especificado pelo campo Raiz
+de log da p&#225;gina Atributos do dom&#237;nio, que est&#225; localizado na guia
+Avan&#231;ado do n&#243; do Servidor GlassFish.</p></li>
+<li><b>Na lista suspensa Decis&#227;o heur&#237;stica, selecione a diretriz a ser seguida se
+o resultado de uma transa&#231;&#227;o distribu&#237;da n&#227;o puder ser determinado pelo fato
+de outros participantes estarem inacess&#237;veis.</b><p>A menos que haja um bom motivo para selecionar Confirmar, deixe a
+Decis&#227;o heur&#237;stica definida como Revers&#227;o (o padr&#227;o). A confirma&#231;&#227;o de transa&#231;&#245;es indeterminadas
+pode comprometer a integridade dos dados do aplicativo.</p></li>
+<li><b>No campo Intervalo de ponto-chave, digite o n&#250;mero de transa&#231;&#245;es entre as
+opera&#231;&#245;es de ponto-chave.</b><p>As opera&#231;&#245;es de ponto-chave compactam o arquivo de log da transa&#231;&#227;o. O
+valor padr&#227;o &#233; 65536.</p></li>
+<li>(Opcional) <b>Na se&#231;&#227;o Propriedades adicionais, especifique essas propriedades.</b><p>Para obter uma descri&#231;&#227;o das propriedades dispon&#237;veis, consulte <a href="ref-transactionsvcproperties.html">Propriedades espec&#237;ficas do servi&#231;o de transa&#231;&#227;o</a>.</p><ul>
+<li><b>Para adicionar uma propriedade, clique no bot&#227;o Adicionar propriedade. Na linha em
+brando que &#233; exibida, digite o nome da propriedade no campo Nome
+e digite o valor da propriedade no campo Valor.</b></li>
+<li><b>Para modificar uma propriedade, edite o campo Valor da propriedade.</b></li>
+<li><b>Para excluir uma propriedade, marque a caixa de sele&#231;&#227;o &#224; esquerda do
+campo Nome da propriedade a ser exclu&#237;da. Clique no bot&#227;o Excluir propriedades.</b></li></ul></li>
+<li><b>Clique em Salvar.</b>
+<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar padr&#245;es e depois
+em Salvar. </p>
+
+
+<hr>
+</li>
+<li><b>Reinicie o Servidor GlassFish.</b></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-configtransrecovery.html">Para configurar como o Servidor GlassFish deve recuperar transa&#231;&#245;es</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">Para definir um valor de tempo limite de transa&#231;&#227;o</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">Para definir o local dos logs da transa&#231;&#227;o</a></p>
+
+</li>
+<li><p><a href="task-setkeyptinterval.html">Para definir o intervalo do ponto-chave</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

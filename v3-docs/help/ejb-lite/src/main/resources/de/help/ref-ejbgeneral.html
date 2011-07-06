@@ -1,0 +1,116 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ejbgeneral"></a><h4>Enterprise Java Beans (EJB)</h4>
+<a name="indexterm-3"></a><a name="indexterm-4"></a><p>Auf der Seite "Enterprise Java Beans (EJB)" k&#246;nnen Sie Einstellungen f&#252;r den
+EJB-Container konfigurieren.</p>
+
+<p>Neben den allgemeinen Einstellungen f&#252;r Enterprise-Beans k&#246;nnen Sie Pool- und Cache-Einstellungen festlegen.</p>
+
+
+<ul><li><p>Pooleinstellungen gelten nur f&#252;r Session-Beans ohne Status. Standardm&#228;&#223;ig verwaltet der Container einen Pool von Enterprise-Beans, um auf Clientanforderungen reagieren zu k&#246;nnen, ohne dass die bei der Bean-Erstellung entstehenden Leistungseinbu&#223;en auftreten. </p>
+
+<p>Falls es in einer Anwendung, die bereitgestellte Enterprise-Beans nutzt, zu Problemen mit der Leistung kommt, k&#246;nnen Sie die Leistung der Anwendung verbessern, indem Sie einen Pool erstellen oder die Anzahl der in einem vorhandenen Pool verwalteten Beans erh&#246;hen.</p>
+
+</li>
+<li><p>Cache-Einstellungen gelten nur f&#252;r Session-Beans mit Status. Der Container verwaltet einen Zwischenspeicher mit Enterprise-Bean-Daten f&#252;r die am h&#228;ufigsten verwendeten Enterprise-Beans. So kann der Container schneller reagieren, wenn andere Anwendungsmodule Daten von den Enterprise-Beans anfordern.</p>
+
+<p>Zwischengespeicherte Enterprise-Beans k&#246;nnen einen von drei Status aufweisen: aktiv, im Leerlauf und passiviert. Auf eine aktive Enterprise-Bean wird aktuell von Clients zugegriffen. Die Daten einer Enterprise-Bean im Leerlauf befinden sich aktuell im Zwischenspeicher, es greifen jedoch keine Clients auf die Bean zu. Die Daten einer passivierten Bean sind tempor&#228;r gespeichert und werden in den Zwischenspeicher zur&#252;ckgelesen, wenn ein Client die Bean anfordert.</p>
+
+</li></ul>
+<p>Die Seite "Enterprise Java Beans (EJB)" enth&#228;lt die folgenden Optionen.</p>
+
+<dl><dt>Standardeinstellungen laden</dt>
+<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r alle Einstellungen.</p>
+
+</dd>
+<dt>Konfigurationsname</dt>
+<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
+
+</dd>
+<dt>Sitzungsspeicherort</dt>
+<dd><p>Das Verzeichnis, in dem passivierte Session-Beans mit Status und fortdauernde HTTP-Sitzungen im Dateisystem gespeichert werden. Der Standardwert lautet <tt>${com.sun.aas.instanceRoot}/session-store</tt>.</p>
+
+<p>Passivierte Beans sind Session-Beans mit Status, deren Status in eine Datei auf dem Dateisystem geschrieben wurde. Passivierte Beans befinden sich typischerweise f&#252;r eine bestimmte Zeitspanne im Leerlauf und es wird nicht durch einen Client auf sie zugegriffen. &#196;hnlich sind fortdauernde HTTP-Sitzungen individuelle Websitzungen, deren Status in eine Datei auf dem Dateisystem geschrieben wurde.</p>
+
+</dd>
+<dt>Durchf&#252;hrungsoption</dt>
+<dd><p>Gibt an, wie der Container passivierte Bean-Instanzen zwischen Transaktionen zwischenspeichert. Wenn Sie "Option B" (Standardeinstellung) w&#228;hlen, speichert der Container eine bereite Instanz zwischen Transaktionen zwischen. Wenn Sie "Option C" w&#228;hlen, wird vom Container keine bereite Instanz zwischen Transaktionen zwischengespeichert.</p>
+
+</dd>
+<dt>Initial and Minimum Pool Size (Urspr&#252;ngliche und minimale Poolgr&#246;&#223;e)</dt>
+<dd><p>Die Mindestanzahl an Beans, die im Pool vorhanden sein m&#252;ssen. Der Standardwert ist 0.</p>
+
+</dd>
+<dt>Maximum Pool Size (Maximale Poolgr&#246;&#223;e)</dt>
+<dd><p>Die maximale Anzahl an Beans, die der Container parallel im Pool verwalten kann. Der Standardwert lautet 32.</p>
+
+</dd>
+<dt>Pool Resize Quantity (Anzahl der Gr&#246;&#223;en&#228;nderungen des Pools)</dt>
+<dd><p>Die Anzahl an Beans, die aus dem Pool entfernt werden, wenn sie sich l&#228;nger als im Feld "Pool-Leerlaufzeit" angegeben im Leerlauf befinden. Der Wert muss gr&#246;&#223;er oder gleich 0 und kleiner als der Wert f&#252;r die maximale Poolgr&#246;&#223;e sein. Der Standardwert ist 8.</p>
+
+</dd>
+<dt>Pool-Leerlaufzeit</dt>
+<dd><p>Die Anzahl Sekunden, die sich eine Bean im Pool im Leerlauf befinden kann, bevor sie aus dem Pool entfernt wird. Nach diesem Zeitraum wird die Bean zerst&#246;rt. Der Wert 0 bedeutet, dass sich eine Bean zeitlich unbegrenzt im Leerlauf befinden kann. Der Standardwert ist 600.</p>
+
+</dd>
+<dt>Max Cache Size (Maximale Zwischenspeichergr&#246;&#223;e)</dt>
+<dd><p>Die maximale Anzahl an Beans, die im Zwischenspeicher vorhanden sein k&#246;nnen. Erh&#246;hen Sie die maximale Anzahl an Beans, die zwischengespeichert werden, um den Overhead f&#252;r das Erstellen und Zerst&#246;ren von Beans zu reduzieren. Beachten Sie jedoch, dass die Erh&#246;hung des Cachewerts dazu f&#252;hrt, dass der Server mehr Arbeitsspeicher und Ressourcen belegt. Stellen Sie sicher, dass die Betriebsumgebung die gew&#228;hlten Cacheeinstellungen unterst&#252;tzt. Der Wert 0 bedeutet einen nicht gebundenen Zwischenspeicher. Der Standardwert lautet 512.</p>
+
+</dd>
+<dt>Umfang der Gr&#246;&#223;en&#228;nderungen des Caches</dt>
+<dd><p>Die Anzahl an Beans, die passiviert werden sollen, wenn der Cache voll ist. Wenn die maximale Anzahl an zwischengespeicherten Beans erreicht ist, entfernt der Container eine bestimmte Anzahl an passivierten Beans aus dem Sicherungsspeicher. Dieser Wert gibt zudem die Anzahl der Beans an, die erstellt werden m&#252;ssen, wenn eine Anforderung eingeht und im Pool keine Beans verf&#252;gbar sind. Der Wert muss gr&#246;&#223;er als 1 und kleiner als der Wert f&#252;r die maximale Cachegr&#246;&#223;e sein. Der Standardwert lautet 32.</p>
+
+</dd>
+<dt>Zeit&#252;berschreitung beim Entfernen</dt>
+<dd><p>Die Anzahl Sekunden, nach der eine passivierte Bean aus dem Sitzungsspeicher entfernt wird. Der Wert 0 bedeutet, dass inaktive Beans vom Container nicht automatisch entfernt werden. Wenn der Wert f&#252;r die Zeit&#252;berschreitung beim Entfernen kleiner oder gleich dem Wert f&#252;r die Cache-Leerlaufzeit ist, werden Beans ohne Passivieren sofort entfernt. Der Standardwert lautet 5400.</p>
+
+</dd>
+<dt>Richtlinie f&#252;r Auswahl beim Entfernen</dt>
+<dd><p>Die Richtlinie, gem&#228;&#223; der der Container Session-Beans mit Status aus dem Zwischenspeicher entfernt. Folgende Optionen stehen zur Auswahl:</p>
+
+<dl><dt>Nicht in j&#252;ngerer Zeit verwendet (Not Recently Used (nru))?</dt>
+<dd><p>Entfernt eine Bean, die in letzter Zeit nicht verwendet wurde. Dies ist der Standardwert.</p>
+
+</dd>
+<dt>Zuerst hereingekommen, zuerst weitergeleitet (First In First Out (fifo))</dt>
+<dd><p>Entfernt die &#228;lteste Bean im Zwischenspeicher.</p>
+
+</dd>
+<dt>Zuletzt verwendet (Least Recently Used (lru))</dt>
+<dd><p>Entfernt die zuletzt verwendete Bean.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Cache-Leerlaufzeit</dt>
+<dd><p>Die maximale Anzahl Sekunden, die eine Bean im Cache im Leerlauf verbleiben kann. Nach diesem Zeitraum kann der Container diese Bean passivieren. Der Wert 0 bedeutet, dass Beans nie f&#252;r eine Passivierung in Frage kommen. Der Standardwert ist 600.</p>
+
+</dd>
+<dt>Additional Properties (Weitere Eigenschaften)</dt>
+<dd><p>Weitere Eigenschaften f&#252;r den EJB-Container. GlassFish-Server definiert keine weiteren Eigenschaften f&#252;r den EJB-Container.</p>
+
+</dd>
+</dl>
+<h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-ejbgeneral.html">So konfigurieren Sie EJB-Einstellungen</a></p>
+
+</li>
+<li><p><a href="../../../ejb/de/help/task-ejbmdbpoolsettings.html">To Configure MDB Pool Settings</a></p>
+
+</li>
+<li><p><a href="../../../ejb/de/help/task-ejbtimerservice.html">To Configure the EJB Timer Service</a></p>
+
+</li>
+<li><p><a href="../../../ejb/de/help/task-ejbcontaineravailability.html">To Configure Availability Settings for the EJB Container</a></p>
+
+</li></ul>
+<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+<p>Keine.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

@@ -1,0 +1,174 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-protocolnew"></a><h4>So erstellen Sie ein Protokoll</h4><a name="indexterm-24"></a><ol>
+<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
+<li><b>Erweitern Sie unter dem Konfigurationsknoten den Knoten "Netzwerk konfigurieren".</b></li>
+<li><b>W&#228;hlen Sie unter dem Knoten "Netzwerkkonfiguration" den Knoten "Protokolle".</b><p>Die Seite "Protokolle" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Protokolle" auf "Neu".</b><p>Die Seite "Neues Protokoll" wird ge&#246;ffnet.</p></li>
+<li><b>Geben Sie im Feld "Name" einen eindeutigen Namen f&#252;r das Protokoll ein.</b></li>
+<li><b>W&#228;hlen Sie das Kontrollk&#228;stchen "Sicherheit aktiviert", um Sicherheit f&#252;r das Protokoll zu
+aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert. Wenn Sie Sicherheit aktivieren, k&#246;nnen Sie die
+Sicherheitseinstellungen auf der Registerkarte "SSL" der Seite "Protokoll bearbeiten" &#228;ndern.</p></li>
+<li><b>Markieren Sie das Kontrollk&#228;stchen "Status aktiviert", um den Dateicache zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
+<li><b>Geben Sie im Feld "Maximales Alter" das maximale Alter (in Sekunden) f&#252;r
+einen g&#252;ltigen Cacheeintrag ein.</b><p>Dieser Parameter steuert, wie lange zwischengespeicherte Informationen verwendet werden, nachdem eine Datei
+zwischengespeichert wurde. Ein Eintrag, der &#228;lter ist als das angegebene Maximalalter, wird
+durch einen neuen Eintrag f&#252;r dieselbe Datei ersetzt. Wenn sich die verwendeten
+Inhalte nur selten &#228;ndern, erh&#246;hen Sie diesen Wert, um die Leistung zu
+verbessern.</p><p>Das optimale maximale Alter h&#228;ngt davon ab, ob die vorhandenen Dateien regelm&#228;&#223;ig
+ge&#228;ndert werden. Wenn die Dateien beispielsweise vier Mal t&#228;glich in regelm&#228;&#223;igen Abst&#228;nden
+ge&#228;ndert werden, k&#246;nnen Sie das maximale Alter auf 21600 Sekunden (6 Stunden)
+festlegen. Andernfalls sollten Sie das maximale Alter auf den l&#228;ngsten Zeitraum einstellen,
+f&#252;r den die fr&#252;here Version einer Inhaltsdatei auf dem Server verbleiben soll,
+nachdem die Datei ge&#228;ndert wurde.</p><p>Der Standardwert ist 30.</p></li>
+<li><b>Geben Sie im Feld "Maximale Cachegr&#246;&#223;e" die Maximalgr&#246;&#223;e (in Byte) des Dateicache
+auf der Festplatte an.</b><p>Der Standardwert ist 10485760.</p></li>
+<li><b>Geben Sie im Feld "Maximale Anzahl an Dateien" die maximale Anzahl der
+Dateien an, die im Dateicache gespeichert werden k&#246;nnen.</b><p>Wenn dieser Wert zu hoch gew&#228;hlt ist, speichert der Server selten verwendete
+Dateien zwischen, wodurch Arbeitsspeicher vergeudet wird. Ist dieser Wert zu niedrig eingestellt,
+gehen die Vorteile der Zwischenspeicherung verloren. Probieren Sie verschiedene Werte f&#252;r dieses
+Attribut aus, um die optimale Einstellung f&#252;r spezifische Anwendungen zu finden.</p><p>Der Standardwert ist 1024.</p></li>
+<li><b>Geben Sie im Feld "Servername" den Hostnamen ein, der in den URLs
+verwendet wird, die der Server an den Client sendet.</b><p>Dieser Name ist der Aliasname, falls Ihr Server einen Alias verwendet. Wenn
+Ihr Server keinen Alias verwendet, lassen Sie dieses Feld leer.</p><p>Dieser Wert wirkt sich auf URLs aus, die vom Server automatisch generiert
+werden; URLs f&#252;r Verzeichnisse und im Server gespeicherte Dateien sind davon nicht
+betroffen. Wenn Ihr Server einen Alias verwendet, sollte der Servername dem Aliasnamen
+entsprechen. Werden ein Doppelpunkt und eine Portnummer angeh&#228;ngt, wird dieser Port in
+URLs verwendet, die der Server an den Client sendet.</p></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Standardm&#228;&#223;iger virtueller Server" den virtuellen Server aus,
+der mit dem Protokoll verbunden werden soll.</b><p>Auf der Seite "Virtuelle Server" k&#246;nnen Sie virtuelle Server zu definieren.</p></li>
+<li><b>Geben Sie in das Feld "Portweiterleitung" den Wert des Ports ein, der
+bei der Weiterleitung einer Anforderung an einen anderen Port verwendet werden soll.
+</b><p>GlassFish-Server leitet Anforderungen automatisch weiter, wenn die folgenden zwei Bedingungen erf&#252;llt sind:</p>
+
+
+<ul><li><p>Das Netzwerk-Zielger&#228;t, das auf dieses Protokoll verweist, unterst&#252;tzt Nicht-SSL-Anforderungen.</p>
+
+</li>
+<li><p>Es wird eine Anforderung empfangen, f&#252;r die eine &#252;bereinstimmende Sicherheitsbeschr&#228;nkung einen SSL-Transport erfordert.</p>
+
+</li></ul>
+<p>Wird keine Port-Umleitung angegeben, verwendet GlassFish-Server die in der urspr&#252;nglichen Anforderung angegebene
+Portnummer. Standardm&#228;&#223;ig ist kein Port angegeben.</p></li>
+<li><b>Geben Sie im Feld "Maximale Verbindungen" die maximale Anzahl an Anforderungen an,
+die in die Pipeline gestellt werden k&#246;nnen, bis die Verbindung vom Server
+geschlossen wird.</b><p>Das untergeordnete Keep-Alive-System fragt periodisch im Leerlauf befindliche Verbindungen ab. Der Standardwert
+ist 256.</p><p>Setzen Sie diese Eigenschaft auf 1, um HTTP/1.0 keep-alive, HTTP/1.1 keep-alive und
+pipelining zu deaktivieren. Der Wert 0 bedeutet, dass Anforderungen immer zur&#252;ckgewiesen werden.
+Beim Wert &#8211;1 ist die Anzahl der Keep-Alive-Verbindungen unbegrenzt.</p></li>
+<li><b>Geben Sie im Feld "Zeit&#252;berschreitung" die maximale Anzahl Sekunden an, die eine
+Verbindung als im Leerlauf befindlich betrachtet und im Keep-Alive-Zustand gehalten werden kann.</b><p>Ein Wert kleiner oder gleich null (0) bedeutet, dass Keep-Alive-Verbindungen unbegrenzt offen
+gehalten werden. Der Standardwert betr&#228;gt 30 Sekunden.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Zeit&#252;berschreitung beim Hochladen", um die Verbindung f&#252;r ein
+Servlet, das Bytes langsam liest, nach Erreichen des Grenzwerts f&#252;r die Zeit&#252;berschreitung
+beim Hochladen der Verbindung zu schlie&#223;en.</b><p>Bei deaktivierter Option tritt f&#252;r Servlet-Verbindungen keine Zeit&#252;berschreitung ein. Diese Option ist
+standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Geben Sie im Feld "Zeit&#252;berschreitung beim Hochladen der Verbindung" die Zeit&#252;berschreitung beim
+Hochladen in Millisekunden an. </b><p>Dieses Feld steht nur zur Verf&#252;gung, wenn das Kontrollk&#228;stchen "Zeit&#252;berschreitung beim Hochladen"
+aktiviert ist. Der Standardwert betr&#228;gt 300.000 Millisekunden.</p></li>
+<li><b>Geben Sie im Feld "Zeit&#252;berschreitung f&#252;r Anforderung" die Anzahl Sekunden ein, bevor
+die Anforderung eine Zeit&#252;berschreitung erf&#228;hrt.</b><p>Wenn die Anforderung nicht vor Erreichen des Zeit&#252;berschreitungswerts verarbeitet wird, wird sie
+ignoriert. Der Standardwert betr&#228;gt 30 Sekunden.</p></li>
+<li><b>Geben Sie im Feld "Gr&#246;&#223;e des Sendepuffers" die Gr&#246;&#223;e des Sendepuffers in
+Byte an.</b><p>Der Standardwert betr&#228;gt 8192 Byte.</p></li>
+<li><b>Geben Sie im Feld "Kopfzeilenpuffergr&#246;&#223;e" die Gr&#246;&#223;e (in Byte) des Puffers an,
+der von den Anforderungsverarbeitungs-Threads zum Lesen der Anforderungsdaten verwendet wird.</b><p>Der Standardwert betr&#228;gt 8192 Byte.</p></li>
+<li><b>Geben Sie im Feld "Maximale Post-Gr&#246;&#223;e" die maximale Gr&#246;&#223;e von POST-Aktionen in
+Byte an.</b><p>Der Standardwert betr&#228;gt 2.097.152 Byte.</p></li>
+<li><b>Geben Sie im Feld "URI-Codierung" den Namen des Zeichensatzes ein, der zum
+Decodieren der erhaltenen Anforderungs-URIs verwendet wird. </b><p>Als Wert muss ein g&#252;ltiger IANA-Zeichensatzname angegeben werden. Der Standardwert lautet UTF-8.</p></li>
+<li><b>Geben Sie im Feld "Version" die Version des verwendeten HTTP-Protokolls an.</b><p>Der Standardwert ist HTTP/1.1.</p></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Komprimierung" die HTTP/1.1 GZIP-Komprimierung aus, um Serverbandbreite
+zu sparen.</b><p>Zur Auswahl stehen:</p><dl><dt><tt>Ein</tt></dt>
+<dd><p>Daten.</p>
+
+</dd>
+<dt><tt>aus</tt></dt>
+<dd><p>In der folgenden Tabelle werden diese Eigenschaften aufgelistet.</p>
+
+</dd>
+<dt><tt> force</tt></dt>
+<dd><p>Erzwingt die Datenkomprimierung in allen F&#228;llen.</p>
+
+</dd>
+</dl>
+<p><tt>Der Standardwert ist "AUS".</tt></p></li>
+<li><b>Geben Sie im Feld "Komprimierbare MIME-Typen" eine durch Kommata getrennte Liste von
+MIME-Typen ein, f&#252;r die HTTP-Kompression verwendet wird.</b><p>Der Standardwert lautet <tt>text/html,text/xml,text/plain</tt>.</p></li>
+<li><b>Geben Sie im Feld "Mindestkompressionsgr&#246;&#223;e" die minimale Gr&#246;&#223;e einer komprimierten Datei ein.</b><p>Dieser Wert muss festgelegt werden, wenn das Kontrollk&#228;stchen "Kompression" aktiviert wird. <tt></tt><tt></tt>
+Der Standardwert betr&#228;gt 2048 Byte.</p></li>
+<li><b>Geben Sie im Feld "Benutzeragenten ohne Kompression" eine durch Kommata getrennte Liste
+von regul&#228;ren Ausdr&#252;cken ein, die Benutzeragenten von HTTP-Clients entsprechen, f&#252;r die keine
+Kompression verwendet werden sollte.</b><p>Standardm&#228;&#223;ig handelt es sich bei diesem Wert um eine leere Zeichenfolge.</p></li>
+<li><b>Geben Sie im Feld "Beschr&#228;nkte Benutzeragenten" eine Liste von beschr&#228;nkten Benutzeragenten ein,
+auf die HTTP-Kompression angewendet wird.</b><p>Wenn keine Benutzeragenten angegeben werden, wird die HTTP-Kompression auf alle Benutzeragenten angewendet.
+Standardm&#228;&#223;ig sind keine Benutzeragenten angegeben.</p></li>
+<li><b>Geben Sie im Feld "Standardm&#228;&#223;iger Antworttyp" eine Zeichenfolge ein, die den standardm&#228;&#223;igen
+Antworttyp angibt.</b><p>Das Format ist eine durch Semikolon getrennte Zeichenfolge bestehend aus Inhaltstyp, Codierung,
+Sprache und Zeichensatz. Der Standardwert lautet <tt>text/html; charset=iso-8859-1</tt>.</p></li>
+<li><b>Geben Sie im Feld "Erzwungener Antworttyp" eine Zeichenfolge ein, die den zu
+verwendenden Antworttyp angibt, falls keine MIME-Zuordnung mit der Dateierweiterung &#252;bereinstimmt.</b><p>Das Format ist eine durch Semikolon getrennte Zeichenfolge bestehend aus Inhaltstyp, Codierung,
+Sprache und Zeichensatz. Der Standardwert lautet <tt>text/html; charset=iso-8859-1</tt>.</p></li>
+<li><b>Geben Sie im Feld "Adapter" den Klassennamen des statischen Ressourcenadapters ein.</b><p>Der Standardwert lautet <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Comet-Unterst&#252;tzung", um Comet-Unterst&#252;tzung f&#252;r das Netzwerk-Zielger&#228;t zu aktivieren,
+das auf dieses Protokoll verweist.</b><p>Standardm&#228;&#223;ig ist diese Option deaktiviert. Wenn Ihr Servlet oder Ihre JSP-Seite Comet-Technologie
+verwendet, stellen Sie sicher, dass es bzw. sie beim Starten von GlassFish-Server
+initialisiert wird, indem Sie das Element <tt>load-on-startup</tt> zur Datei <tt>web.xml</tt> hinzuf&#252;gen. Beispiel:</p><pre>&#60;servlet>
+&#60;servlet-name>CheckIn&#60;/servlet-name>
+&#60;servlet-class>CheckInServlet&#60;/servlet-class>
+&#60;load-on-startup>0&#60;/load-on-startup>
+&#60;/servlet></pre></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "DNS-Suche", um die DNS-Suche zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "RCM-Unterst&#252;tzung", um Resource Configuration Management (RCM) zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Verfolgen", um die TRACE-Operation zu aktivieren.</b><p>Bei deaktivierter Option ist GlassFish-Server weniger anf&#228;llig f&#252;r site&#252;bergreifende Skriptangriffe. Diese Option
+ist standardm&#228;&#223;ig aktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Autorisierungs-Durchlauf", um anzugeben, dass das Netzwerk-Zielger&#228;t, das dieses
+Protokoll verwendet, Daten von einem SSL-beendenden Proxyserver empf&#228;ngt. </b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Erstellen von Datenbl&#246;cken", um das Erstellen von Datenbl&#246;cken
+f&#252;r HTTP-Antworten zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "XPowered-By", um GlassFish-Server anzuweisen, <tt>X-Powered-By</tt>-Header entsprechend den Spezifikationen
+f&#252;r Java Servlet 3.0 und Java Server Pages 2.0 zu verwenden.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li></ol><h6>N&#228;chste Schritte</h6><p>Nach der Erstellung eines Protokolls k&#246;nnen Sie ein Netzwerk-Zielger&#228;t erstellen, das dieses
+Protokoll verwendet.</p>
+
+<h6>Siehe auch</h6>
+<ul><li><p><a href="task-networklistenernew.html">So erstellen Sie ein Netzwerk-Zielger&#228;t</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">So bearbeiten Sie ein Netzwerk-Zielger&#228;t</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">So l&#246;schen Sie ein Netzwerk-Zielger&#228;t</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">So bearbeiten Sie ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">So bearbeiten Sie SSL-Einstellungen f&#252;r ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">So bearbeiten Sie HTTP-Einstellungen f&#252;r ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">So bearbeiten Sie Dateicache-Einstellungen f&#252;r ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">So l&#246;schen Sie ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">So erstellen Sie einen Transport</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">So bearbeiten Sie einen Transport</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">So l&#246;schen Sie einen Transport</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

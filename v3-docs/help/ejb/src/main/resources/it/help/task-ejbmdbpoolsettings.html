@@ -1,0 +1,57 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbmdbpoolsettings"></a><h4>Configurare le impostazioni del pool di MDB</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><a name="indexterm-3"></a><a name="indexterm-4"></a><a name="indexterm-5"></a><p>Il pool di MDB &#232; simile al pool di bean di sessione.
+Per impostazione predefinita, il contenitore include un pool di MDB.</p>
+
+<p>Per impostare la configurazione del pool, attenersi alla procedura seguente.</p>
+
+<ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
+<li><b>Selezionare il nodo EJB Container.</b><p>Viene aperta la pagina EJB (Enterprise Java Beans).</p></li>
+<li><b>Fare clic sulla scheda MDB Settings.</b><p>Viene visualizzata la pagina MDB Default Pool Settings.</p></li>
+<li><b>Nel campo Initial and Minimum Pool Size, digitare il numero minimo di
+MDB da conservare nel pool.</b><p>Il valore predefinito &#232; 0.</p></li>
+<li><b>Nel campo Maximum Pool Size, digitare il numero massimo di bean che
+il contenitore pu&#242; conservare nel pool in una volta sola.</b><p>Il valore predefinito &#232; 32.</p></li>
+<li><b>Nel campo Pool Resize Quantity, digitare il numero di bean che verranno
+rimossi dal pool se rimangono inattivi per un periodo di tempo superiore
+a quello specificato nel campo Pool Idle Timeout.</b><p>Il valore deve essere compreso tra 0 e il valore specificato nel
+campo Maximum Pool Size. Il valore predefinito &#232; 8.</p></li>
+<li><b>Nel campo Pool Idle Timeout, digitare il tempo, in secondi, durante il
+quale un bean pu&#242; rimanere inattivo prima che venga rimosso dal pool.</b><p>Dopo questo periodo di tempo, il bean viene eliminato. Un valore pari
+a 0 indica che un bean pu&#242; rimanere inattivo per un periodo
+di tempo indeterminato. Il valore predefinito &#232; 600.</p></li>
+<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per il pool
+di MDB.</p><ul>
+<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
+vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
+valore della propriet&#224; nel campo Value.</b></li>
+<li><b>Per modificare una propriet&#224;, &#232; necessario modificarne il campo Value.</b></li>
+<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
+campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
+Delete Properties.</b></li></ul></li>
+<li><b>Fare clic su Save.</b>
+<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
+su Save.</p>
+
+
+<hr>
+</li>
+<li><b>Riavviare GlassFish Server.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="../../../ejb-lite/it/help/task-ejbgeneral.html">To Configure EJB Settings</a></p>
+
+</li>
+<li><p><a href="task-ejbtimerservice.html">Configurare EJB Timer Service</a></p>
+
+</li>
+<li><p><a href="task-ejbcontaineravailability.html">Configurare le impostazioni di disponibilit&#224; per il contenitore EJB</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

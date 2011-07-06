@@ -1,0 +1,84 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolfilecacheedit"></a><h4>Cach&#233; de archivos</h4>
+<a name="indexterm-74"></a><a name="indexterm-75"></a><p>Utilice la p&#225;gina Cach&#233; de archivos para modificar la configuraci&#243;n de la
+cach&#233; de archivos para un protocolo de red. </p>
+
+<p>La p&#225;gina Cach&#233; de archivos contiene las opciones siguientes.</p>
+
+<dl><dt>Cargar valores predeterminados</dt>
+<dd><p>Bot&#243;n para restablecer los valores predeterminados de todos los par&#225;metros de configuraci&#243;n.</p>
+
+</dd>
+<dt>Nombre de la configuraci&#243;n</dt>
+<dd><p>El nombre de la configuraci&#243;n a la que se aplican los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
+
+</dd>
+<dt>Nombre del protocolo</dt>
+<dd><p>El nombre del protocolo. El campo Nombre del protocolo es un campo de s&#243;lo lectura. &#218;nicamente puede especificar el nombre al crear un nuevo protocolo.</p>
+
+</dd>
+<dt>Estado</dt>
+<dd><p>Si se selecciona esta opci&#243;n, se habilita el estado de la antememoria de archivo. Esta opci&#243;n est&#225; seleccionada por defecto.</p>
+
+</dd>
+<dt>Edad m&#225;xima</dt>
+<dd><p>La edad m&#225;xima, en segundos, de una entrada en cach&#233; v&#225;lida.</p>
+
+<p>Este par&#225;metro controla c&#243;mo se utiliza la informaci&#243;n almacenada en cach&#233; despu&#233;s de que un archivo se haya almacenado en cach&#233;. Una nueva entrada sustituye a una entrada m&#225;s antigua que la edad m&#225;xima para el mismo archivo. Si el contenido no cambia con mucha frecuencia, aumente este valor para un mejor rendimiento.</p>
+
+<p>La edad m&#225;xima &#243;ptima depende de si se modifican regularmente los archivos existentes. Por ejemplo, si los archivos se han modificado cuatro veces al d&#237;a a intervalos regulares, considere establecer la edad m&#225;xima en 21.600 segundos (6 horas). De lo contrario, considere definir la edad m&#225;xima en el tiempo m&#225;s largo que desea servir la versi&#243;n anterior de un archivo despu&#233;s de que dicho archivo se haya modificado.</p>
+
+<p>El valor predeterminado es 30.</p>
+
+</dd>
+<dt>Tama&#241;o de cach&#233; m&#225;ximo</dt>
+<dd><p>El tama&#241;o m&#225;ximo total (en bytes) de la cach&#233; de archivo en disco. El valor predeterminado es 10485760.</p>
+
+</dd>
+<dt>Recuento m&#225;ximo de archivos</dt>
+<dd><p>El n&#250;mero m&#225;ximo de archivos que se pueden almacenar en la cach&#233; de archivo.</p>
+
+<p>Si el valor es demasiado grande, el servidor almacena en cach&#233; los archivos menos necesarios, lo que supone un gasto de memoria. Si el valor es demasiado peque&#241;o, se pierden las ventajas del almacenamiento en cach&#233;. Pruebe distintos valores de este atributo para encontrar la soluci&#243;n &#243;ptima para aplicaciones espec&#237;ficas.</p>
+
+<p>El valor predeterminado es 1024.</p>
+
+</dd>
+</dl>
+<h5>Tareas relacionadas</h5>
+
+<ul><li><p><a href="task-protocolnew.html">C&#243;mo crear un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">C&#243;mo editar un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">C&#243;mo editar la configuraci&#243;n SSL para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">C&#243;mo editar la configuraci&#243;n HTTP para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">C&#243;mo editar la cach&#233; de archivos para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">C&#243;mo eliminar un protocolo</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

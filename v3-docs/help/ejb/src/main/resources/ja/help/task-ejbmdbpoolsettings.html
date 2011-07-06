@@ -1,0 +1,42 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbmdbpoolsettings"></a><h4>MDB プールを設定する</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><a name="indexterm-3"></a><a name="indexterm-4"></a><a name="indexterm-5"></a><p>メッセージ駆動型 Beans のプールは、セッション Beans のプールと同様です。デフォルトで、コンテナはメッセージ駆動型 Bean のプールを保持します。</p>
+
+<p>このプールの設定を調整するには、次の手順を実行します。</p>
+
+<ol>
+<li><b>ナビゲーションツリーで、「設定」ノードを展開します。</b></li>
+<li><b>「EJB コンテナ」ノードを選択します。</b><p>「Enterprise Java Beans (EJB)」ページが開きます。</p></li>
+<li><b>「MDB 設定」タブをクリックします。</b><p>「MDB デフォルトプール設定」ページが開きます。</p></li>
+<li><b>「初期および最小プールサイズ」フィールドに、プールに保持されるメッセージ Bean の最小数を入力します。</b><p>デフォルト値は 0 です。</p></li>
+<li><b>「最大プールサイズ」フィールドに、コンテナがプールに一度に保持できる Bean の最大数を入力します。</b><p>デフォルト値は 32 です。</p></li>
+<li><b>「プールサイズ変更量」フィールドに、アイドル状態の継続時間が「プールアイドルタイムアウト」フィールドに指定した時間を超えた場合に、プールから削除される Bean の数を入力します。</b><p>値は 0 以上で、「最大プールサイズ」の値未満にする必要があります。デフォルト値は 8 です。</p></li>
+<li><b>「プールアイドルタイムアウト」フィールドに、プール内の Bean がプールから削除されるまでに、アイドル状態を維持できる時間を秒単位で入力します。</b><p>この時間が経過すると、Bean は破棄されます。0 を指定すると、Bean は制限なくアイドル状態を維持できます。デフォルト値は 600 です。</p></li>
+<li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>GlassFish サーバー は MDB プールの追加プロパティーを定義しません。</p><ul>
+<li><b>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</b></li>
+<li><b>プロパティーを変更するには、そのプロパティーの「値」フィールドを編集します。</b></li>
+<li><b>プロパティーを削除するには、削除するプロパティーの「名前」フィールドの左側にあるチェックボックスを選択し、「プロパティを削除」ボタンをクリックします。</b></li></ul></li>
+<li><b>「保存」をクリックします。</b>
+<hr><p><b>ヒント - </b>デフォルト設定に戻すには、「デフォルトを読込み」ボタンをクリックし、「保存」を保存します。</p>
+
+
+<hr>
+</li>
+<li><b>GlassFish サーバー を再起動します。</b></li></ol><h6>参照</h6>
+<ul><li><p><a href="../../../ejb-lite/ja/help/task-ejbgeneral.html">EJB を設定する</a></p>
+
+</li>
+<li><p><a href="task-ejbtimerservice.html">「EJB タイマーサービスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-ejbcontaineravailability.html">「EJB コンテナの可用性を設定する」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

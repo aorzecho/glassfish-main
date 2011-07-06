@@ -1,0 +1,111 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbgeneral"></a><h4>Pour configurer les param&#232;tres EJB</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
+<li><b>Dans l&#8217;arborescence de navigation, s&#233;lectionnez le noeud Configuration.</b></li>
+<li><b>S&#233;lectionnez le n&#339;ud Conteneur EJB.</b><p>La page Enterprise Java Beans (EJB) s&#8217;ouvre.</p></li>
+<li><b>Dans le champ Emplacement de stockage des sessions, tapez une nouvelle valeur
+pour l&#8217;emplacement de stockage des sessions. </b><p>Ce champ indique le r&#233;pertoire du syst&#232;me de fichiers dans lequel sont
+enregistr&#233;s les beans de session avec &#233;tat mis en mode passif et
+les &#233;tats de point de contr&#244;le SFSB persistants. La valeur par d&#233;faut
+est <tt>${com.sun.aas.instanceRoot}/session-store</tt>.</p><p>Les beans mis en mode passif sont des beans de session avec
+&#233;tat dont l&#8217;&#233;tat a &#233;t&#233; &#233;crit dans un fichier du syst&#232;me. G&#233;n&#233;ralement,
+ces beans sont rest&#233;s inactifs pendant un certain temps et ne sont
+pas actuellement consult&#233;s par les clients. De m&#234;me, les &#233;tats de point
+de contr&#244;le SFSB persistants sont des SFSB individuels dont l'&#233;tat a &#233;t&#233;
+&#233;crit dans un fichier du syst&#232;me.</p><p>Ce param&#232;tre est applicable aux &#233;tats de point de contr&#244;le SFSB uniquement
+si la disponibilit&#233; du conteneur EJB est d&#233;sactiv&#233;e. Pour d&#233;sactiver la disponibilit&#233;,
+voir <a href="../../../ejb/fr/help/task-ejbcontaineravailability.html">To Configure Availability Settings for the EJB Container</a>.</p></li>
+<li><b>S&#233;lectionnez le bouton radio Option B ou Option C pour d&#233;finir le
+champ Option de validation.</b><p>Le champ Option de validation indique comment le conteneur met en cache
+les instances de bean mises en mode passif entre les transactions.</p><ul>
+<li><b>Si vous s&#233;lectionnez Option B (option par d&#233;faut), le conteneur met en
+cache une instance pr&#234;te entre les transactions.</b></li>
+<li><b>Si vous s&#233;lectionnez Option C, le conteneur ne met pas une instance
+pr&#234;te en cache entre les transactions. </b></li></ul></li>
+<li><b>Dans le champ Taille initiale et minimale du pool, indiquez le nombre
+minimum de beans &#224; conserver dans le pool.</b><p>La valeur par d&#233;faut est 0.</p></li>
+<li><b>Dans le champ Taille maximale du pool, indiquez le nombre maximum de
+beans que le conteneur peut conserver dans le pool &#224; un moment
+donn&#233;.</b><p>La valeur par d&#233;faut est 32.</p></li>
+<li><b>Dans le champ Valeur de redimensionnement du pool, indiquez le nombre de
+beans &#224; supprimer du pool s&#8217;ils sont inactifs pendant une dur&#233;e sup&#233;rieure
+&#224; celle sp&#233;cifi&#233;e dans le champ D&#233;lai d&#8217;inactivit&#233; du pool.</b><p>La valeur doit &#234;tre 0 minimum et &#234;tre inf&#233;rieure &#224; la valeur
+du champ Taille maximale du pool. La valeur par d&#233;faut est 8.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;inactivit&#233; du pool, indiquez la dur&#233;e exprim&#233;e en
+secondes durant laquelle un bean peut demeurer inactif avant d&#8217;&#234;tre supprim&#233; du
+pool.</b><p>Au-del&#224; de cette p&#233;riode, le bean est d&#233;truit. La valeur 0 signifie qu&#8217;un
+bean peut rester inactif pendant une dur&#233;e ind&#233;finie. La valeur par d&#233;faut
+est 600.</p></li>
+<li><b>Dans le champ Taille max. du cache, indiquez le nombre maximal de
+beans &#224; conserver dans le cache. </b><p>Augmentez le nombre maximal de beans &#224; mettre en cache pour &#233;liminer
+le temps syst&#232;me de cr&#233;ation et de destruction des beans. Cependant, si
+le cache est augment&#233;, le serveur consomme une plus grande quantit&#233; de
+m&#233;moire et de ressources. V&#233;rifiez que votre environnement d&#8217;exploitation est suffisant pour
+vos param&#232;tres de cache. La valeur 0 indique un cache illimit&#233;. La
+valeur par d&#233;faut est 512.</p></li>
+<li><b>Dans le champ Valeur de redimensionnement du cache, indiquez le nombre de
+beans &#224; mettre en mode passif lorsque le cache est satur&#233;. </b><p>Lorsque le nombre maximal de beans mis en cache est atteint, le
+conteneur supprime un certain nombre de beans mis en mode passif du
+magasin de sauvegarde. Cette valeur indique &#233;galement le nombre de beans &#224;
+cr&#233;er si une requ&#234;te arrive alors que le pool n&#8217;a aucun bean
+de disponible. La valeur doit &#234;tre sup&#233;rieure &#224; 1 et inf&#233;rieure &#224;
+la valeur Taille max. du cache. La valeur par d&#233;faut est 32.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;attente avant suppression, indiquez le nombre de secondes
+apr&#232;s lesquelles un bean mis en mode passif est supprim&#233; du stockage de
+session. </b><p>La valeur 0 indique que le conteneur ne supprime pas les beans
+inactifs automatiquement. Si la valeur D&#233;lai d&#8217;attente avant suppression est inf&#233;rieure ou
+&#233;gale &#224; la valeur D&#233;lai d&#8217;inactivit&#233; du cache, les beans sont imm&#233;diatement supprim&#233;s sans
+&#234;tre mis en mode passif. La valeur par d&#233;faut est 5400.</p></li>
+<li><b>Dans la liste d&#233;roulante Strat&#233;gie de s&#233;lection pour suppression, s&#233;lectionnez la r&#232;gle
+que le conteneur doit utiliser pour supprimer les beans de session avec &#233;tat
+du cache. </b><p>Les options sont les suivantes : </p><dl><dt>Pas utilis&#233; r&#233;cemment (NRU)</dt>
+<dd><p>(Valeur par d&#233;faut) Supprime un bean qui n&#8217;a pas &#233;t&#233; r&#233;cemment utilis&#233;. </p>
+
+</dd>
+<dt>Premier entr&#233;, premier sorti (FIFO)</dt>
+<dd><p>Supprime le bean le plus ancien du cache.</p>
+
+</dd>
+<dt>Utilis&#233; le moins r&#233;cemment (LRU)</dt>
+<dd><p>Supprime le bean le moins r&#233;cemment consult&#233;. </p>
+
+</dd>
+</dl>
+</li>
+<li><b>Dans le champ D&#233;lai d&#8217;inactivit&#233; du cache, entrez le nombre maximal de
+secondes durant lesquelles un bean peut rester inactif dans le cache.</b><p>Pass&#233;e cette p&#233;riode (le conteneur peut mettre ce bean en mode passif. La
+valeur de 0 indique que les beans ne peuvent jamais &#234;tre mis
+en mode passif. La valeur par d&#233;faut est 600.</p></li>
+<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>GlassFish Server ne d&#233;finit aucune autre propri&#233;t&#233; pour le conteneur EJB.</p><ul>
+<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
+ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
+champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
+<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
+<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
+Nom de la propri&#233;t&#233; que vous supprimez,  puis cliquez sur le
+bouton Supprimer propri&#233;t&#233;s.</b></li></ul></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li>
+<li><b>Red&#233;marrez GlassFish Server.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="../../../ejb/fr/help/task-ejbmdbpoolsettings.html">To Configure MDB Pool Settings</a></p>
+
+</li>
+<li><p><a href="../../../ejb/fr/help/task-ejbtimerservice.html">To Configure the EJB Timer Service</a></p>
+
+</li>
+<li><p><a href="../../../ejb/fr/help/task-ejbcontaineravailability.html">To Configure Availability Settings for the EJB Container</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

@@ -1,0 +1,79 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-threadpools"></a><h4>執行緒池</h4>
+<a name="indexterm-79"></a><a name="indexterm-80"></a><p>使用 [執行緒池] 頁面可配置執行緒池。</p>
+
+<p>使用執行緒池可將服務限制在特定數目的同步運作執行緒。</p>
+
+<p>當您第一次安裝 GlassFish Server 時，預設已存在兩個執行緒池。名稱為 <tt>http-thread-pool</tt> 的執行緒池是為供網路偵聽程式使用而配置，而 <tt>thread-pool-1</tt> 是為供 ORB 針對 RMI/IIOP 請求使用而配置。您可能需要建立具有不同設定的執行緒池，以供特定種類應用程式和特定硬體系統使用，或視您的需要調校預設執行緒池。</p>
+
+<p>Java 虛擬機器 (JVM) 可以支援一次執行多個執行緒。為了提昇效能，GlassFish Server 可維護一個或多個執行緒池。您可以將特定的執行緒池指定給特定的服務。</p>
+
+<p>一個執行緒池可供多個服務使用。請求執行緒會處理使用者請求。伺服器收到請求時，它會將該請求指定給執行緒池中的空閑執行緒。執行緒會執行用戶端請求，並傳回結果。例如，如果請求需要使用目前被佔用的系統資源，則此執行緒將等待，直至此資源可用時，才允許請求使用此資源。</p>
+
+<p>指定保留給請求的最大執行緒數和最小執行緒數。可以在這兩個值之間，動態調整執行緒池。指定的最小執行緒池大小，將要求伺服器配置至少這個數量的保留執行緒給請求。該數目可以增加到所指定的最大執行緒池大小。</p>
+
+<p>增加程序可用的執行緒數目，可讓程序同時回應更多的請求。</p>
+
+<p>對於每個執行緒池，均提供以下資訊。</p>
+
+<dl><dt>執行緒池 ID</dt>
+<dd><p>執行緒池的名稱。</p>
+
+</dd>
+<dt>最大執行緒池大小</dt>
+<dd><p>執行緒池中執行緒的最大數目。</p>
+
+</dd>
+<dt>最小執行緒池大小</dt>
+<dd><p>執行緒池中執行緒的最小數目。這些執行緒是在實例化執行緒池時建立的。</p>
+
+</dd>
+<dt>佇列最大大小</dt>
+<dd><p>在有執行緒可處理訊息之前，可排入佇列的最大訊息數目。</p>
+
+</dd>
+<dt>閒置執行緒逾時</dt>
+<dd><p>從池中移除閒置執行緒之前經過的時間 (以秒為單位)。</p>
+
+</dd>
+</dl>
+<p>執行緒池表也包含下列選項。</p>
+
+<dl><dt>新建</dt>
+<dd><p>建立新執行緒池的按鈕。</p>
+
+</dd>
+<dt>刪除</dt>
+<dd><p>刪除一或多個選取執行緒池的按鈕。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-threadpoolnew.html">建立執行緒池</a></p>
+
+</li>
+<li><p><a href="task-threadpooledit.html">編輯執行緒池</a></p>
+
+</li>
+<li><p><a href="task-threadpooldelete.html">刪除執行緒池</a></p>
+
+</li></ul>
+<h5>相關的 <tt>asadmin</tt> 指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-threadpool-1"><tt>create-threadpool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-threadpools-1"><tt>list-threadpools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-threadpool-1"><tt>delete-threadpool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

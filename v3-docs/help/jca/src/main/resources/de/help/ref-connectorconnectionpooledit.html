@@ -1,0 +1,134 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpooledit"></a><h4>Konnektor-Verbindungspool bearbeiten</h4>
+<a name="indexterm-42"></a><p>Auf der Seite "Konnektor-Verbindungspool bearbeiten" k&#246;nnen Sie die Einstellungen f&#252;r einen Konnektor-Verbindungspool
+&#228;ndern.</p>
+
+<p>Die Seite "Konnektor-Verbindungspool bearbeiten" enth&#228;lt die folgenden Optionen.</p>
+
+<dl><dt>Standardeinstellungen laden</dt>
+<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r alle Einstellungen.</p>
+
+</dd>
+<dt>Leeren</dt>
+<dd><p>Schaltfl&#228;che zum erneuten Initialisieren der Verbindungen im Verbindungspool. Wenn Sie auf diese Schaltfl&#228;che klicken, werden alle bestehenden Verbindungen gel&#246;scht, f&#252;r den Pool eingerichtete Verbindungen werden neu erstellt, und die anf&#228;ngliche, minimale Poolgr&#246;&#223;e wird wiederhergestellt.</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>Schaltfl&#228;che, mit der die Verwendbarkeit des Pools &#252;berpr&#252;ft werden kann.</p>
+
+</dd>
+<dt>Pool Name (Poolname)</dt>
+<dd><p>Ein eindeutiger Name, der den Konnektor-Verbindungspool identifiziert. Dies ist ein schreibgesch&#252;tztes Feld. Sie k&#246;nnen den Poolnamen nur festlegen, wenn Sie einen neuen Konnektor-Verbindungspool erstellen.</p>
+
+</dd>
+<dt>Ressourcenadapter</dt>
+<dd><p>Der mit dem Konnektor-Verbindungspool verkn&#252;pfte Ressourcenadapter.</p>
+
+</dd>
+<dt>Verbindungsdefinition</dt>
+<dd><p>Die Verbindungsdefinition f&#252;r den Konnektor-Verbindungspool. Die Auswahloptionen in der Liste richten sich nach dem gew&#228;hlten Ressourcenadapter. Die Verbindungsdefinition gibt das Element <tt>connection-definition</tt> eines Ressourcenadapters in der Datei <tt>ra.xml</tt> an.</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>Wenn diese Option aktiviert ist, wird bei der Erstellung oder Neukonfiguration eines Verbindungspools automatisch ein Ping-Signal an den Pool gesendet, um falsche Attributwerte zu ermitteln und eine diesbez&#252;gliche Warnung auszugeben. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Description (Beschreibung)</dt>
+<dd><p>Eine Beschreibung des Konnektor-Verbindungspools. </p>
+
+</dd>
+<dt>Initial and Minimum Pool Size (Urspr&#252;ngliche und minimale Poolgr&#246;&#223;e)</dt>
+<dd><p>Die minimale Anzahl an Verbindungen im Konnektor-Verbindungspool. Der Standardwert ist 8.</p>
+
+</dd>
+<dt>Maximum Pool Size (Maximale Poolgr&#246;&#223;e)</dt>
+<dd><p>Die maximale Anzahl an Verbindungen im Konnektor-Verbindungspool. Der Standardwert lautet 32.</p>
+
+</dd>
+<dt>Pool Resize Quantity (Anzahl der Gr&#246;&#223;en&#228;nderungen des Pools)</dt>
+<dd><p>Die Anzahl an Verbindungen, die nach Ablauf der Pool-Leerlaufzeit entfernt werden sollen. Der Standardwert ist 2.</p>
+
+</dd>
+<dt>Idle Timeout (Leerlaufzeitlimit)</dt>
+<dd><p>Die maximale Zeit in Sekunden, die sich eine Verbindung im Pool im Leerlauf befinden kann. Der Standardwert betr&#228;gt 300.</p>
+
+</dd>
+<dt>Max Wait Time (Maximale Wartezeit)</dt>
+<dd><p>Eine Anwendung, die eine Verbindung angefordert hat, wartet die hier angegbene Zeitspanne ab, bevor eine Verbindungszeit&#252;berschreitung ausgegeben wird. Der Standardwert lautet 60000.</p>
+
+</dd>
+<dt>Connection Validation (Verbindungs&#252;berpr&#252;fung)</dt>
+<dd><p>Wenn das Kontrollk&#228;stchen "Erforderlich" aktiviert ist, werden Verbindungen vor der &#220;bergabe an die Anwendung &#252;berpr&#252;ft. Schl&#228;gt die &#220;berpr&#252;fung einer Ressource fehl, so wird die Ressource zerst&#246;rt, und eine neue Ressource wird erstellt und zur&#252;ckgegeben. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>On Any Failure (Bei s&#228;mtlichen Fehlern)</dt>
+<dd><p>Wenn das Kontrollk&#228;stchen "S&#228;mtliche Verbindungen trennen" aktiviert ist, schlie&#223;t GlassFish-Server bei einem einzigen Verbindungsabbruch alle Verbindungen im Pool und stellt sie wieder her. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Transaktionsunterst&#252;tzung</dt>
+<dd><p>Die gew&#228;hlte Transaktionsunterst&#252;tzung &#252;berschreibt das Transaktionsunterst&#252;tzungsattribut des mit diesem Verbindungspool verkn&#252;pften Ressourcenadapters in einer Weise, mit der Abw&#228;rtskompatibilit&#228;t gew&#228;hrleistet wird. Anders ausgedr&#252;ckt: Es kann dieselbe oder eine niedrigere Transaktionsebene unterst&#252;tzt werden als die im Ressourcenadapter angegebene, jedoch keine h&#246;here Transaktionsebene.</p>
+
+<p>Folgende Werte sind m&#246;glich:</p>
+
+<dl><dt>XATransaction</dt>
+<dd><p>Der Ressourcenadapter unterst&#252;tzt lokale und JTA-Transaktionen des Ressourcenmanangers durch Implementierung der Schnittstellen LocalTransaction und XAResource. XA-Transaktionen werden durch einen externen Transaktions-Manager gesteuert und koordiniert.</p>
+
+</dd>
+<dt>LocalTransaction</dt>
+<dd><p>Der Ressourcenadapter unterst&#252;tzt lokale Transaktionen durch Implementierung der Schnittstelle LocalTransaction. Lokale Transaktionen werden intern durch einen Ressourcen-Manager verwaltet und beziehen keinen externen Transaktions-Manager ein.</p>
+
+</dd>
+<dt>NoTransaction</dt>
+<dd><p>Der Ressourcenadapter unterst&#252;tzt keine lokalen oder JTA-Transaktionen des Ressourcenmanagers und implementiert die Schnittstellen XAResource und LocalTransaction nicht.</p>
+
+</dd>
+</dl>
+</dd>
+</dl>
+<a name="gkoko"></a><h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">So erstellen Sie einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">So bearbeiten Sie einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">So bearbeiten Sie die erweiterten Attribute eines Konnektor-Verbindungspools</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">So bearbeiten Sie die Eigenschaften eines Konnektor-Verbindungspools</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">So erstellen Sie eine Sicherheitzuordnung f&#252;r einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">So bearbeiten Sie eine Sicherheitzuordnung f&#252;r einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">So l&#246;schen Sie eine Sicherheitzuordnung f&#252;r einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">So l&#246;schen Sie einen Konnektor-Verbindungspool</a></p>
+
+</li></ul>
+<a name="gkold"></a><h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=flush-connection-pool-1"><tt>flush-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

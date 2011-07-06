@@ -1,0 +1,169 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpooladvance"></a><h4>Para editar atributos avanzados del conjunto de conexiones JDBC</h4><a name="indexterm-11"></a><ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Recursos.</b></li>
+<li><b>En el nodo Recursos, seleccione el nodo JDBC.</b></li>
+<li><b>En el nodo JDBC, seleccione el nodo Conjuntos de conexiones.</b><p>Se abrir&#225; la p&#225;gina Conjuntos de conexiones.</p></li>
+<li><b>En la p&#225;gina Conjuntos de conexiones, haga clic en el nombre del
+conjunto que desea editar.</b><p>Se abrir&#225; la p&#225;gina Editar conjunto de conexiones.</p></li>
+<li><b>En la p&#225;gina Editar conjunto de conexiones, haga clic en la ficha
+Avanzado.</b><p>Se abrir&#225; la p&#225;gina Editar atributos avanzados del conjunto de conexiones.</p></li>
+<li><b>En el campo Tiempo de espera de instrucci&#243;n, introduzca el periodo de
+tiempo, en segundos, tras el que finalizar&#225;n las consultas que duren demasiado.</b><p>GlassFish Server establecer&#225; <tt>QueryTimeout</tt> en las instrucciones creadas. Establezca el valor en
+-1 para deshabilitar esta opci&#243;n. El valor predeterminado es -1.</p></li>
+<li><b>En el campo Tama&#241;o de la cach&#233; de instrucci&#243;n, escriba el n&#250;mero
+de las instrucciones que almacenar en la memoria cach&#233; utilizando el mecanismo
+LRU (Least Recently Used).</b><p>Para deshabilitar el almacenamiento de instrucciones en la memoria cach&#233;, especifique un
+valor de 0. El valor predeterminado es 0.</p></li>
+<li><b>En el campo Init SQL, escriba la cadena SQL que debe ejecutarse
+cada vez que se crea (no se reutiliza) una conexi&#243;n en el
+grupo.</b><p>La ejecuci&#243;n de esta cadena inicia el estado de la conexi&#243;n. </p></li>
+<li><b>En el campo Escuchas de rastreo SQL, escriba una lista separada por
+comas de los nombres de clases de implementaciones de escuchas para especificar que
+se realizar&#225; un seguimiento de las instrucciones SQL ejecutadas por las aplicaciones.</b><p>Las clases de escucha deben implementar la interfaz <tt>Org.glassfish.api.jdbc.SQLTraceListener.</tt> . El uso
+de las escuchas permite filtrar f&#225;cilmente los mensajes de registro de las instrucciones
+SQL y ayuda a los administradores analizar las instrucciones.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Ajustar objetos JDBC activados para que las
+aplicaciones obtengan objetos JDBC ajustados de <tt>Statement</tt>, <tt>PreparedStatement </tt>, <tt>CallableStatement</tt>, <tt>ResultSet</tt>, <tt> DatabaseMetaData</tt>. </b><p>Esta opci&#243;n se habilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Agrupaci&#243;n para habilitar la agrupaci&#243;n de conexiones
+para el conjunto de conexiones.</b><p>Esta opci&#243;n se habilita por defecto.</p></li>
+<li><b>En el campo Validar al menos una vez, introduzca el tiempo, en
+segundos, tras el cual se valida una conexi&#243;n al menos una vez.</b><p>Si se define este atributo con un valor apropiado se minimiza el
+n&#250;mero de solicitudes de validaci&#243;n por conexi&#243;n. El valor por defecto es
+0, lo que significa que el atributo no est&#225; habilitado.</p></li>
+<li><b>En el campo Tiempo de espera de p&#233;rdidas, introduzca el tiempo, en
+segundos, para realizar un seguimiento de las p&#233;rdidas de conexi&#243;n de un
+conjunto de conexiones.</b><p>Use este campo para detectar fallos potenciales en la conexi&#243;n por la aplicaci&#243;n.
+En caso de que la aplicaci&#243;n no devuelva la conexi&#243;n al conjunto
+de conexiones  dentro del per&#237;odo especificado, se considerar&#225; que existen fallos potenciales, y
+se registrar&#225; un seguimiento de la pila del origen de la llamada.
+Establezca el valor en 0 para deshabilitar el seguimiento de las p&#233;rdidas
+de conexi&#243;n. El valor predeterminado es 0.</p><p>Utilice este campo junto con la Recuperaci&#243;n del fallo para evitar fallos
+potenciales de conexi&#243;n de la aplicaci&#243;n.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Recuperaci&#243;n del fallo para restaurar las conexiones
+perdidas en el conjunto una vez haya finalizado el seguimiento de conexiones
+de p&#233;rdidas.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>En el campo Intentos de creaci&#243;n, introduzca el n&#250;mero de intentos que
+se realizar&#225;n si se produjera un error al crear una conexi&#243;n nueva.</b><p>Establezca el valor en 0 para que no se intente crear de
+nuevo una conexi&#243;n. El valor predeterminado es 0.</p></li>
+<li><b>En el campo Intervalo de reintentos, introduzca el intervalo, en segundos, que
+hay entre dos intentos de creaci&#243;n de una conexi&#243;n.</b><p>El valor predeterminado es 10. Este atributo se utiliza s&#243;lo si el
+valor de Intentos de creaci&#243;n es mayor que 0.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Asociaci&#243;n inactiva habilitada para asociar una conexi&#243;n
+f&#237;sica con una conexi&#243;n l&#243;gica s&#243;lo cuando se use la conexi&#243;n. </b><p>Las conexiones se desvinculan una vez completada la transacci&#243;n y cuando el
+m&#233;todo de componente finaliza, lo cual sirve para reutilizar las conexiones f&#237;sicas.
+Si esta opci&#243;n est&#225; desactivada, una conexi&#243;n f&#237;sica se asocia con una
+conexi&#243;n l&#243;gica s&#243;lo incluso antes de usar la conexi&#243;n. Esta opci&#243;n se
+deshabilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Alistamiento de conexiones no activas habilitado para
+alistar un recurso a la transacci&#243;n s&#243;lo cuando realmente se est&#233; utilizando
+por un m&#233;todo.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Asociaci&#243;n con subprocesos activada para crear asociaciones
+entre las conexiones y los subprocesos.</b><p>Cuando otra conexi&#243;n necesita el mismo subproceso, puede volver a utilizar la
+conexi&#243;n que ya est&#225; asociada con ese subproceso, sin necesidad de incurrir
+en la sobrecarga de coger otra conexi&#243;n del conjunto. Esta opci&#243;n se
+deshabilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Correspondencia de conexiones activada para habilitar la
+correspondencia de conexiones para el conjunto.</b><p>Si esta opci&#243;n est&#225; habilitada, las conexiones que se seleccionen en el conjunto
+deber&#237;an coincidir con las conexiones que tienen determinadas credenciales. Esta opci&#243;n debe estar
+habilitada si el conjunto de conexiones lo utilizan aplicaciones que tienen varias credenciales
+de usuario. Esta opci&#243;n se puede deshabilitar si el administrador sabe que
+las conexiones del conjunto siempre ser&#225;n homog&#233;neas y, por tanto, para una
+conexi&#243;n recogida del conjunto no se necesita establecer correspondencia mediante el adaptador
+de recursos. Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>En el campo Uso m&#225;x. de conexi&#243;n, introduzca el n&#250;mero de veces
+que el conjunto debe utilizar una conexi&#243;n.</b><p>La conexi&#243;n se cerrar&#225; una vez reutilizada durante un n&#250;mero espec&#237;fico de
+veces. Al limitar el n&#250;mero de veces que una conexi&#243;n se puede
+reutilizar, puede evitar fallos potenciales en las instrucciones si una aplicaci&#243;n no las
+cierra. Establezca el valor en 0 para deshabilitar este atributo. El valor predeterminado
+es 0.</p></li>
+<li><b>Marque la casilla de verificaci&#243;n Validaci&#243;n de conexi&#243;n necesaria para habilitar la
+validaci&#243;n de la conexi&#243;n.</b><p>La validaci&#243;n de conexi&#243;n permite al servidor volver a conectarse en caso
+de error.</p></li>
+<li><b>En la lista desplegable M&#233;todo de validaci&#243;n, seleccione un m&#233;todo de validaci&#243;n.</b><p>GlassFish Server puede validar las conexiones de la base de datos de
+las siguientes maneras.</p><dl><dt><tt>auto-commit</tt> y <tt>metadata</tt></dt>
+<dd><p>GlassFish Server valida una conexi&#243;n llamando a los m&#233;todos <tt> con.getAutoCommit()</tt> y <tt>con.getMetaData()</tt>. </p>
+
+
+<hr><p><b>Nota - </b>Muchos controladores JDBC guardan en la memoria cach&#233; los resultados de estas llamadas. Como resultado, al utilizar estas llamadas es posible que no siempre se obtengan validaciones fiables. Compruebe con el proveedor del controlador para determinar si estas llamadas est&#225;n guardadas en la memoria cach&#233; o no.</p>
+
+
+<hr>
+</dd>
+<dt><tt>custom-validation</tt></dt>
+<dd><p>GlassFish Server utiliza un mecanismo de validaci&#243;n definido por el usuario especificado en la clase de implementaci&#243;n personalizada, dentro del campo Nombre de clase de validaci&#243;n.</p>
+
+</dd>
+<dt><tt>table</tt></dt>
+<dd><p>La aplicaci&#243;n consulta la tabla de la base de datos especificada. La tabla debe existir y estar accesible, aunque no requiere ninguna fila. No utilice una tabla existente que tenga un gran n&#250;mero de filas, o una tabla a la que ya se accede con frecuencia.</p>
+
+</dd>
+</dl>
+</li>
+<li><b>Si seleccion&#243; <tt>table</tt> en la lista desplegable M&#233;todo de validaci&#243;n, seleccione el
+nombre de la tabla de base de datos en la lista desplegable
+Nombre de tabla.</b></li>
+<li><b>Si seleccion&#243; <tt>custom-validation</tt> en la lista desplegable M&#233;todo de validaci&#243;n, introduzca el
+nombre de clase de implementaci&#243;n de la validaci&#243;n personalizada.</b><p>El nombre de clase proporcionado debe ser accesible para GlassFish Server. La clase
+especificada debe implementar la interfaz <tt>org.glassfish.api.jdbc.ConnectionValidation.</tt>  </p></li>
+<li><b>Marque la casilla de verificaci&#243;n Cerrar todas las conexiones ante cualquier fallo
+para cerrar el servidor y volver a establecer todas las conexiones en
+conjunto cuando no se realice correctamente una conexi&#243;n &#250;nica.</b><p>Si esta opci&#243;n est&#225; deshabilitada, las conexiones individuales s&#243;lo se restablecer&#225;n cuando
+se utilicen. Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Marque la casilla de verificaci&#243;n Permitir solicitantes que no son componentes habilitados
+para que los solicitantes que no sean componentes, como los filtros de
+servlet y los administradores de persistencia de terceros, puedan utilizar el conjunto.</b><p>Las conexiones obtenidas por solicitantes que no son componentes no se cierran autom&#225;ticamente
+al final de una transacci&#243;n realizada por el contenedor. El solicitante ha
+de cerrarla &#233;l mismo. Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li>(Opcional) <b>Haga clic en el bot&#243;n Vaciar en la ficha General para vaciar
+todas las conexiones de la agrupaci&#243;n.</b><p>Al hacer clic en este bot&#243;n se destruyen todas las conexiones existentes,
+se recrean las conexiones establecidas para el conjunto y se restablece el
+tama&#241;o de conjunto inicial y m&#237;nimo del conjunto. </p></li>
+<li><b>Haga clic en Guardar.</b>
+<hr><p><b>Consejo - </b>Para volver a los valores de configuraci&#243;n predeterminados, haga clic en el
+bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
+
+
+<hr>
+</li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-setdbaccess.html">Para configurar el acceso a la base de datos</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">Para integrar un controlador JDBC</a>.</p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">Para crear un recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">Para editar un recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">Para editar destinos de recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">Para eliminar un recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">Para crear un conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">Para editar la configuraci&#243;n general del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">Para verificar la configuraci&#243;n del conjunto de conexiones</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Para eliminar un conjunto de conexiones JDBC</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

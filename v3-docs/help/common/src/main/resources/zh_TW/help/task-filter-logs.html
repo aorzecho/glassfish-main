@@ -1,0 +1,100 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-filter-logs"></a><h4>篩選顯示的記錄</h4><h6>開始之前</h6><p>確定您正在檢視 Domain Administration Server (DAS)、叢集 GlassFish Server 實例或獨立實例的記錄檔。如需更多資訊，請參閱以下主題：</p>
+
+
+<ul><li><p><a href="task-logviewer.html">檢視 DAS 的記錄檔</a></p>
+
+</li>
+<li><p><a href="../../../cluster/zh_TW/help/task-view-logs-clustered-instance.html">檢視叢集 GlassFish Server 實例的記錄檔</a></p>
+
+</li>
+<li><p><a href="../../../cluster/zh_TW/help/task-view-logs-standalone-instance.html">檢視獨立 GlassFish Server 實例的記錄檔</a></p>
+
+</li></ul>
+<ol>
+<li><b>在 [搜尋條件] 區域中，依據內容、時間段及記錄層級來篩選記錄。</b><ol style="list-style-type: lower-alpha">
+<li><b>若要僅顯示包含特定文字的記錄，請在 [文字搜尋] 欄位中，鍵入該文字。</b><p>搜尋會區分大小寫。</p></li>
+<li><b>若要選取顯示記錄的時間段，請使用 [時間戳記] 選項。</b><ul>
+<li><b>若要檢視最近訊息，請選取 [最近] (預設值)。</b></li>
+<li><b>若要僅檢視特定時段內的訊息，請選取 [指定範圍]，然後在所顯示的 [從] 和 [到] 欄位中鍵入日期和時間值。</b><p>[日期] 值必須採用以下格式：</p><pre><i>MM</i>/<i>DD</i>/<i>YY</i></pre><dl><dt><i>MM</i></dt>
+<dd><p>範圍 1&#8211;12 的整數，代表月份，例如 1 表示一月，10 表示十月。</p>
+
+</dd>
+<dt><i>DD</i></dt>
+<dd><p>範圍 1&#8211;31 的整數，代表當月的某天。</p>
+
+</dd>
+<dt><i>YY</i></dt>
+<dd><p>年份的後兩個數字，例如 11 代表 2011 年。</p>
+
+</dd>
+</dl>
+<p>例如，若要指定日期為 2011 年 2 月 1 日，請在 [日期] 欄位中鍵入 <tt>2/1/11</tt>。</p><p>[時間] 值必須採用以下格式：</p><pre><i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i></pre><dl><dt><i>hh</i></dt>
+<dd><p>範圍 0&#8211;23 的整數，代表小時。對於下午的時間，使用範圍 12&#8211;23 的整數，例如 14 代表下午 2 點。</p>
+
+</dd>
+<dt><i>mm</i></dt>
+<dd><p>範圍 0&#8211;59 的整數，代表該小時已過去的分鐘數。</p>
+
+</dd>
+<dt><i>ss</i></dt>
+<dd><p>範圍 0&#8211;59 的整數，代表秒數。</p>
+
+</dd>
+<dt><i>SSS</i></dt>
+<dd><p>範圍 000&#8211;999 的三位整數 (必要時具有前導零)，代表毫秒數。 </p>
+
+</dd>
+</dl>
+<p>例如，若要指定時間為下午 5 點 10 分，請在 [時間] 欄位中鍵入 <tt>17:10:00.000</tt>。</p><p>如果 [從] 欄位中的時間值遲於 [到] 欄位中的時間值，將顯示錯誤訊息。</p></li></ul></li>
+<li><b>依據記錄層級篩選訊息。</b><p>為確保要檢視的訊息顯示在伺服器記錄中，請先在 [模組記錄層級] 頁面上<a href="task-eelogginglevels.html">設定適當的記錄層級</a>。</p><p>如果選擇依據記錄層級篩選記錄訊息，則只會顯示符合指定篩選條件的訊息。不過，這種篩選不影響那些記錄到伺服器記錄中的訊息。</p><ol style="list-style-type: lower-roman">
+<li><b>從 [記錄層級] 下拉式清單中選取記錄層級。</b></li>
+<li><b>若要僅顯示所選層級的訊息，請選取 [請勿包含更多嚴重訊息] 選項。</b><p>依預設，會顯示伺服器記錄中所選擇記錄層級與更嚴重層級的所有訊息。</p></li></ol></li></ol></li>
+<li><b>在 [進階搜尋] 區域中，依據記錄程式名稱空間篩選記錄，然後選取要顯示的資訊量。</b><ol style="list-style-type: lower-alpha">
+<li><b>按一下 [進階搜尋] 連結。</b><p>會將 [進階搜尋] 區域增加至 [記錄檢視器] 視窗。</p></li>
+<li><b>若要依據模組進行篩選，請從 [記錄程式] 下拉式清單中選取一或多個名稱空間。</b><p>按住 Shift 鍵並按一下或按住 Ctrl 鍵並按一下可以選擇多個名稱空間。</p><p>選取較高層級的名稱空間時，也會連帶選取下層的所有名稱空間。例如，選取 <tt>javax.enterprise.system</tt> 的同時也就選取了該名稱空間下所有模組的記錄程式，例如 <tt>javax.enterprise.system.core</tt>、<tt>javax.enterprise.system.tools.admin</tt> 等。</p></li>
+<li><b>若要檢視特定應用程式之記錄程式的訊息，請在 [自訂記錄程式] 欄位中，分行鍵入每個記錄程式的名稱。</b><p>如果應用程式具有多個模組，您可以檢視任一模組，也可以檢視所有模組。例如，應用程式可能會有下列記錄程式：</p>
+<ul><li><p><tt>com.example.myapp.module1</tt></p>
+
+</li>
+<li><p><tt>com.example.myapp.module2</tt></p>
+
+</li>
+<li><p><tt>com.example.myapp.module3</tt></p>
+
+</li></ul>
+<p>若要檢視應用程式中所有模組的訊息，請鍵入 <tt>com.mycompany.myapp</tt>。若要僅檢視 <tt>module2</tt> 的訊息，請鍵入 <tt>com.example.myapp.module2</tt>。</p><p>如果指定了一個或多個自訂記錄程式，則僅當在 [記錄程式] 區域中明確指定 GlassFish Server 模組時，才會顯示這些模組的訊息。</p></li>
+<li><b>從 [顯示] 下拉式清單中，選取要顯示的訊息數目。</b><p>顯示的預設訊息數目為 40。其他選項包括 100、250 和 1000。</p></li>
+<li><b>若要檢視堆疊追蹤，請取消選取 [限制過長訊息] 選項。</b><p>依預設，堆疊追蹤不會出現在檢視器中。若要檢視堆疊追蹤，請按一下訊息的 (詳細資訊) 連結。</p></li>
+<li><b>若要隱藏 [進階搜尋] 區域，請按一下 [基本搜尋] 連結。</b></li></ol></li>
+<li><b>若要指定希望檢視的實例及相關聯的記錄檔，請使用 [修改搜尋] 區域。</b><ul>
+<li><b>從 [實例] 下拉式清單中選取實例。</b><p>預設值為您最初選取要檢視記錄檔的實例。如果您最初選取要檢視 Domain Administration Server (DAS) 的記錄檔，則預設值為代表 DAS 的伺服器。 </p></li>
+<li><b>從 [記錄檔] 下拉式清單中選取記錄檔。</b><p>預設為 <tt>server.log</tt>。其他選項取決於所選取目標的記錄設定。</p></li></ul></li>
+<li><b>在 [搜尋結果] 區域中，自訂記錄訊息的顯示。</b><p>[搜尋結果] 區域會透過 [記錄設定] 與 [記錄層級] 頁面中的設定，顯示伺服器記錄中最新的 40 個項目。</p><ul>
+<li><b>若要以不同方式對訊息排序，請按一下欄中的箭頭。</b></li>
+<li><b>若要檢視訊息的格式化版本，請按一下訊息的 (詳細資訊) 連結。</b><p>隨即會開啟包含訊息格式化版本的 [記錄項目詳細資訊] 視窗。</p></li>
+<li><b>若要檢視記錄檔中較舊或較新的項目，請按一下表格頂端的 [之前的記錄] 與 [之後的記錄]。</b></li></ul></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-eelogging.html">配置一般記錄設定</a></p>
+
+</li>
+<li><p><a href="task-eelogginglevels.html">配置記錄層級</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">檢視 DAS 的記錄檔</a></p>
+
+</li>
+<li><p><a href="../../../cluster/zh_TW/help/task-view-logs-clustered-instance.html">檢視叢集 GlassFish Server 實例的記錄檔</a></p>
+
+</li>
+<li><p><a href="../../../cluster/zh_TW/help/task-view-logs-standalone-instance.html">檢視獨立 GlassFish Server 實例的記錄檔</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

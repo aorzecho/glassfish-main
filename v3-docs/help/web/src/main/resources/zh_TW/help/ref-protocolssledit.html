@@ -1,0 +1,88 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolssledit"></a><h4>SSL</h4>
+<a name="indexterm-70"></a><a name="indexterm-71"></a><p>使用 [SSL] 頁面可修改網路通訊協定的 SSL 設定。</p>
+
+<p>此頁面上的設定只有在 [編輯通訊協定] 頁面上已啟用安全性時才有意義。</p>
+
+<p>[SSL] 頁面包含下列選項。</p>
+
+<dl><dt>配置名稱</dt>
+<dd><p>套用此頁面上之設定的配置名稱。此欄位是唯讀欄位。</p>
+
+</dd>
+<dt>SSL3</dt>
+<dd><p>若選取此核取方塊，通訊協定會啟用 SSL3 通訊協定。此選項預設為啟用。</p>
+
+</dd>
+<dt>TLS</dt>
+<dd><p>若選取此核取方塊，通訊協定會啟用 TLS 通訊協定。此選項預設為啟用。</p>
+
+</dd>
+<dt></dt>
+<dt>用戶端認證</dt>
+<dd><p>若選取此核取方塊，用戶端必須針對每個請求向伺服器表明其身分。此選項預設為停用。</p>
+
+</dd>
+<dt>憑證暱稱</dt>
+<dd><p>伺服器憑證在憑證資料庫或 PKCS#11 記號中的暱稱。在憑證中，名稱格式為 <tt><i>tokenname</i>:<i>nickname</i></tt>。在此屬性中加入名稱的 <tt><i>tokenname</i>:</tt> 部分並非強制步驟。</p>
+
+</dd>
+<dt>金鑰庫</dt>
+<dd><p>金鑰庫檔案的名稱 (例如 <tt>keystore.jks </tt>)。</p>
+
+</dd>
+<dt>信任演算法</dt>
+<dd><p>用於憑證路徑驗證的信任管理演算法名稱 (例如 PKIX)。</p>
+
+</dd>
+<dt>最大憑證長度</dt>
+<dd><p>憑證路徑中可以存在的非自我發行中間憑證最大數目。只有在 [信任演算法] 欄位設為 PKIX 時，才可使用此欄位。0 值表示路徑只能包含單一憑證。-1 值表示路徑長度沒有限制 (沒有上限)。將值設為低於 -1 會導致丟出異常。</p>
+
+</dd>
+<dt>信任清單存放區</dt>
+<dd><p>信任清單存放區檔案的名稱 (例如 <tt>cacerts.jks </tt>)。</p>
+
+</dd>
+<dt>密碼組</dt>
+<dd><p>您可以增加或移除密碼組的區域。如果沒有增加任何密碼組，則會使用所有密碼組。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-protocolnew.html">建立通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">編輯通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">編輯通訊協定的 SSL 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">編輯通訊協定的 HTTP 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">編輯通訊協定的檔案快取設定</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">刪除通訊協定</a></p>
+
+</li></ul>
+<h5>相關的 <tt>asadmin</tt> 指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

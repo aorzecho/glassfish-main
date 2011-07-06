@@ -1,0 +1,49 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-logging-max-logfiles"></a><h4>So &#228;ndern Sie die maximale Anzahl der rotierenden Protokolldateien</h4><a name="indexterm-70"></a><a name="indexterm-71"></a><a name="indexterm-72"></a><p>Wenn GlassFish-Server eine Protokolldatei rotiert, wird eine neue, leere Datei mit dem
+Namen <tt>server.log</tt> erstellt und die alte Datei <tt>server.log_ </tt><i>date</i> umbenannt, wobei <i>date</i> f&#252;r
+das Datum und die Uhrzeit des Rotierens der Datei steht.</p>
+
+<p>Standardm&#228;&#223;ig wird durch GlassFish-Server die Anzahl der rotierten Dateien auf 10 begrenzt.
+Wenn die maximale Anzahl erreicht ist, wird die &#228;lteste Protokolldatei gel&#246;scht, wenn
+GlassFish-Server eine n&#228;chste Protokolldatei rotiert.</p>
+
+<p>Gegebenenfalls k&#246;nnen Sie die maximale Anzahl der rotierten Protokolldateien &#228;ndern. Eine neu
+festgelegte Begrenzung gilt f&#252;r rotierte Protokolldateien f&#252;r sowohl Zugriffs- als auch Serverprotokollierung.</p>
+
+<ul>
+<li><b>Definieren Sie f&#252;r die Systemeigenschaft <tt>com.sun.enterprise.server.logging.max_history_files</tt> die maximale Anzahl der zu speichernden
+rotierten Protokolldateien.</b><p>Weitere Informationen zum Definieren einer Systemeigenschaft finden Sie unter <a href="task-systemproperties.html">So verwalten Sie Systemeigenschaften</a>.</p><p>Die Systemeigenschaft <tt>com.sun.enterprise.server.logging.max_history_files </tt> verh&#228;lt sich wie folgt:</p>
+<ul><li><p>Wenn die Eigenschaft nicht festgelegt ist, speichert GlassFish-Server maximal 10 rotierte Protokolldateien.</p>
+
+</li>
+<li><p>Wenn f&#252;r die Eigenschaft ein ung&#252;ltiger Wert oder Null festgelegt ist, speichert GlassFish-Server maximal 10 rotierte Protokolldateien.</p>
+
+</li>
+<li><p>Wenn die Eigenschaft auf 0 gesetzt ist, speichert GlassFish-Server keine rotierten Protokolldateien.</p>
+
+</li></ul>
+</li></ul><h6>Siehe auch</h6>
+<ul><li><p><a href="task-eelogging.html">So konfigurieren Sie allgemeine Protokollierungseinstellungen</a></p>
+
+</li>
+<li><p><a href="task-eelogginglevels.html">So konfigurieren Sie Protokollebenen</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">So zeigen Sie Protokolldateien f&#252;r den DAS an</a></p>
+
+</li>
+<li><p><a href="task-logging-collectlogfiles.html">So erstellen Sie ein ZIP-Archiv f&#252;r alle Protokolldateien</a></p>
+
+</li>
+<li><p><a href="task-systemproperties.html">So verwalten Sie Systemeigenschaften</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

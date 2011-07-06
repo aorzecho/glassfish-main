@@ -1,0 +1,105 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-networklistenernew"></a><h4>Cr&#233;ation d&#8217;un listener r&#233;seau</h4><a name="indexterm-21"></a><h6>Avant de commencer</h6><p>Lorsque vous cr&#233;ez un auditeur de r&#233;seau, vous pouvez cr&#233;er simultan&#233;ment un
+protocole que l&#8217;auditeur de r&#233;seau utilisera ou utiliser un protocole que vous avez
+d&#8217;abord cr&#233;&#233;. En r&#232;gle g&#233;n&#233;rale, il existe une correspondance un-un entre un
+auditeur de r&#233;seau et ses protocoles associ&#233;s, mais ce n&#8217;est pas obligatoire. </p>
+
+<ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
+<li><b>Sous le n&#339;ud Configuration, d&#233;veloppez le n&#339;ud Config r&#233;seau.</b></li>
+<li><b>Sous le n&#339;ud Configuration de r&#233;seau, s&#233;lectionnez le n&#339;ud Auditeurs de r&#233;seau.</b><p>La page Listeners r&#233;seau s&#8217;affiche.</p></li>
+<li><b>Dans la page Listeners r&#233;seau, cliquez sur Nouveau.</b><p>La page Nouveau listener r&#233;seau s&#8217;affiche.</p></li>
+<li><b>Dans le champ Nom, saisissez un nom pour l&#8217;auditeur de r&#233;seau.</b><p>Le nom d&#8217;un auditeur de r&#233;seau ne peut pas commencer par un
+chiffre. </p></li>
+<li><b>Dans le champ Protocole, sp&#233;cifiez le protocole &#224; associer &#224; l&#8217;auditeur de r&#233;seau.
+</b><ul>
+<li><b>S&#233;lectionnez Cr&#233;er un nouveau protocole pour cr&#233;er un nouveau protocole avec les
+param&#232;tres par d&#233;faut. De plus, dans la liste d&#233;roulante Serveur virtuel, s&#233;lectionnez
+le serveur virtuel &#224; associer au protocole.</b><p>Le nom par d&#233;faut du protocole est le nom de l&#8217;auditeur de
+r&#233;seau avec la mention <tt>-protocol</tt> ajout&#233;e, mais vous pouvez modifier cette valeur.
+</p></li>
+<li><b>S&#233;lectionnez Utiliser un protocole existant, puis s&#233;lectionnez un protocole dans la liste
+d&#233;roulante.</b><p>Si vous s&#233;lectionnez cette option, vous aurez g&#233;n&#233;ralement cr&#233;&#233; le protocole pour
+ce module d&#8217;&#233;coute au pr&#233;alable. </p></li></ul><p>Vous pouvez sp&#233;cifier le protocole uniquement lorsque vous cr&#233;ez l&#8217;auditeur de r&#233;seau. Vous
+ne pouvez pas modifier le protocole associ&#233; ult&#233;rieurement. </p></li>
+<li><b>Cochez la case &#201;tat activ&#233; pour activer le listener r&#233;seau.</b><p>Cette option est activ&#233;e par d&#233;faut. Si l&#8217;auditeur est d&#233;sactiv&#233;, toute tentative de
+connexion &#224; l&#8217;auditeur a pour r&#233;sultat une exception de socket (<tt>java.net.ConnectException</tt>). </p><p>Dans les versions ant&#233;rieures &#224; la version 9.1 de GlassFish Server, un
+auditeur dont l&#8217;attribut activ&#233; a &#233;t&#233; d&#233;fini sur false renvoyait un code de
+r&#233;ponse 404 pour toute requ&#234;te qui lui &#233;tait envoy&#233;e. Pour atteindre ce
+comportement dans la version actuelle de GlassFish Server, r&#233;glez le statut de l&#8217;auditeur
+sur activ&#233; et d&#233;finissez l&#8217;&#233;tat de chaque serveur virtuel associ&#233; sur OFF.
+Un serveur virtuel r&#233;pertorie ses auditeurs associ&#233;s dans sa liste d&#233;roulante Auditeurs
+de r&#233;seau.</p></li>
+<li><b>S&#233;lectionnez la case Activ&#233; de S&#233;curit&#233; pour activer la s&#233;curit&#233; du protocole
+utilis&#233; par l&#8217;auditeur de r&#233;seau. </b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>S&#233;lectionnez la case Activ&#233; de Listener JK pour indiquer que le module
+d&#8217;&#233;coute prend en charge le protocole <tt>mod-jk</tt> Apache. </b><p>Le protocole <tt>mod-jk</tt> est un protocole communication/r&#233;seau propri&#233;taire entre <tt>httpd</tt> Apache (serveur
+Web) et une instance d&#8217;arri&#232;re-plan de  GlassFish Server. Si l&#8217;auditeur prend en
+charge ce protocole, <tt>httpd</tt> est suppos&#233; g&#233;rer tout le contenu statique, tandis
+qu&#8217;une demande de ressources dynamiques (c&#8217;est-&#224;-dire, de servlets et de JSP) est
+achemin&#233;e vers l&#8217;auditeur r&#233;seau activ&#233; <tt>mod-jk</tt> de GlassFish Server, utilisant le protocole
+<tt>mod-jk</tt>. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Dans le champ Port, saisissez le num&#233;ro de port sur lequel le
+listener r&#233;seau va &#233;couter.</b><p>Les valeurs valides sont comprises entre 1 et 65535. Sur un syst&#232;me
+UNIX, la cr&#233;ation de sockets &#233;coutant sur les ports 1 &#224; 1024 requiert
+des privil&#232;ges de superutilisateur.</p></li>
+<li><b>Dans le champ Adresse, saisissez l&#8217;adresse IP sur laquelle le listener r&#233;seau
+va &#233;couter.</b><p>L&#8217;adresse peut pr&#233;senter une notation IPv6 ou des paires de chiffres s&#233;par&#233;es
+par des points. Elle peut &#234;tre d&#233;finie sur <tt>any</tt> (pour <tt>INADDR_ANY</tt>) pour
+&#233;couter sur toutes les adresses IP. Il peut s&#8217;agir d&#8217;un nom d&#8217;h&#244;te.
+</p></li>
+<li><b>Dans la liste d&#233;roulante Pool de thread, s&#233;lectionnez le pool de thread
+&#224; associer &#224; l&#8217;auditeur de r&#233;seau.</b><p>Normalement, vous s&#233;lectionnez l&#8217;un des deux pools de thread qui sont configur&#233;es lorsque
+vous installez GlassFish Server.  </p></li>
+<li><b>Dans la liste d&#233;roulante Transport, s&#233;lectionnez le type de transport &#224; utiliser
+par le listener r&#233;seau.</b><p>Par d&#233;faut, le seul choix possible est <tt>tcp</tt>. </p></li>
+<li><b>Cliquez sur OK.</b></li></ol><h6>&#201;tapes suivantes</h6><p>Si vous avez activ&#233; la s&#233;curit&#233; pour l&#8217;auditeur de r&#233;seau, vous pouvez
+utiliser l&#8217;onglet SSL pour modifier les param&#232;tres SSL du protocole utilis&#233; par l&#8217;auditeur
+r&#233;seau. </p>
+
+<h6>Voir aussi</h6>
+<ul><li><p><a href="task-networklisteneredit.html">Modification d'un listener r&#233;seau</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">Suppression d'un listener r&#233;seau</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">Cr&#233;ation d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Modification d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Modifier les param&#232;tres SSL d'un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Modifier les param&#232;tres HTTP pour un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Modifier les param&#232;tres de cache de fichiers pour un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Suppression d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">Cr&#233;er un transport</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">Modifier un transport</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">Supprimer un transport</a></p>
+
+</li>
+<li><p><a href="task-virtualservercreate.html">Cr&#233;er un serveur virtuel</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

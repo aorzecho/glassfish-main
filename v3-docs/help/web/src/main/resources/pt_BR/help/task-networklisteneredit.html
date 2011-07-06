@@ -1,0 +1,84 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-networklisteneredit"></a><h4>Para editar uma escuta de rede</h4><a name="indexterm-22"></a><ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
+<li><b>No n&#243; Configura&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o da Rede.</b></li>
+<li><b>No n&#243; Config da rede, selecione o n&#243; Escutas de rede.</b><p>&#201; exibida a p&#225;gina Escutas de rede.</p></li>
+<li><b>Na p&#225;gina Escutas de rede, clique no nome do escuta de rede
+que est&#225; editando.</b><p>&#201; aberta a p&#225;gina Editar Escuta de rede.</p></li>
+<li><b>Marque ou desmarque a caixa de sele&#231;&#227;o Status Ativado para alterar o
+status da escuta de rede.</b><p>A escuta pode ser ativada ou desativada. Por padr&#227;o, a op&#231;&#227;o est&#225;
+ativada. Se o interpretador estiver desativado, qualquer tentativa de conectar ao interpretador
+resulta  em uma exce&#231;&#227;o de soquete (<tt>java.net.ConnectException</tt>).</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Seguran&#231;a ativada para ativar a seguran&#231;a do
+protocolo usado pelo escuta de rede.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Interpretador JK ativado para especificar que o
+interpretador suporta o protocolo <tt>mod-jk</tt> do Apache.</b><p>O protocolo <tt>mod-jk</tt> &#233; um protocolo propriet&#225;rio de comunica&#231;&#227;o/rede entre o <tt>httpd</tt>
+(servidor da Web) da Apache e uma inst&#226;ncia back-end do Servidor GlassFish.
+Se o interpretador suporta este protocolo, o <tt>httpd</tt> deveria manusear todo o
+conte&#250;do est&#225;tico, enquanto quaisquer solicita&#231;&#245;es por recursos din&#226;micos (ou seja, Servlets e
+JSPs) s&#227;o roteadas para o interpretador <tt>mod-jk</tt> ativado para a rede do
+Servidor GlassFish, usando o protocolo <tt>mod-jk</tt>. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>No campo Porta, digite o n&#250;mero da porta pela qual a escuta
+de rede vai ouvir.</b><p>Os valores v&#225;lidos s&#227;o 1 a 65.535. Em sistemas UNIX, a cria&#231;&#227;o
+de soquetes que escutam nas portas 1 a 1024 requer privil&#233;gios de
+superusu&#225;rio.</p></li>
+<li><b>No campo Endere&#231;o, digite o endere&#231;o IP no qual a escuta de
+rede vai ouvir.</b><p>O endere&#231;o pode estar na nota&#231;&#227;o de par de pontos ou IPv6.
+Ele pode ser <tt>qualquer</tt> (para <tt>INADDR_ANY</tt>) para escutar todos s endere&#231;os de
+IP. Ele pode ser um nome de host.</p></li>
+<li><b>Na lista suspensa Conjunto de segmentos, selecione o conjunto de segmentos a
+ser associado &#224; escuta de rede.</b></li>
+<li><b>Clique em Salvar.</b>
+<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar padr&#245;es e depois
+em Salvar. </p>
+
+
+<hr>
+</li></ol><h6>Passos Seguintes</h6><p>Voc&#234; pode usar as abas SSL, HTTP e Arquivo para editar as
+configura&#231;&#245;es para o protocolo associado &#224; escuta de rede. A guia SSL
+somente &#233; significativa se voc&#234; ativou a seguran&#231;a para a escuta de
+rede.</p>
+
+<h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-networklistenernew.html">Para criar uma escuta de rede</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">Para excluir uma escuta de rede</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">Para criar um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Para editar um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Para editar as configura&#231;&#245;es SSL para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Para editar as configura&#231;&#245;es HTTP para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Para editar as configura&#231;&#245;es de um arquivo de cache para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Para excluir um protocolo</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">Para criar um transporte</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">Para editar um transporte</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">Para excluir um transporte</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

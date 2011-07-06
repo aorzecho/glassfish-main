@@ -1,0 +1,85 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsconnectionedit"></a><h4>Para editar un recurso de f&#225;brica de conexi&#243;n JMS</h4><a name="indexterm-3"></a><a name="indexterm-4"></a><ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, amplie el nodo Recursos.</b></li>
+<li><b>En el nodo Recursos, ampl&#237;e el nodo Recursos JMS.</b></li>
+<li><b>En el nodo de Recursos JMS, seleccione el nodo F&#225;bricas de conexi&#243;n
+JMS.</b><p>Se abrir&#225; la p&#225;gina F&#225;bricas de conexi&#243;n JMS.</p></li>
+<li><b>En la p&#225;gina F&#225;bricas de conexi&#243;n JMS, haga clic en el nombre
+de la f&#225;brica que desee editar.</b><p>Se abrir&#225; la p&#225;gina Editar f&#225;brica de conexi&#243;n JMS.</p></li>
+<li><b>En el campo Descripci&#243;n, introduzca una descripci&#243;n de la f&#225;brica de conexi&#243;n.</b></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Estado habilitado para habilitar el recurso en
+tiempo de ejecuci&#243;n.</b><p>Esta opci&#243;n se habilita por defecto.</p></li>
+<li><b>En el campo Tama&#241;o de conjunto inicial y m&#237;nimo, introduzca el n&#250;mero
+m&#237;nimo de conexiones del conjunto.</b><p>El valor predeterminado es 8.</p></li>
+<li><b>En el campo Tama&#241;o de conjunto m&#225;ximo, especifique el n&#250;mero m&#225;ximo de
+conexiones del conjunto.</b><p>El valor predeterminado es 32.</p></li>
+<li><b>En el campo Cantidad de redimensionamiento del conjunto, especifique el n&#250;mero de
+conexiones que se eliminar&#225;n cuando se upere el tiempo l&#237;mite de espera de
+inactividad del conjunto.</b><p>El valor predeterminado es 2.</p></li>
+<li><b>En el campo Tiempo de espera de inactividad, indique el tiempo m&#225;ximo
+que una conexi&#243;n puede permanecer inactiva en el conjunto, en segundos.</b><p>El valor predeterminado es 300.</p></li>
+<li><b>En el campo Tiempo de espera m&#225;ximo, indique la cantidad de tiempo
+que la aplicaci&#243;n que solicita una conexi&#243;n puede esperar antes de superar
+el l&#237;mite de espera para establecer la conexi&#243;n.</b><p>El valor predeterminado es 60000.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Cerrar todas las conexiones en caso de
+fallo, de manera que GlassFish Server cerrar&#225; todas las conexiones del conjunto
+y las restablecer&#225; con que tan s&#243;lo se produzca el fallo de
+una conexi&#243;n.</b><p>Si no selecciona esta casilla de verificaci&#243;n, las conexiones individuales se restablecer&#225;n
+s&#243;lo cuando vaya a utilizarlas. </p></li>
+<li><b>Para un recurso de f&#225;brica de conexi&#243;n JMS, especifique el valor de
+Compatibilidad de transacci&#243;n de la siguiente manera:</b><ul>
+<li><b>Especifique <tt>XATransaction</tt> (el valor predeterminado) para un recurso que se puede utilizar
+para transacciones que suponen el uso de m&#225;s de un recurso dentro
+de un &#225;mbito de transacci&#243;n.</b><p>Por ejemplo, este recurso m&#225;s un recurso JDBC, un recurso de conector,
+u otro recurso de f&#225;brica de conexi&#243;n JMS. Este valor ofrece la
+m&#225;xima flexibilidad. Un recurso que se configura como <tt>XATransaction </tt> participar&#225; en operaciones
+de confirmaci&#243;n de dos fases.</p></li>
+<li><b>Especifique <tt>LocalTransaction</tt> para un recurso que se puede utilizar para transacciones que
+implican s&#243;lo un recurso dentro del &#225;mbito de la transacci&#243;n o como
+el &#250;ltimo agente en una transacci&#243;n distribuida que implica m&#225;s de un
+recurso XA.</b><p>Este valor ofrece un rendimiento mucho m&#225;s &#243;ptimo. Un recurso que se
+configura como <tt>LocalTransaction </tt> no se utilizar&#225; en operaciones de confirmaci&#243;n de dos
+fases.</p></li>
+<li><b>Especifique <tt>NoTransaction</tt> para un recurso que nunca puede participar en transacciones.</b><p>Esta configuraci&#243;n es de uso limitado en aplicaciones JMS.</p></li></ul></li>
+<li><b>Marque la casilla de verificaci&#243;n Validaci&#243;n de conexi&#243;n para habilitar la validaci&#243;n
+de la conexi&#243;n.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li>(Opcional) <b>En la tabla Propiedades adicionales, indique propiedades adicionales para la f&#225;brica de
+conexi&#243;n.</b><p>Para obtener informaci&#243;n sobre las propiedades disponibles, consulte <a href="ref-jmsconnectionproperties.html">Propiedades espec&#237;ficas de las f&#225;bricas de conexi&#243;n JMS</a>.</p><ul>
+<li><b>Para a&#241;adir una propiedad, haga clic en el bot&#243;n A&#241;adir propiedad. En
+la fila vac&#237;a escriba el nombre de la propiedad en el campo
+Nombre y el valor de la propiedad en el campo Valor.</b></li>
+<li><b>Para modificar una propiedad, edite su campo Valor.</b></li>
+<li><b>Para eliminar una propiedad, marque la casilla de verificaci&#243;n situada a la
+izquierda del campo Nombre de la propiedad que quiera eliminar y, a
+continuaci&#243;n, haga clic en el bot&#243;n Eliminar propiedades.</b></li></ul></li>
+<li><b>Haga clic en Guardar.</b>
+<hr><p><b>Consejo - </b>Para volver a los valores de configuraci&#243;n predeterminados, haga clic en el
+bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
+
+
+<hr>
+</li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-jmsconnectionnew.html">Para crear un recurso de f&#225;brica de conexi&#243;n JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsconnectiondelete.html">Para eliminar un recurso de f&#225;brica de conexi&#243;n JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationnew.html">Para crear un recurso de destino JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationedit.html">Para editar un recurso de destino JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationdelete.html">Para eliminar un recurso de destino JMS</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

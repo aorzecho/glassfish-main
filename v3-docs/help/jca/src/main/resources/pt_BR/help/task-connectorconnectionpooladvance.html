@@ -1,0 +1,114 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-connectorconnectionpooladvance"></a><h4>Para editar os atributos avan&#231;ados do conjunto de conex&#245;es do conector</h4><a name="indexterm-6"></a><ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Recursos.</b></li>
+<li><b>Expanda o n&#243; Conectores.</b></li>
+<li><b>Sob o n&#243; Conectores, selecione o n&#243; Conjuntos de conex&#245;es do conector.</b><p>A p&#225;gina Conjuntos de conex&#245;es do conector &#233; aberta.</p></li>
+<li><b>Na p&#225;gina Conjuntos de conex&#245;es do conector, clique no nome do conjunto
+de conex&#245;es do conector a ser editado.</b><p>A p&#225;gina Editar o conjunto de conex&#245;es do conector &#233; aberta.</p></li>
+<li><b>Na p&#225;gina Editar o conjunto de conex&#245;es do conector, clique na aba
+Avan&#231;ado.</b><p>A p&#225;gina Editar atributos avan&#231;ados do conjunto de conex&#245;es do conector &#233;
+exibida.</p></li>
+<li><b>No campo Validar no m&#225;ximo uma vez, digite o per&#237;odo, em segundos,
+ap&#243;s o qual uma conex&#227;o ser&#225; validada no m&#225;ximo uma vez.</b><p>A configura&#231;&#227;o desse atributo para um valor apropriado minimiza o n&#250;mero de
+solicita&#231;&#245;es de valida&#231;&#227;o feitos por uma conex&#227;o. O valor padr&#227;o &#233; 0,
+o que significa que o atributo n&#227;o est&#225; ativado.</p></li>
+<li><b>No campo Tempo limite da perda, digite a quantidade de tempo, em
+segundos, para rastrear perdas de conex&#227;o em um conjunto de conex&#245;es.</b><p>Um valor de 0 indica que o rastreamento do vazamento da conex&#227;o
+est&#225; desativado. O valor padr&#227;o &#233; 0.</p></li>
+<li><b>Selecione a op&#231;&#227;o Reclama&#231;&#227;o de vazamento, para permitir que as conex&#245;es que
+vazaram sejam restauradas no conjunto ap&#243;s a conclus&#227;o do rastreamento de vazamento
+da conex&#227;o.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>No campo Novas tentativas de cria&#231;&#227;o, digite o n&#250;mero de tentativas a
+serem feitas se houver falha ao criar uma nova conex&#227;o.</b><p>O valor de 0 indica que nenhuma tentativa ser&#225; feita para criar
+a conex&#227;o novamente. O valor padr&#227;o &#233; 0.</p></li>
+<li><b>No campo Intervalo de nova tentativa, digite o intervalo, em segundos, entre
+duas tentativas de criar uma conex&#227;o.</b><p>Esse atributo s&#243; ser&#225; usado se o valor Novas tentativas de cria&#231;&#227;o
+for maior que 0. O valor padr&#227;o &#233; 10 segundos.</p></li>
+<li><b>Selecione a caixa de verifica&#231;&#227;o Amostragem para ativar a amostragem de conex&#245;es
+para o conjunto.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li>
+<li><b>Selecione a op&#231;&#227;o Associa&#231;&#227;o lenta ativada, para permitir que as conex&#245;es sejam
+lentamente associadas quando uma opera&#231;&#227;o for executada na mesmas.</b><p>As conex&#245;es ser&#227;o desassociadas quando a transa&#231;&#227;o for conclu&#237;da e um m&#233;todo
+de componente for finalizado, o que ajuda a reutilizar as conex&#245;es f&#237;sicas.
+Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de verifica&#231;&#227;o Inscri&#231;&#227;o de conex&#227;o lenta, para inscrever um
+recurso para a transa&#231;&#227;o somente quando ele for efetivamente utilizado em um
+m&#233;todo.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de verifica&#231;&#227;o Associar com segmento, para associar a conex&#227;o
+com um segmento.</b><p>Quando o mesmo segmento for necess&#225;rio a uma conex&#227;o, a conex&#227;o j&#225;
+associada ao segmento poder&#225; ser reutilizada, n&#227;o incorrendo, portanto, na sobrecarga para
+obten&#231;&#227;o de outra conex&#227;o do conjunto. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de verifica&#231;&#227;o Corresponder conex&#245;es, para ativar a correspond&#234;ncia de
+conex&#227;o para o conjunto.</b><p>Desative esta op&#231;&#227;o se voc&#234; souber que as conex&#245;es no conjunto ser&#227;o
+sempre homog&#234;neas e, portanto, uma conex&#227;o selecionada no conjunto n&#227;o precisar&#225; coincidir
+com o adaptador de recurso. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li>
+<li><b>No campo Corresponder uso da conex&#227;o, digite o n&#250;mero de vezes que
+uma conex&#227;o deve ser reutilizada pelo conjunto.</b><p>Depois que uma conex&#227;o &#233; reutilizada por um n&#250;mero especificado de vezes,
+ela &#233; fechada. O valor de 0 indica que o atributo est&#225;
+desativado. O valor padr&#227;o &#233; 0.</p></li>
+<li><b>Clique em Salvar.</b>
+<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar Padr&#245;es e depois
+em Salvar. </p>
+
+
+<hr>
+</li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-connectorresourcenew.html">Para criar um recurso do conector</a></p>
+
+</li>
+<li><p><a href="task-connectorresourceedit.html">Para editar um recurso do conector</a></p>
+
+</li>
+<li><p><a href="task-connectorresourcesdelete.html">Para excluir um recurso do conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolnew.html">Para criar um conjunto de conex&#245;es do conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">Para editar um conjunto de conex&#245;es do conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">Para editar as propriedades do conjunto de conex&#245;es do conector</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">Para criar um mapa de seguran&#231;a para um conjunto de conex&#245;es do conector</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">Para editar um mapa de seguran&#231;a para um conjunto de conex&#245;es do conector</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">Para excluir um mapa de seguran&#231;a para um conjunto de conex&#245;es do conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">Para excluir um conjunto de conex&#245;es do conector</a></p>
+
+</li>
+<li><p><a href="task-setupeisaccess.html">Para definir o acesso EIS</a></p>
+
+</li>
+<li><p><a href="task-adminobjectnew.html">Para criar um recurso de objeto administrado</a></p>
+
+</li>
+<li><p><a href="task-adminobjectedit.html">Para editar um recurso de objeto administrado</a></p>
+
+</li>
+<li><p><a href="task-administeredobjectresourcedelete.html">Para excluir um recurso de objeto administrado</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapnew.html">Para criar um mapa de seguran&#231;a do trabalho</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapedit.html">Para editar um mapa de seguran&#231;a do trabalho</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapdelete.html">Para excluir um mapa de seguran&#231;a do trabalho</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

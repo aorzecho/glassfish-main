@@ -1,0 +1,134 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-mqschemeservice"></a><h4>Sintaxe de endere&#231;os do esquema MQ e servi&#231;o MQ</h4>
+<p>A sintaxe inteira para um endere&#231;o de servi&#231;o de mensagem &#233;</p>
+
+<pre><i>scheme</i>://<i>address-syntax</i></pre><p>onde a <i>sintaxe</i> do esquema <i> e do servi&#231;o</i> s&#227;o descritas no quadro abaixo.</p>
+
+<p>O esquema MQ e o servi&#231;o MQ s&#227;o os valores mostrados nas
+primeiras duas colunas na tabela abaixo.</p>
+
+<table><col width="16%"><col width="16%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"><p>Nome do esquema</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Servi&#231;o de conex&#227;o</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Descri&#231;&#227;o</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Sintaxe de endere&#231;o</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mq</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt>
+e <tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>O tempo de execu&#231;&#227;o do cliente da Fila de mensagens estabelece
+uma conex&#227;o com o Mapeador de porta MQ no host e na
+porta especificados. O Mapeador de porta retorna uma lista das portas de
+servi&#231;o de conex&#227;o estabelecida dinamicamente e o tempo de execu&#231;&#227;o do cliente
+da Fila de mensagens estabelece ent&#227;o uma conex&#227;o com a porta que
+serve de host do servi&#231;o de conex&#227;o especificado.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>[</tt><i>hostName</i><tt>][:</tt><i>porta</i><tt>][/</tt><i>serviceName</i><tt>]</tt></p>
+
+<p>Padr&#245;es: <i>hostName</i> = <tt>localhost</tt>, <i>port</i>
+= <tt>7676(644)</tt>, <i>serviceName</i> = <tt>jms</tt></p>
+
+<p>Padr&#245;es somente aplicam-se ao servi&#231;o de conex&#227;o <tt>jms</tt>.
+Para o servi&#231;o de conex&#227;o <tt>ssljms</tt>, todas as vari&#225;veis precisam ser especificadas.</p>
+
+<p>Exemplo:
+<tt>mq:MyHost:7677/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqtcp</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>O tempo de execu&#231;&#227;o do cliente da Fila de mensagens estabelece uma
+conex&#227;o TCP para o host e a porta especificados (ignorando o Mapeador
+de porta MQ) para estabelecer uma conex&#227;o.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt>/jms</tt></p>
+
+<p>Exemplo: <tt>mqtcp:localhost:7676/jms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqssl</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>O tempo de execu&#231;&#227;o do
+cliente da Fila de mensagens estabelece uma conex&#227;o SSL segura para o
+host e a porta especificados (ignorando o Mapeador de porta MQ) para
+estabelecer uma conex&#227;o.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>porta</i><tt>/ssljms</tt></p>
+
+<p>Exemplo: <tt>mqssl:localhost:7676/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>O tempo de execu&#231;&#227;o do cliente da Fila de
+mensagens estabelece uma conex&#227;o HTTP com um servlet de t&#250;nel a uma
+Fila de mensagens no URL especificado. (O broker deve ser configurado para
+acessar o servlet de t&#250;nel HTTP, como descrito no <b>Guia do administrador </b> da Fila
+de mensagens.)</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt>/</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>Se v&#225;rias inst&#226;ncias de broker estiverem utilizando o mesmo servlet de
+t&#250;nel, a sintaxe para a conex&#227;o com uma inst&#226;ncia de broker espec&#237;fica
+(em vez de uma selecionada aleatoriamente) &#233;: <tt>http://</tt><i>hostName</i><tt></tt><i>port</i><tt>/</tt><i>contextRoot</i><tt>/tunnel?</tt><i>serverName</i><tt>=</tt><i>hostName</i><tt></tt><i>instanceName</i></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>https</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpsjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>O tempo de execu&#231;&#227;o do
+cliente da Fila de mensagens estabelece uma conex&#227;o HTTPS segura com o
+URL do servelet de t&#250;nel especificado da Fila de mensagens. (O broker
+deve ser configurado para acessar o servlet de t&#250;nel HTTPS, como descrito
+no <b>Guia do administrador</b> da Fila de mensagens.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt>/</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>Se v&#225;rias inst&#226;ncias de broker estiverem usando
+o mesmo servlet de t&#250;nel, a sintaxe para a conex&#227;o com uma
+inst&#226;ncia de broker espec&#237;fica (em vez de uma selecionada aleatoriamente) &#233;: <tt>http://</tt><i>hostName</i><tt></tt><i>port</i><tt>/</tt><i>contextRoot</i><tt>/tunnel?</tt><i>serverName</i><tt>=</tt><i>hostName</i><tt></tt><i>instanceName</i></p>
+
+</td>
+</tr>
+</table>
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-managerproptab"></a><h4>Propri&#233;t&#233;s du gestionnaire</h4>
+<a name="indexterm-50"></a><a name="indexterm-51"></a><p>Le gestionnaire de sessions permet de d&#233;terminer le processus de cr&#233;ation et
+de suppression des sessions, l&#8217;emplacement de stockage de l&#8217;&#233;tat des sessions, ainsi
+que le nombre maximal de sessions disponibles.</p>
+
+<p>Utilisez la page Propri&#233;t&#233;s du gestionnaire pour ajouter ou modifier les propri&#233;t&#233;s
+du gestionnaire de session pour le conteneur Web.</p>
+
+<p>La page Propri&#233;t&#233;s du gestionnaire contient les options suivantes&#160;:</p>
+
+<dl><dt>Charger les valeurs par d&#233;faut</dt>
+<dd><p>Bouton permettant de restaurer les valeurs par d&#233;faut de tous les param&#232;tres.</p>
+
+</dd>
+<dt>Nom de configuration</dt>
+<dd><p>Le nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
+
+</dd>
+<dt>Intervalle de suppression</dt>
+<dd><p>Nombre de secondes devant s&#8217;&#233;couler avant que les donn&#233;es de la session inactive ne soient supprim&#233;es. La valeur par d&#233;faut est 60.</p>
+
+<p>D&#233;finissez ceux-ci sur une valeur inf&#233;rieure &#224; la fr&#233;quence &#224; laquelle les donn&#233;es de session sont modifi&#233;es. Par exemple, cette valeur doit &#234;tre la plus petite possible (1 seconde) pour un servlet de compteur de r&#233;sultats trouv&#233;s sur un site Web auquel l&#8217;acc&#232;s est fr&#233;quent ; dans le cas contraire, vous risquez de perdre les quelques derniers r&#233;sultats trouv&#233;s &#224; chaque fois que vous red&#233;marrez le serveur. </p>
+
+</dd>
+<dt>Nombre maximal de sessions</dt>
+<dd><p>Le nombre maximal de sessions pouvant &#234;tre dans le cache. Une valeur de -1 indique que le nombre de sessions est illimit&#233;. La valeur par d&#233;faut est &#8211;1. </p>
+
+<p>Une fois la limite atteinte, toute tentative de cr&#233;ation d&#8217;une nouvelle session provoque l&#8217;&#233;mission d&#8217;une exception <tt>IllegalStateException</tt>. </p>
+
+</dd>
+<dt>Nom de fichier de session</dt>
+<dd><p>Le chemin d&#8217;acc&#232;s, absolu ou relatif, vers le r&#233;pertoire dans lequel l&#8217;&#233;tat de la session est conserv&#233; entre les red&#233;marrages de l&#8217;application, si la conservation de l&#8217;&#233;tat est possible. Si ce chemin n&#8217;est pas d&#233;fini, l&#8217;&#233;tat de la session n&#8217;est pas conserv&#233;. Par d&#233;faut, ce chemin n&#8217;est pas d&#233;fini. </p>
+
+<p>Un chemin d&#8217;acc&#232;s relatif est relatif au r&#233;pertoire temporaire pour cette application Web.</p>
+
+</dd>
+<dt>Autres propri&#233;t&#233;s</dt>
+<dd><p>Autres propri&#233;t&#233;s du gestionnaire de sessions. Le GlassFish Server ne d&#233;finit aucune autre propri&#233;t&#233; pour le gestionnaire de sessions.</p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">Configuration des propri&#233;t&#233;s g&#233;n&#233;rales du conteneur Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">Configurer les propri&#233;t&#233;s de session pour le conteneur Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">Configurer les propri&#233;t&#233;s du gestionnaire pour le conteneur Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">Configurer les propri&#233;t&#233;s de stockage pour le conteneur Web</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">Pour configurer les param&#232;tres de disponibilit&#233; du conteneur Web</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+<p>Aucune.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

@@ -1,0 +1,130 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-create-standalone-instance"></a><h4>スタンドアロン GlassFish サーバー インスタンスを作成する</h4><a name="indexterm-83"></a><a name="indexterm-84"></a><a name="indexterm-85"></a><p>GlassFish サーバー インスタンスはアプリケーション配備の基礎を形成します。スタンドアロンインスタンスはクラスタのメンバーではありません。各インスタンスは 1 つのドメインに属し、それぞれに固有のディレクトリ構造、設定、および配備されたアプリケーションが含まれます。各インスタンスには Java Platform, Enterprise Edition (Java EE) Web
+コンテナとエンタープライズ JavaBeans テクノロジ (EJB テクノロジ) コンテナも含まれます。すべての新しいインスタンスに、インスタンスが配置されるホストを定義するノードへの参照が含まれている必要があります。</p>
+
+
+<hr><p><b>注 - </b>遠隔ホストを表す CONFIG タイプのノードにインスタンスを作成するには、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a> サブコマンドを使用する必要があります。この目的で 管理コンソール を使用することはできません。</p>
+
+
+<hr>
+<h6>始める前に</h6><p><a href="task-createnode.html">インスタンスが配置されるノード</a>が存在することを確認します。</p>
+
+<ol>
+<li><b>ナビゲーションツリーで、「スタンドアロンインスタンス」ノードを選択します。</b><p>「スタンドアロンサーバーインスタンス」ページが開きます。</p></li>
+<li><b>「スタンドアロンサーバーインスタンス」ページで、「新規」をクリックします。</b><p>「新しいスタンドアロンサーバーインスタンス」ページが開きます。</p></li>
+<li><b>「名前」フィールドに、インスタンスの名前を入力します。</b><p>名前は次の要件を満たしてください。</p>
+<ul><li><p>名前は英数字または下線で始めます。</p>
+
+</li>
+<li><p>名前に含めることができるのは次の文字だけです。</p>
+
+
+<ul><li><p>小文字</p>
+
+</li>
+<li><p>大文字</p>
+
+</li>
+<li><p>数値</p>
+
+</li>
+<li><p>ハイフン</p>
+
+</li>
+<li><p>ピリオド</p>
+
+</li>
+<li><p>下線</p>
+
+</li></ul>
+</li>
+<li><p>名前はドメイン内で一意にします。また、別の GlassFish サーバー インスタンス、クラスタ、名前付き設定、またはノードの名前にすることはできません。</p>
+
+</li>
+<li><p><tt>ドメイン</tt>、<tt>サーバー</tt>、または GlassFish サーバー で予約されているほかのキーワードを名前に使用してはいけません。</p>
+
+</li></ul>
+</li>
+<li><b>「ノード」ドロップダウンリストで、インスタンスが配置されるノードを選択します。</b></li>
+<li><b>「設定」ドロップダウンリストで、インスタンスが使用する名前付き設定を選択します。</b>
+<hr><p><b>注 - </b>「<tt>デフォルト設定</tt>」を選択した場合は、設定を共有<b>しない</b>ことを次の手順で指定する必要があります。「<tt>デフォルト設定</tt>」は共有できません。</p>
+
+
+<hr>
+</li>
+<li><b>インスタンスが使用する設定を共有するかどうかを指定します。</b><ul>
+<li><b>設定を共有しない場合は、「選択している設定のコピーの作成」オプションをオンのままにしておきます。 </b><p>インスタンスが作成されると、選択した設定がコピーされます。設定のコピーには、<tt><i>instance-name</i>-config</tt> という名前が割り当てられます。<i>instance-name</i> は、作成しているインスタンスの名前です。</p></li>
+<li><b>設定を共有する場合は、「選択している設定への参照」オプションをオンにします。</b><p>インスタンスは、指定した既存の名前付き設定を使用します。</p></li></ul></li>
+<li><b>「了解」をクリックします。</b></li></ol><h6>参照</h6>
+<ul><li><p><a href="task-delete-standalone-instances.html">「スタンドアロン GlassFish サーバー インスタンスを削除する」</a></p>
+
+</li>
+<li><p><a href="task-start-standalone-instances.html">「スタンドアロン GlassFish サーバー インスタンスを起動する」</a></p>
+
+</li>
+<li><p><a href="task-stop-standalone-instances.html">「スタンドアロン GlassFish サーバー インスタンスを停止する」</a></p>
+
+</li>
+<li><p><a href="task-view-logs-standalone-instance.html">「スタンドアロン GlassFish サーバー インスタンスのログファイルを表示する」</a></p>
+
+</li>
+<li><p><a href="task-recovertransactions-standalone-instance.html">「スタンドアロン GlassFish サーバー インスタンスのトランザクションを回復する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-deploy.html">「アプリケーションをスタンドアロン GlassFish サーバー インスタンスに配備する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-list.html">「スタンドアロン GlassFish サーバー インスタンスに配備されているアプリケーションを一覧表示する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-undeploy.html">「スタンドアロン GlassFish サーバー インスタンスへのアプリケーションの配備を取り消す」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-remove.html">「スタンドアロン GlassFish サーバー インスタンスからアプリケーションを削除する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-edit.html">「スタンドアロン GlassFish サーバー インスタンスに配備されているアプリケーションを編集する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-enable-disable.html">「スタンドアロン GlassFish サーバー インスタンスに配備されているアプリケーションを有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">「スタンドアロン GlassFish サーバー インスタンスに配備されているアプリケーションの負荷分散を有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-create.html">「スタンドアロン GlassFish サーバー インスタンスのリソースを作成する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-display.html">「スタンドアロン GlassFish サーバー インスタンスのリソースを一覧表示する」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-enable-disable.html">「スタンドアロン GlassFish サーバー インスタンスのリソースを有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-edit.html">「スタンドアロン GlassFish サーバー インスタンスのリソースを編集する」</a></p>
+
+</li>
+<li><p><a href="task-change-standalone-instance-ports.html">「スタンドアロン GlassFish サーバー インスタンスのポート番号を変更する」</a></p>
+
+</li>
+<li><p><a href="task-set-props-standalone-instance.html">「スタンドアロン GlassFish サーバー インスタンスの Instance-Only プロパティーを設定する」</a></p>
+
+</li>
+<li><p><a href="task-mon-app-standalone-instance.html">「スタンドアロン GlassFish サーバー インスタンスのアプリケーション監視データを表示する」</a></p>
+
+</li>
+<li><p><a href="task-mon-server-standalone-instance.html">「スタンドアロン GlassFish サーバー インスタンスの仮想サーバー監視データを表示する」</a></p>
+
+</li>
+<li><p><a href="task-mon-resource-standalone-instance.html">「スタンドアロン GlassFish サーバー インスタンスのリソース監視データを表示する」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

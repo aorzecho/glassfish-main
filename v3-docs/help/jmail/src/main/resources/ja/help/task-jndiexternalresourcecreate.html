@@ -1,0 +1,42 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jndiexternalresourcecreate"></a><h4>外部 JNDI リソースを作成する</h4><a name="indexterm-14"></a><a name="indexterm-15"></a><a name="indexterm-16"></a><p>外部 JNDI リソースは、LDAP サーバーなどの外部 JNDI リポジトリにアクセスします。</p>
+
+<ol>
+<li><b>ナビゲーションツリーで、「リソース」ノードを展開します。</b></li>
+<li><b>「リソース」ノードで、「JNDI」ノードを展開します。</b></li>
+<li><b>「JNDI」ノードで、「外部リソース」を選択します。</b><p>「外部リソース」ページが開きます。</p></li>
+<li><b>「外部リソース」ページで、「新規」をクリックします。</b><p>「新しい外部リソース」ページが開きます。</p></li>
+<li><b>「JNDI 名」フィールドに、一意の名前を入力します。</b><p>この名前は JNDI ネーミングサービスに登録されます。カード式の目録によって図書館の蔵書の分類と保管場所の管理を行う場合と同様の方法で、分散コンピューティング環境に配置されたコンポーネントの編成と場所の管理が JNDI 名によって行われます。そのため、JNDI 名は リソースへの重要なアクセス方法となります。</p></li>
+<li><b>「リソースタイプ」フィールドで、次のいずれかの操作を行います。</b><ul>
+<li><b>ドロップダウンリストから、タイプ定義を選択します。</b></li>
+<li><b>2 番目のラジオボタンを選択し、完全修飾タイプ定義を <tt><i>xxx</i>.<i>xxx</i></tt> の形式で入力します。</b></li></ul></li>
+<li><b>「ファクトリクラス」フィールドに、作成する外部リソースの JNDI ファクトリクラス外部リポジトリを入力します。</b><p>「ファクトリクラス」は、<tt>com.sun.jndi.ldap</tt> などの、ファクトリクラスのユーザー指定の名前です。このクラスは、<tt>javax.naming.spi.InitialContextFactory</tt> インタフェースを実装します。</p></li>
+<li><b>「JNDI 検索」フィールドに、外部リポジトリで検索する JNDI 値を入力します。</b><p>たとえば、外部リポジトリに接続して Bean クラスをテストする外部リソースを作成する場合、「JNDI 検索」は <tt>cn=<i>testmybean</i></tt> となります。</p></li>
+<li><b>「説明」フィールドに、リソースの簡単な説明を入力します。</b><p>この説明は文字列値で、最大 250 文字を入力することができます。</p></li>
+<li><b>「状態を有効」チェックボックスを選択し、リソースを有効にします。</b><p>デフォルトでは、リソースは有効で、作成後すぐに使用できます。</p></li>
+<li>(省略可能) <b>「追加プロパティー」セクションで、外部リソースの追加プロパティーを指定します。</b><p>GlassFish サーバー は外部リソースの追加プロパティーを定義しません。</p><p>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</p></li>
+<li><b>「了解」をクリックします。</b></li></ol><h6>参照</h6>
+<ul><li><p><a href="task-jndicustomresourcenew.html">「カスタム JNDI リソースを作成する」</a></p>
+
+</li>
+<li><p><a href="task-jndicustomresourceedit.html">「カスタム JNDI リソースを編集する」</a></p>
+
+</li>
+<li><p><a href="task-jndicustomresourcedelete.html">「カスタム JNDI リソースを削除する」</a></p>
+
+</li>
+<li><p><a href="task-jndiexternalresourceedit.html">「外部 JNDI リソースを編集する」</a></p>
+
+</li>
+<li><p><a href="task-jndiexternalresourcedelete.html">「外部 JNDI リソースを削除する」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

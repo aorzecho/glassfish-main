@@ -1,0 +1,97 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterinstances"></a><h4>クラスタ化されたサーバーインスタンス</h4>
+<a name="indexterm-173"></a><a name="indexterm-174"></a><p>「クラスタ化されたサーバーインスタンス」ページを使用して、現在のクラスタ内の GlassFish サーバー インスタンスを作成および管理します。</p>
+
+<p>「クラスタ名」フィールドは、現在のクラスタの名前が表示される読み取り専用のフィールドです。</p>
+
+<p>「クラスタ化されたサーバーインスタンス」ページには、現在のクラスタのメンバーになっているインスタンスの一覧が表示されます。インスタンスごとに、次の情報が表示されます。</p>
+
+<dl><dt>名前</dt>
+<dd><p>インスタンスが作成されたときにインスタンスに割り当てられた名前。名前をクリックすると、インスタンスの「<a href="ref-clusterinstanceedit.html">一般情報</a>」ページが表示されます。</p>
+
+</dd>
+<dt>LB の重み</dt>
+<dd><p>インスタンスの負荷分散の重みを表す整数。</p>
+
+<p>負荷分散の重みは、クラスタに対するすべての要求のうちインスタンスが処理する必要がある割合を決定します。</p>
+
+<p>たとえば、2 つのインスタンスで構成されるクラスタで、一方のインスタンスで 4 つの要求のうちの 1 つを処理し、もう一方のインスタンスで残りの 3 つの要求を処理しなければならない場合があります。この場合、4 つの要求のうちの 1 つを処理するインスタンスの重みを 1 に設定し、もう一方のインスタンスの重みを 3 に設定します。パーセントを使用する場合は、インスタンスの重みをそれぞれ 25 と 75 に設定します。</p>
+
+<p>デフォルトの重みは 100 です。</p>
+
+</dd>
+<dt>設定</dt>
+<dd><p>インスタンスが参照する設定。設定をクリックすると、インスタンスの「<a href="../../../common/ja/help/ref-configuration.html">設定</a>」ページが表示されます。</p>
+
+</dd>
+<dt>ノード</dt>
+<dd><p>インスタンスが配置されているノードの名前。名前をクリックすると、ノードの<a href="ref-nodeedit.html">「ノードの編集」</a>ページが開きます。</p>
+
+</dd>
+<dt>ステータス</dt>
+<dd><p>インスタンスが実行中かどうか、または変更した設定を更新するために再起動する必要があることが表示されます。このフィールドは読み取り専用です。</p>
+
+</dd>
+</dl>
+<p>「サーバーインスタンス」の表には、次のオプションも表示されます。</p>
+
+<dl><dt>新規</dt>
+<dd><p>クラスタにインスタンスを追加するボタン。</p>
+
+</dd>
+<dt>削除</dt>
+<dd><p>選択した 1 つまたは複数のインスタンスをクラスタから削除するボタン。</p>
+
+
+<hr><p><b>注意 - </b>マスターブローカがある JMS (Java Message Service) クラスタを使用している場合は、そのマスターブローカに関連付けられているインスタンスは削除しないでください。関連付けられているインスタンスを削除する必要がある場合は、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=change-master-broker-1"><tt>change-master-broker</tt>(1)</a> サブコマンドを使用して、マスターブローカをほかのインスタンスに割り当ててください。</p>
+
+
+<hr>
+</dd>
+<dt>起動</dt>
+<dd><p>選択した 1 つまたは複数のクラスタ内のインスタンスを起動するボタン。</p>
+
+</dd>
+<dt>停止</dt>
+<dd><p>選択した 1 つまたは複数のクラスタ内のインスタンスを停止するボタン。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-create-clustered-instance.html">「GlassFish サーバー インスタンスをクラスタに追加する」</a></p>
+
+</li>
+<li><p><a href="task-delete-clustered-instances.html">「クラスタ化された GlassFish サーバー インスタンスを削除する」</a></p>
+
+</li>
+<li><p><a href="task-start-clustered-instances.html">「クラスタ化された GlassFish サーバー インスタンスを起動する」</a></p>
+
+</li>
+<li><p><a href="task-stop-clustered-instances.html">「クラスタ化された GlassFish サーバー インスタンスを停止する」</a></p>
+
+</li></ul>
+<h5>同等の <tt>asadmin</tt> サブコマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-instance-1"><tt>create-instance</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-instance-1"><tt>delete-instance</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-instances-1"><tt>list-instances</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-instance-1"><tt>start-instance</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-instance-1"><tt>stop-instance</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

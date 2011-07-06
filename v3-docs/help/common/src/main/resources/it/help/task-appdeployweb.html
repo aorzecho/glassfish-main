@@ -1,0 +1,141 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-appdeployweb"></a><h4>Distribuire un'applicazione Web</h4><a name="indexterm-29"></a><a name="indexterm-30"></a><a name="indexterm-31"></a><ol>
+<li><b>Nella struttura ad albero, selezionare il nodo Applications.</b><p>Viene visualizzata la pagina Applications. </p></li>
+<li><b>Nella tabella Deployed Applications, fare clic sul pulsante Deploy.</b><p>Viene visualizzata la pagina Deploy Applications or Modules.</p></li>
+<li><b>Specificare la posizione dell'applicazione da distribuire.</b><ul>
+<li><b>Se l'applicazione &#232; un file di archivio che si trova nel computer
+client o &#232; accessibile da tale computer, selezionare l'opzione Packaged File to
+Be Uploaded to the Server.</b><p>Il computer client &#232; l'host in cui viene visualizzata Administration Console tramite
+un browser.</p><p>Fare clic su Browse per individuare il file oppure digitarne il percorso
+completo.</p></li>
+<li><b>Se l'applicazione &#232; un file di archivio che si trova nel computer
+server o &#232; un'applicazione decompressa da una directory esplosa, selezionare l'opzione Local
+Packaged File or Directory That Is Accessible From the GlassFish Server.</b><p>Il computer server &#232; l'host in cui &#232; in esecuzione il server
+di amministrazione del dominio (DAS, Domain Administration Server). </p><p>Fare clic su Browse Files per cercare un file o su Browse
+Folders per cercare una directory. In alternativa, digitare il percorso completo del
+file o della directory. La distribuzione da una directory esplosa deve essere
+eseguita da sviluppatori esperti e non &#232; consigliata per gli ambienti di
+produzione.</p></li></ul></li>
+<li><b>Dall'elenco a discesa Type, selezionare Web Application.</b><p>Se &#232; stata selezionata l'opzione Packaged File to Be Uploaded to the
+Server o Local Packaged File That Is Accessible From the GlassFish Server,
+il tipo di applicazione viene rilevato automaticamente. Se &#232; stata selezionata l'opzione
+Directory That Is Accessible From the GlassFish Server, &#232; necessario specificare il
+tipo manualmente.</p></li>
+<li><b>Nel campo Context Root, digitare una stringa che identifica l'applicazione Web.</b><p>Nell'URL dell'applicazione Web, la root di contesto si trova subito dopo il
+numero della porta (<tt>http://</tt><i> host</i><tt>:</tt><i>port</i><tt>/</tt><i>context-root</i><tt>/... </tt>). La root di contesto deve iniziare con una
+barra, ad esempio, <tt>/hello</tt>.</p></li>
+<li><b>Nel campo Application Name, lasciare il nome predefinito, che &#232; il nome
+della directory o il prefisso del nome file, oppure digitare un altro
+nome. </b><p>Se si &#232; scelto di caricare un file viene visualizzato il nome
+predefinito. Il nome dell'applicazione deve essere univoco.</p><p>Il nome pu&#242; includere un identificatore di versione opzionale, che segue il
+nome ed &#232; separato da questo da due punti (<tt>:</tt>). L'identificatore di
+versione deve iniziare con una lettera o un numero. Pu&#242; contenere caratteri
+alfanumerici pi&#249; trattini di sottolineatura (<tt>_</tt>), trattini (<tt>-</tt>) e punti (<tt>.</tt>). Per
+ulteriori informazioni sulle versioni di moduli e applicazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions in <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p></li>
+<li><b>Dall'elenco a discesa Virtual Server, selezionare il server virtuale da associare a
+questa applicazione.</b><p>L'opzione Virtual Servers viene visualizzata se esiste solo l'istanza server predefinita <tt>server </tt>.
+Se esistono cluster o altre istanze server standalone, &#232; possibile selezionare i
+server virtuali dopo la distribuzione. Andare alla pagina Edit Application, selezionare la
+scheda Target, quindi selezionare Manage Virtual Servers per la destinazione desiderata.</p></li>
+<li><b>Selezionare la casella di controllo Status Enabled per abilitare l'applicazione.</b><p>Questa opzione &#232; selezionata per impostazione predefinita. Se l'opzione &#232; deselezionata, l'applicazione
+non &#232; disponibile.</p></li>
+<li><b>Selezionare la casella di controllo Availability Enabled per abilitare la persistenza delle
+sessioni per l'applicazione.</b><p>Se la casella di controllo Enabled &#232; selezionata, l'alta disponibilit&#224; &#232; abilitata
+per le sessioni Web. Se si imposta false (valore predefinito), il salvataggio
+di tutte le sessioni Web viene disabilitato per l'applicazione Web specificata. Se
+si imposta true, l'applicazione Web specificata viene abilitata per l'alta disponibilit&#224;. Impostare
+l'opzione su true solo se l'alta disponibilit&#224; &#232; configurata e abilitata ai
+livelli superiori, ad esempio al livello del server e del contenitore.</p><p>Questa opzione viene visualizzata se esistono cluster o istanze server standalone oltre
+all'istanza server predefinita (<tt>server</tt>).</p></li>
+<li><b>Selezionare la casella di controllo Precompile JSPs per precompilare i file Java
+Server Pages (JSP).</b><p>Se l'opzione &#232; disabilitata, i file JSP vengono compilati in fase di
+runtime al primo accesso. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Run Verifier per verificare i descrittori di
+distribuzione prima della distribuzione.</b><p>Se l'opzione &#232; selezionata ed &#232; impossibile effettuare la verifica, la distribuzione
+non viene eseguita. Il verificatore esamina la struttura e il contenuto dei
+descrittori di distribuzione. La verifica di applicazioni di grandi dimensioni richiede spesso
+tempi lunghi. Questa opzione &#232; disabilitata per impostazione predefinita.</p><p>I pacchetti di verifica devono essere installati tramite l'utility Update Tool; in
+caso contrario verr&#224; registrato un avviso e l'opzione verr&#224; ignorata.</p></li>
+<li><b>Selezionare la casella di controllo Force Redeploy per forzare la ridistribuzione se
+l'applicazione &#232; gi&#224; stata distribuita.</b><p>Se l'opzione non &#232; selezionata, un tentativo di distribuire un'applicazione gi&#224; distribuita
+causa un errore. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Keep State per conservare le sessioni Web,
+le istanze SFSB e i timer EJB creati in modo persistente tra
+le ridistribuzioni.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita. &#200; supportata solo nell'istanza server
+predefinita, denominata <tt>server</tt>. Non &#232; supportata e viene ignorata per qualsiasi altra
+destinazione.</p><p>Alcune modifiche apportate a un'applicazione tra le ridistribuzioni impediscono a questa funzione
+di operare correttamente. Ad esempio, non modificare l'insieme di variabili delle istanze
+nella classe bean SFSB.</p><p>Per le applicazioni Web, questa funzione &#232; applicabile solo se nel file
+<tt>glassfish-web-app.xml</tt> l'attributo <tt>persistence-type</tt> dell'elemento <tt>session-manager</tt> &#232; <tt>file</tt>.</p><p>Per le istanze di bean di sessione con stato, il tipo di
+persistenza senza alta disponibilit&#224; viene impostato nel server (opzione SFSB Persistence Type)
+e deve essere impostato su <tt>file</tt>, che &#232; il valore predefinito e
+consigliato.</p><p>Se un elemento attivo quale una sessione Web, un'istanza SFSB o un
+timer EJB non viene preservato o ripristinato, <b>nessuno</b> di tali elementi sar&#224;
+disponibile una volta completata la ridistribuzione. La ridistribuzione viene tuttavia proseguita e
+viene registrato un avviso.</p><p>Per preservare i dati con stato attivo, GlassFish Server li serializza e
+li salva nella memoria. Per ripristinare i dati, il classloader dell'applicazione appena
+ridistribuita deserializza i dati precedentemente salvati.</p></li>
+<li><b>Selezionare la casella di controllo Preserve Application Scoped Resources per preservare le
+risorse con ambito a livello di applicazione e ripristinarle durante la ridistribuzione.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Libraries, digitare un elenco separato da virgole di file JAR
+della libreria specifici del modulo o dell'applicazione in uso. </b><p>I percorsi possono essere assoluti o relativi. Un percorso relativo fa riferimento
+a <tt></tt><i>domain-dir</i><tt>/lib/applibs</tt>. Se il percorso &#232; completo, deve essere accessibile al DAS
+(Domain Administration Server, server di amministrazione dominio) ossia deve trovarsi in <tt></tt><i>domain-dir</i><tt></tt>.
+Le librerie sono disponibili per l'applicazione nell'ordine in cui sono specificate.</p></li>
+<li><b>Nel campo Description, digitare una descrizione per l'applicazione.</b></li>
+<li><b>Per aggiungere istanze server e cluster di destinazione in cui distribuire il
+modulo o l'applicazione, selezionarli dall'elenco Available Targets e utilizzare il pulsante Add
+per spostarli nell'elenco Selected Targets.</b><p>L'opzione Target viene visualizzata se esistono cluster o istanze server standalone oltre
+all'istanza server predefinita (<tt>server</tt>). Per impostazione predefinita, la distribuzione del modulo o
+dell'applicazione viene eseguita nell'istanza server predefinita, denominata <tt>server</tt>. Utilizzare il pulsante Add
+All per eseguire la distribuzione in tutte le destinazioni. Utilizzare i pulsanti
+Remove e Remove All per rimuovere destinazioni dall'elenco Selected Targets.</p></li>
+<li><b>Fare clic su OK.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-applistdeployed.html">Visualizzare un elenco di applicazioni distribuite</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Distribuire un'applicazione enterprise</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Distribuire un client dell'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Distribuire un modulo connettore</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Distribuire un file JAR EJB</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">Modificare un'applicazione distribuita</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Visualizzare i descrittori di un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">Visualizzare le destinazioni di un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Visualizzare informazioni su endpoint per servizi Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Avviare un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Avviare un client dell'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">Ridistribuire un'applicazione distribuita</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Ricaricare un'applicazione distribuita</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

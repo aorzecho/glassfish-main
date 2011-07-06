@@ -1,0 +1,138 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpoolnew"></a><h4>So erstellen Sie einen JDBC-Verbindungspool</h4><a name="indexterm-7"></a><a name="indexterm-8"></a><a name="indexterm-9"></a><p>Wenn Sie den Pool mit der Administration Console erstellen, definieren Sie die
+Eigenschaften einer Verbindung mit einer spezifischen Datenbank.</p>
+
+<h6>Bevor Sie beginnen</h6><p>Wenn Sie einen Verbindungspool erstellen m&#246;chten, m&#252;ssen Sie zun&#228;chst einen die JDBC-API
+unterst&#252;tzenden Treiber (JDBC-Treiber) installieren und integrieren. Siehe auch <a href="task-integratejdbcdriver.html">So integrieren Sie einen JDBC-Treiber</a>.</p>
+
+<p>Zum Erstellen eines JDBC-Verbindungspools sind folgende Informationen erforderlich. Sammeln Sie diese Informationen,
+bevor Sie fortfahren:</p>
+
+
+<ul><li><p>Name des Datenbankherstellers</p>
+
+</li>
+<li><p>Ressourcentyp, wie <tt>javax.sql.DataSource</tt> (nur lokale Transaktionen), <tt>java.sql.ConnectionPoolDataSource</tt> (lokale Transaktionen, m&#246;gliche Leistungsverbesserungen), <tt>javax.sql.XADataSource</tt> (globale Transaktionen) und <tt>java.sql.Driver</tt></p>
+
+</li>
+<li><p>Klassenname der Datenquelle</p>
+
+</li>
+<li><p>Erforderliche Eigenschaften, z. B. Datenbankname (URL), Benutzername und Passwort</p>
+
+</li></ul>
+<ol>
+<li><b>W&#228;hlen Sie in der Navigationsstruktur den Knoten "Allgemeine Aufgaben".</b><p>Die Seite "Allgemeine Aufgaben" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Allgemeine Aufgaben" auf die Schaltfl&#228;che "Neuen JDBC-Verbindungspool
+erstellen".</b><p>Die Seite "Neuer JDBC-Verbindungspool (Schritt 1 von 2)" wird ge&#246;ffnet.</p>
+<hr><p><b>Hinweis - </b>Sie k&#246;nnen auch auf die Seite "Neuer JDBC-Verbindungspool" zugreifen, indem Sie die
+Knoten "Ressourcen" und "JDBC" erweitern und dann den Knoten "Verbindungspools" ausw&#228;hlen. W&#228;hlen
+Sie anschlie&#223;end auf der Seite "Verbindungspools" die Option "Neu", um einen neuen
+Verbindungspool zu erstellen.</p>
+
+
+<hr>
+</li>
+<li><b>Geben Sie in das Feld "Poolname" einen Namen f&#252;r den neuen Verbindungspool
+ein.</b><p>Dies ist ein erforderliches Feld.</p></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Ressourcentyp" einen Ressourcentyp aus.</b><p>Zur Auswahl stehen <tt>javax.sql.XADataSource</tt> (globale Transaktionen), <tt>java.sql.ConnectionPoolDataSource</tt> (lokale Transaktionen, m&#246;gliche Leistungsverbesserungen), <tt>javax.sql.DataSource</tt> (nur
+lokale Transaktionen) und <tt>java.sql.Driver</tt>.</p></li>
+<li><b>F&#252;hren Sie zur Angabe eines Datenbankherstellers einen der folgenden Schritte aus:</b><ul>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Datenbankhersteller" einen Datenbankhersteller aus.</b></li>
+<li><b>Falls der Datenbankhersteller nicht in der Liste angezeigt wird, geben Sie den
+Namen des Herstellers in das Textfeld "Datenbankhersteller" ein.</b></li></ul></li>
+<li><b>Klicken Sie auf "Weiter".</b><p>Die Seite "Neuer JDBC-Verbindungspool (Schritt 2 von 2)" wird ge&#246;ffnet.</p></li>
+<li><b>Geben Sie im Feld "Klassenname der Datenquelle" den Namen der herstellerspezifischen Klasse
+ein, die die API <tt>DataSource</tt>, <tt>ConnectionPoolDataSource</tt> oder <tt>XADataSource</tt> implementiert.</b><p>Wenn Sie einen der Datenquellen-Ressourcentypen ausw&#228;hlen, wird in dieses Feld normalerweise automatisch
+der Klassenname eingef&#252;gt, der mit dem ausgew&#228;hlten Ressourcentyp und Datenbankhersteller verbunden ist.
+Bei Auswahl des Ressourcentyps <tt>java.sql.Driver?</tt> ist dieses Feld deaktiviert.</p></li>
+<li><b>Geben Sie im Feld "Klassenname der Datenquelle" den Namen der herstellerspezifischen Klasse
+ein, die die API <tt>java.sql.Driver</tt> implementiert.</b><p>Wenn Sie den Ressourcentyp <tt>java.sql.Driver</tt> ausgew&#228;hlt haben, wird in dieses Feld normalerweise
+automatisch der Klassenname eingef&#252;gt, der mit dem ausgew&#228;hlten Treiber und Datenbankhersteller verbunden
+ist. Bei Auswahl eines der Datenquellen-Ressourcentypen ist dieses Feld deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Ping", um bei der Erstellung oder Neukonfiguration eines
+Pools automatisch ein Ping-Signal an den Pool zu senden, um falsche Attributwerte
+zu ermitteln und eine diesbez&#252;gliche Warnung auszugeben.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Geben Sie im Feld "Beschreibung" eine kurze Beschreibung f&#252;r den Verbindungspool ein.</b></li>
+<li><b>Geben Sie im Feld "Urspr&#252;ngliche und minimale Poolgr&#246;&#223;e" die Mindestanzahl von Verbindungen
+f&#252;r diesen Pool an.</b><p>Dieser Wert legt auch die Anzahl an Verbindungen fest, die im Pool
+platziert werden, wenn der Pool erstellt bzw. GlassFish-Server gestartet wird. Der Standardwert
+ist 8.</p></li>
+<li><b>Geben Sie im Feld "Maximale Poolgr&#246;&#223;e" die maximale Anzahl der Verbindungen f&#252;r
+diesen Pool an.</b><p>Der Standardwert lautet 32.</p></li>
+<li><b>Geben Sie im Feld "Umfang der Gr&#246;&#223;en&#228;nderungen des Pools" die Anzahl der
+Verbindungen pro Gr&#246;&#223;en&#228;nderung des Pools ein.</b><p>Wenn die Poolgr&#246;&#223;e nach oben oder unten skaliert wird, erfolgt die Anpassung
+in Schritten. Dieser Wert legt die Anzahl an Verbindungen im Stapel fest.
+Wenn dieser Wert zu hoch eingestellt ist, entstehen Verz&#246;gerungen beim Erstellen von
+Verbindungen und beim Verbindungswiederaufbau, ist der Wert zu niedrig eingestellt, wird die
+Effizienz beeintr&#228;chtigt. Der Standardwert ist 2.</p></li>
+<li><b>Geben Sie im Feld "Leerlaufzeitlimit" die maximale Dauer (in Sekunden) an, die
+eine Verbindung im Pool im Leerlauf bleiben kann.</b><p>Nach Ablauf dieser Zeitspanne wird die Verbindung aus dem Pool entfernt. Der
+Standardwert betr&#228;gt 300.</p></li>
+<li><b>Geben Sie im Feld "Maximale Wartezeit" die maximale Wartezeit (in Millisekunden) an,
+w&#228;hrend der die eine Verbindung anfordernde Anwendung wartet, bevor sie eine Zeit&#252;berschreitung
+erreicht hat.</b><p>Der Standardwert ist 60.000.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Nicht transaktionsbezogene Verbindungen", um nicht transaktionsbezogene Verbindungen zur&#252;ckzugeben.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>W&#228;hlen Sie in der Dropdown-Liste "Transaktionsisolationsgrad" einen Transaktionsisolationsgrad f&#252;r diesen Verbindungspool aus.</b><p>Sofern nicht angegeben, verwendet der Pool den vom JDBC-Treiber festgelegten Standardisolationsgrad. Standardm&#228;&#223;ig
+ist diese Option nicht aktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Isolationsebene garantiert", um sicherzustellen, dass f&#252;r alle Verbindungen
+aus dem Pool dieselbe Isolationsebene gilt.</b><p>Wenn beispielsweise die Isolationsebene f&#252;r die Verbindung nach der letzten Verwendung programmatisch
+(&#252;ber <tt>con.setTransactionIsolation </tt>) ge&#228;ndert wird, wird der Status auf die angegebene Isolationsebene zur&#252;ckgesetzt.
+Diese Option ist standardm&#228;&#223;ig aktiviert.</p><p>Diese Einstellung steht nur dann zur Verf&#252;gung, wenn ein Transaktionsisolationsgrad angegeben wurde.</p></li>
+<li>(Optional) <b>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</b><p>Zu erforderlichen Eigenschaften geh&#246;ren zum Beispiel Datenbankname (URL), Benutzername und Passwort. Die
+Tabelle enth&#228;lt im Normalfall Eigenschaften, die vom Datenbankhersteller verwendet werden. Weitere Informationen
+zu einigen verf&#252;gbaren Eigenschaften finden Sie unter <a href="ref-jdbc-properties.html">Spezifische Eigenschaften von JDBC-Verbindungspools</a>.</p><p>Wenn Sie f&#252;r eine Eigenschaft keinen Wert angeben, wird die Eigenschaft nach
+Abschluss der Erstellung des Verbindungspools aus der Tabelle entfernt. Falls Sie zum
+jetzigen Zeitpunkt keinen Wert f&#252;r eine Eigenschaft festlegen m&#246;chten, die Eigenschaft jedoch
+in der Tabelle verbleiben soll, damit Sie den Wert sp&#228;ter angeben k&#246;nnen,
+geben Sie ein leeres Klammernpaar in das Wertefeld ein:</p><pre>()</pre><ul>
+<li><b>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
+Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
+"Name" und den Eigenschaftswert in das Feld "Wert" ein.</b></li>
+<li><b>Um eine Eigenschaft zu &#228;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</b></li>
+<li><b>Um eine Eigenschaft zu l&#246;schen, aktivieren Sie das Kontrollk&#228;stchen links neben dem
+Feld "Name" der zu l&#246;schenden Eigenschaft und klicken Sie anschlie&#223;end auf die
+Schaltfl&#228;che "Eigenschaften l&#246;schen".</b></li></ul></li>
+<li><b>Klicken Sie auf "Fertig stellen".</b></li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="task-setdbaccess.html">So richten Sie den Datenbankzugriff ein</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">So integrieren Sie einen JDBC-Treiber</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">So erstellen Sie eine JDBC-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">So bearbeiten Sie eine JDBC-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">So bearbeiten Sie Ziele f&#252;r JDBC-Ressourcen</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">So l&#246;schen Sie eine JDBC-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">So bearbeiten Sie die allgemeinen JDBC-Verbindungspooleinstellungen</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">So bearbeiten Sie die erweiterten Attribute eines JDBC-Verbindungspools</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">So &#252;berpr&#252;fen Sie die Verbindungspooleinstellungen</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">So bearbeiten Sie Eigenschaften von JDBC-Verbindungspools</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">So l&#246;schen Sie einen JDBC-Verbindungspool</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

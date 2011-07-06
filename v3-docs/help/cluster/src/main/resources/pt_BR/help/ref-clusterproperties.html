@@ -1,0 +1,97 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterproperties"></a><h4>Propriedades do cluster</h4>
+<a name="indexterm-193"></a><a name="indexterm-194"></a><p>A p&#225;gina Propriedades do cluster exibe uma lista das propriedades que est&#227;o
+definidas para os clusters selecionados. Estas propriedades acrescentam informa&#231;&#245;es opcionais de configura&#231;&#227;o
+sobre o cluster.</p>
+
+<p>O campo Nome do cluster &#233; um campo de somente leitura que
+exibe o nome do cluster selecionado.</p>
+
+<p>S&#227;o exibidas as seguintes informa&#231;&#245;es para cada propriedade:</p>
+
+<dl><dt>Nome</dt>
+<dd><p>O nome da propriedade.</p>
+
+</dd>
+<dt>Valor</dt>
+<dd><p>Valor da propriedade definida para a inst&#226;ncia selecionada.</p>
+
+</dd>
+<dt>Descri&#231;&#227;o</dt>
+<dd><p>Descri&#231;&#227;o textual que oferece mais informa&#231;&#245;es sobre a propriedade.</p>
+
+</dd>
+</dl>
+<p>A tabela Propriedades adicionais tamb&#233;m cont&#233;m as seguintes op&#231;&#245;es.</p>
+
+<dl><dt>Adicionar propriedade</dt>
+<dd><p>Bot&#227;o para adicionar uma propriedade. Se clicar neste bot&#227;o, uma linha &#233; adicionada &#224; tabela Propriedades adicionais.</p>
+
+</dd>
+<dt>Excluir propriedades</dt>
+<dd><p>Bot&#227;o para excluir uma ou mais propriedades selecionadas. Qualquer propriedade exclu&#237;da volta ao seu valor padr&#227;o ou, se nenhum valor tiver sido definido, fica com valor indefinido.</p>
+
+</dd>
+</dl>
+<p>O Servidor GlassFish define as seguintes propriedades do cluster:</p>
+
+<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
+<dd><p>O n&#250;mero da porta na qual o cluster escuta as mensagens provenientes do servi&#231;o de gerenciamento de grupo (GMS). O valor padr&#227;o deve ser suficiente na maioria dos casos.</p>
+
+</dd>
+<dt><tt>GMS_LOOPBACK</tt></dt>
+<dd><p>Especifique se uma inst&#226;ncia pode receber de si mesma mensagens do n&#237;vel do aplicativo que a inst&#226;ncia transmite para o cluster.</p>
+
+<p>Os valores poss&#237;veis s&#227;o os seguintes:</p>
+
+<dl><dt><tt>falso</tt></dt>
+<dd><p>A inst&#226;ncia <b>n&#227;o</b> pode receber mensagens de si mesma (padr&#227;o).</p>
+
+</dd>
+<dt><tt>verdadeiro</tt></dt>
+<dd><p>A inst&#226;ncia pode receber mensagens de si mesma. Utilize esta configura&#231;&#227;o para testar um inst&#226;ncia quando tal inst&#226;ncia for a &#250;nica em um cluster.</p>
+
+</dd>
+</dl>
+</dd>
+<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
+<dd><p>O n&#250;mero m&#225;ximo de itera&#231;&#245;es ou transmiss&#245;es que uma mensagem multicast dos seguintes tipos de evento pode sofrer antes que a mensagem seja descartada:</p>
+
+
+<ul><li><p>Descoberta de grupo</p>
+
+</li>
+<li><p>Pulsa&#231;&#245;es do membro</p>
+
+</li>
+<li><p>Altera&#231;&#245;es da associa&#231;&#227;o</p>
+
+</li></ul>
+<p>Para coincidir com a configura&#231;&#227;o da rede na qual o DAS e as inst&#226;ncias em cluster est&#227;o implantadas, defina este valor com menor valor poss&#237;vel. Para determinar o menor valor poss&#237;vel do seu sistema, utilize o subcomando <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=validate-multicast-1"><tt>validate-multicast</tt>(1)</a>.</p>
+
+<p>O valor 0 garante que as mensagens multicast nunca saiam do host do qual elas s&#227;o transmitidas.</p>
+
+<p>O valor 1 pode evitar a transmiss&#227;o de mensagens entre hosts da mesma sub-rede conectados por um comutador ou um roteador. </p>
+
+<p>O padr&#227;o &#233; 4, o que garante que as mensagens sejam transmitidas com &#234;xito para todos os membros do cluster em redes nas quais os hosts est&#227;o conectados por comutadores ou roteadores.</p>
+
+</dd>
+</dl>
+<h5>Subcomandos <tt>asadmin</tt> equivalentes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=get-1"><tt>get</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-1"><tt>list</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

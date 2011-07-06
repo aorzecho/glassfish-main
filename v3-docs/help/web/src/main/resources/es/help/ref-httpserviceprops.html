@@ -1,0 +1,37 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-httpserviceprops"></a><h4>Propiedades espec&#237;ficas del servicio de transacci&#243;n HTTP</h4>
+<a name="indexterm-57"></a><a name="indexterm-58"></a><p>Las siguientes propiedades adicionales est&#225;n disponibles para el servicio HTTP. Si especifica estas
+propiedades, estas se aplicar&#225;n a todas las <a href="ref-group-networklisteners.html">Escuchas de red</a>. </p>
+
+<dl><dt><tt>ssl-cache-entriese</tt></dt>
+<dd><p>El n&#250;mero de sesiones SSL que desea almacenar en cach&#233;. El valor predeterminado es 10000.</p>
+
+</dd>
+<dt><tt>ssl3-session-timeout</tt></dt>
+<dd><p>El intervalo en el que las sesiones SSL3 se almacenan en cach&#233;. El valor predeterminado es 86,400.</p>
+
+</dd>
+<dt><tt>ssl-session-timeout</tt></dt>
+<dd><p>El intervalo en el que las sesiones SSL2 se almacenan en cach&#233;. El valor predeterminado es 100.</p>
+
+</dd>
+<dt><tt>proxyHandler</tt></dt>
+<dd><p>El nombre de clase completo de una implementaci&#243;n personalizada de la clase abstracta <tt>com.sun.appserv.ProxyHandler</tt> que permite a una instancia back-end de GlassFish Server recuperar informaci&#243;n relativa a la solicitud original del interceptada por un servidor proxy con terminaci&#243;n SSL (por ejemplo, un equilibrador de carga). Una implementaci&#243;n de esta clase abstracta inspecciona una solicitud espec&#237;fica en lo que concierne a los encabezados de solicitud mediante los cuales el servidor proxy comunica la informaci&#243;n acerca de la solicitud original del cliente a la instancia del servidor empresarial y devuelve esa informaci&#243;n al emisor de la llamada. </p>
+
+<p>La implementaci&#243;n predeterminada lee la direcci&#243;n de IP del cliente desde un encabezado de solicitud HTTP denominado <tt>Proxy-ip</tt>, los <tt>keysize</tt> de SSL desde un encabezado de solicitud HTTP denominado <tt>Proxy-keysize</tt> y la cadena del certificado de cliente SSL desde un encabezado de solicitud HTTP denominado <tt>Proxy-auth-cert</tt>. El valor <tt>Proxy-auth-cert</tt> debe contener la cadena de certificado de cliente con codificaci&#243;n BASE-64 sin los l&#237;mites <tt>BEGIN CERTIFICATE</tt> y <tt>END CERTIFICATE</tt> y con <tt>\n</tt> sustituido por  <tt>% d% a</tt>. </p>
+
+<p>Esta configuraci&#243;n se utiliza &#250;nicamente si la casilla Pase de autenticaci&#243;n de la p&#225;gina HTTP de los protocolos de escucha de red se ha definido como true. </p>
+
+</dd>
+<dt><tt>connectionTimeout</tt></dt>
+<dd><p>Especifica el n&#250;mero de segundos que esperan las escuchas de red despu&#233;s de aceptar una conexi&#243;n para que se presente la l&#237;nea URI de solicitud. El valor predeterminado es 30.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

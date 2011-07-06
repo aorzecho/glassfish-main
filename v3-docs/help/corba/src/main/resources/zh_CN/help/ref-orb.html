@@ -1,0 +1,78 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-orb"></a><h4>ORB</h4>
+<a name="indexterm-8"></a><a name="indexterm-9"></a><p>使用 "ORB" 页面可以配置对象请求代理。</p>
+
+<p>ORB 提供了识别和定位对象、处理连接管理、传送数据和请求通信所需的框架结构。 企业 Bean（EJB 模块）的远程客户机使用 ORB 与 GlassFish Server 进行通信。</p>
+
+<p>"ORB" 页面包含以下选项。</p>
+
+<dl><dt>装入默认值</dt>
+<dd><p>用于恢复所有设置的默认值的按钮。</p>
+
+</dd>
+<dt>配置名称</dt>
+<dd><p>要应用此页面上的设置的配置名称。此字段为只读字段。</p>
+
+</dd>
+<dt>线程池 ID</dt>
+<dd><p>ORB 使用的线程池。ORB 使用线程池响应来自企业 Bean 的远程客户机和其他客户机（使用 RMI-IIOP 进行通信）的请求。ORB 的默认线程池为 <tt>thread-pool-1</tt>，它使用适合 RMI/IIOP 请求的默认值。</p>
+
+</dd>
+<dt>最大消息片段大小</dt>
+<dd><p>IIOP 消息的最大片段大小。大于此大小的消息将被分段。默认值为 1024 字节。</p>
+
+</dd>
+<dt>连接总数</dt>
+<dd><p>所有 IIOP 侦听器的最大外来连接数。默认值为 1024。</p>
+
+</dd>
+<dt>IIOP 客户机验证</dt>
+<dd><p>如果选中&#8220;已启用&#8221;复选框，则服务器将拒绝未经验证的请求并在发送给客户机的可交互使用的对象引用 (Interoperable Object Reference, IOR) 中插入需要验证位。可以启用或禁用 IIOP 客户机验证。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>其他属性</dt>
+<dd><p>ORB 的其他属性。GlassFish Server 不定义 ORB 的任何其他属性。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-orb.html">配置 ORB</a></p>
+
+</li>
+<li><p><a href="task-iioplistenernew.html">创建 IIOP 侦听器</a></p>
+
+</li>
+<li><p><a href="task-iioplisteneredit.html">编辑 IIOP 侦听器</a></p>
+
+</li>
+<li><p><a href="task-editiiopssl.html">编辑安全 IIOP 侦听器的 SSL 设置</a></p>
+
+</li>
+<li><p><a href="task-iioplistenerdelete.html">删除 IIOP 侦听器</a></p>
+
+</li></ul>
+<h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-iiop-listener-1"><tt>create-iiop-listener</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-iiop-listeners-1"><tt>list-iiop-listeners</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-iiop-listener-1"><tt>delete-iiop-listener</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-ssl-1"><tt>create-ssl</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-ssl-1"><tt>delete-ssl</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

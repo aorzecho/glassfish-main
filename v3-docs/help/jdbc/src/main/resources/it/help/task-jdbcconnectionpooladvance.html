@@ -1,0 +1,159 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpooladvance"></a><h4>Modificare gli attributi avanzati del pool di connessione JDBC</h4><a name="indexterm-11"></a><ol>
+<li><b>Nella struttura ad albero, espandere il nodo Resources.</b></li>
+<li><b>Nel nodo Resources, selezionare il nodo JDBC.</b></li>
+<li><b>Nel nodo JDBC, selezionare il nodo Connection Pools. </b><p>Viene visualizzata la pagina Connection Pools.</p></li>
+<li><b>Nella pagina Connection Pools, fare clic sul nome del pool da modificare.</b><p>Viene visualizzata la pagina Edit Connection Pool.</p></li>
+<li><b>Nella pagina Edit Connection Pool, fare clic sulla scheda Advanced.</b><p>Viene visualizzata la pagina Edit Connection Pool Advanced Attributes.</p></li>
+<li><b>Nel campo Statement Timeout, digitare il periodo di tempo in secondi trascorso
+il quale le query di lunghezza eccessiva verranno terminate.</b><p>GlassFish Server imposter&#224; <tt>QueryTimeout</tt> per le istruzioni create. Impostare il valore su
+-1 per disabilitare l'opzione. Il valore predefinito &#232; -1.</p></li>
+<li><b>Nel campo Statement Cache Size, digitare il numero di istruzioni da memorizzare
+nella cache mediante il meccanismo LRU (Least Recently Used).</b><p>Per disabilitare la memorizzazione nella cache delle istruzioni, specificare il valore 0.
+Il valore predefinito &#232; 0.</p></li>
+<li><b>Nel campo Init SQL, digitare la stringa SQL da eseguire ogni volta
+che si crea (e non ogni volta che si riutilizza) una connessione
+nel pool.</b><p>L'esecuzione della stringa inizializza lo stato della connessione.</p></li>
+<li><b>Nel campo SQL Trace Listeners, digitare un elenco separato da virgole di
+nomi di classi di implementazione del listener per specificare il rilevamento delle
+istruzioni SQL eseguite dalle applicazioni.</b><p>Le classi listener devono implementare l'interfaccia <tt>org.glassfish.api.jdbc.SQLTraceListener</tt> . L'utilizzo di listener semplifica
+il filtraggio dei messaggi del log per il rilevamento delle istruzioni SQL
+e consente agli amministratori di analizzare le istruzioni.</p></li>
+<li><b>Selezionare la casella di controllo Wrap JDBC Objects Enabled per far s&#236;
+che le applicazioni ricevano oggetti JDBC avanzati per <tt>Statement</tt>, <tt>PreparedStatement </tt>, <tt>CallableStatement</tt>, <tt>ResultSet</tt>
+e <tt> DatabaseMetaData</tt>. </b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Pooling per abilitare la creazione del raggruppamento
+delle connessioni per il pool.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Validate At Most Once, digitare il numero di secondi al
+termine dei quali una connessione viene convalidata al massimo una volta.</b><p>Impostando un valore appropriato per questo attributo si riduce al minimo il
+numero di richieste di convalida di una connessione. Il valore predefinito &#232;
+0 e implica che l'attributo non sia abilitato.</p></li>
+<li><b>Nel campo Leak Timeout, digitare il numero di secondi necessari per rilevare
+le perdite di connessione in un pool di connessione.</b><p>Utilizzare il campo per rilevare potenziali perdite di connessione dell'applicazione. Si presume
+che una connessione non restituita al pool dall'applicazione entro il tempo previsto
+rappresenti una perdita, pertanto viene registrata una traccia dello stack del chiamante.
+Impostare il valore su 0 per disabilitare il rilevamento delle perdite di
+connessione. Il valore predefinito &#232; 0.</p><p>Utilizzare il campo insieme a Leak Reclaim per rilevare potenziali perdite di
+connessione in un pool di connessione.</p></li>
+<li><b>Selezionare la casella di controllo Leak Reclaim per ripristinare le connessioni perse
+nel pool una volta completato il rilevamento.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Creation Retry Attempts, digitare il numero di tentativi da effettuare
+in caso di errore durante la creazione di una nuova connessione.</b><p>Impostare il valore su 0 per non impostare alcun tentativo di creazione
+della connessione. Il valore predefinito &#232; 0.</p></li>
+<li><b>Nel campo Retry Interval, digitare l'intervallo in secondi che intercorre tra un
+tentativo di creare una connessione e quello successivo.</b><p>Il valore predefinito &#232; 10. Questo attributo viene utilizzato solo se il
+valore di Creation Retry Attempts &#232; maggiore di 0.</p></li>
+<li><b>Selezionare la casella di controllo Lazy Association Enabled per associare una connessione
+fisica a una connessione logica soltanto quando viene utilizzata.</b><p>Le connessioni vengono disassociate quando la transazione &#232; completa e termina un
+metodo del componente. In tal modo il riutilizzo delle connessioni fisiche risulta
+pi&#249; agevole. Se l'opzione &#232; disabilitata, una connessione fisica viene associata a
+una connessione logica anche prima di essere utilizzata. Questa opzione &#232; disabilitata
+per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Lazy Connection Enlistment Enabled per integrare una
+risorsa nella transazione solo quando viene effettivamente utilizzata in un metodo.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Associate with Thread Enabled per creare associazioni
+tra connessioni e thread.</b><p>Quando un thread richiede un'altra connessione, pu&#242; riutilizzare la connessione gi&#224; associata
+allo stesso, senza provocare l'overhead per ottenere una connessione aggiuntiva dal pool.
+Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Match Connections Enabled per abilitare la corrispondenza
+tra connessioni per il pool.</b><p>Se l'opzione &#232; abilitata, la connessione selezionata dal pool dovr&#224; corrispondere a
+connessioni provviste di determinate credenziali. L'opzione deve essere abilitata se il pool
+di connessione viene utilizzato da applicazioni provviste di pi&#249; credenziali utente. L'opzione
+pu&#242; essere disabilitata se l'amministratore &#232; certo che le connessioni del pool
+saranno sempre omogenee e che una connessione ottenuta dal pool non dovr&#224;
+corrispondere all'adattatore di risorsa. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Max Connection Usage, digitare il numero di volte in cui
+una connessione deve essere riutilizzata dal pool.</b><p>Una volta che una connessione viene riutilizzata per il numero di volte
+specificato, viene chiusa. Limitando il numero di riutilizzi di una connessione, &#232;
+possibile evitare perdite di istruzioni nel caso in cui un'applicazione non chiuda
+le istruzioni. Impostare il valore su 0 per disabilitare l'attributo. Il valore
+predefinito &#232; 0.</p></li>
+<li><b>Selezionare la casella di controllo Connection Validation Required per abilitare la convalida
+della connessione.</b><p>La convalida della connessione consente la riconnessione del server in caso di
+interruzione.</p></li>
+<li><b>Dall'elenco a discesa Validation Method, selezionare un metodo di convalida.</b><p>GlassFish Server pu&#242; convalidare le connessioni database nei seguenti modi.</p><dl><dt><tt>auto-commit</tt> e <tt>metadata</tt></dt>
+<dd><p>GlassFish Server convalida una connessione chiamando i metodi <tt>con.getAutoCommit</tt> e <tt>con.getMetaData</tt>.</p>
+
+
+<hr><p><b>Nota - </b>Molti driver JDBC memorizzano i risultati di tali chiamate nella cache. Di conseguenza, &#232; possibile che l'utilizzo delle chiamate non fornisca convalide affidabili. Verificare con il produttore del driver se le chiamate vengono salvate o meno nella memoria cache.</p>
+
+
+<hr>
+</dd>
+<dt><tt>custom-validation</tt></dt>
+<dd><p>GlassFish Server utilizza un meccanismo di convalida definito dall'utente, specificato dalla classe di implementazione personalizzata nel campo Validation Classname.</p>
+
+</dd>
+<dt><tt>table</tt></dt>
+<dd><p>L'applicazione effettua ricerche nella tabella database specificata. La tabella deve esistere ed essere accessibile, ma non richiede righe. Evitare di utilizzare una tabella esistente con un numero elevato di righe o una tabella a cui si accede di frequente.</p>
+
+</dd>
+</dl>
+</li>
+<li><b>Se dall'elenco a discesa Validation Method &#232; stata selezionata l'opzione <tt>table</tt>, selezionare
+il nome della tabella del database nell'elenco a discesa Table Name.</b></li>
+<li><b>Se dall'elenco a discesa Validation Method &#232; stata selezionata l'opzione <tt>custom-validation</tt>, digitare
+il nome della classe di implementazione della convalida personalizzata.</b><p>Il nome classe fornito deve risultare accessibile per GlassFish Server. La classe
+specificata deve implementare l'interfaccia <tt>org.glassfish.api.jdbc.ConnectionValidation</tt> .</p></li>
+<li><b>Selezionare la casella di controllo On Any Failure Close All Connections per
+far s&#236; che il server chiuda e ripristini tutte le connessioni del
+pool nel caso di un errore relativo a una singola connessione.</b><p>Se l'opzione &#232; disabilitata, le singole connessioni vengono ristabilite soltanto quando vengono
+utilizzate. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare l'opzione Allow Non Component Callers Enabled per far s&#236; che il
+pool possa essere utilizzato da chiamanti diversi dai componenti, quali filtri servlet
+e persistence manager di altri produttori.</b><p>Le connessioni ottenute da chiamanti diversi dai componenti non vengono chiuse automaticamente
+dal contenitore al termine di una transazione. Devono essere chiuse esplicitamente dal
+chiamante. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li>(Opzionale) <b>Fare clic sul pulsante Flush della scheda General per scaricare tutte le
+connessioni dal pool.</b><p>Se si fa clic sul pulsante Flush vengono eliminate le connessioni esistenti,
+ricreate le connessioni stabilite per il pool e ripristinate le dimensioni minime
+e iniziali del pool.</p></li>
+<li><b>Fare clic su Save.</b>
+<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
+su Save.</p>
+
+
+<hr>
+</li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-setdbaccess.html">Impostare l'accesso al database</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">Integrare un driver JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">Creare una risorsa JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">Modificare una risorsa JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">Modificare le destinazioni di una risorsa JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">Eliminare una risorsa JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">Creare un pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">Modificare le impostazioni generali del pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">Verificare le impostazioni del pool di connessione</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Modificare le propriet&#224; del pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Eliminare un pool di connessione JDBC</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

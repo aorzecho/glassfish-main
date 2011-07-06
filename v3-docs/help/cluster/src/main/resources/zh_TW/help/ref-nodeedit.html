@@ -1,0 +1,158 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-nodeedit"></a><h4>編輯節點</h4>
+<a name="indexterm-198"></a><p>使用 [編輯節點] 頁面可更新 GlassFish Server 節點的配置資料。您也可以使用此頁面，將節點類型從 CONFIG 變更為 SSH，以對節點啟用 SSH 通訊。</p>
+
+<p>如果您將節點類型從 CONFIG 變更為 SSH，則下列任一欄位保留空白時，便會套用預設值：</p>
+
+
+<ul><li><p>SSH 連接埠</p>
+
+</li>
+<li><p>使用者名稱</p>
+
+</li>
+<li><p>金鑰檔案</p>
+
+</li></ul>
+<p>[編輯節點] 頁面包含下列選項：</p>
+
+<dl><dt>名稱</dt>
+<dd><p>建立節點時指定給節點的名稱。本欄位是唯讀的。</p>
+
+</dd>
+<dt>類型</dt>
+<dd><p>下拉式清單，可指定下列其中一種節點類型：</p>
+
+<dl><dt>SSH</dt>
+<dd><p>節點支援透過安全 shell (SSH) 進行通訊。</p>
+
+</dd>
+<dt>CONFIG</dt>
+<dd><p>節點不支援遠端通訊。如果已選取 CONFIG，則不會顯示 SSH 配置的任何選項。如果目前的節點類型是 SSH，而您選取 CONFIG，則儲存變更時，會從節點配置中移除 SSH 配置資料。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>節點主機</dt>
+<dd><p>更新節點之後，節點所代表的主機名稱。此欄位是否為必要欄位，取決於節點類型：</p>
+
+
+<ul><li><p>如果節點類型為 CONFIG，可能會省略主機名稱。可在建立位於節點上的實例時決定主機名稱。</p>
+
+</li>
+<li><p>如果節點類型為 SSH，則必須指定主機名稱。否則，將發生錯誤。</p>
+
+</li></ul>
+</dd>
+<dt>節點目錄</dt>
+<dd><p>要包含在節點上所建立的 GlassFish Server 實例之目錄的路徑。如果指定相對路徑，則該路徑會相對於 <i>as-install</i> 目錄，其中 <i>as-install</i> 是主機上 GlassFish Server 軟體的基底安裝目錄。</p>
+
+</dd>
+<dt>安裝目錄</dt>
+<dd><p>主機上 GlassFish Server 軟體的基底安裝目錄之父系目錄的完整路徑，例如 <tt>/export/glassfish3/</tt>。 </p>
+
+</dd>
+<dt>強制</dt>
+<dd><p>如果選取 [已啟用] 選項，則即使驗證節點參數失敗，也會在 Domain Administration Server (DAS) 配置中更新節點。 若要驗證節點的參數，DAS 必須能夠透過 SSH 連絡節點的主機。</p>
+
+</dd>
+<dt>SSH 連接埠</dt>
+<dd><p>用於與此節點主機連線之 SSH 的連接埠。 </p>
+
+<p>如果您將節點類型從 CONFIG 變更為 SSH，並讓此欄位保留空白，[SSH 連接埠] 選項便會設定為 22。</p>
+
+<p>如果 [節點主機] 選項設定為 <tt>localhost-<i>domain</i></tt>，便會忽略 [SSH 連接埠] 選項。</p>
+
+</dd>
+<dt>SSH 使用者名稱</dt>
+<dd><p>在此節點之主機上的使用者，會執行透過 SSH 連線至主機的程序。</p>
+
+<p>如果您將節點類型從 CONFIG 變更為 SSH，並讓此欄位保留空白，[使用者名稱] 選項便會設定為正在執行 DAS 程序的使用者。</p>
+
+<p>如果 [節點主機] 選項設定為 <tt>localhost-<i>domain</i></tt>，便會忽略 [SSH 使用者] 選項。</p>
+
+</dd>
+<dt>SSH 使用者認證</dt>
+<dd><p>可指定在登入此節點的主機時如何認證 SSH 使用者的下拉式清單。可能的認證方法如下：</p>
+
+<dl><dt>金鑰檔案</dt>
+<dd><p>SSH 使用者是透過 SSH 私密金鑰檔案來認證。如果選取此選項，請在 [金鑰檔案] 欄位中指定該檔案的絕對路徑。</p>
+
+</dd>
+<dt>密碼</dt>
+<dd><p>SSH 使用者是透過儲存在 DAS 配置中的密碼來認證。</p>
+
+
+<hr><p><b>注意 - </b>此密碼在 DAS 配置中是以純文字儲存。如需增強安全性，請使用金鑰檔案或密碼別名。</p>
+
+
+<hr>
+<p>如果選取此選項，即會啟動 [SSH 密碼] 欄位與 [確認 SSH 密碼] 欄位，讓您提供密碼。</p>
+
+</dd>
+<dt>密碼別名</dt>
+<dd><p>SSH 使用者是透過密碼別名來認證。如果選取此選項，請從 [密碼別名] 下拉式清單中選取密碼別名。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>SSH 密碼</dt>
+<dd><p>SSH 使用者將在登入此節點之主機時使用的密碼。</p>
+
+</dd>
+<dt>確認 SSH 密碼</dt>
+<dd><p>確認 SSH 使用者將在登入此節點之主機時使用的密碼。此欄位的內容必須與 [SSH 密碼] 欄位的內容完全相符。</p>
+
+</dd>
+<dt>密碼別名</dt>
+<dd><p>為此網域定義之密碼別名的下拉式清單。</p>
+
+</dd>
+<dt>金鑰檔案</dt>
+<dd><p>SSH 私密金鑰檔案的絕對路徑，該檔案屬於 [使用者名稱] 選項指定的使用者。這個檔案用於向節點主機上的 <tt>sshd</tt> 常駐程式認證。</p>
+
+
+<hr><p><b>備註 - </b>GlassFish Server 也支援透過密碼檔案中的 <tt>AS_ADMIN_SSHPASSWORD</tt> 項目進行密碼認證。密碼檔案是在 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> 公用程式的 <tt>--paswordfile</tt> 選項中指定。</p>
+
+
+<hr>
+<p>如果 SSH 私密金鑰檔案受複雜密碼保護，則密碼檔案必須包含 <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt> 項目。</p>
+
+<p>DAS 必須可以存取金鑰檔案的路徑，且 DAS 必須可以讀取金鑰檔案。</p>
+
+<p>預設值取決於您是否將節點類型從 CONFIG 變更為 SSH，以對節點啟用 SSH 通訊：</p>
+
+<p>如果您將節點類型從 CONFIG 變更為 SSH，並讓此欄位保留空白，[金鑰檔案] 選項便會設定為使用者之 <tt>.ssh</tt> 目錄中的金鑰檔案。若有多個金鑰檔案，GlassFish Server 會使用下列喜好設定順序：</p>
+
+
+<ol><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>identity</tt></p>
+
+</li></ol>
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-editnode.html">編輯節點</a></p>
+
+</li></ul>
+<h5>等效 <tt>asadmin</tt> 子指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-config-1"><tt>update-node-config</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-ssh-1"><tt>update-node-ssh</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

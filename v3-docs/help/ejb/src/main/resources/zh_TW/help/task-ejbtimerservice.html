@@ -1,0 +1,36 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbtimerservice"></a><h4>配置 EJB 計時器服務</h4><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>計時器服務是由企業 Bean 容器提供，且用於排程企業 Bean 使用的通知或事件的永久性作業事件通知服務。所有企業 Bean (有狀態階段作業 Bean 除外) 均可從計時器服務接收通知。當伺服器關閉或重新啟動時，不會銷毀服務設定的永久性計時器。</p>
+
+<ol>
+<li><b>在瀏覽樹狀結構中，展開 [配置] 節點。</b></li>
+<li><b>選取 [EJB 容器] 節點。</b><p>[企業 Java Bean (EJB)] 頁面會隨即開啟。</p></li>
+<li><b>按一下 [EJB 計時器服務] 標籤。</b><p>[EJB 計時器服務] 頁面會隨即開啟。</p></li>
+<li><b>在 [最小傳送間隔] 欄位中，鍵入特定計時器的下一個計時器到期之前允許的最小毫秒數。</b><p>如果此間隔時間設定得過小，可能會導致伺服器超載。預設值為 1000。</p></li>
+<li><b>在 [最大重新傳送次數] 欄位中，鍵入計時器服務傳送異常或回復所造成之計時器過期的最大嘗試次數。</b><p>預設值為 1。</p></li>
+<li><b>在 [重新傳送間隔] 欄位中，鍵入兩次重新傳送嘗試之間的間隔毫秒數。</b><p>預設值為 5000。</p></li>
+<li><b>在 [計時器資料來源] 欄位中，鍵入將要用做計時器資料來源之 JDBC 資源的 JNDI 名稱。</b><p>若加以指定，此值會為計時器服務系統應用程式置換 <tt>jdbc/__TimerPool</tt> 的預設值。</p></li>
+<li><b>按一下 [儲存]。</b>
+<hr><p><b>提示 - </b>若要回到預設設定，請按一下 [載入預設值] 按鈕，然後按一下 [儲存]。</p>
+
+
+<hr>
+</li>
+<li><b>重新啟動 GlassFish Server。</b></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="../../../ejb-lite/zh_TW/help/task-ejbgeneral.html">配置 EJB 設定</a></p>
+
+</li>
+<li><p><a href="task-ejbmdbpoolsettings.html">配置 MDB 池設定</a></p>
+
+</li>
+<li><p><a href="task-ejbcontaineravailability.html">配置 EJB 容器的可用性設定</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

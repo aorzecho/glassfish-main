@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpooledit"></a><h4>編輯 JDBC 連線池一般設定</h4><a name="indexterm-10"></a><ol>
+<li><b>在瀏覽樹狀結構中，展開 [資源] 節點。</b></li>
+<li><b>在 [資源] 節點下，展開 [JDBC] 節點。</b></li>
+<li><b>在 [JDBC] 節點下，選取 [連線池] 節點。</b><p>[連線池] 頁面會隨即開啟。</p></li>
+<li><b>按一下您要編輯的連線池名稱。</b><p>[編輯連線池] 頁面會隨即開啟。</p></li>
+<li><b>從 [資源類型] 下拉式清單中，選取一種資源類型。</b><p>選項包括 <tt>javax.sql.DataSource</tt> (僅限於本機作業事件)、<tt>javax.sql.XADataSource</tt> (全域作業事件) 和 <tt>java.sql.ConnectionPoolDataSource</tt> (本機作業事件，可能會改善效能)。</p></li>
+<li><b>在 [資料來源類別名稱] 欄位中，鍵入實作 <tt>DataSource</tt>、<tt>ConnectionPoolDataSource</tt> 或 <tt>XADataSource</tt> API 的供應商專屬類別名稱。</b><p>若您選取了其中一個資料來源資源類型，此欄位通常會自動填入與您所選的資源類型和資料庫供應商關聯的類別名稱。若您選取了 <tt>java.sql.Driver</tt> 資源類型，會停用此欄位。</p></li>
+<li><b>在 [驅動程式類別名稱] 欄位中，鍵入實作 <tt>java.sql.Driver</tt> API 的供應商專屬類別名稱。</b><p>若您選取了 <tt>java.sql.Driver</tt> 資源類型，此欄位通常會自動填入與您所選的驅動程式和資料庫供應商關聯的類別名稱。若您選取了其中一個資料來源資源類型，會停用此欄位。</p></li>
+<li><b>選取 [啟用 Ping] 核取方塊可自動在池建立或重新配置期間自動 Ping 池，以識別並警告任何錯誤的屬性值。</b><p>此選項預設為停用。</p></li>
+<li><b>在 [說明] 欄位中，鍵入連線池的簡短說明。</b></li>
+<li><b>在 [池的初始大小和最小大小] 欄位中，鍵入此池的最小連線數目。</b><p>該值還可決定首次建立池或 GlassFish Server 啟動時，置於池中的連線數目。預設值為 8。</p></li>
+<li><b>在 [池的最大大小] 欄位中，鍵入此池的最大連線數目。</b><p>預設值為 32。</p></li>
+<li><b>在 [池設定大小數量] 欄位中，鍵入每個池設定大小批次的連線數目。</b><p>當池分別向最大池大小擴充以及向最小池大小收縮時，將成批調整大小。此值確定批次中的連線數目。將此值設置過大會延遲連線建立和資源回收；而將該值設置過小則會導致效率降低。預設值為 2。</p></li>
+<li><b>在 [閒置逾時] 欄位中，鍵入連線可以在池中閒置的最長時間 (以秒為單位)。</b><p>一旦超過此時間，即從池中移除該連線。預設值為 300。</p></li>
+<li><b>在 [最大等待時間] 欄位中，鍵入連線逾時前，請求連線的應用程式需等待的最長時間 (以毫秒為單位)。</b><p>預設值為 60,000。</p></li>
+<li><b>選取 [啟用非作業事件連線] 核取方塊，可傳回非作業事件連線。</b><p>此選項預設為停用。</p></li>
+<li><b>從下拉式清單中，選取連線池的作業事件隔離層級。 </b><p>若不指定此選項，連線將使用 JDBC 驅動程式所提供的預設隔離層級進行作業。依預設，不會指定此選項。</p></li>
+<li><b>選取 [保證隔離層級] 核取方塊，可使從池中獲取的所有連線都具有相同的隔離層級。</b><p>例如，如果上次使用連線時程式化 (使用 <tt>con.setTransactionIsolation</tt>) 變更了連線的隔離層級，這種機制會將狀態變更回指定的隔離層級。</p><p>只有已指定作業事件隔離層級時，才可使用此設定。</p></li>
+<li><b>按一下 [Ping] 按鈕以驗證資料庫連線。</b><p>管理主控台將嘗試連線至資料庫。如果顯示錯誤訊息，請檢查資料庫伺服器是否已啟動。</p></li>
+<li><b>按一下 [清除寫入] 按鈕，將連線池重設為其初始狀態。</b><p>這樣會銷毀任何現有的實況連線，表示與這些連線相關聯的作業事件都會遺失。然後子指令會為池重新建立初始連線，並將池還原成持續的池大小。</p></li>
+<li><b>按一下 [儲存]。</b>
+<hr><p><b>提示 - </b>若要回到預設設定，請按一下 [載入預設值] 按鈕，然後按一下 [儲存]。</p>
+
+
+<hr>
+</li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-setdbaccess.html">設定資料庫存取</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">整合 JDBC 驅動程式</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">建立 JDBC 資源</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">編輯 JDBC 資源</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">編輯 JDBC 資源目標</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">刪除 JDBC 資源</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">建立 JDBC 連線池</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">編輯 JDBC 連線池進階屬性</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">驗證連線池設定</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">編輯 JDBC 連線池特性</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">刪除 JDBC 連線池</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

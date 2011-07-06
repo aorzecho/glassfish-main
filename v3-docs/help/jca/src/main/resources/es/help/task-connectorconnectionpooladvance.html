@@ -1,0 +1,117 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-connectorconnectionpooladvance"></a><h4>Para editar atributos avanzados del conjunto de conexiones del conector</h4><a name="indexterm-6"></a><ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Recursos.</b></li>
+<li><b>Expanda el nodo Conectores.</b></li>
+<li><b>En el nodo Configuraci&#243;n, seleccione el nodo Conjuntos de conexiones de conectores.</b><p>Se abrir&#225; la p&#225;gina Conjuntos de conexiones de conectores.</p></li>
+<li><b>En la p&#225;gina Conjunto de conexiones de conectores, haga clic en el
+nombre del conjunto de conexiones de conectores que desee editar.</b><p>Se abrir&#225; la p&#225;gina Editar conjunto de conexiones de conectores.</p></li>
+<li><b>En la p&#225;gina Editar conjunto de conexiones de conectores, haga clic en
+la ficha Avanzado.</b><p>Se abre la p&#225;gina Editar atributos avanzados del conjunto de conexiones de
+conector.</p></li>
+<li><b>En el campo Validar al menos una vez, introduzca el tiempo, en
+segundos, tras el cual se valida una conexi&#243;n al menos una vez.</b><p>Si se define este atributo con un valor apropiado se minimiza el
+n&#250;mero de solicitudes de validaci&#243;n por conexi&#243;n. El valor predeterminado es 0,
+lo que significa que el atributo no est&#225; habilitado.</p></li>
+<li><b>En el campo Tiempo de espera de p&#233;rdidas, introduzca el tiempo, en
+segundos, para realizar un seguimiento de las p&#233;rdidas de conexi&#243;n de un
+conjunto de conexiones.</b><p>El valor 0 indica que el seguimiento de p&#233;rdidas de conexi&#243;n est&#225;
+deshabilitado. El valor predeterminado es 0.</p></li>
+<li><b>Seleccione la opci&#243;n Reclamaci&#243;n de p&#233;rdidas para restaurar las conexiones perdidas en
+el conjunto una vez haya finalizado el seguimiento de p&#233;rdidas de conexi&#243;n.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>En el campo Intentos de creaci&#243;n, introduzca el n&#250;mero de intentos que
+se realizar&#225;n si se produjera un error al crear una conexi&#243;n nueva.</b><p>El valor de 0 significa que no se har&#225; ning&#250;n intento para
+crear la conexi&#243;n de nuevo. El valor predeterminado es 0.</p></li>
+<li><b>En el campo Intervalo de reintentos, introduzca el intervalo, en segundos, que
+hay entre dos intentos de creaci&#243;n de una conexi&#243;n.</b><p>Este atributo se utiliza s&#243;lo si el valor de intentos de reintento
+de creaci&#243;n es superior a 0. El valor predeterminado es 10 segundos.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Agrupaci&#243;n para habilitar la agrupaci&#243;n de conexiones
+para el conjunto.</b><p>Esta opci&#243;n se habilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Asociaci&#243;n inactiva para permitir que las conexiones
+se asocien de forma inactiva cuando se realice una operaci&#243;n con ellas.
+</b><p>Las conexiones se disocian cuando la transacci&#243;n se completa y un m&#233;todo
+de componentes finaliza, lo que ayuda a reutilizar las conexiones f&#237;sicas. Esta
+opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Seleccione la opci&#243;n Alistamiento de conexiones inactivas para alistar un recurso en
+la transacci&#243;n s&#243;lo cuando se est&#233; utilizando en ese instante en un
+m&#233;todo.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Asociar con subproceso para asociar una conexi&#243;n
+con un subproceso. </b><p>Cuando el mismo subproceso necesita otra conexi&#243;n, puede volver a utilizar la
+conexi&#243;n que ya est&#225; asociada con ese subproceso, sin necesidad de incurrir
+en la sobrecarga de coger otra conexi&#243;n del conjunto. Esta opci&#243;n se
+deshabilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Correspondencia de conexiones para habilitar la correspondencia
+de conexiones en el conjunto. </b><p>Esta opci&#243;n se puede deshabilitar si sabe que las conexiones del conjunto
+siempre ser&#225;n homog&#233;neas y, por tanto, para una conexi&#243;n recogida del conjunto
+no se necesita establecer correspondencia mediante el adaptador de recursos. Esta opci&#243;n
+se habilita por defecto.</p></li>
+<li><b>En el campo Uso de la correspondencia de conexiones, introduzca el n&#250;mero
+de veces que una conexi&#243;n debe ser reutilizada por el conjunto.</b><p>La conexi&#243;n se cerrar&#225; una vez reutilizada durante un n&#250;mero espec&#237;fico de
+veces. El valor 0 indica que el atributo no est&#225; habilitado. El valor
+predeterminado es 0.</p></li>
+<li><b>Haga clic en Guardar.</b>
+<hr><p><b>Consejo - </b>Para volver a los valores de configuraci&#243;n predeterminados, haga clic en el
+bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
+
+
+<hr>
+</li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-connectorresourcenew.html">Para crear un recurso de conector</a></p>
+
+</li>
+<li><p><a href="task-connectorresourceedit.html">Para editar un recurso de conector</a></p>
+
+</li>
+<li><p><a href="task-connectorresourcesdelete.html">Para borrar un recurso de conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolnew.html">Para crear un conjunto de conexiones de conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">Para editar un conjunto de conexiones de conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones del conector</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">Para crear un mapa de seguridad para un conjunto de conexiones de conectores</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">Para editar un mapa de seguridad para un conjunto de conexiones de conectores</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">Para eliminar un mapa de seguridad para un conjunto de conexiones de conectores</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">Para eliminar un conjunto de conexiones de conector</a></p>
+
+</li>
+<li><p><a href="task-setupeisaccess.html">Para configurar el acceso EIS</a></p>
+
+</li>
+<li><p><a href="task-adminobjectnew.html">Para crear un recurso de objeto administrado</a></p>
+
+</li>
+<li><p><a href="task-adminobjectedit.html">Para editar un recurso de objeto administrado</a></p>
+
+</li>
+<li><p><a href="task-administeredobjectresourcedelete.html">Para eliminar un recurso de objeto administrado</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapnew.html">Para crear un mapa de seguridad de tareas</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapedit.html">Para editar un mapa de seguridad de tareas</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapdelete.html">Para eliminar un mapa de seguridad de tareas</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

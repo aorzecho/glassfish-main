@@ -1,0 +1,64 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-integratejdbcdriver"></a><h4>So integrieren Sie einen JDBC-Treiber</h4><a name="indexterm-3"></a><p>Ein Treiber, der die JDBC-API (JDBC-Treiber) unterst&#252;tzt, &#252;bersetzt die JDBC-Aufrufe einer Anwendung
+in das Protokoll des Datenbankservers.</p>
+
+<ul>
+<li><b>Zum Integrieren des JDBC-Treibers in eine GlassFish-Server-Dom&#228;ne f&#252;hren Sie einen der folgenden
+Schritte aus:</b><ul>
+<li><b>Machen Sie den Treiber dem Ladeprogramm f&#252;r gemeinsame Klassen zug&#228;nglich.</b><ol style="list-style-type: lower-alpha">
+<li><b>Kopieren Sie die JAR- und ZIP-Dateien des Treibers in das Verzeichnis <i>domain-dir</i><tt>/lib</tt>.</b>
+<hr><p><b>Hinweis - </b>Es gibt eine Ausnahme zu dieser Regel. Wenn Sie einen Oracle JDBC-Treiber verwenden
+und die EclipseLink-Erweiterungen nutzen m&#246;chten, die f&#252;r Oracle-Datenbanken zur Verf&#252;gung stehen, m&#252;ssen
+Sie die JAR-Dateien f&#252;r den Oracle JDBC-Treiber im Verzeichnis <i>domain-dir</i><tt>/lib/ext</tt> ablegen.</p>
+
+
+<hr>
+</li>
+<li><b>Starten Sie die Dom&#228;ne neu.</b></li></ol></li>
+<li><b>Machen Sie den Treiber dem Ladeprogramm f&#252;r Systemklassen zug&#228;nglich.</b><ol style="list-style-type: lower-alpha">
+<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
+<li><b>W&#228;hlen Sie unter dem Konfigurationsknoten den JVM-Einstellungsknoten aus.</b><p>Die Seite "Allgemeine JVM-Einstellungen" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Allgemeine JVM-Einstellungen" auf die Registerkarte "Pfadeinstellungen".</b></li>
+<li><b>Geben Sie im Feld "Klassenpfadsuffix" den vollqualifizierten Pfadnamen f&#252;r die JAR-Datei des
+Treibers ein.</b></li>
+<li><b>Klicken Sie auf "Speichern".</b></li>
+<li><b>Starten Sie den Server neu.</b></li></ol></li></ul></li></ul><h6>Siehe auch</h6>
+<ul><li><p><a href="task-setdbaccess.html">So richten Sie den Datenbankzugriff ein</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">So erstellen Sie eine JDBC-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">So bearbeiten Sie eine JDBC-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">So l&#246;schen Sie eine JDBC-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">So erstellen Sie einen JDBC-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">So bearbeiten Sie die allgemeinen JDBC-Verbindungspooleinstellungen</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">So bearbeiten Sie die erweiterten Attribute eines JDBC-Verbindungspools</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">So &#252;berpr&#252;fen Sie die Verbindungspooleinstellungen</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">So bearbeiten Sie Eigenschaften von JDBC-Verbindungspools</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">So l&#246;schen Sie einen JDBC-Verbindungspool</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

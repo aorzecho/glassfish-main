@@ -1,0 +1,125 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-create-cluster"></a><h4>创建群集</h4><a name="indexterm-1"></a><p><b>群集</b>是命名的 GlassFish Server 实例集合，这些实例共享相同的应用程序、资源和配置信息。</p>
+
+<p>群集可通过可伸缩性、负载平衡和故障防护来提供高可用性。当群集中的实例或主机出现故障时，GlassFish Server 检测到该故障，将请求从出现故障的实例重定向至群集中的其他实例，并恢复用户会话状态。由于群集中所有实例上的应用程序和资源都相同，因此一个实例可以故障转移至群集中的任何其他实例。</p>
+
+<p>通过 GlassFish Server，可以将群集中的所有实例作为单个单元由单个主机来进行管理，无论这些实例是驻留在同一主机还是不同主机上。</p>
+
+<h6>开始之前</h6><p>如果计划向要创建的群集中添加 GlassFish Server 实例，请确保实例要驻留的节点已经存在。</p>
+
+<ol>
+<li><b>在导航树中，选择&#8220;群集&#8221;节点。</b><p>此时将打开&#8220;群集&#8221;页面。</p></li>
+<li><b>在&#8220;群集&#8221;页面中，单击&#8220;新建&#8221;。 </b><p>此时将打开&#8220;新建群集&#8221;页面。</p></li>
+<li><b>在&#8220;群集名称&#8221;字段中，键入群集的名称。</b><p>名称必须满足以下要求：</p>
+<ul><li><p>名称开头必须是字母、数字或下划线。</p>
+
+</li>
+<li><p>名称只能包含以下字符：</p>
+
+
+<ul><li><p>小写字母</p>
+
+</li>
+<li><p>大写字母</p>
+
+</li>
+<li><p>数字</p>
+
+</li>
+<li><p>连字符</p>
+
+</li>
+<li><p>句点</p>
+
+</li>
+<li><p>下划线</p>
+
+</li></ul>
+</li>
+<li><p>名称在域中必须是唯一的，而且不得是另一个群集、命名配置、GlassFish Server 实例或节点的名称。</p>
+
+</li>
+<li><p>名称不得是<tt>域</tt>、<tt>服务器</tt>或 GlassFish Server 保留的任何其他关键字。</p>
+
+</li></ul>
+</li>
+<li><b>从&#8220;配置&#8221;下拉式列表中，选择群集将使用的命名配置。</b>
+<hr><p><b>注 - </b>如果选择 <tt>default-config</tt>，则必须在下一步中指定<b>不</b>共享配置。不能共享 <tt>default-config</tt> 配置。</p>
+
+
+<hr>
+</li>
+<li><b>指定是否共享群集将使用的配置。</b><ul>
+<li><b>如果不共享配置，请保留&#8220;复制选定的配置&#8221;选项的选中状态。 </b><p>创建群集时，将复制选定的配置。会为该配置的副本指定一个名称 <tt><i>cluster-name</i>-config</tt>，其中 <i>cluster-name</i> 是要创建的群集的名称。</p></li>
+<li><b>如果共享配置，请选择&#8220;引用选定的配置&#8221;选项。</b><p>群集将使用指定的现有命名配置。</p></li></ul></li>
+<li>（可选的）<b><a name="indexterm-2"></a>向群集中添加 GlassFish Server 实例。</b>
+<hr><p><b>注 - </b>要在表示远程主机的类型为 CONFIG 的节点上创建实例，必须使用 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a> 子命令。不能使用管理控制台来实现此目的。</p>
+
+
+<hr>
+<p>也可以<a href="task-create-clustered-instance.html">在创建群集后添加实例</a>。</p><p>按如下所示添加每个实例：</p><ol style="list-style-type: lower-alpha">
+<li><b>在&#8220;要创建的服务器实例&#8221;区域，单击&#8220;添加&#8221;。</b><p>将在群集中的实例表中添加一行。</p></li>
+<li><b>在&#8220;实例名称&#8221;字段中，键入实例的名称。</b></li>
+<li><b>在&#8220;权重&#8221;字段中，键入表示实例的负载平衡权重的整数。</b><p>负载平衡权重确定在对群集的所有请求中，实例应处理的请求所占的比例。</p><p>例如，在一个具有两个实例的群集中，您可能需要一个实例来处理四分之一的请求，另一实例处理四分之三的请求。在这种情况下，将处理四分之一请求的实例的权重设置为 1，将另一实例的权重设置为 3。如果您喜欢使用百分比，则分别将权重设置为 25 和 75。</p><p>默认权重为 100。</p></li>
+<li><b>从&#8220;节点&#8221;下拉式列表中，选择实例将驻留的节点。</b></li></ol></li>
+<li><b>单击&#8220;确定&#8221;。</b><p>将返回到&#8220;群集&#8221;页面。该群集将添加到页面中的群集表。</p></li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-delete-cluster.html">删除群集</a></p>
+
+</li>
+<li><p><a href="task-availabilityservice.html">配置群集的可用性设置</a></p>
+
+</li>
+<li><p><a href="task-start-cluster.html">启动群集</a></p>
+
+</li>
+<li><p><a href="task-stop-cluster.html">停止群集</a></p>
+
+</li>
+<li><p><a href="task-modify-cluster-config.html">修改群集的配置</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-deploy.html">将应用程序部署到群集</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-list.html">列出已部署到群集的应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-undeploy.html">从群集中取消部署应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-remove.html">从群集中删除应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-edit.html">编辑已部署到群集的应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-enable-disable.html">启用或禁用已部署到群集的应用程序</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-lb-enable-disable.html">启用或禁用已部署到群集的应用程序的负载平衡</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-create.html">为群集创建资源</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-display.html">列出群集的资源</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-enable-disable.html">全局启用或禁用资源</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-edit.html">编辑群集的资源</a></p>
+
+</li>
+<li><p><a href="task-upgrade-components.html">升级组件而不使服务受到任何损失</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

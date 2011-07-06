@@ -1,0 +1,70 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsconnectionproperties"></a><h4>Spezifische Eigenschaften von JMS-Verbindungsfactories</h4>
+<a name="indexterm-35"></a><a name="indexterm-36"></a><p>Folgende weitere Eigenschaften stehen f&#252;r eine JMS-Verbindungsfactory zur Verf&#252;gung.</p>
+
+<dl><dt><tt>ClientId</tt></dt>
+<dd><p>Gibt eine Client-ID f&#252;r eine Verbindungsfactory an, die von einem dauerhaften Abonnenten verwendet wird.</p>
+
+</dd>
+<dt><tt>AddressList</tt></dt>
+<dd><p>Gibt den Namen (und optional die Portnummer) einer oder mehrerer Nachrichtenbroker-Instanzen an, mit welchen Anwendungen kommunizieren. Jede Adresse in der Liste enth&#228;lt den Hostnamen (und optional den Hostport und den Verbindungsdienst) f&#252;r die Verbindung. Der Wert kann z. B. <tt>earth</tt> oder <tt>earth:7677</tt> lauten. Geben Sie die Portnummer an, wenn der Nachrichtenbroker nicht auf dem Standardport (7676) ausgef&#252;hrt wird. Wenn die Eigenschafteneinstellung mehrere Hosts und Ports in einer Clusterumgebung angibt, wird der erste verf&#252;gbare Host in der Liste verwendet (sofern die Eigenschaft <tt>AddressListBehavior</tt> nicht auf <tt>RANDOM</tt> gesetzt ist.</p>
+
+<p>Einzelheiten finden Sie im <b>Message Queue Developer&#8217;s Guide for Java Clients</b>.</p>
+
+<p>Der Standardwert besteht aus dem lokalen Host und der Standard-Portnummer (7676). Der Client versucht, &#252;ber Port 7676 des lokalen Hosts eine Verbindung zu einem Broker herzustellen.</p>
+
+</dd>
+<dt><tt>UserName</tt></dt>
+<dd><p>Der Benutzername f&#252;r die Verbindungsfactory.</p>
+
+<p>Der Standardwert ist <tt>guest</tt>.</p>
+
+</dd>
+<dt><tt>Password</tt></dt>
+<dd><p>Das Passwort f&#252;r die Verbindungsfactory.</p>
+
+<p>Der Standardwert ist <tt>guest</tt>.</p>
+
+</dd>
+<dt><tt>ReconnectEnabled</tt></dt>
+<dd><p>Wenn diese Eigenschaft auf <tt>true</tt> gesetzt wird, versucht die Clientlaufzeit, erneut eine Verbindung zu einem Nachrichtenserver (oder zur Liste der Adressen in <tt>AddressList</tt>) herzustellen, wenn eine Verbindung unterbrochen wird.</p>
+
+<p>Der Standardwert ist <tt>true</tt>.</p>
+
+</dd>
+<dt><tt>ReconnectAttempts</tt></dt>
+<dd><p>Gibt die Anzahl von Versuchen zum (erneuten) Herstellen einer Verbindung f&#252;r jede Adresse in <tt>AddressList</tt> an, bevor die Clientlaufzeit mit der n&#228;chsten Adresse in der Liste fortf&#228;hrt. Der Wert -1 zeigt an, dass die Anzahl von Versuchen zum erneuten Herstellen einer Verbindung unbegrenzt ist (die Clientlaufzeit versucht, eine Verbindung mit der ersten Adresse herzustellen, bis dieser Vorgang erfolgreich ausgef&#252;hrt werden kann).</p>
+
+<p>Der Standardwert ist 3.</p>
+
+</dd>
+<dt><tt>ReconnectInterval</tt></dt>
+<dd><p>Gibt das Intervall zwischen zwei Versuchen zum erneuten Herstellen einer Verbindung in Millisekunden an. Dieser Wert bezieht sich auf jede Adresse in der Eigenschaft <tt>AddressList</tt> sowie auf nachfolgende Adressen in der Liste. Wenn ein zu kleiner Wert gew&#228;hlt wird, verf&#252;gt der Broker nicht &#252;ber ausreichend Zeit f&#252;r die Wiederherstellung. Wenn das Intervall zu lang ist, erf&#228;hrt die Verbindungsherstellung m&#246;glicherweise eine nicht akzeptable Verz&#246;gerung.</p>
+
+<p>Der Standardwert betr&#228;gt 30000.</p>
+
+</dd>
+<dt><tt>AddressListBehavior</tt></dt>
+<dd><p>Gibt an, ob die Versuche zur Verbindungswiederherstellung in der Reihenfolge der Adressen im Attribut <tt>AddressList</tt> (<tt>PRIORITY</tt>) oder in einer zuf&#228;lligen Reihenfolge (<tt>RANDOM</tt>) durchgef&#252;hrt werden.</p>
+
+<p><tt>RANDOM</tt> bedeutet, dass bei der Verbindungswiederherstellung eine zuf&#228;llige Adresse aus <tt>AddressList</tt> ausgew&#228;hlt wird. Wenn die Wahrscheinlichkeit hoch ist, dass eine Vielzahl von Clients versucht, &#252;ber dieselbe Verbindungsfactory eine Verbindung herzustellen, verhindert dieser Wert, dass alle Clients mit derselben Adresse verbunden werden.</p>
+
+<p><tt>PRIORITY</tt> bedeutet, dass der Versuch zur Verbindungswiederherstellung immer &#252;ber die erste Serveradresse in <tt>AddressList</tt> erfolgt und eine andere Adresse nur dann verwendet wird, wenn der erste Broker nicht verf&#252;gbar ist.</p>
+
+<p>Der Standardwert ist <tt>RANDOM</tt>.</p>
+
+</dd>
+<dt><tt>AddressListIterations</tt></dt>
+<dd><p>Gibt die Anzahl von <tt>AddressList</tt>-Durchl&#228;ufen einer Clientlaufzeit an, um (erneut) eine Verbindung herzustellen. Der Wert -1 gibt an, dass die Anzahl der Versuche unbegrenzt ist.</p>
+
+<p>Der Standardwert ist 3.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

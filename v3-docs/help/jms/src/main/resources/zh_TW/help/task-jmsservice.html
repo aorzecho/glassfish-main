@@ -1,0 +1,74 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsservice"></a><h4>配置 JMS 服務</h4><a name="indexterm-13"></a><p>使用 [JMS 服務] 頁面可配置供所有 JMS 連線使用的設定。</p>
+
+<p>如需有關配置 JMS 服務的更多資訊，請參閱 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob"><i>「Oracle GlassFish Server 3.1 Application Development Guide」</i>中的第 17 章「Using the Java Message Service」</a>。</p>
+
+<ol>
+<li><b>在瀏覽樹狀結構中，展開 [配置] 節點。</b></li>
+<li><b>在 [配置] 節點下，選取 [Java 訊息服務] 節點。</b><p>將開啟 [JMS 服務] 頁面。</p></li>
+<li><b>從 [類型] 下拉式清單中：</b><ul>
+<li><b>選取 [EMBEDDED] 以存取本地主機上的 JMS 服務。</b><p>JMS 服務會於 GlassFish Server 所在的 JVM 機器上啟動。惰性初始化會在第一次存取 JMS 服務時 (而非在 GlassFish Server
+啟動時) 啟動預設內嵌代理程式。此為 JMS 服務的預設類型。</p></li>
+<li><b>選取 [LOCAL] 以存取本地主機上的 JMS 服務。</b><p>JMS 服務會與 GlassFish Server 一起啟動。</p></li>
+<li><b>選取 [REMOTE] 以存取另一個系統上的 JMS 服務。</b><p>如果選擇了 [REMOTE]，則在下次啟動伺服器時 JMS 服務不會由 GlassFish Server 啟動。而是透過 Message Queue 來啟動和管理 JMS 服務，因此必須單獨啟動
+Message Queue 代理程式。如需啟動代理程式的相關資訊，請參閱 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby"><i>「Oracle GlassFish Message Queue 4.5 Administration Guide」</i>中的「Starting Brokers」</a>。如果您選擇該值並使用遠端主機，請遵循<a href="task-jmshostedit.html">編輯 JMS 主機</a>中的說明來指定遠端主機的名稱。</p></li></ul></li>
+<li><b>在 [啟動逾時] 欄位中，鍵入 GlassFish Server 在 JMS 服務啟動時，於中斷啟動前等待的秒數。</b><p>在運行緩慢或超載的系統中，請在預設逾時值的基礎上增大該值。預設值為 60。</p></li>
+<li><b>在 [啟動引數] 欄位中，鍵入引數以自訂 JMS 服務啟動。</b><p>使用可透過 <tt><i>as-install-parent</i>/mq/bin/imqbrokerd</tt> 指令提供的任何引數。</p></li>
+<li><b>選取 [啟用重新連線] 核取方塊，讓 JMS 服務在連線遺失時嘗試重新連線至訊息伺服器 (或 AddressList 中的位址清單)。</b><p>此選項預設為啟用。</p></li>
+<li><b>在 [重新連線間隔] 欄位中，鍵入兩次重新連線嘗試之間的秒數。</b><p>此間隔適用於對 AddressList 中每個位址的重新連線嘗試，及對該清單中連續位址的重新連線嘗試。如果該間隔太短，則代理程式將沒有時間回復。如果該間隔太長，則重新連線會變得遲緩，以至於讓人無法接受。預設值是 5 秒。</p></li>
+<li><b>在 [重新連線嘗試] 欄位中，鍵入用戶端執行階段嘗試連線 (或重新連線) AddressList 清單中每個位址的次數。到達這個值後，用戶端執行階段將嘗試連線清單中的下一個位址。</b><p>值 -1 表示重新連線嘗試次數沒有限制 (用戶端執行階段將一直嘗試連線至第一個位址，直到連線成功)。預設值為 3。</p></li>
+<li><b>從 [預設 JMS 主機] 下拉式清單中，選取預設 JMS 主機的名稱。</b><p>預設值為 <tt>default_JMS_host</tt>。</p></li>
+<li><b>從 [位址清單運作方式] 下拉式清單中，選取嘗試連線的順序。</b><ul>
+<li><b><tt>random</tt> 表示從 AddressList 中隨機選取位址。</b><p>如果許多用戶端嘗試使用同一個連線工廠來進行連線，請指定 <tt>random</tt> 以防止這些用戶端全部連線至同一個位址。此選項為預設值。</p></li>
+<li><b><tt>priority</tt> 表示重新連線時始終嘗試連線 AddressList 中的第一個伺服器位址，而僅在第一個代理程式不可用時才使用其他位址。</b></li></ul></li>
+<li><b>在 [位址清單反覆運算] 欄位中，鍵入 JMS 服務建立 (或重新建立) 連線時，在 AddressList 中反覆運算的次數。</b><p>值 -1 表示嘗試次數沒有限制。預設值為 3。</p></li>
+<li><b>若要使用非預設方案或服務，請在 [MQ 方案] 和 [MQ 服務] 欄位中，鍵入 Message Queue 位址方案名稱和 Message Queue
+連線服務名稱。 </b><p>如需語法資訊，請參閱<a href="ref-mqschemeservice.html">MQ 方案和 MQ 服務位址語法</a>。</p></li>
+<li>(可選擇) <b>在 [其他特性] 區域中，指定 JMS 服務的其他特性。</b><p>如需可用特性的相關資訊，請參閱<a href="ref-jmsservice-additional-props.html">JMS 服務特有的特性</a>。</p><ul>
+<li><b>若要增加特性，請按一下 [增加特性] 按鈕。在出現的空白列中，於 [名稱] 欄位中鍵入特性名稱，然後在 [值] 欄位中鍵入特性值。</b></li>
+<li><b>若要修改特性，請編輯特性的 [值] 欄位。</b></li>
+<li><b>若要刪除特性，請選取您要刪除之特性 [名稱] 欄位左側的核取方塊，然後按一下 [刪除特性] 按鈕。</b></li></ul></li>
+<li><b>按一下 [Ping] 以驗證 JMS 服務是否在預設 JMS 主機上執行。</b><p>若 JMS 服務已啟動並正常執行，會出現訊息報告 Ping 作業成功。</p></li>
+<li><b>按一下 [儲存]。</b>
+<hr><p><b>提示 - </b>若要回到預設設定，請按一下 [載入預設值] 按鈕，然後按一下 [儲存]。</p>
+
+
+<hr>
+</li></ol><h6>更多資訊<br>存取遠端伺服器</h6><p>將提供者和主機變更為遠端系統會使所有 JMS 應用程式都在遠端伺服器上執行。若要在使用本機伺服器的同時使用一個或多個遠端伺服器，請使用 <tt>AddressList</tt> 特性建立連線工廠資源，從而建立可存取遠端伺服器的連線。請參閱<a href="task-jmsconnectionnew.html">建立 JMS 連線工廠資源</a>。</p>
+
+等效的 asadmin 指令</h6><p><tt>jms-ping</tt></p>
+
+<h6>另請參閱</h6>
+<ul><li><p><a href="task-jmshostnew.html">建立 JMS 主機</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">編輯 JMS 主機</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">刪除 JMS 主機</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestnew.html">建立 JMS 實體目標</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestedit.html">編輯 JMS 實體目標</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestdelete.html">刪除 JMS 實體目標</a></p>
+
+</li>
+<li><p><a href="task-jmsflushmessages.html">從 JMS 實體目標移除訊息</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldeststats.html">檢視 JMS 實體目標統計</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

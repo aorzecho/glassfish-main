@@ -1,0 +1,94 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpoolnew"></a><h4>建立 JDBC 連線池</h4><a name="indexterm-7"></a><a name="indexterm-8"></a><a name="indexterm-9"></a><p>使用管理主控台建立連線池時，即表示您在定義特定資料庫連線的各項設定。</p>
+
+<h6>開始之前</h6><p>您必須先安裝並整合支援 JDBC API 的驅動程式 (JDBC 驅動程式)，才可建立連線池。請參閱<a href="task-integratejdbcdriver.html">整合 JDBC 驅動程式</a>。</p>
+
+<p>建立 JDBC 連線池需要下列資訊。再繼續進行之前，請先收集此資訊：</p>
+
+
+<ul><li><p>資料庫供應商名稱</p>
+
+</li>
+<li><p>資源類型，例如 <tt>javax.sql.DataSource</tt> (僅限於本機作業事件)、<tt>java.sql.ConnectionPoolDataSource</tt> (本機作業事件，可能會提昇效能)、<tt>javax.sql.XADataSource</tt> (全域作業事件) 以及 <tt>java.sql.Driver</tt></p>
+
+</li>
+<li><p>資料來源類別名稱</p>
+
+</li>
+<li><p>必需的特性，例如資料庫名稱 (URL)、使用者名稱和密碼</p>
+
+</li></ul>
+<ol>
+<li><b>在瀏覽樹狀結構中，選取 [常用工作] 節點。</b><p>[常用工作] 頁面會隨即開啟。</p></li>
+<li><b>在 [常用工作] 頁面上，按一下 [建立新 JDBC 連線池] 按鈕。</b><p>[新 JDBC 連線池 (步驟 1，共 2 步)] 頁面會隨即開啟。</p>
+<hr><p><b>備註 - </b>您還可以展開 [資源] 節點和 [JDBC] 節點並選取 [連線池] 節點，來存取 [新建 JDBC 連線池] 頁面。然後在 [連線池]
+頁面中，按一下 [新建] 以建立新的連線池。</p>
+
+
+<hr>
+</li>
+<li><b>在 [池名稱] 欄位中，鍵入新連線池的名稱。</b><p>此為必要欄位。</p></li>
+<li><b>從 [資源類型] 下拉式清單中，選取一種資源類型。</b><p>選項包括 <tt>javax.sql.XADataSource</tt> (全域作業事件)、<tt>java.sql.ConnectionPoolDataSource</tt> (本機作業事件，可能會提昇效能)、<tt>javax.sql.DataSource</tt> (僅限於本機作業事件) 以及 <tt>java.sql.Driver</tt>。</p></li>
+<li><b>請執行以下其中一個動作，指定資料庫供應商：</b><ul>
+<li><b>從 [資料庫供應商] 下拉式清單中，選取一個資料庫供應商。</b></li>
+<li><b>如果資料庫供應商沒有顯示在清單中，請在 [資料庫供應商] 文字欄位中鍵入供應商名稱。</b></li></ul></li>
+<li><b>按 [下一步]。</b><p>[新 JDBC 連線池 (步驟 2，共 2 步)] 頁面會隨即開啟。</p></li>
+<li><b>在 [資料來源類別名稱] 欄位中，鍵入實作 <tt>DataSource</tt>、<tt>ConnectionPoolDataSource</tt> 或 <tt>XADataSource</tt> API 的供應商專屬類別名稱。</b><p>若您選取了其中一個資料來源資源類型，此欄位通常會自動填入與您所選的資源類型和資料庫供應商關聯的類別名稱。若您選取了 <tt>java.sql.Driver</tt> 資源類型，會停用此欄位。</p></li>
+<li><b>在 [驅動程式類別名稱] 欄位中，鍵入實作 <tt>java.sql.Driver</tt> API 的供應商專屬類別名稱。</b><p>若您選取了 <tt>java.sql.Driver</tt> 資源類型，此欄位通常會自動填入與您所選的驅動程式和資料庫供應商關聯的類別名稱。若您選取了其中一個資料來源資源類型，會停用此欄位。</p></li>
+<li><b>選取 [啟用 Ping] 核取方塊可自動在池建立或重新配置期間自動 Ping 池，以識別並警告任何錯誤的屬性值。</b><p>此選項預設為停用。</p></li>
+<li><b>在 [說明] 欄位中，鍵入連線池的簡短說明。</b></li>
+<li><b>在 [池的初始大小和最小大小] 欄位中，鍵入此池的最小連線數目。</b><p>該值還可決定首次建立池或 GlassFish Server 啟動時，置於池中的連線數目。預設值為 8。</p></li>
+<li><b>在 [池的最大大小] 欄位中，鍵入此池的最大連線數目。</b><p>預設值為 32。</p></li>
+<li><b>在 [池設定大小數量] 欄位中，鍵入每個池設定大小批次的連線數目。</b><p>當池分別向最大池大小擴充以及向最小池大小收縮時，將成批調整大小。此值確定批次中的連線數目。將此值設置過大會延遲連線建立和資源回收；而將該值設置過小則會導致效率降低。預設值為 2。</p></li>
+<li><b>在 [閒置逾時] 欄位中，鍵入連線可以在池中閒置的最長時間 (以秒為單位)。</b><p>一旦超過此時間，即從池中移除該連線。預設值為 300。</p></li>
+<li><b>在 [最大等待時間] 欄位中，鍵入連線逾時前，請求連線的應用程式需等待的最長時間 (以毫秒為單位)。</b><p>預設值為 60,000。</p></li>
+<li><b>選取 [啟用非作業事件連線] 核取方塊，可傳回非作業事件連線。</b><p>此選項預設為停用。</p></li>
+<li><b>從 [作業事件隔離層級] 下拉式清單中，選取此連線池的作業事件隔離層級。</b><p>若不指定此選項，連線將使用 JDBC 驅動程式所提供的預設隔離層級進行作業。依預設，不會指定此選項。</p></li>
+<li><b>選取 [保證隔離層級] 核取方塊，可確保從池中獲取的所有連線都具有相同的隔離層級。</b><p>例如，如果上次使用連線時程式化 (使用 <tt>con.setTransactionIsolation</tt>) 變更了連線的隔離層級，這種機制會將狀態變更回指定的隔離層級。此選項預設為啟用。</p><p>只有已指定作業事件隔離層級時，才可使用此設定。</p></li>
+<li>(可選擇) <b>在 [其他特性] 區段中，指定其他特性。</b><p>必要特性的範例包括資料庫名稱 (URL)、使用者名稱和密碼。表中一般會包含資料庫供應商使用的特性。如需部份可用特性的說明，請參閱<a href="ref-jdbc-properties.html">JDBC 連線池特有的特性</a>。</p><p>若您未針對特性指定值，連線池建立完成時，會從表中移除該特性。若您不想立即為特性設定值，但希望將該特性保留在表中，待稍後為其設定值，請在 [值] 欄位中鍵入一組空的圓括號：</p><pre>()</pre><ul>
+<li><b>若要增加特性，請按一下 [增加特性] 按鈕。在出現的空白列中，於 [名稱] 欄位中鍵入特性名稱，然後在 [值] 欄位中鍵入特性值。</b></li>
+<li><b>若要修改特性，請編輯特性的 [值] 欄位。</b></li>
+<li><b>若要刪除特性，請選取您要刪除之特性 [名稱] 欄位左側的核取方塊，然後按一下 [刪除特性] 按鈕。</b></li></ul></li>
+<li><b>按一下 [完成]。</b></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-setdbaccess.html">設定資料庫存取</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">整合 JDBC 驅動程式</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">建立 JDBC 資源</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">編輯 JDBC 資源</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">編輯 JDBC 資源目標</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">刪除 JDBC 資源</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">編輯 JDBC 連線池一般設定</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">編輯 JDBC 連線池進階屬性</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">驗證連線池設定</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">編輯 JDBC 連線池特性</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">刪除 JDBC 連線池</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

@@ -1,0 +1,97 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-create-clustered-instance"></a><h4>将 GlassFish Server 实例添加到群集</h4><a name="indexterm-45"></a><a name="indexterm-46"></a><a name="indexterm-47"></a><p>GlassFish Server 实例构成了应用程序部署的基础。群集实例是群集的成员。每个实例均属于一个域，并有自己的目录结构、配置和已部署的应用程序。每个实例也都包括 Java Platform, Enterprise Edition (Java EE) Web 容器和 Enterprise
+JavaBeans 技术（EJB 技术）容器。每个新实例必须包含对节点（该节点定义实例将驻留的主机）的引用。</p>
+
+
+<hr><p><b>注 - </b>要在表示远程主机的类型为 CONFIG 的节点上创建实例，必须使用 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a> 子命令。不能使用管理控制台来实现此目的。</p>
+
+
+<hr>
+<h6>开始之前</h6><p>确保以下项存在：</p>
+
+
+<ul><li><p><a href="task-create-cluster.html">要将实例添加到的群集</a></p>
+
+</li>
+<li><p><a href="task-createnode.html">实例要驻留的节点</a></p>
+
+</li></ul>
+<ol>
+<li><b>在导航树中，展开&#8220;群集&#8221;节点。</b></li>
+<li><b>在展开的&#8220;群集&#8221;节点下，选择某个群集的节点。</b><p>此时将打开群集的&#8220;常规信息&#8221;页面。</p></li>
+<li><b>在&#8220;常规信息&#8221;页面中，单击&#8220;实例&#8221;选项卡。 </b><p>此时将打开群集的&#8220;群集服务器实例&#8221;页面。</p></li>
+<li><b>在&#8220;群集服务器实例&#8221;页面上，单击&#8220;新建&#8221;。</b><p>此时将打开&#8220;新建群集服务器实例&#8221;页面。</p></li>
+<li><b>在&#8220;名称&#8221;字段中，键入实例的名称。</b><p>名称必须满足以下要求：</p>
+<ul><li><p>名称开头必须是字母、数字或下划线。</p>
+
+</li>
+<li><p>名称只能包含以下字符：</p>
+
+
+<ul><li><p>小写字母</p>
+
+</li>
+<li><p>大写字母</p>
+
+</li>
+<li><p>数字</p>
+
+</li>
+<li><p>连字符</p>
+
+</li>
+<li><p>句点</p>
+
+</li>
+<li><p>下划线</p>
+
+</li></ul>
+</li>
+<li><p>名称在域中必须是唯一的，不得是另一个 GlassFish Server 实例、群集、命名配置或节点的名称。</p>
+
+</li>
+<li><p>名称不得是<tt>域</tt>、<tt>服务器</tt>或 GlassFish Server 保留的任何其他关键字。</p>
+
+</li></ul>
+</li>
+<li><b>从&#8220;节点&#8221;下拉式列表中，选择实例将驻留的节点。</b></li>
+<li><b>单击&#8220;确定&#8221;。</b></li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-delete-clustered-instances.html">删除群集 GlassFish Server 实例</a></p>
+
+</li>
+<li><p><a href="task-start-clustered-instances.html">启动群集 GlassFish Server 实例</a></p>
+
+</li>
+<li><p><a href="task-stop-clustered-instances.html">停止群集 GlassFish Server 实例</a></p>
+
+</li>
+<li><p><a href="task-view-logs-clustered-instance.html">查看群集 GlassFish Server 实例的日志文件</a></p>
+
+</li>
+<li><p><a href="task-recovertransactions.html">恢复群集 GlassFish Server 实例的事务</a></p>
+
+</li>
+<li><p><a href="task-change-clustered-instance-ports.html">修改群集 GlassFish Server 实例的端口号</a></p>
+
+</li>
+<li><p><a href="task-set-props-clustered-instance.html">设置群集 GlassFish Server 实例的仅实例属性</a></p>
+
+</li>
+<li><p><a href="task-mon-app-clustered-instance.html">查看群集 GlassFish Server 实例的应用程序监视数据</a></p>
+
+</li>
+<li><p><a href="task-mon-server-clustered-instance.html">查看群集 GlassFish Server 实例的虚拟服务器监视数据</a></p>
+
+</li>
+<li><p><a href="task-mon-resource-clustered-instance.html">查看群集 GlassFish Server 实例的资源监视数据</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

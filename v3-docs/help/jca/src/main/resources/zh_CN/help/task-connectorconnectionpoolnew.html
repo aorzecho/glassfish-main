@@ -1,0 +1,87 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-connectorconnectionpoolnew"></a><h4>创建连接器连接池</h4><a name="indexterm-4"></a><h6>开始之前</h6><p>创建池之前，请部署与池关联的连接器模块（资源适配器）。为新池指定的值取决于部署的连接器模块。</p>
+
+<ol>
+<li><b>在导航树中，展开&#8220;资源&#8221;节点。</b></li>
+<li><b>展开&#8220;连接器&#8221;节点。</b></li>
+<li><b>在&#8220;连接器&#8221;节点下，选择&#8220;连接器连接池&#8221;节点。</b><p>此时将打开&#8220;连接器连接池&#8221;页面。</p></li>
+<li><b>在&#8220;连接器连接池&#8221;页面中，单击&#8220;新建&#8221;。</b><p>此时将打开&#8220;新建连接器连接池（步骤 1，共 2 步）&#8221;页面。</p></li>
+<li><b>在&#8220;池名称&#8221;字段中，键入池的唯一名称。</b><p>创建连接器资源时指定此名称。</p></li>
+<li><b>从&#8220;资源适配器&#8221;下拉式列表的已部署资源适配器（连接器模块）列表中进行选择。</b></li>
+<li><b>从&#8220;连接定义&#8221;下拉式列表中，选择连接器连接池的连接定义。</b><p>列表中的选项取决于所选的资源适配器。连接定义指明 <tt>ra.xml</tt> 文件中资源适配器的 <tt>connection-definition</tt> 元素。</p></li>
+<li><b>单击&#8220;下一步&#8221;。</b><p>此时将打开&#8220;新建连接器连接池（步骤 2，共 2 步）&#8221;页面。</p></li>
+<li><b>选中&#8220;启用 Ping&#8221;复选框，在创建或重新配置过程中对连接池进行 ping 操作，以识别其属性的任何错误值并发出警告。</b><p>默认情况下禁用此选项。</p></li>
+<li><b>在&#8220;说明&#8221;字段中，键入连接池的说明。</b></li>
+<li><b>在&#8220;初始和最小池大小&#8221;字段中，指定该池的最小连接数。</b><p>默认值为 8。</p></li>
+<li><b>在&#8220;最大池大小&#8221;字段中，指定该池的最大连接数。</b><p>默认值为 32。</p></li>
+<li><b>在&#8220;池大小调整数量&#8221;字段中，指定池空闲超时到期后要删除的连接数。</b><p>默认值为 2。</p></li>
+<li><b>在&#8220;空闲超时&#8221;字段中，指定连接可在池中保持空闲的最长时间（以秒为单位）。</b><p>默认值为 300。</p></li>
+<li><b>在&#8220;最长等待时间&#8221;字段中，指定请求连接的应用程序在连接超时之前等待的时间。</b><p>默认值为 60000。</p></li>
+<li><b>选中&#8220;需要连接验证&#8221;复选框，以启用连接验证。</b><p>如果选中&#8220;需要&#8221;复选框，则先验证连接，然后才将其提供给应用程序。如果资源验证失败，则销毁此资源，然后创建并返回一个新的资源。默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;一旦失败则关闭所有连接&#8221;复选框，以便 GlassFish Server 在某个连接失败时关闭池中的所有连接并重新建立这些连接。</b><p>如果未选中此复选框，则仅当要使用各个连接时才会重新建立连接。默认情况下禁用此选项。</p></li>
+<li><b>从&#8220;事务支持&#8221;下拉式列表中，为连接池选择事务支持类型。</b><p>选择的事务支持将以向下兼容方式覆盖与此连接池关联的资源适配器中的事务支持属性。也就是说，它支持的事务级别可以比资源适配器中指定的事务级别低或与其相同，但不能指定更高的级别。</p><p>下拉式列表中提供以下选项：</p><ul>
+<li><b>NoTransaction：表示资源适配器不支持资源管理器本地事务或 JTA 事务，也不实现 XAResource 或 LocalTransaction 接口。</b></li>
+<li><b>LocalTransaction：表示资源适配器通过实现 LocalTransaction 接口，支持本地事务。</b><p>本地事务的管理在资源管理器内部进行，不涉及任何外部事务管理器。</p></li>
+<li><b>XATransaction：表示资源适配器通过实现 LocalTransaction 和 XAResource 接口，支持资源管理器本地事务和 JTA 事务。</b><p>XA 事务由事务管理器在资源管理器外部进行控制和调整。</p></li></ul></li>
+<li>（可选的）<b>在&#8220;其他属性&#8221;部分中，指定连接器连接池的其他属性。</b><p>可用属性取决于连接器连接池的资源适配器。</p><p>要添加属性，请单击&#8220;添加属性&#8221;按钮。在显示的空白行中，在&#8220;名称&#8221;字段中键入属性名称，在&#8220;值&#8221;字段中键入属性值。</p><p>如果您为属性指定了名称而没有指定值，则在创建完连接池时，该属性将从表中删除。如果您现在不希望设置某个属性的值，但希望将该属性保留在表中以便在以后设置值，请在&#8220;值&#8221;字段中键入一对空括号：</p><pre>()</pre></li>
+<li><b>单击&#8220;确定&#8221;。</b></li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-connectorresourcenew.html">创建连接器资源</a></p>
+
+</li>
+<li><p><a href="task-connectorresourceedit.html">编辑连接器资源</a></p>
+
+</li>
+<li><p><a href="task-connectorresourcesdelete.html">删除连接器资源</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">编辑连接器连接池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">编辑连接器连接池高级属性</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">编辑连接器连接池属性</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">为连接器连接池创建安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">编辑连接器连接池的安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">删除连接器连接池的安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">删除连接器连接池</a></p>
+
+</li>
+<li><p><a href="task-setupeisaccess.html">设置 EIS 访问</a></p>
+
+</li>
+<li><p><a href="task-adminobjectnew.html">创建受管理对象资源</a></p>
+
+</li>
+<li><p><a href="task-adminobjectedit.html">编辑受管理对象资源</a></p>
+
+</li>
+<li><p><a href="task-administeredobjectresourcedelete.html">删除受管理对象资源</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapnew.html">创建工作安全映射</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapedit.html">编辑工作安全映射</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapdelete.html">删除工作安全映射</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

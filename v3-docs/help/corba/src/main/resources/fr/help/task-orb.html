@@ -1,0 +1,60 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-orb"></a><h4>Pour configurer l&#8217;ORB </h4><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
+<li><b>Dans l&#8217;arborescence, d&#233;veloppez le n&#339;ud Configuration.</b></li>
+<li><b>S&#233;lectionnez l&#8217;instance &#224; configurer :</b><ul>
+<li><b>Pour configurer une instance en particulier, s&#233;lectionnez le n&#339;ud de configuration de
+l&#8217;instance. Par exemple, pour l&#8217;instance par d&#233;faut, <tt>server</tt>, s&#233;lectionnez le n&#339;ud <tt>server-config</tt>.</b></li>
+<li><b>Pour configurer les param&#232;tres par d&#233;faut des futures instances utilisant une copie
+de <tt>default-config</tt>, s&#233;lectionnez le n&#339;ud <tt>default-config</tt>.</b></li></ul></li>
+<li><b>S&#233;lectionnez le n&#339;ud ORB.</b><p>La page ORB s&#8217;ouvre.</p></li>
+<li><b>Choisissez le pool de threads utilis&#233; par ORB dans la liste d&#233;roulante
+ID du pool de threads.</b><p>L&#8217;ORB utilise des pools de threads pour r&#233;pondre aux requ&#234;tes des clients
+distants de beans entreprise et d&#8217;autres clients qui communiquent par RMI-IIOP. Le
+pool de threads par d&#233;faut de l&#8217;ORB est <tt>thread-pool-1</tt> qui utilise les
+valeurs par d&#233;faut appropri&#233;es aux requ&#234;tes RMI/IIOP. </p><p>Voir <a href="../../../web/fr/help/ref-threadpools.html">Thread Pools</a> pour de plus amples informations. </p></li>
+<li><b>Dans la liste d&#233;roulante Taille max. du fragment de message, s&#233;lectionnez la
+taille maximale de fragment des messages IIOP.</b><p>Les messages d&#233;passant cette taille sont fragment&#233;s. La valeur par d&#233;faut est
+1024 octets.</p></li>
+<li><b>Dans le champ Nombre total de connexions, d&#233;finissez le nombre maximum de
+connexions entrantes pour tous les listeners IIOP.</b><p>La valeur par d&#233;faut est 1024.</p></li>
+<li><b>Cochez la case Authentification client IIOP pour indiquer que l&#8217;authentification client IIOP
+est requise. </b><p>Si l&#8217;authentification client IIOP est activ&#233;e, le serveur refuse les requ&#234;tes non
+authentifi&#233;es et ins&#232;re un bit de demande d&#8217;authentification dans les IOR (Interoperable
+Object Reference) envoy&#233;es aux clients. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li>(Facultatif) <b>Dans la zone Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>GlassFish Server ne d&#233;finit aucune autre propri&#233;t&#233; pour l&#8217;ORB.</p><ul>
+<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
+ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
+champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
+<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
+<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
+Nom de la propri&#233;t&#233; que vous supprimez, puis cliquez sur le bouton
+Supprimer propri&#233;t&#233;s.</b></li></ul></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li>
+<li><b>Red&#233;marrez GlassFish Server.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-iioplistenernew.html">Pour cr&#233;er un listener IIOP</a></p>
+
+</li>
+<li><p><a href="task-iioplisteneredit.html">Pour modifier un listener IIOP</a></p>
+
+</li>
+<li><p><a href="task-editiiopssl.html">Pour modifier les param&#232;tres SSL d'un listener IIOP s&#233;curis&#233;</a></p>
+
+</li>
+<li><p><a href="task-iioplistenerdelete.html">Pour supprimer un listener IIOP</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

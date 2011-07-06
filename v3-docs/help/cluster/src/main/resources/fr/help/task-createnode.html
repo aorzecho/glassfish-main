@@ -1,0 +1,97 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-createnode"></a><h4>Cr&#233;er un n&#339;ud</h4><a name="indexterm-154"></a><p>Un noeud repr&#233;sente un h&#244;te sur lequel le logiciel GlassFish Server est
+install&#233;. Un n&#339;ud doit &#234;tre pr&#233;sent sur chaque h&#244;te sur lequel r&#233;sident
+des instances GlassFish Server. </p>
+
+<ol>
+<li><b>Dans l&#8217;arborescence de navigation, s&#233;lectionnez le n&#339;ud N&#339;uds.</b><p>La page N&#339;uds s'ouvre.</p></li>
+<li><b>Cliquez sur le bouton Nouveau de la page N&#339;uds.</b><p>La page Nouveau n&#339;ud s&#8217;ouvre.</p></li>
+<li><b>Dans le champ Nom, entrez le nom choisi pour le n&#339;ud.</b></li>
+<li><b>Dans la liste d&#233;roulante Type, s&#233;lectionnez le type du n&#339;ud &#224; cr&#233;er.</b><ul>
+<li><b>Pour cr&#233;er un n&#339;ud prenant en charge la communication SSH (shell s&#233;curis&#233;),
+s&#233;lectionnez SSH.</b></li>
+<li><b>Pour cr&#233;er un n&#339;ud qui ne prend pas en charge la communication
+&#224; distance, s&#233;lectionnez CONFIG.</b></li></ul></li>
+<li><b>Dans le champ H&#244;te du n&#339;ud, saisissez le nom de l'h&#244;te que
+le n&#339;ud repr&#233;sente.</b><p>Le caract&#232;re obligatoire de ce champ d&#233;pend du type du n&#339;ud&#160;:</p>
+<ul><li><p>Si le type du n&#339;ud est CONFIG, le nom de l'h&#244;te peut &#234;tre omis. Le nom de l'h&#244;te peut &#234;tre d&#233;termin&#233; lors de la cr&#233;ation d'instances r&#233;sidant sur le n&#339;ud. </p>
+
+</li>
+<li><p>Si le type du n&#339;ud est SSH, le nom de l'h&#244;te doit &#234;tre sp&#233;cifi&#233;. Sinon, une erreur se produit. </p>
+
+</li></ul>
+</li>
+<li><b>Dans le champ R&#233;pertoire du n&#339;ud, entrez le chemin d'acc&#232;s au r&#233;pertoire
+qui contiendra les instances de GlassFish Server cr&#233;&#233;es sur le n&#339;ud.</b><p>Si le type du n&#339;ud est CONFIG, laissez ce champ vide. Le
+r&#233;pertoire du n&#339;ud peut &#234;tre d&#233;termin&#233; lors de la cr&#233;ation d'instances r&#233;sidant
+sur le n&#339;ud. </p><p>Si un chemin d'acc&#232;s relatif est sp&#233;cifi&#233;, il est relatif au r&#233;pertoire
+<i>as-install</i>, <i>as-install</i> correspondant au r&#233;pertoire d'installation de base du logiciel GlassFish Server
+sur l'h&#244;te.</p></li>
+<li><b>Dans le champ R&#233;pertoire d'installation, entrez le chemin d'acc&#232;s complet au parent
+du r&#233;pertoire d'installation de base du logiciel GlassFish Server sur l'h&#244;te, par
+exemple, <tt>/export/glassfish3/</tt>.</b><p>Si le type du n&#339;ud est CONFIG, laissez ce champ vide. Le
+r&#233;pertoire d'installation peut &#234;tre d&#233;termin&#233; lors de la cr&#233;ation d'instances r&#233;sidant sur
+le n&#339;ud. </p></li>
+<li><b>Pour forcer le n&#339;ud &#224; &#234;tre cr&#233;&#233; dans la configuration du serveur
+d'administration de domaine (DAS) m&#234;me si la validation des param&#232;tres du n&#339;ud
+&#233;choue, activez l'option Forcer.</b></li>
+<li><b>Dans le champ Port SSH, entrez le port &#224; utiliser pour les
+connexions SSH &#224; ce l'h&#244;te de ce n&#339;ud.</b></li>
+<li><b>Dans le champ Nom d'utilisateur SSH, entrez le nom de l'utilisateur sur
+l'h&#244;te de ce n&#339;ud qui ex&#233;cutera le processus de connexion &#224; l'h&#244;te
+via SSH.</b></li>
+<li><b>Sp&#233;cifiez la mani&#232;re dont l'utilisateur SSH est authentifi&#233; lors de la connexion
+&#224; l'h&#244;te de ce n&#339;ud.</b><ul>
+<li><b>Pour indiquer que l'authentification se fait par le biais d'un fichier de
+cl&#233;s priv&#233;es SSH, effectuez les &#233;tapes suivantes&#160;: </b><ol style="list-style-type: lower-alpha">
+<li><b>Dans la liste d&#233;roulante Authentification de l'utilisateur SSH, s&#233;lectionnez Fichier de cl&#233;s.</b></li>
+<li><b>Dans le champ Fichier de cl&#233;s, entrez le chemin absolu du fichier
+de cl&#233;s priv&#233;es SSH pour l'utilisateur sp&#233;cifi&#233; par l'option Nom d'utilisateur SSH.
+</b>
+<hr><p><b>Remarque - </b>GlassFish Server prend &#233;galement en charge l'authentification par mots de passe via
+l'entr&#233;e <tt>AS_ADMIN_SSHPASSWORD</tt> dans le fichier de mots de passe. Le fichier de
+mots de passe est sp&#233;cifi&#233; dans l'option <tt>--paswordfile</tt> de l'utilitaire <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
+
+
+<hr>
+</li></ol></li>
+<li><b>Pour indiquer que l'authentification se fait par le biais d'un mot de
+passe stock&#233; dans la configuration DAS, effectuez les &#233;tapes suivantes&#160;:</b>
+<hr><p><b>Attention - </b>Ce mot de passe est stock&#233; sous forme de texte en clair
+dans la configuration DAS. Pour une s&#233;curit&#233; accrue, utilisez un fichier de
+cl&#233;s ou un alias de mot de passe. </p>
+
+
+<hr>
+<ol style="list-style-type: lower-alpha">
+<li><b>Dans la liste d&#233;roulante Authentification de l'utilisateur SSH, s&#233;lectionnez Mot de passe.</b></li>
+<li><b>Dans le champ Mot de passe SSH, entrez le mot de passe
+que l'utilisateur SSH va utiliser lors de la connexion &#224; l'h&#244;te de
+ce n&#339;ud. </b></li>
+<li><b>Dans le champ Confirmer le mot de passe SSH, saisissez &#224; nouveau
+le mot de passe.</b></li></ol></li>
+<li><b>Pour indiquer que l'authentification se fait par le biais d'un alias de
+mot de passe, effectuez les &#233;tapes suivantes&#160;: </b><ol style="list-style-type: lower-alpha">
+<li><b>Dans la liste d&#233;roulante Authentification de l'utilisateur SSH, s&#233;lectionnez Alias de mot
+de passe.</b></li>
+<li><b>Dans la liste d&#233;roulante Alias de mot de passe, s&#233;lectionnez un alias
+existant.</b></li></ol></li></ul></li>
+<li><b>Cliquez sur Enregistrer.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-deletenode.html">Supprimer des n<IMG alt="oelig" SRC="ents/oelig.gif" border="0">uds</a></p>
+
+</li>
+<li><p><a href="task-listnodes.html">R&#233;pertorier tous les n<IMG alt="oelig" SRC="ents/oelig.gif" border="0">uds du domaine actif</a></p>
+
+</li>
+<li><p><a href="task-editnode.html">Modifier un n<IMG alt="oelig" SRC="ents/oelig.gif" border="0">ud</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

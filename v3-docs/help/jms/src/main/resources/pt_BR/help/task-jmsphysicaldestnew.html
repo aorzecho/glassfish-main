@@ -1,0 +1,88 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsphysicaldestnew"></a><h4>Para criar um destino f&#237;sico do JMS</h4><a name="indexterm-17"></a><a name="indexterm-18"></a><p>Normalmente n&#227;o &#233; preciso criar destinos f&#237;sicos, porque voc&#234; especifica um nome
+de destino f&#237;sico quando cria um recurso de destino do JMS e
+o Servidor GlassFish cria o destino f&#237;sico automaticamente quando &#233; necess&#225;rio.</p>
+
+<ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
+<li><b>No n&#243; Configura&#231;&#227;o, expanda o n&#243; do Java Message Service.</b></li>
+<li><b>No n&#243; Java Message Service, selecione o n&#243; Destinos f&#237;sicos.</b><p>A p&#225;gina Destinos f&#237;sicos &#233; aberta.</p></li>
+<li><b>Na p&#225;gina Destinos f&#237;sicos, clique em Novo.</b><p>A p&#225;gina Novo destino f&#237;sico &#233; aberta.</p></li>
+<li><b>No campo Nome, digite o nome do destino f&#237;sico.</b></li>
+<li><b>Na lista suspensa Tipo, selecione <tt>javax.jms.Topic</tt> ou <tt>javax.jms.Queue</tt>.</b></li>
+<li><b>No campo N&#250;mero m&#225;ximo de mensagens n&#227;o consumidas, digite o n&#250;mero m&#225;ximo
+de mensagens n&#227;o consumidas permitido para o destino.</b><p>Um valor de &#8211;1 indica que n&#227;o h&#225; limite para o n&#250;mero
+de mensagens n&#227;o consumidas. O valor padr&#227;o &#233; -1.</p></li>
+<li><b>No campo Tamanho m&#225;ximo de mensagem, digite o tamanho m&#225;ximo, em bytes,
+de uma &#250;nica mensagem.</b><p>Um valor de &#8211;1 denota um tamanho de mensagem ilimitado. O valor
+padr&#227;o &#233; -1.</p></li>
+<li><b>No campo Total m&#225;ximo de mem&#243;ria, digite o total m&#225;ximo de mem&#243;ria,
+em bytes, para mensagens n&#227;o consumidas.</b><p>Um valor de &#8211;1 indica que n&#227;o h&#225; limite para o tamanho
+de mem&#243;ria para mensagens n&#227;o consumidas. O valor padr&#227;o &#233; -1.</p></li>
+<li><b>Na lista suspensa Comportamento do limite, selecione o comportamento que o broker
+deve seguir quando o limiar do limite de mem&#243;ria &#233; atingido.</b><ul>
+<li><b><tt>Rejeitar mensagens recentes</tt> informa ao broker que rejeite mensagens recentes e notifique o cliente
+produtor com uma exce&#231;&#227;o somente se a mensagem for persistente.</b><p><tt>Rejeitar mensagens recentes</tt> &#233; o valor padr&#227;o.</p></li>
+<li><b><tt>Diminuir taxa de produtores</tt> informa ao broker que diminua a taxa na qual produtores de
+mensagem enviam mensagens.</b></li>
+<li><b><tt>Rejeitar mais antiga</tt> informa ao broker que descarte as mensagens mais antigas.</b></li>
+<li><b><tt>Rejeitar mensagens de prioridade mais baixa</tt> informa ao broker que descarte as mensagens com a prioridade mais
+baixa.</b></li></ul><p>Se o valor for <tt>Rejeitar mais antiga</tt> ou <tt>Rejeitar mensagens de prioridade mais baixa</tt> e Utilizar a Fila de
+mensagens inativas estiver definido como Verdadeiro, mensagens em excesso s&#227;o movidas para
+a fila de mensagens inativas.</p></li>
+<li><b>No campo N&#250;mero m&#225;ximo de produtores, digite o n&#250;mero m&#225;ximo de produtores
+de mensagem que pode ser associados a esse destino f&#237;sico.</b><p>Quando esse limite &#233; atingido, nenhum novo produtor pode ser criado. Um
+valor de &#8211;1 denota um n&#250;mero ilimitado de produtores. O valor padr&#227;o
+&#233; 100.</p></li>
+<li><b>No campo Contagem de mensagens m&#225;x. da entrega em lotes, digite o
+n&#250;mero m&#225;ximo de mensagens que podem ser entregues a consumidores em um
+&#250;nico lote.</b><p>Um valor de &#8211;1 denota um n&#250;mero ilimitado de mensagens. O valor
+padr&#227;o &#233; 1000.</p></li>
+<li><b>Na lista suspensa Utilizar a Fila de mensagens inativas, selecione Verdadeiro para
+colocar mensagens inativas na filha de mensagens inativas.</b><p>Se o valor for definido como Falso, mensagens inativas s&#227;o descartadas. Por
+padr&#227;o, essa op&#231;&#227;o &#233; definida como Verdadeiro.</p></li>
+<li><b>Na lista suspensa Validar esquema XML, selecione Verdadeiro para ativar a valida&#231;&#227;o
+do esquema XML para o destino.</b><p>Se o valor for definido como Verdadeiro, o tempo de execu&#231;&#227;o do
+cliente da Fila de mensagens tentar&#225; validar uma mensagem XML contra as
+Defini&#231;&#245;es de esquema XML especificadas (ou contra o DTD, se nenhuma XSD
+estiver especificado) antes de envi&#225;-la para o broker. Se o esquema especificado
+n&#227;o pode ser localizado ou a mensagem n&#227;o pode ser validada, a mensagem
+n&#227;o &#233; enviada e uma exce&#231;&#227;o &#233; lan&#231;ada. Por padr&#227;o, essa op&#231;&#227;o
+&#233; definida como Falso.</p></li>
+<li><b>No campo Lista de URIs de esquema XML, digite uma lista separada
+por v&#237;rgulas de sequ&#234;ncias URI de Defini&#231;&#227;o de esquema XML (XSD).</b><p>Se a valida&#231;&#227;o de esquema XML estiver ativa, as URIs apontam para
+o local de uma ou mais XSDs a serem utilizadas para a
+valida&#231;&#227;o do esquema XML.</p></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-jmsservice.html">Para configurar o servi&#231;o JMS</a></p>
+
+</li>
+<li><p><a href="task-jmshostnew.html">Para criar um host do JMS</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">Para editar um host do JMS</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">Para excluir um host do JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestedit.html">Para editar um destino f&#237;sico do JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestdelete.html">Para excluir um destino f&#237;sico do JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsflushmessages.html">Para remover mensagens de um destino f&#237;sico do JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldeststats.html">Para visualizar estat&#237;sticas de um destino f&#237;sico do JMS</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

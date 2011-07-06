@@ -1,0 +1,100 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transportnew"></a><h4>Nuevo transporte </h4>
+<a name="indexterm-77"></a><p>Utilice la p&#225;gina Nuevo transporte para crear un nuevo transporte.</p>
+
+<p>No es frecuente necesitar otro transporte adem&#225;s del transporte predeterminado <tt>tcp</tt>. </p>
+
+<p>La p&#225;gina Nuevo transporte contiene las siguientes opciones.</p>
+
+<dl><dt>Nombre de la configuraci&#243;n</dt>
+<dd><p>El nombre de la configuraci&#243;n a la que se aplican los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
+
+</dd>
+<dt>Nombre de transporte</dt>
+<dd><p>Un nombre &#250;nico para el transporte. </p>
+
+</dd>
+<dt>Nombre de clase</dt>
+<dd><p>El nombre de clase de la implementaci&#243;n del transporte. El valor predeterminado es <tt>com.sun.grizzly.TCPSelectorHandler</tt>.</p>
+
+</dd>
+<dt>Controlador de clave de selecci&#243;n</dt>
+<dd><p>El nombre de clase del controlador de clave de selecci&#243;n. Un controlador de clave de selecci&#243;n es una clase abstracta que administra el ciclo de vida de las claves de selecci&#243;n. Si no se especifica ning&#250;n valor, se utiliza una implementaci&#243;n predeterminada. </p>
+
+</dd>
+<dt>Tipo de b&#250;fer en byte</dt>
+<dd><p>El tipo de <tt>b&#250;fer en byte</tt> que se va a utilizar. Las opciones disponibles son <tt>HEAP</tt> y <tt>DIRECT</tt>. El valor predeterminado es <tt>HEAP</tt>.</p>
+
+</dd>
+<dt>Subprocesos del aceptador</dt>
+<dd><p>El n&#250;mero de procesadores del equipo. Un valor de -1 indica que Grizzly calcular&#225; por su cuenta el n&#250;mero de subprocesos del aceptador seg&#250;n el n&#250;mero de procesadores de la m&#225;quina. El valor predeterminado es 1. </p>
+
+<p>Para definir el n&#250;mero de subprocesos de procesamiento de solicitudes, establezca el valor del Tama&#241;o m&#225;ximo del conjunto de subprocesos del conjunto de subprocesos utilizado por una escucha de red que emplea este transporte. </p>
+
+</dd>
+<dt>N&#250;mero m&#225;x. de conexiones</dt>
+<dd><p>El n&#250;mero m&#225;ximo de conexiones pendientes en una escucha de red que utiliza este transporte. El valor predeterminado es 4096.</p>
+
+</dd>
+<dt>Tama&#241;o de b&#250;fer</dt>
+<dd><p>El tama&#241;o (en bytes) del b&#250;fer que se proporciona para las secuencias de entrada creadas por una escucha de red que utiliza este transporte. El valor predeterminado es 8192.</p>
+
+</dd>
+<dt>Tiempo de espera clave inactiva</dt>
+<dd><p>El n&#250;mero de segundos despu&#233;s de los cuales se cancelar&#225; una clave inactiva y se cerrar&#225; el canal. El valor predeterminado es 30.</p>
+
+</dd>
+<dt>Tiempo de espera de lectura</dt>
+<dd><p>El n&#250;mero de milisegundos que GlassFish Server esperar&#225; durante la fase de an&#225;lisis de encabezado y cuerpo de una operaci&#243;n de lectura. El valor predeterminado es 30000.</p>
+
+</dd>
+<dt>Tiempo de espera de sondeo de selector</dt>
+<dd><p>El n&#250;mero de milisegundos tras los cuales un selector NIO se bloquear&#225; a la espera de eventos (solicitudes de usuarios). El valor predeterminado es 1.000.</p>
+
+</dd>
+<dt>Tiempo de espera de escritura</dt>
+<dd><p>El n&#250;mero de milisegundos que GlassFish Server espera antes de considerar que el cliente remoto est&#225; desconectado al escribir la respuesta. El valor predeterminado es 30000.</p>
+
+</dd>
+<dt>Configuraci&#243;n de pantalla</dt>
+<dd><p>Si esta opci&#243;n se encuentra seleccionada, la configuraci&#243;n interna de Grizzly se descarga en los registros del servidor. Esta opci&#243;n puede proporcionar informaci&#243;n &#250;til para la depuraci&#243;n. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Snoop</dt>
+<dd><p>Si esta opci&#243;n se encuentra seleccionada, la informaci&#243;n de la respuesta/solicitud se vuelca en el registro del servidor. Puede que esta opci&#243;n proporcione informaci&#243;n &#250;til para realizar la depuraci&#243;n, pero reduce significativamente el rendimiento. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>TCP sin retraso</dt>
+<dd><p>Si esta opci&#243;n se encuentra seleccionada, la opci&#243;n TCP_NODELAY (tambi&#233;n llamada algoritmo de Nagle) est&#225; habilitada. Esta opci&#243;n se habilita por defecto.</p>
+
+</dd>
+</dl>
+<h5>Tareas relacionadas</h5>
+
+<ul><li><p><a href="task-transportnew.html">C&#243;mo crear un transporte</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">C&#243;mo editar un transporte</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">C&#243;mo eliminar un transporte</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-transport-1"><tt>create-transport</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-transports-1"><tt>list-transports</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-transport-1"><tt>delete-transport</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

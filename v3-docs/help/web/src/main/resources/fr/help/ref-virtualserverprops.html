@@ -1,0 +1,183 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-virtualserverprops"></a><h4>Propri&#233;t&#233;s sp&#233;cifiques aux serveurs virtuels</h4>
+<a name="indexterm-61"></a><a name="indexterm-62"></a><p>Les autres propri&#233;t&#233;s suivantes sont disponibles pour un serveur virtuel.</p>
+
+<dl><dt><tt>sso-max-inactive-seconds</tt></dt>
+<dd><p>Indique le nombre de secondes au-del&#224; duquel l&#8217;enregistrement de connexion unique d&#8217;un utilisateur peut &#234;tre supprim&#233; si aucune activit&#233; cliente n&#8217;est re&#231;ue. &#201;tant donn&#233; que la connexion unique s&#8217;applique &#224; plusieurs applications du m&#234;me serveur virtuel, le fait d&#8217;acc&#233;der &#224; une application maintient l&#8217;enregistrement de connexion unique actif.</p>
+
+<p>La valeur par d&#233;faut est de 300 secondes (5 minutes). Des valeurs sup&#233;rieures offrent une persistance de connexion unique sup&#233;rieure au d&#233;triment d&#8217;une plus grande consommation de m&#233;moire sur le serveur.</p>
+
+</dd>
+<dt><tt>sso-reap-interval-seconds</tt></dt>
+<dd><p>Indique le nombre de secondes entre les purges des enregistrements de connexion unique expir&#233;s.</p>
+
+<p>La valeur par d&#233;faut est 60.</p>
+
+</dd>
+<dt><tt>ssoCookieSecure</tt></dt>
+<dd><p>D&#233;finit l&#8217;attribut <tt>Secure</tt> de tous les cookies <tt>JSESSIONIDSSO</tt> associ&#233;s aux applications Web d&#233;ploy&#233;es sur ce serveur virtuel. Cette propri&#233;t&#233; s&#8217;applique uniquement si la fonction de connexion unique est activ&#233;e. Les valeurs autoris&#233;es sont :</p>
+
+<dl><dt><tt>true</tt></dt>
+<dd><p>D&#233;finit <tt>Secure</tt> sur true. </p>
+
+</dd>
+<dt><tt>false</tt></dt>
+<dd><p>D&#233;finit <tt>Secure</tt> sur false. </p>
+
+</dd>
+<dt><tt>dynamic</tt></dt>
+<dd><p>Le cookie <tt>JSESSIONIDSSO</tt> h&#233;rite du param&#232;tre <tt>Secure</tt> de la premi&#232;re session participant &#224; la SSO. </p>
+
+</dd>
+</dl>
+<p>Pour d&#233;finir l&#8217;attribut Secure d&#8217;un cookie <tt>JSESSIONID</tt>, utilisez la propri&#233;t&#233;  <tt>cookie-properties</tt> de <tt>cookieSecure</tt> dans le fichier <tt>Sun-web.xml</tt>. Pour de plus amples d&#233;tails, reportez-vous &#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beash">cookie-properties du <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
+
+</dd>
+<dt><tt>setCacheControl</tt></dt>
+<dd><p>Sp&#233;cifie une liste s&#233;par&#233;e par des virgules des directives de r&#233;ponse <tt>Cache-Control</tt>. Pour obtenir une liste des directives valides, reportez-vous &#224; la Section 14.9 du document &#224; l&#8217;adresse <a href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt </a>.</p>
+
+</dd>
+<dt><tt>accessLogBufferSize</tt></dt>
+<dd><p>Indique la taille (en octets) du tampon dans lequel sont enregistr&#233;s les appels du journal d&#8217;acc&#232;s. Si la valeur est inf&#233;rieure &#224; 5120, un message d&#8217;avertissement est &#233;mis et la valeur est d&#233;finie sur 5120. La valeur par d&#233;faut est 32768.</p>
+
+</dd>
+<dt><tt>accessLogWriterInterval</tt></dt>
+<dd><p>Sp&#233;cifie le d&#233;lai (en secondes) avant que le journal ne soit &#233;crit sur le disque. Le journal d&#8217;acc&#232;s est &#233;crit lorsque le tampon est satur&#233; ou que l&#8217;intervalle expire. Si la valeur est &#233;gale &#224; z&#233;ro, le tampon est toujours &#233;crit, m&#234;me s&#8217;il n&#8217;est pas plein. Autrement dit, chaque fois que l&#8217;utilisateur acc&#232;de au serveur, le message journal est directement enregistr&#233; dans le fichier. La valeur par d&#233;faut est 300.</p>
+
+</dd>
+<dt><tt>allowRemoteAddress</tt></dt>
+<dd><p>Sp&#233;cifie une liste s&#233;par&#233;e par des virgules de mod&#232;les d&#8217;expressions r&#233;guli&#232;res auxquels l&#8217;adresse IP du client distant est compar&#233;e. Si cette propri&#233;t&#233; est sp&#233;cifi&#233;e, l&#8217;adresse distante <b>doit</b> correspondre pour que cette requ&#234;te soit accept&#233;e. Si cette propri&#233;t&#233; n&#8217;est pas sp&#233;cifi&#233;e, toutes les requ&#234;tes sont accept&#233;es <b> &#224; moins que</b> l&#8217;adresse distante ne corresponde &#224; un mod&#232;le <tt>denyRemoteAddress</tt> .</p>
+
+</dd>
+<dt><tt>denyRemoteAddress</tt></dt>
+<dd><p>Sp&#233;cifie une liste s&#233;par&#233;e par des virgules de mod&#232;les d&#8217;expressions r&#233;guli&#232;res auxquels l&#8217;adresse IP du client distant est compar&#233;e. Si cette propri&#233;t&#233; est sp&#233;cifi&#233;e, l&#8217;adresse distante ne doit <b>pas</b> correspondre pour que cette requ&#234;te soit accept&#233;e. Si cette propri&#233;t&#233; n&#8217;est pas sp&#233;cifi&#233;e, l&#8217;acceptation de la requ&#234;te est r&#233;gie uniquement par la propri&#233;t&#233; <tt>allowRemoteAddress</tt>.</p>
+
+</dd>
+<dt><tt>allowRemoteHost</tt></dt>
+<dd><p>Sp&#233;cifie une liste s&#233;par&#233;e par des virgules de mod&#232;les d&#8217;expressions r&#233;guli&#232;res auxquels le nom d&#8217;h&#244;te du client distant (tel que renvoy&#233; par <tt>[java.net.]Socket.getInetAddress().getHostName() </tt>) est compar&#233;. Si cette propri&#233;t&#233; est sp&#233;cifi&#233;e, le nom d&#8217;h&#244;te distant <b>doit</b> correspondre pour que cette requ&#234;te soit accept&#233;e. Si cette propri&#233;t&#233; n&#8217;est pas sp&#233;cifi&#233;e, toutes les requ&#234;tes sont accept&#233;es <b> &#224; moins que</b> le nom d&#8217;h&#244;te distant ne corresponde &#224; un mod&#232;le <tt>denyRemoteHost</tt> .</p>
+
+</dd>
+<dt><tt>denyRemoteHost</tt></dt>
+<dd><p>Sp&#233;cifie une liste s&#233;par&#233;e par des virgules de mod&#232;les d&#8217;expressions r&#233;guli&#232;res auxquels le nom d&#8217;h&#244;te du client distant (tel que renvoy&#233; par <tt>[java.net.]Socket.getInetAddress().getHostName() </tt>) est compar&#233;. Si cette propri&#233;t&#233; est sp&#233;cifi&#233;e, le nom d&#8217;h&#244;te distant ne doit <b>pas</b> correspondre pour que cette requ&#234;te soit accept&#233;e. Si cette propri&#233;t&#233; n&#8217;est pas sp&#233;cifi&#233;e, l&#8217;acceptation de la requ&#234;te est r&#233;gie uniquement par la propri&#233;t&#233; <tt>allowRemoteHost</tt>.</p>
+
+<p>D&#233;finir cette propri&#233;t&#233; n&#8217;a aucun effet si l&#8217;acc&#232;s au domaine de GlassFish Server s&#8217;effectue par l&#8217;interm&#233;diaire d&#8217;un auditeur de r&#233;seau dont l&#8217;option Listener JK est activ&#233;e. </p>
+
+</dd>
+<dt><tt>authRealm</tt></dt>
+<dd><p>Sp&#233;cifie le nom d'un domaine d'authentification, qui remplace le domaine par d&#233;faut de l'instance du serveur pour les applications Web autonomes d&#233;ploy&#233;es sur ce serveur virtuel. Un domaine d&#233;fini dans le fichier <tt> web.xml</tt> d'une application Web autonome remplace le domaine du serveur virtuel. Pour plus d&#8217;informations, reportez-vous &#224; la rubrique <a href="../../../common/fr/help/ref-realms.html">Realms</a>.</p>
+
+</dd>
+<dt><tt>securePagesWithPragma</tt></dt>
+<dd><p>D&#233;finissez cette propri&#233;t&#233; sur <tt>false</tt> pour vous assurer que, pour toutes les applications Web sur ce serveur virtuel, les t&#233;l&#233;chargements de fichiers utilisant SSL fonctionnent correctement dans Internet Explorer. </p>
+
+<p>Les applications Web individuelles peuvent remplacer ce param&#232;tre en utilisant l&#8217;&#233;l&#233;ment <tt>sun-web-app</tt> du fichier <tt>sun-web.xml</tt>. Pour de plus amples d&#233;tails, reportez-vous &#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app du <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
+
+<p>La valeur par d&#233;faut est <tt>true</tt>.</p>
+
+</dd>
+<dt><tt>alternatedocroot_<i>n</i></tt></dt>
+<dd><p>Sp&#233;cifie une racine de document (docroot) alternative, o&#249; <i> n</i> est un entier positif qui permet la sp&#233;cification de plus d&#8217;une racine. Les racines de document alternatives permettent aux applications Web de servir des requ&#234;tes pour certaines ressources en dehors de leur propre racine de document, selon que ces requ&#234;tes correspondent &#224; un (ou plusieurs) des mod&#232;les URI des autres racines de document de l&#8217;application Web.</p>
+
+<p>Si une requ&#234;te correspond au mod&#232;le URI d&#8217;une racine de document alternative, elle est mapp&#233;e &#224; cette autre racine en ajoutant l&#8217;URI de requ&#234;te (moins la racine contexte de l&#8217;application Web) &#224; l&#8217;emplacement physique (r&#233;pertoire) de la racine de document alternative. Si une requ&#234;te correspond &#224; plusieurs mod&#232;les URI, la racine de document alternative est d&#233;termin&#233;e en fonction de l&#8217;ordre de priorit&#233; suivant&#160;:</p>
+
+
+<ul><li><p>Correspondance exacte</p>
+
+</li>
+<li><p>Correspondance du chemin le plus long</p>
+
+</li>
+<li><p>Correspondance d&#8217;extension</p>
+
+</li></ul>
+<p>Par exemple, les propri&#233;t&#233;s suivantes sp&#233;cifient trois racines de document alternatives. Le mod&#232;le URI de la premi&#232;re racine de document alternative utilise une correspondance exacte, tandis que les mod&#232;les URI des deuxi&#232;me et troisi&#232;me racines de document alternatives utilisent des correspondances d&#8217;extension et de pr&#233;fixe de chemin le plus long, respectivement.</p>
+
+<pre>&#60;property name="alternatedocroot_1" 
+   value="from=/my.jpg dir=/srv/images/jpg"/>
+&#60;property name="alternatedocroot_2" 
+   value="from=*.jpg dir=/srv/images/jpg"/>
+&#60;property name="alternatedocroot_3" 
+   value="from=/jpg/* dir=/src/images"/></pre><p>La <tt>valeur</tt> de chaque racine de document alternative dispose de deux composants&#160;: le premier composant, <tt>from</tt>, sp&#233;cifie le mod&#232;le URI de la racine de document alternative et le second composant, <tt>dir</tt>, sp&#233;cifie l&#8217;emplacement physique (r&#233;pertoire) de la racine de document alternative. Les espaces sont autoris&#233;s dans le composant <tt> dir</tt>.</p>
+
+<p>Les applications Web individuelles peuvent remplacer ce param&#232;tre en utilisant l&#8217;&#233;l&#233;ment <tt>sun-web-app</tt> du fichier <tt>sun-web.xml</tt>. Pour de plus amples d&#233;tails, reportez-vous &#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app du <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
+
+</dd>
+<dt><tt>contextXmlDefault</tt></dt>
+<dd><p>Sp&#233;cifie l&#8217;emplacement, relatif &#224; <i>domain-dir</i>, du fichier <tt> context.xml</tt> pour ce serveur virtuel, le cas &#233;ch&#233;ant. Pour plus d&#8217;informations sur le fichier <tt>context.xml</tt>, consultez <a href="http://tomcat.apache.org/tomcat-5.5-doc/config/context.html">The Context Container</a>.</p>
+
+</dd>
+<dt><tt>allowLinking</tt></dt>
+<dd><p>Si la valeur est <tt>true</tt> (vrai), les ressources repr&#233;sentant des liens symboliques seront utilis&#233;es pour toutes les applications Web d&#233;ploy&#233;es sur ce serveur virtuel. Les applications Web individuelles peuvent remplacer ce param&#232;tre en utilisant la propri&#233;t&#233; <tt>sun-web-app</tt> <tt> allowLinking</tt> du fichier <tt>sun-web.xml</tt> :</p>
+
+<pre>&#60;sun-web-app>
+   &#60;property name="allowLinking" 
+      value="{true|false}"/>
+&#60;/sun-web-app></pre><p>Pour de plus amples d&#233;tails, reportez-vous &#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app du <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
+
+<p>La valeur par d&#233;faut est <tt>false</tt>.</p>
+
+
+<hr><p><b>Attention - </b>Sur les syst&#232;mes Windows, d&#233;finir cette propri&#233;t&#233; sur true a pour effet d&#8217;exposer le code source JSP. </p>
+
+
+<hr>
+</dd>
+<dt><tt>send-error_<i>n</i></tt></dt>
+<dd><p>Sp&#233;cifie les mappages de la page d&#8217;erreur personnalis&#233;e pour le serveur virtuel, qui sont h&#233;rit&#233;s par toutes les applications Web d&#233;ploy&#233;es sur ce serveur virtuel. Une application Web peut remplacer les mappages de la page d&#8217;erreur personnalis&#233;e dans son descripteur de d&#233;ploiement <tt>web.xml</tt>. La valeur de chaque propri&#233;t&#233; <tt>send-error_<i> n</i></tt> a trois composants, qui peuvent &#234;tre sp&#233;cifi&#233;s dans n&#8217;importe quel ordre&#160;:</p>
+
+
+<ul><li><p>Le premier composant, <tt>code</tt>, sp&#233;cifie le code d&#8217;&#233;tat de r&#233;ponse HTTP &#224; trois chiffres pour lequel la page d&#8217;erreur personnalis&#233;e doit &#234;tre renvoy&#233;e dans la r&#233;ponse.</p>
+
+</li>
+<li><p>Le deuxi&#232;me composant, <tt>path</tt>, sp&#233;cifie le chemin du syst&#232;me de fichiers absolu ou relatif de la page d&#8217;erreur personnalis&#233;e. Un chemin de syst&#232;me de fichiers relatif est interpr&#233;t&#233; comme relatif au r&#233;pertoire <tt></tt><i>domain-dir</i><tt>/config</tt>.</p>
+
+</li>
+<li><p>Le troisi&#232;me composant, <tt>reason</tt>, est facultatif et sp&#233;cifie le texte de la cha&#238;ne de raison (comme <tt>Unauthorized</tt> ou <tt> Forbidden</tt>) &#224; renvoyer.</p>
+
+</li></ul>
+<p>Exemple&#160;:</p>
+
+<pre>&#60;property name="send-error_1"
+   value="code=401 path=/myhost/401.html reason=MY-401-REASON"/></pre><p>Cet exemple de d&#233;finition de propri&#233;t&#233; entra&#238;ne le renvoi du contenu de <tt>/myhost/401.html </tt> avec les r&#233;ponses 401, avec la ligne de r&#233;ponse suivante&#160;:</p>
+
+<pre>HTTP/1.1 401 MY-401-REASON</pre></dd>
+<dt><tt>redirect_<i>n</i></tt></dt>
+<dd><p>Sp&#233;cifie qu&#8217;une requ&#234;te pour une ancienne URL est trait&#233;e comme une requ&#234;te pour une nouvelle URL. Ces propri&#233;t&#233;s sont h&#233;rit&#233;es par toutes les applications Web d&#233;ploy&#233;es sur le serveur virtuel. La valeur de chaque propri&#233;t&#233; <tt>redirect_<i>n</i></tt> a deux composants, qui peuvent &#234;tre sp&#233;cifi&#233;s dans n&#8217;importe quel ordre&#160;:</p>
+
+
+<ul><li><p>Le premier composant, <tt>from</tt>, sp&#233;cifie le pr&#233;fixe de l&#8217;URI requis &#224; associer.</p>
+
+</li>
+<li><p>Le second composant, <tt>url-prefix</tt>, sp&#233;cifie le nouveau pr&#233;fixe de l&#8217;URL &#224; retourner au client. Le pr&#233;fixe <tt>from</tt> est simplement remplac&#233; par ce pr&#233;fixe d&#8217;URL.</p>
+
+</li></ul>
+<p>Exemple&#160;:</p>
+
+<pre>&#60;property name="redirect_1" 
+  value="from=/dummy url-prefix=http://etude"/></pre></dd>
+<dt><tt>valve_<i>n</i></tt></dt>
+<dd><p>Sp&#233;cifie le nom de classe qualifi&#233; complet d&#8217;une valve personnalis&#233;e, o&#249; <i>n</i> est un entier positif qui permet d&#8217;en sp&#233;cifier plusieurs. La classe de valve doit impl&#233;menter l&#8217;interface <tt>org.apache.catalina.Valve</tt> &#224; partir de Tomcat ou de versions pr&#233;c&#233;dentes de GlassFish Server ou l&#8217;interface <tt>org.glassfish.web.valve.GlassFishValve</tt> &#224; partir de la version GlassFish Server actuelle. Exemple&#160;:</p>
+
+<pre>&#60;property name="valve_1"
+value="org.glassfish.extension.Valve"/></pre><p>Vous pouvez d&#233;finir cette propri&#233;t&#233; pour une application Web sp&#233;cifique. Pour de plus amples d&#233;tails, reportez-vous &#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app du <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
+
+</dd>
+<dt><tt>listener_<i>n</i></tt></dt>
+<dd><p>Sp&#233;cifie le nom de classe qualifi&#233; complet d&#8217;un module d&#8217;&#233;coute Catalina personnalis&#233;, o&#249; <i>n</i> est un entier positif qui permet d&#8217;en sp&#233;cifier plusieurs. La classe du module d&#8217;&#233;coute doit impl&#233;menter l&#8217;interface <tt>org.apache.catalina.ContainerListener</tt> ou <tt>org.apache.catalina.LifecycleListener</tt> . Par exemple :</p>
+
+<pre>&#60;property name="listener_1"
+value="org.glassfish.extension.MyLifecycleListener"/></pre><p>Vous pouvez d&#233;finir cette propri&#233;t&#233; pour une application Web sp&#233;cifique. Pour de plus amples d&#233;tails, reportez-vous &#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app du <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
+
+</dd>
+<dt><tt>errorReportValve</tt></dt>
+<dd><p>Sp&#233;cifie le nom de classe complet d'une valve personnalis&#233;e produisant des pages d'erreur par d&#233;faut pour les applications sur ce serveur virtuel. Sp&#233;cifiez une cha&#238;ne vide pour d&#233;sactiver le m&#233;canisme de page d'erreur par d&#233;faut pour ce serveur virtuel. </p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

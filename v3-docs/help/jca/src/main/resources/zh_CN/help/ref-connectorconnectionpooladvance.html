@@ -1,0 +1,99 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpooladvance"></a><h4>编辑连接器连接池高级属性</h4>
+<a name="indexterm-43"></a><p>使用&#8220;编辑连接器连接池高级属性&#8221;页面可以修改连接器连接池的高级设置。</p>
+
+<p>&#8220;编辑连接器连接池高级属性&#8221;页面包含以下选项：</p>
+
+<dl><dt>装入默认值</dt>
+<dd><p>用于恢复所有设置的默认值的按钮。</p>
+
+</dd>
+<dt>最多验证一次</dt>
+<dd><p>指定连续请求验证连接（最多一次）之间的时间间隔（以秒为单位）。默认值为 0，表示未启用该属性。</p>
+
+</dd>
+<dt>泄漏超时</dt>
+<dd><p>以秒为单位的一段时间，在这段时间内跟踪连接池中的连接泄漏。如果值为 0，则表示禁用连接泄漏跟踪。默认值为 0。</p>
+
+</dd>
+<dt>泄漏回收</dt>
+<dd><p>如果选中此选项，则泄漏的连接将在泄漏连接跟踪完成后恢复到池中。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>创建重试尝试</dt>
+<dd><p>当创建新的连接失败后，进行尝试的次数。如果值为 0，则表示不会尝试再次创建连接。默认值为 0。</p>
+
+</dd>
+<dt>重试时间间隔</dt>
+<dd><p>两次尝试创建连接之间的时间间隔（以秒为单位）。仅当&#8220;创建重试尝试次数&#8221;的值大于 0 时才使用此属性。默认值为 10 秒。</p>
+
+</dd>
+<dt>入池</dt>
+<dd><p>启用池的连接入池。默认情况下启用此选项。</p>
+
+</dd>
+<dt>延迟关联</dt>
+<dd><p>如果选中此选项，则对连接执行操作时，连接将延迟关联。当完成事务并且结束组件方法时，对连接取消关联，这有助于重新使用物理连接。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>延迟连接获取</dt>
+<dd><p>如果选中此选项，则仅当在方法中实际使用某个资源时，才将该资源登记到事务中。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>与线程关联</dt>
+<dd><p>如果选中此选项，则连接将与线程关联。如果同一个线程需要连接，则该线程可以重新使用已与其关联的连接，因此不会导致从池中获取连接的开销。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>匹配连接</dt>
+<dd><p>如果选中此选项，则将为池启用连接匹配。如果您知道池中的连接将始终同构，因此从池中选择的连接不需要由资源适配器进行匹配，则可以禁用此选项。默认情况下启用此选项。</p>
+
+</dd>
+<dt>匹配连接使用</dt>
+<dd><p>池可以重新使用连接的次数。连接在重复使用指定的次数后将被关闭。如果值为 0，则表示不启用此属性。默认值为 0。</p>
+
+</dd>
+</dl>
+<a name="gkomp"></a><h5>相关任务</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">创建连接器连接池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">编辑连接器连接池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">编辑连接器连接池高级属性</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">编辑连接器连接池属性</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">为连接器连接池创建安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">编辑连接器连接池的安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">删除连接器连接池的安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">删除连接器连接池</a></p>
+
+</li></ul>
+<a name="gkonj"></a><h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

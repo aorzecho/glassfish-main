@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusternew"></a><h4>Novo cluster</h4>
+<a name="indexterm-162"></a><a name="indexterm-163"></a><p>Utilize a p&#225;gina Novo cluster para criar um cluster.</p>
+
+<p>A p&#225;gina Novo cluster cont&#233;m as seguintes op&#231;&#245;es.</p>
+
+<dl><dt>Nome do cluster</dt>
+<dd><p>O nome do cluster.</p>
+
+<p>O nome deve cumprir os seguintes requisitos:</p>
+
+
+<ul><li><p>O nome deve come&#231;ar com uma letra, um n&#250;mero ou um sublinhado.</p>
+
+</li>
+<li><p>O nome pode conter somente os seguintes caracteres:</p>
+
+
+<ul><li><p>Letras min&#250;sculas</p>
+
+</li>
+<li><p>Letras mai&#250;sculas</p>
+
+</li>
+<li><p>N&#250;meros</p>
+
+</li>
+<li><p>H&#237;fen</p>
+
+</li>
+<li><p>Per&#237;odo</p>
+
+</li>
+<li><p>Sublinhado</p>
+
+</li></ul>
+</li>
+<li><p>O nome deve ser &#250;nico no dom&#237;nio e n&#227;o deve ser o nome de outro cluster, uma configura&#231;&#227;o nomeada, uma inst&#226;ncia do Servidor GlassFish ou um n&#243;.</p>
+
+</li>
+<li><p>O nome n&#227;o deve ser <tt>domain</tt>, <tt>server</tt>, nem nenhuma outra palavra-chave que esteja reservada pelo Servidor GlassFish.</p>
+
+</li></ul>
+</dd>
+<dt>Configura&#231;&#227;o</dt>
+<dd><p>Lista suspensa das configura&#231;&#245;es nomeadas existentes que o cluster pode utilizar. Um cluster precisa de uma configura&#231;&#227;o nomeada que defina a configura&#231;&#227;o de todas as inst&#226;ncias adicionadas ao cluster. &#201; necess&#225;rio selecionar uma configura&#231;&#227;o na lista. O cluster utilizar&#225; a configura&#231;&#227;o selecionada quando o cluster for criado.</p>
+
+</dd>
+<dt>Criar c&#243;pia da configura&#231;&#227;o selecionada </dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, a configura&#231;&#227;o selecionada ser&#225; copiada quando o cluster for criado. &#192; c&#243;pia da configura&#231;&#227;o &#233; atribu&#237;do o nome <tt><i>nome-do-cluster</i>-config</tt>, em que <i>nome-do-cluster</i> corresponde ao nome do cluster conforme digitado no campo Nome do cluster.</p>
+
+<p>Se <tt>default-config</tt> estiver selecionado na lista suspensa Configura&#231;&#227;o, &#233; necess&#225;rio selecionar esta op&#231;&#227;o. A configura&#231;&#227;o <tt>default-config</tt> pode ser apenas copiada, n&#227;o referenciada.</p>
+
+</dd>
+<dt>Referenciar a configura&#231;&#227;o selecionada </dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, o cluster utilizar&#225; a configura&#231;&#227;o nomeada existente especificada.</p>
+
+<p>Se <tt>default-config</tt> estiver selecionado na lista suspensa Configura&#231;&#227;o, esta op&#231;&#227;o <b>n&#227;o</b> deve ser selecionada. A configura&#231;&#227;o <tt>default-config</tt> n&#227;o pode ser referenciada, somente copiada.</p>
+
+</dd>
+<dt>Inst&#226;ncias do servidor a serem criadas</dt>
+<dd><p>Lista das inst&#226;ncias do Servidor GlassFish que ser&#227;o criadas quando o cluster for criado. Para cada inst&#226;ncia, as informa&#231;&#245;es a seguir s&#227;o fornecidas:</p>
+
+<dl><dt>Nome da inst&#226;ncia</dt>
+<dd><p>O nome da inst&#226;ncia.</p>
+
+</dd>
+<dt>Peso</dt>
+<dd><p>Inteiro que representa o valor de balanceamento de carga da inst&#226;ncia.</p>
+
+<p>O peso do balanceamento de carga determina a propor&#231;&#227;o de todas as solicita&#231;&#245;es do cluster que a inst&#226;ncia deve processar.</p>
+
+<p>Por exemplo, em um cluster com duas inst&#226;ncias, &#233; poss&#237;vel processar uma das quatro solicita&#231;&#245;es em uma inst&#226;ncia e processar tr&#234;s das quatro solicita&#231;&#245;es na outra inst&#226;ncia. Nesse caso, defina como 1 o peso da inst&#226;ncia que processa uma das quatro solicita&#231;&#245;es e como 3 o peso da outra inst&#226;ncia. Se preferir utilizar porcentagem, defina os pesos das inst&#226;ncias como 25 e 75, respectivamente.</p>
+
+<p>O peso padr&#227;o &#233; 100. </p>
+
+</dd>
+<dt>N&#243;</dt>
+<dd><p>Lista suspensa dos n&#243;s existentes nos quais a inst&#226;ncia pode estar. &#201; necess&#225;rio selecionar um n&#243; na lista. O inst&#226;ncia residir&#225; no n&#243; selecionado quando o cluster for criado.</p>
+
+</dd>
+</dl>
+<p>A tabela Inst&#226;ncias do servidor a serem criadas tamb&#233;m cont&#233;m as seguintes op&#231;&#245;es.</p>
+
+<dl><dt>Novo</dt>
+<dd><p>Bot&#227;o para criar uma inst&#226;ncia. Se clicar neste bot&#227;o, uma linha &#233; adicionada &#224; tabela Inst&#226;ncias do servidor a serem criadas.</p>
+
+</dd>
+<dt>Excluir</dt>
+<dd><p>Bot&#227;o para excluir uma inst&#226;ncia.</p>
+
+</dd>
+</dl>
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-create-cluster.html">Para criar um cluster</a></p>
+
+</li></ul>
+<h5>Subcomando <tt>asadmin</tt> equivalente</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-cluster-1"><tt>create-cluster</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

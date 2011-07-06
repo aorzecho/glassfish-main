@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpoolnew2"></a><h4>新建連接器連線池 (步驟 2，共 2 步)</h4>
+<a name="indexterm-41"></a><p>使用 [新建連接器連線池 (步驟 2，共 2 步)] 頁面可建立新的連接器連線池。</p>
+
+<p>[新建連接器連線池 (步驟 2，共 2 步)] 頁面包含下列選項。</p>
+
+<dl><dt>Ping</dt>
+<dd><p>若啟用了此選項，將會在建立或重新配置期間 Ping 連線池，以識別並警告任何錯誤的屬性值。此選項預設為停用。</p>
+
+</dd>
+<dt>說明</dt>
+<dd><p>連接器連線池的說明。</p>
+
+</dd>
+<dt>池的初始大小和最小大小</dt>
+<dd><p>連接器連線池中的最小連線數目。預設值為 8。</p>
+
+</dd>
+<dt>池的最大大小</dt>
+<dd><p>連接器連線池中的最大連線數目。預設值為 32。</p>
+
+</dd>
+<dt>池設定大小數量</dt>
+<dd><p>池的閒置逾時過期時要移除的連線數目。預設值為 2。</p>
+
+</dd>
+<dt>閒置逾時</dt>
+<dd><p>連線可以在儲存區中閒置的最大時間 (以秒表示)。預設值為 300。</p>
+
+</dd>
+<dt>最大等待時間</dt>
+<dd><p>請求連線的應用程式在達到連線逾時之前等待的時間。預設值為 60000。</p>
+
+</dd>
+<dt>連線驗證</dt>
+<dd><p>若選取了 [需要連線驗證] 核取方塊，指定連線給應用程式之前會先驗證。若資源的驗證失敗，則會銷毀該資源，然後建立並傳回新的資源。此選項預設為停用。</p>
+
+</dd>
+<dt>一旦失敗</dt>
+<dd><p>若選取了 [關閉所有連線] 核取方塊，GlassFish Server 將會在任何一個連線失敗時，關閉池中的所有連線並重新建立連線。此選項預設為停用。</p>
+
+</dd>
+<dt>作業事件支援</dt>
+<dd><p>選擇的作業事件支援以向下相容方式置換與此連線池關聯的資源介面中的作業事件支援屬性。也就是說，它可以支援比資源配接卡中指定的作業事件層級低或與其相同的作業事件層級，但它不能指定更高的層級。</p>
+
+<p>值可能為下列其中之一：</p>
+
+<dl><dt>XATransaction</dt>
+<dd><p>資源配接卡會透過實作 LocalTransaction 和 XAResource 介面來支援資源管理員的本機和 JTA 作業事件。XA 作業事件由作業事件管理員在資源管理員外部進行控制和協調。</p>
+
+</dd>
+<dt>LocalTransaction</dt>
+<dd><p>資源配接卡會透過實作 LocalTransaction 介面來支援本機作業事件。本機作業事件的管理在資源管理員內部進行，不涉及任何外部作業事件管理員。</p>
+
+</dd>
+<dt>NoTransaction</dt>
+<dd><p>資源配接卡不支援資源管理員的本機或 JTA 作業事件，且不會實作 XAResource 或 LocalTransaction 介面。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>其他特性</dt>
+<dd><p>連接器連線池的其他特性。可用的特性會視連接器連線池的資源配接卡而定。此表中指定的「名稱/值」組合，可用於置換資源配接卡供應商定義的特性預設值。</p>
+
+<p>若您為特性指定了名稱但沒有指定值，連線池建立完成時，會從表中移除該特性。若您不想立即為特性設定值，但希望將該特性保留在表中，待稍後為其設定值，請在 [值] 欄位中鍵入一組空的圓括號：</p>
+
+<pre>()</pre></dd>
+</dl>
+<a name="gkomy"></a><h5>相關作業</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">建立連接器連線池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">編輯連接器連線池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">編輯連接器連線池進階屬性</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">編輯連接器連線池特性</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">建立連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">編輯連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">刪除連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">刪除連接器連線池</a></p>
+
+</li></ul>
+<a name="gkokt"></a><h5>相關的 <tt>asadmin</tt> 指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

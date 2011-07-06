@@ -1,0 +1,58 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ldaprealmprop"></a><h4>Propriet&#224; specifiche della classe <tt>LDAPRealm </tt></h4>
+<a name="indexterm-208"></a><a name="indexterm-209"></a><p>Le seguenti propriet&#224; sono obbligatorie per un settore LDAP.</p>
+
+<dl><dt>JAAS Context</dt>
+<dd><p>Contesto di JAAS (Java Authentication and Authorization Service): l'identificatore del modulo di login da utilizzare per questo settore. L'unico valore valido &#232; <tt>solarisRealm</tt>.</p>
+
+</dd>
+<dt>Directory</dt>
+<dd><p>URL LDAP per il server.</p>
+
+</dd>
+<dt>Base DN</dt>
+<dd><p>Nome distinto (DN) di base di LDAP per la posizione dei dati utente. Il nome distinto di base pu&#242; trovarsi in qualsiasi livello superiore a quello dei dati utente, poich&#233; viene eseguita una ricerca a livello della struttura ad albero. Con strutture ad albero di dimensioni ridotte si ottengono prestazioni migliori.</p>
+
+</dd>
+</dl>
+<p>Per un settore LDAP &#232; disponibile la seguente priorit&#224; opzionale.</p>
+
+<dl><dt>Assign Groups</dt>
+<dd><p>Elenco separato da virgole di nomi di gruppi. Tutti i client con certificati validi vengono assegnati a questi gruppi, ad esempio <tt>employee,manager</tt>, dove questi sono i nomi dei gruppi di utenti.</p>
+
+</dd>
+</dl>
+<p>Per un settore LDAP sono disponibili le seguenti propriet&#224; aggiuntive.</p>
+
+<dl><dt><tt>search-filter</tt></dt>
+<dd><p>Filtro di ricerca da utilizzare per individuare l'utente. Il valore predefinito &#232; <tt> uid=%s</tt> (<tt>%s</tt> viene aggiunto al nome oggetto).</p>
+
+</dd>
+<dt><tt>group-base-dn</tt></dt>
+<dd><p>Nome distinto di base per la posizione dei dati gruppo. Per impostazione predefinita &#232; identico al valore del nome distinto di base, ma &#232; possibile cambiarlo, se necessario.</p>
+
+</dd>
+<dt><tt>group-search-filter</tt></dt>
+<dd><p>Filtro di ricerca per individuare gruppi di appartenenza dell'utente. Il valore predefinito &#232; <tt>uniquemember=%d</tt> (<tt>%d</tt> viene aggiunto al nome distinto dell'elemento utente).</p>
+
+</dd>
+<dt><tt>group-target</tt></dt>
+<dd><p>Nome dell'attributo LDAP che contiene le voci di nomi di gruppo. Il valore predefinito &#232; <tt>CN</tt>.</p>
+
+</dd>
+<dt><tt>search-bind-dn</tt></dt>
+<dd><p>Nome distinto opzionale utilizzato nell'autenticazione della directory per la ricerca <tt>search-filter</tt>. &#200; obbligatorio solo per le directory che non consentono ricerche anonime.</p>
+
+</dd>
+<dt><tt>search-bind-password</tt></dt>
+<dd><p>Password LDAP per il nome distinto specificato in <tt>search-bind-dn</tt> .</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

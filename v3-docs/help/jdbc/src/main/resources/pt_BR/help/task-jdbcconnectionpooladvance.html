@@ -1,0 +1,162 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpooladvance"></a><h4>Para editar atributos avan&#231;ados do conjunto de conex&#245;es do JDBC</h4><a name="indexterm-11"></a><ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Recursos.</b></li>
+<li><b>No n&#243; Recursos, selecione o n&#243; JDBC.</b></li>
+<li><b>No n&#243; JDBC, selecione o n&#243; Conjuntos de conex&#245;es.</b><p>A p&#225;gina Conjuntos de conex&#245;es &#233; exibida.</p></li>
+<li><b>Na p&#225;gina Conjuntos de conex&#245;es, clique no nome do conjunto a ser
+editado.</b><p>A p&#225;gina Editar conjunto de conex&#245;es &#233; exibida.</p></li>
+<li><b>Na p&#225;gina Editar conjunto de conex&#245;es, clique na guia Avan&#231;ado.</b><p>A p&#225;gina Editar atributos avan&#231;ados do conjunto de conex&#245;es &#233; exibida.</p></li>
+<li><b>No campo Tempo limite da instru&#231;&#227;o, digite o per&#237;odo, em segundos, ap&#243;s
+o qual as consultas de execu&#231;&#227;o anormalmente longas ser&#227;o finalizadas.</b><p>O Servidor GlassFish configura o <tt>Tempo limite de consulta</tt> nas instru&#231;&#245;es criadas. Defina o valor
+padr&#227;o como -1 para desativar essa op&#231;&#227;o. O valor padr&#227;o &#233; -1.</p></li>
+<li><b>No campo Tamanho do cache para declara&#231;&#245;es, digite o n&#250;mero de declara&#231;&#245;es
+a serem colocadas no cache usando o mecanismo de cache LRU (Least
+Recently Used).</b><p>Para desativar a coloca&#231;&#227;o da declara&#231;&#227;o no cache, especifique um valor de
+0. O valor padr&#227;o &#233; 0.</p></li>
+<li><b>No campo, Init SQL, digite uma sequ&#234;ncia SQL a ser executada sempre
+que uma conex&#227;o &#233; criada (n&#227;o reutilizada) no conjunto.</b><p>A execu&#231;&#227;o dessa sequ&#234;ncia inicializa o estado da conex&#227;o.</p></li>
+<li><b>No campo Interpretador de rastreamento SQL, digite uma lista separada por v&#237;rgulas
+de nomes de classes de implementa&#231;&#227;o do interpretador, que especifica que as
+declara&#231;&#245;es SQL executadas por aplicativos ser&#227;o rastreadas.</b><p>As classes do interpretador precisam implementar o <tt>org.glassfish.api.jdbc.SQLTraceListener</tt> da interface. O uso
+de interpretadores permite a f&#225;cil filtragem de registros de mensagens para as
+declara&#231;&#245;es SQL e ajuda os administradores a analisarem as declara&#231;&#245;es.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Incorporar objetos JDBC, para que os aplicativos
+obtenham objetos JDBC incorporados para <tt>Statement</tt>, <tt>PreparedStatement</tt>, <tt>CallableStatement</tt>, <tt>ResultSet</tt>, <tt>DatabaseMetaData</tt>. </b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Amostragem para ativar a amostragem de conex&#245;es
+para o conjunto.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li>
+<li><b>No campo Validar no m&#225;ximo uma vez, digite o per&#237;odo, em segundos,
+ap&#243;s o qual uma conex&#227;o ser&#225; validada no m&#225;ximo uma vez.</b><p>A configura&#231;&#227;o desse atributo para um valor apropriado minimiza o n&#250;mero de
+solicita&#231;&#245;es de valida&#231;&#227;o feitos por uma conex&#227;o. O valor padr&#227;o &#233; 0,
+o que significa que o atributo n&#227;o est&#225; ativado.</p></li>
+<li><b>No campo Tempo limite da perda, digite a quantidade de tempo, em
+segundos, para rastrear perdas de conex&#227;o em um conjunto de conex&#245;es.</b><p>Use esse campo para detectar potenciais vazamentos de conex&#227;o pelo aplicativo. Uma
+conex&#227;o que n&#227;o &#233; retornada para o conjunto pelo aplicativo dentro do
+per&#237;odo especificado &#233; assumida como sendo de potencial vazamento, e um rastreamento
+de pilha do chamador &#233; registrado. Defina o valor como 0 para
+desativar o rastreamento de perda de conex&#227;o. O valor padr&#227;o &#233; 0.</p><p>Use esse campo junto com Reclamar vazamento, para evitar potenciais vazamentos de
+conex&#227;o pelo aplicativo.</p></li>
+<li><b>Selecione a op&#231;&#227;o Reclama&#231;&#227;o de perda para que as conex&#245;es perdidas sejam
+restauradas no conjunto ap&#243;s a conclus&#227;o do rastreamento de perda de conex&#227;o.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>No campo Novas tentativas de cria&#231;&#227;o, digite o n&#250;mero de tentativas a
+serem feitas se houver uma falha ao criar uma nova conex&#227;o.</b><p>Defina o valor como 0 para que nenhuma tentativa seja feita para
+criar novamente a conex&#227;o. O valor padr&#227;o &#233; 0.</p></li>
+<li><b>No campo Intervalo de nova tentativa, digite o intervalo, em segundos, entre
+duas tentativas de criar uma conex&#227;o.</b><p>O valor padr&#227;o &#233; 10.  Esse atributo s&#243; ser&#225; usado se
+o valor Novas tentativas de cria&#231;&#227;o for maior que 0.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Associa&#231;&#227;o lenta ativada para associar uma conex&#227;o
+f&#237;sica com uma cole&#231;&#227;o l&#243;gica somente quando uma conex&#227;o &#233; usada.</b><p>As conex&#245;es ser&#227;o desassociadas quando a transa&#231;&#227;o for conclu&#237;da e um m&#233;todo
+de componente for finalizado, o que ajuda a reutilizar as conex&#245;es f&#237;sicas.
+Se essa op&#231;&#227;o est&#225; desativada, uma conex&#227;o f&#237;sica &#233; associada &#224; cole&#231;&#227;o
+l&#243;gica mesmo antes de ser usada. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Inscri&#231;&#227;o de conex&#227;o lenta ativada para inscrever
+um recurso para a transa&#231;&#227;o somente quando ele for efetivamente utilizado em
+um m&#233;todo.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Associar com thread ativado para criar associa&#231;&#245;es
+entre conex&#245;es e threads.</b><p>Quando o mesmo segmento for necess&#225;rio a uma conex&#227;o, a conex&#227;o j&#225;
+associada ao segmento poder&#225; ser reutilizada, n&#227;o incorrendo, portanto, a sobrecarga para
+obten&#231;&#227;o de outra conex&#227;o no conjunto. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Corresponder conex&#245;es ativado para ativar a correspond&#234;ncia
+de conex&#227;o para o conjunto.</b><p>Se essa op&#231;&#227;o est&#225; ativada, uma conex&#227;o que &#233; selecionada do conjunto
+deveria ser correspondida com as conex&#245;es que t&#234;m determinadas credenciais. Essa op&#231;&#227;o
+precisa ser ativada se o conjunto de conex&#245;es &#233; usado por aplicativos
+que t&#234;m m&#250;ltiplas credenciais de usu&#225;rio. Essa op&#231;&#227;o poder&#225; ser desativada se
+o administrador souber que as conex&#245;es no conjunto ser&#227;o sempre homog&#234;neas e,
+portanto, uma conex&#227;o selecionada no conjunto n&#227;o precisar&#225; coincidir com o adaptador
+de recurso. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>No campo Uso m&#225;x. de conex&#227;o, digite o n&#250;mero de vezes que
+uma conex&#227;o deve ser reutilizada pelo conjunto.</b><p>Depois que uma conex&#227;o &#233; reutilizada por um n&#250;mero especificado de vezes,
+ela &#233; fechada. Ao limitar o n&#250;mero de vezes que uma conex&#227;o
+pode ser reutilizada, voc&#234; pode evitar vazamentos de declara&#231;&#245;es se um aplicativo
+n&#227;o fecha declara&#231;&#245;es. Defina o valor como 0 para desativar esse atributo.
+O valor padr&#227;o &#233; 0.</p></li>
+<li><b>Marque a caixa de sele&#231;&#227;o Valida&#231;&#227;o de conex&#227;o exigida para ativar a
+valida&#231;&#227;o de conex&#227;o.</b><p>A valida&#231;&#227;o de conex&#227;o permite que o servidor se reconecte em caso
+de falha.</p></li>
+<li><b>Na lista suspensa M&#233;todo de valida&#231;&#227;o, selecione um m&#233;todo de valida&#231;&#227;o.</b><p>O Servidor GlassFish pode validar as conex&#245;es ao banco de dados nas
+seguintes formas.</p><dl><dt><tt>confirma&#231;&#227;o autom&#225;tica</tt> e <tt>metadados</tt></dt>
+<dd><p>O Servidor GlassFish valida uma conex&#227;o ao chamar os m&#233;todos <tt>con.getAutoCommit</tt> e <tt>con.getMetaData</tt>. </p>
+
+
+<hr><p><b>Observa&#231;&#227;o - </b>Muitos drivers JDBC armazenam em cache os resultados dessas chamadas. Como resultado, o uso dessas chamadas nem sempre fornece valida&#231;&#245;es confi&#225;veis. Verifique com o fornecedor do driver para determinar se essas chamadas s&#227;o ou n&#227;o armazenadas em cache.</p>
+
+
+<hr>
+</dd>
+<dt><tt>valida&#231;&#227;o personalizada</tt></dt>
+<dd><p>O Servidor GlassFish usa um mecanismo de valida&#231;&#227;o definido pelo usu&#225;rio especificado pela classe de implementa&#231;&#227;o personalizada no campo Nome da classe de valida&#231;&#227;o.</p>
+
+</dd>
+<dt><tt>tabela</tt></dt>
+<dd><p>O aplicativo consulta a tabela de banco de dados especificada. A tabela deve existir e estar acess&#237;vel, mas n&#227;o precisa conter linhas. N&#227;o use uma tabela existente que tenha um n&#250;mero grande de linhas, nem uma tabela que seja acessada com frequ&#234;ncia.</p>
+
+</dd>
+</dl>
+</li>
+<li><b>Se voc&#234; selecionou <tt>tabela</tt> na lista suspensa M&#233;todos de valida&#231;&#227;o, selecione o
+nome da tabela do banco de dados na lista suspensa Nome de
+tabelas.</b></li>
+<li><b>Se voc&#234; selecionou <tt>valida&#231;&#227;o personalizada</tt> na lista suspensa M&#233;todos de valida&#231;&#227;o, digite o
+nome da classe de implementa&#231;&#227;o personalizada.</b><p>O nome da classe fornecido precisa estar acess&#237;vel ao Servidor GlassFish. A
+classe especificada deve implementar o <tt>org.glassfish.api.jdbc.ConnectionValidation</tt> da interface. </p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Em qualquer falha, fechar todas as conex&#245;es,
+para fazer com que o servidor feche e restabele&#231;a todas as conex&#245;es
+do conjunto em caso de falha de conex&#227;o.</b><p>Se a op&#231;&#227;o for desativada, cada conex&#227;o individual somente ser&#225; restabelecida quando
+for usada.  Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Permitir chamadores n&#227;o de componentes ativado para
+permitir que o conjunto seja usado por chamadores n&#227;o de componentes; por
+exemplo, filtros de servlet e gerenciadores de persist&#234;ncia de terceiros. </b><p>As conex&#245;es obtidas por chamadores n&#227;o de componente n&#227;o s&#227;o automaticamente fechadas
+no final de uma transa&#231;&#227;o pelo recipiente. Elas precisam ser explicitamente fechadas
+pelo chamador. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p></li>
+<li>(Opcional) <b>Clique no bot&#227;o Descarregar na guia Geral para descarregar todas as conex&#245;es
+do conjunto.</b><p>Clicar no bot&#227;o Descarregar destr&#243;i quaisquer conex&#245;es existentes, recria as conex&#245;es estabelecidas
+para o conjunto e restaura o conjunto para seu tamanho inicial e
+m&#237;nimo.</p></li>
+<li><b>Clique em Salvar.</b>
+<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar Padr&#245;es e depois
+em Salvar. </p>
+
+
+<hr>
+</li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-setdbaccess.html">Para configurar o acesso ao banco de dados</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">Para integrar um driver JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">Para criar um recurso do JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">Para editar um recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">Para editar destinos do recurso do JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">Para excluir um recurso do JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">Para criar um conjunto de conex&#245;es do JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">Para editar as configura&#231;&#245;es gerais do conjunto de conex&#245;es do JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">Para verificar as configura&#231;&#245;es do conjunto de conex&#245;es</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar as propriedades do conjunto de conex&#245;es JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Para excluir um conjunto de conex&#245;es do JDBC</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

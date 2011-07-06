@@ -1,0 +1,70 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsconnectionproperties"></a><h4>特定于 JMS 连接工厂的属性</h4>
+<a name="indexterm-35"></a><a name="indexterm-36"></a><p>以下附加属性可用于 JMS 连接工厂。</p>
+
+<dl><dt><tt>ClientId</tt></dt>
+<dd><p>为长期订阅者将要使用的连接工厂指定客户机 ID。</p>
+
+</dd>
+<dt><tt>AddressList</tt></dt>
+<dd><p>指定应用程序将与其进行通信的消息代理实例的名称（和端口号 [可选]）。列表中的每个地址均指定了连接的主机名（以及主机端口和连接服务 [可选]）。例如，该值可能为 <tt>earth</tt> 或 <tt>earth:7677</tt>。如果消息代理在默认端口 (7676) 以外的端口上运行，请指定端口号。如果此属性设置指定了群集环境中的多个主机和端口，则将使用该列表中的第一个可用主机（除非将 <tt>AddressListBehavior</tt> 属性设置为 <tt>RANDOM</tt>）。</p>
+
+<p>有关详细信息，请参见 <b>Message Queue Developer&#8217;s Guide for Java Clients</b>。</p>
+
+<p>默认值为本地主机及默认端口号 (7676)。客户机将尝试连接至位于本地主机端口 7676 上的代理。</p>
+
+</dd>
+<dt><tt>UserName</tt></dt>
+<dd><p>进入连接工厂的用户名。</p>
+
+<p>默认值为 <tt>guest</tt>。</p>
+
+</dd>
+<dt><tt>Password</tt></dt>
+<dd><p>进入连接工厂的密码。</p>
+
+<p>默认值为 <tt>guest</tt>。</p>
+
+</dd>
+<dt><tt>ReconnectEnabled</tt></dt>
+<dd><p>如果设置为 <tt>true</tt>，则指定客户机运行时在丢失连接时尝试重新连接至消息服务器（或 <tt>AddressList</tt> 中的地址列表）。</p>
+
+<p>默认值为 <tt>true</tt>。</p>
+
+</dd>
+<dt><tt>ReconnectAttempts</tt></dt>
+<dd><p>指定客户机运行时在尝试连接 <tt>AddressList</tt> 列表中的下一个地址之前尝试连接（或重新连接）当前地址的次数。值 -1 表示重新连接尝试次数没有限制（客户机运行时将尝试连接至第一个地址，直到连接成功）。</p>
+
+<p>默认值为 3。</p>
+
+</dd>
+<dt><tt>ReconnectInterval</tt></dt>
+<dd><p>指定重新连接尝试之间的时间间隔（毫秒）。此属性适用于对 <tt>AddressList</tt> 中每个地址的尝试，以及对该列表中连续地址的尝试。如果该时间间隔太短，则代理将没有时间恢复。如果该时间间隔太长，则重新连接可能会指明这是不可接受的延迟。</p>
+
+<p>默认值为 30000。</p>
+
+</dd>
+<dt><tt>AddressListBehavior</tt></dt>
+<dd><p>指定是按 <tt>AddressList</tt> 属性中的地址顺序 (<tt>PRIORITY</tt>) 还是按随机顺序 (<tt>RANDOM</tt>) 进行连接尝试。</p>
+
+<p><tt>RANDOM</tt> 表示重新连接将从 <tt>AddressList</tt> 中随机选择一个地址。如果许多客户机尝试使用同一个连接工厂进行连接，该值可防止它们全部连接至同一个地址。</p>
+
+<p><tt>PRIORITY</tt> 表示重新连接始终尝试连接 <tt>AddressList</tt> 中的第一个服务器地址，并且仅在第一个代理不可用时才使用其他地址。</p>
+
+<p>默认值为 <tt>RANDOM</tt>。</p>
+
+</dd>
+<dt><tt>AddressListIterations</tt></dt>
+<dd><p>指定客户机运行时建立（或重新建立）连接时，在 <tt>AddressList</tt> 中重复的次数。值 -1 表示尝试次数没有限制。</p>
+
+<p>默认值为 3。</p>
+
+</dd>
+</dl>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

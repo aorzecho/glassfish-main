@@ -1,0 +1,67 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-integratejdbcdriver"></a><h4>Para integrar un controlador JDBC</h4><a name="indexterm-3"></a><p>Un controlador compatible con la API JDBC (controlador JDBC) convierte las llamadas
+JDBC de una aplicaci&#243;n en el protocolo del servidor de base de
+datos.</p>
+
+<ul>
+<li><b>Para integrar el controlador JDBC en un dominio de GlassFish Server, haga
+una de las dos cosas siguientes:</b><ul>
+<li><b>Haga accesible el controlador al cargador de clases comunes.</b><ol style="list-style-type: lower-alpha">
+<li><b>Copie los archivos JAR y ZIP del controlador en el directorio <i>domain-dir</i><tt>/lib</tt>.</b>
+<hr><p><b>Nota - </b>Hay una excepci&#243;n a esta regla. Si est&#225; utilizando el controlador JDBC
+de Oracle y desea aproveche las extensiones EclipseLink disponibles con las bases de
+datos de Oracle, debe colocar los archivos JAR para el controlador JDBC de
+Oracle en el directorio <i>domain-dir</i><tt>/lib/ext</tt>.</p>
+
+
+<hr>
+</li>
+<li><b>Reinicie el dominio.</b></li></ol></li>
+<li><b>Haga accesible el controlador al cargador de clases del sistema.</b><ol style="list-style-type: lower-alpha">
+<li><b>En el &#225;rbol de navegaci&#243;n, expanda el nodo Configuraci&#243;n.</b></li>
+<li><b>En el nodo Configuraci&#243;n, seleccione el nodo Configuraci&#243;n de JVM.</b><p>Se abrir&#225; la p&#225;gina Configuraci&#243;n general de JVM.</p></li>
+<li><b>En la p&#225;gina Configuraci&#243;n general de JVM, haga clic en la ficha
+Configuraci&#243;n de ruta.</b></li>
+<li><b>En el campo Sufijo de ruta de clase, introduzca el nombre de
+ruta completo para el archivo JAR del controlador.</b></li>
+<li><b>Haga clic en Guardar.</b></li>
+<li><b>Reinicie el servidor.</b></li></ol></li></ul></li></ul><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-setdbaccess.html">Para configurar el acceso a la base de datos</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">Para crear un recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">Para editar un recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">Para eliminar un recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">Para crear un conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">Para editar la configuraci&#243;n general del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">Para editar atributos avanzados del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">Para verificar la configuraci&#243;n del conjunto de conexiones</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Para eliminar un conjunto de conexiones JDBC</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

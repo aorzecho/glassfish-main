@@ -1,0 +1,111 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsconnectionedit"></a><h4>編輯 JMS 連線工廠</h4>
+<a name="indexterm-33"></a><a name="indexterm-34"></a><p>使用 [編輯 JMS 連線工廠] 頁面可修改 JMS 連線工廠的設定。</p>
+
+<p>[編輯 JMS 連線工廠] 頁面包含下列選項。</p>
+
+<dl><dt>載入預設值</dt>
+<dd><p>將所有設定復原為預設值的按鈕。</p>
+
+</dd>
+<dt>池名稱</dt>
+<dd><p>針對連線工廠所建立之連接器連線池的唯一名稱。此名稱也是連線工廠的 JNDI 名稱。[池名稱] 是唯讀欄位。</p>
+
+</dd>
+<dt>資源類型</dt>
+<dd><p>連線工廠的類型。[資源類型] 是唯讀欄位。您僅能在建立新的 JMS 連線工廠時指定資源類型。</p>
+
+</dd>
+<dt>說明</dt>
+<dd><p>連線工廠的說明。</p>
+
+</dd>
+<dt>狀態</dt>
+<dd><p>連線工廠的狀態。您可啟用或停用連線工廠。此選項預設為啟用。</p>
+
+</dd>
+<dt>池的初始大小和最小大小</dt>
+<dd><p>連線工廠的池中最小的連線數目。預設值為 8。</p>
+
+</dd>
+<dt>池的最大大小</dt>
+<dd><p>池中連線的最大數目。預設值為 32。</p>
+
+</dd>
+<dt>池設定大小數量</dt>
+<dd><p>池的閒置逾時過期時要移除的連線數目。預設值為 2。</p>
+
+</dd>
+<dt>閒置逾時</dt>
+<dd><p>連線可以在儲存區中閒置的最大時間 (以秒表示)。預設值為 300。</p>
+
+</dd>
+<dt>最大等待時間</dt>
+<dd><p>請求連線的應用程式在達到連線逾時之前等待的時間。預設值為 60000。</p>
+
+</dd>
+<dt>一旦失敗</dt>
+<dd><p>若選取了 [關閉所有連線] 核取方塊，GlassFish Server 將會在任何一個連線失敗時，關閉池中的所有連線並重新建立連線。此選項預設為停用。</p>
+
+</dd>
+<dt>作業事件支援</dt>
+<dd><p>值可能為下列其中之一：</p>
+
+<dl><dt>XATransaction</dt>
+<dd><p>可供涉及在作業事件範圍內使用多個資源的作業事件使用的資源。對於 JMS 連線工廠而言，此值為預設值。 </p>
+
+<p>例如，作業事件可能涉及此資源加上 JDBC 資源、連接器資源或其他 JMS 連線工廠資源。該值具有最大的靈活性。配置為 XATransaction 的資源將參與兩階段的確定作業。</p>
+
+</dd>
+<dt>LocalTransaction</dt>
+<dd><p>可用於僅涉及使用作業事件範圍內一個資源的作業事件的資源，或用做涉及多個 XA 資源的分散式作業事件中最後一個代理程式的資源。</p>
+
+<p>使用該值可以獲得更好的效能。配置為 LocalTransaction 的資源不會用於兩階段的確定作業。</p>
+
+</dd>
+<dt>NoTransaction</dt>
+<dd><p>此資源永遠不能參與作業事件。該設定在 JMS 應用程式中的使用有限。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>連線驗證</dt>
+<dd><p>若選取了 [需要連線驗證] 核取方塊，指定連線給應用程式之前會先驗證。若資源的驗證失敗，則會銷毀該資源，然後建立並傳回新的資源。此選項預設為停用。</p>
+
+</dd>
+<dt>其他特性</dt>
+<dd><p>連線工廠的其他特性。</p>
+
+<p>如需可用特性的相關資訊，請參閱<a href="ref-jmsconnectionproperties.html">JMS 連線工廠特有的特性</a>。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-jmsconnectionnew.html">建立 JMS 連線工廠資源</a></p>
+
+</li>
+<li><p><a href="task-jmsconnectionedit.html">編輯 JMS 連線工廠資源</a></p>
+
+</li>
+<li><p><a href="task-jmsconnectiondelete.html">刪除 JMS 連線工廠資源</a></p>
+
+</li></ul>
+<h5>相關的 <tt>asadmin</tt> 指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jms-resource-1"><tt>create-jms-resource</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jms-resources-1"><tt>list-jms-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jms-resource-1"><tt>delete-jms-resource</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

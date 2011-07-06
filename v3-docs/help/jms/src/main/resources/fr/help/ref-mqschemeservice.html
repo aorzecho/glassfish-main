@@ -1,0 +1,132 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-mqschemeservice"></a><h4>Syntaxe d&#8217;adresse du sch&#233;ma MQ et du service MQ</h4>
+<p>Syntaxe d&#8217;une adresse de service de messagerie :</p>
+
+<pre><i>scheme</i>://<i>address-syntax</i></pre><p>o&#249; <i>scheme</i> et <i>syntaxe-adresse</i> sont d&#233;crits dans le tableau ci-dessous.</p>
+
+<p>Dans le tableau suivant, les deux premi&#232;res colonnes indiquent les valeurs du
+Plan MQ et du Service MQ.</p>
+
+<table><col width="16%"><col width="16%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"><p>Nom du plan</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Service de connexion</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Description</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Syntaxe de l&#8217;adresse</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mq</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt>
+et <tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Le programme client Message Queue &#233;tablit une connexion avec le journal
+de correspondance des points de connexion MQ sur l&#8217;h&#244;te et le port
+sp&#233;cifi&#233;s. Le journal de correspondance des points de connexion envoie la liste
+des ports de service de connexion &#233;tablis dynamiquement, puis le programme client
+Message Queue &#233;tablit une connexion avec le port h&#233;bergeant le service de
+connexion sp&#233;cifi&#233;.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>[</tt><i>hostName</i><tt>][:</tt><i> port</i><tt>][/</tt><i>serviceName</i><tt> ]</tt></p>
+
+<p>Valeurs par d&#233;faut : <i>hostName</i> = <tt>localhost</tt>, <i>port</i> = <tt>7676</tt>, <i>serviceName </i>
+= <tt>jms</tt></p>
+
+<p>Les valeurs par d&#233;faut ne s&#8217;appliquent qu&#8217;au service de connexion <tt>jms</tt>.
+Pour le service de connexion <tt>ssljms</tt>, toutes les variables doivent &#234;tre sp&#233;cifi&#233;es.</p>
+
+<p>Exemple&#160;:
+<tt>mq:MyHost:7677/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqtcp</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Le programme client Message Queue &#233;tablit une connexion TCP avec l&#8217;h&#244;te et
+le port sp&#233;cifi&#233;s (contournant le journal de correspondance des points de connexion
+MQ) pour se connecter.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /jms</tt></p>
+
+<p>Exemple&#160;: <tt>mqtcp:localhost:7676/jms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqssl</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Le programme client Message Queue &#233;tablit une connexion
+SSL s&#233;curis&#233;e avec l&#8217;h&#244;te et le port sp&#233;cifi&#233;s (contournant le journal de
+correspondance des points de connexion MQ) pour se connecter.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /ssljms</tt></p>
+
+<p>Exemple&#160;: <tt>mqssl:localhost:7676/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Le programme client
+Message Queue &#233;tablit une connexion HTTP avec un servlet de tunnel Message
+Queue &#224; l&#8217;URL sp&#233;cifi&#233;. (Le courtier doit &#234;tre configur&#233; pour acc&#233;der au
+servlet de tunnel HTTP, comme d&#233;crit dans le <b>Guide de l&#8217;administrateur</b> Message Queue.)</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>Si plusieurs
+instances de courtier utilisent le m&#234;me servlet de tunnel, la syntaxe de
+connexion &#224; une instance de courtier sp&#233;cifique (plut&#244;t qu&#8217;&#224; un courtier s&#233;lectionn&#233;
+au hasard) est&#160;: <tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i>serverName </i></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>https</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpsjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Le programme client Message Queue &#233;tablit une connexion HTTPS
+s&#233;curis&#233;e avec l&#8217;URL du servlet de tunnel Message Queue sp&#233;cifi&#233;. (Le courtier
+doit &#234;tre configur&#233; pour acc&#233;der au servlet de tunnel HTTPS, comme d&#233;crit
+dans le <b>Guide de l&#8217;administrateur</b> Message Queue.)</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>Si plusieurs instances de courtier utilisent le m&#234;me
+servlet de tunnel, la syntaxe de connexion &#224; une instance de courtier
+sp&#233;cifique (plut&#244;t qu&#8217;&#224; un courtier s&#233;lectionn&#233; au hasard) est&#160;: <tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i>serverName </i></p>
+
+</td>
+</tr>
+</table>
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

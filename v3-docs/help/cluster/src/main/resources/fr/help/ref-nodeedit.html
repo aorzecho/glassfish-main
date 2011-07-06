@@ -1,0 +1,163 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-nodeedit"></a><h4>Modifier le n&#339;ud</h4>
+<a name="indexterm-198"></a><p>La page Modifier le n&#339;ud permet de mettre &#224; jour les donn&#233;es
+de configuration d'un n&#339;ud GlassFish Server. Elle permet &#233;galement de modifier le
+type d'un n&#339;ud de CONFIG &#224; SSH pour activer la communication SSH
+pour ce n&#339;ud.</p>
+
+<p>Si vous modifiez le type du n&#339;ud de CONFIG &#224; SSH, les
+valeurs par d&#233;faut sont appliqu&#233;es si l'un des champs suivants n'est pas
+renseign&#233; &#160;:</p>
+
+
+<ul><li><p>Port SSH</p>
+
+</li>
+<li><p>Nom d&#8217;utilisateur</p>
+
+</li>
+<li><p>Fichier de cl&#233;s</p>
+
+</li></ul>
+<p>La page Modifier le n&#339;ud contient les options suivantes&#160;:</p>
+
+<dl><dt>Nom</dt>
+<dd><p>Nom assign&#233; au n&#339;ud lors de sa cr&#233;ation. Ce champ est en lecture seule.</p>
+
+</dd>
+<dt>Type</dt>
+<dd><p>Liste d&#233;roulante permettant de sp&#233;cifier le type de n&#339;ud parmi les suivants&#160;:</p>
+
+<dl><dt>SSH</dt>
+<dd><p>Le n&#339;ud prend en charge la communication via le protocole SSH (shell s&#233;curis&#233;).</p>
+
+</dd>
+<dt>CONFIG</dt>
+<dd><p>Le n&#339;ud ne prend pas en charge la communication &#224; distance. Si CONFIG est s&#233;lectionn&#233;, aucune option de configuration SSH n'est affich&#233;e. Si le type actuel du n&#339;ud est SSH et que vous s&#233;lectionnez CONFIG, les donn&#233;es de configuration SSH sont supprim&#233;es de la configuration du n&#339;ud lorsque vous enregistrez vos modifications.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>H&#244;te du n&#339;ud</dt>
+<dd><p>Nom de l'h&#244;te sur lequel le n&#339;ud sera repr&#233;sent&#233; apr&#232;s sa mise &#224; jour. Le caract&#232;re obligatoire de ce champ d&#233;pend du type du n&#339;ud&#160;:</p>
+
+
+<ul><li><p>Si le type du n&#339;ud est CONFIG, le nom de l'h&#244;te peut &#234;tre omis. Le nom de l'h&#244;te peut &#234;tre d&#233;termin&#233; lors de la cr&#233;ation d'instances r&#233;sidant sur le n&#339;ud. </p>
+
+</li>
+<li><p>Si le type du n&#339;ud est SSH, le nom de l'h&#244;te doit &#234;tre sp&#233;cifi&#233;. Sinon, une erreur se produit. </p>
+
+</li></ul>
+</dd>
+<dt>R&#233;pertoire du n&#339;ud</dt>
+<dd><p>Chemin d'acc&#232;s complet au r&#233;pertoire devant contenir les instances de GlassFish Server cr&#233;&#233;es sur le n&#339;ud. Si un chemin d'acc&#232;s relatif est sp&#233;cifi&#233;, il est relatif au r&#233;pertoire <i>as-install</i>, <i>as-install</i> correspondant au r&#233;pertoire d'installation de base du logiciel GlassFish Server sur l'h&#244;te.</p>
+
+</dd>
+<dt>R&#233;pertoire d&#8217;installation</dt>
+<dd><p>Chemin d'acc&#232;s complet au parent du r&#233;pertoire d'installation de base du logiciel GlassFish Server sur l'h&#244;te, par exemple, <tt>/export/glassfish3/</tt>. </p>
+
+</dd>
+<dt>Force</dt>
+<dd><p>Si l'option Activ&#233; est s&#233;lectionn&#233;e, le n&#339;ud est mis &#224; jour dans la configuration du serveur d'administration de domaine (DAS) m&#234;me si la validation des param&#232;tres du n&#339;ud &#233;choue. Pour valider les param&#232;tres d'un noeud, le serveur DAS doit &#234;tre capable de contacter l'h&#244;te du noeud via SSH. </p>
+
+</dd>
+<dt>Port SSH</dt>
+<dd><p>Port &#224; utiliser pour les connexions SSH &#224; l'h&#244;te de ce n&#339;ud. </p>
+
+<p>Si vous modifiez le type du n&#339;ud de CONFIG &#224; SSH et laissez ce champ vide, l'option Port SSH est d&#233;finie sur 22.</p>
+
+<p>Si l'option H&#244;te du n&#339;ud est d&#233;finie sur <tt>localhost-<i>domain</i></tt>, l'option Port SSH est ignor&#233;e.</p>
+
+</dd>
+<dt>Nom d'utilisateur SSH</dt>
+<dd><p>Utilisateur sur l'h&#244;te de ce n&#339;ud qui va ex&#233;cuter le processus de connexion &#224; l'h&#244;te via SSH. </p>
+
+<p>Si vous modifiez le type du n&#339;ud de CONFIG &#224; SSH et laissez ce champ vide, l'option Nom d'utilisateur est d&#233;finie sur l'utilisateur qui ex&#233;cute le processus DAS.</p>
+
+<p>Si l'option H&#244;te du n&#339;ud est d&#233;finie sur <tt>localhost-<i>domain</i></tt>, l'option Utilisateur SSH est ignor&#233;e.</p>
+
+</dd>
+<dt>Authentification de l'utilisateur SSH</dt>
+<dd><p>Liste d&#233;roulante pour indiquer la mani&#232;re dont l'utilisateur SSH est authentifi&#233; lors de la connexion &#224; l'h&#244;te de ce n&#339;ud. Les m&#233;thodes possibles pour l'authentification sont les suivantes&#160;:</p>
+
+<dl><dt>Fichier cl&#233;</dt>
+<dd><p>L'utilisateur SSH est authentifi&#233; par l'interm&#233;diaire d'un fichier de cl&#233;s priv&#233;es SSH. Si vous s&#233;lectionnez cette option, sp&#233;cifiez le chemin d'acc&#232;s absolu au fichier dans le champ Fichier de cl&#233;s. </p>
+
+</dd>
+<dt>Mot de passe</dt>
+<dd><p>L'utilisateur SSH est authentifi&#233; par le biais d'un mot de passe stock&#233; dans la configuration DAS. </p>
+
+
+<hr><p><b>Attention - </b>Ce mot de passe est stock&#233; sous forme de texte en clair dans la configuration DAS. Pour une s&#233;curit&#233; accrue, utilisez un fichier de cl&#233;s ou un alias de mot de passe. </p>
+
+
+<hr>
+<p>Si vous s&#233;lectionnez cette option, les champs Mot de passe SSH et Confirmer le mot de passe SSH sont activ&#233;s pour vous permettre d'indiquer le mot de passe. </p>
+
+</dd>
+<dt>Alias de mot de passe</dt>
+<dd><p>L'utilisateur SSH est authentifi&#233; par le biais d'un alias de mot de passe. Si vous s&#233;lectionnez cette option, choisissez l'alias de mot de passe dans la liste d&#233;roulante correspondante.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Mot de passe SSH</dt>
+<dd><p>Mot de passe que l'utilisateur SSH va utiliser lors de la connexion &#224; l'h&#244;te de ce n&#339;ud. </p>
+
+</dd>
+<dt>Confirmer le mot de passe SSH</dt>
+<dd><p>Confirmation du mot de passe que l'utilisateur SSH va utiliser lors de la connexion &#224; l'h&#244;te de ce n&#339;ud. Le contenu de ce champ doit correspondre exactement au contenu du champ Mot de passe SSH. </p>
+
+</dd>
+<dt>Alias de mot de passe</dt>
+<dd><p>Liste d&#233;roulante d'alias de mot de passe d&#233;finis pour ce domaine. </p>
+
+</dd>
+<dt>Fichier cl&#233;</dt>
+<dd><p>Chemin d'acc&#232;s absolu au fichier de cl&#233;s priv&#233;es SSH sp&#233;cifi&#233; par l'option Nom d'utilisateur. Ce fichier est utilis&#233; pour l'authentification du d&#233;mon <tt>sshd</tt> sur l'h&#244;te du n&#339;ud.</p>
+
+
+<hr><p><b>Remarque - </b>GlassFish Server prend &#233;galement en charge l'authentification par mots de passe via l'entr&#233;e <tt>AS_ADMIN_SSHPASSWORD</tt> dans le fichier de mots de passe. Le fichier de mots de passe est sp&#233;cifi&#233; dans l'option <tt>--paswordfile</tt> de l'utilitaire <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
+
+
+<hr>
+<p>Si le fichier de cl&#233;s priv&#233;es SSH est prot&#233;g&#233; par une phrase de passe, le fichier de mots de passe doit contenir l'entr&#233;e <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt>.</p>
+
+<p>Le chemin d'acc&#232;s au fichier de cl&#233;s doit &#234;tre accessible par le serveur DAS et le fichier de cl&#233;s doit &#234;tre lisible par le serveur DAS. </p>
+
+<p>La valeur par d&#233;faut varie selon que vous modifiez le type de n&#339;ud de CONFIG &#224; SSH pour activer la communication SSH pour le n&#339;ud&#160;:</p>
+
+<p>Si vous modifiez le type du n&#339;ud de CONFIG &#224; SSH et laissez ce champ vide, l'option Fichier de cl&#233;s est d&#233;finie sur un fichier de cl&#233;s dans le r&#233;pertoire <tt>.ssh</tt> de l'utilisateur. Si plusieurs fichiers de cl&#233;s sont disponibles, GlassFish Server utilise l'ordre de pr&#233;f&#233;rence suivant&#160;: </p>
+
+
+<ol><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>identity</tt> </p>
+
+</li></ol>
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-editnode.html">Modifier un n<IMG alt="oelig" SRC="ents/oelig.gif" border="0">ud</a></p>
+
+</li></ul>
+<h5>Sous-commandes <tt>asadmin</tt> &#233;quivalentes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-config-1"><tt>update-node-config</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-ssh-1"><tt>update-node-ssh</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

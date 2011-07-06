@@ -1,0 +1,61 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ejbtimerservice"></a><h4>Service d&#8217;horloge EJB</h4>
+<a name="indexterm-18"></a><a name="indexterm-19"></a><a name="indexterm-20"></a><p>Utilisez la page Service d&#8217;horloge EJB pour configurer le service d&#8217;horloge EJB.</p>
+
+<p>Le service d&#8217;horloge est un service de notification persistant et transactionnel fourni
+par le conteneur de beans entreprise qui sert &#224; programmer des notifications
+ou des &#233;v&#233;nements utilis&#233;s par les beans entreprise. Tous les beans entreprise,
+&#224; l&#8217;exception des beans de session avec &#233;tat, peuvent recevoir des notifications
+du service d&#8217;horloge. Les horloges persistantes d&#233;finies par le service ne sont
+pas d&#233;truites lors de l&#8217;arr&#234;t ou du red&#233;marrage du serveur.</p>
+
+<p>La page Service d&#8217;horloge EJB contient les options suivantes&#160;:</p>
+
+<dl><dt>Charger les valeurs par d&#233;faut</dt>
+<dd><p>Bouton permettant de restaurer les valeurs par d&#233;faut de tous les param&#232;tres.</p>
+
+</dd>
+<dt>Nom de configuration</dt>
+<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
+
+</dd>
+<dt>Intervalle de distribution minimal</dt>
+<dd><p>Nombre minimum de millisecondes autoris&#233;es avant l&#8217;expiration suivante d&#8217;une horloge donn&#233;e. La d&#233;finition de cet intervalle sur une valeur trop basse peut provoquer une surcharge du serveur. La valeur par d&#233;faut est 1000.</p>
+
+</dd>
+<dt>Nombre maximal de redistributions</dt>
+<dd><p>Nombre maximal de tentatives effectu&#233;es par le service d&#8217;horloge pour transmettre une expiration d&#8217;horloge en raison d&#8217;une exception ou d&#8217;une annulation. La valeur par d&#233;faut est 1. </p>
+
+</dd>
+<dt>Intervalle de redistribution</dt>
+<dd><p>Intervalle, exprim&#233; en millisecondes, entre deux tentatives de redistribution. La valeur par d&#233;faut est 5000.</p>
+
+</dd>
+<dt>Source de donn&#233;es de l&#8217;horloge</dt>
+<dd><p>Nom JNDI de la ressource JDBC devant &#234;tre utilis&#233;e comme source de donn&#233;es de l&#8217;horloge. Si elle est sp&#233;cifi&#233;e, cette valeur remplace la valeur par d&#233;faut de <tt>jdbc/__TimerPool</tt> de l&#8217;application du syst&#232;me de service d&#8217;horloge. </p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-ejbtimerservice.html">Pour configurer le service d'horloge EJB</a></p>
+
+</li>
+<li><p><a href="../../../ejb-lite/fr/help/task-ejbgeneral.html">To Configure EJB Settings</a></p>
+
+</li>
+<li><p><a href="task-ejbmdbpoolsettings.html">Pour configurer les param&#232;tres du pool MDB</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-timers-1"><tt>list-timers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

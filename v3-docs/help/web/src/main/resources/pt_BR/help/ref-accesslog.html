@@ -1,0 +1,188 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-accesslog"></a><h4>Servi&#231;o HTTP</h4>
+<a name="indexterm-55"></a><a name="indexterm-56"></a><p>Utilize a p&#225;gina Servi&#231;o HTTP para especificar a pol&#237;tica geral de registro
+de acesso aos aplicativos da Web.</p>
+
+<p>O servi&#231;o HTTP fornece os recursos para implanta&#231;&#227;o de aplicativos da Web
+e para tornar acess&#237;veis os aplicativos da Web instalados por clientes HTTP,
+juntamente com servidores virtuais, conjunto de amea&#231;as e a capacidade Configura&#231;&#227;o de
+Rede.</p>
+
+<p>O Servidor GlassFish utiliza o log de acesso do servi&#231;o HTTP para
+ativar e configurar a circula&#231;&#227;o de logs de acesso nos servidores virtuais.
+Esses registros est&#227;o localizados no diret&#243;rio <tt><i>domain-dir</i>/logs/access</tt> e s&#227;o nomeados como segue:
+<tt><i>virtual_server_name</i>_access_log.<i>yyyyMMdd</i>-<i>HH</i>h<i>mm</i>m<i>ss</i>s.txt</tt></p>
+
+<p>A p&#225;gina Servi&#231;o HTTP cont&#233;m as op&#231;&#245;es a seguir:</p>
+
+<dl><dt>Carregar padr&#245;es</dt>
+<dd><p>Bot&#227;o para restaurar os valores padr&#227;o de todas as configura&#231;&#245;es.</p>
+
+</dd>
+<dt>Nome da configura&#231;&#227;o</dt>
+<dd><p>Nome da configura&#231;&#227;o ao qual as configura&#231;&#245;es desta p&#225;gina ser&#227;o enviadas. Este campo &#233; de somente leitura.</p>
+
+</dd>
+<dt>SSO</dt>
+<dd><p>Identifica se o logon &#250;nico est&#225; ativado por padr&#227;o para todos os aplicativos da Web em todos os servidores virtuais neste servidor que est&#227;o configurados para o mesmo dom&#237;nio. Se essa op&#231;&#227;o n&#227;o est&#225; ativada, o logon &#250;nico &#233; desativado por padr&#227;o para todos os servidores virtuais e os usu&#225;rios precisam autenticar separadamente em cada aplicativo em cada servidor virtual. Voc&#234; pode sobrepor esta configura&#231;&#227;o para um servidor virtual individual. O SSO pode ser ativado ou desativado. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Log de acesso</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o log de acesso ser&#225; ativado para todos os subelementos de servidor virtual que n&#227;o especificarem essa propriedade. Se n&#227;o for selecionada, a op&#231;&#227;o desativar&#225; o log de acesso para todos os subelementos de servidor virtual que n&#227;o especificarem essa propriedade. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Rota&#231;&#227;o</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, a rota&#231;&#227;o do arquivo de log ser&#225; ativada. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p>
+
+</dd>
+<dt>Pol&#237;tica de rota&#231;&#227;o</dt>
+<dd><p>A &#250;nica pol&#237;tica de rota&#231;&#227;o dispon&#237;vel &#233; <tt>tempo</tt>.</p>
+
+</dd>
+<dt>Intervalo de rota&#231;&#227;o</dt>
+<dd><p>O n&#250;mero de minutos entre as rota&#231;&#245;es do log de acesso. Esse campo s&#243; ser&#225; v&#225;lido se a Pol&#237;tica de rota&#231;&#227;o for <tt>tempo</tt>. O valor padr&#227;o &#233; 1.440 minutos (24 horas).</p>
+
+</dd>
+<dt>Sufixo de rota&#231;&#227;o</dt>
+<dd><p>Valor de sequ&#234;ncia a ser adicionado ao final do nome do arquivo de log ap&#243;s a rota&#231;&#227;o. O valor padr&#227;o &#233; <tt>dd-MM-yyyy</tt>.</p>
+
+<p>Verifique se o sufixo de rota&#231;&#227;o cont&#233;m valores suficientes para criar um sufixo exclusivo para cada rota&#231;&#227;o de log. Por exemplo, se o log de acesso for circulado mais de uma vez ao dia, inclua a hora do dia no sufixo de rota&#231;&#227;o.</p>
+
+<p>Um sufixo exclusivo &#233; necess&#225;rio para assegurar que o arquivo de log de acesso seja circulado sempre que o intervalo de rota&#231;&#227;o for cumprido. Se o sufixo de rota&#231;&#227;o do novo arquivo de log de acesso for igual ao sufixo de rota&#231;&#227;o do arquivo de log existente, o arquivo n&#227;o ser&#225; circulado.</p>
+
+</dd>
+<dt>Contagem m&#225;x. de arquivos</dt>
+<dd><p>O n&#250;mero m&#225;ximo de arquivos de registro de acesso rotacionado a serem mantidos. Um valor negativo indica que n&#227;o h&#225; limite para a contagem de arquivos. O valor padr&#227;o &#233; &#8211;1.</p>
+
+</dd>
+<dt>Tamanho do buffer</dt>
+<dd><p>O tamanho, em bytes, do buffer de registros de acesso ou um valor menor que ou igual a 0 para registros de acesso sem buffer. O valor padr&#227;o &#233; 32.768.</p>
+
+</dd>
+<dt>Intervalo de grava&#231;&#227;o</dt>
+<dd><p>O n&#250;mero de segundos antes que o log seja gravado no disco. O log de acesso &#233; gravado quando o buffer est&#225; cheio ou quando o intervalo expira. Se o valor for menor que ou igual a 0, o buffer ser&#225; sempre gravado, mesmo que n&#227;o esteja cheio. Isso significa que, a cada vez que o servidor &#233; acessado, a mensagem de log &#233; armazenada diretamente no arquivo. O valor padr&#227;o &#233; 300.</p>
+
+</dd>
+<dt>Formato</dt>
+<dd><p>Valor de sequ&#234;ncia que especifica quais informa&#231;&#245;es devem ser capturadas no log de acesso e a ordem em que devem ser capturadas. O valor padr&#227;o &#233; o seguinte:</p>
+
+<pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>Esses valores est&#227;o dispon&#237;veis para inclus&#227;o na sequ&#234;ncia de formato:</p>
+
+<dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
+<dd><p>Registra o valor (ao chamar seu m&#233;todo <tt>toString</tt>) do atributo de solicita&#231;&#227;o com o determinado <i>nome</i></p>
+
+</dd>
+<dt><tt>%auth-user-name%</tt></dt>
+<dd><p>Nome do usu&#225;rio autorizado</p>
+
+</dd>
+<dt><tt>%client.name%</tt></dt>
+<dd><p>Nome do host cliente</p>
+
+</dd>
+<dt><tt>%client.dns%</tt></dt>
+<dd><p>DNS Cliente</p>
+
+</dd>
+<dt><tt>%cookie.<i>name</i>%</tt></dt>
+<dd><p>O valor do cookie solicitado com o <i>nome</i> determinado</p>
+
+</dd>
+<dt><tt>%cookie.value%</tt></dt>
+<dd><p>O valor do primeiro cookie encontrado na solicita&#231;&#227;o</p>
+
+</dd>
+<dt><tt>%datetime%</tt></dt>
+<dd><p>Data do sistema</p>
+
+</dd>
+<dt><tt>%request%</tt></dt>
+<dd><p>Linha de solicita&#231;&#227;o de HTTP completo</p>
+
+</dd>
+<dt><tt>%status%</tt></dt>
+<dd><p>Status</p>
+
+</dd>
+<dt><tt>%response.length%</tt></dt>
+<dd><p>Tamanho do conte&#250;do da resposta</p>
+
+</dd>
+<dt><tt>%header.referer%</tt></dt>
+<dd><p>Cabe&#231;alho do referenciador</p>
+
+</dd>
+<dt><tt>%header.user-agent%</tt></dt>
+<dd><p>Cabe&#231;alho de agente do usu&#225;rio</p>
+
+</dd>
+<dt><tt>%http-method%</tt></dt>
+<dd><p>M&#233;todo HTTP</p>
+
+</dd>
+<dt><tt>%http-uri%</tt></dt>
+<dd><p>URI HTTP</p>
+
+</dd>
+<dt><tt>%query-str%</tt></dt>
+<dd><p>Sequ&#234;ncia de consulta HTTP</p>
+
+</dd>
+<dt><tt>%http-version%</tt></dt>
+<dd><p>Vers&#227;o do protocolo HTTP</p>
+
+</dd>
+<dt><tt>%header.accept%</tt></dt>
+<dd><p>Cabe&#231;alho da aceita&#231;&#227;o</p>
+
+</dd>
+<dt><tt>%header.date%</tt></dt>
+<dd><p>Cabe&#231;alho de data</p>
+
+</dd>
+<dt><tt>%header.if-mod-since%</tt></dt>
+<dd><p>Cabe&#231;alho Se modificado desde</p>
+
+</dd>
+<dt><tt>%header.auth%</tt></dt>
+<dd><p>Cabe&#231;alho da autoriza&#231;&#227;o</p>
+
+</dd>
+<dt><tt>%header.<i>any</i>%</tt></dt>
+<dd><p>Um valor de cabe&#231;alho HTTP v&#225;lido em RFC 2616 (<tt>qualquer</tt> tamb&#233;m &#233; um valor de cabe&#231;alho v&#225;lido; est&#225; especificado como vari&#225;vel, aqui)</p>
+
+</dd>
+<dt><tt>%session.<i>name</i>%</tt></dt>
+<dd><p>O valor do atributo da sess&#227;o com o nome <i>nome</i>, <tt>NULL-SESSION-ATTRIBUTE-<i>nome</i></tt> se o atributo nomeado n&#227;o existe na sess&#227;o ou <tt>NULL-SESSION</tt> se nenhuma sess&#227;o existe</p>
+
+</dd>
+<dt><tt>%time-taken%</tt></dt>
+<dd><p>Tempo (em milissegundos) que levou para efetuar o servi&#231;o de cada solicita&#231;&#227;o</p>
+
+</dd>
+<dt><tt>%vs.id%</tt></dt>
+<dd><p>ID do servidor virtual</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Propriedades adicionais</dt>
+<dd><p>As propriedades adicionais do servi&#231;o HTTP. Para obter uma descri&#231;&#227;o das propriedades dispon&#237;veis, consulte <a href="ref-httpserviceprops.html">Propriedades espec&#237;ficas do servi&#231;o HTTP</a>.</p>
+
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-accesslog.html">Para configurar o servi&#231;o HTTP</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+<p>Nenhum.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

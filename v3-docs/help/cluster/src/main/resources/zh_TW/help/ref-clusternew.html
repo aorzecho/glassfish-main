@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusternew"></a><h4>新建叢集</h4>
+<a name="indexterm-162"></a><a name="indexterm-163"></a><p>使用 [新建叢集] 頁面可建立叢集。</p>
+
+<p>[新建叢集] 頁面包含下列選項。</p>
+
+<dl><dt>叢集名稱</dt>
+<dd><p>叢集的名稱。</p>
+
+<p>名稱必須符合下列需求：</p>
+
+
+<ul><li><p>名稱必須以字母、數字或底線為開頭。</p>
+
+</li>
+<li><p>名稱只能包含下列字元：</p>
+
+
+<ul><li><p>小寫字母</p>
+
+</li>
+<li><p>大寫字母</p>
+
+</li>
+<li><p>數字</p>
+
+</li>
+<li><p>連字符</p>
+
+</li>
+<li><p>小數點號</p>
+
+</li>
+<li><p>底線</p>
+
+</li></ul>
+</li>
+<li><p>名稱在網域中必須是唯一的，且不得為另一個叢集、已命名配置、GlassFish Server 實例或節點的名稱。</p>
+
+</li>
+<li><p>名稱不得為 <tt>domain</tt>、<tt>server</tt> 或 GlassFish Server 所保留的任何其他關鍵字。</p>
+
+</li></ul>
+</dd>
+<dt>配置</dt>
+<dd><p>叢集可以使用之現有已命名配置的下拉式清單。叢集需要已命名配置，該配置會定義增加至叢集之所有實例的配置。您必須從清單中選取一個配置。建立叢集時，叢集將使用所選取的配置。</p>
+
+</dd>
+<dt>複製選取的配置</dt>
+<dd><p>如果選取此選項，就會在建立叢集時複製選取的配置。為配置副本指定的名稱是 <tt><i>cluster-name</i>-config</tt>，其中 <i>cluster-name</i> 是在 [叢集名稱] 欄位中鍵入的叢集名稱。</p>
+
+<p>如果已從 [配置]下拉式清單中選取 <tt>default-config</tt>，則必須選取此選項。<tt>default-config</tt> 配置僅可複製，無法參照。</p>
+
+</dd>
+<dt>參照選取的配置</dt>
+<dd><p>如果選取此選項，叢集將會使用指定的現有已命名配置。</p>
+
+<p>如果已從 [配置] 下拉式清單中選取 <tt>default-config</tt>，則<b>不能</b>選取此選項。<tt>default-config</tt> 配置無法參照，僅可複製。</p>
+
+</dd>
+<dt>要建立的伺服器實例</dt>
+<dd><p>即將在建立叢集時建立的 GlassFish Server 實例清單。對於每個實例，均提供以下資訊：</p>
+
+<dl><dt>實例名稱</dt>
+<dd><p>實例的名稱。</p>
+
+</dd>
+<dt>權數</dt>
+<dd><p>一個整數，代表實例的負載平衡權數。</p>
+
+<p>負載平衡權數可決定送至叢集供實例處理之所有請求的比例。</p>
+
+<p>例如，在有兩個實例的叢集中，您可能需要讓其中一個實例處理每四個請求中的一個請求，而讓另一個實例處理每四個請求中的三個請求。在這種情況下，可將處理每四個請求中之一個請求的實例權數設定為 1，將另一個實例權數設定為 3。如果您要使用百分比，請將這兩個實例的權數分別設定為 25 與 75。</p>
+
+<p>預設權數為 100。</p>
+
+</dd>
+<dt>節點</dt>
+<dd><p>可存在實例之現有節點的下拉式清單。您必須從清單中選取一個節點。建立叢集時，實例將位於選取的節點上。</p>
+
+</dd>
+</dl>
+<p>要建立的伺服器實例表也包含下列選項。</p>
+
+<dl><dt>新建</dt>
+<dd><p>建立實例的按鈕。按一下此按鈕即可在要建立的伺服器實例表中增加一列。</p>
+
+</dd>
+<dt>刪除</dt>
+<dd><p>刪除實例的按鈕。</p>
+
+</dd>
+</dl>
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-create-cluster.html">建立叢集</a></p>
+
+</li></ul>
+<h5>等效 <tt>asadmin</tt> 子指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-cluster-1"><tt>create-cluster</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

@@ -1,0 +1,108 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-messagesecurityproviderconfignew"></a><h4>Creare una configurazione per il provider di sicurezza dei messaggi</h4><a name="indexterm-110"></a><p>Per creare una nuova configurazione per il provider di sicurezza dei messaggi,
+attenersi alla seguente procedura.</p>
+
+<h6>Prima di cominciare</h6><p>Non &#232; possibile creare o eliminare provider di sicurezza dei messaggi per
+la configurazione <tt>server-config</tt> predefinita. Gli unici provider di sicurezza dei messaggi supportati
+per la configurazione <tt>server-config</tt> predefinita sono SOAP e HttpServlet. Poich&#233; questi due
+provider vengono gi&#224; creati per impostazione predefinita al momento dell'installazione di GlassFish
+Server, il pulsante New non &#232; disponibile nella pagina Message Security Configurations
+per la configurazione <tt>server-config</tt> predefinita.</p>
+
+<ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
+<li><b>Espandere il nodo Security.</b></li>
+<li><b>Selezionare il nodo Message Security.</b><p>Viene visualizzata la pagina Message Security Configurations.</p></li>
+<li><b>Nella pagina Message Security Configurations fare clic sul nome Authentication Layer della
+configurazione da modificare.</b><p>Per impostazione predefinita l'unica configurazione della sicurezza dei messaggi impostata &#232; SOAP.</p><p>Viene visualizzata la pagina Edit Message Security Configuration.</p></li>
+<li><b>Fare clic sulla scheda Providers.</b><p>Viene visualizzata la pagina Provider Configurations.</p></li>
+<li><b>Nella pagina Provider Configurations fare clic su New.</b><p>Viene visualizzata la pagina New Provider Configuration.</p></li>
+<li><b>Nel campo Provider ID della pagina New Provider Configuration, digitare un nome
+univoco per la configurazione del provider.</b></li>
+<li><b>Selezionare la casella di controllo Default Provider per impostare il provider come
+provider predefinito.</b><p>Il provider predefinito verr&#224; chiamato per tutte le applicazioni che non identificano
+un provider specifico. Con l'opzione Provider Type &#232; possibile impostare il provider
+come provider client predefinito, provider server predefinito o entrambi.</p></li>
+<li><b>Dall'elenco a discesa Provider Type selezionare il tipo di provider.</b><p>Sono disponibili le seguenti opzioni:</p><dl><dt><tt>client</tt></dt>
+<dd><p>Specifica che il provider &#232; il provider di autenticazione client.</p>
+
+</dd>
+<dt><tt>server</tt></dt>
+<dd><p>Specifica che il provider &#232; il provider di autenticazione server.</p>
+
+</dd>
+<dt><tt>client-server</tt></dt>
+<dd><p>Specifica che il provider &#232; un provider di autenticazione sia client sia server.</p>
+
+</dd>
+</dl>
+</li>
+<li><b>Nel campo Class Name digitare il nome della classe di implementazione Java
+del provider.</b><p>I provider di autenticazione client devono implementare l'interfaccia <tt>com.sun.enterprise.security.jauth.ClientAuthModule</tt> . I provider
+del lato server devono implementare l'interfaccia <tt>com.sun.enterprise.security.jauth.ServerAuthModule</tt> . I provider client/server devono
+implementare entrambe le interfacce.</p></li>
+<li><b>Nell'elenco a discesa Authenticate Source dell'area Request Policy, selezionare il tipo di
+autenticazione necessaria per il criterio di richiesta.</b><p>Il criterio di richiesta determina l'elaborazione di richiesta implementata dal provider di
+autenticazione. I campi del criterio di richiesta sono facoltativi, ma se non
+vengono specificati il provider di autenticazione non autentica i messaggi di richiesta.</p><p>Selezionare <tt>sender</tt> per specificare l'autenticazione del mittente di livello messaggio (ad esempio
+nome utente e password) per i messaggi di richiesta. Selezionare <tt>content</tt> per
+specificare l'autenticazione del contenuto (ad esempio firma digitale) per i messaggi di
+richiesta. Lasciare il campo vuoto per non autenticare l'origine delle richieste. Per
+impostazione predefinita non &#232; selezionato alcun tipo di autenticazione.</p><p>Per la descrizione delle operazioni eseguite dai provider di sicurezza dei messaggi
+SOAP, vedere <a href="ref-configreq-respolicy.html">Configurazioni di criteri di richiesta e risposta</a>.</p></li>
+<li><b>Nell'elenco a discesa Authenticate Recipient selezionare se eseguire l'autenticazione del destinatario prima
+o dopo l'autenticazione del contenuto per il criterio di richiesta.</b><p>Selezionare <tt>before-content</tt> o <tt> after-content</tt> per richiedere l'autenticazione di livello messaggio del destinatario
+del messaggio di richiesta nei confronti del mittente (mediante crittografia XML). Se
+il valore non viene specificato, l'impostazione predefinita &#232; <tt>after-content</tt>. I criteri vengono
+espressi nell'ordine definito dal mittente, pertanto <tt>after-content</tt> indica che il destinatario decifra
+il messaggio prima di convalidare la firma.</p></li>
+<li><b>Nell'elenco a discesa Authenticate Source dell'area Response Policy, selezionare il tipo di
+autenticazione necessaria per il criterio di risposta.</b><p>Il criterio di risposta determina l'elaborazione di risposta implementata dal provider di
+autenticazione. I campi del criterio di risposta sono facoltativi, ma se non
+vengono specificati, ai messaggi di risposta non viene applicata alcuna autenticazione.</p><p>Selezionare <tt>sender</tt> per specificare l'autenticazione del mittente di livello messaggio (ad esempio
+nome utente e password) per i messaggi di risposta. Selezionare <tt>content</tt> per
+specificare l'autenticazione a livello di contenuto (ad esempio firma digitale) per i
+messaggi di risposta. Lasciare il campo vuoto per non autenticare le origini
+delle risposte. Per impostazione predefinita non &#232; selezionato alcun tipo di autenticazione.</p><p>Per la descrizione delle operazioni eseguite dai provider di sicurezza dei messaggi
+SOAP, vedere <a href="ref-configreq-respolicy.html">Configurazioni di criteri di richiesta e risposta</a>.</p></li>
+<li><b>Nell'elenco a discesa Authenticate Recipient selezionare se eseguire l'autenticazione del destinatario prima
+o dopo l'autenticazione del contenuto per il criterio di risposta.</b><p>Selezionare <tt>before-content</tt> o <tt> after-content</tt> per definire il requisito per l'autenticazione di livello
+messaggio del destinatario del messaggio di risposta nei confronti del mittente (mediante
+crittografia XML). Se il valore non viene specificato, l'impostazione predefinita &#232; <tt>after-content</tt>.
+I criteri vengono espressi nell'ordine definito dal mittente, pertanto <tt>after-content</tt> indica che
+il destinatario decifra il messaggio prima di convalidare la firma.</p></li>
+<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
+vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
+valore della propriet&#224; nel campo Value.</p><p>Per la descrizione delle propriet&#224; aggiuntive disponibili per le configurazioni dei provider,
+vedere <a href="ref-messagesecurityproviderconfigprops.html">Propriet&#224; specifiche delle configurazioni di provider di sicurezza dei messaggi</a>.</p></li>
+<li><b>Fare clic su OK.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-configmsgsecproviders.html">Configurare le risorse di GlassFish Server utilizzate dai provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfignew.html">Creare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfigedit.html">Modificare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfigdelete.html">Eliminare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfigedit.html">Modificare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfigdelete.html">Eliminare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-enablemesec4appclients.html">Abilitare la sicurezza dei messaggi per i client dell'applicazione</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

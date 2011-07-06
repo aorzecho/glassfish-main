@@ -1,0 +1,133 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jdbcconnectionpooledittab"></a><h4>接続プールを編集</h4>
+<a name="indexterm-23"></a><p>「接続プールを編集」ページを使用して、JDBC 接続プールの一般プロパティーを編集します。</p>
+
+<p>「接続プールを編集」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>フラッシュ</dt>
+<dd><p>接続プール内の接続を再初期化するボタン。このボタンをクリックすると、既存の接続が破棄されます。プールで確立された接続が再作成され、プールが初期および最小プールサイズに復元されます。</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>接続プールが使用可能であることを確認するボタン。このボタンをクリックしたときにエラーメッセージが表示された場合は、データベースサーバーが起動されているかどうかを確認してください。</p>
+
+</dd>
+<dt>プール名</dt>
+<dd><p>接続プールの名前。このフィールドは読み取り専用です。プール名を指定できるのは、新しい JDBC 接続プールの作成時のみです。</p>
+
+</dd>
+<dt>リソースタイプ</dt>
+<dd><p>選択できるのは、javax.sql.XADataSource (グローバルトランザクション)、java.sql.ConnectionPoolDataSource (ローカルトランザクション、パフォーマンス改善が可能)、javax.sql.DataSource (ローカルトランザクションのみ)、および <tt>java.sql.Driver</tt> です。</p>
+
+</dd>
+<dt>データソースクラス名</dt>
+<dd><p>データソースを実装するベンダー固有のクラス名。</p>
+
+</dd>
+<dt>ドライバクラス名</dt>
+<dd><p>ベンダーが提供する JDBC ドライバクラス名。java.sql.Driver リソースタイプを選択した場合、通常このフィールドには、選択したドライバとデータベースベンダーに関連付けられたクラス名が自動的に入力されます。データソースリソースタイプのいずれかを選択した場合、このフィールドは無効になります。</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>このオプションを選択した場合、プールの作成または再設定中にプールに対して自動的に ping が実行され、誤った属性値が識別および警告されます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>説明</dt>
+<dd><p>接続プールの簡単な説明。</p>
+
+</dd>
+<dt>初期および最小プールサイズ</dt>
+<dd><p>プール内の接続の最小数。この値は、プールを最初に作成したり、GlassFish サーバー を起動したりしたときの、プールに含まれる接続の数も判定します。デフォルト値は 8 です。</p>
+
+</dd>
+<dt>最大プールサイズ</dt>
+<dd><p>プールに含まれる接続の最大数。デフォルト値は 32 です。</p>
+
+</dd>
+<dt>プールサイズ変更量</dt>
+<dd><p>プールのサイズを最大プールサイズおよび最小プールサイズに対して拡大および縮小すると、一括処理でプールサイズが変更されます。この値は一括処理での接続の数を指定します。この値を過大に設定すると接続の作成と再利用が遅れ、過小に設定すると効率が落ちます。デフォルト値は 2 です。</p>
+
+</dd>
+<dt>アイドルタイムアウト</dt>
+<dd><p>プール内でアイドル接続が許可される最大継続時間 (秒)。この時間を過ぎると、接続はプールから削除されます。デフォルト値は 300 です。</p>
+
+</dd>
+<dt>最大待ち時間</dt>
+<dd><p>接続を要求しているアプリケーションが接続タイムアウトを受け取るまでに待機するミリ秒単位の最長時間を指定します。デフォルト値は 60,000 です。</p>
+
+</dd>
+<dt>非トランザクション接続</dt>
+<dd><p>このオプションが有効な場合、非トランザクション接続が返されます。デフォルトでは、このオプションは指定されていません。</p>
+
+</dd>
+<dt>トランザクション遮断</dt>
+<dd><p>トランザクション遮断レベルを指定する場合、このプール内の接続には指定されたレベルが適用されます。指定しない場合、接続には JDBC ドライバによって設定されるデフォルトの遮断レベルが適用されます。デフォルトでは、このオプションは指定されていません。</p>
+
+</dd>
+<dt>遮断レベル</dt>
+<dd><p>「保証」チェックボックスを選択すると、プールから取得されるすべての接続が同じ遮断レベルになります。たとえば、最後の使用時に <tt>con.setTransactionIsolation</tt> を使って接続の遮断レベルをプログラム的に変更した場合、このメカニズムによって状態が指定の遮断レベルに戻されます。</p>
+
+<p>このフィールドが適用されるのは、トランザクション遮断レベルが指定された場合のみです。</p>
+
+</dd>
+</dl>
+<a name="gkomw"></a><h5>関連操作</h5>
+
+<ul><li><p><a href="task-setdbaccess.html">「データベースアクセスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">「JDBC ドライバを統合する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">「JDBC 接続プールを作成する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">「JDBC 接続プールの一般設定を編集する」</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">「接続プール設定を検証する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">「JDBC 接続プールの詳細属性を編集する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">「JDBC 接続プールのプロパティーを編集する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">「JDBC 接続プールを削除する」</a></p>
+
+</li></ul>
+<a name="gkolc"></a><h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=add-resources-1"><tt>add-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jdbc-connection-pool-1"><tt>create-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jdbc-connection-pool-1"><tt>delete-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jdbc-connection-pools-1"><tt>list-jdbc-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=ping-connection-pool-1"><tt>ping-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-database-1"><tt>start-database</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-database-1"><tt>stop-database</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

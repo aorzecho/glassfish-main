@@ -1,0 +1,114 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsphysicaldestedit"></a><h4>JMS 物理送信先の編集</h4>
+<a name="indexterm-53"></a><a name="indexterm-54"></a><p>JMS 物理送信先の設定を変更するには、「JMS 物理送信先の編集」ページを使用します。</p>
+
+<p>「JMS 物理送信先の編集」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>名前</dt>
+<dd><p>物理送信先の名前。このフィールドは読み取り専用です。名前を指定できるのは、JMS 送信先リソースまたは物理送信先の作成時のみです。</p>
+
+</dd>
+<dt>タイプ</dt>
+<dd><p>物理送信先のタイプ。このフィールドは読み取り専用です。タイプを指定できるのは、JMS 送信先リソースまたは物理送信先の作成時のみです。</p>
+
+</dd>
+<dt>消費していないメッセージの最大数</dt>
+<dd><p>送信先で許可されている未消費メッセージの最大数。-1 を指定すると、未消費メッセージの数は制限されません。デフォルト値は &#8211;1 です。</p>
+
+</dd>
+<dt>最大メッセージサイズ</dt>
+<dd><p>単一メッセージの最大サイズ (バイト単位)。-1 を指定すると、メッセージのサイズは制限されません。デフォルト値は &#8211;1 です。</p>
+
+</dd>
+<dt>最大総メモリー</dt>
+<dd><p>未消費メッセージの最大合計メモリー (バイト単位)。-1 を指定すると、未消費メッセージのメモリーサイズは制限されません。デフォルト値は &#8211;1 です。</p>
+
+</dd>
+<dt>しきい値制限の動作</dt>
+<dd><p>メモリー制限のしきい値に達したときのブローカの動作。次のタイプを指定できます。</p>
+
+<dl><dt><tt>Reject newest messages</tt></dt>
+<dd><p>最新のメッセージを拒否し、メッセージが継続する場合のみ、メッセージを生成しているクライアントに例外を通知します。この値がデフォルト値です。</p>
+
+</dd>
+<dt><tt>Slow down producers</tt></dt>
+<dd><p>メッセージプロデューサがメッセージを送信する頻度を下げます。</p>
+
+</dd>
+<dt><tt>Throw out oldest</tt></dt>
+<dd><p>もっとも古いメッセージを破棄します。</p>
+
+</dd>
+<dt><tt>Throw out lowest-priority essages</tt></dt>
+<dd><p>優先度のもっとも低いメッセージを破棄します。</p>
+
+</dd>
+</dl>
+<p>値が Throw out oldest または Throw out lowest-priority messages で、「デッドメッセージキューを使用」が true に設定されている場合、超過したメッセージはデッドメッセージキューに送られます。</p>
+
+</dd>
+<dt>プロデューサの最大数</dt>
+<dd><p>この物理送信先に関連付けることができるメッセージプロデューサの最大数。この制限に達すると、新しいプロデューサを作成できなくなります。-1 を指定すると、プロデューサの数は制限されません。デフォルト値は 100 です。</p>
+
+</dd>
+<dt>バッチ配信の最大メッセージ数</dt>
+<dd><p>単一のバッチでコンシューマに配送可能なメッセージの最大数。-1 を指定すると、メッセージの数は制限されません。デフォルト値は 1000 です。</p>
+
+</dd>
+<dt>デッドメッセージキューを使用</dt>
+<dd><p>このオプションを有効にすると、デッドメッセージがデッドメッセージキューに送られます。このオプションが無効の場合、デッドメッセージは破棄されます。このオプションはデフォルトで有効になっています。</p>
+
+</dd>
+<dt>XML スキーマの妥当性検査</dt>
+<dd><p>このオプションを有効にすると、Message Queue クライアントランタイムは XML メッセージをブローカに送信する前に、指定した XML Schema Definition (XSD が指定されていない場合は DTD) を使用してメッセージの検証を行います。指定したスキーマが見つからないかメッセージを検証できない場合、メッセージは送信されず例外がスローされます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>XML スキーマ URI リスト</dt>
+<dd><p>XML Schema Definition (XSD) URI 文字列の空白区切りのリスト。XML スキーマ検証が有効な場合、URI は XML スキーマ検証に使用する 1 つまたは複数の XSD の場所を指します。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-jmsservice.html">「JMS サービスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestnew.html">「JMS 物理送信先を作成する」</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestedit.html">「JMS 物理送信先を編集する」</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestdelete.html">「JMS 物理送信先を削除する」</a></p>
+
+</li>
+<li><p><a href="task-jmsflushmessages.html">「JMS 物理送信先からメッセージを削除する」</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldeststats.html">「JMS 物理送信先の統計情報を表示する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jmsdest-1"><tt>create-jmsdest</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jmsdest-1"><tt>list-jmsdest</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jmsdest-1"><tt>delete-jmsdest</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=flush-jmsdest-1"><tt>flush-jmsdest</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=jms-ping-1"><tt>jms-ping</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

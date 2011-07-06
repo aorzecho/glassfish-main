@@ -1,0 +1,117 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-editnode"></a><h4>Modificare un nodo</h4><a name="indexterm-157"></a><p>La modifica di un nodo causa l'aggiornamento dei dati di configurazione del
+nodo GlassFish Server. La modifica di un nodo consente inoltre di modificare
+il tipo di nodo da CONFIG a SSH per attivare la comunicazione
+SSH per il nodo.</p>
+
+<p>Se si modifica il tipo di nodo da CONFIG a SSH e
+si lascia vuoto uno dei campi indicati di seguito, vengono applicati i
+valori predefiniti.</p>
+
+
+<ul><li><p>SSH Port</p>
+
+</li>
+<li><p>SSH User Name</p>
+
+</li>
+<li><p>Key File</p>
+
+</li></ul>
+<ol>
+<li><b>Nella struttura ad albero, espandere il nodo Nodes.</b></li>
+<li><b>Nell'elenco di nodi, selezionare il nodo da modificare.</b><p>Viene visualizzata la pagina Edit Node.</p></li>
+<li><b>Nell'elenco a discesa Type selezionare il tipo di nodo da creare.</b><ul>
+<li><b>Per abilitare il nodo per il supporto della comunicazione SSH (Secure Shell),
+selezionare SSH.</b></li>
+<li><b>Per rimuovere il supporto della configurazione remota dal nodo, selezionare CONFIG.</b><p>Se si seleziona CONFIG, non vengono visualizzate opzioni per la configurazione SSH.
+Se il tipo corrente del nodo &#232; SSH e si seleziona CONFIG,
+i dati di configurazione SSH vengono rimossi dalla configurazione del nodo quando
+si salvano le modifiche.</p></li></ul></li>
+<li><b>Nel campo Node Host digitare il nome dell'host che il nodo aggiornato
+deve rappresentare.</b><p>L'obbligatoriet&#224; di tale campo dipende dal tipo del nodo:</p>
+<ul><li><p>Se il nodo &#232; di tipo CONFIG, &#232; possibile omettere il nome dell'host. Tale nome potr&#224; essere determinato al momento della creazione delle istanze che risiedono nel nodo.</p>
+
+</li>
+<li><p>Se il nodo &#232; di tipo SSH, &#232; necessario specificare il nome dell'host. Altrimenti si verifica un errore.</p>
+
+</li></ul>
+</li>
+<li><b>Nel campo Node Directory digitare il percorso nella directory destinata a contenere
+le istanze GlassFish Server che vengono create nel nodo.</b><p>Se si digita un percorso relativo, il percorso si riferisce alla directory
+<i>as-install</i>, dove <i>as-install</i> &#232; la directory base di installazione del software GlassFish
+Server nell'host.</p></li>
+<li><b>Nel campo Installation Directory, digitare il percorso completo del livello superiore della
+directory base di installazione del software GlassFish Server nell'host, ad esempio <tt>/export/glassfish3/</tt>.</b></li>
+<li><b>Per forzare la creazione del nodo nella configurazione del server di amministrazione
+del dominio (DAS, Domain Administration Server) anche in caso di errore di
+convalida dei parametri del nodo, abilitare l'opzione Force.</b></li>
+<li><b>Nel campo SSH Port digitare la porta da utilizzare per le connessioni
+SSH all'host del nodo.</b><p>Se si modifica il tipo di nodo da CONFIG a SSH e
+si lascia il campo vuoto, l'opzione SSH Port viene impostata su 22.</p></li>
+<li><b>Nel campo SSH User Name digitare il nome dell'utente nell'host del nodo
+che deve eseguire il processo per la connessione all'host tramite SSH.</b><p>Se si modifica il tipo di nodo da CONFIG a SSH e
+si lascia il campo vuoto, l'opzione SSH User Name viene impostata sull'utente
+che esegue il processo DAS.</p></li>
+<li><b>Specificare la modalit&#224; di autenticazione dell'utente SSH per il login all'host del
+nodo.</b><ul>
+<li><b>Per specificare l'autenticazione tramite un file di chiave privata SSH, attenersi alla
+procedura seguente:</b><ol style="list-style-type: lower-alpha">
+<li><b>Nell'elenco a discesa SSH User Authentication selezionare Key File.</b></li>
+<li><b>Nel campo Key File digitare il percorso assoluto del file della chiave
+privata SSH per l'utente specificato nell'opzione SSH User Name. </b>
+<hr><p><b>Nota - </b>GlassFish Server supporta anche l'autenticazione della password tramite la voce <tt>AS_ADMIN_SSHPASSWORD</tt> nel
+file delle password. Il file delle password &#232; specificato nell'opzione <tt>--paswordfile</tt> dell'utility
+<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
+
+
+<hr>
+<p>Se si modifica il tipo di nodo da CONFIG a SSH e
+si lascia il campo vuoto, l'opzione Key File viene impostata su un
+file di chiave nella directory <tt>.ssh</tt> dell'utente. Se vengono rilevati pi&#249; file
+di chiave, GlassFish Server utilizza l'ordine di preferenza seguente:</p>
+<ul><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>identity</tt></p>
+
+</li></ul>
+</li></ol></li>
+<li><b>Per specificare l'autenticazione tramite una password memorizzata nella configurazione del DAS, attenersi
+alla procedura seguente:</b>
+<hr><p><b>Avvertenza - </b>La password viene memorizzata come testo non crittografato nella configurazione del DAS.
+Per una maggiore sicurezza, utilizzare un file di chiave o un alias
+di password.</p>
+
+
+<hr>
+<ol style="list-style-type: lower-alpha">
+<li><b>Nell'elenco a discesa SSH User Authentication selezionare Password.</b></li>
+<li><b>Nel campo SSH Password digitare la password che l'utente SSH utilizzer&#224; per
+il login all'host del nodo. </b></li>
+<li><b>Nel campo Confirm SSH Password ridigitare la nuova password.</b></li></ol></li>
+<li><b>Per specificare l'autenticazione tramite un alias di password, attenersi alla procedura seguente:</b><ol style="list-style-type: lower-alpha">
+<li><b>Nell'elenco a discesa SSH User Authentication selezionare Password Alias.</b></li>
+<li><b>Nell'elenco a discesa Password Alias selezionare un alias esistente.</b></li></ol></li></ul></li>
+<li><b>Fare clic su Save.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-createnode.html">Creare un nodo</a></p>
+
+</li>
+<li><p><a href="task-deletenode.html">Eliminare nodi</a></p>
+
+</li>
+<li><p><a href="task-listnodes.html">Visualizzare l'elenco di tutti i nodi nel dominio corrente</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

@@ -1,0 +1,97 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterproperties"></a><h4>Propiedades del cl&#250;ster</h4>
+<a name="indexterm-193"></a><a name="indexterm-194"></a><p>La p&#225;gina Propiedades del cl&#250;ster muestra una lista de las propiedades que
+se definen para los cl&#250;steres seleccionados. Estas propiedades agregan informaci&#243;n adicional sobre
+el cl&#250;ster.</p>
+
+<p>El campo Nombre de cl&#250;ster es un campo de s&#243;lo lectura que
+muestra el nombre del cl&#250;ster seleccionado.</p>
+
+<p>Para cada propiedad se muestra la informaci&#243;n siguiente:</p>
+
+<dl><dt>Nombre</dt>
+<dd><p>Nombre de la propiedad.</p>
+
+</dd>
+<dt>Valor</dt>
+<dd><p>Valor de la propiedad que se define para la instancia seleccionada.</p>
+
+</dd>
+<dt>Descripci&#243;n</dt>
+<dd><p>Descripci&#243;n textual que ofrece m&#225;s informaci&#243;n sobre la propiedad.</p>
+
+</dd>
+</dl>
+<p>La tabla Propiedades adicionales tambi&#233;n contiene las opciones siguientes.</p>
+
+<dl><dt>Agregar propiedad</dt>
+<dd><p>Bot&#243;n para agregar una propiedad. Al hacer clic en este bot&#243;n se a&#241;ade una fila a la tabla Propiedades adicionales.</p>
+
+</dd>
+<dt>Eliminar propiedades</dt>
+<dd><p>Bot&#243;n para eliminar una o varias propiedades seleccionadas. Cualquier propiedad que se elimine vuelve a su valor predeterminado o, si no se ha definido ning&#250;n valor predeterminado, se queda sin definir.</p>
+
+</dd>
+</dl>
+<p>GlassFish Server define las siguientes propiedades del cl&#250;ster:</p>
+
+<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
+<dd><p>N&#250;mero del puerto en el que el cl&#250;ster escucha los mensajes de Servicios de administraci&#243;n de grupos (GMS). El valor predeterminado ser&#225; suficiente en la mayor&#237;a de las situaciones.</p>
+
+</dd>
+<dt><tt>GMS_LOOPBACK</tt></dt>
+<dd><p>Especifica si una instancia recibir&#225; de ella misma mensajes de nivel de aplicaci&#243;n que emita para el cl&#250;ster.</p>
+
+<p>Los valores posibles son los siguientes: </p>
+
+<dl><dt><tt>false</tt></dt>
+<dd><p>Es posible que la instancia <b>no</b> reciba mensajes de ella misma (configuraci&#243;n predeterminada).</p>
+
+</dd>
+<dt><tt>true</tt></dt>
+<dd><p>La instancia puede recibir mensajes de ella misma. Utilice esta configuraci&#243;n para probar una instancia cuando sea la &#250;nica de un cl&#250;ster.</p>
+
+</dd>
+</dl>
+</dd>
+<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
+<dd><p>N&#250;mero m&#225;ximo de iteraciones o transmisiones que puede experimentar un mensaje de multidifusi&#243;n para los siguientes tipos de eventos antes de descartar el mensaje:</p>
+
+
+<ul><li><p>Detecci&#243;n de grupos</p>
+
+</li>
+<li><p>Latidos de miembros</p>
+
+</li>
+<li><p>Cambios de miembros</p>
+
+</li></ul>
+<p>Para coincidir con la configuraci&#243;n de la red en la que se implementan el DAS y las instancias agrupadas en cl&#250;ster, configure esta opci&#243;n con el valor m&#225;s bajo posible. Para determinar el valor m&#237;nimo posible para el sistema, utilice el subcomando <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=validate-multicast-1"><tt>validate-multicast</tt>(1)</a>.</p>
+
+<p>Un valor de 0 garantiza que los mensajes de multidifusi&#243;n nunca dejar&#225;n el host desde el cual se emiten.</p>
+
+<p>Un valor de 1 puede impedir la emisi&#243;n de mensajes entre hosts de la misma subred que est&#225;n conectados mediante un conmutador o un enrutador. </p>
+
+<p>El valor predeterminado es 4, que garantiza que los mensajes se emitan correctamente a todos los miembros del cl&#250;ster de las redes en las que se han conectado los hosts mediante conmutadores o enrutadores.</p>
+
+</dd>
+</dl>
+<h5>Subcomandos <tt>asadmin</tt> equivalentes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=get-1"><tt>get</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-1"><tt>list</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

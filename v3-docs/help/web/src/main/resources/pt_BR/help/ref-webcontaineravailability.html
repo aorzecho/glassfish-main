@@ -1,0 +1,109 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-webcontaineravailability"></a><h4>Disponibilidade de recipiente da Web</h4>
+<a name="indexterm-39"></a><a name="indexterm-40"></a><p>Utilize a p&#225;gina Disponibilidade de recipiente da Web para configurar as defini&#231;&#245;es
+de disponibilidade do recipiente da Web.</p>
+
+<p>A p&#225;gina Disponibilidade de recipiente da Web cont&#233;m as op&#231;&#245;es a seguir.</p>
+
+<dl><dt>Carregar padr&#245;es</dt>
+<dd><p>Bot&#227;o para restaurar os valores padr&#227;o de todas as configura&#231;&#245;es.</p>
+
+</dd>
+<dt>Nome da configura&#231;&#227;o</dt>
+<dd><p>Nome da configura&#231;&#227;o ao qual as configura&#231;&#245;es desta p&#225;gina ser&#227;o enviadas. Este campo &#233; de somente leitura.</p>
+
+</dd>
+<dt>Servi&#231;o de disponibilidade</dt>
+<dd><p>Se a caixa de sele&#231;&#227;o Ativo estiver marcada, a disponibilidade est&#225; ativada para o recipiente da Web.</p>
+
+</dd>
+<dt>Tipo de persist&#234;ncia</dt>
+<dd><p>O mecanismo de persist&#234;ncia utilizado.</p>
+
+
+<ul><li><p>Se a op&#231;&#227;o Servi&#231;o de disponibilidade ativado <b>n&#227;o</b> estiver marcada, selecione uma das seguintes op&#231;&#245;es:</p>
+
+
+<ul><li><p><tt>memory</tt> para nenhuma persist&#234;ncia de sess&#227;o</p>
+
+</li>
+<li><p><tt>file</tt> para persist&#234;ncia de sess&#227;o com base no sistema de arquivos que n&#227;o est&#225; altamente dispon&#237;vel</p>
+
+</li></ul>
+</li>
+<li><p>Se a op&#231;&#227;o Servi&#231;o de disponibilidade ativado estiver marcada, selecione <tt>replicated</tt> para persist&#234;ncia de sess&#227;o com base no failover do cluster que est&#225; altamente dispon&#237;vel.</p>
+
+</li></ul>
+</dd>
+<dt>Frequ&#234;ncia da persist&#234;ncia</dt>
+<dd><p>Frequ&#234;ncia em que a sess&#227;o HTTP &#233; armazenada:</p>
+
+
+<ul><li><p><tt>web-method</tt> &#8212; O estado da sess&#227;o &#233; armazenado no final de cada solicita&#231;&#227;o, antes do envio de uma resposta de volta para o cliente. Este modo oferece a melhor garantia de que o estado da sess&#227;o estar&#225; totalmente atualizado em caso de falha. Esse &#233; o padr&#227;o.</p>
+
+</li>
+<li><p><tt>time-based</tt> &#8212; O estado da sess&#227;o &#233; armazenado em segundo plano na frequ&#234;ncia definida pela configura&#231;&#227;o do intervalo de duplica&#231;&#227;o. Para obter mais informa&#231;&#245;es sobre esta configura&#231;&#227;o, consulte <a href="task-webcontainermanagerprops.html">Para configurar as propriedades do gerenciador do recipiente da Web</a>.</p>
+
+<p>Este modo oferece menos garantia de que o estado da sess&#227;o estar&#225; totalmente atualizado. No entanto, pode oferecer significativa melhoria no desempenho porque o estado n&#227;o &#233; armazenado depois de cada solicita&#231;&#227;o.</p>
+
+</li></ul>
+</dd>
+<dt>Escopo da persist&#234;ncia</dt>
+<dd><p>Altera&#231;&#245;es do escopo da sess&#227;o HTTP necess&#225;rias para que o armazenamento ocorra:</p>
+
+
+<ul><li><p><tt>session</tt> &#8212; Todo o estado da sess&#227;o &#233; armazenado a cada instante. Este modo oferece a melhor garantia de que os dados da sess&#227;o sejam corretamente armazenados em qualquer aplicativo da Web distribu&#237;vel.</p>
+
+</li>
+<li><p><tt>modified-session</tt> &#8212; Todo o estado da sess&#227;o &#233; armazenado se ela tiver sido modificada. Uma sess&#227;o &#233; considerada modificada caso <tt>HttpSession.setAttribute()</tt> ou <tt> HttpSession.removeAttribute()</tt> tenha sido chamado. Certifique-se de chamar <tt>setAttribute()</tt> sempre que um atributo for alterado. N&#227;o se trata de um requisito da especifica&#231;&#227;o Java EE, mas sim uma necessidade para que este modo funcione corretamente.</p>
+
+</li>
+<li><p><tt>modified-attribute</tt> &#8212; Somente os atributos modificados da sess&#227;o s&#227;o armazenados. Para que este modo funcione corretamente, &#233; necess&#225;rio seguir estas diretrizes:</p>
+
+
+<ul><li><p>Chame <tt>setAttribute()</tt> sempre que o estado da sess&#227;o for modificado.</p>
+
+</li>
+<li><p>Certifique-se de que n&#227;o haja refer&#234;ncias cruzadas entre os atributos. O gr&#225;fico do objeto em cada chave de atributo diferente &#233; serializado e armazenado separadamente. Se houver quaisquer refer&#234;ncias cruzadas do objeto entre os objetos em cada chave diferente, eles n&#227;o s&#227;o serializados e desserializados corretamente.</p>
+
+</li>
+<li><p>Distribua o estado da sess&#227;o em muitos atributos ou, pelo menos, entre um atributo somente leitura e um atributo modific&#225;vel.</p>
+
+</li></ul>
+</li></ul>
+</dd>
+<dt>Estado de logon &#250;nico</dt>
+<dd><p>Se a caixa de sele&#231;&#227;o Ativado estiver marcada, o estado de logon &#250;nico est&#225; dispon&#237;vel para failover. </p>
+
+</dd>
+<dt>Propriedades adicionais</dt>
+<dd><p>Propriedades adicionais da disponibilidade do recipiente da Web.</p>
+
+<p>O Servidor GlassFish n&#227;o define propriedades adicionais da disponibilidade do recipiente da Web.</p>
+
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">Para configurar as propriedades gerais do recipiente da Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">Para configurar as propriedades da sess&#227;o do recipiente da Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">Para configurar as propriedades do gerenciador do recipiente da Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">Para configurar as propriedades de armazenamento do recipiente da Web</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente da Web</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

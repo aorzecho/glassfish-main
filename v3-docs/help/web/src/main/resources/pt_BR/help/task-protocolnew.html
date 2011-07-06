@@ -1,0 +1,192 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-protocolnew"></a><h4>Para criar um protocolo</h4><a name="indexterm-24"></a><ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
+<li><b>No n&#243; Configura&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o da Rede.</b></li>
+<li><b>No n&#243; Config da rede, selecione o n&#243; Protocolos.</b><p>&#201; aberta a p&#225;gina Protocolos.</p></li>
+<li><b>Na p&#225;gina Protocolos, clique em Novo.</b><p>&#201; aberta a p&#225;gina Novo Protocolo.</p></li>
+<li><b>No campo Nome, digite um nome &#250;nico para o protocolo.</b></li>
+<li><b>Marque a caixa de sele&#231;&#227;o Seguran&#231;a Ativada para habilitar a seguran&#231;a do
+protocolo.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada. Caso voc&#234; ative a seguran&#231;a, poder&#225;
+usar a guia SSL da p&#225;gina Editar Protocolo para modificar as configura&#231;&#245;es
+de seguran&#231;a.</p></li>
+<li><b>Marque a caixa de sele&#231;&#227;o Status Ativado para habilitar o cache do
+arquivo.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li>
+<li><b>No campo Tempo M&#225;ximo, digite o tempo m&#225;ximo, em segundos, de uma
+entrada de cache v&#225;lida.</b><p>Esse par&#226;metro controla a quantidade de informa&#231;&#245;es armazenadas em cache que ser&#225;
+utilizada ap&#243;s o armazenamento de um arquivo no cache. Uma entrada mais
+antiga do que a dura&#231;&#227;o m&#225;xima ser&#225; substitu&#237;da pela nova entrada do
+mesmo arquivo. Se o conte&#250;do n&#227;o for alterado com frequ&#234;ncia, aumente esse
+valor para melhorar o desempenho.</p><p>A dura&#231;&#227;o m&#225;xima mais eficiente depende da regularidade com que os arquivos
+existentes s&#227;o modificados. Por exemplo, se os arquivos forem modificados quatro vezes
+ao dia, em intervalos regulares, considere a possibilidade de definir a dura&#231;&#227;o
+m&#225;xima em 21600 segundos (6 horas). Ou ent&#227;o, defina a dura&#231;&#227;o m&#225;xima
+como sendo o tempo mais longo desejado para a exibi&#231;&#227;o da vers&#227;o
+anterior de um arquivo ap&#243;s a modifica&#231;&#227;o.</p><p>O valor padr&#227;o &#233; 30.</p></li>
+<li><b>No campo Tamanho m&#225;ximo do cache, digite o tamanho total m&#225;ximo (em
+bytes) do cache do arquivo em disco.</b><p>O valor padr&#227;o &#233; 10485760.</p></li>
+<li><b>No campo Contagem M&#225;xima de Arquivos, digite o n&#250;mero m&#225;ximo de arquivos
+que pode ser armazenado no cache do arquivo.</b><p>Se o valor for muito alto, o servidor armazenar&#225; em cache os
+arquivos pouco necess&#225;rios, o que consome mem&#243;ria. Se o valor for muito
+baixo, os benef&#237;cios do armazenamento em cache n&#227;o ser&#225; obtidos. Tente diferentes
+valores desse atributo para encontrar a solu&#231;&#227;o mais eficiente para aplicativos espec&#237;ficos.</p><p>O valor padr&#227;o &#233; 1024.</p></li>
+<li><b>No campo Nome do Servidor, digite o nome do host a ser
+usado nas URLs que o servidor envia para o cliente.</b><p>Esse nome ser&#225; o nome alias se o servidor usar um alias.
+Se o servidor n&#227;o usar alias, deixe o campo em branco.</p><p>Esse valor somente afeta os URLs gerados automaticamente pelo servidor; ele n&#227;o
+afeta os URLs para diret&#243;rios e arquivos armazenados no servidor. Caso seu
+servidor use um codinome, o nome do servidor deveria ser o nome
+do codinome. Se uma v&#237;rgula e um n&#250;mero de porta est&#227;o anexados,
+aquela porta &#233; usada nos URLs que o servidor envia para o
+cliente.</p></li>
+<li><b>Na lista suspensa Servidor Virtual Padr&#227;o, selecione o servidor virtual a ser
+associado com este protocolo.</b><p>Use a p&#225;gina Servidores Virtuais para defini-los.</p></li>
+<li><b>No campo Porta de Redirecionamento, digite o valor da porta a ser
+usada para redirecionar uma solicita&#231;&#227;o para outra porta. </b><p>O Servidor GlassFish redirecionar&#225; automaticamente a solicita&#231;&#227;o se estas duas condi&#231;&#245;es existirem:</p>
+
+
+<ul><li><p>A escuta de rede que referencia esse protocolo oferece suporte a solicita&#231;&#245;es n&#227;o-SSL.</p>
+
+</li>
+<li><p>Uma solicita&#231;&#227;o &#233; recebida, e a correspondente restri&#231;&#227;o de seguran&#231;a exige transporte SSL.</p>
+
+</li></ul>
+<p>Se uma porta de redirecionamento n&#227;o estiver especificada, o Servidor GlassFish usar&#225;
+o n&#250;mero de porta especificado na solicita&#231;&#227;o original. Por padr&#227;o, nenhuma porta
+&#233; especificada.</p></li>
+<li><b>No campo M&#225;ximo de conex&#245;es, digite o n&#250;mero m&#225;ximo de solicita&#231;&#245;es que
+podem ser colocadas na fila at&#233; que a conex&#227;o seja fechada pelo
+servidor.</b><p>O subsistema de manuten&#231;&#227;o de conex&#245;es consulta periodicamente as conex&#245;es ociosas. 
+O valor padr&#227;o &#233; 256.</p><p>Defina esta propriedade como 1 para desativar o keep-alive HTTP/1.0m assim como
+o keep-alive e a linha HTTP/1.1. Um valor de 0 significa que
+as solicita&#231;&#245;es s&#227;o sempre rejeitadas. Um valor de -1 define nenhum limite
+para o n&#250;mero de conex&#245;es keep-alive.</p></li>
+<li><b>No campo Tempo limite, digite o m&#225;ximo de tempo em segundos que
+uma conex&#227;o pode ser considerada inativa e mantida no estado keep-alive.</b><p>Um valor de 0 ou menos significa que as conex&#245;es keep-alive s&#227;o
+mantidas abertas indefinidamente. O valor padr&#227;o &#233; 30 segundos.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Tempo limite de upload ativada para que
+a conex&#227;o para um servlet que l&#234; lentamente os bytes seja fechada
+ap&#243;s o limite de Tempo limite de conex&#227;o para upload &#233; alcan&#231;ado.</b><p>Se essa op&#231;&#227;o for desativada, as conex&#245;es de servlet n&#227;o expiram. Por
+padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>No campo Tempo limite de conex&#227;o para upload, digite o tempo limite
+para uploads em milissegundos. </b><p>Esse campo somente &#233; aplic&#225;vel se a caixa de sele&#231;&#227;o Tempo limite
+de upload desativada estiver selecionada. O valor padr&#227;o &#233; 300.000 milissegundos.</p></li>
+<li><b>No campo Tempo limite da solicita&#231;&#227;o, digite o n&#250;mero de segundos antes
+que uma solicita&#231;&#227;o expire.</b><p>Se a solicita&#231;&#227;o n&#227;o &#233; processada antes que o valor do tempo
+limite seja alcan&#231;ado, a solicita&#231;&#227;o &#233; ignorada. O valor padr&#227;o &#233; 30
+segundos.</p></li>
+<li><b>No campo Tamanho do buffer de envio, digite o tamanho em bytes
+do buffer de envio.</b><p>O valor padr&#227;o &#233; 8.192 bytes.</p></li>
+<li><b>No campo Comprimento do cabe&#231;alho do buffer, digite o tamanho em bytes
+do buffer usado pelos segmentos de processamento de solicita&#231;&#227;o para ler os
+dados da solicita&#231;&#227;o.</b><p>O valor padr&#227;o &#233; 8.192 bytes.</p></li>
+<li><b>No campo Tamanho m&#225;ximo de postagem, digite o tamanho m&#225;ximo em bytes
+das a&#231;&#245;es de postagem.</b><p>O valor padr&#227;o &#233; 2.097.152 bytes.</p></li>
+<li><b>No campo Codifica&#231;&#227;o URI, digite o nome do conjunto de caracteres usado
+para decodificar os URIs de solicita&#231;&#227;o recebidos.</b><p>O valor precisa ser um nome v&#225;lido de um conjunto de caracteres
+IANA. O valor padr&#227;o &#233; UTF-8.</p></li>
+<li><b>No campo vers&#227;o, digite a vers&#227;o do protocolo HTTP usado.</b><p>O valor padr&#227;o &#233;  HTTP/1.1.</p></li>
+<li><b>Na lista suspensa Compress&#227;o, selecione o uso da compress&#227;o GZIP HTTP/1.1 para
+economizar largura de banda do servidor.</b><p>As op&#231;&#245;es dispon&#237;veis s&#227;o:</p><dl><dt><tt>ligado</tt></dt>
+<dd><p>Comprime os dados.</p>
+
+</dd>
+<dt><tt>desligado</tt></dt>
+<dd><p>Desativa a compress&#227;o.</p>
+
+</dd>
+<dt><tt>for&#231;ar</tt></dt>
+<dd><p>For&#231;a a compress&#227;o dos dados em todos os casos.</p>
+
+</dd>
+</dl>
+<p>O valor padr&#227;o <tt>desligado</tt>.</p></li>
+<li><b>No campo Tipos Mime com compress&#227;o, digite uma lista separada por v&#237;rgulas
+dos tipos MIME para os quais a compress&#227;o HTTP &#233; usada.</b><p>O valor padr&#227;o &#233; <tt>text/html,text/xml,text/plain</tt>.</p></li>
+<li><b>No campo Tamanho m&#237;nimo da compress&#227;o, digite o tamanho m&#237;nimo de um
+arquivo quando a compress&#227;o &#233; aplicada.</b><p>Esse valor deve ser definido se a compress&#227;o estiver definida como <tt>ligado</tt>
+ou <tt>for&#231;ar</tt>. O valor padr&#227;o &#233; 2.048 bytes.</p></li>
+<li><b>No campo Agentes de usu&#225;rio sem compress&#227;o, digite uma lista separada por
+v&#237;rgulas de express&#245;es regulares que coincidem com agentes do usu&#225;rio ou clientes
+HTTP, para os quais a compress&#227;o n&#227;o deve ser usada.</b><p>Por padr&#227;o este valor &#233; uma sequ&#234;ncia vazia.</p></li>
+<li><b>No campo Agente de usu&#225;rio restringido, digite uma lista de agentes do
+usu&#225;rio restringido no qual a compress&#227;o HTTP &#233; aplicada.</b><p>Se nenhum agente do usu&#225;rio &#233; especificado, a compress&#227;o HTTP  &#233;
+aplicada em todos os agentes do usu&#225;rio. Por padr&#227;o, nenhum agente do
+usu&#225;rio &#233; especificado.</p></li>
+<li><b>No campo Tipo de resposta padr&#227;o, digite uma sequ&#234;ncia que especifica o
+tipo de resposta padr&#227;o.</b><p>O formato &#233; uma sequ&#234;ncia delimitada por dois pontos, consistindo no tipo
+de conte&#250;do, codifica&#231;&#227;o, idioma e conjunto de caracteres. O valor padr&#227;o &#233;
+<tt>text/html; charset=iso-8859-1</tt>.</p></li>
+<li><b>No campo Tipo de resposta for&#231;ada, digite uma sequ&#234;ncia que especifica o
+tipo de solicita&#231;&#227;o usado, caso nenhum mapeamento MIME esteja dispon&#237;vel que coincida
+com a extens&#227;o do arquivo.</b><p>O formato &#233; uma sequ&#234;ncia delimitada por dois pontos, consistindo no tipo
+de conte&#250;do, codifica&#231;&#227;o, idioma e conjunto de caracteres. O valor padr&#227;o &#233;
+<tt>text/html; charset=iso-8859-1</tt>.</p></li>
+<li><b>No campo Adaptador, digite o nome da classe do adaptador de recursos
+est&#225;ticos.</b><p>O valor padr&#227;o &#233; <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Suporte Comet ativado para ativar o suporte
+Comet para a escuta de rede que referencia este protocolo.</b><p>Por padr&#227;o, esta op&#231;&#227;o &#233; desativada. Se o seu servlet ou p&#225;gina
+JSP usa a tecnologia Comet, assegure-se de que esteja inicializada quando o
+Servidor GlassFish &#233; iniciado, ao adicionar o elemento <tt>load-on-startup</tt> em seu arquivo
+<tt>web.xml</tt>. Por exemplo:</p><pre>&#60;servlet>
+&#60;servlet-name>CheckIn&#60;/servlet-name>
+&#60;servlet-class>CheckInServlet&#60;/servlet-class>
+&#60;load-on-startup>0&#60;/load-on-startup>
+&#60;/servlet></pre></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Pesquisa DNS ativada para ativar a pesquisa
+DNS.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Suporte RCM ativado para ativar o Gerenciamento
+de Configura&#231;&#227;o de Recursos (RCM).</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Rastreamento ativado para ativar a opera&#231;&#227;o TRACE.</b><p>Se esta op&#231;&#227;o for desativada, o Servidor GlassFish &#233; menos suscet&#237;vel ao
+ataques de scripts de site cruzado. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Auth Pass Through ativada para indicar que
+a escuta de rede que usa este protocolo recebe tr&#225;fego de um
+proxy de servidor SSL com termina&#231;&#227;o.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Amostragem ativada para ativar a amostragem de
+resposta HTTP.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o XPowered By ativado para indicar ao Servidor
+GlassFish para usar os cabe&#231;alhos <tt>X-Powered-By</tt> das especifica&#231;&#245;es Java Servlet 3.0 e do
+Java Server Pages 2.0.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li></ol><h6>Passos Seguintes</h6><p>Ap&#243;s criar o protocolo, voc&#234; pode criar uma escuta de rede que
+usa o protocolo.</p>
+
+<h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-networklistenernew.html">Para criar uma escuta de rede</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">Para editar uma escuta de rede</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">Para excluir uma escuta de rede</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Para editar um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Para editar as configura&#231;&#245;es SSL para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Para editar as configura&#231;&#245;es HTTP para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Para editar as configura&#231;&#245;es de um arquivo de cache para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Para excluir um protocolo</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">Para criar um transporte</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">Para editar um transporte</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">Para excluir um transporte</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

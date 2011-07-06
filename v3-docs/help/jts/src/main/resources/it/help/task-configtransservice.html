@@ -1,0 +1,68 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-configtransservice"></a><h4>Configurare Transaction Service</h4><a name="indexterm-1"></a><ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
+<li><b>Selezionare l'istanza da configurare:</b><ul>
+<li><b>Per configurare una particolare istanza, selezionare il nodo config dell'istanza. Ad esempio,
+per l'istanza predefinita <tt>server</tt>, selezionare il nodo <tt>server-config</tt>.</b></li>
+<li><b>Per configurare le impostazioni predefinite per tutte le istanze, selezionare il nodo
+<tt>default-config</tt>.</b></li></ul></li>
+<li><b>Selezionare il nodo Transaction Service.</b><p>Viene visualizzata la pagina Transaction Service.</p></li>
+<li><b>Nella pagina Transaction Service, selezionare la casella di controllo On Restart Enabled
+per abilitare il ripristino delle transazioni incomplete al riavvio del server.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Transaction Timeout, immettere il numero di secondi di attesa trascorsi
+i quali il server esegue il rollback di una transazione incompleta.</b><p>Con un valore pari a 0, il timeout delle transazioni viene disabilitato.
+Il valore predefinito &#232; 0, che indica un tempo di attesa illimitato
+del server per il completamento di una transazione.</p></li>
+<li><b>Nel campo Retry Timeout, immettere il numero di secondi durante i quali
+GlassFish Server tenter&#224; di eseguire la connessione a un server irraggiungibile.</b><p>Il valore predefinito &#232; 600 (10 minuti).</p></li>
+<li><b>Nel campo Transaction Log Location, digitare la directory di memorizzazione dei log
+del server.</b><p>I log delle transazioni vengono memorizzati nella sottodirectory <tt>tx</tt> della directory specificata
+in questo campo. Il valore predefinito &#232; la directory specificata nel campo
+Log Root disponibile nella pagina Domain Attributes all'interno della scheda Advanced del
+nodo GlassFish Server.</p></li>
+<li><b>Dall'elenco a discesa Heuristic Decision, selezionare il criterio a cui attenersi nel
+caso in cui non sia possibile determinare il risultato di una transazione
+distribuita a causa dell'irraggiungibilit&#224; di altri partecipanti.</b><p>&#200; consigliabile lasciare Heuristic Decision impostato su Rollback (impostazione predefinita) a meno
+che non sia effettivamente utile selezionare Commit. L'esecuzione del commit di un
+numero indeterminato di transazioni potrebbe avere ripercussioni sull'integrit&#224; dei dati dell'applicazione.</p></li>
+<li><b>Nel campo Keypoint Interval, digitare il numero di transazioni tra un'operazione keypoint
+e l'altra.</b><p>Le operazioni keypoint determinano la compressione del file di log delle transazioni.
+Il valore predefinito &#232; 65.536.</p></li>
+<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>Per una descrizione delle propriet&#224; disponibili, vedere <a href="ref-transactionsvcproperties.html">Propriet&#224; specifiche di Transaction Service</a>.</p><ul>
+<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
+vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
+valore della propriet&#224; nel campo Value.</b></li>
+<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
+della propriet&#224;.</b></li>
+<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
+campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
+Delete Properties.</b></li></ul></li>
+<li><b>Fare clic su Save.</b>
+<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
+su Save.</p>
+
+
+<hr>
+</li>
+<li><b>Riavviare GlassFish Server.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-configtransrecovery.html">Configurare la modalit&#224; di ripristino delle transazioni in GlassFish Server</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">Impostare un valore di timeout per le transazioni</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">Impostare la posizione dei log delle transazioni</a></p>
+
+</li>
+<li><p><a href="task-setkeyptinterval.html">Impostare l'intervallo keypoint</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

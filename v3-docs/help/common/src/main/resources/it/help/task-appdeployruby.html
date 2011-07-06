@@ -1,0 +1,136 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-appdeployruby"></a><h4>Distribuire un'applicazione Ruby</h4><a name="indexterm-46"></a><a name="indexterm-47"></a><a name="indexterm-48"></a><ol>
+<li><b>Nella struttura ad albero, selezionare il nodo Applications.</b><p>Viene visualizzata la pagina Applications. </p></li>
+<li><b>Nella tabella Deployed Applications, fare clic sul pulsante Deploy.</b><p>Viene visualizzata la pagina Deploy Applications or Modules.</p></li>
+<li><b>Specificare la posizione dell'applicazione da distribuire.</b><ul>
+<li><b>Se l'applicazione &#232; un file di archivio che si trova nel computer
+client o &#232; accessibile da tale computer, selezionare l'opzione Packaged File to
+Be Uploaded to the Server.</b><p>Il computer client &#232; l'host in cui viene visualizzata Administration Console tramite
+un browser.</p><p>Fare clic su Browse per individuare il file oppure digitarne il percorso
+completo.</p></li>
+<li><b>Se l'applicazione &#232; un file di archivio che si trova nel computer
+server o &#232; un'applicazione decompressa da una directory esplosa, selezionare l'opzione Local
+Packaged File or Directory That Is Accessible From the GlassFish Server.</b><p>Il computer server &#232; l'host in cui &#232; in esecuzione il server
+di amministrazione del dominio (DAS, Domain Administration Server). </p><p>Fare clic su Browse Files per cercare un file o su Browse
+Folders per cercare una directory. In alternativa, digitare il percorso completo del
+file o della directory. &#200; prassi comune distribuire un'applicazione JRuby da una
+directory.</p></li></ul></li>
+<li><b>Dall'elenco a discesa Type, selezionare Ruby Application.</b><p>Se &#232; stata selezionata l'opzione Packaged File to Be Uploaded to the
+Server o Local Packaged File That Is Accessible From the GlassFish Server,
+il tipo di applicazione viene rilevato automaticamente. Se &#232; stata selezionata l'opzione
+Directory That Is Accessible From the GlassFish Server, &#232; necessario specificare il
+tipo manualmente.</p></li>
+<li><b>Nel campo Application Name, lasciare il nome predefinito, che &#232; il nome
+della directory o il prefisso del nome file, oppure digitare un altro
+nome.</b><p>Se si &#232; scelto di caricare un file viene visualizzato il nome
+predefinito. Il nome dell'applicazione deve essere univoco.</p></li>
+<li><b>Nel campo Context Root, digitare una stringa che identifica l'applicazione Ruby.</b><p>Nell'URL dell'applicazione Ruby, la root di contesto si trova subito dopo il
+numero della porta (<tt>http://</tt><i> host</i><tt>:</tt><i>port</i><tt>/</tt><i>context-root</i><tt>/... </tt>). La root di contesto deve iniziare con una
+barra, ad esempio, <tt>/hello</tt>.</p></li>
+<li><b>Selezionare la casella di controllo Status Enabled per abilitare l'applicazione.</b><p>Questa opzione &#232; selezionata per impostazione predefinita. Se l'opzione &#232; deselezionata, l'applicazione
+non &#232; disponibile.</p></li>
+<li><b>Selezionare la casella di controllo Force Redeploy per forzare la ridistribuzione se
+l'applicazione &#232; gi&#224; stata distribuita.</b><p>Se l'opzione non &#232; selezionata, un tentativo di distribuire un'applicazione gi&#224; distribuita
+causa un errore. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo JRuby Home, digitare il percorso della directory in cui &#232;
+stato installato il contenitore JRuby.</b><p>La posizione predefinita &#232; <tt></tt><i>as-install</i><tt>/jruby </tt>. Se si specifica un valore per il
+campo, il valore dell'applicazione sovrascrive il valore JRuby Home impostato per il
+contenitore Ruby.</p></li>
+<li><b>Nel campo Initial Pool Size, digitare il numero iniziale dei runtime JRuby
+da avviare.</b><p>Il valore deve essere maggiore o pari al valore del campo Minimum
+Pool Size e minore o pari al valore del campo Maximum Pool
+Size. Il valore predefinito &#232; 1. Se si specifica un valore per
+il campo, il valore dell'applicazione sovrascrive il valore Initial Pool Size impostato
+per il contenitore Ruby.</p></li>
+<li><b>Nel campo Minimum Pool Size, digitare il numero minimo di runtime JRuby
+nel pool.</b><p>Il valore deve essere minore o pari al valore del campo Initial
+Pool Size e minore o pari al valore del campo Maximum Pool
+Size. Il valore predefinito &#232; 1. Se si specifica un valore per
+il campo, il valore dell'applicazione sovrascrive il valore Minimum Pool Size impostato
+per il contenitore Ruby.</p></li>
+<li><b>Nel campo Maximum Pool Size, digitare il numero massimo di runtime JRuby
+nel pool.</b><p>Il valore deve essere maggiore o pari al valore del campo Minimum
+Pool Size e minore o pari al valore del campo Initial Pool
+Size. Il valore predefinito &#232; 1. Se si specifica un valore per
+il campo, il valore dell'applicazione sovrascrive il valore Maximum Pool Size impostato
+per il contenitore Ruby.</p></li>
+<li><b>Dall'elenco a discesa Framework, selezionare la struttura su cui distribuire l'applicazione.</b><p>Le opzioni disponibili sono <tt>rails</tt>, <tt>merb</tt>, <tt> sinatra</tt> e <tt>auto-detection</tt>. Il valore predefinito
+&#232; <tt>auto-detection</tt>. Se si imposta questa propriet&#224; su un valore diverso da
+<tt>auto-detection </tt>, viene evitato il processo normale, e potenzialmente lungo, di rilevamento automatico
+e viene forzata la distribuzione nella struttura specificata. Se l'applicazione distribuita non
+&#232; scritta per la struttura specificata, si verificano errori.</p></li>
+<li><b>Dall'elenco a discesa Rack Environment, selezionare l'ambiente in cui viene eseguita la
+struttura JRuby, come Rails o Merb.</b><p>Le opzioni disponibili sono  <tt>production</tt>, <tt>development </tt> e <tt>test</tt>. Il valore predefinito
+&#232; <tt>development</tt>.</p></li>
+<li><b>Dall'elenco a discesa MT-Safe, selezionare l'impostazione thread-safe per la struttura in cui
+eseguire l'applicazione.</b><p>La propriet&#224; ha effetto sulle applicazioni avviate tramite uno script di avvio
+con rilevamento automatico fornito dall'utente. Sono disponibili le seguenti opzioni:</p><dl><dt><tt>true</tt></dt>
+<dd><p>Specifica che la struttura &#232; thread-safe e pertanto non &#232; necessario creare un pool specifico.</p>
+
+</dd>
+<dt><tt>false</tt></dt>
+<dd><p>Specifica che l'applicazione viene avviata con un pool di istanze di applicazione e che l'accesso alle singole istanze dell'applicazione viene eseguito da un thread alla volta.</p>
+
+</dd>
+<dt><tt>default</tt></dt>
+<dd><p>Viene eseguito un tentativo automatico di rilevamento dell'affidabilit&#224;. Questo &#232; il valore predefinito.</p>
+
+</dd>
+</dl>
+<p>Questa propriet&#224; ha effetto soltanto sulle strutture avviate nei casi in cui
+l'affidabilit&#224; non pu&#242; essere determinata automaticamente. L'impostazione di questo valore su <tt>true</tt>
+non causa l'avvio di un' applicazione Rails 2.1.<i>x</i> autorilevata in modalit&#224; thread-safe
+e non pu&#242; essere utilizzata per forzare l'avvio di una struttura thread-safe
+in modalit&#224; di pool.</p></li>
+<li><b>Dall'elenco a discesa Virtual Server, selezionare il server virtuale da associare a
+questa applicazione.</b></li>
+<li><b>Nel campo Description, digitare una descrizione per l'applicazione.</b></li>
+<li><b>Fare clic su OK.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-applistdeployed.html">Visualizzare un elenco di applicazioni distribuite</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">Distribuire un'applicazione Web</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Distribuire un'applicazione enterprise</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Distribuire un client dell'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Distribuire un modulo connettore</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Distribuire un file JAR EJB</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">Modificare un'applicazione distribuita</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Visualizzare i descrittori di un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Visualizzare informazioni su endpoint per servizi Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Avviare un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Avviare un client dell'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">Ridistribuire un'applicazione distribuita</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Riavviare un'applicazione distribuita</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

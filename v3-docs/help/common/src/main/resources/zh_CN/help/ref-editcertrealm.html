@@ -1,0 +1,20 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-editcertrealm"></a><h4>特定于 <tt>CertificateRealm</tt> 类的属性</h4>
+<a name="indexterm-204"></a><a name="indexterm-205"></a><p><tt>certificate</tt> 领域支持 SSL 验证。该领域在 GlassFish Server 的安全上下文中设置用户身份，并使用从信任库和密钥库文件中以加密方式验证的客户机证书中获得的用户数据填充该身份。使用 <tt>keytool</tt> 或 <tt>certutil</tt> 向这些文件添加用户。有关详细信息，请参阅 <i>《Java EE 6 教程》</i>中的<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-1841&id=gijrp"><i>《The Java EE 6 Tutorial》</i>中的第&#160;VII&#160;部分, "Security"</a>。</p>
+
+<p>使用 <tt>certificate</tt> 领域，Java 容器可以根据每个用户证书中的标识名 (DN) 来执行授权处理。DN 是证书对其公钥进行标识的实体的名称。此名称采用 X.500 标准，因此它在整个 Internet 中应该是唯一的。有关密钥库和信任库的更多信息，请参阅 <a href="http://java.sun.com/j2se/1.4.2/docs/tooldocs/solaris/keytool.html">keytool 文档</a>。</p>
+
+<p>以下可选属性可用于 <tt>certificate</tt> 领域。</p>
+
+<dl><dt>分配组</dt>
+<dd><p>以逗号分隔的组名列表。出具有效证书的所有客户端都分配到这些组中，例如 <tt>employee、manager</tt>（这些是用户组的名称）。</p>
+
+</dd>
+</dl>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

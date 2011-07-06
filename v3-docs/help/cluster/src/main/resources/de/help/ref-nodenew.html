@@ -1,0 +1,190 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-nodenew"></a><h4>Neuer Knoten</h4>
+<a name="indexterm-197"></a><p>Auf der Seite "Neuer Knoten" k&#246;nnen Sie einen GlassFish-Server-Knoten erstellen. Ein Knoten
+stellt einen Host dar, auf dem die GlassFish-Server-Software installiert ist. Ein Knoten
+muss auf jedem Host vorhanden sein, auf dem sich GlassFish-Server-Instanzen befinden. </p>
+
+<p>Die Seite "Neuer Knoten" umfasst die folgenden Optionen:</p>
+
+<dl><dt>Name</dt>
+<dd><p>Der Name des Knotens.</p>
+
+<p>Der Name muss den folgenden Anforderungen entsprechen:</p>
+
+
+<ul><li><p>Der Name muss mit einem Buchstaben, einer Ziffer oder einem Unterstrich beginnen.</p>
+
+</li>
+<li><p>Der Name darf nur die folgenden Zeichen enthalten:</p>
+
+
+<ul><li><p>Kleinbuchstaben</p>
+
+</li>
+<li><p>Gro&#223;buchstaben</p>
+
+</li>
+<li><p>Ziffern</p>
+
+</li>
+<li><p>Bindestriche</p>
+
+</li>
+<li><p>Punkte</p>
+
+</li>
+<li><p>Unterstriche</p>
+
+</li></ul>
+</li>
+<li><p>Der Name in der Dom&#228;ne muss eindeutig sein und darf nicht der Name eines anderen Knotens, eines Clusters, einer benannten Konfiguration oder einer GlassFish-Server-Instanz sein.</p>
+
+</li>
+<li><p>Bei dem Namen darf es sich nicht um <tt>domain</tt>, <tt>server</tt> oder ein anderes Schl&#252;sselwort handeln, das von GlassFish-Server reserviert ist.</p>
+
+</li></ul>
+</dd>
+<dt>Typ</dt>
+<dd><p>Dropdown-Liste f&#252;r die Angabe des Knotentyps. Folgende Typen sind verf&#252;gbar:</p>
+
+<dl><dt>SSH</dt>
+<dd><p>Der Knoten unterst&#252;tzt die Kommunikation &#252;ber Secure Shell (SSH).</p>
+
+</dd>
+<dt>KONFIGURATION</dt>
+<dd><p>Der Knoten unterst&#252;tzt keine Remote-Kommunikation. Wenn KONFIGURATION ausgew&#228;hlt ist, werden keine Optionen f&#252;r die SSH-Konfiguration angezeigt, und das Feld "Installationsverzeichnis" wird gel&#246;scht.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Knoten-Host</dt>
+<dd><p>Der Name des Hosts, den der Knoten darstellt. Ob dieses Feld obligatorisch ist, h&#228;ngt vom Knotentyp ab:</p>
+
+
+<ul><li><p>Wenn der Knotentyp KONFIGURATION ist, kann der Name des Hosts ausgelassen werden. Der Name des Hosts kann festgelegt werden, wenn die Instanzen erstellt werden, die sich auf dem Knoten befinden. </p>
+
+</li>
+<li><p>Wenn der Knotentyp SSH ist, muss der Name des Hosts angegeben werden. Anderenfalls tritt ein Fehler auf.</p>
+
+</li></ul>
+</dd>
+<dt>Knotenverzeichnis</dt>
+<dd><p>Der Pfad zu dem Verzeichnis, das die GlassFish-Server-Instanzen enthalten soll, die auf dem Knoten erstellt werden. Bei Verwendung eines relativen Pfads ist der Pfad relativ zum Verzeichnis <i>as-install</i>.</p>
+
+<p>Der Standardwert h&#228;ngt vom Knotentyp ab:</p>
+
+
+<ul><li><p>Wenn der Knotentyp KONFIGURATION ist, wird f&#252;r den Knoten in der Dom&#228;nenadministrationsserver (DAS)-Konfiguration kein Verzeichnis f&#252;r Instanzen angegeben. Das Knotenverzeichnis kann festgelegt werden, wenn die Instanzen erstellt werden, die sich auf dem Knoten befinden. </p>
+
+</li>
+<li><p>Wenn der Knotentyp SSH ist, ist der Standardwert <tt></tt><i>as-install</i><tt>/nodes </tt>, wobei <i>as-install</i> das Basisinstallationsverzeichnis der GlassFish-Server-Software auf dem Host ist.</p>
+
+</li></ul>
+</dd>
+<dt>Installationsverzeichnis</dt>
+<dd><p>Der vollst&#228;ndige Pfad zum &#252;bergeordneten Verzeichnis des Basisinstallationsverzeichnisses der GlassFish-Server-Software auf dem Host, zum Beispiel <tt>/export/glassfish3</tt>.</p>
+
+<p>Der Standardwert h&#228;ngt vom Knotentyp ab:</p>
+
+
+<ul><li><p>Wenn der Knotentyp KONFIGURATION ist, wird f&#252;r den Knoten in der DAS-Konfiguration kein Installationsverzeichnis angegeben. Das Installationsverzeichnis kann festgelegt werden, wenn die Instanzen erstellt werden, die sich auf dem Knoten befinden. </p>
+
+</li>
+<li><p>Wenn der Knotentyp SSH ist, ist der Standardwert das &#252;bergeordnete Verzeichnis des Basisinstallationsverzeichnisses der GlassFish-Server-Software f&#252;r den DAS. Dieser Standardwert ist nur dann von Nutzen, wenn GlassFish-Server auf allen Hosts am gleichen Speicherort installiert ist.</p>
+
+</li></ul>
+</dd>
+<dt>Erzwingen</dt>
+<dd><p>Wenn die Option "Aktiviert" ausgew&#228;hlt ist, wird der Knoten in der DAS-Konfiguration erstellt, auch wenn die Validierung der Knotenparameter fehlschl&#228;gt. Um die Parameter eines Knotens zu validieren, muss der DAS f&#228;hig sein, den Host des Knotens &#252;ber SSH zu kontaktieren. </p>
+
+</dd>
+<dt>SSH-Anschluss</dt>
+<dd><p>Der Port, der f&#252;r SSH-Verbindungen mit dem Host dieses Knotens verwendet wird Der Standardwert ist 22. Wenn die Option "Knoten-Host" auf <tt>localhost-<i>domain</i></tt> gesetzt ist, wird die Option "SSH-Anschluss" ignoriert.</p>
+
+</dd>
+<dt>SSH-Benutzername</dt>
+<dd><p>Der Benutzer auf dem Host dieses Knotens, der die Verbindung mit dem Host &#252;ber SSH herstellen soll. Der Standardwert ist der Benutzer, der den DAS-Vorgang ausf&#252;hrt. Um sicherzustellen, dass der DAS die Datei f&#252;r den privaten SSH-Schl&#252;ssel lesen kann, geben Sie den Benutzer an, der den DAS-Vorgang ausf&#252;hrt. Wenn die Option "Knoten-Host" auf <tt>localhost-<i>domain</i></tt> gesetzt ist, wird die Option "Benutzername" ignoriert.</p>
+
+</dd>
+<dt>SSH-Benutzerauthentifizierung</dt>
+<dd><p>Eine Dropdown-Liste, die angibt, wie der SSH-Benutzer authentifiziert wird, wenn er sich beim Host dieses Knotens anmeldet. F&#252;r die Authentifizierung stehen folgende M&#246;glichkeiten zur Verf&#252;gung:</p>
+
+<dl><dt>Schl&#252;sseldatei</dt>
+<dd><p>Der SSH-Benutzer wird durch eine Datei f&#252;r den privaten SSH-Schl&#252;ssel authentifiziert. Wenn Sie diese Option w&#228;hlen, geben Sie den absoluten Pfad zu dieser Datei im Feld "Schl&#252;sseldatei" an.</p>
+
+</dd>
+<dt>Passwort</dt>
+<dd><p>Der SSH-Benutzer wird durch ein Passwort authentifiziert, das in der DAS-Konfiguration gespeichert wird.</p>
+
+
+<hr><p><b>Achtung - </b>Dieses Passwort wird als Klartext in der DAS-Konfiguration gespeichert. Verwenden Sie eine Schl&#252;sseldatei oder eine Passwort-Alias, um die Sicherheit zu erh&#246;hen.</p>
+
+
+<hr>
+<p>Wenn Sie diese Option w&#228;hlen, werden das Feld "SSH-Passwort" und das Feld "SSH-Passwort best&#228;tigen" aktiviert, wodurch Sie ein Passwort angeben k&#246;nnen.</p>
+
+</dd>
+<dt>Passwort-Alias</dt>
+<dd><p>Der SSH-Benutzer wird durch ein Passwort-Alias authentifiziert. Wenn Sie diese Option w&#228;hlen, w&#228;hlen Sie das Passwort-Alias aus der Dropdown-Liste "Passwort-Alias" aus.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>SSH-Passwort</dt>
+<dd><p>Das Passwort, das der SSH-Benutzer verwendet, wenn er sich beim Host dieses Knotens anmeldet.</p>
+
+</dd>
+<dt>SSH-Passwort best&#228;tigen</dt>
+<dd><p>Best&#228;tigung des Passworts, das der SSH-Benutzer verwendet, wenn er sich beim Host dieses Knotens anmeldet. Der Inhalt dieses Felds muss genau mit dem Inhalt des Felds "SSH-Passwort" &#252;bereinstimmen.</p>
+
+</dd>
+<dt>Passwort-Alias</dt>
+<dd><p>Eine Dropdown-Liste der Passwort-Aliase, die f&#252;r diese Dom&#228;ne definiert sind.</p>
+
+</dd>
+<dt>Schl&#252;sseldatei</dt>
+<dd><p>Der absolute Pfad zur Datei f&#252;r den privaten SSH-Schl&#252;ssel des Benutzers, der durch die Option "Benutzername" angegeben ist. Diese Datei dient zur Authentifizierung des <tt>sshd</tt>-D&#228;mons auf dem Host des Knotens.</p>
+
+
+<hr><p><b>Hinweis - </b>GlassFish-Server unterst&#252;tzt ebenfalls eine Passwort-Authentifizierung &#252;ber den Eintrag <tt>AS_ADMIN_SSHPASSWORD</tt> in der Passwortdatei. Die Passwort-Datei wird in der Option <tt>--paswordfile</tt> des Dienstprogramms <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> angegeben.</p>
+
+
+<hr>
+<p>Wenn die Datei f&#252;r den privaten SSH-Schl&#252;ssel durch ein Passphrase gesch&#252;tzt ist, muss die Passwort-Datei den Eintrag <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt> enthalten.</p>
+
+<p>Der Pfad zur Schl&#252;sseldatei muss f&#252;r den DAS zug&#228;nglich sein, und die Schl&#252;sseldatei muss vom DAS gelesen werden k&#246;nnen.</p>
+
+<p>Der Standardwert ist eine Schl&#252;sseldatei im <tt>.ssh</tt>-Verzeichnis des Benutzers. Wenn mehrere Schl&#252;sseldateien gefunden werden, verwendet GlassFish-Server die folgende Reihenfolge:</p>
+
+
+<ol><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>identity</tt></p>
+
+</li></ol>
+</dd>
+</dl>
+<h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-createnode.html">So erstellen Sie einen Knoten</a></p>
+
+</li></ul>
+<h5>Entsprechende <tt>asadmin</tt>-Unterbefehle</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-config-1"><tt>create-node-config</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-ssh-1"><tt>create-node-ssh</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

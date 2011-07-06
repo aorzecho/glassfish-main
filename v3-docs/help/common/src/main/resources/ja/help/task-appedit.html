@@ -1,0 +1,62 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-appedit"></a><h4>配備済みアプリケーションを編集する</h4><a name="indexterm-44"></a><ol>
+<li><b>ナビゲーションツリーで、「アプリケーション」ノードを選択します。</b><p>「アプリケーション」ページが開きます。</p></li>
+<li><b>「配備されているアプリケーション」の表から、編集するアプリケーションの名前をクリックします。</b><p>名前には、オプションのバージョン ID を含めることができます。このバージョン ID は名前のあとに続き、コロン (<tt>:</tt>) で名前と区切ります。モジュールとアプリケーションのバージョンについては、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「Module and Application Versions」</a>を参照してください。</p><p>「アプリケーションを編集」ページが開きます。</p></li>
+<li><b>「状態を有効」チェックボックスをオフにしてアプリケーションの状態を無効にし、使用できないようにします。</b><p>デフォルトでは、アプリケーションの状態は配備後すぐに「有効」になります。 </p></li>
+<li><b>Web アプリケーションの場合、「コンテキストルート」フィールドにアプリケーションのパスを入力します。</b><p>Web アプリケーションの URL では、コンテキストルートはポート番号の直後に続きます (<tt>http://</tt><i>host</i><tt>:</tt><i>port </i><tt>/</tt><i>context-root</i><tt>/...</tt>)。たとえば <tt>/hello</tt> のように、コンテキストルートがスラッシュで始まるようにしてください。</p></li>
+<li><b>アプリケーションのセッション持続と SFSB チェックポイントを無効にするには、「可用性の有効化」チェックボックスの選択を解除します。</b><p>「有効」チェックボックスを選択すると、Web セッション、ステートフルセッション Bean (SFSB) チェックポイント設定、パッシベーションなどに備えて高可用性が有効になります。false (デフォルト) に設定すると、すべての Web セッションの保存と SFSB のチェックポイント設定が、指定されたアプリケーション、Web アプリケーション、または
+EJB モジュールで無効になります。true に設定すると、指定されたアプリケーションまたはモジュールで高可用性が有効になります。このオプションは、高可用性がサーバーレベルやコンテナレベルなどのより高いレベルで設定および有効化されている場合のみ、true に設定します。</p><p>このオプションは、デフォルトのサーバーインスタンス (<tt>server</tt>) のほかにクラスタまたはスタンドアロンサーバーインスタンスが存在する場合に表示されます。</p></li>
+<li><b>「仮想サーバー」ドロップダウンリストから、このアプリケーションに関連付ける仮想サーバーを選択します。</b><p>「仮想サーバー」オプションは、デフォルトサーバーインスタンス <tt>server</tt> だけが存在する場合に表示されます。クラスタまたはその他のスタンドアロンサーバーインスタンスが存在する場合は、配備後、仮想サーバーを選択できます。「アプリケーションを編集」ページに移動して「ターゲット」タブを選択し、目的のターゲットに「仮想サーバーの管理」を選択してください。</p></li>
+<li><b>「Java Web Start を有効」チェックボックスをオンにし、Java Web Start ソフトウェアを使用してアプリケーションを配備します。</b><p>このオプションは、当初配備される際にその設定に基づいて、デフォルトで有効または無効に設定されます。</p></li>
+<li><b>「説明」フィールドに、このアプリケーションの説明を入力します。</b></li>
+<li><b>アプリケーションのモジュール記述子のリストを表示するには、「説明」タブをクリックします。詳細は、<a href="task-appviewdesc.html">「アプリケーションの記述子を表示する」</a>を参照してください。</b></li>
+<li><b>デフォルトでは、アプリケーションの「状態」はすべてのターゲットで「有効」です。アプリケーションが有効化されているターゲットを表示するには、「ターゲット」タブをクリックします。1 つまたは複数のターゲットでアプリケーションを有効または無効にできます。<a href="task-appviewtargets.html">「アプリケーションターゲットを表示する」</a>を参照してください。</b></li>
+<li><b>「保存」をクリックします。</b></li></ol><h6>参照</h6>
+<ul><li><p><a href="task-applistdeployed.html">「配備されているアプリケーションのリストを表示する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">「Web アプリケーションを配備する」</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">「エンタープライズアプリケーションを配備する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">「アプリケーションクライアントを配備する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">「コネクタモジュールを配備する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">「EJB JAR を配備する」</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">「アプリケーションの記述子を表示する」</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">「アプリケーションターゲットを表示する」</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">「Web サービスのエンドポイント情報を表示する」</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">「アプリケーションを起動する」</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">「アプリケーションクライアントを起動する」</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">「配備済みアプリケーションを再配備する」</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">「配備済みアプリケーションを再読み込みする」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

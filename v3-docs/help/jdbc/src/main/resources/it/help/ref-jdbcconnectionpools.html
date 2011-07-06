@@ -1,0 +1,108 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jdbcconnectionpools"></a><h4>Pool di connessione</h4>
+<a name="indexterm-20"></a><p>Un pool di connessione JDBC contiene un gruppo di connessioni JDBC create
+al momento della registrazione del pool di connessione. I pool di connessione
+si servono di un driver JDBC per creare connessioni database fisiche. L'applicazione
+prende in prestito una connessione dal pool, la utilizza e quindi la
+chiude restituendola al pool. Per creare una risorsa JDBC, &#232; necessario specificare
+il pool di connessione associato. &#200; possibile specificare un unico pool di
+connessione per pi&#249; risorse JDBC.</p>
+
+<p>Un pool di connessione JDBC &#232; un gruppo di connessioni riutilizzabili per
+un determinato database. Poich&#233; la creazione di ogni nuova connessione fisica richiede
+tempo, il server gestisce un pool di connessioni disponibili per incrementare le
+prestazioni. Quando un'applicazione richiede una connessione, pu&#242; ottenerne una dal pool. Quando
+un'applicazione chiude una connessione, la connessione viene restituita al pool.</p>
+
+<p>Quando si crea un pool di connessione con Administration Console, si definiscono
+gli aspetti di una connessione a un database specifico.</p>
+
+<p>Nella pagina JDBC Connection Pools &#232; possibile configurare i pool di connessione
+JDBC.</p>
+
+<p>Per ogni pool di connessione vengono fornite le seguenti informazioni.</p>
+
+<dl><dt>Pool Name</dt>
+<dd><p>Nome del pool di connessione.</p>
+
+</dd>
+<dt>Resource Type</dt>
+<dd><p>Tipo di risorsa del pool di connessione.</p>
+
+</dd>
+<dt>Classname</dt>
+<dd><p>Nome della classe specifica del produttore che implementa l'API <tt> javax.sql.XADataSource</tt>, <tt>java.sql.ConnectionPoolDataSource</tt>, <tt> javax.sql.DataSource</tt> o <tt>java.sql.Driver</tt>.</p>
+
+</dd>
+<dt>Description</dt>
+<dd><p>Breve descrizione del pool di connessione.</p>
+
+</dd>
+</dl>
+<p>La tabella Pools contiene inoltre le seguenti opzioni.</p>
+
+<dl><dt>New</dt>
+<dd><p>Pulsante che consente di creare un nuovo pool di connessione.</p>
+
+</dd>
+<dt>Delete</dt>
+<dd><p>Pulsante che consente di eliminare uno o pi&#249; pool di connessione selezionati.</p>
+
+</dd>
+</dl>
+<a name="gkond"></a><h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-setdbaccess.html">Impostare l'accesso al database</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">Integrare un driver JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">Creare un pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">Modificare le impostazioni generali del pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">Verificare le impostazioni del pool di connessione</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">Modificare gli attributi avanzati del pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Modificare le propriet&#224; del pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Eliminare un pool di connessione JDBC</a></p>
+
+</li></ul>
+<a name="gkolr"></a><h5>Comandi <tt>asadmin</tt> correlati</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=add-resources-1"><tt>add-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jdbc-connection-pool-1"><tt>create-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jdbc-connection-pool-1"><tt>delete-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jdbc-connection-pools-1"><tt>list-jdbc-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=ping-connection-pool-1"><tt>ping-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-database-1"><tt>start-database</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-database-1"><tt>stop-database</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

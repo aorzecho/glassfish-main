@@ -1,0 +1,97 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterproperties"></a><h4>Propri&#233;t&#233;s de cluster</h4>
+<a name="indexterm-193"></a><a name="indexterm-194"></a><p>La page Propri&#233;t&#233;s de cluster affiche une liste des propri&#233;t&#233;s d&#233;finies pour
+les clusters s&#233;lectionn&#233;s. Ces propri&#233;t&#233;s ajoutent des informations de configuration facultatives sur
+le cluster.</p>
+
+<p>Le champ Nom du cluster est un champ en lecture seule qui
+affiche le nom du cluster s&#233;lectionn&#233;.</p>
+
+<p>Pour chaque propri&#233;t&#233;, les informations suivantes sont affich&#233;es&#160;:</p>
+
+<dl><dt>Nom</dt>
+<dd><p>Nom de la propri&#233;t&#233;.</p>
+
+</dd>
+<dt>Valeur</dt>
+<dd><p>Valeur de la propri&#233;t&#233; d&#233;finie pour l'instance s&#233;lectionn&#233;e.</p>
+
+</dd>
+<dt>Description</dt>
+<dd><p>Texte de description qui fournit de plus amples informations sur la propri&#233;t&#233;.</p>
+
+</dd>
+</dl>
+<p>Le tableau Propri&#233;t&#233;s suppl&#233;mentaires contient &#233;galement les options suivantes.</p>
+
+<dl><dt>Ajouter une propri&#233;t&#233;</dt>
+<dd><p>Bouton permettant d'ajouter une propri&#233;t&#233;. Le fait de cliquer sur ce bouton permet d'ajouter une ligne au tableau Propri&#233;t&#233;s suppl&#233;mentaires.</p>
+
+</dd>
+<dt>Supprimer des propri&#233;t&#233;s</dt>
+<dd><p>Bouton permettant de supprimer une ou plusieurs propri&#233;t&#233;s s&#233;lectionn&#233;es. Toute propri&#233;t&#233; supprim&#233;e revient &#224; sa valeur par d&#233;faut ou, si aucune valeur par d&#233;faut n'est d&#233;finie, n'est pas d&#233;finie.</p>
+
+</dd>
+</dl>
+<p>GlassFish Server d&#233;finit les propri&#233;t&#233;s de cluster suivantes&#160;:</p>
+
+<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
+<dd><p>Num&#233;ro du port sur lequel le cluster &#233;coute des messages issus du service de gestion de groupes (GMS). La valeur par d&#233;faut doit &#234;tre suffisante dans la plupart des cas.</p>
+
+</dd>
+<dt><tt>GMS_LOOPBACK</tt></dt>
+<dd><p>Indique si une instance peut recevoir d'elle-m&#234;me les messages de niveau application que l'instance envoie vers le cluster.</p>
+
+<p>Les valeurs possibles sont&#160;:</p>
+
+<dl><dt><tt>false</tt></dt>
+<dd><p>L'instance ne peut <b>pas</b> recevoir de messages d'elle-m&#234;me (valeur par d&#233;faut).</p>
+
+</dd>
+<dt><tt>true</tt></dt>
+<dd><p>L'instance peut recevoir des messages d'elle-m&#234;me. Utilisez ce param&#232;tre pour tester une instance lorsqu'elle est la seule instance dans un cluster.</p>
+
+</dd>
+</dl>
+</dd>
+<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
+<dd><p>Nombre maximal d'it&#233;rations ou de transmissions qu'un message de multidiffusion peut subir pour les types d'&#233;v&#233;nements suivants avant que le message ne soit supprim&#233;&#160;:</p>
+
+
+<ul><li><p>D&#233;tection de groupe</p>
+
+</li>
+<li><p>Pulsations du membre</p>
+
+</li>
+<li><p>Modifications d'appartenance</p>
+
+</li></ul>
+<p>Pour s'adapter &#224; la configuration du r&#233;seau sur lequel le DAS et les instances clusteris&#233;es sont d&#233;ploy&#233;s, d&#233;finissez cette valeur aussi bas que possible. Pour d&#233;terminer la plus petite valeur possible pour votre syst&#232;me, utilisez la sous-commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=validate-multicast-1"><tt>validate-multicast</tt>(1)</a>.</p>
+
+<p>0 permet de s'assurer que les messages multidiffusion ne quittent jamais l'h&#244;te &#224; partir duquel ils sont diffus&#233;s.</p>
+
+<p>1 risque d'emp&#234;cher la diffusion de messages entre les h&#244;tes du m&#234;me sous-r&#233;seau connect&#233;s via un commutateur ou un routeur. </p>
+
+<p>La valeur par d&#233;faut est 4, ce qui permet de s'assurer que les messages sont correctement transmis &#224; tous les membres du cluster dans les r&#233;seaux sur lesquels les h&#244;tes sont connect&#233;s par les commutateurs et les routeurs.</p>
+
+</dd>
+</dl>
+<h5>Sous-commandes <tt>asadmin</tt> &#233;quivalentes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=get-1"><tt>get</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-1"><tt>list</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

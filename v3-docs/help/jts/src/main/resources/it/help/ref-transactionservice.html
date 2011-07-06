@@ -1,0 +1,70 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transactionservice"></a><h4>Transaction Service</h4>
+<a name="indexterm-8"></a><p>Nella pagina Transaction Service &#232; possibile configurare il ripristino, il timeout e
+le operazioni di registrazione delle transazioni.</p>
+
+<p>La pagina Transaction Service contiene le seguenti opzioni.</p>
+
+<dl><dt>Load Defaults</dt>
+<dd><p>Pulsante che consente di ripristinare i valori predefiniti di tutte le impostazioni.</p>
+
+</dd>
+<dt>Configuration Name</dt>
+<dd><p>Nome della configurazione a cui si applicano le impostazioni visualizzate nella pagina. Campo di sola lettura.</p>
+
+</dd>
+<dt>On Restart</dt>
+<dd><p>Se la casella di controllo Enabled &#232; selezionata, al riavvio del server viene eseguito un tentativo di ripristino delle transazioni incomplete. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>Transaction Timeout</dt>
+<dd><p>Numero di secondi di attesa del server prima di eseguire il rollback di una transazione incompleta. Il valore predefinito &#232; 0, che indica un tempo di attesa illimitato del server per il completamento di una transazione.</p>
+
+</dd>
+<dt>Retry Timeout</dt>
+<dd><p>Numero di secondi durante i quali viene eseguito un tentativo di connessione tra GlassFish Server e un server irraggiungibile. Il valore predefinito &#232; 600 (10 minuti).</p>
+
+</dd>
+<dt>Transaction Log Location</dt>
+<dd><p>Directory in cui vengono memorizzati i log del server. I log delle transazioni vengono memorizzati nella sottodirectory <tt>tx</tt> della directory specificata in questo campo. Il valore predefinito &#232; la directory specificata nel campo Log Root disponibile nella pagina Domain Attributes all'interno della scheda Advanced del nodo GlassFish Server.</p>
+
+</dd>
+<dt>Heuristic Decision</dt>
+<dd><p>Consente di specificare se eseguire il commit o il rollback delle transazioni per cui vengono utilizzati server irraggiungibili. Il valore predefinito &#232; Rollback. L'esecuzione del commit di un numero indeterminato di transazioni potrebbe avere ripercussioni sull'integrit&#224; dei dati dell'applicazione.</p>
+
+</dd>
+<dt>Keypoint Interval</dt>
+<dd><p>Numero di transazioni tra un'operazione keypoint e l'altra, che determinano il livello di compressione del file di log delle transazioni. Il valore predefinito &#232; 65.536.</p>
+
+</dd>
+<dt>Additional Properties</dt>
+<dd><p>Propriet&#224; aggiuntive per Transaction Service.</p>
+
+<p>Per una descrizione delle propriet&#224; disponibili, vedere <a href="ref-transactionsvcproperties.html">Propriet&#224; specifiche di Transaction Service</a>.</p>
+
+</dd>
+</dl>
+<a name="ginkt"></a><h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-configtransservice.html">Configurare Transaction Service</a></p>
+
+</li>
+<li><p><a href="task-configtransrecovery.html">Configurare la modalit&#224; di ripristino delle transazioni in GlassFish Server</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">Impostare un valore di timeout per le transazioni</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">Impostare la posizione dei log delle transazioni</a></p>
+
+</li>
+<li><p><a href="task-setkeyptinterval.html">Impostare l'intervallo keypoint</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

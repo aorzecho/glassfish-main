@@ -1,0 +1,73 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsservice"></a><h4>配置 JMS 服务</h4><a name="indexterm-13"></a><p>使用&#8220;JMS 服务&#8221;页面可以配置所有 JMS 连接都要使用的设置。</p>
+
+<p>有关配置 JMS 服务的更多信息，请参见<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob"><i>《Oracle GlassFish Server 3.1 Application Development Guide》</i>中的第&#160;17 &#160;章 "Using the Java Message Service"</a>。</p>
+
+<ol>
+<li><b>在导航树中，展开&#8220;配置&#8221;节点。</b></li>
+<li><b>在&#8220;配置&#8221;节点下，选择&#8220;Java 消息服务&#8221;节点。</b><p>此时将打开&#8220;JMS 服务&#8221;页面。</p></li>
+<li><b>从&#8220;类型&#8221;下拉式列表中：</b><ul>
+<li><b>选择 "EMBEDDED" 以访问本地主机上的 JMS 服务。</b><p>在 GlassFish Server 所在的 JVM 计算机上启动 JMS 服务。延迟初始化在首次访问 JMS 服务时启动默认的嵌入式代理，而不是在 GlassFish Server
+启动时启动默认的嵌入式代理。此为 JMS 服务的默认类型。</p></li>
+<li><b>选择 "LOCAL" 以访问本地主机上的 JMS 服务。</b><p>JMS 服务随 GlassFish Server 一起启动。</p></li>
+<li><b>选择 "REMOTE" 以访问其他系统上的 JMS 服务。</b><p>如果选择了 "REMOTE"，则下一次启动服务器时 JMS 服务不会由 GlassFish Server 启动。JMS 服务由 Message Queue 启动和管理，因此必须单独启动 Message
+Queue 代理。有关启动代理的信息，请参见<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby"><i>《Oracle GlassFish Message Queue 4.5 Administration Guide》</i>中的"Starting Brokers"</a>。如果选择了该值并要使用远程主机，请按照<a href="task-jmshostedit.html">编辑 JMS 主机</a>中的说明来指定远程主机的名称。</p></li></ul></li>
+<li><b>在&#8220;启动超时&#8221;字段中，键入 GlassFish Server 在中止 JMS 服务启动之前等待该服务启动的秒数。</b><p>在运行缓慢或过载的系统上，请在默认值的基础上增大该值。默认值为 60。</p></li>
+<li><b>在&#8220;启动参数&#8221;字段中，键入参数以自定义 JMS 服务启动。</b><p>可以通过 <tt><i>as-install-parent</i>/mq/bin/imqbrokerd</tt> 命令使用任意可用的参数。</p></li>
+<li><b>选中&#8220;启用重新连接&#8221;复选框，以便 JMS 服务在连接丢失时尝试重新连接至消息服务器（或 AddressList 中的地址列表）。</b><p>默认情况下启用此选项。</p></li>
+<li><b>在&#8220;重新连接时间间隔&#8221;字段中，键入重新连接尝试之间的秒数。</b><p>此时间间隔适用于对 AddressList 中每个地址的尝试，以及对该列表中连续地址的尝试。如果该时间间隔太短，则代理将没有时间恢复。如果该时间间隔太长，则重新连接可能会指明这是不可接受的延迟。默认值为 5 秒。</p></li>
+<li><b>在&#8220;重新连接尝试&#8221;字段中，键入客户机运行时在尝试连接 AddressList 列表中的下一个地址之前尝试连接（或重新连接）当前地址的次数。</b><p>值 -1 表示重新连接尝试次数没有限制（客户机运行时将尝试连接至第一个地址，直到连接成功）。默认值为 3。</p></li>
+<li><b>从&#8220;默认 JMS 主机&#8221;下拉式列表中，选择默认 JMS 主机的名称。</b><p>默认值为 <tt>default_JMS_host</tt>。</p></li>
+<li><b>从&#8220;地址列表行为&#8221;下拉式列表中，选择连接尝试的顺序。</b><ul>
+<li><b><tt>random</tt> 表示从 AddressList 中随机选择一个地址。</b><p>如果许多客户机同时尝试使用同一个连接工厂来进行连接，则应指定 <tt>random</tt> 以防止它们全部连接至同一个地址。此选项为默认选项。</p></li>
+<li><b><tt>priority</tt> 表示重新连接始终尝试连接 AddressList 中的第一个服务器地址，并且仅在第一个代理不可用时才使用其他地址。</b></li></ul></li>
+<li><b>在&#8220;地址列表重复&#8221;字段中，键入 JMS 服务建立（或重新建立）连接时，在 AddressList 中重复的次数。</b><p>值 -1 表示尝试次数没有限制。默认值为 3。</p></li>
+<li><b>在&#8220;MQ 模式&#8221;和&#8220;MQ 服务&#8221;字段中，键入 Message Queue 地址模式名称和 Message Queue 连接服务名称（如果要使用非默认模式或服务）。 </b><p>有关语法信息，请参见<a href="ref-mqschemeservice.html">MQ 模式和 MQ 服务地址语法</a>。</p></li>
+<li>（可选的）<b>在&#8220;其他属性&#8221;区域中，指定 JMS 服务的其他属性。</b><p>有关可用属性的信息，请参见<a href="ref-jmsservice-additional-props.html">特定于 JMS 服务的属性</a>。</p><ul>
+<li><b>要添加属性，请单击&#8220;添加属性&#8221;按钮。在显示的空白行中，在&#8220;名称&#8221;字段中键入属性名称，在&#8220;值&#8221;字段中键入属性值。</b></li>
+<li><b>要修改属性，请编辑该属性的&#8220;值&#8221;字段。</b></li>
+<li><b>要删除属性，请选中位于您要删除属性的&#8220;名称&#8221;字段左边的复选框，然后单击&#8220;删除属性&#8221;按钮。</b></li></ul></li>
+<li><b>单击 "Ping" 以验证默认 JMS 主机上是否正在运行 JMS 服务。</b><p>如果 JMS 服务已启动且正在运行，则会显示一条消息，报告 ping 成功。</p></li>
+<li><b>单击&#8220;保存&#8221;。</b>
+<hr><p><b>提示 - </b>要返回到默认设置，请单击&#8220;装入默认值&#8221;按钮，然后单击&#8220;保存&#8221;。</p>
+
+
+<hr>
+</li></ol><h6>更多信息<br>访问远程服务器</h6><p>将提供者和主机更改到远程系统将使所有 JMS 应用程序在远程服务器上运行。要同时使用本地服务器和一个或多个远程服务器，请使用 <tt>AddressList</tt> 属性创建连接工厂资源，从而创建访问远程服务器的连接。请参见<a href="task-jmsconnectionnew.html">创建 JMS 连接工厂资源</a>。</p>
+
+等效的 asadmin 命令</h6><p><tt>jms-ping</tt></p>
+
+<h6>另请参见</h6>
+<ul><li><p><a href="task-jmshostnew.html">创建 JMS 主机</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">编辑 JMS 主机</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">删除 JMS 主机</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestnew.html">创建 JMS 物理目的地</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestedit.html">编辑 JMS 物理目的地</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestdelete.html">删除 JMS 物理目的地</a></p>
+
+</li>
+<li><p><a href="task-jmsflushmessages.html">从 JMS 物理目的地删除消息</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldeststats.html">查看 JMS 物理目的地的统计信息</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

@@ -1,0 +1,32 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-messagesecurityproviderconfigprops"></a><h4>メッセージセキュリティープロバイダ設定に固有のプロパティー</h4>
+<a name="indexterm-233"></a><a name="indexterm-234"></a><p>メッセージセキュリティープロバイダ設定では、次のプロパティーを使用できます。</p>
+
+<dl><dt><tt>server.config</tt></dt>
+<dd><p>サーバー設定情報を格納する XML ファイルのディレクトリおよびファイル名。デフォルト値は <i>domain-dir</i><tt>/config/wss-server-config-1.0.xml</tt> です。</p>
+
+</dd>
+<dt><tt>debug</tt></dt>
+<dd><p><tt>true</tt> に設定すると、サーバープロバイダのデバッグメッセージがサーバーログに出力されます。デフォルト値は <tt>false</tt> です。</p>
+
+</dd>
+<dt><tt>dynamic.username.password</tt></dt>
+<dd><p><tt>true</tt> に設定すると、要求ごとに <tt>CallbackHandler</tt> からユーザー名とパスワードを収集するよう、プロバイダランタイムに指示します。false の場合は、モジュールの初期化中に <tt>wsse:UsernameToken</tt> のユーザー名とパスワードが 1 回だけ収集されます。このプロパティーは、<tt>ClientAuthModule</tt> のみに適用できます。デフォルト値は <tt>false</tt> です。</p>
+
+</dd>
+<dt><tt>encryption.key.alias</tt></dt>
+<dd><p>プロバイダで使用する暗号化キーを指定します。キーは <tt>keystore</tt> の別名で識別されます。デフォルト値は <tt>s1as</tt> です。</p>
+
+</dd>
+<dt><tt>signature.key.alias</tt></dt>
+<dd><p>プロバイダで使用される署名キーを指定します。キーは <tt>keystore</tt> の別名で識別されます。デフォルト値は <tt>s1as</tt> です。</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

@@ -1,0 +1,130 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-create-standalone-instance"></a><h4>建立獨立 GlassFish Server 實例</h4><a name="indexterm-83"></a><a name="indexterm-84"></a><a name="indexterm-85"></a><p>GlassFish Server 實例構成了應用程式部署的基礎。獨立實例不是叢集的成員。每個實例都屬於單一網域，並且具有自己的目錄結構、配置和已部署的應用程式。每個實例也包括 Java Platform Enterprise Edition (Java EE) Web 容器和 Enterprise
+JavaBeans 技術 (EJB 技術) 容器。每個新實例都必須包含節點的參照，節點用於定義實例將位於的主機。</p>
+
+
+<hr><p><b>備註 - </b>若要在類型為 CONFIG 且代表遠端主機的節點上建立實例，您必須使用 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a> 子指令。您無法使用 管理主控台 來達成此目的。</p>
+
+
+<hr>
+<h6>開始之前</h6><p>確定<a href="task-createnode.html">將存在實例的節點</a>已存在。</p>
+
+<ol>
+<li><b>在瀏覽樹狀結構中，選取 [獨立實例] 節點。</b><p>此時將開啟 [獨立伺服器實例] 頁面。</p></li>
+<li><b>在 [獨立伺服器實例] 頁面中，按一下 [新建]。</b><p>此時將開啟 [新建獨立伺服器實例] 頁面。</p></li>
+<li><b>在 [名稱] 欄位中，鍵入實例的名稱。</b><p>名稱必須符合下列需求：</p>
+<ul><li><p>名稱必須以字母、數字或底線為開頭。</p>
+
+</li>
+<li><p>名稱只能包含下列字元：</p>
+
+
+<ul><li><p>小寫字母</p>
+
+</li>
+<li><p>大寫字母</p>
+
+</li>
+<li><p>數字</p>
+
+</li>
+<li><p>連字符</p>
+
+</li>
+<li><p>小數點號</p>
+
+</li>
+<li><p>底線</p>
+
+</li></ul>
+</li>
+<li><p>名稱在網域中必須是唯一的，且不得為另一個 GlassFish Server 實例、叢集、已命名配置或節點的名稱。</p>
+
+</li>
+<li><p>名稱不得為 <tt>domain</tt>、<tt>server</tt> 或 GlassFish Server 所保留的任何其他關鍵字。</p>
+
+</li></ul>
+</li>
+<li><b>從 [節點] 下拉式清單中，選取實例將位於的節點。</b></li>
+<li><b>從 [配置] 下拉式清單中，選取實例將使用的已命名配置。</b>
+<hr><p><b>備註 - </b>如果您選取 <tt>default-config</tt>，就必須在下個步驟中將配置指定為<b>不</b>共用。<tt>default-config</tt> 配置無法共用。</p>
+
+
+<hr>
+</li>
+<li><b>指定是否要共用實例將使用的配置。</b><ul>
+<li><b>如果不共用配置，請保留選取 [複製選取的配置] 選項。 </b><p>建立實例時，會複製選取的配置。為配置副本指定的名稱是 <tt><i>instance-name</i>-config</tt>，其中 <i>instance-name</i> 是您要建立的實例名稱。</p></li>
+<li><b>如果共用配置，請選取 [參照選取的配置] 選項。</b><p>實例將使用指定的現有已命名配置。</p></li></ul></li>
+<li><b>按一下 [確定]。</b></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-delete-standalone-instances.html">刪除獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-start-standalone-instances.html">啟動獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-stop-standalone-instances.html">停止獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-view-logs-standalone-instance.html">檢視獨立 GlassFish Server 實例的記錄檔</a></p>
+
+</li>
+<li><p><a href="task-recovertransactions-standalone-instance.html">回復獨立 GlassFish Server 實例的作業事件</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-deploy.html">將應用程式部署至獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-list.html">列出已部署至獨立 GlassFish Server 實例的應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-undeploy.html">從獨立 GlassFish Server 實例取消部署應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-remove.html">從獨立 GlassFish Server 實例移除應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-edit.html">編輯已部署至獨立 GlassFish Server 實例的應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-enable-disable.html">啟用或停用已部署至獨立 GlassFish Server 實例的應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">啟用或停用已部署至獨立 GlassFish Server 實例之應用程式的負載平衡</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-create.html">為獨立 GlassFish Server 實例建立資源</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-display.html">列出獨立 GlassFish Server 實例的資源</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-enable-disable.html">啟用或停用獨立 GlassFish Server 實例的資源</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-edit.html">編輯獨立 GlassFish Server 實例的資源</a></p>
+
+</li>
+<li><p><a href="task-change-standalone-instance-ports.html">修改獨立 GlassFish Server 實例的連接埠號碼</a></p>
+
+</li>
+<li><p><a href="task-set-props-standalone-instance.html">為獨立 GlassFish Server 實例設定僅限實例的特性</a></p>
+
+</li>
+<li><p><a href="task-mon-app-standalone-instance.html">檢視獨立 GlassFish Server 實例的應用程式監視資料</a></p>
+
+</li>
+<li><p><a href="task-mon-server-standalone-instance.html">檢視獨立 GlassFish Server 實例的虛擬伺服器監視資料</a></p>
+
+</li>
+<li><p><a href="task-mon-resource-standalone-instance.html">檢視獨立 GlassFish Server 實例的資源監視資料</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

@@ -1,0 +1,43 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-editfile-adminrealm"></a><h4>Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>FileRealm</tt></h4>
+<a name="indexterm-202"></a><a name="indexterm-203"></a><p>Les propri&#233;t&#233;s suivantes sont requises pour un domaine <tt>file</tt>.</p>
+
+<dl><dt>Contexte JAAS</dt>
+<dd><p>Contexte JAAS (Java Authentication and Authorization Service), identificateur du module de connexion &#224; utiliser pour ce domaine. La seule valeur valide est <tt>fileRealm</tt>.</p>
+
+</dd>
+<dt>Fichier cl&#233;</dt>
+<dd><p>Chemin d&#8217;acc&#232;s complet et nom du fichier o&#249; le serveur va stocker toutes les informations relatives &#224; l&#8217;utilisateur, au groupe et au mot de passe du domaine. La valeur par d&#233;faut est <i>domain-dir</i><tt>/config/keyfile</tt> pour le domaine <tt>file</tt> et <i>domain-dir</i><tt>/config/admin-keyfile</tt> pour le domaine <tt>admin-realm </tt>.</p>
+
+</dd>
+</dl>
+<p>Au d&#233;part, le fichier cl&#233; du domaine <tt>file</tt> est vide, les utilisateurs
+doivent donc &#234;tre ajout&#233;s sur la page <a href="ref-managefilerealm.html">Utilisateurs de fichiers</a> avant d&#8217;utiliser le domaine
+<tt>file</tt>.</p>
+
+<p>Au d&#233;part, le fichier cl&#233; du domaine <tt>admin-realm</tt> contient le nom d&#8217;utilisateur
+de l&#8217;administrateur, le mot de passe associ&#233; dans un format chiffr&#233; et
+le groupe auquel appartient l&#8217;utilisateur (<tt>asadmin</tt> par d&#233;faut). Pour plus d&#8217;informations sur
+l&#8217;ajout d&#8217;utilisateurs au domaine <tt>admin-realm</tt>, consultez <a href="task-accessadmintools.html">Autoriser l'acc&#232;s aux outils d'administration</a>.</p>
+
+
+<hr><p><b>Remarque - </b>Les utilisateurs du groupe <tt>asadmin</tt> dans le domaine <tt>administrateur</tt> sont autoris&#233;s &#224;
+utiliser la Console d'administration  et les outils <tt>asadmin</tt>. N&#8217;ajoutez &#224; ce
+groupe que des utilisateurs ayant des privil&#232;ges d&#8217;administrateur.</p>
+
+
+<hr>
+<p>La propri&#233;t&#233; facultative suivante est disponible pour un domaine <tt>file</tt>.</p>
+
+<dl><dt>Assignation de groupes</dt>
+<dd><p>Liste de noms de groupes s&#233;par&#233;s par une virgule. Tous les clients pr&#233;sentant un certificat valide sont affect&#233;s &#224; ces groupes, comme par exemple <tt>employee, manager </tt> qui sont des noms de groupes d&#8217;utilisateurs.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

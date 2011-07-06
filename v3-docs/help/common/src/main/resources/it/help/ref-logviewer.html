@@ -1,0 +1,141 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-logviewer"></a><h4>Log Viewer</h4>
+<a name="indexterm-143"></a><a name="indexterm-144"></a><a name="indexterm-145"></a><p>Nella pagina Log Viewer &#232; possibile visualizzare i file di log per
+le istanze e i cluster GlassFish Server selezionati e personalizzarne la visualizzazione.</p>
+
+<p>La pagina Log Viewer contiene quattro aree:</p>
+
+
+<ul><li><p>Search Criteria</p>
+
+</li>
+<li><p>Advanced Search</p>
+
+</li>
+<li><p>Modifica ricerca</p>
+
+</li>
+<li><p>Search Results</p>
+
+</li></ul>
+<p>L'area Search Criteria contiene le seguenti opzioni.</p>
+
+<dl><dt>Advanced Search</dt>
+<dd><p>Fare clic questo collegamenti per visualizzare un'area che consente di eseguire ulteriori miglioramenti al visualizzatore del log.</p>
+
+</dd>
+<dt>Timestamp</dt>
+<dd><p>Il pulsante di scelta Most Recent consente di visualizzare i messaggi pi&#249; recenti. Il pulsante di scelta Specific Range consente di visualizzare i campi From e To, con cui &#232; possibile recuperare i messaggi appartenenti a periodi di tempo specifici.</p>
+
+<p>Per il valore Time, la sintassi deve essere la seguente (<b>SSS</b> corrisponde ai millisecondi):</p>
+
+<pre><b>hh</b>:<b>mm</b>:<b>ss</b>.<b>SSS</b></pre><p>Ad esempio:</p>
+
+<pre>17:10:00.000</pre><p>Se il valore incluso in From &#232; successivo al valore incluso in To, viene visualizzato un messaggio di errore.</p>
+
+</dd>
+<dt>Log Level</dt>
+<dd><p>Livello del log selezionato per il filtraggio. Per impostazione predefinita la visualizzazione include tutti i messaggi visualizzati nel log del server al livello di log selezionato e ai livelli di maggior gravit&#224;. Selezionare la casella di controllo Do not include more severe messages per visualizzare soltanto i messaggi corrispondenti al livello scelto.</p>
+
+<p>Per assicurare che i messaggi da visualizzare siano presenti nel log del server, impostare innanzitutto i livelli di log appropriati nella pagina Module Log Levels. Vedere <a href="task-eelogginglevels.html">Configurare i livelli di log</a>.</p>
+
+<p>Se si sceglie di filtrare messaggi di log in base al livello di log, vengono visualizzati solo i messaggi che soddisfano i criteri di filtro specificati. Il filtraggio non ha tuttavia effetto sui messaggi che sono registrati nel log del server.</p>
+
+</dd>
+</dl>
+<p>L'area Advanced Search contiene le seguenti opzioni.</p>
+
+<dl><dt>Logger</dt>
+<dd><p>Namespace del programma di log da filtrare in base al modulo. Per selezionare pi&#249; namespace, fare clic su di essi tenendo premuto il tasto Maiusc o Ctrl.</p>
+
+<p>Se si seleziona un namespace a un livello elevato vengono selezionati tutti i namespace di livello sottostante. Ad esempio, se si seleziona <tt>javax.enterprise.system</tt> vengono selezionati anche i programmi di log relativi a tutti i moduli in tale namespace: <tt>javax.enterprise.system.core </tt>, <tt>javax.enterprise.system.tools.admin</tt> e cos&#236; via.</p>
+
+</dd>
+<dt>Custom Logger</dt>
+<dd><p>Programmi di log specifici per una applicazione particolare, uno per riga.</p>
+
+<p>Se l'applicazione &#232; costituita da diversi moduli, &#232; possibile visualizzarne alcuni o tutti. Ad esempio, prendere in considerazione il caso in cui l'applicazione includa programmi di log con i seguenti nomi:</p>
+
+<pre>com.mycompany.myapp.module1
+com.mycompany.myapp.module2
+com.mycompany.myapp.module3</pre><p>Per visualizzare i messaggi di tutti i moduli dell'applicazione, digitare <tt>com.mycompany.myapp </tt>. Per visualizzare solo messaggi di <tt>module2</tt>, digitare <tt> com.mycompany.myapp.module2</tt>.</p>
+
+<p>Quando si specifica uno o pi&#249; programmi di log personalizzati, i messaggi dei moduli GlassFish Server vengono visualizzati solo se vengono specificati esplicitamente nell'area Logger.</p>
+
+</dd>
+<dt>Display</dt>
+<dd><p>Numero di messaggi visualizzabili in una volta. Il numero predefinito di messaggi visualizzati &#232; 40. Altre opzioni sono 100, 250 e 1000.</p>
+
+<p>Per visualizzare le tracce dello stack, deselezionare la casella di controllo Limit excessively long messages. Per impostazione predefinita, le tracce dello stack non vengono visualizzate nel visualizzatore; per visualizzarle, fare clic sul collegamento <tt>(details)</tt> per un messaggio.</p>
+
+</dd>
+</dl>
+<p>L'area Modify Search consente di specificare l'istanza server o il cluster e
+il nome di un file di log associato da visualizzare.</p>
+
+<dl><dt>Instance</dt>
+<dd><p>Istanza server o cluster per cui saranno visualizzati i record del log. Il valore predefinito &#232; server. Altre opzioni dipendono dai cluster e dalle istanze che possono essere definite e abilitate per il dominio.</p>
+
+</dd>
+<dt>Log File</dt>
+<dd><p>Nome del file di log da visualizzare. Il valore predefinito &#232; <tt>server.log</tt>. Altre opzioni dipendono dalle impostazioni di log per la destinazione selezionata.</p>
+
+</dd>
+</dl>
+<p>Nella tabella Log Viewer Results vengono visualizzati i messaggi del log del
+server. Per scegliere l'intervallo di record da visualizzare, utilizzare i pulsanti Records
+before e Records after nella parte superiore della tabella.</p>
+
+<p>Per ogni messaggio la tabella Log Viewer Results contiene le seguenti informazioni.</p>
+
+<dl><dt>Record Number</dt>
+<dd><p>Numero di messaggi nel log del server.</p>
+
+</dd>
+<dt>Log Level</dt>
+<dd><p>Livello di log del messaggio.</p>
+
+</dd>
+<dt>Message</dt>
+<dd><p>Breve testo del messaggio di log. Fare clic sul collegamento <tt>(details)</tt> per visualizzare la versione formattata di un messaggio.</p>
+
+</dd>
+<dt>Logger</dt>
+<dd><p>Modulo del programma di log che ha generato il messaggio di log.</p>
+
+</dd>
+<dt>Timestamp</dt>
+<dd><p>Data e ora dell'emissione del messaggio di log.</p>
+
+</dd>
+<dt>Name/Value Pairs</dt>
+<dd><p>Nome del thread e ID del messaggio di log.</p>
+
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-eelogging.html">Configurare impostazioni generali per il log</a></p>
+
+</li>
+<li><p><a href="task-eelogginglevels.html">Configurare i livelli di log</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">Visualizzare i file di log per il DAS</a></p>
+
+</li></ul>
+<h5>Comandi <tt>asadmin</tt> correlati</h5>
+
+<ul><li><p><tt>set-log-level</tt></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=rotate-log-1"><tt>rotate-log</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

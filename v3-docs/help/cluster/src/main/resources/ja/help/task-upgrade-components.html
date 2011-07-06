@@ -1,0 +1,98 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-upgrade-components"></a><h4>サービスを停止せずにコンポーネントをアップグレードする</h4><a name="indexterm-41"></a><a name="indexterm-42"></a><a name="indexterm-43"></a><a name="indexterm-44"></a><p>クラスタ化された環境では、順次アップグレードにより、サービスとセッションの損失を最小限に抑えてアプリケーションを再配備できます。セッションは、次のような複製可能な成果物です。</p>
+
+
+<ul><li><p><tt>HttpSession</tt></p>
+
+</li>
+<li><p><tt>SingleSignOn</tt></p>
+
+</li>
+<li><p><tt>ServletTimer</tt></p>
+
+</li>
+<li><p><tt>DialogFragment</tt></p>
+
+</li>
+<li><p>ステートフルセッション Bean</p>
+
+</li></ul>
+<p>ロードバランサと複数のクラスタを使用して、サービスを停止することなく、GlassFish サーバー 内のコンポーネントをアップグレードできます。たとえば、コンポーネントとして、JVM マシン、GlassFish サーバー ソフトウェア、または Web アプリケーションが可能です。</p>
+
+<p>順次アップグレードは、軽度から中度の負荷で行うことができます。この手順の実行には、GlassFish サーバー インスタンスごとに 10 - 15 分かかります。</p>
+
+<p>アプリケーションはアップグレード間で互換する必要があります。古いバージョンを実行しているインスタンスと、新しいバージョンを実行しているインスタンスがある場合、アプリケーションが移行中に正しく機能する必要があります。古いバージョンと新しいバージョンには、セッションに保存されるオブジェクトグラフを構成する同じ形状のシリアライズ可能なクラス (非移行インスタンス変数など) が必要です。これらのクラスの形状を変更する必要がある場合、アプリケーション開発者はシリアル化の動作が正しく行われるようにする必要があります。アプリケーションがアップグレード間で互換しない場合、完全な再配備のためにクラスタを停止する必要があります。</p>
+
+<p>アプリケーションのアップグレードでアプリケーションデータベーススキーマを変更する場合、この方法は実行できません。</p>
+
+
+<hr><p><b>注意 - </b>セッションの処理を継続するときにバージョン不一致のリスクを回避するには、クラスタ内のすべてのインスタンスを同時にアップグレードします。このようにしない場合、セッションは別のバージョンのコンポーネントが実行されているインスタンスで処理が継続されます。</p>
+
+
+<hr>
+<p>各クラスタで個別にこのタスクを実行します。クラスタは、クラスタ内のインスタンスに対するセッションフェイルオーバーの安全な境界として機能します。1 つのクラスタ内のセッションは、別のクラスタ内のセッションで処理を継続できません。したがって、バージョン不一致のリスクは回避されます。</p>
+
+<ol>
+<li><b><a href="task-stop-cluster.html">クラスタを停止します</a>。</b></li>
+<li><b>そのクラスタでコンポーネントをアップグレードします。</b></li>
+<li><b><a href="task-start-cluster.html">クラスタを起動します</a>。</b></li></ol><h6>参照</h6>
+<ul><li><p><a href="task-create-cluster.html">「クラスタを作成する」</a></p>
+
+</li>
+<li><p><a href="task-delete-cluster.html">「クラスタを削除する」</a></p>
+
+</li>
+<li><p><a href="task-availabilityservice.html">「クラスタの可用性を設定する」</a></p>
+
+</li>
+<li><p><a href="task-start-cluster.html">「クラスタを起動する」</a></p>
+
+</li>
+<li><p><a href="task-stop-cluster.html">「クラスタを停止する」</a></p>
+
+</li>
+<li><p><a href="task-modify-cluster-config.html">「クラスタの設定を変更する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-deploy.html">「アプリケーションをクラスタに配備する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-list.html">「クラスタに配備されているアプリケーションを一覧表示する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-undeploy.html">「クラスタからアプリケーションの配備を取り消す」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-remove.html">「クラスタからアプリケーションを削除する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-edit.html">「クラスタに配備されているアプリケーションを編集する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-enable-disable.html">「クラスタに配備されているアプリケーションを有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-lb-enable-disable.html">「クラスタに配備されているアプリケーションの負荷分散を有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-create.html">「クラスタのリソースを作成する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-display.html">「クラスタのリソースを一覧表示する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-enable-disable.html">「リソースをグローバルに有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-edit.html">「クラスタのリソースを編集する」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

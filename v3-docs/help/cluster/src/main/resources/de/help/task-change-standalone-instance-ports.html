@@ -1,0 +1,102 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-change-standalone-instance-ports"></a><h4>So &#228;ndern Sie die Portnummern einer eigenst&#228;ndigen GlassFish-Server-Instanz</h4><a name="indexterm-131"></a><a name="indexterm-132"></a><a name="indexterm-133"></a><p>Die Portnummern einer eigenst&#228;ndigen GlassFish-Server-Instanz werden urspr&#252;nglich in der Konfiguration festgelegt, auf
+die die Instanz verweist. Sie m&#252;ssen diese Portnummern &#228;ndern, wenn sich beispielsweise
+zwei Instanzen, die auf dieselbe Konfiguration verweisen, auf demselben Host befinden. In
+diesem Fall m&#252;ssen die Portnummern f&#252;r eine Instanz ge&#228;ndert werden, da beide
+Instanzen auf dieselbe Konfiguration verweisen.</p>
+
+<p>Die Portnummern einer Instanz werden als Java-Systemeigenschaften gespeichert. Diese Eigenschaften werden an
+das Java-Anwendungsstarttool &#252;ber die Option <tt>-D</tt> des Java-Anwendungsstarttools weitergeleitet, wenn GlassFish-Server gestartet
+wird. </p>
+
+<ol>
+<li><b>W&#228;hlen Sie in der Navigationsstruktur den Knoten "Eigenst&#228;ndige Instanzen".</b><p>Die Seite "Eigenst&#228;ndige Serverinstanz" wird ge&#246;ffnet.</p></li>
+<li><b>W&#228;hlen Sie die Instanz, f&#252;r die Portnummern ge&#228;ndert werden sollen.</b><p>Die Seite "Allgemeine Informationen" f&#252;r die Instanz wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Allgemeine Informationen" auf die Registerkarte "Eigenschaften".</b><p>Die Seite "Instance System Properties" (Instanz-Systemeigenschaften) wird ge&#246;ffnet.</p><p>Auf dieser Seite werden die aktuellen Werte der folgenden Systemeigenschaften f&#252;r die
+Instanz angezeigt:</p>
+<ul><li><p><a href="../../../common/de/help/ref-predefinedconfigsysproperties.html">Portnummern, die in der Konfiguration der Instanz vordefiniert sind</a></p>
+
+</li>
+<li><p>Benutzerdefinierte Eigenschaften, die f&#252;r die Instanz definiert sind (falls vorhanden)</p>
+
+</li></ul>
+</li>
+<li><b>Geben Sie f&#252;r jede vorhandene Eigenschaft, die Sie &#228;ndern m&#246;chten, den neuen
+Wert im Feld "Wert &#252;bergehen" f&#252;r die Eigenschaft ein.</b></li>
+<li><b>Geben Sie Werte f&#252;r alle zus&#228;tzlichen Eigenschaften ein, die Sie ben&#246;tigen.</b><ol style="list-style-type: lower-alpha">
+<li><b>Klicken Sie in der Tabelle "Weitere Eigenschaften" auf "Eigenschaft hinzuf&#252;gen".</b><p>Eine Zeile wird zur Tabelle "Weitere Eigenschaften" hinzugef&#252;gt.</p></li>
+<li><b>Geben Sie im Feld "Name der Instanzenvariablen" den Eigenschaftsnamen ein.</b></li>
+<li><b>Geben Sie im Feld "Wert &#252;bergehen" den Wert ein.</b></li></ol></li>
+<li><b>Klicken Sie auf "Speichern".</b></li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="task-create-standalone-instance.html">So erstellen Sie eine eigenst&#228;ndige GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-delete-standalone-instances.html">So l&#246;schen Sie eigenst&#228;ndige GlassFish-Server-Instanzen</a></p>
+
+</li>
+<li><p><a href="task-start-standalone-instances.html">So starten Sie eigenst&#228;ndige GlassFish-Server-Instanzen</a></p>
+
+</li>
+<li><p><a href="task-stop-standalone-instances.html">So halten Sie eigenst&#228;ndige GlassFish-Server-Instanzen an</a></p>
+
+</li>
+<li><p><a href="task-view-logs-standalone-instance.html">So zeigen Sie Protokolldateien f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li>
+<li><p><a href="task-recovertransactions-standalone-instance.html">So stellen Sie Vorg&#228;nge f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz wieder her</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-deploy.html">So stellen Sie eine Anwendung f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereit</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-list.html">So listen Sie die f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereitgestellten Anwendungen auf</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-undeploy.html">So heben Sie die Bereitstellung von Anwendungen f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz auf</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-remove.html">So entfernen Sie Anwendungen aus einer eigenst&#228;ndigen GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-edit.html">So bearbeiten Sie die f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereitgestellte Anwendung</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-enable-disable.html">So aktivieren oder deaktivieren Sie die f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereitgestellte Anwendung</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">So aktivieren oder deaktivieren Sie den Lastenausgleich der f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereitgestellten Anwendung</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-create.html">So erstellen Sie eine Ressource f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-display.html">So listen Sie Ressourcen f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz auf</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-enable-disable.html">So aktivieren oder deaktivieren Sie eine Ressource f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-edit.html">So bearbeiten Sie eine Ressource f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-set-props-standalone-instance.html">So geben Sie instanzenbezogene Eigenschaften f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li>
+<li><p><a href="task-mon-app-standalone-instance.html">So zeigen Sie &#220;berwachungsdaten der Anwendung f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li>
+<li><p><a href="task-mon-server-standalone-instance.html">So zeigen Sie &#220;berwachungsdaten des virtuellen Servers f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li>
+<li><p><a href="task-mon-resource-standalone-instance.html">So zeigen Sie &#220;berwachungsdaten der Ressource f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

@@ -1,0 +1,63 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-networklisteneredit"></a><h4>編輯網路偵聽程式</h4><a name="indexterm-22"></a><ol>
+<li><b>在瀏覽樹狀結構中，展開 [配置] 節點。</b></li>
+<li><b>在 [配置] 節點下，展開 [網路配置] 節點。</b></li>
+<li><b>在 [網路配置] 節點下，選取 [網路偵聽程式] 節點。</b><p>[網路偵聽程式] 頁面會隨即開啟。</p></li>
+<li><b>在 [網路偵聽程式] 頁面上，按一下您要編輯的網路偵聽程式名稱。</b><p>[編輯網路偵聽程式] 頁面會隨即開啟。</p></li>
+<li><b>選取或取消選取 [啟用狀態] 核取方塊，以變更網路偵聽程式的狀態。</b><p>您可啟用或停用此偵聽程式。此選項預設為啟用。如果停用偵聽程式，嘗試連線至偵聽程式時皆會發生通訊端異常 (<tt>java.net.ConnectException</tt>)。</p></li>
+<li><b>選取 [啟用安全性] 核取方塊，針對網路偵聽程式使用的通訊協定啟用安全性。</b><p>此選項預設為停用。</p></li>
+<li><b>選取 [啟用 JK 偵聽程式] 核取方塊，指定偵聽程式支援 Apache 的 <tt>mod-jk</tt> 通訊協定。</b><p><tt>mod-jk</tt> 通訊協定是 Apache 的 <tt>httpd</tt> (Web 伺服器) 和 GlassFish Server 後端實例之間的專用通訊/網路通訊協定。如果偵聽程式支援此通訊協定，<tt>httpd</tt> 應會處理所有靜態內容，而任何對動態資源
+(亦即 Servlet 和 JSP) 的請求都會使用 <tt>mod-jk</tt> 通訊協定路由至 GlassFish Server 已啟用 <tt>mod-jk</tt> 的網路偵聽程式。此選項預設為停用。</p></li>
+<li><b>在 [連接埠] 欄位中，鍵入網路偵聽程式將偵聽的連接埠號碼。</b><p>合法值為 1 - 65535。在 UNIX 系統上，建立偵聽連接埠 1 - 1024 的通訊端需要超級使用者權限。</p></li>
+<li><b>在 [位址] 欄位中，鍵入網路偵聽程式將偵聽的 IP 位址。</b><p>此位址可以用「點對」或 IPv6 表示法。它可以表示為 <tt>any</tt> (用於 <tt>INADDR_ANY</tt>) 以偵聽所有 IP 位址。它可以是主機名稱。</p></li>
+<li><b>從 [執行緒池] 下拉式清單中，選取要與網路偵聽程式關聯的執行緒池。</b></li>
+<li><b>按一下 [儲存]。</b>
+<hr><p><b>提示 - </b>若要回到預設設定，請按一下 [載入預設值] 按鈕，然後按一下 [儲存]。</p>
+
+
+<hr>
+</li></ol><h6>接下來的步驟</h6><p>您可以使用 [SSL]、[HTTP] 和 [檔案快取] 標籤編輯與網路偵聽程式關聯之通訊協定的設定。[SSL] 標籤只有在您已針對網路偵聽程式啟用安全性時才有意義。</p>
+
+<h6>另請參閱</h6>
+<ul><li><p><a href="task-networklistenernew.html">建立網路偵聽程式</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">刪除網路偵聽程式</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">建立通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">編輯通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">編輯通訊協定的 SSL 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">編輯通訊協定的 HTTP 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">編輯通訊協定的檔案快取設定</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">刪除通訊協定</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">建立傳輸</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">編輯傳輸</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">刪除傳輸</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

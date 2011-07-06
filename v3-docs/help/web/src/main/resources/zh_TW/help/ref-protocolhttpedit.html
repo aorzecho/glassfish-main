@@ -1,0 +1,193 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolhttpedit"></a><h4>HTTP</h4>
+<a name="indexterm-72"></a><a name="indexterm-73"></a><p>使用 [HTTP] 頁面可修改網路通訊協定的 HTTP 設定。</p>
+
+<p>[HTTP] 頁面包含下列選項。</p>
+
+<dl><dt>載入預設值</dt>
+<dd><p>將所有設定復原為預設值的按鈕。</p>
+
+</dd>
+<dt>配置名稱</dt>
+<dd><p>套用此頁面上之設定的配置名稱。此欄位是唯讀欄位。</p>
+
+</dd>
+<dt>通訊協定名稱</dt>
+<dd><p>通訊協定的名稱。[通訊協定名稱] 欄位是唯讀欄位。您僅能在建立新的通訊協定時指定名稱。</p>
+
+</dd>
+<dt>伺服器名稱</dt>
+<dd><p>要在伺服器傳送給用戶端的 URL 中使用的主機名稱。如果伺服器使用別名，則該名稱應為此別名。如果伺服器未使用別名，請將此欄位保留為空白。</p>
+
+</dd>
+<dt>預設虛擬伺服器</dt>
+<dd><p>將要與通訊協定關聯的虛擬伺服器。使用 [虛擬伺服器] 頁面可定義虛擬伺服器。</p>
+
+</dd>
+<dt>重新導向連接埠</dt>
+<dd><p>將請求重新導向至另一個連接埠的連接埠值。如果滿足以下兩個條件，GlassFish Server 將自動重新導向請求：</p>
+
+
+<ul><li><p>此通訊協定支援非 SSL 請求。</p>
+
+</li>
+<li><p>接收了符合安全性限制需要 SSL 傳輸的請求。</p>
+
+</li></ul>
+<p>如果未指定重新導向連接埠，則 GlassFish Server 會使用原始請求中所指定的連接埠號碼。</p>
+
+</dd>
+<dt>最大連線數</dt>
+<dd><p>「持續作用」模式下可保留的連線最大數量。「持續作用」子系統會定期輪詢閒置的連線。預設值為 256。</p>
+
+</dd>
+<dt>逾時</dt>
+<dd><p>將連線視為閒置並保持在持續作用狀態的最長時間 (以秒為單位)。如果值小於或等於 0，則表示持續作用連線會無限期保持開啟。預設值為 30 秒。</p>
+
+</dd>
+<dt>上傳逾時</dt>
+<dd><p>若選取此選項，讀取位元組較慢的 Servlet 連線會在連線上傳逾時限制到達後關閉。如果停用此選項，則 Servlet 連線不會逾時。此選項預設為停用。</p>
+
+</dd>
+<dt>連線上傳逾時</dt>
+<dd><p>上傳的逾時 (以毫秒為單位)。僅當選取 [啟用上傳逾時] 核取方塊時，此欄位才適用。預設值為 300000 毫秒。</p>
+
+</dd>
+<dt>請求逾時</dt>
+<dd><p>請求逾時之前的秒數。如果在到達逾時值之前沒有處理請求，則會忽略請求。預設值為 30 秒。</p>
+
+</dd>
+<dt>傳送緩衝區大小</dt>
+<dd><p>傳送緩衝區的大小 (單位為位元組)。預設值為 8192 位元組。</p>
+
+</dd>
+<dt>標頭緩衝區長度</dt>
+<dd><p>請求處理執行緒用於讀取請求資料的緩衝區的大小 (以位元組為單位)。預設值為 8192 位元組。</p>
+
+</dd>
+<dt>最大 Post 大小</dt>
+<dd><p>POST 動作的最大大小 (以位元組為單位)。預設值為 2097152 位元組。</p>
+
+</dd>
+<dt>URI 編碼</dt>
+<dd><p>用來解碼接收的請求 URI 的字元集名稱。值必須為有效的 IANA 字元集名稱。預設值為 UTF-8。</p>
+
+</dd>
+<dt>版本</dt>
+<dd><p>使用的 HTTP 通訊協定版本。預設值為 HTTP/1.1。</p>
+
+</dd>
+<dt>壓縮</dt>
+<dd><p>指定使用 HTTP/1.1 GZIP 壓縮，以節省伺服器頻寬。可用的選項包括：</p>
+
+<dl><dt><tt>on</tt></dt>
+<dd><p>壓縮資料。</p>
+
+</dd>
+<dt><tt>off</tt></dt>
+<dd><p>停用壓縮。</p>
+
+</dd>
+<dt><tt>force</tt></dt>
+<dd><p>強制一律資料壓縮。</p>
+
+</dd>
+</dl>
+<p>預設值為 <tt>off</tt>。</p>
+
+</dd>
+<dt>可壓縮的 Mime 類型</dt>
+<dd><p>使用 HTTP 壓縮的 MIME 類型清單 (以逗號分隔)。預設值為 <tt>text/html,text/xml,text/plain</tt>。</p>
+
+</dd>
+<dt>最小壓縮大小</dt>
+<dd><p>檔案套用壓縮時的最小大小。如果將「壓縮」設定為 <tt>on</tt> 或 <tt>force </tt>，則必須設定此值。預設值為 2048 位元組。</p>
+
+</dd>
+<dt>不壓縮使用者代理程式</dt>
+<dd><p>符合不應使用壓縮的 HTTP 用戶端使用者代理程式之常規表示式清單 (以逗號分隔)。依預設，此值是空字串。</p>
+
+</dd>
+<dt>受限制的使用者代理程式</dt>
+<dd><p>套用 HTTP 壓縮之受限制的使用者代理程式清單。如果沒有指定使用者代理程式，則會將 HTTP 壓縮套用到所有使用者代理程式。依預設，不會指定使用者代理程式。</p>
+
+</dd>
+<dt>預設回應類型</dt>
+<dd><p>指定預設回應類型的字串。該格式是以分號分隔的字串，由內容類型、編碼、語言和字元集組成。預設值為 <tt>text/html; charset=iso-8859-1</tt>。</p>
+
+</dd>
+<dt>已強制回應類型</dt>
+<dd><p>指定在沒有符合檔案副檔名的 MIME 對應可用時所使用之請求類型的字串。該格式是以分號分隔的字串，由內容類型、編碼、語言和字元集組成。預設值為 <tt>text/html; charset=iso-8859-1</tt>。</p>
+
+</dd>
+<dt>配接卡</dt>
+<dd><p>靜態資源配接卡的類別名稱。預設值為 <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>。</p>
+
+</dd>
+<dt>Comet 支援</dt>
+<dd><p>如果選取此選項，則啟用通訊協定的 Comet 支援。此選項預設為停用。</p>
+
+</dd>
+<dt>DNS 查詢</dt>
+<dd><p>若選取此選項，則啟用網域名稱系統 (DNS) 查詢。此選項預設為停用。</p>
+
+</dd>
+<dt>RCM 支援</dt>
+<dd><p>若選取此選項，則會啟用資源配置管理 (RCM)。此選項預設為停用。</p>
+
+</dd>
+<dt>追蹤</dt>
+<dd><p>若選取此選項，則會啟用追蹤作業。若停用此選項，GlassFish Server 會較不易受到跨網站指令碼攻擊的影響。此選項預設為啟用。</p>
+
+</dd>
+<dt>認證傳送</dt>
+<dd><p>若選取此選項，代表使用此通訊協定的網路偵聽程式會從終止 SSL 的代理伺服器接收流量。此選項預設為停用。</p>
+
+</dd>
+<dt>分塊</dt>
+<dd><p>若選取此選項，會啟用 HTTP 回應分塊。此選項預設為啟用。</p>
+
+</dd>
+<dt>XPowered By</dt>
+<dd><p>若選取此選項，GlassFish Server 會根據 Java Servlet 3.0 和 Java Server Pages 2.0 規格使用 <tt>X-Powered-By</tt> 標頭。此選項預設為啟用。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-protocolnew.html">建立通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">編輯通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">編輯通訊協定的 SSL 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">編輯通訊協定的 HTTP 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">編輯通訊協定的檔案快取設定</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">刪除通訊協定</a></p>
+
+</li></ul>
+<h5>相關的 <tt>asadmin</tt> 指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

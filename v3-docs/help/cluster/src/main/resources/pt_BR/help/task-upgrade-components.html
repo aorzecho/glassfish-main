@@ -1,0 +1,120 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-upgrade-components"></a><h4>Para atualizar componentes sem perda de servi&#231;o</h4><a name="indexterm-41"></a><a name="indexterm-42"></a><a name="indexterm-43"></a><a name="indexterm-44"></a><p>Em um ambiente em cluster, uma atualiza&#231;&#227;o planejada reimplanta um aplicativo com
+perda m&#237;nima de servi&#231;o e sess&#245;es. Uma sess&#227;o &#233; qualquer artefato que
+possa ser replicado, por exemplo:</p>
+
+
+<ul><li><p><tt>HttpSession</tt></p>
+
+</li>
+<li><p><tt>SingleSignOn</tt></p>
+
+</li>
+<li><p><tt>ServletTimer</tt></p>
+
+</li>
+<li><p><tt>DialogFragment</tt></p>
+
+</li>
+<li><p>Bean de sess&#227;o sem estado</p>
+
+</li></ul>
+<p>&#201; poss&#237;vel utilizar o balanceador de carga e v&#225;rios clusters para atualizar
+componentes no Servidor GlassFish sem perda de servi&#231;o. Um componente pode ser,
+por exemplo, uma m&#225;quina JVM, o software Servidor GlassFish ou um aplicativo
+Web.</p>
+
+<p>Uma atualiza&#231;&#227;o planejada pode ocorrer em cargas leves e moderadas. O procedimento
+demora cerca de 10 a 15 minutos em cada inst&#226;ncia do Servidor
+GlassFish.</p>
+
+<p>Os aplicativos devem ser compat&#237;veis na atualiza&#231;&#227;o. Devem funcionar corretamente durante a
+transi&#231;&#227;o quando algumas inst&#226;ncias estiverem executando a vers&#227;o antiga e outras inst&#226;ncias
+estiverem executando a nova vers&#227;o. A vers&#227;o antiga e a nova devem
+ter a mesma forma de classes serializ&#225;veis que formam os gr&#225;ficos de
+objetos armazenados nas sess&#245;es (por exemplo, vari&#225;veis de inst&#226;ncia n&#227;o transit&#243;rias). Se
+a forma destas classes devem se alterar, o desenvolvedor do aplicativo deve
+certificar-se de que ocorra um correto comportamento de serializa&#231;&#227;o. Se o aplicativo
+n&#227;o for compat&#237;vel em toda a atualiza&#231;&#227;o, o cluster deve ser interrompido
+para uma reimplanta&#231;&#227;o completa.</p>
+
+<p>Esta abordagem n&#227;o &#233; poss&#237;vel se a atualiza&#231;&#227;o do aplicativo implicar a
+altera&#231;&#227;o no esquema do banco de dados do aplicativo.</p>
+
+
+<hr><p><b>Cuidado - </b>Para evitar o risco de incompatibilidade de vers&#245;es quando uma sess&#227;o falhar,
+atualize todas as inst&#226;ncias de um cluster ao mesmo tempo. Do contr&#225;rio,
+uma sess&#227;o pode falhar em uma inst&#226;ncia na qual vers&#245;es diferentes de
+componentes est&#227;o em execu&#231;&#227;o.</p>
+
+
+<hr>
+<p>Realize esta tarefa em cada cluster separadamente. Um cluster age como um
+limite seguro em failover de sess&#227;o das inst&#226;ncias do cluster. As sess&#245;es
+de um cluster nunca podem causar failover em sess&#245;es de outros cluster.
+Portanto, n&#227;o h&#225; risco de vers&#245;es incompat&#237;veis.</p>
+
+<ol>
+<li><b><a href="task-stop-cluster.html">Interromper o cluster</a>.</b></li>
+<li><b>Atualize o componente em tal cluster.</b></li>
+<li><b><a href="task-start-cluster.html">Iniciar o cluster</a></b></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-create-cluster.html">Para criar um cluster</a></p>
+
+</li>
+<li><p><a href="task-delete-cluster.html">Para excluir um cluster</a></p>
+
+</li>
+<li><p><a href="task-availabilityservice.html">Para configurar as defini&#231;&#245;es de disponibilidade de um cluster</a></p>
+
+</li>
+<li><p><a href="task-start-cluster.html">Para iniciar um cluster</a></p>
+
+</li>
+<li><p><a href="task-stop-cluster.html">Para interromper um cluster</a></p>
+
+</li>
+<li><p><a href="task-modify-cluster-config.html">Para modificar a configura&#231;&#227;o de um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-deploy.html">Para implantar um aplicativo em um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-list.html">Para listar aplicativos que est&#227;o implantados em um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-undeploy.html">Para desimplantar aplicativos de um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-remove.html">Para remover aplicativos de um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-edit.html">Para editar um aplicativo que est&#225; implantado em um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-enable-disable.html">Para ativar ou desativar um aplicativo que est&#225; implantado em um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-lb-enable-disable.html">Para ativar ou desativar o balanceamento de carga de um aplicativo que est&#225; implantado em um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-create.html">Para criar um recurso para um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-display.html">Para listar um recurso de um cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-enable-disable.html">Para ativar ou desativar globalmente um recurso</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-edit.html">Para editar um recurso de um cluster</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

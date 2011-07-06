@@ -1,0 +1,49 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbtimerservice"></a><h4>Pour configurer le service d&#8217;horloge EJB</h4><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>Le service d&#8217;horloge est un service de notification persistant et transactionnel fourni
+par le conteneur de beans entreprise qui sert &#224; programmer des notifications
+ou des &#233;v&#233;nements utilis&#233;s par les beans entreprise. Tous les beans entreprise,
+&#224; l&#8217;exception des beans de session avec &#233;tat, peuvent recevoir des notifications
+du service d&#8217;horloge. Les horloges persistantes d&#233;finies par le service ne sont
+pas d&#233;truites lors de l&#8217;arr&#234;t ou du red&#233;marrage du serveur.</p>
+
+<ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
+<li><b>S&#233;lectionnez le n&#339;ud Conteneur EJB.</b><p>La page Enterprise Java Beans (EJB) s&#8217;ouvre.</p></li>
+<li><b>Cliquez sur l&#8217;onglet Service d&#8217;horloge EJB.</b><p>La page Service d&#8217;horloge EJB s&#8217;ouvre.</p></li>
+<li><b>Dans la champ Intervalle de distribution minimal, indiquez le nombre minimum de
+millisecondes autoris&#233;es avant la prochaine expiration d&#8217;une horloge particuli&#232;re.</b><p>La d&#233;finition de cet intervalle sur une valeur trop basse peut provoquer
+une surcharge du serveur. La valeur par d&#233;faut est 1000.</p></li>
+<li><b>Dans la champ Nombre maximal de redistributions, indiquez le nombre maximal de
+tentatives effectu&#233;es par le service d&#8217;horloge pour transmettre une expiration d&#8217;horloge en
+raison d&#8217;une exception ou d&#8217;une annulation.</b><p>La valeur par d&#233;faut est 1. </p></li>
+<li><b>Dans le champ Intervalle de redistribution, indiquez l&#8217;ntervalle, exprim&#233; en millisecondes, entre
+deux tentatives de redistribution. . </b><p>La valeur par d&#233;faut est 5000.</p></li>
+<li><b>Dans le champ Source de donn&#233;es de l&#8217;horloge, tapez le nom JNDI
+de la ressource JDBC &#224; utiliser comme source de donn&#233;es de l&#8217;horloge.</b><p>Si elle est sp&#233;cifi&#233;e, cette valeur remplace la valeur par d&#233;faut de
+<tt>jdbc/__TimerPool</tt> de l&#8217;application du syst&#232;me de service d&#8217;horloge. </p></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li>
+<li><b>Red&#233;marrez GlassFish Server.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="../../../ejb-lite/fr/help/task-ejbgeneral.html">To Configure EJB Settings</a></p>
+
+</li>
+<li><p><a href="task-ejbmdbpoolsettings.html">Pour configurer les param&#232;tres du pool MDB</a></p>
+
+</li>
+<li><p><a href="task-ejbcontaineravailability.html">Pour configurer les param&#232;tres de disponibilit&#233; du conteneur EJB</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

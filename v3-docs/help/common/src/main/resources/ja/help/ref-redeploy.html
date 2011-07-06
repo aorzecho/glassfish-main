@@ -1,0 +1,131 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-redeploy"></a><h4>アプリケーションまたはモジュールの再配備</h4>
+<a name="indexterm-185"></a><a name="indexterm-186"></a><p>以前に配備したアプリケーションを再配備するには、「アプリケーションまたはモジュールを再配備」ページを使用します。</p>
+
+<p>「アプリケーションまたはモジュールを再配備」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>位置</dt>
+<dd><p>再配備するアプリケーションの新しいアーカイブの場所。</p>
+
+<p>次のオプションは、アーカイブにアクセス可能な場所とアーカイブがファイルであるかディレクトリであるかを指定します。</p>
+
+<dl><dt>サーバーにアップロードされるパッケージファイル</dt>
+<dd><p>このアーカイブは、クライアントマシンにあるファイル、またはクライアントマシンからアクセス可能なファイルです。</p>
+
+<p>クライアントマシンとは、ブラウザを介して 管理コンソール を表示しているホストです。</p>
+
+</dd>
+<dt>GlassFish サーバー からアクセス可能なローカルのパッケージファイルまたはディレクトリ</dt>
+<dd><p>このアーカイブは、サーバーマシンにあるファイル、または展開されたディレクトリにあるパッケージ化されていないアプリケーションです。</p>
+
+<p>サーバーマシンは、GlassFish サーバー のドメイン管理サーバーを実行しているホストです。 </p>
+
+</dd>
+</dl>
+</dd>
+<dt>アプリケーション名</dt>
+<dd><p>再配備するアプリケーションの名前を表示する読み取り専用フィールド。</p>
+
+<p>名前には、オプションのバージョン ID を含めることができます。このバージョン ID は名前のあとに続き、コロン (<tt>:</tt>) で名前と区切ります。モジュールとアプリケーションのバージョンについては、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「Module and Application Versions」</a>を参照してください。</p>
+
+</dd>
+<dt>JSP をプリコンパイル</dt>
+<dd><p>このオプションを選択すると、JavaServer Pages (JSP) ファイルがプリコンパイルされます。このオプションが無効な場合、JSP ファイルは初めてアクセスされた実行時にコンパイルされます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>ベリファイアを実行</dt>
+<dd><p>このオプションを選択すると、配備の前に配備記述子が検証されます。検証が失敗すると、配備は実行されません。ベリファイアは、配備記述子の構造とコンテンツを調べます。大きなアプリケーションの検証は時間がかかる可能性があります。このオプションは、デフォルトでは無効になっています。</p>
+
+<p>更新ツールからベリファイアパッケージがインストールされている必要があり、このパッケージが存在しないと警告が記録され、オプションは無視されます。</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>このオプションを選択すると、アプリケーションクライアントモジュールで Java Web Start アクセスが許可されます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>状態の維持</dt>
+<dd><p>このオプションは、Web セッション、SFSB インスタンス、および持続的に作成された EJB タイマーを、次の再配備でも保持するかどうかを制御します。</p>
+
+<p>このオプションは、デフォルトでは無効になっています。このオプションがサポートされるのは、<tt>server</tt> という名前が付いたデフォルトのサーバーインスタンス上だけです。ほかのターゲットではサポートされず、無視されます。</p>
+
+<p>再配備までの間に行われるアプリケーションの変更によっては、この機能が正常に動作しなくなることがあります。たとえば、SFSB Bean クラスでインスタンス変数セットを変更することは避けてください。</p>
+
+<p>Web アプリケーションの場合、この機能を適用できるのは <tt>glassfish-web-app.xml </tt> ファイルで <tt>session-manager</tt> 要素の <tt>persistence-type</tt> 属性が <tt>file</tt> のときだけです。</p>
+
+<p>ステートフルセッション Bean インスタンスの場合、高可用性を提供しない持続性タイプはサーバー (「SFSB 持続性のタイプ」オプション) 内で設定し、<tt>file</tt> (デフォルトで、推奨値) に設定する必要があります。</p>
+
+<p>アクティブな Web セッション、SFSB インスタンス、または EJB タイマーが保持または復元されないと、再配備が完了したときに<b>これらすべてを</b>使用できません。ただし、再配備を続けると警告がログに記録されます。</p>
+
+<p>アクティブな状態データを保持するために、GlassFish サーバー はデータを直列化し、メモリーに保存します。データを復元するために、新たに配備されたアプリケーションのクラスローダーは以前に保存されたデータを直列化復元します。</p>
+
+</dd>
+<dt>アプリケーションを対象範囲とするリソースの維持</dt>
+<dd><p>このオプションを選択すると、アプリケーションスコープのリソースが保持され、再配備中に復元されます。デフォルトでは、このオプションは選択されません。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-appredeploy.html">「配備済みアプリケーションを再配備する」</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">「配備されているアプリケーションのリストを表示する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">「Web アプリケーションを配備する」</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">「エンタープライズアプリケーションを配備する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">「アプリケーションクライアントを配備する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">「コネクタモジュールを配備する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">「EJB JAR を配備する」</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">「配備済みアプリケーションを編集する」</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">「アプリケーションの記述子を表示する」</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">「Web サービスのエンドポイント情報を表示する」</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">「アプリケーションを起動する」</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">「アプリケーションクライアントを起動する」</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">「配備済みアプリケーションを再読み込みする」</a></p>
+
+</li>
+<li><p><a href="../../../ejb/ja/help/task-ejbcontaineravailability.html">EJB コンテナの可用性を設定する</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=redeploy-1"><tt>redeploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-modules-1"><tt>list-modules</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

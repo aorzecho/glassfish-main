@@ -1,0 +1,35 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jaccprovidernew"></a><h4>建立 JACC 提供者</h4><a name="indexterm-101"></a><a name="indexterm-102"></a><a name="indexterm-103"></a><p>使用 [新建 JACC 提供者] 頁面可建立與 JSR-115/196 相容的新 Java Authorization Contract for Containers
+(JACC) 提供者，其可由協力廠商授權模組用於 GlassFish Server 中執行的應用程式。會將 JACC 提供者建立為網域之 <tt>domain.xml</tt> 檔案中 <tt>security-service</tt> 元素內的 <tt>jacc-provider</tt>
+元素。</p>
+
+<p>預設 GlassFish Server 安裝包括名為 <tt>default</tt> 與 <tt>simple </tt> 的兩個 JACC 提供者。您建立的任何新 JACC 提供者均不是這兩個預設的提供者。預設
+GlassFish Server JACC 提供者會實作符合 JACC 規格的簡單檔案型授權引擎。</p>
+
+<p>如需了解如何撰寫 JACC 提供者的實作類別，請參閱 JACC 規格，網址為 <a href="http://jcp.org/en/jsr/detail?id=115">http://jcp.org/en/jsr/detail?id=115</a>。</p>
+
+<ol>
+<li><b>在瀏覽樹狀結構的 [配置] 節點下，展開您要建立 JACC 提供者的 GlassFish Server 實例或叢集。</b><p>若要建立可供所有實例與叢集使用的提供者，請選擇 <tt>default-config</tt> 節點。</p></li>
+<li><b>在展開的實例或叢集配置節點下，展開 [安全性] 節點。</b></li>
+<li><b>在 [安全性] 節點底下，選取 [JACC 提供者] 節點。</b><p>[JACC 提供者] 頁面會隨即開啟。</p></li>
+<li><b>在 [JACC 提供者] 頁面上，按一下 [新建]。</b><p>[新建 JACC 提供者] 頁面會隨即開啟。</p></li>
+<li><b>在 [新建 JACC 提供者] 頁面的 [名稱] 欄位中，鍵入將識別此提供者的名稱。</b><p>此名稱用於參照 <tt>domain.xml</tt> 中的 <tt>jacc-provider</tt> 元素。</p></li>
+<li><b>在 [策略配置] 欄位中，鍵入實作策略配置工廠的類別名稱。</b><p><tt>default</tt> 提供者使用 <tt>com.sun.enterprise.security.provider.PolicyConfigurationFactoryImpl</tt>。<tt>simple</tt> 提供者使用 <tt>com.sun.enterprise.security.jacc.provider.SimplePolicyConfigurationFactory</tt>。</p></li>
+<li><b>在 [策略提供者] 欄位中，鍵入實作策略工廠的類別名稱。</b><p><tt>default</tt> 提供者使用 <tt>com.sun.enterprise.security.provider.PolicyWrapper</tt>。<tt>simple</tt> 提供者使用 <tt>com.sun.enterprise.security.jacc.provider.SimplePolicyProvider</tt>。</p></li>
+<li>(可選擇) <b>在 [其他特性] 區段中，指定其他特性。</b><p>若要增加特性，請按一下 [增加特性] 按鈕。在出現的空白列中，於 [名稱] 欄位中鍵入特性名稱，然後在 [值] 欄位中鍵入特性值。</p><p>如需適用於 JACC 提供者之其他特性的說明，請參閱<a href="ref-jaccproviderprop.html">JACC 提供者專屬的特性</a>。</p></li>
+<li><b>按一下 [確定]。</b></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-jaccprovideredit.html">編輯 JACC 提供者</a></p>
+
+</li>
+<li><p><a href="task-jaccproviderdelete.html">刪除 JACC 提供者</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

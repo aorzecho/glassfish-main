@@ -1,0 +1,68 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-networklistenernew"></a><h4>创建网络侦听器</h4><a name="indexterm-21"></a><h6>开始之前</h6><p>在创建网络侦听器时，可以同时创建网络侦听器将使用的协议，也可以使用最初创建的协议。通常，网络侦听器与其关联协议之间存在一对一关系，但这并不是必需的。</p>
+
+<ol>
+<li><b>在导航树中，展开&#8220;配置&#8221;节点。</b></li>
+<li><b>在&#8220;配置&#8221;节点下，展开&#8220;网络配置&#8221;节点。</b></li>
+<li><b>在&#8220;网络配置&#8221;节点下，选择&#8220;网络侦听器&#8221;节点。</b><p>此时将打开&#8220;网络侦听器&#8221;页面。</p></li>
+<li><b>在&#8220;网络侦听器&#8221;页面上，单击&#8220;新建&#8221;。</b><p>此时将打开&#8220;新建网络侦听器&#8221;页面。</p></li>
+<li><b>在&#8220;名称&#8221;字段中，键入网络侦听器的名称。</b><p>网络侦听器名称不能以数字开头。</p></li>
+<li><b>在&#8220;协议&#8221;字段中，指定要与网络侦听器关联的协议。</b><ul>
+<li><b>选择&#8220;创建新协议&#8221;以创建使用默认设置的新协议。此外，从&#8220;虚拟服务器&#8221;下拉式列表中，选择要与此协议关联的虚拟服务器。</b><p>协议的默认名称为网络侦听器名称附加 <tt>-protocol</tt>，但您可以编辑该值。</p></li>
+<li><b>选择&#8220;使用现有协议&#8221;，然后从下拉式列表中选择一个协议。</b><p>如果选中此选项，则通常要事先为此侦听器创建协议。</p></li></ul><p>只有在创建网络侦听器时才能指定协议。以后不能更改关联的协议。</p></li>
+<li><b>选择&#8220;启用状态&#8221;复选框以启用网络侦听器。</b><p>默认情况下启用此选项。如果禁用了侦听器，则在尝试连接到侦听器时，会导致套接字异常 (<tt>java.net.ConnectException</tt>)。</p><p>在 GlassFish Server 9.1 以前的版本中，如果侦听器的&#8220;已启用&#8221;属性设置为 false，则对于发送给它的任何请求，它都将返回 404 响应代码。要在当前 GlassFish Server 版本中实现此行为，请将侦听器的状态设置为&#8220;已启用&#8221;，并将每个关联虚拟服务器的状态设置为&#8220;关闭&#8221;。虚拟服务器会在&#8220;网络侦听器&#8221;下拉式列表中列出关联侦听器。</p></li>
+<li><b>选中&#8220;启用安全性&#8221;复选框，为网络侦听器使用的协议启用安全性。</b><p>默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;启用 JK 侦听器&#8221;复选框，指定侦听器支持 Apache 的 <tt>mod-jk</tt> 协议。</b><p><tt>mod-jk</tt> 协议是 Apache 的 <tt>httpd</tt>（Web 服务器）与 GlassFish Server 后端实例之间的专有通信/网络协议。如果侦听器支持此协议，则假定 <tt>httpd</tt> 处理所有静态内容，而针对动态资源（即 Servlet
+和 JSP）的任何请求，都将使用 <tt>mod-jk</tt> 协议路由到 GlassFish Server 的启用 <tt>mod-jk</tt> 的网络侦听器。默认情况下禁用此选项。</p></li>
+<li><b>在&#8220;端口&#8221;字段中，键入网络侦听器将侦听的端口号。</b><p>合法值为 1 - 65535。在 UNIX 系统上，创建侦听端口 1 - 1024 的套接字需要超级用户权限。</p></li>
+<li><b>在&#8220;地址&#8221;字段中，键入网络侦听器将侦听的 IP 地址。</b><p>该地址可以采用点对形式或 IPv6 表示法。它可以为 <tt>any</tt>（对于 <tt>INADDR_ANY</tt>），侦听所有 IP 地址。它可以为主机名。</p></li>
+<li><b>从&#8220;线程池&#8221;下拉式列表中，选择要与网络侦听器关联的线程池。</b><p>通常，您会选择在安装 GlassFish Server 时配置的两个线程池中的一个。</p></li>
+<li><b>从&#8220;传输&#8221;下拉式列表中，选择网络侦听器要使用的传输类型。</b><p>默认情况下，唯一选择为 <tt>tcp</tt>。</p></li>
+<li><b>单击&#8220;确定&#8221;。</b></li></ol><h6>接下来的操作</h6><p>如果为网络侦听器启用了安全性，则可以使用 "SSL" 选项卡来编辑网络侦听器使用的协议的 SSL 设置。</p>
+
+<h6>另请参见</h6>
+<ul><li><p><a href="task-networklisteneredit.html">编辑网络侦听器</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">删除网络侦听器</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">创建协议</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">编辑协议</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">编辑协议的 SSL 设置</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">编辑协议的 HTTP 设置</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">编辑协议的文件高速缓存设置</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">删除协议</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">创建传输</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">编辑传输</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">删除传输</a></p>
+
+</li>
+<li><p><a href="task-virtualservercreate.html">创建虚拟服务器</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

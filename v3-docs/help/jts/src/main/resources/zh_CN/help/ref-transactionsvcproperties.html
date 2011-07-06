@@ -1,0 +1,48 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transactionsvcproperties"></a><h4>特定于事务服务的属性</h4>
+<a name="indexterm-9"></a><a name="indexterm-10"></a><p>以下属性可用于配置&#8220;事务服务&#8221;。</p>
+
+<dl><dt><tt>oracle-xa-recovery-workaround</tt></dt>
+<dd><p>如果设置为 <tt>true</tt>，则进行事务恢复时将使用 Oracle XA Resource 解决方法。默认值为 <tt>true</tt>。</p>
+
+</dd>
+<dt><tt>disable-distributed-transaction-logging</tt></dt>
+<dd><p>如果设置为 <tt>true</tt>，则禁用事务日志记录，这样有可能会提高性能。如果选中&#8220;启用重新启动时&#8221;复选框，则忽略此属性。默认值为 <tt>false</tt>。</p>
+
+</dd>
+<dt><tt>xaresource-txn-timeout</tt></dt>
+<dd><p>更改 <tt>XAResource</tt> 超时。在某些情况下， <tt>XAResource</tt> 默认超时会导致事务异常中止，因此最好进行更改。默认值是特定于使用的 <tt>XAResource</tt> 的。</p>
+
+</dd>
+<dt><tt>pending-txn-cleanup-interval</tt></dt>
+<dd><p>指定异步线程检查并完成暂挂事务的时间间隔（以秒为单位）。如果未指定此属性，则无任何默认值。如果有此属性，但没有值，则默认值为 60。</p>
+
+</dd>
+<dt><tt>use-last-agent-optimization</tt></dt>
+<dd><p>如果设置为 <tt>true</tt>，则启用最近代理优化，这样可提高事务的总处理能力。如果一个非 XA 资源与同一事务中的 XA 资源一起使用，则该非 XA 资源就是最近代理。默认值为 <tt>true</tt>。</p>
+
+</dd>
+<dt><tt>delegated-recovery</tt></dt>
+<dd><p>如果设置为 <tt>true</tt>，则启用群集范围内的委托恢复。默认值为 false。</p>
+
+</dd>
+<dt><tt>wait-time-before-recovery-insec</tt></dt>
+<dd><p>指定实例启动停用实例恢复之前的等待时间（以秒为单位）。</p>
+
+</dd>
+<dt><tt>db-logging-resource</tt></dt>
+<dd><p>为将事务记录到其中的数据库指定 JDBC 资源的 JNDI 名称。有关更多信息，请参见<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beanm"><i>《Oracle GlassFish Server 3.1 Application Development Guide》</i>中的第&#160;15 &#160;章 "Using the Transaction Service"</a>。无默认值。</p>
+
+</dd>
+<dt><tt>xa-servername</tt></dt>
+<dd><p>指定事务服务用于识别已安装 GlassFish Server 所管理事务的主机名。此属性有时非常有用，可实现从日志文件（创建在运行 GlassFish Server 的其他主机上）恢复事务。</p>
+
+</dd>
+</dl>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

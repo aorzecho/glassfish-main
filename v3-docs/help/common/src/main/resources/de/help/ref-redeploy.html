@@ -1,0 +1,133 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-redeploy"></a><h4>Anwendungen oder Module erneut bereitstellen</h4>
+<a name="indexterm-185"></a><a name="indexterm-186"></a><p>&#220;ber die Seite Redeploy Applications or Modules (Anwendungen oder Module erneut bereitstellen)
+k&#246;nnen Sie eine zuvor bereitgestellte Anwendung erneut bereitstellen.</p>
+
+<p>Auf der Seite Redeploy Applications or Modules (Anwendungen oder Module erneut bereitstellen)
+stehen die folgenden Optionen zur Verf&#252;gung.</p>
+
+<dl><dt>Location (Ort)</dt>
+<dd><p>Der Speicherort des neuen Archivs f&#252;r die erneut bereitzustellende Anwendung.</p>
+
+<p>Die folgenden Optionen geben an, von wo aus auf das Archiv zugegriffen werden kann und ob das Archiv eine Datei oder ein Verzeichnis ist.</p>
+
+<dl><dt>Gepackte Datei zum Hochladen auf den Server</dt>
+<dd><p>Das Archiv ist in einer Datei, die sich auf dem Clientcomputer befindet oder auf die von dort aus zugegriffen werden kann.</p>
+
+<p>Der Clientcomputer ist der Host, auf dem Sie die Administration Console &#252;ber einen Browser anzeigen.</p>
+
+</dd>
+<dt>Lokale gepackte Datei oder Verzeichnis, auf die/das von GlassFish-Server aus zugegriffen werden kann;</dt>
+<dd><p>Das Archiv ist eine Datei, die sich auf dem Servercomputer befindet, oder eine nicht verpackte Anwendung in einem aufgel&#246;sten Verzeichnis.</p>
+
+<p>Der Serverrechner ist der Host, der den GlassFish-Server Domain Administration Server (DAS) ausf&#252;hrt. </p>
+
+</dd>
+</dl>
+</dd>
+<dt>Application Name (Anwendungsname)</dt>
+<dd><p>Schreibgesch&#252;tztes Feld mit dem Namen der Anwendung, die Sie erneut bereitstellen.</p>
+
+<p>Der Name kann eine optionale Versionskennung enthalten, die dem Namen folgt und von diesem durch einen Doppelpunkt (<tt>:</tt>) getrennt ist. Weitere Informationen zu Modul- und Anwendungsversionen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>JSPs vorkompilieren</dt>
+<dd><p>Wenn Sie diese Option aktivieren, werden JavaServer Pages (JSP)-Dateien vorkompiliert. Wenn Sie diese Option deaktivieren, werden die JSP-Dateien beim ersten Zugriff zur Laufzeit kompiliert. Die Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Verifier ausf&#252;hren</dt>
+<dd><p>Wenn diese Option aktiviert ist, werden Bereitstellungs-Deskriptoren vor der Bereitstellung verifiziert. Wenn die Verifizierung fehlschl&#228;gt, wird die Bereitstellung nicht ausgef&#252;hrt. Der Verifier &#252;berpr&#252;ft Struktur und Inhalt der Bereitstellungs-Deskriptoren. Die &#220;berpr&#252;fung von gro&#223;en Anwendungen ist h&#228;ufig sehr zeitaufwendig. Die Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+<p>Verifier-Pakete m&#252;ssen mithilfe des Aktualisierungstools installiert werden. Anderenfalls wird eine Warnung protokolliert und diese Option wird ignoriert.</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>Ist diese Option ausgew&#228;hlt, ist der Zugriff auf Java Web Start f&#252;r ein Anwendungsclientmodul nicht zul&#228;ssig. Die Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Status beibehalten</dt>
+<dd><p>Diese Option steuert, ob Websitzungen, SFSB-Instanzen und dauerhaft erstellte EJB-Zeitgeber zwischen erneuten Bereitstellungen erhalten bleiben. </p>
+
+<p>Diese Option ist standardm&#228;&#223;ig deaktiviert. Diese Option wird nur bei der standardm&#228;&#223;igen Serverinstanz (<tt>server</tt>) unterst&#252;tzt. Bei anderen Zielen wird sie nicht unterst&#252;tzt und ignoriert.</p>
+
+<p>&#196;nderungen, die an einer Anwendung zwischen Bereitstellungen vorgenommen werden, verhindern, dass diese Funktion richtig funktioniert. &#196;ndern Sie beispielsweise nicht die Instanzenvariablen in der SFSB-Bean-Klasse.</p>
+
+<p>Bei Webanwendungen ist diese Funktion nur dann anwendbar, wenn in der Datei <tt>glassfish-web-app.xml </tt> das Attribut <tt>Fortdauertyp</tt> des Elements <tt> Sitzungsmanager</tt> <tt>file</tt> lautet.</p>
+
+<p>Bei Stateful-Session-Bean-Instanzen wird der Fortdauertyp ohne hohe Verf&#252;gbarkeit im Server festgelegt (die Option "SFSB-Fortdauertyp") und muss auf <tt>file</tt>, den empfohlenen Standardwert, gesetzt werden.</p>
+
+<p>Kann eine aktive Websitzung, SFSB-Instanz oder ein EJB-Zeitgeber nicht gespeichert oder wiederhergestellt werden, stehen diese <b>nicht</b> zur Verf&#252;gung, wenn die erneute Bereitstellung abgeschlossen ist. Die erneute Bereitstellung wird jedoch fortgesetzt, und eine Warnmeldung wird aufgezeichnet.</p>
+
+<p>Damit die Daten aktiver Zust&#228;nde erhalten bleiben, werden die Daten von GlassFish-Server serialisiert und gespeichert. Zum Wiederherstellen der Daten entserialisiert das Klassenladeprogramm der erneut bereitgestellten Anwendung die Daten, die zuvor gespeichert wurden.</p>
+
+</dd>
+<dt>F&#252;r einen bestimmten Anwendungsbereich definierte Ressourcen beibehalten</dt>
+<dd><p>Wenn diese Option aktiviert ist, werden f&#252;r bestimmte Anwendungen definierte Ressourcen gespeichert und w&#228;hrend der erneuten Bereitstellung wiederhergestellt. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+</dl>
+<h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-appredeploy.html">Eine bereitgestellte Anwendung erneut bereitstellen</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">So zeigen Sie eine Liste eingesetzter Anwendungen an</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">So stellen Sie eine Webanwendung bereit</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">So stellen Sie eine Unternehmensanwendung bereit</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">So stellen Sie einen Anwendungs-Client bereit</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">So stellen Sie ein Verbindungsmodul bereit</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">So stellen Sie ein EJB Jar bereit</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">So bearbeiten Sie eine bereitgestellte Anwendung</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">So zeigen Sie die Beschreibung einer Anwendung an</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">So zeigen Sie Endpunkt-Informationen f&#252;r einen Webdienst an</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">So starten Sie eine Anwendung</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">So starten Sie einen Anwendungs-Client</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">So laden Sie eine bereitgestellte Anwendung erneut</a></p>
+
+</li>
+<li><p><a href="../../../ejb/de/help/task-ejbcontaineravailability.html">To Configure Availability Settings for the EJB Container</a></p>
+
+</li></ul>
+<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=redeploy-1"><tt>redeploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-modules-1"><tt>list-modules</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

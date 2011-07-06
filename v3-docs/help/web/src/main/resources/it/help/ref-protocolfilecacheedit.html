@@ -1,0 +1,84 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolfilecacheedit"></a><h4>File Cache</h4>
+<a name="indexterm-74"></a><a name="indexterm-75"></a><p>Nella pagina File Cache &#232; possibile modificare le impostazioni della cache di
+file di un protocollo di rete.</p>
+
+<p>La pagina File Cache contiene le seguenti opzioni.</p>
+
+<dl><dt>Load Defaults</dt>
+<dd><p>Pulsante che consente di ripristinare i valori predefiniti di tutte le impostazioni.</p>
+
+</dd>
+<dt>Configuration Name</dt>
+<dd><p>Nome della configurazione a cui si applicano le impostazioni visualizzate nella pagina. Campo di sola lettura.</p>
+
+</dd>
+<dt>Protocol Name</dt>
+<dd><p>Nome del protocollo. Il campo Protocol Name &#232; di sola lettura. &#200; possibile specificare il nome solo quando si crea un nuovo protocollo.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Se l'opzione &#232; selezionata viene abilitato lo stato della cache di file. Questa opzione &#232; selezionata per impostazione predefinita.</p>
+
+</dd>
+<dt>Max Age</dt>
+<dd><p>Durata massima in secondi per una voce della cache valida.</p>
+
+<p>Questo parametro definisce il tempo di utilizzo dei dati memorizzati nella cache dopo la creazione di un file. Le voci di durata superiore a quella massima vengono sostituite con nuove voci per lo stesso file. Se il contenuto cambia sporadicamente, impostare un valore pi&#249; elevato per ottimizzare le prestazioni.</p>
+
+<p>La durata massima ottimale dipende dalla frequenza con cui si modificano i file esistenti. Ad esempio, se i file vengono modificati quattro volte al giorno a intervalli regolari, si consiglia di impostare una durata massima di 21.600 secondi (6 ore). &#200; altrimenti possibile impostare una durata massima corrispondente al periodo pi&#249; lungo durante il quale si desidera utilizzare la versione precedente di un file dopo che il file &#232; stato modificato.</p>
+
+<p>Il valore predefinito &#232; 30.</p>
+
+</dd>
+<dt>Max Cache Size</dt>
+<dd><p>Dimensioni massime totali (in byte) della cache di file sul disco. Il valore predefinito &#232; 10485760.</p>
+
+</dd>
+<dt>Max File Count</dt>
+<dd><p>Numero massimo di file che &#232; possibile memorizzare nella cache di file.</p>
+
+<p>Se il valore &#232; eccessivamente alto, il server memorizza nella cache i file utilizzati meno di recente al fine di evitare sprechi di memoria. Se il valore &#232; eccessivamente basso, l'utilizzo della cache non presenta alcun vantaggio. Provare a specificare valori differenti per l'attributo fino a quando non si ottiene la soluzione ottimale per le specifiche applicazioni.</p>
+
+<p>Il valore predefinito &#232; 1024.</p>
+
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-protocolnew.html">Creare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Modificare le impostazioni SSL di un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP di un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
+
+</li></ul>
+<h5>Comandi <tt>asadmin</tt> correlati</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

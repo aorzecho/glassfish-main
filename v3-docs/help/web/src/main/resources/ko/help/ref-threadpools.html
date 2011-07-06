@@ -1,0 +1,93 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-threadpools"></a><h4>스레드 풀</h4>
+<a name="indexterm-79"></a><a name="indexterm-80"></a><p>스레드 풀 페이지에서는 스레드 풀을 구성할 수 있습니다.</p>
+
+<p>스레드 풀을 사용하여 서비스를 동시에 특정 수의 스레드로 제한할 수 있습니다.</p>
+
+<p>GlassFish 서버를 처음 설치하면 기본적으로 스레드 풀이 두 개 있습니다. <tt>http-thread-pool</tt> 스레드
+풀은 네트워크 수신기에서 사용하도록 구성되고, <tt>thread-pool-1</tt> 스레드 풀은 ORB에서 RMI/IIOP 요청에 사용하도록
+구성됩니다. 특정 종류의 응용 프로그램이 사용하도록 특정 하드웨어 시스템에 대해 여러 설정을
+사용하여 스레드 풀을 만들거나, 필요에 맞게 기본 스레드 풀을 조정해야 할 수
+있습니다.</p>
+
+<p>JVM(Java Virtual Machine)에서는 한번에 여러 스레드 실행을 지원할 수 있습니다. 성능 향상을
+위해 GlassFish 서버에서는 하나 이상의 스레드 풀을 유지합니다. 특정 서비스에 대해 특정
+스레드 풀을 할당할 수 있습니다.</p>
+
+<p>한 스레드 풀이 여러 서비스에 사용될 수도 있습니다. 요청 스레드는 사용자 요청을
+처리합니다. 서버는 요청을 받으면 요청을 스레드 풀의 여유 스레드에 할당합니다. 스레드는 클라이언트의
+요청을 실행하여 결과를 반환합니다. 예를 들어, 요청이 현재 작업 중인 시스템 자원을
+사용해야 하는 경우 스레드는 자원의 작업이 끝날 때까지 기다린 후 요청이 해당
+자원을 사용할 수 있도록 합니다.</p>
+
+<p>요청에 예약된 스레드의 최소 수와 최대 수를 지정합니다. 스레드 풀은 이러한 두
+값 사이에서 동적으로 조절됩니다. 지정한 최소 스레드 풀 크기는 요청에 대한 예약이
+적어도 그 수만큼의 스레드를 할당하라는 신호를 서버에 보냅니다. 이 수는 지정한 최대
+스레드 풀 크기만큼 증가됩니다.</p>
+
+<p>프로세스가 사용할 수 있는 스레드의 수를 늘리면 프로세스는 더 많은 요청에 동시에
+응답할 수 있습니다.</p>
+
+<p>각 스레드 풀에 대해 제공되는 정보는 다음과 같습니다.</p>
+
+<dl><dt>스레드 풀 ID</dt>
+<dd><p>스레드 풀의 이름입니다.</p>
+
+</dd>
+<dt>최대 스레드 풀 크기</dt>
+<dd><p>스레드 풀에 있는 스레드의 최대 수입니다.</p>
+
+</dd>
+<dt>최소 스레드 풀 크기</dt>
+<dd><p>스레드 풀에 있는 스레드의 최소 수입니다. 스레드 풀을 인스턴스화할 경우 이 스레드가 만들어집니다.</p>
+
+</dd>
+<dt>최대 대기열 크기</dt>
+<dd><p>스레드에서 메시지를 처리할 수 있을 때까지 대기열에 있을 수 있는 최대 메시지 수입니다.</p>
+
+</dd>
+<dt>유휴 스레드 시간 초과</dt>
+<dd><p>풀에서 유휴 스레드가 제거되기 전까지의 시간(초)입니다.</p>
+
+</dd>
+</dl>
+<p>스레드 풀 표에는 또한 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>새로 만들기</dt>
+<dd><p>새 스레드 풀을 만드는 버튼입니다.</p>
+
+</dd>
+<dt>삭제</dt>
+<dd><p>하나 이상의 선택된 스레드 풀을 삭제하는 버튼입니다.</p>
+
+</dd>
+</dl>
+<h5>관련 작업</h5>
+
+<ul><li><p><a href="task-threadpoolnew.html">스레드 풀을 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-threadpooledit.html">스레드 풀을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-threadpooldelete.html">스레드 풀을 삭제하는 방법</a></p>
+
+</li></ul>
+<h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-threadpool-1"><tt>create-threadpool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-threadpools-1"><tt>list-threadpools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-threadpool-1"><tt>delete-threadpool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

@@ -1,0 +1,149 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpoolnew"></a><h4>Para criar um conjunto de conex&#245;es do JDBC</h4><a name="indexterm-7"></a><a name="indexterm-8"></a><a name="indexterm-9"></a><p>Ao criar um conjunto de conex&#245;es com o Console de Administra&#231;&#227;o, voc&#234;
+define os aspectos de uma conex&#227;o para um banco de dados espec&#237;fico.</p>
+
+<h6>Antes de come&#231;ar</h6><p>Para criar um conjunto de conex&#245;es, primeiro instale e integre um driver
+compat&#237;vel com a API JDBC (driver JDBC). Consulte <a href="task-integratejdbcdriver.html">Para integrar um driver JDBC</a>.</p>
+
+<p>As seguintes informa&#231;&#245;es s&#227;o necess&#225;rias &#224; cria&#231;&#227;o do conjunto de conex&#245;es do
+JDBC. Colete essas informa&#231;&#245;es antes de continuar:</p>
+
+
+<ul><li><p>Nome do fornecedor do banco de dados</p>
+
+</li>
+<li><p>Tipo de recurso, por exemplo, <tt>javax.sql.DataSource</tt> (somente transa&#231;&#245;es locais), <tt>java.sql.ConnectionPoolDataSource</tt> (transa&#231;&#245;es locais; poss&#237;veis melhorias de desempenho) e <tt>javax.sql.XADataSource </tt> (transa&#231;&#245;es globais) <tt>java.sql.Driver</tt>.</p>
+
+</li>
+<li><p>Nome de classe da fonte de dados</p>
+
+</li>
+<li><p>Propriedades necess&#225;rias; por exemplo, nome do banco de dados (URL), nome de usu&#225;rio e senha</p>
+
+</li></ul>
+<ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, selecione o n&#243; Tarefas comuns.</b><p>A p&#225;gina Tarefas comuns &#233; exibida.</p></li>
+<li><b>Na p&#225;gina Tarefas comuns, clique no bot&#227;o Criar novo conjunto de conex&#245;es
+do JDBC.</b><p>A p&#225;gina Novo conjunto de conex&#245;es do JDBC (Etapa 1 de 2)
+&#233; exibida.</p>
+<hr><p><b>Observa&#231;&#227;o - </b>Tamb&#233;m &#233; poss&#237;vel acessar a p&#225;gina Novo conjunto de conex&#245;es do JDBC
+via expans&#227;o do n&#243; Recursos e do n&#243; JDBC, selecionando ent&#227;o o
+n&#243; Conjuntos de conex&#245;es. Na p&#225;gina Conjuntos de conex&#245;es, clique em Novo
+para criar um novo conjunto de conex&#245;es.</p>
+
+
+<hr>
+</li>
+<li><b>No campo Nome do conjunto, digite o nome do novo conjunto de
+conex&#245;es.</b><p>Esse campo &#233; obrigat&#243;rio.</p></li>
+<li><b>Na lista suspensa Tipo de recurso, selecione um tipo de recurso.</b><p>As op&#231;&#245;es incluem <tt>javax.sql.XADataSource</tt> (transa&#231;&#245;es globais), <tt>java.sql.ConnectionPoolDataSource</tt> (transa&#231;&#245;es locais, poss&#237;veis melhorias de
+desempenho) e <tt>javax.sql.DataSource </tt> (somente transa&#231;&#245;es locais)<tt>java.sql.Driver</tt>.</p></li>
+<li><b>Especifique o fornecedor do banco de dados executando uma das seguintes a&#231;&#245;es:</b><ul>
+<li><b>Na lista suspensa Fornecedor de banco de dados, selecione um fornecedor de
+banco de dados.</b></li>
+<li><b>Se o fornecedor do banco de dados n&#227;o consta na lista, digite
+o nome do fornecedor no campo de texto Fornecedor do banco de
+dados.</b></li></ul></li>
+<li><b>Clique em Avan&#231;ar.</b><p>A p&#225;gina Novo conjunto de conex&#245;es do JDBC (Etapa 2 de 2)
+&#233; exibida.</p></li>
+<li><b>No campo Nome da classe da origem de dados, digite o nome
+da classe espec&#237;fica do fornecedor que implementa a API <tt>DataSource</tt>, <tt>ConnectionPoolDataSource</tt> ou
+<tt>XADataSource</tt>.</b><p>Se voc&#234; selecionou um dos tipos de recursos de origem de dados,
+esse campo &#233; normalmente preenchido automaticamente com o nome da classe associado
+ao tipo de recursos e com o fornecedor do banco de dados
+de sua escolha. Se voc&#234; selecionou o tipo de recurso<tt>java.sql.Driver</tt>, esse campo
+&#233; desativado.</p></li>
+<li><b>No campo Nome da classe do driver, digite o nome da classe
+espec&#237;fica do fornecedor que implementa a API <tt>java.sql.Driver</tt>.</b><p>Se voc&#234; selecionou o tipo de recurso <tt>java.sql.Driver</tt>, normalmente esse campo &#233;
+automaticamente preenchido com o nome da classe associado ao driver do fornecedor
+de banco de dados de sua escolha. Se voc&#234; selecionou um dos
+tipos de recursos de origem de dados, esse campo &#233; desativado.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Ping ativado para efetuar o ping autom&#225;tico
+no conjunto durante a cria&#231;&#227;o ou reconfigura&#231;&#227;o, para identificar e avisar sobre
+valores de atributos com erros.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>No campo Descri&#231;&#227;o, digite uma descri&#231;&#227;o breve do conjunto de conex&#245;es.</b></li>
+<li><b>No campo Tamanho inicial e m&#237;nimo do conjunto, digite o n&#250;mero m&#237;nimo
+de conex&#245;es para esse conjunto.</b><p>Esse valor tamb&#233;m determina o n&#250;mero de conex&#245;es colocadas no conjunto quando
+o conjunto &#233; criado ou quando o Servidor GlassFish &#233; iniciado. O
+valor padr&#227;o &#233; 8.</p></li>
+<li><b>No campo Tamanho inicial e m&#225;ximo do conjunto, digite o n&#250;mero m&#225;ximo
+de conex&#245;es para esse conjunto.</b><p>O valor padr&#227;o &#233; 32.</p></li>
+<li><b>No campo Quantidade de redimensionamento do conjunto, digite o n&#250;mero de conex&#245;es
+por lote de redimensionamento do conjunto.</b><p>Quando o conjunto aumente e diminui em dire&#231;&#227;o ao tamanho m&#225;ximo e
+m&#237;nimo, respectivamente, o conjunto &#233; redimensionado em lotes. Esse valor determina o
+n&#250;mero de conex&#245;es do lote. A defini&#231;&#227;o de um valor muito alto
+torna demorado o processo de cria&#231;&#227;o e reciclagem de conex&#245;es; um valor
+muito baixo compromete a efici&#234;ncia. O valor padr&#227;o &#233; 2.</p></li>
+<li><b>No campo Tempo limite de inatividade, digite a quantidade m&#225;xima de tempo,
+em segundos, para que uma conex&#227;o permane&#231;a ociosa no conjunto.</b><p>Ap&#243;s esse per&#237;odo, a conex&#227;o ser&#225; removida do conjunto. O valor padr&#227;o
+&#233; 300.</p></li>
+<li><b>No campo Tempo m&#225;x. de espera, digite a quantidade m&#225;xima de tempo,
+em milissegundos, que o aplicativo solicitante da conex&#227;o aguardar&#225; at&#233; que o
+tempo limite da conex&#227;o seja atingido.</b><p>O valor padr&#227;o &#233; 60.000.</p></li>
+<li><b>Marque a caixa de sele&#231;&#227;o Conex&#245;es n&#227;o transacionais - Ativado para retornar
+conex&#245;es n&#227;o transacionais.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Na lista suspensa Isolamento de transa&#231;&#227;o, selecione um n&#237;vel de isolamento de
+transa&#231;&#227;o para o conjunto de conex&#245;es.</b><p>Se n&#227;o especificado, as conex&#245;es funcionar&#227;o com os n&#237;veis de isolamento padr&#227;o,
+fornecidos pelo driver JDBC. Por padr&#227;o essa op&#231;&#227;o n&#227;o &#233; especificada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o N&#237;vel de isolamento garantido, para que todas
+as conex&#245;es obtidas no conjunto tenham o mesmo n&#237;vel de isolamento.</b><p>Por exemplo, se o n&#237;vel de isolamento da conex&#227;o for alterado via
+programa&#231;&#227;o (com <tt>con.setTransactionIsolation</tt>), durante a &#250;ltima utiliza&#231;&#227;o, esse mecanismo alterar&#225; o status
+para o n&#237;vel de isolamento especificado. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p><p>Essa configura&#231;&#227;o s&#243; ser&#225; aplic&#225;vel se um n&#237;vel de isolamento de transa&#231;&#227;o
+for especificado.</p></li>
+<li>(Opcional) <b>Na se&#231;&#227;o Propriedades adicionais, especifique essas propriedades.</b><p>Exemplos de propriedades necess&#225;rias incluem nome do banco de dados (URL), nome
+de usu&#225;rio e senha. A tabela normalmente cont&#233;m propriedades usadas pelo fornecedor
+do banco de dados. Para obter informa&#231;&#245;es sobre algumas das propriedades dispon&#237;veis,
+consulte <a href="ref-jdbc-properties.html">Propriedades espec&#237;ficas para conjuntos de conex&#245;es do JDBC</a>.</p><p>Se voc&#234; n&#227;o especifica um valor para uma propriedade, ela &#233; removida
+da tabela quando termina de criar o conjunto de conex&#245;es. Caso n&#227;o
+deseje definir agora um valor para uma propriedade, mas deseja que a
+propriedade permane&#231;a na tabela, para que o valor possa ser definido em
+outro momento, digite um conjunto de par&#234;nteses vazios no campo Valor:</p><pre>()</pre><ul>
+<li><b>Para adicionar uma propriedade, clique no bot&#227;o Adicionar Propriedade. Na linha em
+brando que &#233; exibida, digite o nome da propriedade no campo Nome
+e digite o valor da propriedade no campo Valor.</b></li>
+<li><b>Para modificar uma propriedade, edite o campo Valor da propriedade.</b></li>
+<li><b>Para excluir uma propriedade, marque a caixa de sele&#231;&#227;o &#224; esquerda do
+campo Nome da propriedade a ser exclu&#237;da. Clique no bot&#227;o Excluir propriedades.</b></li></ul></li>
+<li><b>Clique em Concluir.</b></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-setdbaccess.html">Para configurar o acesso ao banco de dados</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">Para integrar um driver JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">Para criar um recurso do JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">Para editar um recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">Para editar destinos do recurso do JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">Para excluir um recurso do JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">Para editar as configura&#231;&#245;es gerais do conjunto de conex&#245;es do JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">Para editar atributos avan&#231;ados do conjunto de conex&#245;es do JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">Para verificar as configura&#231;&#245;es do conjunto de conex&#245;es</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar as propriedades do conjunto de conex&#245;es JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Para excluir um conjunto de conex&#245;es do JDBC</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

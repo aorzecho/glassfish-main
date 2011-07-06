@@ -1,0 +1,65 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jaccprovidernew"></a><h4>新建 JACC 提供者</h4>
+<a name="indexterm-224"></a><p>使用&#8220;新建 JACC 提供者&#8221;页面可创建 JSR-115/196 兼容型 Java 容器授权约定 (Java Authorization Contract for Containers,
+JACC) 的新提供者，第三方授权模块可使用该提供者控制在 GlassFish 服务器 中运行的应用程序。JACC 提供者创建为域的 <tt>domain.xml</tt> 文件中 <tt>security-service</tt> 元素中的 <tt>jacc-provider</tt> 元素。</p>
+
+<p>默认 GlassFish 服务器 安装包括名为 <tt>default</tt> 和 <tt>simple </tt>的两个 JACC 提供者。您创建的任何新 JACC 提供者均为这两个默认提供者以外的其他提供者。默认 GlassFish
+服务器 JACC 提供者实现了符合 JACC 规范的基于文件的简单授权引擎。</p>
+
+<p>所有 GlassFish 服务器 JACC 提供者必须使用 Java 验证和授权服务 (Java Authentication and Authorization Service,
+JAAS) API。JAAS 允许服务验证并强制对用户进行访问控制。JAAS 实现了 Java 技术版本的标准可插拔验证模块 (Pluggable Authentication Module, PAM) 框架。</p>
+
+<p>JSR 196 允许在不同的层开发插件。您可以定义对新验证机制的配置方式进行更改的插件，例如 <tt>AuthConfigProvider</tt> 和 <tt>AuthConfigFactory</tt>。您还可以定义新的验证机制，例如 <tt>ServerAuthModule</tt> 和 <tt>ClientAuthModule</tt>。</p>
+
+<p>&#8220;新建 JACC 提供者&#8221;页面包含以下选项：</p>
+
+<dl><dt>配置名称</dt>
+<dd><p>要应用该页面上的设置的配置的名称。此字段为只读。</p>
+
+</dd>
+<dt>名称</dt>
+<dd><p>JACC 提供者名称。该名称用于引用 <tt>domain.xml</tt> 中的 <tt>jacc-provider</tt>。</p>
+
+</dd>
+<dt>策略配置</dt>
+<dd><p>实现特定于提供者的 <tt>javax.security.jacc.PolicyConfigurationFactory</tt> 的 <tt>javax.security.jacc.PolicyConfigurationFactory.provider</tt> 的完全限定类名称。</p>
+
+</dd>
+<dt>策略提供者</dt>
+<dd><p>实现 <tt>java.security.Policy</tt> 的 <tt>javax.security.jacc.policy.provider</tt> 的完全限定类名称。</p>
+
+</dd>
+<dt>其他属性</dt>
+<dd><p>JACC 提供者的其他属性。有关可用于 JACC 提供者的其他属性的说明，请参见<a href="ref-jaccproviderprop.html">特定于 JACC 提供者的属性</a>。</p>
+
+</dd>
+</dl>
+<a name="gkont"></a><h5>相关任务</h5>
+
+<ul><li><p><a href="task-jaccprovidernew.html">创建 JACC 提供者</a></p>
+
+</li>
+<li><p><a href="task-jaccprovideredit.html">编辑 JACC 提供者</a></p>
+
+</li>
+<li><p><a href="task-jaccproviderdelete.html">删除 JACC 提供者</a></p>
+
+</li></ul>
+<a name="gkoov"></a><h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

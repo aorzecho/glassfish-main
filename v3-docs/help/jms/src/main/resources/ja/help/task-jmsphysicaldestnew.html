@@ -1,0 +1,57 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsphysicaldestnew"></a><h4>JMS 物理送信先を作成する</h4><a name="indexterm-17"></a><a name="indexterm-18"></a><p>通常は、JMS 送信先リソースの作成時に物理送信先名を指定すると、GlassFish サーバー が必要なときに物理送信先を自動的に作成するため、物理送信先を作成する必要はありません。</p>
+
+<ol>
+<li><b>ナビゲーションツリーで、「設定」ノードを展開します。</b></li>
+<li><b>「設定」ノードで、「Java メッセージサービス」ノードを展開します。</b></li>
+<li><b>「Java メッセージサービス」ノードで、「物理送信先」ノードを選択します。</b><p>「物理送信先」ページが開きます。</p></li>
+<li><b>「物理送信先」ページで、「新規」をクリックします。</b><p>「新しい物理送信先」ページが開きます。</p></li>
+<li><b>「名前」フィールドに、物理送信先の名前を入力します。</b></li>
+<li><b>「タイプ」ドロップダウンリストから、<tt>javax.jms.Topic</tt> または <tt>javax.jms.Queue</tt> のいずれかを選択します。</b></li>
+<li><b>「消費していないメッセージの最大数」フィールドに、送信先で許可されている未消費メッセージの最大数を入力します。</b><p>-1 を指定すると、未消費メッセージの数は制限されません。デフォルト値は &#8211;1 です。</p></li>
+<li><b>「最大メッセージサイズ」フィールドに、単一メッセージの最大サイズをバイト単位で入力します。</b><p>-1 を指定すると、メッセージのサイズは制限されません。デフォルト値は &#8211;1 です。</p></li>
+<li><b>「最大総メモリー」フィールドに、未消費メッセージの最大合計メモリーをバイト単位で入力します。</b><p>-1 を指定すると、未消費メッセージのメモリーサイズは制限されません。デフォルト値は &#8211;1 です。</p></li>
+<li><b>「しきい値制限の動作」ドロップダウンリストから、メモリー制限のしきい値に達したときのブローカの動作を選択します。</b><ul>
+<li><b><tt>Reject newest messages</tt> は、最新のメッセージを拒否し、メッセージが継続する場合のみ、メッセージを生成しているクライアントに例外を通知するようにブローカに指示します。</b><p><tt>Reject newest messages</tt> はデフォルト値です。</p></li>
+<li><b><tt>Slow down producers</tt> は、メッセージプロデューサがメッセージを送信する頻度を下げるようにブローカに指示します。</b></li>
+<li><b><tt>Throw out oldest</tt> は、もっとも古いメッセージを破棄するようにブローカに指示します。</b></li>
+<li><b><tt>Throw out lowest-priority messages</tt> は、優先度のもっとも低いメッセージを破棄するようにブローカに指示します。</b></li></ul><p>値が <tt>Throw out oldest</tt> または <tt>Throw out lowest-priority messages</tt> で、「デッドメッセージキューを使用」が true に設定されている場合、超過したメッセージはデッドメッセージキューに送られます。</p></li>
+<li><b>「プロデューサの最大数」フィールドに、この物理送信先に関連付けることができるメッセージプロデューサの最大数を入力します。</b><p>この制限に達すると、新しいプロデューサを作成できなくなります。-1 を指定すると、プロデューサの数は制限されません。デフォルト値は 100 です。</p></li>
+<li><b>「バッチ配信の最大メッセージ数」フィールドに、単一のバッチでコンシューマに配送可能なメッセージの最大数を入力します。</b><p>-1 を指定すると、メッセージの数は制限されません。デフォルト値は 1000 です。</p></li>
+<li><b>「デッドメッセージキューを使用」ドロップダウンリストから true を選択して、デッドメッセージをデッドメッセージキューに送ります。</b><p>値を false に設定すると、デッドメッセージは破棄されます。デフォルトでは、このオプションは true に設定されます。</p></li>
+<li><b>「XML スキーマの検証」の「有効」ドロップダウンから true を選択して、送信先での XML スキーマの妥当性検査を有効にします。</b><p>値を true に設定すると、Message Queue クライアントランタイムは XML メッセージをブローカに送信する前に、指定した XML Schema Definition (XSD が指定されていない場合は
+DTD) を使用してメッセージの検証を行います。指定したスキーマが見つからないかメッセージを検証できない場合、メッセージは送信されず例外がスローされます。デフォルトでは、このオプションは false に設定されます。</p></li>
+<li><b>「XML スキーマ URI リスト」フィールドに、XML Schema Definition (XSD) URI 文字列を空白区切りのリストで入力します。</b><p>XML スキーマ検証が有効な場合、URI は XML スキーマ検証に使用する 1 つまたは複数の XSD の場所を指します。</p></li></ol><h6>参照</h6>
+<ul><li><p><a href="task-jmsservice.html">「JMS サービスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-jmshostnew.html">「JMS ホストを作成する」</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">「JMS ホストを編集する」</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">「JMS ホストを削除する」</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestedit.html">「JMS 物理送信先を編集する」</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestdelete.html">「JMS 物理送信先を削除する」</a></p>
+
+</li>
+<li><p><a href="task-jmsflushmessages.html">「JMS 物理送信先からメッセージを削除する」</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldeststats.html">「JMS 物理送信先の統計情報を表示する」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

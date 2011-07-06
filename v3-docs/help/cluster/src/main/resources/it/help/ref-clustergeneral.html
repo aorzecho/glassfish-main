@@ -1,0 +1,85 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clustergeneral"></a><h4>General Information</h4>
+<a name="indexterm-164"></a><a name="indexterm-165"></a><a name="indexterm-166"></a><a name="indexterm-167"></a><p>La pagina General Information contiene le seguenti opzioni.</p>
+
+<dl><dt>Start Cluster</dt>
+<dd><p>Pulsante che consente di avviare il cluster. Se tutte le istanze nel cluster sono in esecuzione, il pulsante &#232; disattivato.</p>
+
+</dd>
+<dt>Stop Cluster</dt>
+<dd><p>Pulsante che consente di arrestare il cluster. Se tutte le istanze nel cluster sono arrestate, il pulsante &#232; disattivato.</p>
+
+</dd>
+<dt>Migrate EJB Timers</dt>
+<dd><p>Pulsante che consente di eseguire la migrazione dei timer di tecnologia EJB (Enterprise JavaBeans) da un'istanza di GlassFish Server arrestata a un'istanza in esecuzione nel cluster. Se si fa clic sul pulsante, viene visualizzata la pagina <a href="ref-migrateejbtimers.html">Migrate EJB Timers</a>. Se tutte le istanze nel cluster sono in esecuzione, il pulsante &#232; disattivato.</p>
+
+</dd>
+<dt>Rotate Log</dt>
+<dd><p>Pulsante che consente la rotazione del file di log per il cluster. Quando il file di log viene ruotato, il file viene rinominato con un nome timestamp con il formato <tt>server.log_</tt><i> date-and-time</i><tt></tt>, e viene creato un file di log vuoto per nuovi messaggi di log. Le modifiche vengono applicate dinamicamente. Non &#232; necessario riavviare il server.</p>
+
+</dd>
+<dt>Cluster Name</dt>
+<dd><p>Nome assegnato al cluster al momento della creazione del cluster. Campo di sola lettura.</p>
+
+</dd>
+<dt>JVM</dt>
+<dd><p>Se si fa clic su JVM Report, viene visualizzata una finestra distinta in cui sono disponibili i rapporti relativi alla macchina virtuale Java, tra cui un rapporto di riepilogo, un rapporto di gestione memoria e recupero spazio, un rapporto sul caricamento delle classi e un dump del thread corrente.</p>
+
+</dd>
+<dt>Configuration</dt>
+<dd><p>Configurazione selezionata per il cluster al momento della creazione del cluster. Se si fa clic sulla configurazione, viene visualizzata la pagina <a href="../../../common/it/help/ref-configuration.html">Configurations</a> per il cluster. Campo di sola lettura.</p>
+
+</dd>
+<dt>GMS</dt>
+<dd><p>Se l'opzione &#232; abilitata, il servizio GMS (Group Management Service) viene avviato in ogni istanza di GlassFish Server nel cluster e nel server di amministrazione di dominio (DAS, Domain Administration Server). Il DAS viene utilizzato in tutti i cluster per i quali &#232; abilitato il servizio GMS. Il servizio GMS offre monitoraggio del cluster, appartenenza del cluster e servizi di comunicazione di gruppo. Questa opzione &#232; abilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>Multicast Port</dt>
+<dd><p>Numero della porta di comunicazione in cui il servizio GMS resta in attesa di eventi di gruppo. L'opzione deve specificare un numero di porta valido compreso tra 2048 e 32000. Il valore predefinito &#232; un valore generato automaticamente in questo intervallo.</p>
+
+</dd>
+<dt>Multicast Address</dt>
+<dd><p>Indirizzo in cui il servizio GMS resta in attesa di eventi di gruppo. L'opzione deve specificare un indirizzo multicast nell'intervallo compreso tra 224.0.0.0 e 239.255.255.255. Il valore predefinito &#232; 228.9.<i>XX</i>.<i>YY</i>, dove <i>XX</i> e <i>YY</i> sono valori indipendenti generati automaticamente e compresi tra 0 e 255.</p>
+
+</dd>
+<dt>Bind Interface Address</dt>
+<dd><p>Indirizzo IP (Internet Protocol) dell'interfaccia di rete alla quale &#232; associato il servizio GMS. L'opzione deve specificare l'indirizzo IP di un'interfaccia di rete locale. L'impostazione predefinita &#232; costituita da tutti gli indirizzi pubblici dell'interfaccia.</p>
+
+<p>In un computer multihome questa opzione consente di configurare l'interfaccia di rete utilizzata per il servizio GMS. Un computer multihome possiede due o pi&#249; interfacce di rete.</p>
+
+<p>Per specificare un indirizzo valido per tutte le istanze di GlassFish Server nel cluster, utilizzare una propriet&#224; di sistema per impostare l'indirizzo singolarmente per ciascuna istanza.</p>
+
+<p>Ad esempio, utilizzare la pagina <a href="ref-clustersystemproperties.html">Cluster System Properties</a> per creare la propriet&#224; di sistema<tt> GMS-BIND-INTERFACE-ADDRESS-<i>cluster-name</i></tt>, quindi impostare l'opzione Bind Address in questa pagina su <tt>${GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i>}</tt> per specificare la propriet&#224; di sistema. Infine, per ogni istanza nel cluster, impostare la propriet&#224; di sistema <tt>GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i></tt> per l'indirizzo dell'interfaccia di rete necessario nel computer dell'istanza.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Indicazione del numero di istanze nel cluster in esecuzione e non in esecuzione. Campo di sola lettura.</p>
+
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-gmscluster.html">Configurare le impostazioni del servizio di gestione gruppi per un cluster</a></p>
+
+</li>
+<li><p><a href="task-migrate-ejb-timers.html">Eseguire la migrazione dei timer EJB</a></p>
+
+</li></ul>
+<h5>Comandi secondari <tt>asadmin</tt> equivalenti</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=generate-jvm-report-1"><tt>generate-jvm-report</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=migrate-timers-1"><tt>migrate-timers</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=rotate-log-1"><tt>rotate-log</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

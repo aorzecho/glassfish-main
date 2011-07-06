@@ -1,0 +1,85 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-serverinstjvmgeneral"></a><h4>JVM General Settings</h4>
+<a name="indexterm-190"></a><p>La macchina virtuale Java (JVM) consente l'esecuzione di bytecode Java in un
+computer fisico. &#200; possibile regolare le impostazioni JVM per ottenere prestazioni migliori
+ed eliminare gli errori di allocazione della memoria.</p>
+
+<p>La macchina virtuale Java &#232; inclusa in Java Platform, Standard Edition (Java
+SE), obbligatoria per GlassFish Server. Con impostazioni JVM errate il server non
+funziona; &#232; pertanto necessario prestare particolare attenzione in caso di modifica di
+tali impostazioni.</p>
+
+
+<hr><p><b>Nota - </b>I termini "macchina virtuale Java" e "JVM" indicano una macchina virtuale per
+la piattaforma Java.</p>
+
+
+<hr>
+<p>La pagina JVM General Settings contiene le seguenti opzioni.</p>
+
+<dl><dt>Load Defaults</dt>
+<dd><p>Pulsante che consente di ripristinare i valori predefiniti di tutte le impostazioni.</p>
+
+</dd>
+<dt>Configuration Name</dt>
+<dd><p>Nome della configurazione a cui si applicano le impostazioni visualizzate nella pagina. Campo di sola lettura.</p>
+
+</dd>
+<dt>Java Home</dt>
+<dd><p>Nome della directory di installazione del software Java SE, necessario per l'esecuzione di GlassFish Server. Per verificare che la versione del software Java SE specificata sia supportata nell'attuale release, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2434&id=sjsaseern"><i>Oracle GlassFish Server 3.1 Release Notes</i></a>. Se si immette il nome di una directory inesistente o il nome della directory di una versione di Java SE non supportata, GlassFish Server non viene avviato.</p>
+
+</dd>
+<dt>Javac Options</dt>
+<dd><p>Opzioni della riga di comando per il compilatore del linguaggio di programmazione. In GlassFish Server il compilatore viene eseguito al momento della distribuzione dei componenti EJB (Enterprise JavaBeans).</p>
+
+</dd>
+<dt>Debug</dt>
+<dd><p>Abilita il debug con JPDA (Java Platform Debugger Architecture).</p>
+
+<p>JPDA &#232; utilizzato dagli sviluppatori di applicazioni. Per ulteriori informazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=sjsaseedg"><i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p>
+
+</dd>
+<dt>Debug Options</dt>
+<dd><p>Specifica le opzioni JPDA passate a JVM quando viene abilitato il debug.</p>
+
+</dd>
+<dt>RMI Compile Options</dt>
+<dd><p>Opzioni della riga di comando per il compilatore <tt>rmic</tt>. In GlassFish Server il compilatore <tt>rmic</tt> viene eseguito al momento della distribuzione dei componenti EJB.</p>
+
+</dd>
+<dt>Bytecode Preprocessor</dt>
+<dd><p>Nomi di classi per l'elaborazione preliminare del bytecode. Utilizzare le virgole per separare i nomi delle classi. Ogni classe deve implementare l'interfaccia com.sun.appserv.BytecodePreprocessor. Le classi vengono chiamate nell'ordine specificato.</p>
+
+</dd>
+<dt>Additional Properties</dt>
+<dd><p>Propriet&#224; aggiuntive per JVM. In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per JVM.</p>
+
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-jvmsettings.html">Configurare le impostazioni generali di JVM</a></p>
+
+</li>
+<li><p><a href="task-jvmpathsettings.html">Configurare le impostazioni del percorso JVM</a></p>
+
+</li>
+<li><p><a href="task-jvmoptions.html">Configurare le opzioni JVM</a></p>
+
+</li>
+<li><p><a href="task-securitymanagerdisable.html">Disabilitare il gestore della sicurezza</a></p>
+
+</li>
+<li><p><a href="task-jvmprofilersettings.html">Configurare le impostazioni del profiler JVM</a></p>
+
+</li></ul>
+<h5>Comandi <tt>asadmin</tt> correlati</h5>
+<p>Nessuno.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

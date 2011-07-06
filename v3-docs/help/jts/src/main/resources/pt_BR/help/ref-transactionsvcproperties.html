@@ -1,0 +1,48 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transactionsvcproperties"></a><h4>Propriedades espec&#237;ficas do servi&#231;o de transa&#231;&#227;o</h4>
+<a name="indexterm-9"></a><a name="indexterm-10"></a><p>As propriedades a seguir est&#227;o dispon&#237;veis para configura&#231;&#227;o do servi&#231;o de transa&#231;&#227;o.</p>
+
+<dl><dt><tt>oracle-xa-recovery-workaround</tt></dt>
+<dd><p>Se definido como <tt>verdadeiro</tt>, a solu&#231;&#227;o alternativa Oracle XA Resource ser&#225; utilizada na recupera&#231;&#227;o da transa&#231;&#227;o. O valor padr&#227;o &#233; <tt>verdadeiro</tt>.</p>
+
+</dd>
+<dt><tt>disable-distributed-transaction-logging</tt></dt>
+<dd><p>Se definido como <tt>verdadeiro</tt>, desativa o log de transa&#231;&#227;o, o que pode melhorar o desempenho. Se a caixa de sele&#231;&#227;o Habilitado ao reiniciar estiver marcada, essa propriedade &#233; ignorada. O valor padr&#227;o &#233; <tt>falso</tt>.</p>
+
+</dd>
+<dt><tt>xaresource-txn-timeout</tt></dt>
+<dd><p>Altera o <tt>XAResource</tt> XAResource. Em alguns casos, o <tt>XAResource</tt> pode anular a transa&#231;&#227;o, portanto, &#233; aconselh&#225;vel alter&#225;-lo. O valor padr&#227;o &#233; espec&#237;fico do <tt>XAResource</tt> utilizado.</p>
+
+</dd>
+<dt><tt>pending-txn-cleanup-interval</tt></dt>
+<dd><p>Especifica o intervalo, em segundos, em que um segmento ass&#237;ncrono verifica se h&#225; transa&#231;&#245;es pendentes e as conclui. Se essa propriedade n&#227;o for especificada, n&#227;o haver&#225; nenhum padr&#227;o a ser aplicado. Se a propriedade estiver presente, mas n&#227;o incluir nenhum valor, o valor padr&#227;o ser&#225; 60.</p>
+
+</dd>
+<dt><tt>use-last-agent-optimization</tt></dt>
+<dd><p>Se definido como <tt>verdadeiro</tt>, ativa a otimiza&#231;&#227;o do &#250;ltimo agente, o que melhora o resultado das transa&#231;&#245;es. Se um recurso n&#227;o-XA for utilizado com recursos XA na mesma transa&#231;&#227;o, o recurso n&#227;o-XA ser&#225; o &#250;ltimo agente. O valor padr&#227;o &#233; <tt>verdadeiro</tt>.</p>
+
+</dd>
+<dt><tt>delegated-recovery</tt></dt>
+<dd><p>Se definido como <tt>verdadeiro</tt>, a recupera&#231;&#227;o delegada em todo o cluster ser&#225; ativada. O valor padr&#227;o &#233; falso.</p>
+
+</dd>
+<dt><tt>wait-time-before-recovery-insec</tt></dt>
+<dd><p>Especifica o tempo de espera, em segundos, ap&#243;s o qual uma inst&#226;ncia iniciar&#225; a recupera&#231;&#227;o de uma inst&#226;ncia inativa.</p>
+
+</dd>
+<dt><tt>db-logging-resource</tt></dt>
+<dd><p>Especifica o nome JNDI do recurso do JDBC para o banco de dados em que as transa&#231;&#245;es est&#227;o registradas em log. Para obter mais informa&#231;&#245;es, consulte o <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beanm">Cap&#237;tulo 15, Using the Transaction Service, no <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>. N&#227;o h&#225; valor padr&#227;o.</p>
+
+</dd>
+<dt><tt>xa-servername</tt></dt>
+<dd><p>Especifica o nome de host utilizado pelo servi&#231;o de transa&#231;&#227;o para identificar as transa&#231;&#245;es gerenciadas pelo Servidor GlassFish instalado. Isso pode, &#224;s vezes, ser &#250;til para a recupera&#231;&#227;o de transa&#231;&#245;es do arquivo de log criado em outro host com Servidor GlassFish em execu&#231;&#227;o.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

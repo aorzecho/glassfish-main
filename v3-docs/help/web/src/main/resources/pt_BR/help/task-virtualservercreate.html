@@ -1,0 +1,58 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-virtualservercreate"></a><h4>Para criar um servidor virtual</h4><a name="indexterm-18"></a><ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
+<li><b>No n&#243; Configura&#231;&#227;o, selecione o n&#243; Servidores Virtuais.</b><p>A p&#225;gina Servidores Virtuais &#233; aberta.</p></li>
+<li><b>Na p&#225;gina Servidores Virtuais, clique em Novo.</b><p>&#201; aberta a p&#225;gina Novo Servidor Virtual.</p></li>
+<li><b>No campo de identifica&#231;&#227;o, digite um valor que identifique o servidor virtual
+internamente. </b><p>Esse valor n&#227;o &#233; exposto aos clientes HTTP. Os nomes de host
+apresentados aos clientes HTTP devem ser especificados no campo Hosts.</p></li>
+<li><b>No campo Hosts, digite os nomes de host ou endere&#231;os IP da
+m&#225;quina na qual o servidor est&#225; sendo executado.</b><p>Use nomes de host reais ou virtuais, registrados no servidor de DNS
+da sua rede (e, no sistema UNIX, no arquivo <tt>/etc/hosts </tt>).</p><p>O valor padr&#227;o &#233; a propriedade do sistema <tt>${com.sun.aas.hostName}</tt>.</p></li>
+<li><b>Selecione a op&#231;&#227;o Estado para o novo servidor virtual.</b><p>O servidor virtual que pode estar ativado (ou seja, ativo) ou desativado.
+ O valor padr&#227;o &#233; ativado.</p></li>
+<li><b>Selecione uma op&#231;&#227;o SSO para o novo servidor virtual.</b><p>Por padr&#227;o, um servidor virtual herda a configura&#231;&#227;o de logon &#250;nico (SSO)
+do servi&#231;o HTTP. Selecione Ativado ou Desativado para sobrepor a configura&#231;&#227;o do
+servi&#231;o HTTP ao ativar ou desativar o logon &#250;nico para este servidor
+virtual.</p><p>O logon &#250;nico em aplicativos no Servidor GlassFish tem suporte de servlets
+e arquivos JSP.  Esse recurso permite o compartilhamento dessa informa&#231;&#227;o pelos
+v&#225;rios aplicativos que exigem as mesmas informa&#231;&#245;es de logon de usu&#225;rio, em
+vez de exigir que o usu&#225;rio fa&#231;a logon separado em cada aplicativo.
+</p></li>
+<li><b>Na lista suspensa Escutas de rede, selecione uma ou mais escutas de
+rede ou deixe o campo em branco.</b></li>
+<li><b>Na lista suspensa M&#243;dulo da Web Padr&#227;o, selecione o m&#243;dulo que deve
+responder a todas as solicita&#231;&#245;es que n&#227;o podem ser mapeadas para outros
+m&#243;dulos da Web usados para o servidor virtual.</b><p>Se n&#227;o for especificado um m&#243;dulo da Web padr&#227;o, ser&#225; usado o
+m&#243;dulo da Web que tenha uma raiz de contexto vazia.  Se
+n&#227;o houver nenhum m&#243;dulo da Web com raiz de contexto vazia, um
+m&#243;dulo da Web padr&#227;o do sistema ser&#225; criado e utilizado.</p></li>
+<li><b>No campo Arquivo de Log, digite o nome do caminho do arquivo
+no qual ser&#227;o exibidas as mensagens de log desse servidor virtual.</b><p>Por padr&#227;o, as mensagens de log ser&#227;o enviadas para o log do
+servidor padr&#227;o, <tt></tt><i>domain-dir</i><tt>/logs/server.log </tt>.</p></li>
+<li><b>No campo Docroot, digite o caminho absoluto para o diret&#243;rio do documento
+raiz do servidor.</b><p>Se o campo for deixado em branco, ser&#225; usado, <tt></tt><i>domain-dir</i><tt>/docroot</tt>.</p></li>
+<li><b>Para ativar ou desativar o log de acesso, selecione a op&#231;&#227;o Log
+de Acesso.</b><p>Voc&#234; pode, alternativamente, especificar se o log de acesso &#233; herdado do
+servi&#231;o HTTP.  Por padr&#227;o, &#233; herdado do servi&#231;o HTTP.</p></li>
+<li><b>No campo Diret&#243;rio, digite o caminho absoluto do diret&#243;rio para os logs
+de acesso do servidor.</b><p>O valor padr&#227;o &#233; <tt></tt><i>domain-dir</i><tt>/logs/access </tt>.</p></li>
+<li>(Opcional) <b>Na se&#231;&#227;o Propriedades Adicionais, especifique propriedades adicionais do servidor virtual.</b><p>Para obter informa&#231;&#245;es sobre as propriedades dispon&#237;veis, consulte <a href="ref-virtualserverprops.html">Propriedades espec&#237;ficas de servidores virtuais</a>.</p><p>Para adicionar uma propriedade, clique no bot&#227;o Adicionar Propriedade. Na linha em
+brando que &#233; exibida, digite o nome da propriedade no campo Nome
+e digite o valor da propriedade no campo Valor.</p></li>
+<li><b>Clique em OK.</b></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-virtualserveredit.html">Editar um servidor virtual</a></p>
+
+</li>
+<li><p><a href="task-virtualserverdelete.html">Excluir um servidor virtual</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

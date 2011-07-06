@@ -1,0 +1,42 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbmdbpoolsettings"></a><h4>配置 MDB 池设置</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><a name="indexterm-3"></a><a name="indexterm-4"></a><a name="indexterm-5"></a><p>消息驱动 Bean 的池与会话 Bean 的池类似。默认情况下，容器会维护一个由消息驱动 Bean 组成的池。</p>
+
+<p>要调整此池的配置，请执行以下步骤。</p>
+
+<ol>
+<li><b>在导航树中，展开&#8220;配置&#8221;节点。</b></li>
+<li><b>选择&#8220;EJB 容器&#8221;节点。</b><p>此时将打开 "Enterprise JavaBeans (EJB)" 页面。</p></li>
+<li><b>单击&#8220;MDB 设置&#8221;选项卡。</b><p>此时将打开&#8220;MDB 默认池设置&#8221;页面。</p></li>
+<li><b>在&#8220;初始和最小池大小&#8221;字段中，键入要在池中维护的消息 Bean 的最小数目。</b><p>默认值为 0。</p></li>
+<li><b>在&#8220;最大池大小&#8221;字段中，键入容器可以同时在池中维护的 Bean 的最大数目。</b><p>默认值为 32。</p></li>
+<li><b>在&#8220;池大小调整数量&#8221;字段中，键入当 Bean 处于空闲状态的时间超过&#8220;池空闲超时&#8221;字段中指定的时间时，要从池中删除的 Bean 的数目。</b><p>该值必须至少为 0，并小于&#8220;最大池大小&#8221;值。默认值为 8。</p></li>
+<li><b>在&#8220;池空闲超时&#8221;字段中，键入在将池中的 Bean 从池中删除之前，Bean 可以保持空闲状态的时间（以秒为单位）。</b><p>超过此时间后，Bean 将被销毁。如果值为 0，则表示 Bean 可以无限期保持空闲状态。默认值为 600。</p></li>
+<li>（可选的）<b>在&#8220;其他属性&#8221;部分中，指定其他属性。</b><p>GlassFish Server 不定义 MDB 池的任何其他属性。</p><ul>
+<li><b>要添加属性，请单击&#8220;添加属性&#8221;按钮。在显示的空白行中，在&#8220;名称&#8221;字段中键入属性名称，在&#8220;值&#8221;字段中键入属性值。</b></li>
+<li><b>要修改属性，请编辑该属性的&#8220;值&#8221;字段。</b></li>
+<li><b>要删除属性，请选中位于您要删除属性的&#8220;名称&#8221;字段左边的复选框，然后单击&#8220;删除属性&#8221;按钮。</b></li></ul></li>
+<li><b>单击&#8220;保存&#8221;。</b>
+<hr><p><b>提示 - </b>要返回到默认设置，请单击&#8220;装入默认值&#8221;按钮，然后单击&#8220;保存&#8221;。</p>
+
+
+<hr>
+</li>
+<li><b>重新启动 GlassFish Server。</b></li></ol><h6>另请参见</h6>
+<ul><li><p><a href="../../../ejb-lite/zh_CN/help/task-ejbgeneral.html">配置 EJB 设置</a></p>
+
+</li>
+<li><p><a href="task-ejbtimerservice.html">配置 EJB 计时器服务</a></p>
+
+</li>
+<li><p><a href="task-ejbcontaineravailability.html">为 EJB 容器配置可用性设置</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

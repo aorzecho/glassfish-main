@@ -1,0 +1,117 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ejbgeneral"></a><h4>Enterprise Java Beans (EJB)</h4>
+<a name="indexterm-3"></a><a name="indexterm-4"></a><p>Utilisez la page Enterprise Java Beans (EJB) pour configurer les param&#232;tres du
+conteneur EJB.</p>
+
+<p>Outre les param&#232;tres g&#233;n&#233;raux des beans entreprise, vous pouvez configurer les param&#232;tres de
+pool et de cache. </p>
+
+
+<ul><li><p>Les param&#232;tres de pool ne s&#8217;appliquent qu&#8217;aux beans de session sans &#233;tat. Par d&#233;faut, le conteneur conserve un pool de beans entreprise afin de r&#233;pondre aux requ&#234;tes des clients sans baisse des performance habituellement li&#233;e &#224; la cr&#233;ation des beans. </p>
+
+<p>Si les performances d&#8217;une application utilisant des beans entreprise d&#233;ploy&#233;s sont affect&#233;es, vous pouvez les am&#233;liorer en cr&#233;ant un pool ou en augmentant le nombre de beans g&#233;r&#233;s par un pool existant. </p>
+
+</li>
+<li><p>Les param&#232;tres de cache ne s&#8217;appliquent qu&#8217;aux beans de session avec &#233;tat. Le conteneur g&#232;re un cache de donn&#233;es des beans entreprise les plus utilis&#233;s. Ce cache permet au conteneur de r&#233;pondre plus rapidement aux demandes de donn&#233;es provenant des beans entreprise par d&#8217;autres modules d&#8217;application.</p>
+
+<p>Les beans entreprise mis en cache se trouvent dans l&#8217;un des trois &#233;tats suivants : actif, inactif et mis en mode passif. Un bean entreprise actif est un bean auquel des clients acc&#232;dent actuellement. Un bean entreprise inactif est un bean actuellement mis en cache mais auquel aucun client n&#8217;acc&#232;de. Les donn&#233;es d&#8217;un bean mis en mode passif sont enregistr&#233;es temporairement et sont remises dans le cache lorsqu&#8217;un client demande le bean en question.</p>
+
+</li></ul>
+<p>La page Enterprise Java Beans (EJB) contient les options suivantes.</p>
+
+<dl><dt>Charger les valeurs par d&#233;faut</dt>
+<dd><p>Bouton permettant de restaurer les valeurs par d&#233;faut de tous les param&#232;tres.</p>
+
+</dd>
+<dt>Nom de configuration</dt>
+<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
+
+</dd>
+<dt>Emplacement de stockage des sessions</dt>
+<dd><p>R&#233;pertoire du syst&#232;me de fichiers dans lequel sont enregistr&#233;s les beans de session avec &#233;tat mis en mode passif et les sessions HTTP persistantes. La valeur par d&#233;faut est <tt>${com.sun.aas.instanceRoot}/session-store</tt>.</p>
+
+<p>Les beans mis en mode passif sont des beans de session avec &#233;tat dont l&#8217;&#233;tat a &#233;t&#233; &#233;crit dans un fichier du syst&#232;me. G&#233;n&#233;ralement, ces beans sont rest&#233;s inactifs pendant un certain temps et ne sont pas actuellement consult&#233;s par les clients. De m&#234;me, les sessions HTTP persistantes sont des sessions Web individuelles dont l&#8217;&#233;tat a &#233;t&#233; &#233;crit dans un fichier du syst&#232;me.</p>
+
+</dd>
+<dt>Option de validation</dt>
+<dd><p>Indique comment le conteneur met en cache les instances de bean mises en mode passif entre les transactions. Si vous s&#233;lectionnez Option B (option par d&#233;faut), le conteneur met en cache une instance pr&#234;te entre les transactions. Si vous s&#233;lectionnez Option C, le conteneur ne met pas une instance pr&#234;te en cache entre les transactions. </p>
+
+</dd>
+<dt>Taille initiale et minimale du pool</dt>
+<dd><p>Nombre minimum de beans &#224; conserver dans le pool. La valeur par d&#233;faut est 0.</p>
+
+</dd>
+<dt>Taille maximale du pool</dt>
+<dd><p>Nombre maximal de beans pouvant &#234;tre conserv&#233;s par le conteneur dans le pool &#224; un moment donn&#233;. La valeur par d&#233;faut est 32.</p>
+
+</dd>
+<dt>Valeur de redimensionnement du pool</dt>
+<dd><p>Nombre de beans supprim&#233;s du pool s&#8217;ils sont inactifs pass&#233;e la dur&#233;e sp&#233;cifi&#233;e dans le champ D&#233;lai d&#8217;inactivit&#233; du pool. La valeur doit &#234;tre 0 minimum et &#234;tre inf&#233;rieure &#224; la valeur du champ Taille maximale du pool. La valeur par d&#233;faut est 8.</p>
+
+</dd>
+<dt>D&#233;lai d&#8217;inactivit&#233; du pool</dt>
+<dd><p>Dur&#233;e exprim&#233;e en secondes pendant laquelle un bean du pool peut rester inactif avant d&#8217;&#234;tre supprim&#233; de celui-ci. Au-del&#224; de cette p&#233;riode, le bean est d&#233;truit. La valeur 0 signifie qu&#8217;un bean peut rester inactif pendant une dur&#233;e ind&#233;finie. La valeur par d&#233;faut est 600.</p>
+
+</dd>
+<dt>Taille max. du cache</dt>
+<dd><p>Nombre maximal de beans mis en cache. Augmentez le nombre maximal de beans &#224; mettre en cache pour &#233;liminer le temps syst&#232;me de cr&#233;ation et de destruction des beans. Cependant, si le cache est augment&#233;, le serveur consomme une plus grande quantit&#233; de m&#233;moire et de ressources. V&#233;rifiez que votre environnement d&#8217;exploitation est suffisant pour vos param&#232;tres de cache. La valeur 0 indique un cache illimit&#233;. La valeur par d&#233;faut est 512.</p>
+
+</dd>
+<dt>Valeur de redimensionnement du cache</dt>
+<dd><p>Nombre de beans &#224; mettre en mode passif lorsque le cache est satur&#233;. Lorsque le nombre maximal de beans mis en cache est atteint, le conteneur supprime un certain nombre de beans mis en mode passif du magasin de sauvegarde. Cette valeur indique &#233;galement le nombre de beans &#224; cr&#233;er si une requ&#234;te arrive alors que le pool n&#8217;a aucun bean de disponible. La valeur doit &#234;tre sup&#233;rieure &#224; 1 et inf&#233;rieure &#224; la valeur Taille max. du cache. La valeur par d&#233;faut est 32.</p>
+
+</dd>
+<dt>D&#233;lai d&#8217;attente avant suppression</dt>
+<dd><p>Nombre de secondes au-del&#224; desquelles un bean mis en mode passif est supprim&#233; du stockage de sessions. La valeur 0 indique que le conteneur ne supprime pas les beans inactifs automatiquement. Si la valeur D&#233;lai d&#8217;attente avant suppression est inf&#233;rieure ou &#233;gale &#224; la valeur D&#233;lai d&#8217;inactivit&#233; du cache, les beans sont imm&#233;diatement supprim&#233;s sans &#234;tre mis en mode passif. La valeur par d&#233;faut est 5400.</p>
+
+</dd>
+<dt>Strat&#233;gie de s&#233;lection pour suppression</dt>
+<dd><p>R&#232;gle utilis&#233;e par le conteneur pour supprimer des beans de session avec &#233;tat &#224; partir du cache. Les options sont les suivantes : </p>
+
+<dl><dt>Pas utilis&#233; r&#233;cemment (NRU)</dt>
+<dd><p>Supprime un bean qui n&#8217;a pas &#233;t&#233; r&#233;cemment utilis&#233;. Il s&#8217;agit de la valeur par d&#233;faut.</p>
+
+</dd>
+<dt>Premier entr&#233;, premier sorti (FIFO)</dt>
+<dd><p>Supprime le bean le plus ancien du cache.</p>
+
+</dd>
+<dt>Utilis&#233; le moins r&#233;cemment (LRU)</dt>
+<dd><p>Supprime le bean le moins r&#233;cemment consult&#233;. </p>
+
+</dd>
+</dl>
+</dd>
+<dt>D&#233;lai d&#8217;inactivit&#233; du cache</dt>
+<dd><p>Nombre maximal de secondes pendant lesquelles un bean peut rester inactif dans le cache. Pass&#233;e cette p&#233;riode (le conteneur peut mettre ce bean en mode passif. La valeur de 0 indique que les beans ne peuvent jamais &#234;tre mis en mode passif. La valeur par d&#233;faut est 600.</p>
+
+</dd>
+<dt>Autres propri&#233;t&#233;s</dt>
+<dd><p>Autres propri&#233;t&#233;s du conteneur EJB. GlassFish Server ne d&#233;finit aucune autre propri&#233;t&#233; pour le conteneur EJB.</p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-ejbgeneral.html">Pour configurer les param&#232;tres EJB</a></p>
+
+</li>
+<li><p><a href="../../../ejb/fr/help/task-ejbmdbpoolsettings.html">To Configure MDB Pool Settings</a></p>
+
+</li>
+<li><p><a href="../../../ejb/fr/help/task-ejbtimerservice.html">To Configure the EJB Timer Service</a></p>
+
+</li>
+<li><p><a href="../../../ejb/fr/help/task-ejbcontaineravailability.html">To Configure Availability Settings for the EJB Container</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+<p>Aucune.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusternew"></a><h4>Nouveau cluster</h4>
+<a name="indexterm-162"></a><a name="indexterm-163"></a><p>La page Nouveau cluster vous permet de cr&#233;er un cluster.</p>
+
+<p>Elle contient les options suivantes&#160;:</p>
+
+<dl><dt>Nom du cluster</dt>
+<dd><p>Nom du cluster.</p>
+
+<p>Le nom doit respecter les exigences suivantes&#160;:</p>
+
+
+<ul><li><p>Le nom doit commencer par une lettre, un chiffre ou un caract&#232;re de soulignement.</p>
+
+</li>
+<li><p>Le nom ne peut contenir que les caract&#232;res suivants&#160;:</p>
+
+
+<ul><li><p>Lettres minuscules</p>
+
+</li>
+<li><p>Lettres majuscules</p>
+
+</li>
+<li><p>Chiffres</p>
+
+</li>
+<li><p>Trait d'union</p>
+
+</li>
+<li><p>Point</p>
+
+</li>
+<li><p>Caract&#232;re de soulignement</p>
+
+</li></ul>
+</li>
+<li><p>Le nom du n&#339;ud doit &#234;tre unique dans le domaine et ne doit pas &#234;tre le nom d'un autre cluster, d'une configuration nomm&#233;e, d'une instance de GlassFish Server ou d'un n&#339;ud.</p>
+
+</li>
+<li><p>Le nom ne doit pas &#234;tre <tt>domain</tt>, <tt>server</tt> ou tout autre mot-cl&#233; r&#233;serv&#233; par GlassFish Server.</p>
+
+</li></ul>
+</dd>
+<dt>Configuration</dt>
+<dd><p>Liste d&#233;roulante des configurations nomm&#233;es existantes pouvant &#234;tre utilis&#233;es par le cluster. Un cluster n&#233;cessite une configuration nomm&#233;e qui d&#233;finit la configuration de toutes les instances ajout&#233;es au cluster. Une configuration doit &#234;tre s&#233;lectionn&#233;e dans la liste. Le cluster doit utiliser la configuration s&#233;lectionn&#233;e lors de sa cr&#233;ation.</p>
+
+</dd>
+<dt>Cr&#233;er une copie de la configuration s&#233;lectionn&#233;e</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, la configuration s&#233;lectionn&#233;e est copi&#233;e lors de la cr&#233;ation du cluster. Le nom <tt><i>cluster-name</i>-config</tt> est affect&#233; &#224; la copie de la configuration, <i>cluster-name</i> &#233;tant le nom du cluster tel que vous l'avez saisi dans le champ Nom du cluster.</p>
+
+<p>Si <tt>default-config</tt> est s&#233;lectionn&#233; dans la liste d&#233;roulante Configuration, vous devez s&#233;lectionner cette option. La configuration <tt>default-config</tt> peut &#234;tre copi&#233;e, mais ne peut pas &#234;tre utilis&#233;e comme r&#233;f&#233;rence.</p>
+
+</dd>
+<dt>Utiliser la configuration s&#233;lectionn&#233;e comme r&#233;f&#233;rence </dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, le cluster va utiliser la configuration nomm&#233;e existante indiqu&#233;e.</p>
+
+<p>Si <tt>default-config</tt> est s&#233;lectionn&#233; dans la liste d&#233;roulante Configuration, vous ne devez <b>pas</b> s&#233;lectionner cette option. La configuration <tt> default-config</tt> peut &#234;tre copi&#233;e, mais ne peut pas &#234;tre utilis&#233;e comme r&#233;f&#233;rence.</p>
+
+</dd>
+<dt>Instances de serveur &#224; cr&#233;er</dt>
+<dd><p>Une liste des instances GlassFish Server qui seront cr&#233;&#233;es lors de la cr&#233;ation du cluster. Pour chaque instance, les informations suivantes sont fournies&#160;:</p>
+
+<dl><dt>Nom d&#8217;instance</dt>
+<dd><p>Nom de l'instance.</p>
+
+</dd>
+<dt>Pond&#233;ration</dt>
+<dd><p>Entier qui repr&#233;sente la pond&#233;ration de l'&#233;quilibrage de charge de l'instance.</p>
+
+<p>La pond&#233;ration de l'&#233;quilibrage de charge d&#233;termine la proportion de toutes les requ&#234;tes pour le cluster que l'instance doit traiter.</p>
+
+<p>Par exemple, dans un cluster comportant deux instances, vous pouvez exiger une instance pour le traitement de l'une des quatre requ&#234;tes, et une autre instance pour le traitement des trois requ&#234;tes restantes. Dans ce cas, d&#233;finissez la pond&#233;ration de l'instance qui doit traiter une requ&#234;te sur quatre sur 1 et celle de l'autre sur 3. Si vous pr&#233;f&#233;rez utiliser des pourcentages, d&#233;finissez la pond&#233;ration des instances sur 25 et 75, respectivement.</p>
+
+<p>La pond&#233;ration par d&#233;faut est de 100.</p>
+
+</dd>
+<dt>N&#339;ud</dt>
+<dd><p>Liste d&#233;roulante des n&#339;uds existant sur lesquels l'instance peut r&#233;sider. Un n&#339;ud doit &#234;tre s&#233;lectionn&#233; dans la liste. L'instance r&#233;sidera sur le n&#339;ud s&#233;lectionn&#233; lors de la cr&#233;ation du cluster.</p>
+
+</dd>
+</dl>
+<p>Le tableau Instances de serveur &#224; cr&#233;er contient &#233;galement les options suivantes.</p>
+
+<dl><dt>Nouveau</dt>
+<dd><p>Bouton permettant de cr&#233;er une instance. Le fait de cliquer sur ce bouton permet d'ajouter une ligne au tableau Instances de serveur &#224; cr&#233;er.</p>
+
+</dd>
+<dt>Supprimer</dt>
+<dd><p>Bouton permettant de supprimer une instance.</p>
+
+</dd>
+</dl>
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-create-cluster.html">Cr&#233;er un cluster</a></p>
+
+</li></ul>
+<h5>Sous-commande <tt>asadmin</tt> &#233;quivalente</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-cluster-1"><tt>create-cluster</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

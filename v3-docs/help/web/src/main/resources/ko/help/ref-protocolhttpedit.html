@@ -1,0 +1,193 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolhttpedit"></a><h4>HTTP</h4>
+<a name="indexterm-72"></a><a name="indexterm-73"></a><p>HTTP 페이지에서는 네트워크 프로토콜에 대한 HTTP 설정을 수정할 수 있습니다.</p>
+
+<p>HTTP 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>기본값 로드</dt>
+<dd><p>모든 설정의 기본값을 복원하는 데 사용하는 버튼입니다.</p>
+
+</dd>
+<dt>구성 이름</dt>
+<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+
+</dd>
+<dt>프로토콜 이름</dt>
+<dd><p>프로토콜의 이름입니다. 프로토콜 이름 필드는 읽기 전용 필드입니다. 새 프로토콜을 만들 때만 이름을 지정할 수 있습니다.</p>
+
+</dd>
+<dt>서버 이름</dt>
+<dd><p>서버가 클라이언트에 전송하는 URL에 사용될 호스트 이름입니다. 서버가 별칭을 사용하는 경우 이 이름은 별칭 이름입니다. 서버가 별칭을 사용하지 않는 경우에는 이 필드를 비워 두십시오.</p>
+
+</dd>
+<dt>기본 가상 서버</dt>
+<dd><p>프로토콜에 연관되는 가상 서버입니다. 가상 서버 페이지에서는 가상 서버를 정의할 수 있습니다.</p>
+
+</dd>
+<dt>포트 리디렉션</dt>
+<dd><p>요청을 다른 포트로 리디렉션하는 포트 값입니다. 다음 두 조건이 존재하면 GlassFish 서버는 자동으로 요청을 리디렉션합니다.</p>
+
+
+<ul><li><p>이 프로토콜이 비-SSL 요청을 지원하는 경우</p>
+
+</li>
+<li><p>SSL 전송이 필요한 일치하는 보안 제약 조건에 대한 요청이 수신된 경우</p>
+
+</li></ul>
+<p>리디렉션 포트가 지정되지 않은 경우에는 GlassFish 서버에서 원래 요청에 지정된 포트 번호를 사용합니다.</p>
+
+</dd>
+<dt>최대 연결 수</dt>
+<dd><p>연결 유지 모드에서 유지해야 할 영구 연결의 최대 수입니다. 연결 유지 하위 시스템은 정기적으로 유휴 연결을 폴링합니다. 기본값은 256입니다.</p>
+
+</dd>
+<dt>시간 초과</dt>
+<dd><p>연결이 유휴 상태로 간주되고 연결 유지 상태로 유지되는 최대 시간(초)입니다. 값이 0보다 작거나 같으면 연결 유지 연결이 무기한 열린 상태로 유지됩니다. 기본값은 30초입니다.</p>
+
+</dd>
+<dt>업로드 시간 초과</dt>
+<dd><p>이 옵션을 선택하면 연결 업로드 시간 초과 제한에 도달한 후에 바이트를 느리게 읽는 서블릿에 대한 연결이 닫힙니다. 이 옵션을 비활성화하면 서블릿 연결이 시간 초과되지 않습니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>연결 업로드 시간 초과</dt>
+<dd><p>업로드에 대한 시간 초과(밀리초)입니다. 이 필드는 업로드 시간 초과 사용 확인란을 선택한 경우에만 적용될 수 있습니다. 기본값은 300000밀리초입니다.</p>
+
+</dd>
+<dt>요청 시간 초과</dt>
+<dd><p>요청이 시간 초과되기 전의 시간(초)입니다. 시간 초과 값에 도달하기 전에 요청이 처리되지 않으면 요청이 무시됩니다. 기본값은 30초입니다.</p>
+
+</dd>
+<dt>전송 버퍼 크기</dt>
+<dd><p>전송 버퍼의 크기(바이트)입니다. 기본값은 8192바이트입니다.</p>
+
+</dd>
+<dt>헤더 버퍼 길이</dt>
+<dd><p>요청 처리 스레드가 요청 데이터를 읽기 위해 사용하는 버퍼의 크기(바이트)입니다. 기본값은 8192바이트입니다.</p>
+
+</dd>
+<dt>최대 게시 크기</dt>
+<dd><p>POST 작업의 최대 크기(바이트)입니다. 기본값은 2097152바이트입니다.</p>
+
+</dd>
+<dt>URI 인코딩</dt>
+<dd><p>수신된 요청 URI를 디코딩하는 데 사용되는 문자 집합의 이름입니다. 값은 유효한 IANA 문자 집합 이름이어야 합니다. 기본값은 UTF-8입니다.</p>
+
+</dd>
+<dt>버전</dt>
+<dd><p>사용되는 HTTP 프로토콜의 버전입니다. 기본값은 HTTP/1.1입니다.</p>
+
+</dd>
+<dt>압축</dt>
+<dd><p>HTTP/1.1 GZIP 압축 사용을 지정하여 서버 대역폭을 저장합니다. 사용 가능한 선택 항목은 다음과 같습니다.</p>
+
+<dl><dt><tt>on</tt></dt>
+<dd><p>데이터를 압축합니다.</p>
+
+</dd>
+<dt><tt>off</tt></dt>
+<dd><p>압축을 사용하지 않습니다.</p>
+
+</dd>
+<dt><tt>force</tt></dt>
+<dd><p>모든 경우 데이터 압축을 적용합니다.</p>
+
+</dd>
+</dl>
+<p>기본값은 <tt>off</tt>입니다.</p>
+
+</dd>
+<dt>압축 가능한 MIME 유형</dt>
+<dd><p>HTTP 압축이 사용되는 MIME 유형의 쉼표로 구분된 목록입니다. 기본값은 <tt>text/html,text/xml,text/plain</tt>입니다.</p>
+
+</dd>
+<dt>압축 최소 크기</dt>
+<dd><p>압축이 적용될 때 파일의 최대 크기입니다. 압축이 <tt>on</tt> 또는 <tt>force </tt>로 설정되어 있으면 이 값을 설정해야 합니다. 기본값은 2048바이트입니다.</p>
+
+</dd>
+<dt>비압축 사용자 에이전트</dt>
+<dd><p>압축을 사용해서는 안 되는 HTTP 클라이언트의 사용자 에이전트와 일치하는 정규 표현식의 쉼표로 구분된 목록입니다. 기본적으로 이 값은 빈 문자열입니다.</p>
+
+</dd>
+<dt>제한된 사용자 에이전트</dt>
+<dd><p>HTTP 압축이 적용되는 제한된 사용자 에이전트 목록입니다. 사용자 에이전트를 지정하지 않으면 모든 사용자 에이전트에 HTTP 압축이 적용됩니다. 기본적으로 사용자 에이전트가 지정되지 않습니다.</p>
+
+</dd>
+<dt>기본 응답 유형</dt>
+<dd><p>기본 응답 유형을 지정하는 문자열입니다. 형식은 내용 유형, 인코딩, 언어 및 문자 집합이 세미콜론으로 구분된 문자열입니다. 기본값은 <tt>text/html; charset=iso-8859-1</tt>입니다.</p>
+
+</dd>
+<dt>강제 응답 유형</dt>
+<dd><p>파일 확장명과 일치하는 MIME 매핑을 사용할 수 없는 경우 사용되는 요청 유형을 지정하는 문자열입니다. 형식은 내용 유형, 인코딩, 언어 및 문자 집합이 세미콜론으로 구분된 문자열입니다. 기본값은 <tt>text/html; charset=iso-8859-1</tt>입니다.</p>
+
+</dd>
+<dt>어댑터</dt>
+<dd><p>정적 자원 어댑터의 클래스 이름입니다. 기본값은 <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>입니다.</p>
+
+</dd>
+<dt>Comet 지원</dt>
+<dd><p>이 옵션을 선택하면 프로토콜에 대해 Comet 지원이 활성화됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>DNS 조회</dt>
+<dd><p>이 옵션을 선택하면 DNS(Domain Name System) 조회가 활성화됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>RCM 지원</dt>
+<dd><p>이 옵션을 선택하면 RCM(Resource Configuration Management)이 활성화됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>추적</dt>
+<dd><p>이 옵션을 선택하면 TRACE 작업이 활성화됩니다. 이 옵션을 비활성화하면 GlassFish 서버에서 크로스 사이트 스크립팅 공격을 받을 가능성이 낮아집니다. 이 옵션은 기본적으로 활성화됩니다.</p>
+
+</dd>
+<dt>인증 통과</dt>
+<dd><p>이 옵션을 선택하면 이 프로토콜을 사용하는 네트워크 수신기가 SSL 종료 프록시 서버에서 트래픽을 수신합니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>청크</dt>
+<dd><p>이 옵션을 선택하면 HTTP 응답 청크가 활성화됩니다. 이 옵션은 기본적으로 활성화됩니다.</p>
+
+</dd>
+<dt>XPowered By</dt>
+<dd><p>이 옵션을 선택하면 GlassFish 서버에서 Java Servlet 3.0 및 Java Server Pages 2.0 사양에 따라 <tt>X-Powered-By</tt> 헤더를 사용합니다. 이 옵션은 기본적으로 활성화됩니다.</p>
+
+</dd>
+</dl>
+<h5>관련 작업</h5>
+
+<ul><li><p><a href="task-protocolnew.html">프로토콜을 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">프로토콜을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">프로토콜에 대한 SSL 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">프로토콜에 대한 HTTP 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">프로토콜에 대한 파일 캐시 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">프로토콜을 삭제하는 방법</a></p>
+
+</li></ul>
+<h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

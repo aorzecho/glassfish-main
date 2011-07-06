@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-managerproptab"></a><h4>Propriedades do gerenciador</h4>
+<a name="indexterm-50"></a><a name="indexterm-51"></a><p>O gerenciador de sess&#227;o fornece os meios para configurar o modo como
+as sess&#245;es s&#227;o criadas e destru&#237;das, onde o estado de sess&#227;o &#233;
+armazenado e o n&#250;mero m&#225;ximo de sess&#245;es dispon&#237;veis.</p>
+
+<p>Use a p&#225;gina Propriedades do Gerenciador para adicionar ou modificar propriedades do
+gerenciador para o recipiente da Web.</p>
+
+<p>A p&#225;gina Gerenciador de Sess&#227;o cont&#233;m as seguintes op&#231;&#245;es.</p>
+
+<dl><dt>Carregar padr&#245;es</dt>
+<dd><p>Bot&#227;o para restaurar os valores padr&#227;o de todas as configura&#231;&#245;es.</p>
+
+</dd>
+<dt>Nome da configura&#231;&#227;o</dt>
+<dd><p>Nome da configura&#231;&#227;o ao qual as configura&#231;&#245;es desta p&#225;gina ser&#227;o enviadas. Este campo &#233; de somente leitura.</p>
+
+</dd>
+<dt>Intervalo de Reaplic.</dt>
+<dd><p>O n&#250;mero de segundos antes que a sess&#227;o inativa seja exclu&#237;da do armazenamento. O valor padr&#227;o &#233; 60.</p>
+
+<p>Defina este valor menor do que a frequ&#234;ncia na qual os dados da sess&#227;o s&#227;o modificados. Por exemplo, este valor deveria ser o menor poss&#237;vel (1 segundo) para um servlet de contagem de acessos em um website com acesso frequente, do contr&#225;rio voc&#234; perder&#225; alguns acessos cada vez que reiniciar o servidor.</p>
+
+</dd>
+<dt>M&#225;x. de Sess&#245;es</dt>
+<dd><p>O n&#250;mero m&#225;ximo de sess&#245;es que podem ser armazenadas no cache. Um valor de -1 indica nenhum limite para o n&#250;mero de sess&#245;es. O valor padr&#227;o &#233; -1. </p>
+
+<p>Ap&#243;s o limite ser alcan&#231;ado, uma tentativa para criar uma nova sess&#227;o causa a ocorr&#234;ncia de uma <tt>IllegalStateException</tt>.</p>
+
+</dd>
+<dt>Nome de Arquivo de Sess&#227;o</dt>
+<dd><p>O caminho absoluto ou relativo do diret&#243;rio no qual o estado da sess&#227;o &#233; preservado entre as reinicializa&#231;&#245;es do aplicativo, se for poss&#237;vel preservar o estado. Se este caminho n&#227;o &#233; definido, o estado da sess&#227;o n&#227;o &#233; preservado. Por padr&#227;o, este caminho n&#227;o &#233; definido.</p>
+
+<p>Um caminho relativo para o diret&#243;rio tempor&#225;rio do aplicativo Web.</p>
+
+</dd>
+<dt>Propriedades Adicionais</dt>
+<dd><p>Propriedades adicionais do gerenciador de sess&#227;o. O Servidor GlassFish n&#227;o define propriedades adicionais para o gerenciador de sess&#227;o.</p>
+
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">Para configurar as propriedades gerais do recipiente da Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">Para configurar as propriedades da sess&#227;o do recipiente da Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">Para configurar as propriedades do gerenciador do recipiente da Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">Para configurar as propriedades de armazenamento do recipiente da Web</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente da Web</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+<p>Nenhum.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

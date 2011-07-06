@@ -1,0 +1,182 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jdbcconnpooladvanceattrtab"></a><h4>Editar atributos avanzados del conjunto de conexiones</h4>
+<a name="indexterm-24"></a><p>Utilice la p&#225;gina Editar atributos avanzados del conjunto de conexiones para especificar
+los atributos que ayudan en el diagn&#243;stico de fallos potenciales en la conexi&#243;n
+y facilitan el uso.</p>
+
+<p>La p&#225;gina de Editar atributos avanzados del conjunto de conexiones cuenta con
+las siguientes opciones.</p>
+
+<dl><dt>Cargar valores predeterminados</dt>
+<dd><p>Bot&#243;n para restablecer los valores predeterminados de toda la configuraci&#243;n.</p>
+
+</dd>
+<dt>Nombre de conjunto</dt>
+<dd><p>El nombre del conjunto de conexiones. &#201;ste campo es de s&#243;lo lectura. S&#243;lo puede especificar el nombre del conjunto de conexiones al crear un nuevo conjunto de conexiones JDBC.</p>
+
+</dd>
+<dt>Tiempo de espera de instrucci&#243;n</dt>
+<dd><p>La duraci&#243;n de tiempo, en segundos, tras los que se terminar&#225;n las consultas que se ejecuten anormalmente durante mucho tiempo. GlassFish Server establecer&#225; <tt>QueryTimeout</tt> en las instrucciones creadas. Un valor de -1 significa que la opci&#243;n est&#225; deshabilitada. El valor predeterminado es -1.</p>
+
+</dd>
+<dt>Tama&#241;o de la cach&#233; de instrucci&#243;n</dt>
+<dd><p>El n&#250;mero de instrucciones que desea almacenar en la memoria cach&#233; mediante el mecanismo LRU (Least Recently Used). El valor 0 deshabilita el almacenamiento de instrucciones en cach&#233;. El valor predeterminado es 0.</p>
+
+</dd>
+<dt>SQL de inicio</dt>
+<dd><p>Una cadena SQL que debe ejecutarse cada vez que se crea (no se reutiliza) una conexi&#243;n en el grupo. La ejecuci&#243;n de esta cadena inicia el estado de la conexi&#243;n. </p>
+
+</dd>
+<dt>Escuchas de rastreo SQL</dt>
+<dd><p>Una lista separada por comas compuesta por nombres de clases de implementaciones de escuchas que especifica que se realizar&#225; un seguimiento de las instrucciones SQL ejecutadas por las aplicaciones. Las clases de escucha deben implementar la interfaz <tt>Org.glassfish.api.jdbc.SQLTraceListener.</tt> . El uso de las escuchas permite filtrar f&#225;cilmente los mensajes de registro de las instrucciones SQL y ayuda a los administradores analizar las instrucciones. </p>
+
+</dd>
+<dt>Plegar objetos JDBC</dt>
+<dd><p>Si se habilita esta opci&#243;n, las aplicaciones obtendr&#225;n objetos JDBC ajustados para Statement, PreparedStatement, CallableStatement, ResultSet y DatabaseMetaData . Esta opci&#243;n se habilita por defecto.</p>
+
+</dd>
+<dt>Agrupaci&#243;n</dt>
+<dd><p>Permite crear conjuntos de conexiones en el conjunto. Esta opci&#243;n se habilita por defecto.</p>
+
+</dd>
+<dt>Validar como m&#225;ximo una vez </dt>
+<dd><p>Especifica el intervalo de tiempo, en segundos, entre solicitudes consecutivas para validar una conexi&#243;n como m&#225;ximo una vez. Si se define este atributo con un valor apropiado se minimiza el n&#250;mero de solicitudes de validaci&#243;n por conexi&#243;n. El valor por defecto es 0, lo que significa que el atributo no est&#225; habilitado.</p>
+
+</dd>
+<dt>Tiempo de espera de p&#233;rdida</dt>
+<dd><p>La duraci&#243;n de tiempo, en segundos, para realizar un seguimiento de las p&#233;rdidas de conexi&#243;n en un conjunto de conexiones. Use este campo para detectar fallos potenciales en la conexi&#243;n por la aplicaci&#243;n. En caso de que la aplicaci&#243;n no devuelva la conexi&#243;n al conjunto de conexiones dentro del per&#237;odo especificado, se considerar&#225; que existen fallos potenciales, y se registrar&#225; un seguimiento de la pila del origen de la llamada. Un valor de 0 significa que el seguimiento de fallos potenciales de la conexi&#243;n est&#225; desactivado. El valor predeterminado es 0.</p>
+
+<p>Utilice este campo junto con la Recuperaci&#243;n del fallo para evitar fallos potenciales de conexi&#243;n de la aplicaci&#243;n.</p>
+
+</dd>
+<dt>Reclamaci&#243;n de p&#233;rdidas</dt>
+<dd><p>Si esta opci&#243;n est&#225; activada, las conexiones perdidas se restablecer&#225;n en el conjunto tras completar un seguimiento de los fallos potenciales de la conexi&#243;n. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Intentos de reintento de creaci&#243;n</dt>
+<dd><p>El n&#250;mero de intentos que se har&#225;n si se produce un fallo al crear una nueva conexi&#243;n. El valor 0 significa que no se realizar&#225;n intentos para volver a crear la conexi&#243;n. El valor predeterminado es 0.</p>
+
+</dd>
+<dt>Intervalo de reintento</dt>
+<dd><p>Intervalo de tiempo, en segundos, entre dos intentos para crear una conexi&#243;n. El valor predeterminado es 10. Este atributo se utiliza s&#243;lo si el valor de Intentos de creaci&#243;n es mayor que 0.</p>
+
+</dd>
+<dt>Asociaci&#243;n no activa</dt>
+<dd><p>Si esta opci&#243;n est&#225; activada, se asociar&#225; una conexi&#243;n f&#237;sica a una conexi&#243;n l&#243;gica s&#243;lo cuando se use la conexi&#243;n. Las conexiones se desvinculan una vez completada la transacci&#243;n y cuando el m&#233;todo de componente finaliza, lo cual sirve para reutilizar las conexiones f&#237;sicas. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Reclutamiento de conexiones no activas</dt>
+<dd><p>Si esta opci&#243;n est&#225; activada, se da de alta un recurso en la transacci&#243;n s&#243;lo cuando realmente se use en un m&#233;todo. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Asociar con subproceso</dt>
+<dd><p>Si esta opci&#243;n est&#225; habilitada, se realizar&#225; una asociaci&#243;n entre una conexi&#243;n y un subproceso de manera que cuando el mismo subproceso necesite una conexi&#243;n, podr&#225; volver a utilizar la conexi&#243;n ya asociada con ese subproceso y, por tanto, no incurrir&#225; en la sobrecarga para conseguir una conexi&#243;n del conjunto. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Conexiones coincidentes</dt>
+<dd><p>Si esta opci&#243;n est&#225; habilitada, las conexiones que se seleccionen en el conjunto deber&#237;an coincidir con las conexiones que tienen determinadas credenciales. Esta opci&#243;n debe estar habilitada si el conjunto de conexiones lo utilizan aplicaciones que tienen varias credenciales de usuario. Esta opci&#243;n se puede deshabilitar con total seguridad si el administrador sabe que las conexiones del conjunto siempre ser&#225;n homog&#233;neas y, por tanto, para una conexi&#243;n recogida del conjunto no se necesita establecer correspondencia mediante el adaptador de recursos. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Uso m&#225;ximo de conexiones</dt>
+<dd><p>El n&#250;mero de veces que el conjunto debe reutilizar una conexi&#243;n. La conexi&#243;n se cerrar&#225; una vez reutilizada durante un n&#250;mero espec&#237;fico de veces. Al limitar el n&#250;mero de veces que una conexi&#243;n se puede reutilizar, puede evitar fallos potenciales en las instrucciones si una aplicaci&#243;n no las cierra. Un valor de -0 significa que este atributo est&#225; deshabilitado. El valor predeterminado es 0.</p>
+
+</dd>
+<dt>Validaci&#243;n de la conexi&#243;n</dt>
+<dd><p>Si esta opci&#243;n est&#225; habilitada, ser&#225; necesario validar la conexi&#243;n, lo que permitir&#225; al servidor volver a conectarse en caso de fallo.</p>
+
+</dd>
+<dt>M&#233;todo de validaci&#243;n</dt>
+<dd><p>GlassFish Server puede validar las conexiones de la base de datos de las siguientes maneras.</p>
+
+<dl><dt><tt>auto-commit</tt> y <tt>metadata</tt></dt>
+<dd><p>GlassFish Server valida una conexi&#243;n invocando los m&#233;todos <tt>con.getAutoCommit</tt> o <tt>con.getMetaData</tt>. </p>
+
+
+<hr><p><b>Nota - </b>Muchos controladores JDBC guardan en la memoria cach&#233; los resultados de estas llamadas. Como resultado, al utilizar estas llamadas es posible que no siempre se obtengan validaciones fiables. Compruebe con el proveedor del controlador para determinar si estas llamadas est&#225;n guardadas en la memoria cach&#233; o no.</p>
+
+
+<hr>
+</dd>
+<dt><tt>custom-validation</tt></dt>
+<dd><p>GlassFish Server utiliza un mecanismo de validaci&#243;n definido por el usuario especificado en la clase de implementaci&#243;n personalizada, dentro del campo Nombre de clase de validaci&#243;n.</p>
+
+</dd>
+<dt><tt>table</tt></dt>
+<dd><p>La aplicaci&#243;n consulta la tabla de la base de datos especificada. La tabla debe existir y estar accesible, aunque no requiere ninguna fila. No utilice una tabla existente que tenga un gran n&#250;mero de filas, o una tabla a la que ya se accede con frecuencia.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Nombre de la tabla</dt>
+<dd><p>Nombre de la tabla de la base de datos que se va a validar. Este campo es aplicable s&#243;lo si el m&#233;todo de validaci&#243;n se ha establecido en <tt>table</tt>.</p>
+
+</dd>
+<dt>Nombre de clase de validaci&#243;n</dt>
+<dd><p>El nombre de clase de implementaci&#243;n de la validaci&#243;n personalizada. Este campo es aplicable s&#243;lo si el m&#233;todo de validaci&#243;n se defini&#243; como <tt>custom-validation</tt>. El nombre de clase proporcionado debe ser accesible para GlassFish Server. La clase especificada debe implementar la interfaz <tt>org.glassfish.api.jdbc.ConnectionValidation.</tt> </p>
+
+</dd>
+<dt>Con cualquier fallo</dt>
+<dd><p>Si esta opci&#243;n est&#225; habilitada, GlassFish Server cierra todas las conexiones del conjunto y las restablece cuando falla cualquier conexi&#243;n. Si esta opci&#243;n est&#225; deshabilitada, las conexiones individuales s&#243;lo se restablecer&#225;n cuando se utilicen. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Permitir llamadores que no sean de componentes</dt>
+<dd><p>Si esta opci&#243;n est&#225; activada, los solicitantes que no son componentes, tales como filtros del servlet y administradores de persistencia de terceros, pueden administrar el conjunto. Las conexiones obtenidas por solicitantes que no son componentes no se cierran autom&#225;ticamente al final de una transacci&#243;n realizada por el contenedor. El solicitante ha de cerrarla &#233;l mismo. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+</dl>
+<a name="gkonw"></a><h5>Tareas relacionadas</h5>
+
+<ul><li><p><a href="task-setdbaccess.html">Para configurar el acceso a la base de datos</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">Para integrar un controlador JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">Para crear un conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">Para editar la configuraci&#243;n general del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">Para verificar la configuraci&#243;n del conjunto de conexiones</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">Para editar atributos avanzados del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Para eliminar un conjunto de conexiones JDBC</a></p>
+
+</li></ul>
+<a name="gkoli"></a><h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=add-resources-1"><tt>add-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jdbc-connection-pool-1"><tt>create-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jdbc-connection-pool-1"><tt>delete-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jdbc-connection-pools-1"><tt>list-jdbc-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=ping-connection-pool-1"><tt>ping-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-database-1"><tt>start-database</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-database-1"><tt>stop-database</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

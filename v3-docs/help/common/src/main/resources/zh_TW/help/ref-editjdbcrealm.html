@@ -1,0 +1,78 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-editjdbcrealm"></a><h4>專屬於 <tt>JDBCRealm</tt> 類別的特性</h4>
+<a name="indexterm-206"></a><a name="indexterm-207"></a><p>若要保護網頁或 Web 應用程式，您可以設定安全性，僅讓註冊的使用者進行存取。此作業稱為認證功能。此類範圍涉及在資料庫中儲存使用者憑證。GlassFish Server 使用資料庫資訊和配置檔案中的已啟用 JDBC 範圍選項。</p>
+
+<p>以下是 JDBC 範圍的必要特性。</p>
+
+<dl><dt>JAAS 環境</dt>
+<dd><p>JAAS (Java Authentication and Authorization Service) 環境 (用於此範圍之登入模組的識別碼)。唯一的有效值為 <tt>jdbcRealm</tt>。</p>
+
+</dd>
+<dt>JNDI</dt>
+<dd><p>此範圍的 JNDI 名稱。預設值為 <tt>jdbc/security</tt>。</p>
+
+</dd>
+<dt>使用者表格</dt>
+<dd><p>包含此範圍授權使用者清單的表格。預設值為 <tt>usertable</tt>。</p>
+
+</dd>
+<dt>使用者名稱欄</dt>
+<dd><p>使用者表格內包含使用者清單的欄名稱。預設值為 <tt>userid</tt>。</p>
+
+</dd>
+<dt>密碼欄</dt>
+<dd><p>使用者表格內包含各個使用者密碼的欄名稱。預設值為 <tt>password</tt>。</p>
+
+</dd>
+<dt>群組表格</dt>
+<dd><p>資料庫中群組表格的名稱。預設值為 <tt>grouptable</tt>。</p>
+
+</dd>
+<dt>群組名稱欄</dt>
+<dd><p>資料庫群組表格中群組名稱欄的名稱。預設值為 <tt>groupid</tt>。</p>
+
+</dd>
+</dl>
+<p>以下是適用於 JDBC 範圍的選擇性特性。</p>
+
+<dl><dt>指定群組</dt>
+<dd><p>逗號分隔的群組名稱之清單。您可將能提出有效憑證的所有用戶端指定給這些群組，例如 <tt>employee,manager</tt>，這將是使用者群組的名稱。</p>
+
+</dd>
+<dt>資料庫使用者</dt>
+<dd><p>允許您在範圍 (而不是在 <tt>jdbc-connection-pool</tt>) 中指定資料庫使用者名稱。這可防止其他應用程式查找資料庫、取得連線，以及瀏覽使用者表格。依預設，會使用 <tt>jdbc-connection-pool</tt> 配置。</p>
+
+</dd>
+<dt>資料庫密碼</dt>
+<dd><p>允許您在範圍 (而不是在 <tt>jdbc-connection-pool</tt>) 中指定資料庫密碼。這可防止其他應用程式查找資料庫、取得連線，以及瀏覽使用者表格。依預設，會使用 <tt>jdbc-connection-pool</tt> 配置。</p>
+
+</dd>
+<dt>摘要演算法</dt>
+<dd><p>(選擇性) 指定摘要演算法。預設為 <tt>SHA-256</tt>。您可以使用 JDK 所支援的任何演算法，或是使用 none。</p>
+
+
+<hr><p><b>備註 - </b>在 GlassFish Server 3.1 之前的版本中，預設演算法為 <tt>MD5</tt>。如果有依賴 <tt>MD5</tt> 演算法的應用程式，您可以使用 <tt>asadmin set</tt> 子指令，置換預設的 <tt>SHA-25</tt> 演算法：</p>
+
+<pre>asadmin> <tt><b>set server.security-service.property.default-digest-algorithm=MD5</b></tt></pre><p>您可以使用 <tt>asadmin get</tt> 子指令，來判斷目前使用的演算法：</p>
+
+<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>另請注意，為了保留向下相容性，若從 GlassFish Server v2.<i>x</i> 或 v3.0.<i>x</i> 升級至 GlassFish Server 3.1，而舊版 GlassFish Server 中未明確設定摘要演算法，則預設演算法就會自動設定為 <tt>MD5</tt>。</p>
+
+
+<hr>
+</dd>
+<dt>編碼</dt>
+<dd><p>編碼。允許的值為 <tt>Hex</tt> 和 <tt>Base64</tt>。如果指定了 <tt>digest-algorithm</tt>，則預設為 <tt>Hex</tt>。如果未指定 <tt>digest-algorithm</tt>，則預設不指定任何編碼。</p>
+
+</dd>
+<dt>字元集</dt>
+<dd><p>摘要演算法的字元集。 </p>
+
+</dd>
+</dl>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

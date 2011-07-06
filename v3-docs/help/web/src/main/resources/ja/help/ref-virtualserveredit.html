@@ -1,0 +1,103 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-virtualserveredit"></a><h4>仮想サーバーを編集</h4>
+<a name="indexterm-63"></a><p>「仮想サーバーを編集」ページを使用します。</p>
+
+<p>「仮想サーバーを編集」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>Id</dt>
+<dd><p>内部的に参照可能な仮想サーバーの識別子。これが HTTP クライアント側に表示されることはありません。HTTP クライアント側に表示するホスト名は、「ホスト」フィールドに指定する必要があります。</p>
+
+</dd>
+<dt>ホスト</dt>
+<dd><p>サーバーが稼動するマシンのホスト名 (1 つまたは複数)。ネットワークの DNS サーバ (UNIX システムでは <tt>/etc/hosts </tt> ファイル) に登録されている、実際のホスト名または仮想ホスト名を使用します。デフォルト値は、システムプロパティーの値の <tt>${com.sun.aas.hostName}</tt> です。</p>
+
+</dd>
+<dt>状態</dt>
+<dd><p>サーバーに求められる状態。値は次のいずれかになります。</p>
+
+<dl><dt>オン</dt>
+<dd><p>仮想サーバーはアクティブです。この値はデフォルトです。</p>
+
+</dd>
+<dt>オフ</dt>
+<dd><p>仮想サーバーは非アクティブです。サーバーへのアクセスを試行すると、エラーコード 404 (リソースが使用できません) が返されます。</p>
+
+</dd>
+<dt>使用不可</dt>
+<dd><p>仮想サーバーは使用不可です。サーバーへのアクセスを試行すると、エラーコード 403 (要求の実行拒否) が返されます。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>SSO</dt>
+<dd><p>シングルサインオンの動作を、HTTP サービスから継承、有効、または無効のいずれかに指定します。デフォルトでは、HTTP サービスから継承されます。このオプションが有効の場合、この仮想サーバー上の同じレルムで設定された Web アプリケーションに対してシングルサインオンが有効になります。このオプションが無効の場合、この仮想サーバーではシングルサインオンが無効になり、ユーザーは仮想サーバー上のアプリケーションごとに個別に認証を行う必要があります。</p>
+
+</dd>
+<dt>Network Listeners</dt>
+<dd><p>このサーバーに関連付けられた 1 つまたは複数のネットワークリスナー。</p>
+
+</dd>
+<dt>デフォルト Web モジュール</dt>
+<dd><p>仮想サーバーに配備されているその他の Web モジュールにマッピングできないすべての要求に対応する配備済み Web モジュール (配備されている場合)。デフォルトの Web モジュールが指定されない場合は、コンテキストルートが空の Web モジュールが使用されます。コンテキストルートが空の Web モジュールが存在しない場合は、システムのデフォルトの Web モジュールが作成され、これが使用されます。</p>
+
+</dd>
+<dt>ログファイル</dt>
+<dd><p>この仮想サーバーからのログメッセージが表示されるファイルのパス名。デフォルトでは、ログメッセージは <tt></tt><i>domain-dir</i><tt>/logs/server.log </tt> に表示されます。</p>
+
+</dd>
+<dt>docroot</dt>
+<dd><p>サーバーのルートドキュメントディレクトリへの絶対パス。デフォルト値は <tt></tt><i>domain-dir</i><tt>/docroot</tt> です。</p>
+
+</dd>
+<dt>アクセスログ</dt>
+<dd><p>アクセスログを、HTTP サービスから継承、有効、または無効のいずれかに指定します。デフォルトでは、HTTP サービスから継承されます。</p>
+
+</dd>
+<dt>ディレクトリ</dt>
+<dd><p>サーバーのアクセスログへの絶対ディレクトリパス。デフォルトは <i>domain-dir</i><tt>/logs/access</tt>。</p>
+
+</dd>
+<dt>追加プロパティー</dt>
+<dd><p>仮想サーバーの追加プロパティー。</p>
+
+<p>使用可能なプロパティーの詳細については、<a href="ref-virtualserverprops.html">「仮想サーバーに固有のプロパティー」</a>を参照してください。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-virtualservercreate.html">「仮想サーバーを作成する」</a></p>
+
+</li>
+<li><p><a href="task-virtualserveredit.html">「仮想サーバーを編集する」</a></p>
+
+</li>
+<li><p><a href="task-virtualserverdelete.html">「仮想サーバーを削除する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-virtual-server-1"><tt>create-virtual-server</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-virtual-servers-1"><tt>list-virtual-servers</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-virtual-server-1"><tt>delete-virtual-server</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

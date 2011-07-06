@@ -1,0 +1,109 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-appredeploy"></a><h4>Para reimplantar um aplicativo implantado</h4><a name="indexterm-54"></a><a name="indexterm-55"></a><p>A reimplanta&#231;&#227;o de um aplicativo implanta uma nova vers&#227;o do aplicativo, embora
+preserve as configura&#231;&#245;es e outras op&#231;&#245;es do aplicativo implantado originalmente.</p>
+
+<h6>Antes de come&#231;ar</h6><p>Verifique se o aplicativo a ser reimplantado j&#225; est&#225; implantado.</p>
+
+<ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, selecione o n&#243; Aplicativos.</b><p>A p&#225;gina Aplicativos &#233; exibida.</p></li>
+<li><b>Na tabela Aplicativos Implantados, clique em Reimplantar na linha do aplicativo a
+ser reimplantado.</b><p>O nome do aplicativo pode incluir um identificador de vers&#227;o opcional, que
+segue o nome e &#233; separado do nome por dois pontos (<tt>:</tt>).
+Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p><p>A p&#225;gina Reimplantar Aplicativos ou M&#243;dulos &#233; exibida.</p></li>
+<li><b>Especifique o local do aplicativo a ser reimplementado.</b><ul>
+<li><b>Se o aplicativo for um arquivo que reside na m&#225;quina cliente ou
+&#233; acess&#237;vel a partir dela, selecione a op&#231;&#227;o Arquivo Empacotado a Ser
+Carregado no Servidor.</b><p>O computador cliente &#233; o host em que voc&#234; visualiza o Console
+de Administra&#231;&#227;o por meio de um navegador.</p><p>Clique em Procurar para localizar o arquivo ou digite o caminho completo
+para o arquivo.</p></li>
+<li><b>Se o aplicativo for um arquivo que reside na m&#225;quina servidor, ou
+se for um aplicativo n&#227;o empacotado de um diret&#243;rio explodido, selecione a
+op&#231;&#227;o Arquivo Empacotado Local ou Diret&#243;rio que &#233; Acess&#237;vel a parir do
+Servidor GlassFish.</b><p>O computador servidor &#233; o host que executa o servidor de administra&#231;&#227;o
+de dom&#237;nio (DAS). </p><p>Clique em Procurar Arquivos para localizar um arquivo ou clique em Procurar
+Pastas para localizar um diret&#243;rio. Como alternativa, digite o caminho completo para
+o arquivo ou diret&#243;rio. A implanta&#231;&#227;o a partir de um diret&#243;rio avan&#231;ado
+destina-se a desenvolvedores avan&#231;ados e n&#227;o &#233; recomendada para ambientes de produ&#231;&#227;o.</p></li></ul></li>
+<li><b>Marque a caixa de sele&#231;&#227;o Precompilar JSPs para precompilar arquivos JavaServer Pages
+(JSP).</b><p>Se esta op&#231;&#227;o for desativada, os arquivos JSP ser&#227;o compilados no tempo
+de execu&#231;&#227;o, quando forem acessados pela primeira vez. A op&#231;&#227;o est&#225; desativada
+por padr&#227;o.</p></li>
+<li><b>Marque a caixa de sele&#231;&#227;o Executar verificador para verificar o descritor de
+implanta&#231;&#227;o antes da reimplanta&#231;&#227;o.</b><p>Se essa op&#231;&#227;o for selecionada e a verifica&#231;&#227;o falhar, a reimplanta&#231;&#227;o n&#227;o
+ser&#225; realizada. O verificador examina a estrutura e o conte&#250;do dos descritores
+de implanta&#231;&#227;o. A verifica&#231;&#227;o de aplicativos grandes geralmente consome muito tempo. A
+op&#231;&#227;o est&#225; desativada por padr&#227;o.</p><p>Os pacotes verificadores devem ser instalados a partir da Ferramenta de atualiza&#231;&#227;o,
+ou um aviso &#233; registrado e esta op&#231;&#227;o &#233; ignorada.</p></li>
+<li><b>Marque a caixa de sele&#231;&#227;o Java Web Start para ativar o acesso
+ao Java Web Start para um m&#243;dulo cliente aplicativo. </b><p>Esta op&#231;&#227;o est&#225; ativada ou desativada por padr&#227;o de acordo com a
+configura&#231;&#227;o no momento da implanta&#231;&#227;o.</p></li>
+<li><b>Marque a caixa de sele&#231;&#227;o Manter estado para conservar as sess&#245;es Web,
+as inst&#226;ncias SFSB e os temporizadores EJB criados persistentemente entre as reimplanta&#231;&#245;es.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada. Esta op&#231;&#227;o &#233; suportada somente na
+inst&#226;ncia padr&#227;o do servidor, denominada <tt>server</tt>. N&#227;o &#233; suportada e ignorada em
+nenhum outro destino.</p><p>Algumas altera&#231;&#245;es em um aplicativo entre as reimplanta&#231;&#245;es impedem que este recurso
+funcione corretamente. Por exemplo, n&#227;o altere o conjunto de vari&#225;veis da inst&#226;ncia
+na classe do bean SFSB.</p><p>Em aplicativos Web, este recurso se aplica somente se no arquivo <tt>glassfish-web-app.xml </tt>
+o atributo <tt>persistence-type</tt> do elemento <tt> session-manager</tt> for <tt>file</tt>.</p><p>Em inst&#226;ncias do bean de sess&#227;o com estado, o tipo de persist&#234;ncia
+sem alta disponibilidade est&#225; definido no servidor (a op&#231;&#227;o Tipo de persist&#234;ncia
+SFSB) e deve estar definido como <tt>file</tt>, que &#233; o valor padr&#227;o
+e recomendado.</p><p>Se qualquer sess&#227;o Web ativa, inst&#226;ncia SFSB ou temporizador EJB falhar em
+ser preservado ou restaurado, <b>nenhum</b> deles estar&#225; dispon&#237;vel quando a reimplementa&#231;&#227;o tiver
+sido conclu&#237;da. Entretanto, a reimplanta&#231;&#227;o continuar&#225; e um aviso ser&#225; registrado em
+log.</p><p>Para preservar dados do estado ativo, o Servidor GlassFish serializa os dados
+e os salva na mem&#243;ria. Para restaurar os dados, o carregador de
+classe do aplicativo que acabou de ser reimplementado desserializa todos os dados
+anteriormente salvos.</p></li>
+<li><b>Marque a caixa de sele&#231;&#227;o Preservar recursos no escopo do aplicativo para
+preservar os recursos no escopo do aplicativo e restaur&#225;-los durante a reimplanta&#231;&#227;o.</b><p>A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p></li>
+<li><b>Clique em OK.</b></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-applistdeployed.html">Para exibir uma lista de aplicativos implantados</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">Para implantar um aplicativo Web</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Para implantar um Aplicativo Empresarial</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Para implantar um cliente aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Para implantar um m&#243;dulo conector</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Para implantar um EJB Jar</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">Para editar um aplicativo implantado</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Para exibir os descritores de um aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">Para visualizar destinos do aplicativo</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Para visualizar as informa&#231;&#245;es do ponto final para um servi&#231;o Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Para iniciar um aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Para iniciar um cliente de aplicativo</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Para recarregar um aplicativo implantado</a></p>
+
+</li>
+<li><p><a href="../../../ejb/pt_BR/help/task-ejbcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente EJB</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-networklistenernew"></a><h4>新增網路偵聽程式</h4>
+<a name="indexterm-65"></a><p>使用 [新增網路偵聽程式] 頁面可建立新的網路偵聽程式。</p>
+
+<p>當您建立網路偵聽程式時，您可以同步建立供網路偵聽程式使用的通訊協定，或使用最初建立的通訊協定。網路偵聽程式及其相關聯的通訊協定間通常存在一對一的關係，但並不是必須的。</p>
+
+<p>[新增網路偵聽程式] 頁面包含下列選項。</p>
+
+<dl><dt>配置名稱</dt>
+<dd><p>套用此頁面上之設定的配置名稱。此欄位是唯讀欄位。</p>
+
+</dd>
+<dt>名稱</dt>
+<dd><p>唯一的偵聽程式名稱。網路偵聽程式名稱不能以數字為開頭。</p>
+
+</dd>
+<dt>通訊協定</dt>
+<dd><p>與網路偵聽程式關聯的通訊協定。以下的選項會指定是建立通訊協定還是使用現有的通訊協定。</p>
+
+<dl><dt>建立新的通訊協定</dt>
+<dd><p>會為網路偵聽程式建立使用預設設定的新通訊協定。通訊協定的預設名稱為網路偵聽程式名稱加上 <tt>-protocol</tt>，但您可以編輯此值。</p>
+
+<dl><dt>虛擬伺服器</dt>
+<dd><p>要與新的通訊協定相關聯的虛擬伺服器。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>使用現有的通訊協定</dt>
+<dd><p>使用選取的通訊協定。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>狀態</dt>
+<dd><p>網路偵聽程式的狀態。您可啟用或停用此偵聽程式。此選項預設為啟用。如果停用偵聽程式，嘗試連線至偵聽程式時皆會發生通訊端異常 (<tt>java.net.ConnectException</tt>)。</p>
+
+<p>在 GlassFish Server 9.1 之前的版本中，若將偵聽程式已啟用的屬性設為 False，偵聽程式會針對任何傳送給它的請求傳回 404 回應碼。若要在目前的 GlassFish Server 版本中實現此運作方式，請將偵聽程式的狀態設為已啟用，並將每個關聯的虛擬伺服器狀態設為關閉。虛擬伺服器會在其 [網路偵聽程式] 下拉式清單中列出其關聯的偵聽程式。</p>
+
+</dd>
+<dt>Security</dt>
+<dd><p>若選取此選項，則會針對網路偵聽程式所使用的通訊協定啟用安全性。此選項預設為停用。</p>
+
+</dd>
+<dt>JK 偵聽程式</dt>
+<dd><p>若選取此選項，偵聽程式會支援 Apache 的 <tt>mod-jk</tt> 通訊協定。<tt>mod-jk</tt> 通訊協定是 Apache 的 <tt>httpd</tt> (Web 伺服器) 和 GlassFish Server 後端實例之間的專用通訊/網路通訊協定。如果偵聽程式支援此通訊協定，<tt>httpd</tt> 應會處理所有靜態內容，而任何對動態資源 (亦即 Servlet 和 JSP) 的請求都會使用 <tt>mod-jk</tt> 通訊協定路由至 GlassFish Server 已啟用 <tt>mod-jk</tt> 的網路偵聽程式。此選項預設為停用。</p>
+
+</dd>
+<dt>連接埠</dt>
+<dd><p>偵聽程式將偵聽的連接埠號碼。合法值為 1 - 65535。在 UNIX 系統上，建立偵聽連接埠 1 - 1024 的通訊端需要超級使用者權限。</p>
+
+</dd>
+<dt>位址</dt>
+<dd><p>網路偵聽程式將偵聽的 IP 位址。此位址可以用「點對」或 IPv6 表示法。它可以表示為 <tt>any</tt> (用於 <tt>INADDR_ANY</tt>) 以偵聽所有 IP 位址。它可以是主機名稱。</p>
+
+</dd>
+<dt>執行緒池</dt>
+<dd><p>與網路偵聽程式關聯的執行緒池。一般而言，您需要在安裝 GlassFish Server 時所配置的兩個執行緒池中選擇其一。</p>
+
+</dd>
+<dt>傳輸</dt>
+<dd><p>網路偵聽程式的傳輸類型。依預設，唯一的選擇是 <tt>tcp</tt>。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-networklistenernew.html">建立網路偵聽程式</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">編輯網路偵聽程式</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">刪除網路偵聽程式</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">建立通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">編輯通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">編輯通訊協定的 SSL 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">編輯通訊協定的 HTTP 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">編輯通訊協定的檔案快取設定</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">刪除通訊協定</a></p>
+
+</li>
+<li><p><a href="task-virtualservercreate.html">建立虛擬伺服器</a></p>
+
+</li></ul>
+<h5>相關的 <tt>asadmin</tt> 指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-network-listener-1"><tt>create-network-listener</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-network-listeners-1"><tt>list-network-listeners</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-network-listener-1"><tt>delete-network-listener</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

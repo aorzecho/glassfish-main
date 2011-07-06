@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsphysicaldestedit"></a><h4>Physische JMS-Ziele bearbeiten</h4>
+<a name="indexterm-53"></a><a name="indexterm-54"></a><p>Auf der Seite "Physische JMS-Ziele bearbeiten" k&#246;nnen Sie die Einstellungen f&#252;r ein
+physisches JMS-Ziel &#228;ndern.</p>
+
+<p>Die Seite "Physische JMS-Ziele bearbeiten" enth&#228;lt die folgenden Optionen.</p>
+
+<dl><dt>Name</dt>
+<dd><p>Der Name des physischen Ziels. Dies ist ein schreibgesch&#252;tztes Feld. Sie k&#246;nnen den Namen nur festlegen, wenn Sie eine JMS-Zielressource oder ein physisches Ziel erstellen.</p>
+
+</dd>
+<dt>Typ</dt>
+<dd><p>Der Typ des physischen Ziels. Dies ist ein schreibgesch&#252;tztes Feld. Sie k&#246;nnen den Typ nur festlegen, wenn Sie eine JMS-Zielressource oder ein physisches Ziel erstellen.</p>
+
+</dd>
+<dt>H&#246;chstzahl nicht konsumierter Meldungen</dt>
+<dd><p>Die f&#252;r das Ziel maximal zul&#228;ssige Anzahl nicht konsumierter Meldungen. Der Wert &#8211;1 bedeutet, dass die Anzahl der unkonsumierten Meldungen nicht begrenzt ist. Der Standardwert ist &#8211;1.</p>
+
+</dd>
+<dt>Maximalgr&#246;&#223;e von Meldungen</dt>
+<dd><p>Die maximal zul&#228;ssige Gr&#246;&#223;e einer einzelnen Meldung in Byte. Der Wert &#8211;1 bedeutet, dass die Meldungsgr&#246;&#223;e unbegrenzt ist. Der Standardwert ist &#8211;1.</p>
+
+</dd>
+<dt>Maximaler Gesamtspeicher</dt>
+<dd><p>Der maximale Gesamtspeicher f&#252;r unkonsumierte Meldungen in Byte. Der Wert &#8211;1 bedeutet, dass die Speichergr&#246;&#223;e f&#252;r unkonsumierte Meldungen nicht begrenzt ist. Der Standardwert ist &#8211;1.</p>
+
+</dd>
+<dt>Schwellenwertverhalten</dt>
+<dd><p>Das Verhalten, das der Broker bei Erreichen des Speicher-Schwellenwerts anwenden soll. Zur Auswahl stehen:</p>
+
+<dl><dt><tt>Reject newest messages</tt></dt>
+<dd><p>Die neuesten Meldungen werden zur&#252;ckgewiesen, und der produzierende Client wird nur dann mit einer Ausnahme benachrichtigt, wenn die Meldung persistent ist. Dies ist der Standardwert.</p>
+
+</dd>
+<dt><tt>Slow down producers</tt></dt>
+<dd><p>Die Geschwindigkeit, mit der Meldungsproduzenten Meldungen senden, wird verringert.</p>
+
+</dd>
+<dt><tt>Throw out oldest</tt></dt>
+<dd><p>Die &#228;ltesten Meldungen werden verworfen.</p>
+
+</dd>
+<dt><tt>Throw out lowest-priority messages</tt></dt>
+<dd><p>Die Meldungen mit der niedrigsten Priorit&#228;t werden verworfen.</p>
+
+</dd>
+</dl>
+<p>Wenn der Wert "Throw out oldest" oder "Throw out lowest-priority messages" gew&#228;hlt und "Warteschlange f&#252;r nicht zugestellte Meldungen verwenden" auf "true" gesetzt ist, werden &#252;bersch&#252;ssige Meldungen in die Warteschlange f&#252;r nicht zugestellte Meldungen verschoben.</p>
+
+</dd>
+<dt>H&#246;chstzahl von Produzenten</dt>
+<dd><p>Die maximale Anzahl an Meldungsproduzenten, die mit diesem physischen Ziel verkn&#252;pft werden k&#246;nnen. Bei Erreichen dieses Grenzwerts k&#246;nnen keine neuen Produzenten mehr erstellt werden. Der Wert &#8211;1 bedeutet, dass die Anzahl der Produzenten unbegrenzt ist. Der Standardwert betr&#228;gt 100.</p>
+
+</dd>
+<dt>H&#246;chstzahl der Meldungen bei Sammelzustellung</dt>
+<dd><p>Die maximale Anzahl an Meldungen, die Konsumenten in einem einzigen Batch zugestellt werden k&#246;nnen. Der Wert &#8211;1 bedeutet, dass die Anzahl der Meldungen unbegrenzt ist. Der Standardwert ist 1000.</p>
+
+</dd>
+<dt>Warteschlange f&#252;r nicht zugestellte Meldungen verwenden</dt>
+<dd><p>Bei aktivierter Option werden nicht zugestellte Meldungen in die Warteschlange f&#252;r nicht zugestellte Meldungen gestellt. Bei deaktivierter Option werden nicht zugestellte Meldungen verworfen. Diese Option ist standardm&#228;&#223;ig aktiviert.</p>
+
+</dd>
+<dt>XML-Schema &#252;berpr&#252;fen</dt>
+<dd><p>Bei aktivierter Option versucht die Message Queue-Clientlaufzeit, eine XML-Meldung anhand der angegebenen XML-Schemadefinitionen (oder anhand der DTD, falls keine XSD angegeben ist) zu &#252;berpr&#252;fen, bevor sie an den Broker gesendet wird. Kann das angegebene Schema nicht gefunden oder die Meldung nicht &#252;berpr&#252;ft werden, wird die Meldung nicht gesendet, und eine Ausnahme wird ausgel&#246;st. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>XML-Schema - URI-Liste</dt>
+<dd><p>Eine mit Leerzeichen getrennte Liste von URI-Zeichenfolgen einer XML-Schemadefinition (XSD). Wenn die XML-Schema&#252;berpr&#252;fung aktiviert ist, verweisen die URIs auf den Speicherort einer oder mehrerer XSDs, die f&#252;r die XML-Schema&#252;berpr&#252;fung zu verwenden sind.</p>
+
+</dd>
+</dl>
+<h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-jmsservice.html">So konfigurieren Sie den JMS-Dienst</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestnew.html">So erstellen Sie ein physisches JMS-Ziel</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestedit.html">So bearbeiten Sie ein physisches JMS-Ziel</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldestdelete.html">So l&#246;schen Sie ein physisches JMS-Ziel</a></p>
+
+</li>
+<li><p><a href="task-jmsflushmessages.html">So entfernen Sie Meldungen von einem physischen JMS-Ziel</a></p>
+
+</li>
+<li><p><a href="task-jmsphysicaldeststats.html">So zeigen Sie Statistiken f&#252;r ein physisches JMS-Ziel an</a></p>
+
+</li></ul>
+<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jmsdest-1"><tt>create-jmsdest</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jmsdest-1"><tt>list-jmsdest</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jmsdest-1"><tt>delete-jmsdest</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=flush-jmsdest-1"><tt>flush-jmsdest</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=jms-ping-1"><tt>jms-ping</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

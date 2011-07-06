@@ -1,0 +1,79 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-threadpools"></a><h4>线程池</h4>
+<a name="indexterm-79"></a><a name="indexterm-80"></a><p>使用&#8220;线程池&#8221;页面可以配置线程池。</p>
+
+<p>使用线程池可将服务限制到特定数量的并发线程。</p>
+
+<p>默认情况下，在您第一次安装 GlassFish Server 时，存在两个线程池。名为 <tt>http-thread-pool</tt> 的线程池配置为供网络侦听器使用，而名为 <tt>thread-pool-1</tt> 的线程池则配置为供 ORB 用于处理 RMI/IIOP 请求。您可能需要创建一个具有不同设置的线程池，以供特定类型的应用程序和特定的硬件系统使用，或者调节默认线程池以满足您的需求。</p>
+
+<p>Java 虚拟机 (JVM) 可以支持一次执行多个线程。为了提高性能，GlassFish Server 维护一个或多个线程池。可以将特定线程池分配至特定服务。</p>
+
+<p>一个线程池可以为多项服务提供服务。请求线程处理用户请求。服务器接收到请求时，它会将请求指定给线程池中的空闲线程。该线程执行客户机的请求并返回结果。例如，如果请求需要使用的系统资源当前正处于忙碌状态，则线程会在允许请求使用该资源前，等待资源回到空闲状态。</p>
+
+<p>指定要预留给请求的最小线程数和最大线程数。线程池在这两个值之间动态调整。指定最小线程池大小后，系统将通知服务器至少分配该大小的预留给请求的线程数。可以将线程数增加到所指定的最大线程池大小。</p>
+
+<p>如果增加可供进程使用的线程数，则该进程可以同时对更多的请求进行响应。</p>
+
+<p>对于每个线程池，将提供以下信息。</p>
+
+<dl><dt>线程池 ID</dt>
+<dd><p>线程池的名称。</p>
+
+</dd>
+<dt>最大线程池大小</dt>
+<dd><p>线程池中线程的最大数目。</p>
+
+</dd>
+<dt>最小线程池大小</dt>
+<dd><p>线程池中线程的最小数目。这些线程是在对线程池进行实例化时创建的。</p>
+
+</dd>
+<dt>最大队列大小</dt>
+<dd><p>在有线程可用来处理消息之前，可以排队的最大消息数。</p>
+
+</dd>
+<dt>空闲线程超时</dt>
+<dd><p>从池中删除空闲线程之前经过的时间（以秒为单位）。</p>
+
+</dd>
+</dl>
+<p>&#8220;线程池&#8221;表还包含以下选项。</p>
+
+<dl><dt>新建</dt>
+<dd><p>用于创建新线程池的按钮。</p>
+
+</dd>
+<dt>删除</dt>
+<dd><p>用于删除一个或多个选定线程池的按钮。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-threadpoolnew.html">创建线程池</a></p>
+
+</li>
+<li><p><a href="task-threadpooledit.html">编辑线程池</a></p>
+
+</li>
+<li><p><a href="task-threadpooldelete.html">删除线程池</a></p>
+
+</li></ul>
+<h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-threadpool-1"><tt>create-threadpool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-threadpools-1"><tt>list-threadpools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-threadpool-1"><tt>delete-threadpool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

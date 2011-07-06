@@ -1,0 +1,85 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clustergeneral"></a><h4>一般資訊</h4>
+<a name="indexterm-164"></a><a name="indexterm-165"></a><a name="indexterm-166"></a><a name="indexterm-167"></a><p>[一般資訊] 頁面包含下列選項。</p>
+
+<dl><dt>啟動叢集</dt>
+<dd><p>啟動叢集的按鈕。如果叢集中的所有實例都在執行中，便會關閉此按鈕。</p>
+
+</dd>
+<dt>停止叢集</dt>
+<dd><p>停止叢集的按鈕。如果叢集中的所有實例都已停止，便會關閉此按鈕。</p>
+
+</dd>
+<dt>遷移 EJB 計時器</dt>
+<dd><p>此按鈕可將 Enterprise JavaBeans (EJB) 技術計時器從已停止的 GlassFish Server 實例遷移到叢集中正在執行的實例。按一下此按鈕，隨即會開啟 <a href="ref-migrateejbtimers.html">[遷移 EJB 計時器]</a> 頁面。如果叢集中的所有實例都在執行中，便會關閉此按鈕。</p>
+
+</dd>
+<dt>自動重建記錄</dt>
+<dd><p>為叢集自動重建記錄檔的按鈕。自動重建記錄檔時，會使用時間戳記名稱 (格式為 <tt>server.log_</tt><i> date-and-time</i><tt></tt>) 來重新命名檔案，並且為新的記錄訊息建立空白記錄檔。變更會以動態方式套用。不需要重新啟動伺服器。</p>
+
+</dd>
+<dt>叢集名稱</dt>
+<dd><p>建立叢集時指定給叢集的名稱。本欄位是唯讀的。</p>
+
+</dd>
+<dt>JVM</dt>
+<dd><p>如果按一下 [JVM 報告]，會開啟另外一個視窗並顯示 Java 虛擬機器的相關報告，包括摘要報告、記憶體管理和資源回收報告、類別載入報告以及目前執行緒傾印。</p>
+
+</dd>
+<dt>配置</dt>
+<dd><p>建立叢集時為叢集選取的配置。按一下該配置，即會開啟叢集的 <a href="../../../common/zh_TW/help/ref-configuration.html">[配置]</a> 頁面。本欄位是唯讀的。</p>
+
+</dd>
+<dt>GMS</dt>
+<dd><p>如果已啟用此選項，就會在叢集與 Domain Administration Server (DAS) 的每個 GlassFish Server 實例中啟動群組管理服務 (GMS)。 DAS 會參與每個已啟用 GMS 的叢集。GMS 會提供叢集監視、叢集成員身份及群組通訊服務。此選項預設為啟用。</p>
+
+</dd>
+<dt>多重播送連接埠</dt>
+<dd><p>GMS 偵聽群組事件之通訊埠的連接埠號碼。此選項必須指定有效的連接埠號碼，範圍介於 2048&#8211;32000 之間。預設值是自動產生的值 (介於此範圍內)。</p>
+
+</dd>
+<dt>多重播送位址</dt>
+<dd><p>GMS 偵聽群組事件的位址。此選項必須指定多重播送位址，範圍介於 224.0.0.0 至 239.255.255.255 之間。 預設值是 228.9.<i>XX</i>.<i>YY</i>，其中 <i>XX</i> 與 <i>YY</i> 是自動產生的獨立值 (介於 0 至 255 之間)。</p>
+
+</dd>
+<dt>連結介面位址</dt>
+<dd><p>GMS 所連結之網路介面的網際網路通訊協定 (IP) 位址。此選項必須指定本機網路介面的 IP 位址。預設值是所有公用網路介面位址。</p>
+
+<p>在多址機器上，此選項會配置用於 GMS 的網路介面。多址機器擁有兩個或兩個以上的網路介面。</p>
+
+<p>若要指定叢集中所有 GlassFish Server 實例的有效位址，請使用系統特性來為每個實例個別設定位址。</p>
+
+<p>例如，使用 <a href="ref-clustersystemproperties.html">[叢集系統特性]</a> 頁面來建立系統特性 <tt>GMS-BIND-INTERFACE-ADDRESS-<i>cluster-name</i></tt>。接著，將此頁面中的 [連結位址] 選項設定為 <tt>${GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i>}</tt>，來指定系統特性。最後，針對叢集中的每個實例，將 <tt>GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i></tt> 系統特性設定為實例的機器上所需的網路介面位址。</p>
+
+</dd>
+<dt>狀態</dt>
+<dd><p>指示叢集中正在執行與未在執行的實例數目。本欄位是唯讀的。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-gmscluster.html">為叢集配置群組管理服務設定</a></p>
+
+</li>
+<li><p><a href="task-migrate-ejb-timers.html">遷移 EJB 計時器</a></p>
+
+</li></ul>
+<h5>等效 <tt>asadmin</tt> 子指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=generate-jvm-report-1"><tt>generate-jvm-report</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=migrate-timers-1"><tt>migrate-timers</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=rotate-log-1"><tt>rotate-log</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

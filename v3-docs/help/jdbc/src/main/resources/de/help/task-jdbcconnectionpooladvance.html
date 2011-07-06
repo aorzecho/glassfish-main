@@ -1,0 +1,153 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpooladvance"></a><h4>So bearbeiten Sie die erweiterten Attribute eines JDBC-Verbindungspools</h4><a name="indexterm-11"></a><ol>
+<li><b>Erweitern Sie in der Navigationsstruktur den Ressourcenknoten.</b></li>
+<li><b>W&#228;hlen Sie unter dem Ressourcenknoten den JDBC-Knoten.</b></li>
+<li><b>W&#228;hlen Sie unter dem JDBC-Knoten den Verbindungspoolknoten aus.</b><p>Die Seite "Verbindungspools" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Verbindungspools" auf den Namen des zu bearbeitenden
+Pools.</b><p>Die Seite "Verbindungspool bearbeiten" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Verbindungspool bearbeiten" auf die Registerkarte "Erweitert".</b><p>Die Seite "Erweiterte Attribute des Verbindungspools bearbeiten" wird ge&#246;ffnet.</p></li>
+<li><b>Geben Sie im Feld "Zeit&#252;berschreitung bei Anweisung" die Dauer (in Sekunden) an,
+nach der abnormal lang dauernde Anfragen beendet werden.</b><p>GlassFish-Server legt f&#252;r die erstellten Anweisungen <tt>QueryTimeout</tt> fest. Legen Sie den Wert
+auf -1 fest, um diese Option zu deaktivieren. Der Standardwert ist -1.</p></li>
+<li><b>Geben Sie im Feld "Gr&#246;&#223;e des Anweisungs-Caches" die Anzahl der Anweisungen ein,
+die mit dem LRU-Caching-Mechanismus (Least Recently Used, Zuletzt verwendet) zwischengespeichert werden sollen.</b><p>Zum Deaktivieren der Anweisungszwischenspeicherung geben Sie den Wert 0 an. Der Standardwert
+ist 0.</p></li>
+<li><b>Geben Sie im Feld "Init SQL" eine SQL-Zeichenfolge ein, die jedesmal ausgef&#252;hrt
+werden soll, wenn eine Verbindung im Pool erstellt (nicht wiederverwendet) wird.</b><p>Bei Ausf&#252;hrung dieser Zeichenfolge wird der Status der Verbindung initialisiert.</p></li>
+<li><b>Geben Sie im Feld "SQL-Trace-Zielger&#228;te" eine mit Kommata getrennte Liste mit Namen
+von Zielger&#228;te-Implementierungsklassen ein, um anzugeben, dass von Anwendungen ausgef&#252;hrte SQL-Anweisungen verfolgt werden.</b><p>Die Zielger&#228;teklassen m&#252;ssen die Schnittstelle <tt>org.glassfish.api.jdbc.SQLTraceListener</tt> implementieren. Die Verwendung von Zielger&#228;ten erm&#246;glicht
+die problemlose Filterung von Protokollmeldungen f&#252;r die SQL-Anweisungen und unterst&#252;tzt Administratoren bei
+der Analyse der Anweisungen.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "JDBC-Objekte umbrechen", sodass die Anwendungen umbrochene JDBC-Objekte f&#252;r
+<tt>Statement</tt>, <tt>PreparedStatement</tt>, <tt>CallableStatement</tt>, <tt>ResultSet</tt>, <tt>DatabaseMetaData </tt> erhalten. </b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Poolen", um Verbindungspooling f&#252;r den Pool zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
+<li><b>Geben Sie in das Feld "H&#246;chstens einmal &#252;berpr&#252;fen" die Dauer (in Sekunden)
+ein, nach der eine Verbindung h&#246;chstens einmal &#252;berpr&#252;ft wird.</b><p>Wenn Sie dieses Attribut auf einen angemessenen Wert setzen, wird die Anzahl
+der von einer Verbindung ausgegebenen Validierungsanforderungen minimiert. Der Standardwert lautet 0, d.
+h., das Attribut ist nicht aktiviert.</p></li>
+<li><b>Geben Sie in das Feld "Zeit&#252;berschreitung bei Leck" die Dauer (in Sekunden)
+ein, die zum Ermitteln von Verbindungslecks in einem Verbindungspool erforderlich ist.</b><p>Mit diesem Feld k&#246;nnen Sie potenzielle, durch die Anwendung verursachte Verbindungslecks ermitteln.
+Eine Verbindung, die von der Anwendung nicht innerhalb des angegebenen Zeitraums an
+den Pool zur&#252;ckgegeben wird, wird als potenzielles Leck betrachtet, und ein Stackprotokoll
+des aufrufenden Programms wird protokolliert. Setzen Sie den Wert auf 0, um
+die Ermittlung von Verbindungslecks zu deaktivieren. Der Standardwert ist 0.</p><p>Verwenden Sie dieses Feld in Kombination mit "Leck zur&#252;ckfordern", um potenzielle, durch
+die Anwendung verursachte Verbindungslecks zu verhindern.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Leck zur&#252;ckfordern", um Verbindungen mit Leck im Pool
+wiederherzustellen, wenn die Verfolgung von Verbindungslecks abgeschlossen ist.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Geben Sie in das Feld "Herstellungs-Neuversuche" die Anzahl der Versuche ein, die
+bei Fehlern zum Herstellen einer Verbindung unternommen werden.</b><p>Setzen Sie den Wert auf 0, wenn keine Versuche zur erneuten Herstellung
+der Verbindung unternommen werden sollen. Der Standardwert ist 0.</p></li>
+<li><b>Geben Sie in das Feld "Intervall f&#252;r Neuversuche" das Intervall in Sekunden
+zwischen zwei Verbindungsversuchen ein.</b><p>Der Standardwert ist 10. Dieses Attribut wird nur verwendet, wenn der Wert
+von "Herstellungs-Neuversuche" h&#246;her als 0 liegt.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Tr&#228;ge Assoziation", um eine physische Verbindung nur dann
+mit einer logischen Verbindung zu verkn&#252;pfen, wenn die Verbindung verwendet wird.</b><p>Die Verkn&#252;pfung wird wieder aufgehoben, wenn die Transaktion abgeschlossen ist und eine
+Komponentenmethode beendet wird. Auf diese Weise wird die Wiederverwendung der physischen Verbindungen
+gef&#246;rdert. Bei deaktivierter Option wird eine physische Verbindung auch vor ihrer Verwendung
+mit einer logischen Verbindung verkn&#252;pft. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Inanspruchnahme tr&#228;ger Verbindungen", um eine Ressource f&#252;r die
+Transaktion nur dann einzutragen, wenn sie tats&#228;chlich in einer Methode verwendet wird.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Mit Thread verkn&#252;pfen", um Verkn&#252;pfungen zwischen Verbindungen und
+Threads zu erstellen.</b><p>Wenn derselbe Thread eine weitere Verbindung ben&#246;tigt, kann er die bereits mit
+diesem Thread verkn&#252;pfte Verbindung wiederverwenden, wodurch die zus&#228;tzliche Belastung durch das Abrufen
+einer weiteren Verbindung aus dem Pool vermieden wird. Diese Option ist standardm&#228;&#223;ig
+deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Verbindungen abgleichen", um den Verbindungsabgleich f&#252;r den Pool
+zu aktivieren.</b><p>Bei aktivierter Option muss eine aus dem Pool ausgew&#228;hlte Verbindung mit den
+Verbindungen abgeglichen werden, die bestimmte Credentials aufweisen. Diese Option muss aktiviert werden, wenn
+der Verbindungspools von Anwendungen verwendet wird, die &#252;ber mehrere Benutzer-Credentials verf&#252;gen. Diese
+Option kann deaktiviert werden, wenn der Administrator wei&#223;, dass die Verbindungen im
+Pool immer homogen sind und eine aus dem Pool abgerufene Verbindung nicht
+mit dem Ressourcenadapter abgeglichen werden muss. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Geben Sie in das Feld "Maximale Verbindungsnutzung" einen Wert daf&#252;r ein, wie
+oft eine Verbindung durch den Pool wiederverwendet werden soll.</b><p>Nachdem eine Verbindung so h&#228;ufig wie angegeben wiederverwendet wurde, wird sie geschlossen.
+Indem Sie die Anzahl der Wiederverwendungen einer Verbindung beschr&#228;nken, k&#246;nnen Sie Anweisungslecks
+vermeiden, falls eine Anwendung Anweisungen nicht schlie&#223;t. Setzen Sie den Wert auf
+0, um dieses Attribut zu deaktivieren. Der Standardwert ist 0.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Verbindungs&#252;berpr&#252;fung erforderlich", um die Verbindungs&#252;berpr&#252;fung zu aktivieren.</b><p>Die Verbindungs&#252;berpr&#252;fung erm&#246;glicht dem Server bei Ausfall einen erneuten Verbindungsaufbau.</p></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "&#220;berpr&#252;fungsmethode" eine &#220;berpr&#252;fungsmethode aus.</b><p>GlassFish-Server kann Datenbankverbindungen auf folgende Weisen &#252;berpr&#252;fen.</p><dl><dt><tt>auto-commit</tt> und <tt>metadata</tt></dt>
+<dd><p>GlassFish-Server &#252;berpr&#252;ft eine Verbindung durch Aufruf der Methoden <tt>con.getAutoCommit</tt> und <tt>con.getMetaData</tt>. </p>
+
+
+<hr><p><b>Hinweis - </b>Viele JDBC-Treiber zwischenspeichern die Ergebnisse dieser Aufrufe. Folglich f&#252;hren diese Aufrufe nicht immer zu verl&#228;sslichen &#220;berpr&#252;fungen. Informieren Sie sich beim Treiberhersteller, ob diese Aufrufe zwischengespeichert werden oder nicht.</p>
+
+
+<hr>
+</dd>
+<dt><tt>custom-validation</tt></dt>
+<dd><p>GlassFish-Server verwendet einen benutzerdefinierten &#220;berpr&#252;fungsmechanismus, der durch die benutzerdefinierte Implementierungsklasse im Feld &#220;berpr&#252;fungsklassenname angegeben wird.</p>
+
+</dd>
+<dt><tt>table</tt></dt>
+<dd><p>Die Anwendung fragt die angegebene Datenbanktabelle ab. Die Tabelle muss vorhanden und zug&#228;nglich sein, sie muss aber keine Zeilen enthalten. Sie sollten keine bereits vorhandene Tabelle mit einer gro&#223;en Anzahl Zeilen oder eine Tabelle verwenden, auf die h&#228;ufig zugegriffen wird.</p>
+
+</dd>
+</dl>
+</li>
+<li><b>Wenn Sie in der Dropdown-Liste "&#220;berpr&#252;fungsmethode" den Eintrag <tt>table</tt> ausgew&#228;hlt haben, w&#228;hlen
+Sie den Namen der Datenbanktabelle in der Dropdown-Liste "Tabellenname" aus.</b></li>
+<li><b>Wenn Sie in der Dropdown-Liste "&#220;berpr&#252;fungsmethode" den Eintrag <tt>custom-validation</tt> ausgew&#228;hlt haben, geben
+Sie den benutzerdefinierten Namen der &#220;berpr&#252;fungsimplementierungsklasse ein.</b><p>Der angegebene Klassenname muss f&#252;r GlassFish-Server zug&#228;nglich sein. Die angegebene Klasse muss
+die Schnittstelle <tt>org.glassfish.api.jdbc.ConnectionValidation</tt> implementieren.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Bei s&#228;mtlichen Fehlern s&#228;mtliche Verbindungen trennen", sodass der
+Server beim Ausfall einer einzelnen Verbindung alle Verbindungen im Pool schlie&#223;t und
+wiederherstellt.</b><p>Bei deaktivierter Option werden einzelne Verbindungen nur bei Verwendung wiederhergestellt. Diese Option
+ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Nicht-Komponenten-Aufrufer zulassen", damit der Pool durch Aufrufe von
+Nicht-Komponenten, wie z. B. Servletfilter und Persistence Manager von Drittanbietern, verwendet werden
+kann.</b><p>Verbindungen, die durch Aufrufe von Nicht-Komponenten hergestellt werden, werden am Ende einer
+Transaktion nicht automatisch vom Container geschlossen. Sie m&#252;ssen explizit vom aufrufenden Programm
+geschlossen werden. Die Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li>(Optional) <b>Klicken Sie auf der Registerkarte "Allgemein" auf die Schaltfl&#228;che "Leeren", um alle
+Verbindungen aus dem Pool zu l&#246;schen.</b><p>Wenn Sie auf die Schaltfl&#228;che "Leeren" klicken, werden alle bestehenden Verbindungen gel&#246;scht,
+f&#252;r den Pool eingerichtete Verbindungen werden neu erstellt, und die anf&#228;ngliche, minimale
+Poolgr&#246;&#223;e wird wiederhergestellt.</p></li>
+<li><b>Klicken Sie auf "Speichern".</b>
+<hr><p><b>Tipp - </b>Um zu den Standardeinstellungen zur&#252;ckzukehren, klicken Sie auf die Schaltfl&#228;che "Standardwerte laden"
+und anschlie&#223;end auf "Speichern".</p>
+
+
+<hr>
+</li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="task-setdbaccess.html">So richten Sie den Datenbankzugriff ein</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">So integrieren Sie einen JDBC-Treiber</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">So erstellen Sie eine JDBC-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">So bearbeiten Sie eine JDBC-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">So bearbeiten Sie Ziele f&#252;r JDBC-Ressourcen</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">So l&#246;schen Sie eine JDBC-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">So erstellen Sie einen JDBC-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">So bearbeiten Sie die allgemeinen JDBC-Verbindungspooleinstellungen</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">So &#252;berpr&#252;fen Sie die Verbindungspooleinstellungen</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">So bearbeiten Sie Eigenschaften von JDBC-Verbindungspools</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">So l&#246;schen Sie einen JDBC-Verbindungspool</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

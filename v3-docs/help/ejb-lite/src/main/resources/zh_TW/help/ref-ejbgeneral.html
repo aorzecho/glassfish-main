@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ejbgeneral"></a><h4>企業 Java Bean (EJB)</h4>
+<a name="indexterm-3"></a><a name="indexterm-4"></a><p>使用 [企業 Java Bean (EJB)] 頁面可配置 EJB 容器的設定。</p>
+
+<p>除了企業 Bean 的一般設定之外，您也可以配置池設定和快取設定。</p>
+
+
+<ul><li><p>池設定僅適用於無狀態的階段作業 Bean。依預設，容器會保留企業 Bean 池，以回應用戶端請求，並避免建立 Bean 所造成的效能影響。 </p>
+
+<p>如果使用已部署之企業 Bean 的應用程式發生效能問題，您可以建立池或增加現有池中保留的 Bean 數目，幫助改善應用程式效能。</p>
+
+</li>
+<li><p>快取設定僅適用於有狀態的階段作業 Bean。容器會為最常使用的企業 Bean 保留企業 Bean 資料快取。這可以讓容器更快速地回應其他應用程式模組對企業 Bean 資料的請求。</p>
+
+<p>快取的企業 Bean 狀態包括以下三種：使用中、閒置和已鈍化。使用中：用戶端目前正在存取企業 Bean。閒置：企業 Bean 的資料位於快取中，但目前沒有用戶端正在存取 Bean。已鈍化：企業 Bean 的資料是暫時儲存的，且會在用戶端請求時將資料讀回快取。</p>
+
+</li></ul>
+<p>[企業 Java Bean (EJB)] 頁面包含下列選項。</p>
+
+<dl><dt>載入預設值</dt>
+<dd><p>將所有設定復原為預設值的按鈕。</p>
+
+</dd>
+<dt>配置名稱</dt>
+<dd><p>套用此頁面上之設定的配置名稱。此欄位是唯讀欄位。</p>
+
+</dd>
+<dt>階段作業儲存位置</dt>
+<dd><p>已鈍化之有狀態的階段作業 Bean 和持續的 HTTP 階段作業在檔案系統上的儲存目錄。預設值為 <tt>${com.sun.aas.instanceRoot}/session-store</tt>。</p>
+
+<p>鈍化 Bean 是已將其狀態寫入到檔案系統上的檔案中的有狀態的階段作業 Bean。通常，鈍化的 Bean 已經閒置了一段時間並且目前未被用戶端存取。類似地，持續的 HTTP 階段作業是其狀態已寫入檔案系統上的檔案中的各個 Web 階段作業。</p>
+
+</dd>
+<dt>確定選項</dt>
+<dd><p>指定容器如何快取作業事件之間鈍化的 Bean 實例。如果您選取選項 B (預設值)，容器會快取作業事件之間就緒的實例。如果您選取選項 C，容器不會快取作業事件之間就緒的實例。</p>
+
+</dd>
+<dt>池的初始大小和最小大小</dt>
+<dd><p>保留在池中的最小 Bean 數目。預設值為 0。</p>
+
+</dd>
+<dt>池的最大大小</dt>
+<dd><p>容器一次可保留在池中的最大 Bean 數目。預設值為 32。</p>
+
+</dd>
+<dt>池設定大小數量</dt>
+<dd><p>閒置時間超過 [池閒置逾時] 欄位中指定的時間時，要從池中移除的 Bean 數目。此值必須至少為 0 且小於 [池的最大大小] 值。預設值為 8。</p>
+
+</dd>
+<dt>池閒置逾時</dt>
+<dd><p>Bean 可在池中維持閒置而不加以刪除的時間 (以秒為單位)。超過這段時間後，將會銷毀 Bean。0 值表示 Bean 可以無限期保持閒置。預設值為 600。</p>
+
+</dd>
+<dt>最大快取大小</dt>
+<dd><p>快取可容納的最大 Bean 數目。增加要快取的最大 Bean 數目，以省下建立和銷毀 Bean 所需的經常性耗用時間。但是，如果增加快取記憶體，伺服器將消耗更多記憶體和資源。請確定您的作業環境足夠用於快取記憶體設定。0 值表示快取無限制。預設值為 512。</p>
+
+</dd>
+<dt>快取設定大小數量</dt>
+<dd><p>快取已滿時要鈍化的 Bean 數目。快取的 Bean 達到最大數目之後，容器將從備份儲存中移除一些鈍化 Bean。此值也會指定如果在池中沒有可用的 Bean 時接到請求，所要建立的 Bean 數目。此值必須大於 1 且小於 [最大快取大小] 值。預設值為 32。</p>
+
+</dd>
+<dt>移除逾時</dt>
+<dd><p>將鈍化的 Bean 從階段作業儲存中移除前等待的秒數。0 值表示容器不會自動移除非使用中的 Bean。如果 [移除逾時] 值小於或等於 [快取閒置逾時] 值，會立即移除 Bean，而不加以鈍化。預設值為 5400。</p>
+
+</dd>
+<dt>移除選取策略</dt>
+<dd><p>容器用以從快取中移除有狀態之階段作業 Bean 的策略。選項如下：</p>
+
+<dl><dt>最近未使用 (NRU)</dt>
+<dd><p>移除最近沒有使用過的 Bean。此為預設值。</p>
+
+</dd>
+<dt>先入先出 (FIFO)</dt>
+<dd><p>移除快取中最舊的 Bean。</p>
+
+</dd>
+<dt>最近最少使用 (LRU)</dt>
+<dd><p>移除最近最少存取的 Bean。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>快取閒置逾時</dt>
+<dd><p>Bean 可在快取中維持閒置的最大秒數。超過這段時間後，容器可以鈍化此 Bean。0 值表示 Bean 永遠不會成為鈍化候選項目。預設值為 600。</p>
+
+</dd>
+<dt>其他特性</dt>
+<dd><p>EJB 容器的其他特性。GlassFish Server 未定義 EJB 容器的任何其他特性。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-ejbgeneral.html">配置 EJB 設定</a></p>
+
+</li>
+<li><p><a href="../../../ejb/zh_TW/help/task-ejbmdbpoolsettings.html">配置 MDB 容器設定</a></p>
+
+</li>
+<li><p><a href="../../../ejb/zh_TW/help/task-ejbtimerservice.html">配置 EJB 計時器服務</a></p>
+
+</li>
+<li><p><a href="../../../ejb/zh_TW/help/task-ejbcontaineravailability.html">? EJB 容器配置可用性設定</a></p>
+
+</li></ul>
+<h5>相關的 <tt>asadmin</tt> 指令</h5>
+<p>無。</p>
+
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

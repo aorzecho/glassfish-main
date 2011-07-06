@@ -1,0 +1,37 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-httpserviceprops"></a><h4>Propri&#233;t&#233;s sp&#233;cifiques au service HTTP</h4>
+<a name="indexterm-57"></a><a name="indexterm-58"></a><p>Les propri&#233;t&#233;s suppl&#233;mentaires suivantes sont disponibles pour le service HTTP. Si vous sp&#233;cifiez
+ces propri&#233;t&#233;s, elles s&#8217;appliquent &#224; tous les <a href="ref-group-networklisteners.html">Listeners r&#233;seau</a>. </p>
+
+<dl><dt><tt>ssl-cache-entriese</tt></dt>
+<dd><p>Le nombre de session SSL &#224; placer dans la m&#233;moire cache. La valeur par d&#233;faut est 10000.</p>
+
+</dd>
+<dt><tt>ssl3-session-timeout</tt></dt>
+<dd><p>L&#8217;intervalle auquel les sessions SSL3 sont plac&#233;es dans la m&#233;moire cache. La valeur par d&#233;faut est 86400.</p>
+
+</dd>
+<dt><tt>ssl-session-timeout</tt></dt>
+<dd><p>L&#8217;intervalle selon lequel les sessions SSL2 sont plac&#233;es dans la m&#233;moire cache. La valeur par d&#233;faut est 100.</p>
+
+</dd>
+<dt><tt>proxyHandler</tt></dt>
+<dd><p>Le nom de classe qualifi&#233; complet d&#8217;une impl&#233;mentation personnalis&#233;e de la classe abstraite <tt>service com.sun.appserv.ProxyHandler</tt>, permettant une instance GlassFish Server d&#8217;arri&#232;re-plan pour r&#233;cup&#233;rer des informations sur la requ&#234;te client d&#8217;origine qui a &#233;t&#233; intercept&#233;e par un serveur proxy &#224; terminaison SSL (un &#233;quilibreur de charge, par exemple). Une impl&#233;mentation de cette classe abstraite inspecte une requ&#234;te donn&#233;e pour la m&#233;thode par laquelle en-t&#234;tes de la demande du serveur proxy transmet l&#8217;information sur les clients initiaux demande pour le serveur d&#8217;entreprise instance, et renvoie ces informations &#224; le programme appelant. </p>
+
+<p>L&#8217;impl&#233;mentation par d&#233;faut lit l&#8217;adresse IP du client &#224; partir d&#8217;un en-t&#234;te de requ&#234;te HTTP appel&#233; <tt>Proxy-ip</tt>, la valeur <tt>keysize</tt> SSL &#224; partir d&#8217;un en-t&#234;te de requ&#234;te HTTP appel&#233; <tt>Proxy-keysize</tt> et la cha&#238;ne de certificat client SSL &#224; partir d&#8217;un en-t&#234;te de requ&#234;te HTTP appel&#233; <tt>Proxy-auth-cert</tt>. La valeur <tt>Proxy-auth-cert</tt> doit contenir la cha&#238;ne de certificat client en encodage BASE-64 sans les limites <tt>BEGIN CERTIFICATE</tt> et <tt>END CERTIFICATE</tt> et avec <tt>\n</tt> remplac&#233; par  <tt>% d% a</tt>. </p>
+
+<p>Ce param&#232;tre est utilis&#233; uniquement si la case Auth. d&#8217;intercommunication pour la page HTTP du protocole d&#8217;auditeur de r&#233;seau est d&#233;finie sur true. </p>
+
+</dd>
+<dt><tt>connectionTimeout</tt></dt>
+<dd><p>Sp&#233;cifie le nombre de secondes que patientent les auditeurs de r&#233;seau, apr&#232;s avoir accept&#233; une connexion, pour la ligne URI de requ&#234;te &#224; pr&#233;senter. La valeur par d&#233;faut est 30.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

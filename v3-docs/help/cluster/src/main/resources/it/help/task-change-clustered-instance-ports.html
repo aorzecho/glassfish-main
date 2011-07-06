@@ -1,0 +1,73 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-change-clustered-instance-ports"></a><h4>Modificare i numeri di porta di un'istanza di GlassFish Server in cluster</h4><a name="indexterm-64"></a><a name="indexterm-65"></a><a name="indexterm-66"></a><p>I numeri di porta di un'istanza di GlassFish Server in cluster sono
+impostati inizialmente nella configurazione che l'istanza eredita dal cluster padre. &#200; necessario
+modificare questi numeri di porta se, ad esempio, due istanze cluster si
+trovano nello stesso host. In questa situazione &#232; necessario modificare i numeri
+di porta per una delle istanze, in quanto le due istanze condividono
+la stessa configurazione.</p>
+
+<p>I numeri di porta di un'istanza sono archiviati come propriet&#224; di sistema
+Java. Tali propriet&#224; vengono passate al programma di avvio dell'applicazione Java tramite
+l'opzione <tt>-D</tt> del programma di avvio dell'applicazione Java quando viene avviato GlassFish
+Server. </p>
+
+<ol>
+<li><b>Nella struttura ad albero, espandere il nodo Clusters.</b></li>
+<li><b>Dopo aver espanso il nodo Clusters, selezionare il nodo per tale cluster.</b><p>Viene visualizzata la pagina General Information per il cluster.</p></li>
+<li><b>Nella pagina General Information, fare clic sulla scheda Instances. </b><p>Viene visualizzata la pagina Clustered Server Instances per il cluster.</p></li>
+<li><b>Selezionare l'istanza per la quale modificare i numeri di porta.</b><p>Viene visualizzata la pagina General Information per l'istanza.</p></li>
+<li><b>Nella pagina General Information, fare clic sulla scheda Properties.</b><p>Viene visualizzata la pagina System Properties.</p><p>Nella pagina vengono visualizzati i valori correnti delle seguenti propriet&#224; di sistema
+per l'istanza:</p>
+<ul><li><p><a href="../../../common/it/help/ref-predefinedconfigsysproperties.html">Port numbers that are predefined in the instance's configuration</a></p>
+
+</li>
+<li><p>Propriet&#224; personalizzate definite per l'istanza, se presenti</p>
+
+</li></ul>
+</li>
+<li><b>Per ogni propriet&#224; esistente da modificare, digitare il nuovo valore nel campo
+Override Value relativo alla propriet&#224;.</b></li>
+<li><b>Impostare i valori per eventuali propriet&#224; aggiuntive necessarie.</b><ol style="list-style-type: lower-alpha">
+<li><b>Nella tabella Additional Properties fare clic su Add Property.</b><p>Viene aggiunta una riga alla tabella Additional Properties.</p></li>
+<li><b>Nel campo Variable Name digitare il nome della propriet&#224;.</b></li>
+<li><b>Nel campo Override Value digitare il valore.</b></li></ol></li>
+<li><b>Fare clic su Save.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-create-clustered-instance.html">Aggiungere un'istanza di GlassFish Server a un cluster</a></p>
+
+</li>
+<li><p><a href="task-delete-clustered-instances.html">Eliminare istanze di GlassFish Server in cluster </a></p>
+
+</li>
+<li><p><a href="task-start-clustered-instances.html">Avviare istanze di GlassFish Server in cluster</a></p>
+
+</li>
+<li><p><a href="task-stop-clustered-instances.html">Arrestare istanze di GlassFish Server in cluster</a></p>
+
+</li>
+<li><p><a href="task-view-logs-clustered-instance.html">Visualizzare i file di log per un'istanza di GlassFish Server in cluster</a></p>
+
+</li>
+<li><p><a href="task-recovertransactions.html">Ripristinare transazioni per un'istanza di GlassFish Server in cluster</a></p>
+
+</li>
+<li><p><a href="task-set-props-clustered-instance.html">Impostare propriet&#224; specifiche dell'istanza per un'istanza di GlassFish Server in cluster</a></p>
+
+</li>
+<li><p><a href="task-mon-app-clustered-instance.html">Visualizzare i dati di monitoraggio dell'applicazione per un'istanza di GlassFish Server in cluster</a></p>
+
+</li>
+<li><p><a href="task-mon-server-clustered-instance.html">Visualizzare dati di monitoraggio del server virtuale per un'istanza di GlassFish Server in cluster </a></p>
+
+</li>
+<li><p><a href="task-mon-resource-clustered-instance.html">Visualizzare dati di monitoraggio delle risorse per un'istanza di GlassFish Server in cluster </a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

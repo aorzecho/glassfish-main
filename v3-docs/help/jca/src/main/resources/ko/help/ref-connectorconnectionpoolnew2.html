@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpoolnew2"></a><h4>새 커넥터 연결 풀(2/2단계)</h4>
+<a name="indexterm-41"></a><p>새 커넥터 연결 풀(2/2단계) 페이지에서는 새 커넥터 연결 풀을 만들 수 있습니다.</p>
+
+<p>새 커넥터 연결 풀(2/2단계) 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>Ping</dt>
+<dd><p>이 옵션을 활성화하면 만들기 또는 재구성 중에 연결 풀을 ping하여 속성에 대한 모든 오류 값을 식별하고 경고합니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>설명</dt>
+<dd><p>커넥터 연결 풀에 대한 설명입니다.</p>
+
+</dd>
+<dt>초기 및 최소 풀 크기</dt>
+<dd><p>커넥터 연결 풀의 최소 연결 수입니다. 기본값은 8입니다.</p>
+
+</dd>
+<dt>최대 풀 크기</dt>
+<dd><p>커넥터 연결 풀의 최대 연결 수입니다. 기본값은 32입니다.</p>
+
+</dd>
+<dt>풀 크기 조정 개수</dt>
+<dd><p>풀 유휴 시간 초과가 만료될 때 제거할 연결 수입니다. 기본값은 2입니다.</p>
+
+</dd>
+<dt>유휴 시간 초과</dt>
+<dd><p>풀에서 연결이 유휴 상태로 있을 수 있는 최대 시간(초)입니다. 기본값은 300입니다.</p>
+
+</dd>
+<dt>최대 대기 시간</dt>
+<dd><p>연결을 요청한 응용 프로그램이 연결 시간 초과까지 대기하는 시간입니다. 기본값은 60000입니다.</p>
+
+</dd>
+<dt>연결 검증</dt>
+<dd><p>필요 확인란이 선택된 경우 연결을 응용 프로그램에 전달하기 전에 먼저 검증합니다. 자원의 검증이 실패하면 자원이 삭제되고, 새 자원이 만들어진 후 반환됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>실패 시</dt>
+<dd><p>모든 연결 닫기 확인란이 선택된 경우 GlassFish 서버는 연결이 하나라도 실패하면 풀의 모든 연결을 닫은 후 다시 설정합니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>트랜잭션 지원</dt>
+<dd><p>선택한 트랜잭션 지원은 이 연결 풀과 연관된 자원 어댑터의 트랜잭션 지원 속성을 역호환 방식으로 대체합니다. 즉, 자원 어댑터에 지정한 수준보다 낮은 트랜잭션 수준을 지원하거나 자원 어댑터에서 지정한 것과 같은 트랜잭션 수준을 지원할 수 있지만 더 높은 수준은 지정할 수 없습니다.</p>
+
+<p>다음과 같은 값을 사용할 수 있습니다.</p>
+
+<dl><dt>XATransaction</dt>
+<dd><p>자원 어댑터는 LocalTransaction 및 XAResource 인터페이스를 구현하여 자원 관리자 로컬 및 JTA 트랜잭션을 지원합니다. 트랜잭션은 자원 관리자 외부에 있는 트랜잭션 관리자가 제어 및 조정합니다.</p>
+
+</dd>
+<dt>LocalTransaction</dt>
+<dd><p>자원 어댑터는 LocalTransaction 인터페이스를 구현하여 로컬 트랜잭션을 지원합니다. 로컬 트랜잭션은 자원 관리자 내부로 관리되고 외부 트랜잭션 관리자를 포함시키지 않습니다.</p>
+
+</dd>
+<dt>NoTransaction</dt>
+<dd><p>자원 어댑터는 자원 관리자 로컬 또는 JTA 트랜잭션을 지원하지 않으며 XAResource 또는 LocalTransaction 인터페이스를 구현하지 않습니다.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>추가 등록 정보</dt>
+<dd><p>커넥터 연결 풀에 대한 추가 등록 정보입니다. 사용 가능한 등록 정보는 커넥터 연결 풀의 자원 어댑터에 따라 다릅니다. 이 표에 지정된 이름-값 쌍을 사용하여 자원 어댑터 공급업체에서 정의한 등록 정보의 기본값을 대체할 수 있습니다.</p>
+
+<p>등록 정보의 이름은 지정하고 값은 지정하지 않으면 연결 풀 만들기를 마칠 때 등록 정보가 표에서 제거됩니다. 현재는 등록 정보 값을 설정하지 않지만 나중에 설정할 수 있도록 등록 정보를 테이블에 유지하려면 값 필드에 일련의 빈 괄호를 입력합니다.</p>
+
+<pre>()</pre></dd>
+</dl>
+<a name="gkomy"></a><h5>관련 작업</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">커넥터 연결 풀을 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">커넥터 연결 풀을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">커넥터 연결 풀 고급 속성을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">커넥터 연결 풀 등록 정보를 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">커넥터 연결 풀에 대한 보안 맵을 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">커넥터 연결 풀에 대한 보안 맵을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">커넥터 연결 풀에 대한 보안 맵을 삭제하는 방법</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">커넥터 연결 풀을 삭제하는 방법</a></p>
+
+</li></ul>
+<a name="gkokt"></a><h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

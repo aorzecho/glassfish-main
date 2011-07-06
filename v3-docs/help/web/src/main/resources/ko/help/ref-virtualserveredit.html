@@ -1,0 +1,103 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-virtualserveredit"></a><h4>가상 서버 편집</h4>
+<a name="indexterm-63"></a><p>가상 서버 편집 페이지에서는 가상 서버의 설정을 수정할 수 있습니다.</p>
+
+<p>가상 서버 편집 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>기본값 로드</dt>
+<dd><p>모든 설정의 기본값을 복원하는 데 사용하는 버튼입니다.</p>
+
+</dd>
+<dt>구성 이름</dt>
+<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+
+</dd>
+<dt>아이디</dt>
+<dd><p>내부적으로 표시되는 가상 서버 식별자입니다. HTTP 클라이언트에는 노출되지 않습니다. HTTP 클라이언트에 노출되는 호스트 이름은 호스트 필드에서 지정해야 합니다.</p>
+
+</dd>
+<dt>호스트</dt>
+<dd><p>서버가 실행되고 있는 시스템의 호스트 이름입니다. 네트워크의 DNS 서버(UNIX 시스템에서는 <tt>/etc/hosts</tt> 파일)에 등록된 실제 또는 가상 호스트 이름을 사용합니다. 기본값은 시스템 등록 정보 값 <tt>${com.sun.aas.hostName}</tt>입니다.</p>
+
+</dd>
+<dt>상태</dt>
+<dd><p>서버에 대해 원하는 상태입니다. 다음과 같은 값을 사용할 수 있습니다.</p>
+
+<dl><dt>켜기</dt>
+<dd><p>가상 서버가 활성화됩니다. 이 값이 기본값입니다.</p>
+
+</dd>
+<dt>끄기</dt>
+<dd><p>가상 서버가 비활성화됩니다. 서버에 액세스하려 하면 오류 코드 404(사용 가능한 자원 없음)를 반환합니다.</p>
+
+</dd>
+<dt>사용 불가</dt>
+<dd><p>가상 서버를 사용하지 않습니다. 서버에 액세스하려 하면 오류 코드 403(요청 수행 거부)을 반환합니다.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>SSO</dt>
+<dd><p>SSO(단일 사인 온) 동작이 HTTP 서비스에서 상속되는지 여부(사용/사용 안 함)를 지정합니다. 기본적으로 로깅은 HTTP 서비스에서 상속됩니다. 이 옵션을 선택하면 동일한 영역에 대해 구성된 이 가상 서버의 웹 응용 프로그램에 대해 SSO(단일 사인 온)가 활성화됩니다. 이 옵션을 비활성화하면 이 가상 서버에 대해 SSO(단일 사인 온)가 비활성화되고 사용자는 가상 서버의 모든 응용 프로그램에 개별적으로 인증해야 합니다.</p>
+
+</dd>
+<dt>네트워크 수신기</dt>
+<dd><p>이 서버와 연결된 네트워크 수신기입니다.</p>
+
+</dd>
+<dt>기본 웹 모듈</dt>
+<dd><p>가상 서버에 배포된 다른 웹 모듈에 매핑될 수 없는 모든 요청에 응답할 배포된 웹 모듈(있는 경우)입니다. 기본 웹 모듈이 지정되지 않은 경우 빈 컨텍스트 루트가 있는 웹 모듈이 사용됩니다. 빈 컨텍스트 루트가 있는 웹 모듈이 없을 때는 시스템 기본 웹 모듈이 만들어져 사용됩니다.</p>
+
+</dd>
+<dt>로그 파일</dt>
+<dd><p>이 가상 서버로부터의 로깅 메시지가 나타날 파일의 경로 이름입니다. 기본적으로 로깅 메시지는 <tt></tt><i>domain-dir</i><tt>/logs/server.log</tt>에 나타납니다.</p>
+
+</dd>
+<dt>Docroot</dt>
+<dd><p>서버에 대한 루트 문서 디렉토리의 절대 경로입니다. 기본값은 <tt></tt><i>domain-dir</i><tt>/docroot</tt>입니다.</p>
+
+</dd>
+<dt>액세스 로깅</dt>
+<dd><p>액세스 로깅이 HTTP 서비스에서 상속되는지 여부(사용/사용 안 함)를 지정합니다. 기본적으로 로깅은 HTTP 서비스에서 상속됩니다.</p>
+
+</dd>
+<dt>디렉토리</dt>
+<dd><p>서버 액세스 로그의 절대 디렉토리 경로입니다. 기본값은 <i>domain-dir</i><tt>/logs/access</tt>입니다.</p>
+
+</dd>
+<dt>추가 등록 정보</dt>
+<dd><p>가상 서버에 대한 추가 등록 정보입니다.</p>
+
+<p>사용할 수 있는 등록 정보에 대한 설명은 <a href="ref-virtualserverprops.html">가상 서버와 관련된 등록 정보</a>를 참조하십시오.</p>
+
+</dd>
+</dl>
+<h5>관련 작업</h5>
+
+<ul><li><p><a href="task-virtualservercreate.html">가상 서버를 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-virtualserveredit.html">가상 서버를 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-virtualserverdelete.html">가상 서버를 삭제하는 방법</a></p>
+
+</li></ul>
+<h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-virtual-server-1"><tt>create-virtual-server</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-virtual-servers-1"><tt>list-virtual-servers</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-virtual-server-1"><tt>delete-virtual-server</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

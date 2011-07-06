@@ -1,0 +1,37 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-httpserviceprops"></a><h4>Propriedades espec&#237;ficas do servi&#231;o HTTP</h4>
+<a name="indexterm-57"></a><a name="indexterm-58"></a><p>As propriedades adicionais a seguir est&#227;o dispon&#237;veis para o servi&#231;o HTTP. Se
+voc&#234; especifica essas propriedades, elas se aplicam a todos os <a href="ref-group-networklisteners.html">Escutas de rede</a>.</p>
+
+<dl><dt><tt>ssl-cache-entriese</tt></dt>
+<dd><p>O n&#250;mero se sess&#245;es SSL a serem colocadas no cache. O valor padr&#227;o &#233; 10.000.</p>
+
+</dd>
+<dt><tt>ssl3-session-timeout</tt></dt>
+<dd><p>O intervalo no qual as sess&#245;es SSL3 s&#227;o colocadas no cache. O valor padr&#227;o &#233; 86.400.</p>
+
+</dd>
+<dt><tt>ssl-session-timeout</tt></dt>
+<dd><p>O intervalo no qual as sess&#245;es SSL2 s&#227;o colocadas no cache. O valor padr&#227;o &#233; 100.</p>
+
+</dd>
+<dt><tt>proxyHandler</tt></dt>
+<dd><p>O nome da classe totalmente qualificada de uma implementa&#231;&#227;o personalizada da classe abstrata <tt>com.sun.appserv.ProxyHandler</tt> que permite uma inst&#226;ncia back-end do Servidor GlassFish, para recuperar informa&#231;&#245;es sobre a solicita&#231;&#227;o original do cliente que foi interceptada por um proxy de servidor SSL de termina&#231;&#227;o (por exemplo, um balanceador de carga). Uma implementa&#231;&#227;o desta classe abstrata inspeciona um determinado cabe&#231;alho de solicita&#231;&#227;o do cliente, atrav&#233;s da qual o proxy do servidor comunica as informa&#231;&#245;es sobre a solicita&#231;&#227;o original do cliente para a inst&#226;ncia do Enterprise Server, e retorna aquela informa&#231;&#227;o para seu chamador.</p>
+
+<p>A implementa&#231;&#227;o padr&#227;o l&#234; o endere&#231;o IP do cliente de um cabe&#231;alho de solicita&#231;&#227;o HTTP denominado <tt>Proxy-ip</tt>, o <tt>keysize</tt> do SSL de um cabe&#231;alho de solicita&#231;&#227;o denominado <tt>Proxy-keysize</tt>, e o certificado do cliente SSL de um cabe&#231;alho de solicita&#231;&#227;o HTTP denominado <tt>Proxy-auth-cert</tt>. O valor <tt>Proxy-auth-cert</tt> precisa conter a cadeia do certificado do cliente codifica com em BASE-64, sem os limites <tt>BEGIN CERTIFICATE</tt> e <tt>END CERTIFICATE</tt> , e como <tt>\n</tt> substitu&#237;do por <tt>% d% a</tt>.</p>
+
+<p>Essa configura&#231;&#227;o &#233; utilizada somente se a caixa de sele&#231;&#227;o Auth Pass Through para a p&#225;gina HTTP do protocolo do escuta de rede est&#225; definida como verdadeira.</p>
+
+</dd>
+<dt><tt>connectionTimeout</tt></dt>
+<dd><p>Especifica o n&#250;mero de segundos aguardados pelos escutas de rede, ap&#243;s aceitar a conex&#227;o, pela apresenta&#231;&#227;o de linha URI de solicita&#231;&#227;o. O valor padr&#227;o &#233; 30.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

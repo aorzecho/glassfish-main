@@ -1,0 +1,70 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsconnectionproperties"></a><h4>JMS 연결 팩토리와 관련된 등록 정보</h4>
+<a name="indexterm-35"></a><a name="indexterm-36"></a><p>JMS 연결 팩토리에 대해 다음과 같은 추가 등록 정보를 사용할 수 있습니다.</p>
+
+<dl><dt><tt>ClientId</tt></dt>
+<dd><p>영구 가입자가 사용할 연결 팩토리에 대한 클라이언트 아이디를 지정합니다.</p>
+
+</dd>
+<dt><tt>AddressList</tt></dt>
+<dd><p>응용 프로그램이 통신할 메시지 브로거 인스턴스의 이름(및 선택적으로 포트 번호)을 지정합니다. 목록의 각 주소는 연결에 대한 호스트 이름(그리고 선택적으로 호스트 포트 및 연결 서비스)을 지정합니다. 예를 들어 값은 <tt>earth</tt> 또는 <tt>earth:7677</tt>일 수 있습니다. 메시지 브로커가 기본값(7676) 이외의 포트에서 실행 중인 경우 포트 번호를 지정합니다. 등록 정보 설정이 클러스터링된 환경에서 여러 호스트 및 포트를 지정하는 경우, <tt>AddressListBehavior</tt> 등록 정보가 <tt>RANDOM</tt>으로 설정되지 않은 한 목록에서 사용 가능한 첫 번째 호스트가 사용됩니다.</p>
+
+<p>자세한 내용은 <b>Message Queue Developer&#8217;s Guide for Java Clients</b>를 참조하십시오.</p>
+
+<p>기본값은 로컬 호스트 및 기본 포트 번호(7676)입니다. 클라이언트는 로컬 호스트의 포트 7676에서 브로커에 연결을 시도합니다.</p>
+
+</dd>
+<dt><tt>UserName</tt></dt>
+<dd><p>연결 팩토리에 대한 사용자 이름입니다.</p>
+
+<p>기본값은 <tt>guest</tt>입니다.</p>
+
+</dd>
+<dt><tt>Password</tt></dt>
+<dd><p>연결 팩토리에 대한 비밀번호입니다.</p>
+
+<p>기본값은 <tt>guest</tt>입니다.</p>
+
+</dd>
+<dt><tt>ReconnectEnabled</tt></dt>
+<dd><p><tt>true</tt>로 설정된 경우 연결이 끊기면 클라이언트 런타임에서 메시지 서버(또는 <tt>AddressList</tt>의 주소 목록)로의 재연결을 시도하도록 지정합니다.</p>
+
+<p>기본값은 <tt>true</tt>입니다.</p>
+
+</dd>
+<dt><tt>ReconnectAttempts</tt></dt>
+<dd><p>클라이언트 런타임에서 목록에 있는 다음 주소를 시도하기 전에 <tt>AddressList</tt>의 각 주소에 대해 시도할 연결(또는 재연결) 횟수를 지정합니다. -1 값은 재연결 시도 횟수에 제한이 없음을 나타냅니다. 클라이언트 런타임은 성공할 때까지 첫 번째 주소에 연결을 시도합니다.</p>
+
+<p>기본값은 3입니다.</p>
+
+</dd>
+<dt><tt>ReconnectInterval</tt></dt>
+<dd><p>재연결 시도 간의 간격(밀리초 단위)을 지정합니다. <tt>AddressList</tt>의 각 주소에 대한 재연결 시도와 목록의 연속된 주소에 이 값이 적용됩니다. 간격이 너무 짧으면 브로커가 복구할 시간이 없습니다. 너무 길 경우에는 지연이 지나치게 길게 느껴질 수 있습니다.</p>
+
+<p>기본값은 30000입니다.</p>
+
+</dd>
+<dt><tt>AddressListBehavior</tt></dt>
+<dd><p>연결 시도를 <tt>AddressList</tt> 속성의 주소 순서(<tt>PRIORITY</tt>)로 수행할지 임의 순서(<tt>RANDOM</tt>)로 수행할지 지정합니다.</p>
+
+<p><tt>RANDOM</tt>은 재연결할 때 <tt>AddressList</tt>에서 임의의 주소를 선택한다는 의미입니다. 여러 클라이언트가 같은 연결 팩토리를 사용하여 연결을 시도할 가능성이 높은 경우, 이 값은 모두가 같은 주소에 연결되는 것을 방지합니다.</p>
+
+<p><tt>PRIORITY</tt>는 재연결할 때 항상 <tt>AddressList</tt>에 있는 첫 번째 서버 주소에 연결하고 첫 번째 브로커를 사용할 수 없는 경우에만 다른 주소를 사용한다는 의미입니다.</p>
+
+<p>기본값은 <tt>RANDOM</tt>입니다.</p>
+
+</dd>
+<dt><tt>AddressListIterations</tt></dt>
+<dd><p>클라이언트 런타임에서 연결을 설정(또는 재설정)하기 위해 <tt>AddressList</tt>를 반복하는 횟수를 지정합니다. -1 값은 횟수에 제한이 없음을 나타냅니다.</p>
+
+<p>기본값은 3입니다.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

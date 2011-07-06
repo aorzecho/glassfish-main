@@ -1,0 +1,43 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-editfile-adminrealm"></a><h4>Propriet&#224; specifiche della classe <tt> FileRealm</tt></h4>
+<a name="indexterm-202"></a><a name="indexterm-203"></a><p>Le seguenti propriet&#224; sono obbligatorie per un settore <tt>file</tt>.</p>
+
+<dl><dt>JAAS Context</dt>
+<dd><p>Contesto di JAAS (Java Authentication and Authorization Service): l'identificatore del modulo di login da utilizzare per questo settore. L'unico valore valido &#232; <tt>fileRealm</tt>.</p>
+
+</dd>
+<dt>Key File</dt>
+<dd><p>Percorso completo e nome del file in cui il server memorizzer&#224; tutte le informazioni su utente, gruppo e password relative a questo settore. Il valore predefinito &#232; <i>domain-dir</i><tt>/config/keyfile</tt> per il settore <tt>file</tt> e <i>domain-dir</i><tt>/config/admin-keyfile</tt> per il settore <tt>admin-realm</tt>.</p>
+
+</dd>
+</dl>
+<p>Il file di chiave per il settore <tt>file</tt> inizialmente &#232; vuoto, pertanto
+&#232; necessario aggiungere utenti alla pagina <a href="ref-managefilerealm.html">File Users</a> prima che il settore <tt>file</tt>
+venga utilizzato.</p>
+
+<p>Il file di chiave per il settore <tt>admin-realm</tt> inizialmente contiene il nome
+utente dell'amministratore, la password dell'amministratore in formato crittografato e il gruppo di
+appartenenza dell'utente (che per impostazione predefinita &#232; <tt>asadmin</tt>). Per maggiori informazioni su
+come aggiungere utenti al settore <tt>admin-realm</tt>, vedere <a href="task-accessadmintools.html">Consentire l'accesso agli strumenti di amministrazione</a>.</p>
+
+
+<hr><p><b>Nota - </b>Gli utenti del gruppo <tt>asadmin</tt> nel settore <tt>admin-realm</tt> sono autorizzati a utilizzare
+gli strumenti di Administration Console e <tt>asadmin</tt>. Aggiungere soltanto utenti con privilegi
+di amministrazione server.</p>
+
+
+<hr>
+<p>Per un settore <tt>file</tt> &#232; disponibile la seguente priorit&#224; opzionale.</p>
+
+<dl><dt>Assign Groups</dt>
+<dd><p>Elenco separato da virgole di nomi di gruppi. Tutti i client con certificati validi vengono assegnati a questi gruppi, ad esempio <tt>employee,manager</tt>, dove questi sono i nomi dei gruppi di utenti.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

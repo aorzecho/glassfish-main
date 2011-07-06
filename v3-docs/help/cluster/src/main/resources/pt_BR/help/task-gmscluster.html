@@ -1,0 +1,68 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-gmscluster"></a><h4>Para configurar as defini&#231;&#245;es do servi&#231;o de gerenciamento de grupos de um cluster</h4><a name="indexterm-152"></a><p>O servi&#231;o de gerenciamento de grupos (GMS) &#233; um servi&#231;o em processo
+que oferece monitoramento de cluster, associa&#231;&#227;o de cluster e servi&#231;os de comunica&#231;&#227;o
+de grupos. O GMS realiza as seguintes fun&#231;&#245;es:</p>
+
+
+<ul><li><p>Notifica os m&#243;dulos registrados em uma inst&#226;ncia do Servidor GlassFish quando uma ou mais inst&#226;ncias do membro s&#227;o adicionadas ou removidas de um cluster, ou quando tais inst&#226;ncias sejam suspeitas de ter falhas ou realmente tenham falhas.</p>
+
+</li>
+<li><p>Oferece a capacidade de enviar e receber mensagens entre um grupo de processos.</p>
+
+</li></ul>
+<ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Clusters.</b></li>
+<li><b>Selecione o cluster para o qual estiver configurando as defini&#231;&#245;es do servi&#231;o
+de gerenciamento de grupos (GMS).</b><p>A p&#225;gina Informa&#231;&#245;es gerais do cluster se abre.</p></li>
+<li><b>Marque a caixa de sele&#231;&#227;o GMS ativado para ativar o GMS do
+cluster.</b><p>Por padr&#227;o, essa op&#231;&#227;o est&#225; selecionada. Para desativar o GMS do cluster,
+desmarque a caixa de sele&#231;&#227;o GMS ativado.</p><p>Se ativado, o servi&#231;o de gerenciamento de grupos (GMS) &#233; iniciado em
+cada inst&#226;ncia do servidor do cluster e do servidor de administra&#231;&#227;o do
+dom&#237;nio (DAS). O DAS participa de cada cluster no qual o GMS
+estiver ativado.</p></li>
+<li><b>No campo Porta multicast, insira a porta que o servi&#231;o de gerenciamento
+de grupos utiliza para escutar os eventos dos grupos.</b><p>Especifique um n&#250;mero de porta UDP padr&#227;o no intervalo de 2048 a
+32000. O padr&#227;o &#233; um valor gerado automaticamente dentro deste intervalo.</p></li>
+<li><b>No campo Endere&#231;o multicast, insira o endere&#231;o que o servi&#231;o de gerenciamento
+de grupos utiliza para escutar os eventos dos grupos.</b><p>Especifique um endere&#231;o IP multicast de classe D. Os endere&#231;os IP de
+classe D est&#227;o no intervalo de <tt>224.0.0.0</tt> a <tt> 239.255.255.255</tt>. O endere&#231;o <tt>224.0.0.0</tt>
+est&#225; reservado e n&#227;o deve ser utilizado. O padr&#227;o &#233; 228.9.<i>XX</i>.<i> YY</i>, em
+que <i>XX</i> e <i>YY </i> s&#227;o valores independentes gerados automaticamente entre 0 e
+255.</p></li>
+<li><b>No campo Endere&#231;o da interface de vincula&#231;&#227;o, insira o endere&#231;o da interface
+de rede do servi&#231;o de gerenciamento de grupos se houver mais de
+uma interface de rede.</b><p>Esta defini&#231;&#227;o permite configurar qual interface de rede ser&#225; utilizada no GMS
+se houver mais de uma em qualquer uma das m&#225;quinas que hospedam
+as inst&#226;ncias do servidor no cluster. Este valor deve ser um endere&#231;o
+IP de interface de rede local. Por padr&#227;o, s&#227;o utilizados todos os
+endere&#231;os de interface de rede.</p><p>Para especificar um endere&#231;o que seja v&#225;lido para todas as inst&#226;ncias 
+do Servidor GlassFish do cluster, utilize uma propriedade do sistema para definir
+o endere&#231;o de forma individual de cada inst&#226;ncia.</p><p>Crie, por exemplo, a propriedade de sistema <tt>GMS-BIND-INTERFACE-ADDRESS-<i>nome-do-cluster</i></tt> no DAS. A seguir,
+defina a op&#231;&#227;o Endere&#231;o de interface de vincula&#231;&#227;o <tt>${GMS-BIND-INTERFACE-ADDRESS-<i>nome-do-cluster</i>}</tt> para especificar a
+propriedade do sistema. Finalmente, defina em cada inst&#226;ncia do cluster a propriedade
+do sistema <tt>GMS-BIND-INTERFACE-ADDRESS-<i>nome-do-cluster</i></tt> como o endere&#231;o da interface de rede na m&#225;quina
+da inst&#226;ncia.</p></li>
+<li>(Opcional) <b>Para especificar as propriedades adicionais, selecione a guia Propriedades e a subguia
+Propriedades do cluster.</b><p>O Servidor GlassFish n&#227;o define propriedades adicionais para o GMS.</p><ul>
+<li><b>Para adicionar uma propriedade, clique no bot&#227;o Adicionar propriedade. Na linha em
+branco que &#233; exibida, digite o nome da propriedade no campo Nome
+e digite o valor da propriedade no campo Valor.</b></li>
+<li><b>Para modificar uma propriedade, edite o campo Valor da propriedade.</b></li>
+<li><b>Para excluir uma propriedade, marque a caixa de sele&#231;&#227;o &#224; esquerda do
+campo Nome da propriedade a ser exclu&#237;da. Clique no bot&#227;o Excluir propriedades.</b></li></ul></li>
+<li><b>Clique em Salvar.</b></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-gmsenable.html">Para ativar o servi&#231;o de gerenciamento de grupos</a></p>
+
+</li>
+<li><p><a href="task-gms.html">Para configurar o servi&#231;o de gerenciamento de grupos</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

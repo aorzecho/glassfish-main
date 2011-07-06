@@ -1,0 +1,84 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-javamailsessioncreate"></a><h4>Pour cr&#233;er une session JavaMail</h4><a name="indexterm-1"></a><ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Ressources.</b></li>
+<li><b>Sous le n&#339;ud Ressources, s&#233;lectionnez Sessions JavaMail.</b><p>La page Sessions JavaMail s&#8217;affiche.</p></li>
+<li><b>Dans le tableau Sessions, cliquez sur Nouveau.</b><p>La page Nouvelle session JavaMail s&#8217;affiche.</p></li>
+<li><b>Dans le champ Nom JNDI, entrez un nom unique de ressource de
+session de courrier. </b><p>Utilisez le pr&#233;fixe de d&#233;signation de sous-contexte <tt>mail/</tt> pour les ressources JavaMail.
+Par exemple : <tt> mail/MySession</tt>. Le nom ne peut contenir que des caract&#232;res
+alphanum&#233;riques, des caract&#232;res de soulignement, des tirets ou des points.</p></li>
+<li><b>Dans le champ H&#244;te de messagerie, entrez le nom d&#8217;h&#244;te du serveur
+de messagerie par d&#233;faut.</b><p>Les m&#233;thodes de connexion des objets Stockage et Transport utilisent cette valeur
+si aucune propri&#233;t&#233; d&#8217;h&#244;te sp&#233;cifique &#224; un protocole n&#8217;est fournie. Le nom
+doit refl&#233;ter un nom d&#8217;h&#244;te r&#233;el.</p></li>
+<li><b>Dans le champ Utilisateur par d&#233;faut, entrez le nom d&#8217;utilisateur &#224; fournir
+lors de la connexion &#224; un serveur de messagerie. </b><p>Les m&#233;thodes de connexion des objets Stockage et Transport utilisent cette valeur
+si aucune propri&#233;t&#233; de nom d&#8217;utilisateur sp&#233;cifique &#224; un protocole n&#8217;est fournie.
+Le nom d&#8217;utilisateur ne peut contenir que des caract&#232;res alphanum&#233;riques, des traits
+de soulignement, des tirets ou des points.</p></li>
+<li><b>Dans le champ Adresse de l'exp&#233;diteur par d&#233;faut, entrez l'adresse e-mail de
+l'utilisateur par d&#233;faut.</b><p>Le format est <i>nom d&#8217;utilisateur</i><tt>@</tt><i>h&#244;te</i>.<i>domaine</i>.</p></li>
+<li><b>Dans le champ Description, entrez une description de la session de messagerie.</b></li>
+<li><b>Cochez la case &#201;tat activ&#233; pour activer la session de messagerie.</b><p>La valeur par d&#233;faut est Activ&#233;e.</p></li>
+<li><b>Dans le champ Protocole de stockage, indiquez le service de protocole de
+stockage &#224; utiliser.</b><p>Le service de protocole de stockage se connecte &#224; un serveur de
+courrier, r&#233;cup&#232;re les messages puis les enregistre dans un ou plusieurs dossiers. Les
+valeurs autoris&#233;es sont  <tt>imap</tt>, <tt>pop3</tt>, <tt>imaps</tt>, et <tt>pop3s</tt>. La valeur par d&#233;faut est
+<tt>imap</tt>.</p></li>
+<li><b>Dans le champ Classe de protocole de stockage, sp&#233;cifiez la classe d&#8217;impl&#233;mentation
+du fournisseur de services de stockage.</b><p>Les valeurs autoris&#233;es sont&#160;:</p>
+
+
+<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
+
+</li></ul>
+<p>La valeur par d&#233;faut est <tt>com.sun.mail.imap.IMAPStore</tt>.</p></li>
+<li><b>Dans le champ Protocole de transport, sp&#233;cifiez la m&#233;thode de communication de
+transport.</b><p>Le service de protocole de transport envoie les messages. Les valeurs autoris&#233;es
+sont  <tt>smtp</tt> et <tt>smtps</tt>. Par d&#233;faut, le protocole de transport est <tt>smtp</tt>.</p></li>
+<li><b>Dans le champ Classe de protocole de transport, sp&#233;cifiez la classe d&#8217;impl&#233;mentation
+du fournisseur de services de transport.</b><p>La valeur par d&#233;faut est <tt>com.sun.mail.smtp.SMTPTransport</tt>.</p></li>
+<li><b>Cochez la case D&#233;boguer pour activer une sortie de d&#233;bogage suppl&#233;mentaire, notamment
+un suivi de protocole, pour cette session de messagerie.</b><p>Si le niveau de journal JavaMail est d&#233;fini sur <tt>FIN</tt> ou plus
+fin, la sortie de d&#233;bogage est cr&#233;&#233;e et incluse dans le fichier
+journal du syst&#232;me. Pour plus d&#8217;informations sur la configuration du niveau de
+journal, reportez-vous &#224; la section <a href="../../../common/fr/help/task-eelogginglevels.html">Configurer les niveaux de journal</a>. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li>(Facultatif) <b>Dans le tableau Autres propri&#233;t&#233;s, sp&#233;cifiez les autres propri&#233;t&#233;s requises par les
+applications, notamment une propri&#233;t&#233; d&#8217;h&#244;te ou de nom d&#8217;utilisateur sp&#233;cifique &#224; un
+protocole.</b><p>Pour une liste des propri&#233;t&#233;s disponibles, consultez la <a href="http://java.sun.com/products/javamail/javadocs/index.html">JavaMail API documentation</a>. Les propri&#233;t&#233;s suppl&#233;mentaires
+doivent commencer par <tt>mail-</tt> et  des traits d&#8217;union doivent &#234;tre utilis&#233;s comme
+s&#233;parateurs &#224; la place de points. Par exemple, <tt>mail-debug</tt> est correct mais
+<tt>mail.debug</tt> ne l&#8217;est pas. L&#8217;arri&#232;re-plan de GlassFish Server convertit les traits d&#8217;union
+en points attendus par l&#8217;API JavaMail. </p><p>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
+ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
+champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</p></li>
+<li><b>Dans la liste des cibles disponibles, s&#233;lectionnez la ou les cibles souhait&#233;es
+pour la configuration de la session de messagerie et cliquez sur Ajouter.
+</b><p>Les cibles peuvent &#234;tre des clusters ou des instances de serveur autonomes.
+Si vous ne s&#233;lectionnez aucune cible, la session est configur&#233;e en fonction
+de l'instance de serveur par d&#233;faut <tt>server</tt>.</p></li>
+<li><b>Cliquez sur OK.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-javamailsessionsedit.html">Modification d'une session JavaMail</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsdelete.html">Suppression d'une session JavaMail</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

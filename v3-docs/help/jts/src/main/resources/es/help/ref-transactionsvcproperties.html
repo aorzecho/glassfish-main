@@ -1,0 +1,48 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transactionsvcproperties"></a><h4>Propiedades espec&#237;ficas del servicio de transacci&#243;n</h4>
+<a name="indexterm-9"></a><a name="indexterm-10"></a><p>Las siguientes propiedades adicionales est&#225;n disponibles para configurar el servicio de transacci&#243;n.</p>
+
+<dl><dt><tt>oracle-xa-recovery-workaround</tt></dt>
+<dd><p>Si se establece en <tt>true</tt>, se utiliza la soluci&#243;n alternativa del recurso Oracle XA en la recuperaci&#243;n de transacci&#243;n. El valor predeterminado es <tt>verdadero</tt>.</p>
+
+</dd>
+<dt><tt>disable-distributed-transaction-logging</tt></dt>
+<dd><p>Si se establece como <tt>true</tt>, se deshabilita el registro de transacci&#243;n, que puede mejorar el rendimiento. Si la casilla de verificaci&#243;n Habilitado al reiniciar est&#225; seleccionada, esta propiedad se ignora. El valor predeterminado es <tt>falso</tt>.</p>
+
+</dd>
+<dt><tt>xaresource-txn-timeout</tt></dt>
+<dd><p>Cambia el tiempo de espera de <tt>XAResource</tt> . En algunos casos, el tiempo de espera predeterminado de <tt>XAResource</tt> puede provocar que se anulen las transacciones, por ello se recomienda cambiarlo. El valor predeterminado es espec&#237;fico para el <tt>XAResource</tt> empleado.</p>
+
+</dd>
+<dt><tt>pending-txn-cleanup-interval</tt></dt>
+<dd><p>Especifica el intervalo en segundos en el que un subproceso asincr&#243;nico comprueba las transacciones pendientes y las completa. Si no se especifica esta propiedad, no existe ning&#250;n valor predeterminado. Si esta propiedad est&#225; presente pero no tiene ning&#250;n valor, el valor predeterminado es 60.</p>
+
+</dd>
+<dt><tt>use-last-agent-optimization</tt></dt>
+<dd><p>Si se establece como <tt>true</tt>, se habilita el &#250;ltimo agente de optimizaci&#243;n, que mejora el rendimiento de las transacciones. Si se utiliza uno de los recursos no-XA junto con recursos XA en la misma transacci&#243;n, el recurso no-XA es el &#250;ltimo agente. El valor predeterminado es <tt>verdadero</tt>.</p>
+
+</dd>
+<dt><tt>delegated-recovery</tt></dt>
+<dd><p>Si se establece como <tt>true</tt>, se habilita la recuperaci&#243;n delegada de ancho de cl&#250;ster. El valor predeterminado es falso.</p>
+
+</dd>
+<dt><tt>wait-time-before-recovery-insec</tt></dt>
+<dd><p>Especifica el tiempo de espera, en segundos, despu&#233;s del cual una instancia inicia la recuperaci&#243;n de una instancia inactiva.</p>
+
+</dd>
+<dt><tt>db-logging-resource</tt></dt>
+<dd><p>Especifica el nombre JNDI del recurso JDBC para la base de datos en la que se registran las transacciones. Para obtener m&#225;s informaci&#243;n, consulte el <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beanm">Cap&#237;tulo 15, Using the Transaction Service de <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>. No hay ning&#250;n valor predeterminado.</p>
+
+</dd>
+<dt><tt>xa-servername</tt></dt>
+<dd><p>Especifica el nombre de host que utiliza el servicio de transacci&#243;n para identificar las transacciones administradas por GlassFish Server instalado. A veces esto puede ser &#250;til para recuperar transacciones del archivo de registro que se hab&#237;a creado en un host diferente que ejecute GlassFish Server.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

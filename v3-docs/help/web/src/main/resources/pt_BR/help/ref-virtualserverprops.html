@@ -1,0 +1,183 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-virtualserverprops"></a><h4>Propriedades espec&#237;ficas de servidores virtuais</h4>
+<a name="indexterm-61"></a><a name="indexterm-62"></a><p>As propriedades a seguir adicionais est&#227;o dispon&#237;veis para um servidor virtual.</p>
+
+<dl><dt><tt>sso-max-inactive-seconds</tt></dt>
+<dd><p>Especifica o n&#250;mero de segundos ap&#243;s o qual o registro de logon &#250;nico de um usu&#225;rio se torna qualificado para depura&#231;&#227;o, caso nenhuma atividade do cliente seja recebida. Como o logon &#250;nico &#233; aplic&#225;vel em v&#225;rios aplicativos no mesmo servidor virtual, o acesso a qualquer um dos aplicativos mant&#233;m ativo o registro de logon &#250;nico.</p>
+
+<p>O valor padr&#227;o &#233; 300 segundos (5 minutos). Valor mais altos fornecem uma persist&#234;ncia mais longa de logon &#250;nico para os usu&#225;rios, por&#233;m, exige um uso de mem&#243;ria maior no servidor.</p>
+
+</dd>
+<dt><tt>sso-reap-interval-seconds</tt></dt>
+<dd><p>Especifica o n&#250;mero de segundos entre as depura&#231;&#245;es de registros vencidos de logon &#250;nico.</p>
+
+<p>O valor padr&#227;o &#233; 60.</p>
+
+</dd>
+<dt><tt>ssoCookieSecure</tt></dt>
+<dd><p>Define o atributo <tt>Secure</tt> de quaisquer cookies <tt>JSESSIONIDSSO</tt> associados aos aplicativos da Web implementados para este servidor virtual. Essa propriedade somente &#233; aplic&#225;vel se o logon &#250;nico est&#225; ativado. Os valores permitidos s&#227;o como segue:</p>
+
+<dl><dt><tt>verdadeiro</tt></dt>
+<dd><p>Define <tt>Secure</tt> como verdadeiro. </p>
+
+</dd>
+<dt><tt>falso</tt></dt>
+<dd><p>Define <tt>Secure</tt> como falso.</p>
+
+</dd>
+<dt><tt>dynamic</tt></dt>
+<dd><p>O cookie <tt>JSESSIONIDSSO</tt> herda a configura&#231;&#227;o <tt>Secure</tt> da primeira sess&#227;o participando no SSO.</p>
+
+</dd>
+</dl>
+<p>Para definir um atributo Secure de um cookie <tt>JSESSIONID</tt>, use a propriedade <tt>cookieSecure</tt> <tt>cookie-properties</tt> no arquivo <tt>sun-web.xml</tt>. Para obter detalhes, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beash">cookie-properties no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt><tt>setCacheControl</tt></dt>
+<dd><p>Especifica uma lista separada por v&#237;rgulas de diretivas de resposta <tt>Controle por Cache</tt>. Para obter uma lista de diretivas v&#225;lidas, consulte a Se&#231;&#227;o 14.9 do documento localizado em <a href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt </a>.</p>
+
+</dd>
+<dt><tt>accessLogBufferSize</tt></dt>
+<dd><p>Especifica o tamanho em bytes do buffer onde as chamadas de registro de acesso s&#227;o armazenadas. Se o valor for menor do que 5.120, uma mensagem de aviso &#233; usada, e o valor &#233; definido como 5.120. O valor padr&#227;o &#233; 32.768.</p>
+
+</dd>
+<dt><tt>accessLogWriterInterval</tt></dt>
+<dd><p>Especifica o n&#250;mero de segundos antes que o registro seja gravado no disco. O log de acesso &#233; gravado quando o buffer est&#225; cheio ou quando o intervalo expira. Se o valor &#233; 0, o buffer &#233; sempre gravado mesmo que n&#227;o esteja cheio. Isso significa que, a cada vez que o servidor &#233; acessado, a mensagem de log &#233; armazenada diretamente no arquivo. O valor padr&#227;o &#233; 300.</p>
+
+</dd>
+<dt><tt>allowRemoteAddress</tt></dt>
+<dd><p>Especifica uma lista separada por v&#237;rgulas de padr&#245;es de express&#245;es regulares, em rela&#231;&#227;o a qual o endere&#231;o IP do cliente remoto &#233; comparado. Se essa propriedade for especificada. o endere&#231;o remoto <b>dever&#225;</b> coincidir para que a solicita&#231;&#227;o seja aceita. Se a propriedade n&#227;o for especificada, todas as solicita&#231;&#245;es ser&#227;o aceitas, <b>a menos que</b> o endere&#231;o remoto coincida com o padr&#227;o <tt>denyRemoteAddress</tt>.</p>
+
+</dd>
+<dt><tt>denyRemoteAddress</tt></dt>
+<dd><p>Especifica uma lista separada por v&#237;rgulas de padr&#245;es de express&#245;es regulares, em rela&#231;&#227;o a qual o endere&#231;o IP do cliente remoto &#233; comparado. Se essa propriedade for especificada. o endere&#231;o remoto <b>n&#227;o</b> dever&#225; coincidir para que a solicita&#231;&#227;o seja aceita. Se a propriedade n&#227;o for especificada, a aceita&#231;&#227;o da solicita&#231;&#227;o ser&#225; administrada exclusivamente pela propriedade <tt>allowRemoteAddress</tt>.</p>
+
+</dd>
+<dt><tt>allowRemoteHost</tt></dt>
+<dd><p>Especifica uma lista separada por v&#237;rgulas de padr&#245;es de express&#245;es regulares, em rela&#231;&#227;o a qual o nome de host do cliente remoto (conforme retornado por <tt>[java.net.]Socket.getInetAddress().getHostName() </tt>) &#233; comparado. Se essa propriedade for especificada. o nome de host remoto <b>dever&#225;</b> coincidir para que a solicita&#231;&#227;o seja aceita. Se a propriedade n&#227;o for especificada, todas as solicita&#231;&#245;es ser&#227;o aceitas, <b>a menos que</b> o nome de host remoto coincida com o padr&#227;o <tt>denyRemoteHost</tt>.</p>
+
+</dd>
+<dt><tt>denyRemoteHost</tt></dt>
+<dd><p>Especifica uma lista separada por v&#237;rgulas de padr&#245;es de express&#245;es regulares, em rela&#231;&#227;o a qual o nome de host do cliente remoto (conforme retornado por <tt>[java.net.]Socket.getInetAddress().getHostName() </tt>) &#233; comparado. Se essa propriedade for especificada. o nome de host remoto <b>n&#227;o</b> dever&#225; coincidir para que a solicita&#231;&#227;o seja aceita. Se a propriedade n&#227;o for especificada, a aceita&#231;&#227;o da solicita&#231;&#227;o ser&#225; administrada exclusivamente pela propriedade <tt>allowRemoteHost</tt>.</p>
+
+<p>A defini&#231;&#227;o desta propriedade n&#227;o tem efeito se o dom&#237;nio do Servidor GlassFish &#233; acessado atrav&#233;s de uma escuta de rede que tenha a op&#231;&#227;o Interpretador JK ativada.</p>
+
+</dd>
+<dt><tt>authRealm</tt></dt>
+<dd><p>Especifica o nome de dom&#237;nio de autentica&#231;&#227;o, que substitui o dom&#237;nio padr&#227;o da inst&#226;ncia do servidor por aplicativos Web aut&#244;nomos implementados neste servidor virtual. Um dom&#237;nio definido em um arquivo <tt> web.xml</tt> do aplicativo aut&#244;nomo substitui o dom&#237;nio do servidor virtual. Para mais informa&#231;&#245;es, consulte <a href="../../../common/pt_BR/help/ref-realms.html">Dom&#237;nios</a>.</p>
+
+</dd>
+<dt><tt>securePagesWithPragma</tt></dt>
+<dd><p>Defina essa propriedade como <tt>falso</tt> para garantir que todos aplicativos da Web em downloads de arquivos do servidor virtual, usando SSL, funcionem adequadamente no Internet Explorer. </p>
+
+<p>aplicativos da Web individuais podem substituir essa configura&#231;&#227;o, usando o elemento <tt> sun-web-app</tt> do arquivo <tt>sun-web.xml</tt>. Para obter detalhes, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+<p>O valor padr&#227;o &#233; <tt>verdadeiro</tt>.</p>
+
+</dd>
+<dt><tt>alternatedocroot_<i>n</i></tt></dt>
+<dd><p>Especifica uma raiz de documento alternativa (docroot), onde <i> n</i> &#233; um inteiro positivo que permite a especifica&#231;&#227;o de mais de um. Docroots alternativas permite que os aplicativos da Web atendam solicita&#231;&#245;es de determinados recursos externos &#224; pr&#243;pria docroot, dependendo de tais solicita&#231;&#245;es corresponderem a um (ou mais) dos padr&#245;es URI das docroots alternativas do aplicativo Web.</p>
+
+<p>Se uma solicita&#231;&#227;o corresponder a um padr&#227;o URI da docroot alternativa, ela ser&#225; mapeada para uma docroot alternativa, anexando o URI da solicita&#231;&#227;o (menos a raiz de contexto do aplicativo Web) &#224; localiza&#231;&#227;o f&#237;sica (diret&#243;rio) da docroot alternativa. Se uma solicita&#231;&#227;o corresponder a v&#225;rios padr&#245;es URI, a docroot alternativa ser&#225; determinada de acordo com esta ordem de preced&#234;ncia:</p>
+
+
+<ul><li><p>Correspond&#234;ncia exata</p>
+
+</li>
+<li><p>Correspond&#234;ncia de caminho mais longo</p>
+
+</li>
+<li><p>Correspond&#234;ncia de extens&#227;o</p>
+
+</li></ul>
+<p>Por exemplo, as seguintes propriedades especificam tr&#234;s docroots alternativas: O padr&#227;o URI da primeira docroot alternativa usa uma correspond&#234;ncia exata, ao passo que os padr&#245;es URI da segunda e terceira docroots alternativas usam correspond&#234;ncias de prefixo de extens&#227;o e caminho mais longo, respectivamente.</p>
+
+<pre>&#60;property name="alternatedocroot_1" 
+   value="from=/my.jpg dir=/srv/images/jpg"/>
+&#60;property name="alternatedocroot_2" 
+   value="from=*.jpg dir=/srv/images/jpg"/>
+&#60;property name="alternatedocroot_3" 
+   value="from=/jpg/* dir=/src/images"/></pre><p>O <tt>valor</tt> de cada docroot alternativa tem dois componentes: o primeiro componente, <tt>de</tt>, especifica o padr&#227;o URI da docroot alternativa; o seguindo componente, <tt>dir</tt>, especifica a localiza&#231;&#227;o f&#237;sica (diret&#243;rio) da docroot alternativa. Espa&#231;os s&#227;o permitidos no componente <tt> dir</tt>.</p>
+
+<p>aplicativos da Web individuais podem substituir essa configura&#231;&#227;o, usando o elemento <tt> sun-web-app</tt> do arquivo <tt>sun-web.xml</tt>. Para obter detalhes, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt><tt>contextXmlDefault</tt></dt>
+<dd><p>Especifica a localiza&#231;&#227;o, relativa ao <i>domain-dir</i>, do arquivo <tt> context.xml</tt> do servidor virtual, se utilizado. Para obter mais informa&#231;&#245;es sobre o arquivo <tt>context.xml</tt>, consulte <a href="http://tomcat.apache.org/tomcat-5.5-doc/config/context.html">The Context Container</a>.</p>
+
+</dd>
+<dt><tt>allowLinking</tt></dt>
+<dd><p>Se <tt>verdadeiro</tt>, os recursos que forem links simb&#243;licos ser&#227;o atendidos por todos os aplicativos da Web implantados no servidor virtual. aplicativos da Web individuais podem substituir essa configura&#231;&#227;o, usando a propriedade <tt>sun-web-app</tt> <tt> allowLinking</tt> do arquivo <tt>sun-web.xml</tt>:</p>
+
+<pre>&#60;sun-web-app>
+   &#60;property name="allowLinking" 
+      value="{true|false}"/>
+&#60;/sun-web-app></pre><p>Para obter detalhes, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+<p>O valor padr&#227;o &#233; <tt>falso</tt>.</p>
+
+
+<hr><p><b>Cuidado - </b>A defini&#231;&#227;o desta propriedade como verdadeira nos sistemas Windows exp&#245;e o c&#243;digo-fonte JSP. </p>
+
+
+<hr>
+</dd>
+<dt><tt>send-error_<i>n</i></tt></dt>
+<dd><p>Especifica mapeamentos de p&#225;ginas personalizadas de erros para o servidor virtual, os quais s&#227;o herdados por todos os aplicativos implantados no servidor virtual. Um aplicativo Web pode substituir esses mapeamentos de p&#225;ginas personalizadas de erros no respectivo descritor de implanta&#231;&#227;o <tt> web.xml</tt>. O valor de cada propriedade <tt>send-error_<i> n</i></tt> tem tr&#234;s componentes que podem ser especificados em qualquer ordem:</p>
+
+
+<ul><li><p>O primeiro componente, <tt>c&#243;digo</tt>, especifica o c&#243;digo de tr&#234;s d&#237;gitos do status de resposta HTTP para o qual a p&#225;gina personalizada de erro deve ser retornada na resposta.</p>
+
+</li>
+<li><p>O segundo componente, <tt>caminho</tt>, especifica o caminho absoluto ou relativo do sistema de arquivos da p&#225;gina personalizada de erro. Um caminho relativo de sistema de arquivos &#233; interpretado como relativo no diret&#243;rio <tt></tt><i>domain-dir</i><tt>/config</tt>.</p>
+
+</li>
+<li><p>O terceiro componente, <tt>motivo</tt>, &#233; opcional e especifica o texto da sequ&#234;ncia de motivo (por exemplo, <tt>N&#227;o autorizado</tt> ou <tt> Proibido</tt>) a ser retornado.</p>
+
+</li></ul>
+<p>Por exemplo:</p>
+
+<pre>&#60;property name="send-error_1"
+   value="code=401 path=/myhost/401.html reason=MY-401-REASON"/></pre><p>Este exemplo de defini&#231;&#227;o de propriedade faz com que o conte&#250;do de <tt>/myhost/401.html </tt> seja retornado com respostas 401, juntamente com esta linha de resposta:</p>
+
+<pre>HTTP/1.1 401 MY-401-REASON</pre></dd>
+<dt><tt>redirect_<i>n</i></tt></dt>
+<dd><p>Especifica que uma solicita&#231;&#227;o para uma URL antiga seja tratada como uma solicita&#231;&#227;o para URL nova. Essas propriedades s&#227;o herdadas por todos os aplicativos da Web implantados no servidor virtual. O valor de cada propriedade <tt>redirect_<i> n</i></tt> tem dois componentes que podem ser especificados em qualquer ordem:</p>
+
+
+<ul><li><p>O primeiro componente, <tt>de</tt>, especifica o prefixo do URI solicitado cuja correspond&#234;ncia deve ser localizada.</p>
+
+</li>
+<li><p>O segundo componente, <tt>url-prefix</tt>, especifica o prefixo da nova URL a ser retornado para o cliente. O prefixo <tt>de</tt> &#233; simplesmente substitu&#237;do por esse prefixo de URL.</p>
+
+</li></ul>
+<p>Por exemplo:</p>
+
+<pre>&#60;property name="redirect_1" 
+  value="from=/dummy url-prefix=http://etude"/></pre></dd>
+<dt><tt>valve_<i>n</i></tt></dt>
+<dd><p>Especifica um nome de classe totalmente qualificada de um Valve personalizado, onde <i> n</i> &#233; um inteiro positivo que permite a especifica&#231;&#227;o de mais de um. A classe valve precisa implementar o <tt>org.apache.catalina. Interface Valve</tt> do Tomcat ou vers&#245;es anteriores do &#38;ProductName: ou a <tt>interface org.glassfish.web.valve.GlassFishValve</tt> da vers&#227;o atual do Servidor GlassFish Por exemplo:</p>
+
+<pre>&#60;property name="valve_1"
+value="org.glassfish.extension.Valve"/></pre><p>Voc&#234; pode definir esta propriedade para um aplicativo espec&#237;fico da Web. Para obter detalhes, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt><tt>listener_<i>n</i></tt></dt>
+<dd><p>Especifica um nome de classe completamente qualificada de uma escuta Catalina personalizado, onde <i>n</i> &#233; um positivo inteiro que permite especificar mais de uma. A classe do interpretador precisa implementar o <tt>org.apache.catalina.ContainerListener</tt> ou o <tt>org.apache.catalina.LifecycleListener</tt> da interface. Por exemplo:</p>
+
+<pre>&#60;property name="listener_1"
+value="org.glassfish.extension.MyLifecycleListener"/></pre><p>Voc&#234; pode definir esta propriedade para um aplicativo espec&#237;fico da Web. Para obter detalhes, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt><tt>errorReportValve</tt></dt>
+<dd><p>Especifica um nome de classe totalmente qualificado de um valve personalizado que cria p&#225;ginas de erro padr&#227;o para os aplicativos deste servidor virtual. Especifique uma sequ&#234;ncia vazio para desativar o mecanismo da p&#225;gina de erro padr&#227;o deste servidor virtual.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

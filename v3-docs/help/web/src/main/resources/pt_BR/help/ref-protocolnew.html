@@ -1,0 +1,236 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolnew"></a><h4>Novo protocolo</h4>
+<a name="indexterm-68"></a><p>Utilize a p&#225;gina Novo protocolo para criar um novo protocolo de rede.</p>
+
+<p>Ap&#243;s criar o protocolo, voc&#234; normalmente cria uma escuta de rede com
+o mesmo nome, e associa a escuta de rede com o protocolo.
+Alternativamente, voc&#234; pode criar uma escuta de rede e ter um protocolo
+com configura&#231;&#245;es padr&#227;o criado ao mesmo tempo.</p>
+
+<p>A p&#225;gina Novo protocolo cont&#233;m estas op&#231;&#245;es.</p>
+
+<dl><dt>Nome da configura&#231;&#227;o</dt>
+<dd><p>Nome da configura&#231;&#227;o ao qual as configura&#231;&#245;es desta p&#225;gina ser&#227;o enviadas. Este campo &#233; de somente leitura.</p>
+
+</dd>
+<dt>Nome</dt>
+<dd><p>O nome &#250;nico do protocolo. Um nome de protocolo n&#227;o pode come&#231;ar com um n&#250;mero.</p>
+
+</dd>
+<dt>Seguran&#231;a</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, a seguran&#231;a ser&#225; ativada para o protocolo. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada. Caso voc&#234; ative a seguran&#231;a, poder&#225; utilizar a guia SSL da p&#225;gina Editar protocolo para modificar as configura&#231;&#245;es de seguran&#231;a.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o cache de arquivo ser&#225; ativado. Por padr&#227;o, a op&#231;&#227;o est&#225; ativa.</p>
+
+</dd>
+<dt>Dura&#231;&#227;o m&#225;x.</dt>
+<dd><p>A dura&#231;&#227;o m&#225;xima, em segundos, de uma entrada de cache v&#225;lida.</p>
+
+<p>Esse par&#226;metro controla a quantidade de informa&#231;&#245;es armazenadas em cache que ser&#225; utilizada ap&#243;s o armazenamento de um arquivo no cache. Uma entrada mais antiga do que a dura&#231;&#227;o m&#225;xima ser&#225; substitu&#237;da pela nova entrada do mesmo arquivo. Se o conte&#250;do n&#227;o for alterado com frequ&#234;ncia, aumente esse valor para melhorar o desempenho.</p>
+
+<p>A dura&#231;&#227;o m&#225;xima mais eficiente depende da regularidade com que os arquivos existentes s&#227;o modificados. Por exemplo, se os arquivos forem modificados quatro vezes ao dia, em intervalos regulares, considere a possibilidade de definir a dura&#231;&#227;o m&#225;xima em 21600 segundos (6 horas). Ou ent&#227;o, defina a dura&#231;&#227;o m&#225;xima como sendo o tempo mais longo desejado para a exibi&#231;&#227;o da vers&#227;o anterior de um arquivo ap&#243;s a modifica&#231;&#227;o.</p>
+
+<p>O valor padr&#227;o &#233; 30.</p>
+
+</dd>
+<dt>Tamanho m&#225;x. do cache</dt>
+<dd><p>O tamanho total m&#225;ximo (em bytes) do cache de arquivos, no disco. O valor padr&#227;o &#233; 10485760.</p>
+
+</dd>
+<dt>Contagem m&#225;x. de arquivos</dt>
+<dd><p>O n&#250;mero m&#225;ximo de arquivos que podem ser armazenados no cache de arquivos.</p>
+
+<p>Se o valor for muito alto, o servidor armazenar&#225; em cache os arquivos pouco necess&#225;rios, o que consome mem&#243;ria. Se o valor for muito baixo, os benef&#237;cios do armazenamento em cache n&#227;o ser&#225; obtidos. Tente diferentes valores desse atributo para encontrar a solu&#231;&#227;o mais eficiente para aplicativos espec&#237;ficos.</p>
+
+<p>O valor padr&#227;o &#233; 1024.</p>
+
+</dd>
+<dt>Nome do servidor</dt>
+<dd><p>O nome do host a ser utilizado nas URLs que o servidor envia ao cliente. Esse nome ser&#225; o nome alias se o servidor usar um alias. Se o servidor n&#227;o usar alias, deixe o campo em branco.</p>
+
+<p>Esse valor somente afeta os URLs gerados automaticamente pelo servidor; ele n&#227;o afeta os URLs para diret&#243;rios e arquivos armazenados no servidor. Caso seu servidor use um codinome, o nome do servidor deveria ser o nome do codinome. Se uma v&#237;rgula e um n&#250;mero de porta est&#227;o anexados, aquela porta &#233; usada nos URLs que o servidor envia para o cliente.</p>
+
+</dd>
+<dt>Servidor virtual padr&#227;o</dt>
+<dd><p>O servidor virtual a ser associado com esse protocolo. Utilize a p&#225;gina Servidores virtuais para defini-los.</p>
+
+</dd>
+<dt>Porta de redirecionamento</dt>
+<dd><p>Valor de porta que redireciona uma solicita&#231;&#227;o para outra porta. O Servidor GlassFish redirecionar&#225; automaticamente a solicita&#231;&#227;o se essas duas condi&#231;&#245;es existirem:</p>
+
+
+<ul><li><p>A escuta de rede que referencia esse protocolo est&#225; suportando solicita&#231;&#245;es n&#227;o-SSL.</p>
+
+</li>
+<li><p>Uma solicita&#231;&#227;o &#233; recebida e a correspondente restri&#231;&#227;o de seguran&#231;a exige transporte SSL.</p>
+
+</li></ul>
+<p>Se uma porta de redirecionamento n&#227;o estiver especificada, o Servidor GlassFish usar&#225; o n&#250;mero de porta especificado na solicita&#231;&#227;o original. Por padr&#227;o, nenhuma porta &#233; especificada.</p>
+
+</dd>
+<dt>M&#225;x. de conex&#245;es</dt>
+<dd><p>Especifica o n&#250;mero m&#225;ximo de solicita&#231;&#245;es que podem colocar na fila at&#233; que a conex&#227;o seja fechada pelo servidor. O subsistema de manuten&#231;&#227;o de conex&#245;es consulta periodicamente as conex&#245;es ociosas. O valor padr&#227;o &#233; 256.</p>
+
+<p>Defina essa propriedade como 1 para desativar o keep-alive HTTP/1.0m assim como o keep-alive e a linha HTTP/1.1. Um valor de 0 significa que as solicita&#231;&#245;es s&#227;o sempre rejeitadas. Um valor de -1 define nenhum limite para o n&#250;mero de conex&#245;es keep-alive.</p>
+
+</dd>
+<dt>Tempo limite</dt>
+<dd><p>A quantidade m&#225;xima de tempo, em segundos, que uma conex&#227;o pode permanecer inativa e mantida no estado keep-alive. Um valor de 0 ou menos significa que as conex&#245;es keep-alive s&#227;o mantidas abertas indefinidamente. O valor padr&#227;o &#233; 30 segundos.</p>
+
+</dd>
+<dt>Tempo limite de upload</dt>
+<dd><p>Se essa op&#231;&#227;o &#233; selecionada, a conex&#227;o para um servlet que l&#234; lentamente os bytes seja fechada ap&#243;s o limite de Conex&#227;o para upload &#233; alcan&#231;ado. Se essa op&#231;&#227;o for desativada, as conex&#245;es de servlet n&#227;o expiram. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Tempo limite da conex&#227;o do upload</dt>
+<dd><p>O tempo limite para uploads em milissegundos. Esse campo somente &#233; aplic&#225;vel se a caixa de sele&#231;&#227;o Tempo limite de upload ativada estiver selecionada. O valor padr&#227;o &#233; 300.000 milissegundos.</p>
+
+</dd>
+<dt>Tempo limite da solicita&#231;&#227;o</dt>
+<dd><p>O n&#250;mero de segundos antes que a solicita&#231;&#227;o expira. Se a solicita&#231;&#227;o n&#227;o &#233; processada antes que o valor do tempo limite seja alcan&#231;ado, a solicita&#231;&#227;o &#233; ignorada. O valor padr&#227;o &#233; 30 segundos.</p>
+
+</dd>
+<dt>Tamanho do buffer de envio</dt>
+<dd><p>O tamanho m&#225;ximo em bytes do buffer de envio. O valor padr&#227;o &#233; 8.192 bytes.</p>
+
+</dd>
+<dt>Comprimento do cabe&#231;alho do buffer</dt>
+<dd><p>O tamanho em bytes do buffer utilizado pelos segmentos de processamento da solicita&#231;&#227;o para ler os dados da solicita&#231;&#227;o. O valor padr&#227;o &#233; 8.192 bytes.</p>
+
+</dd>
+<dt>Tamanho m&#225;ximo da postagem</dt>
+<dd><p>O tamanho m&#225;ximo em bytes de a&#231;&#245;es de postagem. O valor padr&#227;o &#233; 2.097.152 bytes.</p>
+
+</dd>
+<dt>Codifica&#231;&#227;o do URI </dt>
+<dd><p>O nome do conjunto de caracteres utilizado para decodificar os URIs de solicita&#231;&#227;o recebidos. O valor precisa ser um nome v&#225;lido de um conjunto de caracteres IANA. O valor padr&#227;o &#233; UTF-8.</p>
+
+</dd>
+<dt>Vers&#227;o</dt>
+<dd><p>A vers&#227;o do protocolo HTTP utilizado. O valor padr&#227;o &#233; HTTP/1.1.</p>
+
+</dd>
+<dt>Compress&#227;o</dt>
+<dd><p>Especifica o uso da compress&#227;o GZIP HTTP/1.1 para economizar largura de banda do servidor. As op&#231;&#245;es dispon&#237;veis s&#227;o:</p>
+
+<dl><dt><tt>ligado</tt></dt>
+<dd><p>Comprime os dados.</p>
+
+</dd>
+<dt><tt>desligado</tt></dt>
+<dd><p>Desativa a compress&#227;o.</p>
+
+</dd>
+<dt><tt>for&#231;ar</tt></dt>
+<dd><p>For&#231;a a compress&#227;o dos dados em todos os casos.</p>
+
+</dd>
+</dl>
+<p>O valor padr&#227;o <tt>desligado</tt>.</p>
+
+</dd>
+<dt>Tipos mime compact&#225;veis</dt>
+<dd><p>Uma lista separada por v&#237;rgulas dos tipos MIME para os quais a compress&#227;o HTTP &#233; utilizada. O valor padr&#227;o &#233; <tt>text/html,text/xml,text/plain</tt>.</p>
+
+</dd>
+<dt>Tamanho m&#237;nimo da compress&#227;o</dt>
+<dd><p>O tamanho m&#237;nimo de um arquivo quando a compress&#227;o &#233; aplicada. Esse valor deve ser definido se a compress&#227;o estiver definida como <tt>ligado</tt> ou <tt>for&#231;ar</tt>. O valor padr&#227;o &#233; 2.048 bytes.</p>
+
+</dd>
+<dt>Agentes do usu&#225;rio sem compress&#227;o</dt>
+<dd><p>Uma lista separada por v&#237;rgulas de express&#245;es regulares que coincidem com agentes do usu&#225;rio ou clientes HTTP, para os quais a compress&#227;o n&#227;o deve ser utilizada. Por padr&#227;o este valor &#233; uma sequ&#234;ncia vazia.</p>
+
+</dd>
+<dt>Agente do usu&#225;rio restringido</dt>
+<dd><p>Uma lista de agentes do usu&#225;rio restringido no qual a compress&#227;o HTTP &#233; aplicada. Se nenhum agente do usu&#225;rio &#233; especificado, a compress&#227;o HTTP &#233; aplicada em todos os agentes do usu&#225;rio. Por padr&#227;o, nenhum agente do usu&#225;rio &#233; especificado.</p>
+
+</dd>
+<dt>Tempo de resposta padr&#227;o</dt>
+<dd><p>Uma sequ&#234;ncia que especifica o tempo de resposta padr&#227;o. O formato &#233; uma sequ&#234;ncia delimitada por dois pontos, consistindo no tipo de conte&#250;do, codifica&#231;&#227;o, idioma e conjunto de caracteres. O valor padr&#227;o &#233; <tt>text/html; charset=iso-8859-1</tt>.</p>
+
+</dd>
+<dt>Tempo de resposta for&#231;ado</dt>
+<dd><p>Uma sequ&#234;ncia que especifica o tipo de solicita&#231;&#227;o usado, caso nenhum mapeamento MIME esteja dispon&#237;vel que coincida com a extens&#227;o do arquivo. O formato &#233; uma sequ&#234;ncia delimitada por dois pontos, consistindo no tipo de conte&#250;do, codifica&#231;&#227;o, idioma e conjunto de caracteres. O valor padr&#227;o &#233; <tt>text/html; charset=iso-8859-1</tt>.</p>
+
+</dd>
+<dt>Adaptador</dt>
+<dd><p>O nome da classe do adaptador de recursos est&#225;ticos. O valor padr&#227;o &#233; <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p>
+
+</dd>
+<dt>Suporte Comet</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o suporte Comet ser&#225; ativado para a escuta de rede que referencia este protocolo. Por padr&#227;o, essa op&#231;&#227;o &#233; desativada. Se o seu servlet ou p&#225;gina JSP usa a tecnologia Comet, assegure-se de que esteja inicializada quando o Servidor GlassFish &#233; iniciado, ao adicionar o elemento <tt>load-on-startup</tt> em seu arquivo <tt>web.xml</tt>. Por exemplo:</p>
+
+<pre>&#60;servlet>
+&#60;servlet-name>CheckIn&#60;/servlet-name>
+&#60;servlet-class>CheckInServlet&#60;/servlet-class>
+&#60;load-on-startup>0&#60;/load-on-startup>
+&#60;/servlet></pre></dd>
+<dt>Pesquisa DNS</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, a pesquisa DNS ser&#225; ativada. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Pesquisa DNS</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, a pesquisa DNS ser&#225; ativada. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Suporte RCM</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, o Gerenciamento de configura&#231;&#227;o de recursos (RCM) ser&#225; ativado. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Rastrear</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, a opera&#231;&#227;o RASTREAR ser&#225; ativada. Se essa op&#231;&#227;o for desativada, o Servidor GlassFish &#233; menos suscet&#237;vel ao ataques de scripts de site cruzado. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p>
+
+</dd>
+<dt>Auth Pass Through</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, indica que a escuta de rede que utiliza esse protocolo recebe tr&#225;fego de um proxy de servidor SSL com termina&#231;&#227;o. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Amostragem</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, a resposta de amostragem HTTP ser&#225; ativada. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p>
+
+</dd>
+<dt>XPowered por</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o Servidor GlassFish utiliza os cabe&#231;alhos <tt>X-Powered-By</tt>, de acordo com as especifica&#231;&#245;es do Java Servlet 3.0 e do Java Server Pages. Por padr&#227;o, a op&#231;&#227;o est&#225; ativa.</p>
+
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-protocolnew.html">Para criar um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Para editar um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Para editar as configura&#231;&#245;es SSL para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Para editar as configura&#231;&#245;es HTTP para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Para editar as configura&#231;&#245;es de um arquivo de cache para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Para excluir um protocolo</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

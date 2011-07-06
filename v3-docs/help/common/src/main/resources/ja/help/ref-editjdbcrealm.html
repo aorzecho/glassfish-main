@@ -1,0 +1,78 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-editjdbcrealm"></a><h4><tt>JDBCRealm</tt> クラスに固有のプロパティー</h4>
+<a name="indexterm-206"></a><a name="indexterm-207"></a><p>Web ページや Web アプリケーションを保護するために、登録ユーザーのみがそれらにアクセスできるようにセキュリティーを設定できます。これは認証機能として知られています。この種類のレルムでは、データベース内にユーザーの証明書を格納します。GlassFish サーバー は、データベース情報および設定ファイル内の有効化された JDBC レルムオプションを使用します。</p>
+
+<p>JDBC レルムに必要なプロパティーは次のとおりです。</p>
+
+<dl><dt>JAAS Context</dt>
+<dd><p>JAAS (Java Authentication and Authorization Service) コンテキスト (このレルムに使用するログインモジュールの識別子)。有効な値は <tt>jdbcRealm</tt> のみです。</p>
+
+</dd>
+<dt>JNDI</dt>
+<dd><p>このレルムの JNDI 名。デフォルト値は <tt>jdbc/security </tt> です。</p>
+
+</dd>
+<dt>User Table</dt>
+<dd><p>このレルムに対して承認されたユーザーのリストを含むテーブル。デフォルト値は <tt>usertable</tt> です。</p>
+
+</dd>
+<dt>User Name Column</dt>
+<dd><p>ユーザーテーブル内の、ユーザーのリストを含む列の名前。デフォルト値は <tt>userid</tt> です。</p>
+
+</dd>
+<dt>Password Column</dt>
+<dd><p>ユーザーテーブル内の、各ユーザーのパスワードを含む列の名前。デフォルト値は <tt>password</tt> です。</p>
+
+</dd>
+<dt>Group Table</dt>
+<dd><p>データベースのグループテーブルの名前。デフォルト値は <tt>grouptable</tt> です。</p>
+
+</dd>
+<dt>Group Name Column</dt>
+<dd><p>データベースのグループテーブルのグループ名列の名前。デフォルト値は <tt>groupid</tt> です。</p>
+
+</dd>
+</dl>
+<p>JDBC レルムで使用できるプロパティーは次のとおりです。</p>
+
+<dl><dt>Assign Groups</dt>
+<dd><p>コンマで区切られたグループ名のリスト。有効な証明書を提示するすべてのクライアントがこれらのグループに割り当てられます。たとえば、<tt>employee,manager</tt> などで、これらはユーザーグループの名前です。</p>
+
+</dd>
+<dt>Database User</dt>
+<dd><p><tt>jdbc-connection-pool</tt> の代わりに、レルムにデータベースユーザー名を指定できます。これにより、他のアプリケーションによるデータベースの検索、接続取得、ユーザーテーブルのブラウズを回避できます。デフォルトでは、<tt>jdbc-connection-pool</tt> 構成が使われます。</p>
+
+</dd>
+<dt>Database Password</dt>
+<dd><p><tt>jdbc-connection-pool</tt> の代わりに、レルムにデータベースパスワードを指定できます。これにより、他のアプリケーションによるデータベースの検索、接続取得、ユーザーテーブルのブラウズを回避できます。デフォルトでは、<tt>jdbc-connection-pool</tt> 構成が使われます。</p>
+
+</dd>
+<dt>Digest Algorithm</dt>
+<dd><p>(省略可能) ダイジェストアルゴリズムを指定します。デフォルトは <tt>SHA-256</tt> です。JDK でサポートされているアルゴリズム、または none を使用できます。</p>
+
+
+<hr><p><b>注 - </b>3.1 よりも前の GlassFish サーバー バージョンでは、デフォルトアルゴリズムは <tt>MD5</tt> でした。<tt>MD5</tt> アルゴリズムに依存するアプリケーションが存在する場合は、<tt>asadmin set</tt> サブコマンドを使用してデフォルトの <tt>SHA-25</tt> アルゴリズムをオーバーライドすることができます。</p>
+
+<pre>asadmin> <tt><b>set server.security-service.property.default-digest-algorithm=MD5</b></tt></pre><p><tt>asadmin get</tt> サブコマンドを使用して、どのアルゴリズムが現在使用されているか確認できます。</p>
+
+<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>GlassFish サーバー v2.<i>x</i> または v3.0.<i> x</i> から GlassFish サーバー 3.1 にアップグレードする場合は、古い GlassFish サーバー バージョンでダイジェストアルゴリズムが明示的に設定されていないかぎり、下位互換性を保つ処置としてデフォルトアルゴリズムが自動的に <tt>MD5</tt> に設定されます。</p>
+
+
+<hr>
+</dd>
+<dt>Encoding</dt>
+<dd><p>エンコーディング。<tt>Hex</tt> と <tt> Base64</tt> を使用できます。<tt>digest-algorithm</tt> が指定されている場合、デフォルトは <tt>Hex</tt> です。<tt>digest-algorithm</tt> が指定されていない場合、デフォルトではエンコーディングが指定されません。</p>
+
+</dd>
+<dt>Charset</dt>
+<dd><p>ダイジェストアルゴリズムの文字セット。 </p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

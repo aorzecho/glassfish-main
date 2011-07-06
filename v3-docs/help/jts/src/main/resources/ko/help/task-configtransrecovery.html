@@ -1,0 +1,48 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-configtransrecovery"></a><h4>GlassFish 서버에서 트랜잭션 복구 방식을 구성하는 방법</h4><a name="indexterm-2"></a><p>서버나 자원 관리자의 충돌로 인해 트랜잭션이 완료되지 않을 수 있습니다. 이 경우,
+문제가 있는 트랜잭션을 완료하고 실패를 복구해야 합니다. GlassFish 서버는 이 실패를 복구하고
+서버 시작 시 트랜잭션을 완료하도록 설계되었습니다.</p>
+
+<p>일부 자원에 연결할 수 없는 경우 서버에서 복구를 수행하는 동안 트랜잭션 복구를
+시도하기 때문에 서버 재시작이 지연될 수 있습니다.</p>
+
+<p>트랜잭션이 여러 서버에 걸쳐 있는 경우 트랜잭션을 시작한 서버는 다른 서버에 연결하여
+트랜잭션의 결과를 가져올 수 있습니다. 다른 서버에 연결할 수 없는 경우 트랜잭션은
+발견적 판단 필드를 사용하여 결과를 확인합니다.</p>
+
+<ol>
+<li><b>탐색 트리에서 구성 노드를 선택합니다.</b></li>
+<li><b>구성할 인스턴스를 선택합니다.</b><ul>
+<li><b>특정 인스턴스를 구성하려면 해당 인스턴스 구성 노드를 선택합니다. 예를 들어, 기본 인스턴스
+<tt>server</tt>에 대해 <tt>server-config</tt> 노드를 선택합니다.</b></li>
+<li><b>모든 인스턴스의 기본 설정을 구성하려면 <tt>default-config</tt> 노드를 선택합니다.</b></li></ul></li>
+<li><b>트랜잭션 서비스 노드를 선택합니다.</b><p>트랜잭션 서비스 페이지가 열립니다.</p></li>
+<li><b>완료되지 않은 트랜잭션을 복구할 수 있으려면 트랜잭션 서비스 페이지에서 다시 시작 시
+사용 가능 확인란을 선택합니다.</b><p>기본적으로 사용 가능 확인란은 선택되지 않습니다.</p></li>
+<li><b>재시도 시간 초과 필드에 GlassFish 서버에서 연결할 수 없는 서버에 연결을 시도하는
+시간(초)을 입력합니다.</b><p>기본값은 600(10분)입니다.</p></li>
+<li><b>발견적 판단 드롭다운 목록에서 트랜잭션에서 연결할 수 없는 서버에 대한 정책을 선택합니다.</b><p>완결을 선택할 만한 이유가 있지 않은 한 발견적 판단은 롤백(기본값) 설정으로 남겨
+둡니다. 확정되지 않은 트랜잭션을 완결하면 응용 프로그램의 데이터 무결성이 손상될 수 있습니다.</p></li>
+<li><b>저장을 누릅니다.</b></li>
+<li><b>GlassFish 서버를 다시 시작합니다.</b></li></ol><h6>참조 </h6>
+<ul><li><p><a href="task-configtransservice.html">트랜잭션 서비스를 구성하는 방법</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">트랜잭션 시간 초과 값을 설정하는 방법</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">트랜잭션 로그의 위치를 설정하는 방법</a></p>
+
+</li>
+<li><p><a href="task-setkeyptinterval.html">키포인트 간격을 설정하는 방법</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

@@ -1,0 +1,87 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-securitysettings"></a><h4>Configurare le impostazioni di sicurezza</h4><a name="indexterm-77"></a><a name="indexterm-78"></a><p>In Administration Console &#232; possibile definire varie impostazioni di sicurezza a livello
+dell'intero sistema.</p>
+
+<ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configurations.</b></li>
+<li><b>Nel nodo Configurations, fare clic sulla configurazione dell'istanza server o del cluster
+per cui si desidera configurare le impostazioni di sicurezza.</b><p>Viene visualizzata la pagina Configuration.</p></li>
+<li><b>Nella pagina Configuration, fare clic su Security.</b><p>Viene visualizzata la pagina delle impostazioni di sicurezza per la destinazione della
+configurazione selezionata.</p></li>
+<li><b>Selezionare la casella di controllo Security Manager Enabled per attivare il gestore
+della sicurezza.</b><p>Se questa opzione &#232; abilitata, l'opzione JVM <tt>-Djava.security.manager</tt> viene aggiunta alle impostazioni
+JVM di GlassFish Server. Vedere <a href="task-jvmoptions.html">Configurare le opzioni JVM</a>. Per rendere effettiva questa modifica &#232;
+necessario riavviare il server.</p><p>Verificare di aver impostato le autorizzazioni necessarie per tutte le applicazioni. &#200;
+possibile disattivare il gestore della sicurezza per migliorare le prestazioni. Questa opzione
+&#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Audit Logging Enabled per attivare il log
+di revisione.</b><p>Se questa opzione &#232; abilitata, il server carica ed esegue tutti i
+moduli di revisione selezionati nell'elenco Audit Modules. Se l'opzione &#232; disabilitata, il
+server non accede ai moduli di revisione. Questa opzione &#232; disabilitata per
+impostazione predefinita.</p></li>
+<li><b>Dall'elenco a discesa Default Realm selezionare un settore attivo che il server
+utilizzer&#224; per l'autenticazione.</b><p>Le applicazioni utilizzeranno tale settore, salvo se il descrittore di distribuzione specifica
+un settore diverso. Tutti i settori configurati sono visibili nell'elenco. Il valore
+predefinito &#232; <tt>file</tt>.</p></li>
+<li><b>Specificare informazioni per Default Principal.</b><ol style="list-style-type: lower-alpha">
+<li><b>Nel campo Default Principal digitare il nome utente predefinito.</b><p>Se non &#232; specificata nessun'altra identit&#224;, il server utilizza questo nome utente.</p></li>
+<li><b>Nel campo Default Principal Password, digitare la password dell'identit&#224; predefinita specificata nel
+campo Default Principal.</b></li></ol><p>Un'identit&#224; predefinita non &#232; obbligatoria per il normale funzionamento del server.</p></li>
+<li><b>Nell'elenco a discesa JACC selezionare il nome di un provider JACC configurato.</b><p>Le scelte predefinite disponibili sono <tt>default</tt> e <tt>simple</tt>. L'impostazione predefinita &#232; <tt>default</tt>.
+Per informazioni sulla creazione di nuovi provider JACC, vedere ***.</p></li>
+<li><b>Nell'elenco a discesa Audit Modules selezionare i moduli del provider di revisione
+che verranno utilizzati dal sottosistema di revisione se &#232; abilitato il log
+di revisione.</b><p>Per impostazione predefinita il server utilizza un modulo di revisione denominato <tt>default</tt>.
+Per informazioni sulla creazione di nuovi moduli di revisione, vedere <a href="task-auditmodulenew.html">Creare un modulo di revisione</a>.</p></li>
+<li><b>Selezionare la casella di controllo Default Principal To Role Mapping Enabled per
+applicare un mapping identit&#224;-ruolo predefinito alle applicazioni per le quali non &#232;
+definito un mapping specifico.</b></li>
+<li><b>Se &#232; stato abilitato il mapping identit&#224;-ruolo predefinito, nel campo Mapped Principal
+Class digitare il nome di una classe di implementazione <tt>java.security.Principal</tt> personalizzata da
+utilizzare per il mapping identit&#224;-ruolo predefinito.</b></li>
+<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>Le propriet&#224; valide variano in base al tipo di settore selezionato nel
+campo Default Realm. Fare riferimento alla voce appropriata del seguente elenco per
+il tipo di settore che si desidera configurare.</p>
+<ul><li><p><a href="ref-editfile-adminrealm.html">Propriet&#224; specifiche della classe <tt> FileRealm</tt></a></p>
+
+</li>
+<li><p><a href="ref-editcertrealm.html">Propriet&#224; specifiche della classe <tt>CertificateRealm </tt></a></p>
+
+</li>
+<li><p><a href="ref-editjdbcrealm.html">Propriet&#224; specifiche della classe <tt>JDBCRealm </tt></a></p>
+
+</li>
+<li><p><a href="ref-ldaprealmprop.html">Propriet&#224; specifiche della classe <tt>LDAPRealm </tt></a></p>
+
+</li>
+<li><p><a href="ref-solarisrealmprop.html">Propriet&#224; specifiche della classe <tt>SolarisRealm </tt></a></p>
+
+</li>
+<li><p><a href="ref-pamrealmprop.html">Propriet&#224; specifiche della classe <tt>PamRealm </tt></a></p>
+
+</li></ul>
+<ul>
+<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
+vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
+valore della propriet&#224; nel campo Value.</b></li>
+<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
+della propriet&#224;.</b></li>
+<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
+campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
+Delete Properties.</b></li></ul></li>
+<li><b>Fare clic su Save.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-accessadmintools.html">Consentire l'accesso agli strumenti di amministrazione</a></p>
+
+</li>
+<li><p><a href="task-changeadminpasswd.html">Modificare la password di un utente nel settore Admin</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

@@ -1,0 +1,141 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-filter-logs"></a><h4>Para filtrar registros de log exibidos</h4><h6>Antes de come&#231;ar</h6><p>Certifique-se de estar visualizando os arquivos de log do servi&#231;o de administra&#231;&#227;o
+do dom&#237;nio (DAS), uma inst&#226;ncia do Servidor GlassFish em cluster ou uma
+inst&#226;ncia independente. Para obter mais informa&#231;&#245;es, consulte estes t&#243;picos:</p>
+
+
+<ul><li><p><a href="task-logviewer.html">Para visualizar os arquivos de log do DAS</a></p>
+
+</li>
+<li><p><a href="../../../cluster/pt_BR/help/task-view-logs-clustered-instance.html">Para&#160;exibir arquivos de log de&#160;uma inst&#226;ncia do Servidor GlassFish em cluster</a></p>
+
+</li>
+<li><p><a href="../../../cluster/pt_BR/help/task-view-logs-standalone-instance.html">Para&#160;exibir arquivos de log de&#160;uma inst&#226;ncia do Servidor GlassFish independente</a></p>
+
+</li></ul>
+<ol>
+<li><b>Na &#225;rea Crit&#233;rio de pesquisa, filtre os registros por conte&#250;do, per&#237;odo de
+tempo e n&#237;vel de log.</b><ol style="list-style-type: lower-alpha">
+<li><b>Para exibir somente os registros que cont&#234;m o texto espec&#237;fico, na caixa
+Pesquisa do texto, digite o texto.</b><p>A pesquisa faz distin&#231;&#227;o entre mai&#250;sculas e min&#250;sculas.</p></li>
+<li><b>Para selecionar o per&#237;odo de tempo cujos registros de log s&#227;o exibidos,
+utilize a op&#231;&#227;o Carimbo de hora.</b><ul>
+<li><b>Para exibir as mensagens mais recentes, selecione Mais recente (padr&#227;o).</b></li>
+<li><b>Para exibir as mensagens apenas de um determinado per&#237;odo de tempo, selecione
+Intervalo Espec&#237;fico e digite os valores de data e hora nos campos
+De e Para que aparecem.</b><p>O valor Data deve ter a seguinte forma:</p><pre><i>MM</i>/<i>DD</i>/<i>YY</i></pre><dl><dt><i>MM</i></dt>
+<dd><p>Inteiro no intervalo de 1 a 12 que corresponde ao m&#234;s, por exemplo, 1 para janeiro ou 10 para outubro.</p>
+
+</dd>
+<dt><i>DD</i></dt>
+<dd><p>Inteiro no intervalo de 1 a 31 que corresponde ao dia do m&#234;s.</p>
+
+</dd>
+<dt><i>YY</i></dt>
+<dd><p>Os &#250;ltimos dois d&#237;gitos do ano, por exemplo, 11 para o ano de 2011.</p>
+
+</dd>
+</dl>
+<p>Por exemplo, para especificar a data de 1 de fevereiro de 2011,
+digite <tt>2/1/11</tt> no campo Data.</p><p>O valor Hora deve ter a seguinte forma:</p><pre><i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i></pre><dl><dt><i>hh</i></dt>
+<dd><p>Inteiro no intervalo de 0 e 23 representa a hora. Para as horas no per&#237;odo da tarde, utilize os inteiros de 12 a 23, por exemplo, 14 para representar 2 PM.</p>
+
+</dd>
+<dt><i>mm</i></dt>
+<dd><p>Inteiro no intervalo de 0 a 59 para os minutos.</p>
+
+</dd>
+<dt><i>ss</i></dt>
+<dd><p>Inteiro no intervalo de 0 a 59 para os segundos.</p>
+
+</dd>
+<dt><i>SSS</i></dt>
+<dd><p>Inteiro de tr&#234;s d&#237;gitos, com zero no in&#237;cio se for necess&#225;rio, no intervalo de 000 a 999 para os milissegundos. </p>
+
+</dd>
+</dl>
+<p>Por exemplo, para especificar a hora de 5:10 PM, digite <tt>17:10:00.000</tt> no
+campo Hora.</p><p>se o valor De for posterior ao valor Para, aparecer&#225; uma mensagem
+de erro.</p></li></ul></li>
+<li><b>Filtrar mensagens pelo n&#237;vel de log.</b><p>Para assegurar que as mensagens que voc&#234; deseja exibir apare&#231;am no log
+do servidor, primeiro <a href="task-eelogginglevels.html">defina os n&#237;veis de log apropriados</a> na p&#225;gina N&#237;veis de log do m&#243;dulo.</p><p>Se optar por filtrar as mensagens de log pelo n&#237;vel de log,
+apenas as mensagens que correspondam aos crit&#233;rios de filtro especificados ser&#227;o mostradas.
+Contudo, essa filtragem n&#227;o afeta quais mensagens s&#227;o registradas no log do
+servidor.</p><ol style="list-style-type: lower-roman">
+<li><b>Na lista suspensa N&#237;vel de log, selecione o n&#237;vel de log.</b></li>
+<li><b>Para exibir mensagens somente no n&#237;vel selecionado, selecione a op&#231;&#227;o N&#227;o incluir
+mais mensagens graves.</b><p>Por padr&#227;o, s&#227;o exibidas todas as mensagens no log do servidor no
+n&#237;vel de log escolhido e nos n&#237;veis mais graves.</p></li></ol></li></ol></li>
+<li><b>Na &#225;rea Pesquisa avan&#231;ada, filtre registros pelo espa&#231;o para nome do agente
+de log e selecione a quantidade de informa&#231;&#245;es que ser&#225; exibida.</b><ol style="list-style-type: lower-alpha">
+<li><b>Clique no link Pesquisa avan&#231;ada.</b><p>A &#225;rea Pesquisa avan&#231;ada &#233; adicionada &#224; janela Visualizador de log.</p></li>
+<li><b>Para filtrar por m&#243;dulo, na lista suspensa Agente de log, selecione um
+ou mais espa&#231;os para nome.</b><p>Utilize shift-clique ou control-clique para escolher v&#225;rios espa&#231;os para nome.</p><p>Selecionar um espa&#231;o para nomes em um n&#237;vel mais elevado seleciona todos
+os espa&#231;os para nomes abaixo dele. Por exemplo, se <tt>javax.enterprise.system</tt> for selecionado,
+os agentes de log de todos os m&#243;dulos naquele espa&#231;o para nome
+s&#227;o selecionados: <tt>javax.enterprise.system.core </tt>, <tt>javax.enterprise.system.tools.admin</tt> e assim por diante.</p></li>
+<li><b>Para visualizar as mensagens dos agentes de log de um aplicativo em
+particular, no campo Agente de log personalizado, digite o nome de cada
+agente de log em outra linha.</b><p>Se o aplicativo tiver diversos m&#243;dulos, voc&#234; poder&#225; exibir qualquer m&#243;dulo ou
+todos os m&#243;dulos. Por exemplo, um aplicativo pode ter os seguintes agentes
+de log:</p>
+<ul><li><p><tt>com.example.myapp.module1</tt></p>
+
+</li>
+<li><p><tt>com.example.myapp.module2</tt></p>
+
+</li>
+<li><p><tt>com.example.myapp.module3</tt></p>
+
+</li></ul>
+<p>Para exibir as mensagens de todos os m&#243;dulos no aplicativo, digite <tt>com.mycompany.myapp </tt>.
+Para exibir apenas mensagens do <tt>module2</tt>, digite <tt> com.example.myapp.module2</tt>.</p><p>Quando voc&#234; especifica um ou mais agentes de logs, as mensagens dos
+m&#243;dulos do Servidor GlassFish aparecem apenas se voc&#234; as especificar explicitamente na
+&#225;rea do Agente de Log.</p></li>
+<li><b>Na lista suspensa Exibir, selecione o n&#250;mero de mensagens que ser&#225; exibido.</b><p>O n&#250;mero padr&#227;o de mensagens exibidas &#233; 40. Outras op&#231;&#245;es s&#227;o 100,
+250 e 1.000.</p></li>
+<li><b>Para exibir os rastreamentos de pilha, desmarque a op&#231;&#227;o Limitar mensagens excessivamente
+longas.</b><p>Por padr&#227;o, os rastreamentos de pilha n&#227;o aparecem no visualizador. Para exibi-los,
+clique no link (detalhes) para obter uma mensagem. </p></li>
+<li><b>Para ocultar a &#225;rea Pesquisa avan&#231;ada, clique no link Pesquisa b&#225;sica.</b></li></ol></li>
+<li><b>Para especificar a inst&#226;ncia e o arquivo de log associado que deseja
+visualizar, utilize a &#225;rea Modificar pesquisa.</b><ul>
+<li><b>Na lista suspensa Inst&#226;ncia, selecione a inst&#226;ncia.</b><p>O padr&#227;o &#233; a inst&#226;ncia inicialmente selecionada para exibir os arquivos de
+log. Se tiver optado por exibir os arquivos de log do servidor
+de administra&#231;&#227;o do dom&#237;nio (DAS), o padr&#227;o &#233; o servidor, o qual
+representa o DAS. </p></li>
+<li><b>Na lista suspensa Arquivo de log, selecione o arquivo de log.</b><p>O padr&#227;o &#233; <tt>server.log</tt>. As outras op&#231;&#245;es dependem das configura&#231;&#245;es do log
+no destino selecionado.</p></li></ul></li>
+<li><b>Na &#225;rea Resultados da Pesquisa, personalize a exibi&#231;&#227;o das mensagens de log.</b><p>A &#225;rea Resultados da pesquisa exibe as 40 entradas mais recentes no
+log do servidor, com as configura&#231;&#245;es nas p&#225;ginas Configura&#231;&#245;es de log e
+N&#237;veis de log.</p><ul>
+<li><b>Para ordenar as mensagens de outro modo, clique nas setas das colunas.</b></li>
+<li><b>Para exibir a vers&#227;o formatada de uma mensagem, clique no link (detalhes)
+da mensagem.</b><p>A janela Detalhes da entrada de log se abre, a qual cont&#233;m
+uma vers&#227;o formatada da mensagem.</p></li>
+<li><b>Para exibir entradas anteriores e posteriores no arquivo de log, clique em
+Registros antes de e Registros depois de na parte superior da tabela.</b></li></ul></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-eelogging.html">Para definir as configura&#231;&#245;es gerais de log</a></p>
+
+</li>
+<li><p><a href="task-eelogginglevels.html">Para configurar n&#237;veis de log</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">Para visualizar os arquivos de log do DAS</a></p>
+
+</li>
+<li><p><a href="../../../cluster/pt_BR/help/task-view-logs-clustered-instance.html">Para&#160;exibir arquivos de log de&#160;uma inst&#226;ncia do Servidor GlassFish em cluster</a></p>
+
+</li>
+<li><p><a href="../../../cluster/pt_BR/help/task-view-logs-standalone-instance.html">Para&#160;exibir arquivos de log de&#160;uma inst&#226;ncia do Servidor GlassFish independente</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

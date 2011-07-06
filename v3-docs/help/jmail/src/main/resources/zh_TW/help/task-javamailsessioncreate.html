@@ -1,0 +1,50 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-javamailsessioncreate"></a><h4>建立 JavaMail 階段作業</h4><a name="indexterm-1"></a><ol>
+<li><b>在瀏覽樹狀結構中，展開 [資源] 節點。</b></li>
+<li><b>在 [資源] 節點下，選取 [JavaMail 階段作業]。</b><p>[JavaMail 階段作業] 頁面會隨即開啟。</p></li>
+<li><b>在 [階段作業] 表格中，按一下 [新建]。</b><p>[新建 JavaMail 階段作業] 頁面會隨即開啟。</p></li>
+<li><b>在 [JNDI 名稱] 欄位中，鍵入郵件階段作業資源的唯一名稱。 </b><p>對於 JavaMail 資源，請使用子環境前綴 <tt>mail/</tt> 來命名。例如︰ <tt> mail/MySession</tt>。名稱必須僅包含字母數字、底線、破折號或點字符。</p></li>
+<li><b>在 [郵件主機] 欄位中，鍵入預設郵件伺服器的主機名稱。</b><p>如果未提供協定特定的主機特性，Store 和 Transport 物件的連線方法將使用該值。名稱必須可以解析為實際的主機名稱。</p></li>
+<li><b>在 [預設使用者] 欄位中，鍵入連線至郵件伺服器時要提供的使用者名稱。 </b><p>如果未提供協定特定的使用者名稱特性，Store 和 Transport 物件的連線方法使用該值。使用者名稱僅能包含字母數字、底線、破折號或點字元。</p></li>
+<li><b>在 [預設寄件者地址] 欄位中，鍵入預設使用者的電子郵件地址。</b><p>格式為 <i>username</i><tt>@</tt><i>host</i>.<i>domain</i>。</p></li>
+<li><b>在 [說明] 欄位中，鍵入此郵件階段作業的說明。</b></li>
+<li><b>選取 [啟用狀態] 核取方塊，以啟用郵件階段作業。</b><p>預設值為 [啟用]。</p></li>
+<li><b>在 [儲存協定] 欄位中，定義要使用的儲存協定服務。</b><p>儲存協定服務可連線至郵件伺服器、擷取郵件訊息，並將郵件儲存於一或多個資料夾。允許的值為 <tt>imap</tt>、<tt>pop3</tt>、<tt>imaps</tt> 和 <tt>pop3s</tt>。預設值為 <tt>imap</tt>。</p></li>
+<li><b>在 [儲存協定類別] 欄位中，指定儲存的服務提供者實作類別。</b><p>允許的值包括 ：</p>
+
+
+<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
+
+</li></ul>
+<p>預設值為 <tt>com.sun.mail.imap.IMAPStore</tt>。</p></li>
+<li><b>在 [傳輸協定] 欄位中，指定傳輸通訊方法。</b><p>傳輸協定服務可傳送訊息。允許的值為 <tt>smtp</tt> 和 <tt>smtps</tt>。依預設，傳輸協定是 <tt>smtp</tt>。</p></li>
+<li><b>在 [傳輸協定類別] 欄位中，指定傳輸的服務提供者實作類別。</b><p>預設值為 <tt>com.sun.mail.smtp.SMTPTransport</tt>。</p></li>
+<li><b>選取 [除錯] 核取方塊可為此郵件階段作業啟用額外的除錯輸出功能，包括協定追蹤。</b><p>如果將 JavaMail 記錄層級設為 <tt>FINE</tt> 或更精細，則系統會產生除錯輸出，並且該輸出會包含在系統記錄檔中。請參閱「<a href="../../../common/zh_TW/help/task-eelogginglevels.html">配置記錄層級</a>」，以取得有關設定記錄層級的資訊。此選項預設為停用。</p></li>
+<li>(可選擇) <b>在 [其他特性] 表中，指定應用程式所需的其他特性，例如協定特定的主機或使用者名稱特性。</b><p>如需可用特性的清單，請參閱 <a href="http://java.sun.com/products/javamail/javadocs/index.html">JavaMail API 文件</a>。其他特性必須以 <tt>mail-</tt> 開頭，且必須使用連字符 (而非點字元) 做為分隔符。例如 <tt>mail-debug</tt> 是正確的，而 <tt>mail.debug</tt> 則不正確。GlassFish Server 後端會將連字符轉換為
+JavaMail API 預期的點字元。</p><p>若要增加特性，請按一下 [增加特性] 按鈕。在出現的空白列中，於 [名稱] 欄位中鍵入特性名稱，然後在 [值] 欄位中鍵入特性值。</p></li>
+<li><b>從可用目標的清單中，選取要配置郵件階段作業的一或多個目標，然後按一下 [增加]。</b><p>目標可以是叢集或獨立伺服器實例。如果未選取目標，則會將階段作業配置到預設伺服器實例 <tt>server</tt>。</p></li>
+<li><b>按一下 [確定]。</b></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-javamailsessionsedit.html">編輯 JavaMail 階段作業</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsdelete.html">刪除 JavaMail 階段作業</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

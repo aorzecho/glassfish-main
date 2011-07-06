@@ -1,0 +1,52 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectionservice"></a><h4>連接器服務</h4>
+<a name="indexterm-62"></a><p>使用 [連接器服務] 頁面可修改控制資源配接卡之連接器服務的一般設定。</p>
+
+<p>[連接器服務] 頁面包含下列選項。</p>
+
+<dl><dt>載入預設值</dt>
+<dd><p>將所有設定復原為預設值的按鈕。</p>
+
+</dd>
+<dt>配置名稱</dt>
+<dd><p>套用此頁面上之設定的配置名稱。此欄位是唯讀欄位。</p>
+
+</dd>
+<dt>關機逾時</dt>
+<dd><p>GlassFish Server 關機期間可等候連接器模組實例的 <tt>ResourceAdapter.stop</tt> 方法完成的最大秒數。會忽略需要更長時間關機的資源配接卡並繼續 GlassFish Server 關機動作。預設值為 30 秒。</p>
+
+</dd>
+<dt>連接器類別載入策略</dt>
+<dd><p>用於載入類別的策略。可用的選項包括：</p>
+
+<dl><dt><tt>derived</tt></dt>
+<dd><p>代表會將資源配接卡根據應用程式的參照，提供給任何資源配接卡的資源。 此策略為預設值。</p>
+
+</dd>
+<dt><tt>global</tt></dt>
+<dd><p>代表會對所有應用程式顯示所有資源配接卡。</p>
+
+</dd>
+</dl>
+<p>此策略不會套用到預先安裝的 JMS 系統資源配接卡 <tt>jmsra</tt>，該資源配接卡會永遠對所有應用程式顯示。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-connectionservice.html">配置連接器服務</a></p>
+
+</li>
+<li><p><a href="../../../common/zh_TW/help/task-appdeployconn.html">部署連接器模組</a></p>
+
+</li></ul>
+<h5>相關的 <tt>asadmin</tt> 指令</h5>
+<p>無。</p>
+
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

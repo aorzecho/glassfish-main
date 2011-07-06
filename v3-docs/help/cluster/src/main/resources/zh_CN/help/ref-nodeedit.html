@@ -1,0 +1,158 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-nodeedit"></a><h4>编辑节点</h4>
+<a name="indexterm-198"></a><p>使用&#8220;编辑节点&#8221;页面可更新 GlassFish Server 节点的配置数据。还可以使用此页面将节点的类型从 CONFIG 更改为 SSH，以便为节点启用 SSH 通信。</p>
+
+<p>如果将节点的类型从 CONFIG 更改为 SSH，则在以下任意字段留空时将应用默认值：</p>
+
+
+<ul><li><p>SSH 端口</p>
+
+</li>
+<li><p>用户名</p>
+
+</li>
+<li><p>密钥文件</p>
+
+</li></ul>
+<p>&#8220;编辑节点&#8221;页面包含以下选项：</p>
+
+<dl><dt>名称</dt>
+<dd><p>创建节点时为其指定的名称。此字段为只读。</p>
+
+</dd>
+<dt>类型</dt>
+<dd><p>用于指定节点类型的下拉式列表，节点类型可以为以下类型之一：</p>
+
+<dl><dt>SSH</dt>
+<dd><p>节点支持通过安全 shell (secure shell, SSH) 进行通信。</p>
+
+</dd>
+<dt>CONFIG</dt>
+<dd><p>节点不支持远程通信。如果选择 CONFIG，则不会显示 SSH 配置的任何选项。如果在节点的当前类型是 SSH 时选择 CONFIG，则在保存更改时，将从节点的配置中删除 SSH 配置数据。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>节点主机</dt>
+<dd><p>节点更新后所代表的主机的名称。该字段是否是必需字段取决于节点类型：</p>
+
+
+<ul><li><p>如果节点类型为 CONFIG，可以省略主机名。可在创建驻留在节点上的实例时确定该主机名。</p>
+
+</li>
+<li><p>如果节点类型为 SSH，必须指定主机名。否则，会出现错误。</p>
+
+</li></ul>
+</dd>
+<dt>节点目录</dt>
+<dd><p>用于包含节点上创建的 GlassFish Server 实例的目录路径。如果指定相对路径，则该路径相对于 <i>as-install</i> 目录，其中 <i>as-install</i> 是主机上 GlassFish Server 软件的基本安装目录。</p>
+
+</dd>
+<dt>安装目录</dt>
+<dd><p>主机上 GlassFish Server 软件的基本安装目录的父目录的完整路径，例如，<tt>/export/glassfish3/</tt>。 </p>
+
+</dd>
+<dt>强制</dt>
+<dd><p>如果选择&#8220;已启用&#8221;选项，则即使节点参数验证失败，也会在域管理服务器 (domain administration server, DAS) 配置中更新节点。要验证节点的参数，DAS 必须能通过 SSH 联系节点的主机。</p>
+
+</dd>
+<dt>SSH 端口</dt>
+<dd><p>此节点的主机进行 SSH 连接使用的端口。 </p>
+
+<p>如果将节点的类型从 CONFIG 更改为 SSH 并将此字段留空，&#8220;SSH 端口&#8221;选项将被设置为 22。</p>
+
+<p>如果将&#8220;节点主机&#8221;选项设置为 <tt>localhost-<i>domain</i></tt>，将忽略&#8220;SSH 端口&#8221;选项。</p>
+
+</dd>
+<dt>SSH 用户名</dt>
+<dd><p>该节点主机上要运行通过 SSH 连接到主机的进程的用户。</p>
+
+<p>如果将节点的类型从 CONFIG 更改为 SSH 并将此字段留空，&#8220;用户名&#8221;选项将被设置为运行 DAS 进程的用户。</p>
+
+<p>如果将&#8220;节点主机&#8221;选项设置为 <tt>localhost-<i>domain</i></tt>，将忽略&#8220;SSH 用户&#8221;选项。</p>
+
+</dd>
+<dt>SSH 用户验证</dt>
+<dd><p>用于指定 SSH 用户登录到该节点主机时如何对其进行验证的下拉式列表。可能的验证方法如下：</p>
+
+<dl><dt>密钥文件</dt>
+<dd><p>SSH 用户通过 SSH 私钥文件进行验证。如果选择该选项，请在&#8220;密钥文件&#8221;字段中指定该文件的绝对路径。</p>
+
+</dd>
+<dt>密码</dt>
+<dd><p>SSH 用户通过存储在 DAS 配置中的密码进行验证。</p>
+
+
+<hr><p><b>注意 - </b>此密码以明文形式存储在 DAS 配置中。为了增强安全性，请使用密钥文件或密码别名。</p>
+
+
+<hr>
+<p>如果选择该选项，将激活&#8220;SSH 密码&#8221;字段和&#8220;确认 SSH 密码&#8221;字段，以便您提供密码。</p>
+
+</dd>
+<dt>密码别名</dt>
+<dd><p>SSH 用户通过密码别名进行验证。如果选择该选项，请从&#8220;密码别名&#8221;下拉式列表中选择相应密码别名。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>SSH 密码</dt>
+<dd><p>SSH 用户登录到该节点主机时要使用的密码。</p>
+
+</dd>
+<dt>确认 SSH 密码</dt>
+<dd><p>确认 SSH 用户登录到该节点主机时要使用的密码。该字段的内容必须与&#8220;SSH 密码&#8221;字段的内容完全一致。</p>
+
+</dd>
+<dt>密码别名</dt>
+<dd><p>为该域定义的密码别名的下拉式列表。</p>
+
+</dd>
+<dt>密钥文件</dt>
+<dd><p>&#8220;用户名&#8221;选项指定的用户的 SSH 专用密钥文件的绝对路径。此文件用于向节点的主机上的 <tt>sshd</tt> 守护进程进行验证。</p>
+
+
+<hr><p><b>注 - </b>GlassFish Server 还支持通过密码文件中的 <tt>AS_ADMIN_SSHPASSWORD</tt> 条目进行密码验证。密码文件在 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> 实用程序的 <tt>--paswordfile</tt> 选项中指定。</p>
+
+
+<hr>
+<p>如果 SSH 专用密钥文件受口令短语保护，则密码文件必须包含 <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt> 条目。</p>
+
+<p>密钥文件的路径必须是 DAS 可以访问的路径，密钥文件必须是 DAS 可读的文件。</p>
+
+<p>默认值取决于是否将节点的类型从 CONFIG 更改为 SSH 以便为节点启用 SSH 通信：</p>
+
+<p>如果将节点类型从 CONFIG 更改为 SSH 并将此字段留空，&#8220;密钥文件&#8221;选项将设置为用户的 <tt>.ssh</tt> 目录中的密钥文件。如果找到多个密钥文件，GlassFish Server 遵循以下先后顺序：</p>
+
+
+<ol><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>identity</tt></p>
+
+</li></ol>
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-editnode.html">编辑节点</a></p>
+
+</li></ul>
+<h5>等效的 <tt>asadmin</tt> 子命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-config-1"><tt>update-node-config</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-ssh-1"><tt>update-node-ssh</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

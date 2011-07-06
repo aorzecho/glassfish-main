@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsservice"></a><h4>JMS サービス</h4>
+<a name="indexterm-43"></a><p>すべての JMS 接続で使用する設定を変更するには、「JMS サービス」ページを使用します。</p>
+
+<p>JMS サービスの設定については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob"><i>『Oracle GlassFish Server 3.1 Application Development Guide』</i>の第 17 章「Using the Java Message Service」</a>を参照してください。</p>
+
+<p>「JMS サービス」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>JMS サービスがデフォルトの JMS ホストで動作していることを確認するボタン。JMS サービスが動作している場合は、ping の成功を示すメッセージが表示されます。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>タイプ</dt>
+<dd><p>JMS サービスのアクセスのタイプ。次のタイプを指定できます。</p>
+
+<dl><dt>EMBEDDED</dt>
+<dd><p>ローカルホストの JMS サービスにアクセスします。JMS サービスは GlassFish サーバー と同じ JVM マシンで起動されます。遅延初期化によって、GlassFish サーバー の起動時ではなく、JMS サービスに最初にアクセスしたときにデフォルトの埋め込みブローカを起動します。JMS サービスのデフォルトのタイプです。</p>
+
+</dd>
+<dt>LOCAL</dt>
+<dd><p>ローカルホストの JMS サービスにアクセスします。JMS プロバイダは GlassFish サーバー とともに起動されます。</p>
+
+</dd>
+<dt>REMOTE</dt>
+<dd><p>別のシステムの JMS サービスにアクセスします。REMOTE を選択すると、JMS サービスは次のサーバーの起動時に GlassFish サーバー によって起動されません。JMS サービスは Message Queue によって起動および管理されるため、Message Queue ブローカを別に起動する必要があります。ブローカの起動については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby"><i>『Oracle GlassFish Message Queue 4.5 Administration Guide』</i>の「Starting Brokers」</a>を参照してください。この値を選択し、かつリモートホストを使用している場合は、<a href="task-jmshostedit.html">「JMS ホストを編集する」</a>で説明する手順に従って、リモートホストの名前を指定します。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>起動タイムアウト</dt>
+<dd><p>起動が中止されるまでに、GlassFish サーバー が JMS サービスの起動を待機する時間 (秒単位)。処理速度の遅いシステムやオーバーロードしたシステムでは、デフォルト値よりも大きくします。デフォルト値は 60 です。</p>
+
+</dd>
+<dt>起動引数</dt>
+<dd><p>JMS サービスの起動をカスタマイズする引数。<tt><i>as-install-parent</i>/mq/bin/imqbrokerd</tt> コマンドで使用できる引数を使用します。</p>
+
+</dd>
+<dt>再接続の有効化</dt>
+<dd><p>「再接続」の「有効」チェックボックスを選択すると、接続が失われたときに JMS サービスがメッセージサーバーまたは AddressList で指定したアドレスのリストに再接続を試みます。このオプションはデフォルトで有効になっています。</p>
+
+</dd>
+<dt>再接続間隔</dt>
+<dd><p>再接続を試行する間隔 (秒単位)。この間隔は、AddressList で指定した各アドレスおよびリストの次のアドレスへの試行に適用されます。間隔が短すぎると、ブローカにリカバリする時間が与えられません。間隔が長すぎると、再接続が許容できない遅延を示す場合があります。デフォルト値は 5 秒です。</p>
+
+</dd>
+<dt>再接続試行</dt>
+<dd><p>クライアントランタイムがリストの次のアドレスを試行する前に、AddressList に指定した各アドレスへの接続 (または再接続) を試行する回数。値 -1 は、再試行回数が無制限であることを示します。クライアントランタイムは、接続が成功するまで最初のアドレスへの接続を試みます。デフォルト値は 3 です。</p>
+
+</dd>
+<dt>デフォルト JMS ホスト</dt>
+<dd><p>デフォルト JMS ホストの名前。デフォルト値は <tt>default_JMS_host</tt> です。</p>
+
+</dd>
+<dt>アドレスリストの動作</dt>
+<dd><p>接続を試行する順序。次のタイプを指定できます。</p>
+
+<dl><dt><tt>random</tt></dt>
+<dd><p>AddressList からアドレスをランダムに選択します。多数のクライアントが同じ接続ファクトリを使用して接続を試行する場合は、すべてのクライアントが同じアドレスに接続しないように <tt>random</tt> を指定します。このオプションがデフォルトです。</p>
+
+</dd>
+<dt><tt>priority</tt></dt>
+<dd><p>再接続では常に AddressList に指定した最初のサーバーのアドレスへの接続を試行し、最初のブローカが利用できない場合にだけほかのアドレスを使用します。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>アドレスリストの繰り返し</dt>
+<dd><p>接続の確立 (または再確立) のために、JMS サービスが AddressList を反復する回数。値 -1 は試行回数が無制限であることを示します。デフォルト値は 3 です。</p>
+
+</dd>
+<dt>MQ スキーム、MQ サービス</dt>
+<dd><p>デフォルト以外のスキームまたはサービスを使用する場合の、Message Queue アドレススキーム名と Message Queue 接続サービス名。 構文については、<a href="ref-mqschemeservice.html">「MQ スキームと MQ サービスのアドレスの構文」</a>を参照してください。</p>
+
+</dd>
+<dt>追加プロパティー</dt>
+<dd><p>JMS サービスの追加プロパティー。</p>
+
+<p>使用可能なプロパティーの詳細については、<a href="ref-jmsservice-additional-props.html">「JMS サービスに固有のプロパティー」</a>を参照してください。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-jmsservice.html">「JMS サービスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-jmshostnew.html">「JMS ホストを作成する」</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">「JMS ホストを編集する」</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">「JMS ホストを削除する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=jms-ping-1"><tt>jms-ping</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

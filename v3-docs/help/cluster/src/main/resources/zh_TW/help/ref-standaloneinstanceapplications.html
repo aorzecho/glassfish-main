@@ -1,0 +1,161 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-standaloneinstanceapplications"></a><h4>應用程式</h4>
+<a name="indexterm-208"></a><a name="indexterm-209"></a><p>使用 [應用程式] 頁面，可對選取的獨立 GlassFish Server 實例執行下列作業：</p>
+
+
+<ul><li><p>檢視和管理已部署至實例的應用程式</p>
+
+</li>
+<li><p>將更多應用程式部署至實例</p>
+
+</li></ul>
+<p>[實例名稱] 欄位是唯讀欄位，會顯示目前實例的名稱。</p>
+
+<p>[應用程式] 頁面會顯示部署至所選取實例的應用程式清單。對於每個應用程式，均提供以下資訊：</p>
+
+<dl><dt>名稱</dt>
+<dd><p>應用程式名稱。</p>
+
+<p>名稱中可以包含一個選擇性的版本識別碼，後面接著名稱，兩者間用冒號 (<tt>:</tt>) 隔開。 如需有關模組與應用程式版本的更多資訊，請參閱<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv"><i>「Oracle GlassFish Server 3.1 Application Deployment Guide」</i>中的「Module and Application Versions」</a>。</p>
+
+</dd>
+<dt>已啟用</dt>
+<dd><p>指示應用程式是否已啟用：</p>
+
+
+<ul><li><p>如果應用程式已啟用，便會顯示核取記號 (&#10003;)。</p>
+
+</li>
+<li><p>如果應用程式已停用，便會顯示叉號 (&#10007;)。</p>
+
+</li></ul>
+</dd>
+<dt>負載平衡已啟用</dt>
+<dd><p>指示應用程式是否已啟用負載平衡：</p>
+
+
+<ul><li><p>如果應用程式已啟用負載平衡，便會顯示核取記號 (&#10003;)。</p>
+
+</li>
+<li><p>如果應用程式已停用負載平衡，便會顯示叉號 (&#10007;)。</p>
+
+</li></ul>
+</dd>
+<dt>引擎</dt>
+<dd><p>應用程式使用的容器類型。容器類型可以是下列任何類型：</p>
+
+
+<ul><li><p><tt>web</tt></p>
+
+</li>
+<li><p><tt>webservices</tt></p>
+
+</li>
+<li><p><tt>ejb</tt></p>
+
+</li>
+<li><p><tt>connector</tt></p>
+
+</li>
+<li><p><tt>appclient</tt></p>
+
+</li>
+<li><p><tt>weld</tt> &#8212; 用於 Java EE 平台應用程式之環境與相依性注入的容器</p>
+
+</li></ul>
+</dd>
+</dl>
+<p>已部署的應用程式表也包含下列選項。</p>
+
+<dl><dt>部署</dt>
+<dd><p>部署應用程式的按鈕。</p>
+
+</dd>
+<dt>解除部署</dt>
+<dd><p>解除部署一或多個所選取應用程式的按鈕。</p>
+
+<p>取消部署應用程式會從所有目標與網域中移除應用程式。取消部署應用程式後，在顯示 GlassFish Server 中已部署之所有應用程式的 <a href="../../../common/zh_TW/help/ref-applications.html">[應用程式]</a> 頁面上，便不再列出該應用程式。</p>
+
+<p>若要只從目前的目標移除應用程式，請使用此頁面上的 [移除] 按鈕。</p>
+
+</dd>
+<dt>移除</dt>
+<dd><p>移除一或多個所選取應用程式的按鈕。</p>
+
+<p>移除應用程式只會從目前目標中移除應用程式。從目標中移除應用程式時，在顯示 GlassFish Server 中已部署之所有應用程式的 <a href="../../../common/zh_TW/help/ref-applications.html">[應用程式]</a> 頁面上，仍會繼續列出該應用程式。在已部署該應用程式的任何其他目標上，該應用程式仍然保持已部署狀態。</p>
+
+<p>若要從所有目標與網域中移除應用程式，請使用此頁面上的 [未部署] 按鈕。</p>
+
+</dd>
+<dt>更多動作</dt>
+<dd><p>可對一或多個所選取應用程式執行其他動作的下拉式清單。</p>
+
+<dl><dt>啟用</dt>
+<dd><p>啟用一或多個所選取的應用程式。</p>
+
+</dd>
+<dt>停用</dt>
+<dd><p>停用一或多個所選取的應用程式。</p>
+
+</dd>
+<dt>負載平衡程式啟用</dt>
+<dd><p>啟用一或多個所選取應用程式的負載平衡。</p>
+
+</dd>
+<dt>負載平衡程式停用</dt>
+<dd><p>停用一或多個所選取應用程式的負載平衡。</p>
+
+</dd>
+</dl>
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-standalone-instance-app-deploy.html">將應用程式部署至獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-list.html">列出已部署至獨立 GlassFish Server 實例的應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-undeploy.html">從獨立 GlassFish Server 實例取消部署應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-remove.html">從獨立 GlassFish Server 實例移除應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-edit.html">編輯已部署至獨立 GlassFish Server 實例的應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-enable-disable.html">啟用或停用已部署至獨立 GlassFish Server 實例的應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">啟用或停用已部署至獨立 GlassFish Server 實例之應用程式的負載平衡</a></p>
+
+</li></ul>
+<h5>等效 <tt>asadmin</tt> 子指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=disable-1"><tt>disable</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=disable-http-lb-application-1"><tt>disable-http-lb-application</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=enable-1"><tt>enable</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=enable-http-lb-application-1"><tt>enable-http-lb-application</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

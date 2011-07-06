@@ -1,0 +1,101 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpooladvance"></a><h4>Editar atributos avanzados del conjunto de conexiones de conector</h4>
+<a name="indexterm-43"></a><p>Utilice la p&#225;gina Editar atributos avanzados del conjunto de conexiones de conector
+para modificar las opciones avanzadas de un conjunto de conexiones del conector.</p>
+
+<p>La p&#225;gina Editar atributos avanzados del conjunto de conexiones de conector presenta
+las opciones siguientes:</p>
+
+<dl><dt>Cargar valores predeterminados</dt>
+<dd><p>Bot&#243;n para restablecer los valores predeterminados de todos los par&#225;metros de configuraci&#243;n. </p>
+
+</dd>
+<dt>Validar como m&#225;ximo una vez </dt>
+<dd><p>Especifica el intervalo de tiempo, en segundos, entre solicitudes consecutivas para validar una conexi&#243;n como m&#225;ximo una vez. El valor predeterminado es 0, lo que significa que el atributo no est&#225; habilitado.</p>
+
+</dd>
+<dt>Tiempo de espera de p&#233;rdida</dt>
+<dd><p>La duraci&#243;n de tiempo, en segundos, para realizar un seguimiento de las p&#233;rdidas de conexi&#243;n en un conjunto de conexiones. El valor 0 indica que el seguimiento de p&#233;rdidas de conexi&#243;n est&#225; deshabilitado. El valor predeterminado es 0.</p>
+
+</dd>
+<dt>Reclamaci&#243;n de p&#233;rdidas</dt>
+<dd><p>Si esta opci&#243;n est&#225; seleccionada, las conexiones perdidas se restablecer&#225;n en el conjunto tras completar un seguimiento de las p&#233;rdidas de conexi&#243;n. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Intentos de reintento de creaci&#243;n</dt>
+<dd><p>El n&#250;mero de intentos que se har&#225;n si se produce un fallo al crear una nueva conexi&#243;n. El valor de 0 significa que no se har&#225; ning&#250;n intento para crear la conexi&#243;n de nuevo. El valor predeterminado es 0.</p>
+
+</dd>
+<dt>Intervalo de reintento</dt>
+<dd><p>El intervalo, en segundos, entre dos intentos para crear una conexi&#243;n. Este atributo se utiliza s&#243;lo si el valor de intentos de reintento de creaci&#243;n es superior a 0. El valor predeterminado es 10 segundos.</p>
+
+</dd>
+<dt>Crear conjuntos</dt>
+<dd><p>Permite crear conjuntos de conexiones en el conjunto. Esta opci&#243;n est&#225; habilitada por defecto.</p>
+
+</dd>
+<dt>Asociaci&#243;n no activa</dt>
+<dd><p>Si se selecciona esta opci&#243;n, las conexiones se asociar&#225;n levemente cuando se realice una operaci&#243;n en ellas. Las conexiones se disocian cuando la transacci&#243;n se completa y un m&#233;todo de componentes finaliza, lo que ayuda a reutilizar las conexiones f&#237;sicas. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Reclutamiento de conexiones no activas</dt>
+<dd><p>Si se selecciona esta opci&#243;n, s&#243;lo se incluye un recurso en la transacci&#243;n cuando realmente se utiliza en un m&#233;todo. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Asociar con subproceso</dt>
+<dd><p>Si esta opci&#243;n est&#225; seleccionada, la conexi&#243;n est&#225; asociada a un subproceso. Cuando el mismo subproceso necesita otra conexi&#243;n, puede volver a utilizar la conexi&#243;n que ya est&#225; asociada con ese subproceso, sin necesidad de incurrir en la sobrecarga de coger otra conexi&#243;n del conjunto. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Conexiones coincidentes</dt>
+<dd><p>Si selecciona esta opci&#243;n, la correspondencia de conexiones est&#225; habilitada en el conjunto. Esta opci&#243;n se puede deshabilitar si sabe que las conexiones del conjunto siempre ser&#225;n homog&#233;neas y, por tanto, para una conexi&#243;n recogida del conjunto no se necesita establecer correspondencia mediante el adaptador de recursos. Esta opci&#243;n se habilita por defecto.</p>
+
+</dd>
+<dt>Uso de la correspondencia de conexiones</dt>
+<dd><p>El n&#250;mero de veces que el conjunto debe reutilizar una conexi&#243;n. La conexi&#243;n se cerrar&#225; una vez reutilizada durante un n&#250;mero espec&#237;fico de veces. El valor 0 indica que el atributo no est&#225; habilitado. El valor predeterminado es 0.</p>
+
+</dd>
+</dl>
+<a name="gkomp"></a><h5>Tareas relacionadas</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">Para crear un conjunto de conexiones de conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">Para editar un conjunto de conexiones de conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">Para editar atributos avanzados del conjunto de conexiones del conector</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones del conector</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">Para crear un mapa de seguridad para un conjunto de conexiones de conectores</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">Para editar un mapa de seguridad para un conjunto de conexiones de conectores</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">Para eliminar un mapa de seguridad para un conjunto de conexiones de conectores</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">Para eliminar un conjunto de conexiones de conector</a></p>
+
+</li></ul>
+<a name="gkonj"></a><h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

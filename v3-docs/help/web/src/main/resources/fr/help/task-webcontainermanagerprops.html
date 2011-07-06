@@ -1,0 +1,65 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-webcontainermanagerprops"></a><h4>Configurer les propri&#233;t&#233;s du gestionnaire pour le conteneur Web</h4><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>Le gestionnaire de sessions permet de d&#233;terminer le processus de cr&#233;ation et
+de suppression des sessions, l&#8217;emplacement de stockage de l&#8217;&#233;tat des sessions, ainsi
+que le nombre maximal de sessions disponibles.</p>
+
+<ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
+<li><b>S&#233;lectionnez la configuration &#224; modifier. </b></li>
+<li><b>Sous le n&#339;ud Configuration, s&#233;lectionnez le n&#339;ud Conteneur Web.</b><p>La page Propri&#233;t&#233;s g&#233;n&#233;rales s&#8217;affiche.</p></li>
+<li><b>Dans la page Propri&#233;t&#233;s g&#233;n&#233;rales, cliquez sur l&#8217;onglet Propri&#233;t&#233;s du gestionnaire.</b><p>La page Propri&#233;t&#233;s du gestionnaire s&#8217;affiche.</p></li>
+<li><b>Dans le champ Intervalle d&#8217;obtention, saisissez le nombre de secondes apr&#232;s lesquelles
+les donn&#233;es de sessions inactives sont supprim&#233;es du stockage.</b><p>La valeur par d&#233;faut est 60.</p><p>D&#233;finissez ceux-ci sur une valeur inf&#233;rieure &#224; la fr&#233;quence &#224; laquelle les
+donn&#233;es de session sont modifi&#233;es. Par exemple, cette valeur doit &#234;tre la plus
+petite possible (1 seconde) pour un servlet de compteur de r&#233;sultats trouv&#233;s
+sur un site Web auquel l&#8217;acc&#232;s est fr&#233;quent ; dans le cas
+contraire, vous risquez de perdre les quelques derniers r&#233;sultats trouv&#233;s &#224; chaque
+fois que vous red&#233;marrez le serveur. </p></li>
+<li><b>Dans le champ Nombre de sessions maximal, tapez le nombre maximum de
+sessions pouvant &#234;tre plac&#233;es dans le cache. </b><p>Une valeur de -1 indique que le nombre de sessions est illimit&#233;.
+La valeur par d&#233;faut est &#8211;1.</p><p>Une fois la limite atteinte, toute tentative de cr&#233;ation d&#8217;une nouvelle session
+provoque l&#8217;&#233;mission d&#8217;une exception <tt>IllegalStateException</tt>. </p></li>
+<li><b>Dans le champ Nom de fichier de session, saisissez le chemin d&#8217;acc&#232;s,
+absolu ou relatif, vers le r&#233;pertoire dans lequel l&#8217;&#233;tat de la session
+est conserv&#233; entre les red&#233;marrages de l&#8217;application, si la conservation de l&#8217;&#233;tat
+est possible. </b><p>Si ce chemin n&#8217;est pas d&#233;fini, l&#8217;&#233;tat de la session n&#8217;est pas
+conserv&#233;. Par d&#233;faut, ce chemin n&#8217;est pas d&#233;fini. </p><p>Un chemin d&#8217;acc&#232;s relatif est relatif au r&#233;pertoire temporaire pour cette application
+Web.</p><p>Ce param&#232;tre ne s'applique que si le type de persistance est <tt>memory</tt>.
+ Pour d&#233;finir le type de persistance, voir <a href="task-webcontaineravailability.html">Pour configurer les param&#232;tres de disponibilit&#233; du conteneur Web</a>.  </p></li>
+<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>Le GlassFish Server ne d&#233;finit aucune autre propri&#233;t&#233; pour le gestionnaire de
+sessions.</p><ul>
+<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
+ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
+champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
+<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
+<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
+Nom de la propri&#233;t&#233; que vous supprimez,  puis cliquez sur le
+bouton Supprimer propri&#233;t&#233;s.</b></li></ul></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-webcontainergeneral.html">Configuration des propri&#233;t&#233;s g&#233;n&#233;rales du conteneur Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">Configurer les propri&#233;t&#233;s de session pour le conteneur Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">Configurer les propri&#233;t&#233;s de stockage pour le conteneur Web</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">Pour configurer les param&#232;tres de disponibilit&#233; du conteneur Web</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

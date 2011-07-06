@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsservice"></a><h4>JMS 服务</h4>
+<a name="indexterm-43"></a><p>使用&#8220;JMS 服务&#8221;页面可以配置所有 JMS 连接都要使用的设置。</p>
+
+<p>有关配置 JMS 服务的更多信息，请参见<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob"><i>《Oracle GlassFish Server 3.1 Application Development Guide》</i>中的第&#160;17 &#160;章 "Using the Java Message Service"</a>。</p>
+
+<p>&#8220;JMS 服务&#8221;页面包含以下选项。</p>
+
+<dl><dt>装入默认值</dt>
+<dd><p>用于恢复所有设置的默认值的按钮。</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>用于验证默认 JMS 主机上是否正在运行 JMS 服务的按钮。如果 JMS 服务已启动且正在运行，则会显示一条消息，报告 ping 成功。</p>
+
+</dd>
+<dt>配置名称</dt>
+<dd><p>要应用该页面上的设置的配置的名称。此字段为只读。</p>
+
+</dd>
+<dt>类型</dt>
+<dd><p>JMS 服务的访问类型。可用选项为：</p>
+
+<dl><dt>EMBEDDED</dt>
+<dd><p>访问本地主机上的 JMS 服务。在 GlassFish Server 所在的 JVM 计算机上启动 JMS 服务。延迟初始化在首次访问 JMS 服务时启动默认的嵌入式代理，而不是在 GlassFish Server 启动时启动默认的嵌入式代理。此为 JMS 服务的默认类型。</p>
+
+</dd>
+<dt>LOCAL</dt>
+<dd><p>访问本地主机上的 JMS 服务。JMS 提供者随 GlassFish Server 一起启动。</p>
+
+</dd>
+<dt>REMOTE</dt>
+<dd><p>访问其他系统上的 JMS 服务。如果选择了 "REMOTE"，则下一次启动服务器时 JMS 服务不会由 GlassFish Server 启动。JMS 服务由 Message Queue 启动和管理，因此必须单独启动 Message Queue 代理。有关启动代理的信息，请参见<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby"><i>《Oracle GlassFish Message Queue 4.5 Administration Guide》</i>中的"Starting Brokers"</a>。如果选择了该值并要使用远程主机，请按照<a href="task-jmshostedit.html">编辑 JMS 主机</a>中的说明来指定远程主机的名称。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>启动超时</dt>
+<dd><p>GlassFish Server 在中止 JMS 服务启动之前等待该服务启动的秒数。在运行缓慢或过载的系统上，请在默认值的基础上增大该值。默认值为 60。</p>
+
+</dd>
+<dt>启动参数</dt>
+<dd><p>用于自定义 JMS 服务启动的参数。可以通过 <tt><i>as-install-parent</i>/mq/bin/imqbrokerd</tt> 命令使用任意可用的参数。</p>
+
+</dd>
+<dt>启用重新连接</dt>
+<dd><p>如果选中&#8220;启用重新连接&#8221;复选框，则 JMS 服务将在连接丢失时尝试重新连接至消息服务器（或 AddressList 中的地址列表）。默认情况下启用此选项。</p>
+
+</dd>
+<dt>重新连接时间间隔</dt>
+<dd><p>重新连接尝试之间的秒数。此时间间隔适用于对 AddressList 中每个地址的尝试，以及对该列表中连续地址的尝试。如果该时间间隔太短，则代理将没有时间恢复。如果该时间间隔太长，则重新连接可能会指明这是不可接受的延迟。默认值为 5 秒。</p>
+
+</dd>
+<dt>重新连接尝试</dt>
+<dd><p>客户机运行时在尝试连接 AddressList 列表中的下一个地址之前尝试连接（或重新连接）当前地址的次数。值 -1 表示重新连接尝试次数没有限制（客户机运行时将尝试连接至第一个地址，直到连接成功）。默认值为 3。</p>
+
+</dd>
+<dt>默认 JMS 主机</dt>
+<dd><p>默认 JMS 主机的名称。默认值为 <tt>default_JMS_host</tt>。</p>
+
+</dd>
+<dt>地址列表行为</dt>
+<dd><p>连接尝试的顺序。可用选项为：</p>
+
+<dl><dt><tt>random</tt></dt>
+<dd><p>从 AddressList 中随机选择一个地址。如果许多客户机同时尝试使用同一个连接工厂来进行连接，则应指定 <tt>random</tt> 以防止它们全部连接至同一个地址。此选项为默认选项。</p>
+
+</dd>
+<dt><tt>priority</tt></dt>
+<dd><p>重新连接始终尝试连接 AddressList 中的第一个服务器地址，并且仅在第一个代理不可用时才使用其他地址。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>地址列表重复</dt>
+<dd><p>JMS 服务建立（或重新建立）连接时，在 AddressList 中重复的次数。值 -1 表示尝试次数没有限制。默认值为 3。</p>
+
+</dd>
+<dt>MQ 模式和 MQ 服务</dt>
+<dd><p>Message Queue 地址模式名称和 Message Queue 连接服务名称（如果要使用非默认模式或服务）。有关语法信息，请参见<a href="ref-mqschemeservice.html">MQ 模式和 MQ 服务地址语法</a>。</p>
+
+</dd>
+<dt>其他属性</dt>
+<dd><p>JMS 服务的其他属性。</p>
+
+<p>有关可用属性的信息，请参见<a href="ref-jmsservice-additional-props.html">特定于 JMS 服务的属性</a>。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-jmsservice.html">配置 JMS 服务</a></p>
+
+</li>
+<li><p><a href="task-jmshostnew.html">创建 JMS 主机</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">编辑 JMS 主机</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">删除 JMS 主机</a></p>
+
+</li></ul>
+<h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=jms-ping-1"><tt>jms-ping</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

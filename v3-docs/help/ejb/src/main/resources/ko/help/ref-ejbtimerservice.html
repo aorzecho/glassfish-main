@@ -1,0 +1,59 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ejbtimerservice"></a><h4>EJB 타이머 서비스</h4>
+<a name="indexterm-18"></a><a name="indexterm-19"></a><a name="indexterm-20"></a><p>EJB 타이머 서비스 페이지를 사용하여 EJB 타이머 서비스를 구성합니다.</p>
+
+<p>타이머 서비스는 Enterprise Bean 컨테이너에서 제공하며 Enterprise Bean에서 사용하는 알림이나 이벤트를 예약하는
+데 사용하는 영구적인 트랜잭션 알림 서비스입니다. Stateful Session Bean을 제외한 모든 Enterprise
+Bean에서는 타이머 서비스로부터 알림을 수신할 수 있습니다. 서비스에 의해 설정된 영구 타이머는
+서버가 종료되거나 다시 시작되어도 삭제되지 않습니다.</p>
+
+<p>EJB 타이머 서비스 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>기본값 로드</dt>
+<dd><p>모든 설정의 기본값을 복원하는 데 사용하는 버튼입니다.</p>
+
+</dd>
+<dt>구성 이름</dt>
+<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+
+</dd>
+<dt>최소 전달 간격</dt>
+<dd><p>특정 타이머에 대한 다음 타이머 만료가 발생하기 전에 허용되는 최소 시간(밀리초)입니다. 이 간격을 너무 낮게 설정하면 서버 오버헤드가 발생할 수 있습니다. 기본값은 1000입니다.</p>
+
+</dd>
+<dt>최대 재전송</dt>
+<dd><p>타이머 서비스가 예외 또는 롤백에 대한 타이머 만료 기한을 전달하기 위해 시도하는 최대 횟수입니다. 기본값은 1입니다. </p>
+
+</dd>
+<dt>재전송 간격</dt>
+<dd><p>재전송 시도 간격(밀리초)입니다. 기본값은 5000입니다.</p>
+
+</dd>
+<dt>타이머 데이터 소스</dt>
+<dd><p>타이머 데이터 소스로 사용될 JDBC 자원의 JNDI 이름입니다. 이 값을 지정하면 타이머 서비스 시스템 응용 프로그램에 대한 <tt>jdbc/__TimerPool</tt> 기본값보다 우선합니다.</p>
+
+</dd>
+</dl>
+<h5>관련 작업</h5>
+
+<ul><li><p><a href="task-ejbtimerservice.html">EJB 타이머 서비스를 구성하는 방법</a></p>
+
+</li>
+<li><p><a href="../../../ejb-lite/ko/help/task-ejbgeneral.html">To Configure EJB Settings</a></p>
+
+</li>
+<li><p><a href="task-ejbmdbpoolsettings.html">MDB 풀 설정을 구성하는 방법</a></p>
+
+</li></ul>
+<h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-timers-1"><tt>list-timers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

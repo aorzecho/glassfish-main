@@ -1,0 +1,32 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-setkeyptinterval"></a><h4>キーポイント間隔を設定する</h4><a name="indexterm-6"></a><a name="indexterm-7"></a><p>キーポイント操作によってトランザクションログファイルが圧縮されます。キーポイント間隔とは、ログ上のキーポイント操作間のトランザクション数です。キーポイント処理によって、トランザクションログファイルのサイズを小さくすることができます。キーポイント間隔を大きくすると、トランザクションログファイルが大きくなりますが、キーポイント操作が少なくなるのでパフォーマンスが向上する可能性があります。キーポイント間隔を小さくすると (例: 256)、ログファイルのサイズが小さくなりますが、キーポイント処理が多くなるので、パフォーマンスがわずかに低下します。</p>
+
+<ol>
+<li><b>ナビゲーションツリーで、「設定」ノードを展開します。</b></li>
+<li><b>設定するインスタンスを選択します。</b><ul>
+<li><b>特定のインスタンスを設定するには、そのインスタンスの設定ノードを選択します。たとえば、デフォルトインスタンス <tt>server</tt> の場合は、<tt>server-config</tt> ノードを選択します。</b></li>
+<li><b>すべてのインスタンスのデフォルト値を設定するには、<tt>default-config</tt> ノードを選択します。</b></li></ul></li>
+<li><b>「トランザクションサービス」ノードを選択します。</b><p>「トランザクションサービス」ページが開きます。</p></li>
+<li><b>「キーポイント間隔」フィールドに、キーポイント操作間のトランザクション数を入力します。</b><p>デフォルト値は 65,536 です。</p></li>
+<li><b>「保存」をクリックします。</b></li></ol><h6>参照</h6>
+<ul><li><p><a href="task-configtransservice.html">「トランザクションサービスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-configtransrecovery.html">「GlassFish サーバー によるトランザクションの復元方法を設定する」</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">「トランザクションタイムアウト値を設定する」</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">「トランザクションログの位置を設定する」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

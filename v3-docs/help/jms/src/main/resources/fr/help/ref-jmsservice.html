@@ -1,0 +1,116 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsservice"></a><h4>Service JMS</h4>
+<a name="indexterm-43"></a><p>Utilisez la page Service JMS pour configurer les param&#232;tres &#224; utiliser par
+toutes les connexions JMS.</p>
+
+<p>Pour de plus amples informations sur le service JMS, reportez-vous au <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob">Chapitre 17, Using the Java Message Service du <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p>
+
+<p>La page Service JMS contient les options suivantes.</p>
+
+<dl><dt>Charger les valeurs par d&#233;faut</dt>
+<dd><p>Bouton pour restaurer les valeurs par d&#233;faut de tous les param&#232;tres. </p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>Bouton pour v&#233;rifier que le service JMS est en cours d&#8217;ex&#233;cution sur l&#8217;h&#244;te JMS par d&#233;faut. Si le service JMS est activ&#233; et en cours d&#8217;ex&#233;cution, un message signale que la commande ping a r&#233;ussi.</p>
+
+</dd>
+<dt>Nom de configuration</dt>
+<dd><p>Le nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
+
+</dd>
+<dt>Type</dt>
+<dd><p>Le type d&#8217;acc&#232;s pour le service JMS. Les choix disponibles sont les suivants :</p>
+
+<dl><dt>EMBEDDED</dt>
+<dd><p>Acc&#233;dez au service JMS sur l&#8217;h&#244;te local. Le service JMS est d&#233;marr&#233; sur la m&#234;me machine JVM que GlassFish Server. L&#8217;initialisation paresseuse d&#233;marre le courtier imbriqu&#233; par d&#233;faut sur le premier acc&#232;s des services JMS et non au d&#233;marrage de GlassFish Server. C&#8217;est le type de service JMS par d&#233;faut. </p>
+
+</dd>
+<dt>LOCAL</dt>
+<dd><p>Acc&#233;dez au service JMS sur l&#8217;h&#244;te local. Le fournisseur JMS est d&#233;marr&#233; en m&#234;me temps que GlassFish Server. </p>
+
+</dd>
+<dt>REMOTE</dt>
+<dd><p>Acc&#233;dez au service JMS sur un autre syst&#232;me. Si vous choisissez REMOTE, le service JMS n&#8217;est pas d&#233;marr&#233; par GlassFish Server au prochain d&#233;marrage du serveur. Dans le cas contraire, le service JMS est d&#233;marr&#233; et g&#233;r&#233; par Message Queue, vous devez donc d&#233;marrer le courtier Message Queue s&#233;par&#233;ment. Pour de plus amples informations sur le d&#233;marrage du courtier, reportez-vous &#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby">Starting Brokers du <i>Oracle GlassFish Message Queue 4.5 Administration Guide</i></a>. Si vous choisissez cette valeur et si vous utilisez un h&#244;te distant, suivez les instructions dans <a href="task-jmshostedit.html">Modification d'un h&#244;te JMS</a> pour sp&#233;cifier le nom de l&#8217;h&#244;te distant.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>D&#233;lai d&#8217;attente de d&#233;marrage</dt>
+<dd><p>Le nombre de secondes que GlassFish Server patiente pour que le service JMS tente de d&#233;marrer avant d&#8217;abandonner. Sur un syst&#232;me lent ou surcharg&#233;, accroissez la valeur par d&#233;faut. La valeur par d&#233;faut est 60.</p>
+
+</dd>
+<dt>Arguments de d&#233;marrage</dt>
+<dd><p>Arguments pour personnaliser le d&#233;marrage du service JMS. Utilisez tous les arguments disponibles via la commande <tt><i>as-install-parent</i>/mq/bin/imqbrokerd</tt>.</p>
+
+</dd>
+<dt>Reconnecter Activ&#233;</dt>
+<dd><p>Si la case Activ&#233; de Reconnecter est s&#233;lectionn&#233;e, le service JMS Cette option est activ&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Intervalle de reconnexion</dt>
+<dd><p>Le nombre de secondes entre chaque tentative de reconnexion. Cet intervalle s&#8217;applique aux tentatives sur chaque adresse dans AddressList, ainsi qu&#8217;aux adressses successives dans la liste. Si l&#8217;intervalle est trop court , le courtier n&#8217;aura pas le temps de r&#233;cup&#233;rer. S&#8217;il est trop long, le d&#233;lai de reconnexion peut &#234;tre inacceptable. La valeur par d&#233;faut est 5 secondes.</p>
+
+</dd>
+<dt>Tentatives de reconnexion</dt>
+<dd><p>Le nombre de tentatives de connexion (ou de reconnexion) pour chaque adresse dans AddressList avant que l&#8217;ex&#233;cution du client tente l&#8217;adresse suivante dans la liste. La valeur -1 indique que le nombre de tentatives de reconnexion est illimit&#233; (le programme client tentera de se connecter &#224; la premi&#232;re adresse jusqu&#8217;&#224; ce qu&#8217;il y arrive). La valeur par d&#233;faut est 3.</p>
+
+</dd>
+<dt>H&#244;te JMS par d&#233;faut</dt>
+<dd><p>Le nom de l&#8217;h&#244;te JMS par d&#233;faut. La valeur par d&#233;faut est <tt>default_JMS_host</tt>.</p>
+
+</dd>
+<dt>Comportement de la liste d&#8217;adresses</dt>
+<dd><p>L&#8217;ordre des tentatives de connexion. Les choix disponibles sont les suivants :</p>
+
+<dl><dt><tt>random</tt></dt>
+<dd><p>S&#233;lectionnez une adresse au hasard dans AddressList. Si un grand nombre de clients tente de se connecter en utilisant la m&#234;me fabrique de connexion, choisissez <tt>random</tt> pour &#233;viter qu&#8217;ils ne soient tous connect&#233;s &#224; la m&#234;me adresse. Cette option est l&#8217;option par d&#233;faut.</p>
+
+</dd>
+<dt><tt>priority</tt></dt>
+<dd><p>Le module de reconnexion tente toujours de se connecter &#224; la premi&#232;re adresse de serveur dans AddressList et en utilise une autre uniquement si le premier courtier n&#8217;est pas disponible.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>It&#233;rations de la liste d&#8217;adresses</dt>
+<dd><p>Le nombre de fois que le service JMS parcourt AddressList afin d&#8217;&#233;tablir (ou de r&#233;ablir) une connexion. La valeur -1 indique que le nombre de tentatives est illimit&#233;. La valeur par d&#233;faut est 3.</p>
+
+</dd>
+<dt>Sch&#233;ma MQ et Service MQ</dt>
+<dd><p>Le nom du sch&#233;ma d&#8217;adresses Message Queue et du service de connexion Message Queue si un sch&#233;ma ou un service non d&#233;fini par d&#233;faut doit &#234;tre utilis&#233;. Reportez-vous &#224; <a href="ref-mqschemeservice.html">Syntaxe d'adresse du sch&#233;ma MQ et du service MQ</a> pour plus d&#8217;informations sur la syntaxe.</p>
+
+</dd>
+<dt>Autres propri&#233;t&#233;s</dt>
+<dd><p>Autres propri&#233;t&#233;s pour le service JMS.</p>
+
+<p>Pour plus d&#8217;informations sur les propri&#233;t&#233;s disponibles, reportez-vous &#224; <a href="ref-jmsservice-additional-props.html">Propri&#233;t&#233;s sp&#233;cifiques au service JMS</a>.</p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-jmsservice.html">Configuration du service JMS</a></p>
+
+</li>
+<li><p><a href="task-jmshostnew.html">Cr&#233;ation d'un h&#244;te JMS</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">Modification d'un h&#244;te JMS</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">Suppression d'un h&#244;te JMS</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=jms-ping-1"><tt>jms-ping</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

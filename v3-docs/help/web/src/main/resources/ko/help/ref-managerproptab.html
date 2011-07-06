@@ -1,0 +1,68 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-managerproptab"></a><h4>관리자 등록 정보</h4>
+<a name="indexterm-50"></a><a name="indexterm-51"></a><p>세션 관리자는 세션을 만들고 삭제하는 방법, 세션 상태 저장 위치 및 사용
+가능한 최대 세션 수를 구성할 수 있는 방법을 제공합니다.</p>
+
+<p>관리자 등록 정보 페이지에서는 웹 컨테이너의 세션 관리자 등록 정보를 추가하거나 수정할
+수 있습니다.</p>
+
+<p>관리자 등록 정보 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>기본값 로드</dt>
+<dd><p>모든 설정의 기본값을 복원하는 데 사용하는 버튼입니다.</p>
+
+</dd>
+<dt>구성 이름</dt>
+<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+
+</dd>
+<dt>리프 간격</dt>
+<dd><p>비활성 세션 데이터가 저장소에서 삭제되기까지의 시간(초)입니다. 기본값은 60입니다.</p>
+
+<p>이 값을 세션 데이터가 변경되는 빈도보다 낮게 설정합니다. 예를 들어 자주 액세스하는 웹 사이트의 적중 횟수 서블릿에 대해서는 이 값을 가능한 한 낮게(1초) 설정해야 합니다. 그렇지 않으면 서버를 다시 시작할 때마다 마지막 몇 개의 적중 항목이 손실될 수 있습니다.</p>
+
+</dd>
+<dt>최대 세션</dt>
+<dd><p>캐시에 있을 수 있는 최대 세션 수입니다. 값이 &#8211;1이면 세션 수에 제한이 없습니다. 기본값은 &#8211;1입니다. </p>
+
+<p>제한에 도달한 후에 새 세션을 만들려고 시도하면 <tt>IllegalStateException</tt>이 발생합니다.</p>
+
+</dd>
+<dt>세션 파일 이름</dt>
+<dd><p>상태를 보존할 수 있는 경우 응용 프로그램이 다시 시작되는 사이에 세션 상태가 보존되는 디렉토리의 절대 또는 상대 경로입니다. 이 경로를 설정하지 않으면 세션 상태가 보존되지 않습니다. 기본적으로 이 경로는 설정되지 않습니다.</p>
+
+<p>상대 경로는 이 웹 응용 프로그램의 임시 디렉토리에 상대적입니다.</p>
+
+</dd>
+<dt>추가 등록 정보</dt>
+<dd><p>세션 관리자의 추가 등록 정보입니다. GlassFish 서버에서는 세션 관리자에 추가 등록 정보를 정의하지 않습니다.</p>
+
+</dd>
+</dl>
+<h5>관련 작업</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">웹 컨테이너의 일반 등록 정보를 구성하는 방법</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">웹 컨테이너의 세션 등록 정보를 구성하는 방법</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">웹 컨테이너의 관리자 등록 정보를 구성하는 방법</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">웹 컨테이너의 저장소 등록 정보를 구성하는 방법</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">웹 컨테이너에 대한 가용성 설정을 구성하는 방법</a></p>
+
+</li></ul>
+<h5>관련 <tt>asadmin</tt> 명령</h5>
+<p>없음</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

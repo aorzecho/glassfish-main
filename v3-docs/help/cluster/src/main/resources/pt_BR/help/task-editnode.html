@@ -1,0 +1,123 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-editnode"></a><h4>Para editar um n&#243;</h4><a name="indexterm-157"></a><p>Ao editar um n&#243;, os dados de configura&#231;&#227;o de um n&#243; do
+Servidor GlassFish s&#227;o atualizados. A edi&#231;&#227;o de um n&#243; tamb&#233;m permite alterar
+o tipo do n&#243; de CONFIG para SSH para ativar a comunica&#231;&#227;o
+SSH do n&#243;.</p>
+
+<p>Se o tipo de n&#243; for alterado de CONFIG para SSH ,
+os valores padr&#227;o s&#227;o aplicados se nenhum dos campos a seguir forem
+deixados em branco:</p>
+
+
+<ul><li><p>Porta SSH</p>
+
+</li>
+<li><p>Nome de usu&#225;rio SSH</p>
+
+</li>
+<li><p>Arquivo principal</p>
+
+</li></ul>
+<ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; N&#243;s.</b></li>
+<li><b>Na lista de n&#243;s, selecione o n&#243; que est&#225; sendo editado.</b><p>A p&#225;gina Editar n&#243; &#233; exibida.</p></li>
+<li><b>Na lista suspensa Tipo, selecione o tipo do n&#243; atualizado.</b><ul>
+<li><b>Para permitir que o n&#243; ofere&#231;a suporte &#224; comunica&#231;&#227;o atrav&#233;s de shell
+seguro (SSH), selecione SSH.</b></li>
+<li><b>Para remover o suporte &#224; configura&#231;&#227;o remota do n&#243;, selecione CONFIG.</b><p>Se CONFIG for selecionado, nenhuma op&#231;&#227;o &#233; exibida para a configura&#231;&#227;o de
+SSH. Se o tipo atual do n&#243; for SSH e voc&#234; selecionar
+CONFIG, os dados de configura&#231;&#227;o de SSH s&#227;o removidos da configura&#231;&#227;o do
+n&#243; quando as altera&#231;&#245;es forem salvas.</p></li></ul></li>
+<li><b>No campo Host do n&#243;, digite o nome do host que o
+n&#243; atualizado representar&#225;.</b><p>Se este campo &#233; obrigat&#243;rio ou n&#227;o, depende do tipo de n&#243;:</p>
+<ul><li><p>Se o tipo de n&#243; for CONFIG, o nome do host pode ser omitido. O nome do host pode ser determinado quando as inst&#226;ncias que residem no n&#243; forem criadas.</p>
+
+</li>
+<li><p>Se o tipo de n&#243; for SSH, o nome do host deve ser especificado. Caso contr&#225;rio, ocorre um erro.</p>
+
+</li></ul>
+</li>
+<li><b>No campo Diret&#243;rio do n&#243;, digite o caminho para o diret&#243;rio que
+cont&#233;m as inst&#226;ncias Servidor GlassFish que s&#227;o criadas no n&#243;.</b><p>Se for digitado um caminho relativo, o caminho &#233; relativo ao diret&#243;rio
+<i>as-install</i>, no qual <i>as-install</i> corresponde ao diret&#243;rio de instala&#231;&#227;o de base do
+software Servidor GlassFish no host.</p></li>
+<li><b>No campo Diret&#243;rio de instala&#231;&#227;o, digite o caminho completo para o pai
+do diret&#243;rio de instala&#231;&#227;o de base do software Servidor GlassFish no host,
+por exemplo, <tt>/export/glassfish3/</tt>.</b></li>
+<li><b>Para for&#231;ar a cria&#231;&#227;o do n&#243; na configura&#231;&#227;o do servidor de administra&#231;&#227;o
+do dom&#237;nio (DAS) mesmo se a valida&#231;&#227;o dos par&#226;metros do n&#243; falhar,
+ative a op&#231;&#227;o For&#231;ar.</b></li>
+<li><b>No campo Porta SSH, digite a porta para utilizar as conex&#245;es SSH
+com este host do n&#243;.</b><p>Se o tipo de n&#243; for alterado de CONFIG para SSH e
+este campo for deixado vazio, a op&#231;&#227;o Porta SSH &#233; definida como
+22.</p></li>
+<li><b>No campo Nome do usu&#225;rio SSH, digite o nome do usu&#225;rio deste
+host do n&#243; que deve executar o processo para conex&#227;o com o
+host atrav&#233;s de SSH.</b><p>Se o tipo de n&#243; for alterado de CONFIG para SSH e
+este campo for deixado vazio, a op&#231;&#227;o Nome de usu&#225;rio SSH &#233;
+definida como o usu&#225;rio que estiver em execu&#231;&#227;o no processo DAS.</p></li>
+<li><b>Especifique como o usu&#225;rio SSH ser&#225; autenticado ao efetuar login no host
+do n&#243;.</b><ul>
+<li><b>Para especificar a autentica&#231;&#227;o atrav&#233;s de um arquivo de chave privada SSH,
+realize estas etapas:</b><ol style="list-style-type: lower-alpha">
+<li><b>Na lista suspensa Autentica&#231;&#227;o de usu&#225;rio SSH, selecione Arquivo principal.</b></li>
+<li><b>No campo Arquivo principal, digite o caminho absoluto para o arquivo da
+chave privada de SSH para o usu&#225;rio que a op&#231;&#227;o Nome de
+usu&#225;rio SSH especifica. </b>
+<hr><p><b>Observa&#231;&#227;o - </b>O Servidor GlassFish tamb&#233;m oferece suporte &#224; autentica&#231;&#227;o com senha atrav&#233;s da
+entrada <tt>AS_ADMIN_SSHPASSWORD</tt> no arquivo de senha. O arquivo de senha &#233; especificado
+na op&#231;&#227;o <tt>--paswordfile</tt> do utilit&#225;rio <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
+
+
+<hr>
+<p>Se o tipo de n&#243; for alterado de CONFIG para SSH e
+este campo for deixado vazio, a op&#231;&#227;o Arquivo principal &#233; definida como
+um arquivo de chave no diret&#243;rio <tt>.ssh</tt> do usu&#225;rio. Se forem encontrados
+v&#225;rios arquivos de chave, o Servidor GlassFish usa a seguinte ordem de
+prefer&#234;ncia:</p>
+<ul><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>identity</tt></p>
+
+</li></ul>
+</li></ol></li>
+<li><b>Para especificar a autentica&#231;&#227;o atrav&#233;s de uma senha armazenada na configura&#231;&#227;o do
+DAS, realize estas etapas:</b>
+<hr><p><b>Cuidado - </b>Esta senha &#233; armazenada em forma de texto na configura&#231;&#227;o do DAS.
+Para maior seguran&#231;a, utilize um arquivo de chave ou um alias de
+senha.</p>
+
+
+<hr>
+<ol style="list-style-type: lower-alpha">
+<li><b>Na lista suspensa Autentica&#231;&#227;o de usu&#225;rio SSH, selecione Senha.</b></li>
+<li><b>No campo Senha SSH, digite a senha que o usu&#225;rio SSH utilizar&#225;
+ao efetuar login neste host do n&#243;. </b></li>
+<li><b>No campo Confirmar senha SSH, digite novamente a senha.</b></li></ol></li>
+<li><b>Para especificar a autentica&#231;&#227;o atrav&#233;s de um alias de senha, realize estas
+etapas:</b><ol style="list-style-type: lower-alpha">
+<li><b>Na lista suspensa Autentica&#231;&#227;o de usu&#225;rio SSH, selecione Alias de senha.</b></li>
+<li><b>Na lista suspensa Alias de senha, selecione o alias existente.</b></li></ol></li></ul></li>
+<li><b>Clique em Salvar.</b></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-createnode.html">Para criar um n&#243;</a></p>
+
+</li>
+<li><p><a href="task-deletenode.html">Para excluir n&#243;s</a></p>
+
+</li>
+<li><p><a href="task-listnodes.html">Para listar todos os n&#243;s do dom&#237;nio atual</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

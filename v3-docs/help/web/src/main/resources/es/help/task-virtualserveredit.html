@@ -1,0 +1,84 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-virtualserveredit"></a><h4>Para editar un servidor virtual</h4><a name="indexterm-19"></a><ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraci&#243;n.</b></li>
+<li><b>En el nodo Configuraci&#243;n, seleccione el nodo Servidores virtuales.</b><p>Se abrir&#225; la p&#225;gina Servidores virtuales.</p></li>
+<li><b>En la p&#225;gina Servidores virtuales, haga clic en el nombre del servidor
+virtual que est&#225; editando.</b><p>Se abrir&#225; la p&#225;gina Editar servidor virtual.</p></li>
+<li><b>En el campo Hosts, introduzca los nombres de host o las direcciones
+IP del equipo en el que se est&#225; ejecutando el servidor.</b><p>Utilice nombres de host reales o virtuales que est&#233;n registrados en el
+servidor DNS de la red (y, en un sistema UNIX, en el
+archivo <tt>/etc/hosts</tt>). El valor predeterminado es el valor de la propiedad del
+sistema <tt>${com.sun.aas.hostName}</tt>. </p></li>
+<li><b>Seleccione una opci&#243;n de estado para el servidor virtual.</b><p>El valor puede ser cualquiera de los siguientes:</p><dl><dt>Activado</dt>
+<dd><p>El servidor virtual est&#225; activo. &#201;ste es el valor predeterminado.</p>
+
+</dd>
+<dt>Desactivado</dt>
+<dd><p>El servidor virtual est&#225; inactivo. Los intentos de acceder al servidor generar&#225;n el c&#243;digo de error 404 (recurso no disponible).</p>
+
+</dd>
+<dt>Deshabilitado</dt>
+<dd><p>El servidor virtual est&#225; deshabilitado. Los intentos de acceder al servidor generar&#225;n el c&#243;digo de error 403 (denegaci&#243;n de cumplir la solicitud).</p>
+
+</dd>
+</dl>
+</li>
+<li><b>Seleccione una opci&#243;n SSO para el nuevo servidor virtual.</b><p>De forma predeterminada, un servidor virtual hereda la configuraci&#243;n de inicio de sesi&#243;n
+&#250;nico (SSO) del servicio HTTP. Seleccione Habilitado o Deshabilitado para anular la
+configuraci&#243;n del servicio HTTP habilitando o deshabilitando el inicio de sesi&#243;n &#250;nico para
+este servidor virtual. </p><p>Los servlets y los archivos JSP admiten el inicio de sesi&#243;n &#250;nico
+en las aplicaciones de GlassFish Server. Esta funci&#243;n permite a varias aplicaciones
+que requieren la misma informaci&#243;n de inicio de sesi&#243;n compartir esta informaci&#243;n
+de modo que el usuario no tenga que iniciar una sesi&#243;n por
+separado para cada aplicaci&#243;n. </p></li>
+<li><b>Desde la lista desplegable Escuchas de red, seleccione una o varias escuchas de
+red o deje el campo en blanco. </b></li>
+<li><b>En la lista desplegable M&#243;dulo web predeterminado, seleccione el m&#243;dulo que va
+a responder a todas las solicitudes que no se pueden asignar a
+otros m&#243;dulos web implementados en el servidor virtual.</b><p>Si no se especifica un m&#243;dulo web predeterminado, se utiliza un m&#243;dulo
+web con una ra&#237;z de contexto vac&#237;a. Si no hay ning&#250;n m&#243;dulo
+web con una ra&#237;z de contexto vac&#237;a, se crea y utiliza un
+m&#243;dulo web predeterminado del sistema.</p></li>
+<li><b>En el campo Archivo de registro, introduzca el nombre de ruta del
+archivo en el que se guardar&#225;n los mensajes de registro de este
+servidor virtual.</b><p>De forma predeterminada, los mensajes de registro se enviar&#225;n al registro del
+servidor predeterminado, <tt></tt><i>domain-dir</i><tt>/logs/server.log </tt>.</p></li>
+<li><b>En el campo Ra&#237;z de documentos, introduzca la ruta absoluta al directorio
+ra&#237;z de documentos del servidor.</b><p>El valor predeterminado es <tt></tt><i>domain-dir</i><tt>/docroot</tt>.</p></li>
+<li><b>Seleccione la opci&#243;n Registro de acceso para habilitar o deshabilitar el registro
+de acceso.</b><p>De forma predeterminada, un servidor virtual hereda la configuraci&#243;n de registro de
+acceso del servicio HTTP. Seleccione Habilitado o Deshabilitado para anular la configuraci&#243;n
+del servicio HTTP habilitando o deshabilitando el registro de acceso para este servidor
+virtual. </p></li>
+<li><b>En el campo Directorio, introduzca la ruta de directorio absoluta en los
+registros de acceso del servidor.</b><p>El valor predeterminado es <tt></tt><i>domain-dir</i><tt>/logs/access </tt>.</p></li>
+<li>(Opcional) <b>En la secci&#243;n Propiedades adicionales, especifique propiedades adicionales del servidor virtual.</b><p>Para obtener informaci&#243;n sobre las propiedades disponibles, consulte <a href="ref-virtualserverprops.html">Propiedades espec&#237;ficas de los servidores virtuales</a>.</p><ul>
+<li><b>Para a&#241;adir una propiedad, haga clic en el bot&#243;n Agregar propiedad. En
+la fila vac&#237;a escriba el nombre de la propiedad en el campo
+Nombre y el valor de la propiedad en el campo Valor.</b></li>
+<li><b>Para modificar una propiedad, edite el campo Valor de la propiedad.</b></li>
+<li><b>Para eliminar una propiedad, marque la casilla de verificaci&#243;n situada a la
+izquierda del campo Nombre de la propiedad que quiera eliminar y, a
+continuaci&#243;n, haga clic en el bot&#243;n Eliminar propiedades.</b></li></ul></li>
+<li><b>Haga clic en Guardar.</b>
+<hr><p><b>Consejo - </b>Para volver a los valores de configuraci&#243;n predeterminados, haga clic en el
+bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
+
+
+<hr>
+</li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-virtualservercreate.html">Para crear un servidor virtual</a></p>
+
+</li>
+<li><p><a href="task-virtualserverdelete.html">Para eliminar un servidor virtual</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

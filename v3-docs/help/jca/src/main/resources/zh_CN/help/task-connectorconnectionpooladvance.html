@@ -1,0 +1,84 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-connectorconnectionpooladvance"></a><h4>编辑连接器连接池高级属性</h4><a name="indexterm-6"></a><ol>
+<li><b>在导航树中，展开&#8220;资源&#8221;节点。</b></li>
+<li><b>展开&#8220;连接器&#8221;节点。</b></li>
+<li><b>在&#8220;连接器&#8221;节点下，选择&#8220;连接器连接池&#8221;节点。</b><p>此时将打开&#8220;连接器连接池&#8221;页面。</p></li>
+<li><b>在&#8220;连接器连接池&#8221;页面上，单击要编辑的连接器连接池的名称。</b><p>此时将打开&#8220;编辑连接器连接池&#8221;页面。</p></li>
+<li><b>在&#8220;编辑连接器连接池&#8221;页面上，单击&#8220;高级&#8221;选项卡。</b><p>此时将打开&#8220;编辑连接器连接池高级属性&#8221;页面。</p></li>
+<li><b>在&#8220;最多验证一次&#8221;字段中，键入以秒为单位的一段时间，经过这段时间后，最多验证连接一次。</b><p>将该属性设置为适当的值可以最大程度减少连接的验证请求数。默认值为 0，表示未启用该属性。</p></li>
+<li><b>在&#8220;泄漏超时&#8221;字段中，键入以秒为单位的一段时间，在这段时间内跟踪连接池中的连接泄漏。</b><p>如果值为 0，则表示禁用连接泄漏跟踪。默认值为 0。</p></li>
+<li><b>选中&#8220;泄漏回收&#8221;复选框，在完成泄漏连接跟踪后将泄漏的连接恢复到池中。</b><p>默认情况下禁用此选项。</p></li>
+<li><b>在&#8220;创建重试尝试&#8221;字段中，键入创建新的连接失败后进行尝试的次数。</b><p>如果值为 0，则表示不会尝试再次创建连接。默认值为 0。</p></li>
+<li><b>在&#8220;重试时间间隔&#8221;字段中，键入两次尝试创建连接之间的时间间隔（以秒为单位）。</b><p>仅当&#8220;创建重试尝试次数&#8221;的值大于 0 时才使用此属性。默认值为 10 秒。</p></li>
+<li><b>选中&#8220;入池&#8221;复选框可以启用池的连接入池。</b><p>默认情况下启用此选项。</p></li>
+<li><b>选中&#8220;延迟关联&#8221;复选框，以便在对连接执行操作时，延迟关联连接。</b><p>当完成事务并且结束组件方法时，对连接取消关联，这有助于重新使用物理连接。默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;延迟连接登记&#8221;复选框，仅在方法中实际使用某个资源时才将该资源登记到事务中。</b><p>默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;与线程关联&#8221;复选框，以将连接与线程关联。</b><p>如果同一个线程需要连接，则该线程可以重新使用已与其关联的连接，因此不会导致从池中获取连接的开销。默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;匹配连接&#8221;复选框，为池启用连接匹配。</b><p>如果您知道池中的连接将始终同构，因此从池中选择的连接不需要由资源适配器进行匹配，请禁用此选项。默认情况下启用此选项。</p></li>
+<li><b>在&#8220;匹配连接使用&#8221;字段中，键入池可以重新使用连接的次数。</b><p>连接在重复使用指定的次数后将被关闭。如果值为 0，则表示不启用此属性。默认值为 0。</p></li>
+<li><b>单击&#8220;保存&#8221;。</b>
+<hr><p><b>提示 - </b>要返回到默认设置，请单击&#8220;装入默认值&#8221;按钮，然后单击&#8220;保存&#8221;。</p>
+
+
+<hr>
+</li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-connectorresourcenew.html">创建连接器资源</a></p>
+
+</li>
+<li><p><a href="task-connectorresourceedit.html">编辑连接器资源</a></p>
+
+</li>
+<li><p><a href="task-connectorresourcesdelete.html">删除连接器资源</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolnew.html">创建连接器连接池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">编辑连接器连接池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">编辑连接器连接池属性</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">为连接器连接池创建安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">编辑连接器连接池的安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">删除连接器连接池的安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">删除连接器连接池</a></p>
+
+</li>
+<li><p><a href="task-setupeisaccess.html">设置 EIS 访问</a></p>
+
+</li>
+<li><p><a href="task-adminobjectnew.html">创建受管理对象资源</a></p>
+
+</li>
+<li><p><a href="task-adminobjectedit.html">编辑受管理对象资源</a></p>
+
+</li>
+<li><p><a href="task-administeredobjectresourcedelete.html">删除受管理对象资源</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapnew.html">创建工作安全映射</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapedit.html">编辑工作安全映射</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapdelete.html">删除工作安全映射</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

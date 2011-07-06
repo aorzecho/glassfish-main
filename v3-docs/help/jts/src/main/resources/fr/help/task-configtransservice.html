@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-configtransservice"></a><h4>Configuration du service de transaction</h4><a name="indexterm-1"></a><ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
+<li><b>S&#233;lectionnez l&#8217;instance &#224; configurer :</b><ul>
+<li><b>Pour configurer une instance en particulier, s&#233;lectionnez le n&#339;ud de configuration de
+l&#8217;instance. Par exemple, pour l&#8217;instance par d&#233;faut, <tt>server</tt>, s&#233;lectionnez le n&#339;ud <tt>server-config</tt>.</b></li>
+<li><b>Pour configurer les r&#233;glages par d&#233;faut pour toutes les instances, s&#233;lectionnez le
+n&#339;ud <tt>default-config</tt>.</b></li></ul></li>
+<li><b>S&#233;lectionnez le n&#339;ud Service de transaction.</b><p>La page Service de transaction s&#8217;affiche.</p></li>
+<li><b>Sur la page Service de transaction, cochez la case Au red&#233;marrage pour
+activer la r&#233;cup&#233;ration des transactions incompl&#232;tes au red&#233;marrage du serveur.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;expiration de transaction, entrez la dur&#233;e exprim&#233;e en
+secondes pendant laquelle le serveur patiente avant de restaurer une transaction qui
+n&#8217;a pas &#233;t&#233; termin&#233;e.</b><p>La valeur 0 d&#233;sactive le d&#233;lai d&#8217;expiration des transactions. La valeur par
+d&#233;faut est z&#233;ro qui signifie que le serveur attend la fin d&#8217;une
+transaction pendant une dur&#233;e ind&#233;termin&#233;e.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;expiration de la tentative, saisissez le nombre de
+secondes pendant lesquelles le GlassFish Server tente de se connecter &#224; un
+serveur inaccessible.</b><p>La valeur par d&#233;faut est de 600 (10 minutes).</p></li>
+<li><b>Dans le champ Emplacement du journal des transactions, entrez le nom du
+r&#233;pertoire dans lequel sont conserv&#233;s les journaux du serveur.</b><p>Les journaux de transaction sont conserv&#233;s dans le sous-r&#233;pertoire <tt>tx</tt> du r&#233;pertoire
+sp&#233;cifi&#233; par ce champ. La valeur par d&#233;faut est le r&#233;pertoire sp&#233;cifi&#233;
+dans le champ Racine journal de la page Attributs de domaine, qui
+se trouve dans l&#8217;onglet Avanc&#233; du n&#339;ud GlassFish Server.</p></li>
+<li><b>Dans la liste d&#233;roulante D&#233;cision heuristique, s&#233;lectionnez la r&#232;gle &#224; suivre lorsque le
+r&#233;sultat d&#8217;une transaction distribu&#233;e ne peut pas &#234;tre d&#233;termin&#233; en raison de
+l&#8217;inaccessibilit&#233; d&#8217;autres participants. </b><p>&#192; moins d&#8217;avoir une bonne raison de s&#233;lectionner Engager, laissez l&#8217;option D&#233;cision
+heuristique d&#233;finie sur R&#233;p&#233;ter (par d&#233;faut). Valider les transactions ind&#233;termin&#233;es risque de
+compromettre l&#8217;int&#233;grit&#233; des donn&#233;es dans votre application.</p></li>
+<li><b>Dans le champ Intervalle de point cl&#233;, saisissez le nombre de transactions
+entre les op&#233;rations de points cl&#233;s.</b><p>Les op&#233;rations de point cl&#233; permettent de compresser les fichiers journaux de
+transactions. La valeur par d&#233;faut est 65&#160;536.</p></li>
+<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>Pour obtenir une description des propri&#233;t&#233;s disponibles, consultez <a href="ref-transactionsvcproperties.html">Propri&#233;t&#233;s sp&#233;cifiques au service de transaction</a>.</p><ul>
+<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
+ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
+champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
+<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
+<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
+Nom de la propri&#233;t&#233; que vous supprimez,  puis cliquez sur le
+bouton Supprimer propri&#233;t&#233;s.</b></li></ul></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li>
+<li><b>Red&#233;marrez GlassFish Server.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-configtransrecovery.html">Configuration de la r&#233;cup&#233;ration des transactions par le GlassFish Server</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">D&#233;finition du d&#233;lai d'attente d'une transaction</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">D&#233;finition de l'emplacement des journaux des transactions</a></p>
+
+</li>
+<li><p><a href="task-setkeyptinterval.html">D&#233;finition de l'intervalle entre points cl&#233;s</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

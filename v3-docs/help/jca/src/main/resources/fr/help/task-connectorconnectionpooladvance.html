@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-connectorconnectionpooladvance"></a><h4>Modifier les attributs avanc&#233;s d&#8217;un pool de connexions de connecteur</h4><a name="indexterm-6"></a><ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Ressources.</b></li>
+<li><b>D&#233;veloppez le n&#339;ud Connecteurs.</b></li>
+<li><b>Sous le n&#339;ud Connecteurs, s&#233;lectionnez le n&#339;ud Pools de connexions du connecteur.</b><p>La page Pools de connexions du connecteur s&#8217;ouvre.</p></li>
+<li><b>Sur la page Pools de connexions du connecteur, cliquez le nom du
+pool de connexions du connecteur que vous modifiez.</b><p>La page Modification du pool de connexions du connecteur s&#8217;ouvre.</p></li>
+<li><b>Sur la page Modification du pool de connexions du connecteur, cliquez sur
+l&#8217;onglet Avanc&#233;.</b><p>La page Modifier les attributs avanc&#233;s d'un pool de connexions de connecteur
+s&#8217;affiche.</p></li>
+<li><b>Dans le champ Valider une fois au plus, saisissez le d&#233;lai, en
+secondes, au bout duquel une connexion est valid&#233;e une fois au plus.</b><p>La d&#233;finition de cet attribut sur une valeur appropri&#233;e r&#233;duit le nombre
+de demandes de validation &#233;manant d'une connexion. La valeur par d&#233;faut est
+0, ce qui signifie que l'attribut n'est pas activ&#233;. </p></li>
+<li><b>Dans le champ D&#233;lai de fuite, saisissez la dur&#233;e, en secondes, du
+suivi des fuites de connexion dans un pool de connexions.</b><p>Une valeur de 0 indique que le suivi des fuites de connexion
+est d&#233;sactiv&#233;. La valeur par d&#233;faut est 0.</p></li>
+<li><b>S&#233;lectionnez la case R&#233;cup&#233;ration de fuite pour activer les connections avec fuites
+&#224; restaurer vers le pool une fois le suivi de fuites de
+connexions termin&#233;.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Dans le champ Tentatives de cr&#233;ation, saisissez le nombre de tentatives de
+cr&#233;ation en cas d&#8217;&#233;chec lors de la cr&#233;ation d&#8217;une connexion.</b><p>Une valeur de 0 indique qu&#8217;aucune tentative ne sera effectu&#233;e pour cr&#233;er
+une nouvelle connexion. La valeur par d&#233;faut est 0.</p></li>
+<li><b>Dans le champ Intervalle de tentative, saisissez l&#8217;intervalle, en secondes, entre deux
+tentatives de cr&#233;ation d&#8217;une connexion.</b><p>Cet attribut n&#8217;est utilis&#233; que si la valeur de l&#8217;option Nouvelles tentatives
+de cr&#233;ation est sup&#233;rieure &#224; 0. La valeur par d&#233;faut est 10
+secondes.</p></li>
+<li><b>S&#233;lectionnez la case Groupement pour activer le groupement des connexions pour le
+pool.</b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
+<li><b>S&#233;lectionnez la case Association paresseuse pour que les connexions puissent &#234;tre associ&#233;es
+de fa&#231;on paresseuse lorsque vous effectuez une op&#233;ration sur celles-ci. </b><p>Les connexions sont dissoci&#233;es lorsque la transaction est termin&#233;e et qu&#8217;une m&#233;thode
+de composant se termine, ce qui permet la r&#233;utilisation des connexions physiques.
+Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>S&#233;lectionnez la case Inscription des connexions paresseuses pour inscrire une ressource dans
+la transaction uniquement lorsqu&#8217;elle est r&#233;ellement utilis&#233;e dans une m&#233;thode.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>S&#233;lectionnez la case Associer &#224; un thread pour associer une connexion avec
+un thread. </b><p>Lorsque le m&#234;me thread a besoin d&#8217;une connexion, il peut r&#233;utiliser la
+connexion qui est d&#233;j&#224; associ&#233;e, par cons&#233;quent en &#233;vitant la surcharge d&#8217;obtention
+d&#8217;une connexion depuis le pool. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>S&#233;lectionnez la case Faire correspondre les connexions pour activer l&#8217;association de connexions
+pour le pool.</b><p>D&#233;sactivez cette option si vous savez que les connexions dans le pool
+seront toujours homog&#232;nes et, par cons&#233;quent, si une connexion prise du pool
+n&#8217;a pas besoin d&#8217;&#234;tre associ&#233;e par l&#8217;adaptateur de ressources. Cette option est
+activ&#233;e par d&#233;faut.</p></li>
+<li><b>Dans le champ Utilisation maximale des connexions, saisissez le nombre de fois
+qu&#8217;une connexion doit &#234;tre r&#233;utilis&#233;e par le pool.</b><p>Une fois qu&#8217;une connexion a &#233;t&#233; r&#233;utilis&#233;e le nombre de fois sp&#233;cifi&#233;,
+elle est ferm&#233;e. Une valeur de 0 indique que cet attribut n&#8217;est
+pas activ&#233;. La valeur par d&#233;faut est 0.</p></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-connectorresourcenew.html">Cr&#233;er une ressource de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorresourceedit.html">Modifier une ressource du connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorresourcesdelete.html">Pour supprimer une ressource de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolnew.html">Cr&#233;er un pool de connexions de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">Modifier un pool de connexions de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">Modifier les propri&#233;t&#233;s d'un pool de connexions de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">Cr&#233;er un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">Pour modifier un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">Supprimer un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">Supprimer un pool de connexions du connecteur</a></p>
+
+</li>
+<li><p><a href="task-setupeisaccess.html">Configurer l'acc&#232;s &#224; EIS</a></p>
+
+</li>
+<li><p><a href="task-adminobjectnew.html">Cr&#233;er une ressource d'objet g&#233;r&#233;</a></p>
+
+</li>
+<li><p><a href="task-adminobjectedit.html">Modifier une ressource d'objet administr&#233;</a></p>
+
+</li>
+<li><p><a href="task-administeredobjectresourcedelete.html">Supprimer une ressource d'objet g&#233;r&#233;</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapnew.html">Cr&#233;er un mappage de s&#233;curit&#233; de travail</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapedit.html">Modifier un mappage de s&#233;curit&#233; de travail</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapdelete.html">Supprimer un mappage de s&#233;curit&#233; de travail</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

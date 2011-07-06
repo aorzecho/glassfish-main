@@ -1,0 +1,105 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-appedit"></a><h4>Edit Application</h4>
+<a name="indexterm-162"></a><p>Nella pagina Edit Application &#232; possibile modificare un'applicazione esistente.</p>
+
+<p>La pagina Edit Application contiene tutte le opzioni seguenti o solo alcune
+di esse a seconda del tipo di applicazione.</p>
+
+<dl><dt>Name</dt>
+<dd><p>Campo di sola lettura in cui viene visualizzato il nome dell'applicazione da modificare.</p>
+
+<p>Il nome pu&#242; includere un identificatore di versione opzionale, che segue il nome ed &#232; separato da questo da due punti (<tt>:</tt>). Per ulteriori informazioni sulle versioni di moduli e applicazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions in <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Se &#232; selezionata la casella di controllo Enabled, l'applicazione &#232; abilitata. Questa opzione &#232; selezionata per impostazione predefinita.</p>
+
+</dd>
+<dt>Context Root</dt>
+<dd><p>Specifica il percorso dell'applicazione per applicazioni Web. Nell'URL dell'applicazione Web, la root di contesto si trova subito dopo il numero della porta (<tt>http://<i> host</i>:<i>port</i>/<i>context-root</i>/... </tt>). La root di contesto deve iniziare con una barra, ad esempio, <tt>/hello</tt>.</p>
+
+</dd>
+<dt>Availability</dt>
+<dd><p>Se &#232; selezionata la casella di controllo Enabled, &#232; abilitata l'alta disponibilit&#224; per le sessioni Web e per la definizione di checkpoint e potenzialmente la passivazione dei bean di sessione con stato (SFSB). Se si imposta false (valore predefinito), il salvataggio delle sessioni Web e la definizione di checkpoint SFSB vengono disabilitati per l'applicazione, l'applicazione Web o il modulo EJB specificato. Se si imposta true, l'applicazione o il modulo specificato viene abilitato per l'alta disponibilit&#224;. Impostare l'opzione su true solo se l'alta disponibilit&#224; &#232; configurata e abilitata ai livelli superiori, ad esempio al livello del server e del contenitore.</p>
+
+<p>Questa opzione viene visualizzata se esistono cluster o istanze server standalone oltre all'istanza server predefinita (<tt>server</tt>).</p>
+
+</dd>
+<dt>Virtual Servers</dt>
+<dd><p>Server virtuali associati all'applicazione.</p>
+
+<p>L'opzione Virtual Servers viene visualizzata se esiste solo l'istanza server predefinita <tt> server</tt>. Se esistono cluster o altre istanze server standalone, &#232; possibile selezionare i server virtuali dopo la distribuzione. Andare alla pagina Edit Application, selezionare la scheda Target, quindi selezionare Manage Virtual Servers per la destinazione desiderata.</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>(Per alcuni tipi di applicazioni) Se &#232; selezionata la casella di controllo Enabled, l'applicazione utilizza il software Java Web Start. Java Web Start consente di ottenere un metodo indipendente dal browser per distribuire applicazioni Java da eseguire in una macchina virtuale Java.</p>
+
+</dd>
+<dt>Description</dt>
+<dd><p>Breve descrizione dell'applicazione.</p>
+
+</dd>
+<dt>Location</dt>
+<dd><p>Posizione dell'applicazione distribuita. Il campo &#232; di sola lettura.</p>
+
+</dd>
+<dt>Libraries</dt>
+<dd><p>File JAR della libreria necessari per l'applicazione. Il campo &#232; di sola lettura.</p>
+
+</dd>
+<dt>Modules and Components</dt>
+<dd><p>Tabella in cui vengono visualizzati i nomi dei moduli dell'applicazione e i relativi motori. Per l'endpoint di un servizio Web, &#232; possibile selezionare View Endpoint per visualizzare la pagina Web Service Endpoint Information. Per un client dell'applicazione, &#232; possibile selezionare Launch per visualizzare la pagina Application Client Launch.</p>
+
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-appedit.html">Modificare un'applicazione distribuita</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">Visualizzare un elenco di applicazioni distribuite</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">Distribuire un'applicazione Web</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Distribuire un'applicazione enterprise</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Distribuire un client dell'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Distribuire un modulo connettore</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Distribuire un file JAR EJB</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Visualizzare i descrittori di un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">Visualizzare le destinazioni di un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Visualizzare informazioni su endpoint per servizi Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Avviare un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Avviare un client dell'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">Ridistribuire un'applicazione distribuita</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Ricaricare un'applicazione distribuita</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

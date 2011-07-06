@@ -1,0 +1,114 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-javamailsessioncreate"></a><h4>Neue JavaMail-Sitzung</h4>
+<a name="indexterm-22"></a><p>Auf der Seite "Neue JavaMail-Sitzung" k&#246;nnen Sie eine JavaMail-Sitzungsressource erstellen.</p>
+
+<p>Die Seite "Neue JavaMail-Sitzung" enth&#228;lt die folgenden Optionen.</p>
+
+<dl><dt>JNDI Name (JNDI-Name)</dt>
+<dd><p>Ein eindeutiger Name, der die Mailsitzung identifiziert. Verwenden Sie das Subkontext-Namenspr&#228;fix <tt>mail/</tt> f&#252;r JavaMail-Ressourcen. Beispiel: <tt>mail/MySession</tt>. Der Name darf ausschlie&#223;lich alphanumerische Zeichen, Unterstriche, Gedankenstriche oder Punkte enthalten.</p>
+
+</dd>
+<dt>Mail-Host</dt>
+<dd><p>Der Hostname des Standard-Mailservers. Die Verbindungsmethoden der Speicher- und Transportobjekte verwenden diesen Wert, wenn keine protokollspezifische Hosteigenschaft angegeben ist. Der Name muss in einen tats&#228;chlichen Hostnamen aufl&#246;sbar sein.</p>
+
+</dd>
+<dt>Standard-Benutzer</dt>
+<dd><p>Der Benutzername, der bei der Verbindungsherstellung mit einem Mailserver angegeben werden muss. Die Verbindungsmethode der Speicher- und Transportobjekte verwendet diesen Wert, wenn keine protokollspezifische Benutzernameneigenschaft angegeben ist. Der Benutzername darf nur alphanumerische Zeichen, Unterstriche, Gedankenstriche oder Punkte enthalten.</p>
+
+</dd>
+<dt>Standardm&#228;&#223;ige Absenderadresse</dt>
+<dd><p>Die E-Mail-Adresse des Standardbenutzers. Die Adresse hat folgendes Format: <i>benutzername</i><tt>@</tt><i>host</i>.<i>dom&#228;ne</i>.</p>
+
+</dd>
+<dt>Beschreibung</dt>
+<dd><p>Eine Beschreibung der Mailsitzung.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Der Status der Mailsitzung. Die Mailsitzung kann aktiviert oder deaktiviert sein. Der Standardwert ist "Aktiviert".</p>
+
+</dd>
+<dt>Speicherprotokoll</dt>
+<dd><p>Der Speicherprotokolldienst, der eine Verbindung zu einem Mailserver herstellt, Nachrichten abruft und Nachrichten in einem oder mehreren Ordnern speichert. Zul&#228;ssige Werte sind <tt>imap</tt>, <tt>pop3</tt>, <tt>imaps</tt> und <tt>pop3s</tt>. Der Standardwert ist <tt>imap</tt>.</p>
+
+</dd>
+<dt>Speicherprotokollklasse</dt>
+<dd><p>Die Dienstanbieter-Implementierungsklasse f&#252;r die Speicherung. Zul&#228;ssige Werte sind:</p>
+
+
+<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
+
+</li></ul>
+<p>Der Standardwert ist <tt>com.sun.mail.imap.IMAPStore</tt>.</p>
+
+</dd>
+<dt>Transportprotokoll</dt>
+<dd><p>Der Transportprotokolldienst, der Nachrichten sendet. Zul&#228;ssige Werte sind <tt>smtp</tt> und <tt>smtps</tt>. Der Standardwert ist <tt>smtp</tt>.</p>
+
+</dd>
+<dt>Transportprotokollklasse</dt>
+<dd><p>Die Dienstanbieter-Implementierungsklasse f&#252;r den Transport. Zul&#228;ssige Werte sind:</p>
+
+
+<ul><li><p><tt>com.sun.mail.smtp.SMTPTransport</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.smtp.SMTPSSLTransport</tt></p>
+
+</li></ul>
+<p>Der Standardwert ist <tt>com.sun.mail.smtp.SMTPTransport</tt>.</p>
+
+</dd>
+<dt>Debug (Fehlersuche)</dt>
+<dd><p>Bei aktivierter Option ist die Fehlersuche f&#252;r diese Ressource aktiviert. Wenn die JavaMail-Protokollebene auf <tt>GENAU</tt> oder h&#246;her eingestellt ist, wird eine Debugging-Ausgabe erzeugt und in die Systemprotokolldatei geschrieben. Weitere Informationen zur Festlegung der Protokollebene finden Sie unter <a href="../../../common/de/help/task-eelogginglevels.html">So konfigurieren Sie Protokollebenen</a>.</p>
+
+</dd>
+<dt>Weitere Eigenschaften</dt>
+<dd><p>Zus&#228;tzliche Eigenschaften f&#252;r die JavaMail-Sitzung. Eine Liste der verf&#252;gbaren Eigenschaften finden Sie in der <a href="http://java.sun.com/products/javamail/javadocs/index.html">JavaMail-API-Dokumentation</a>. Zus&#228;tzliche Eigenschaften m&#252;ssen mit <tt>mail-</tt> beginnen und Bindestriche anstelle von Punkten als Trennzeichen verwenden. Richtig ist z.&#160;B. <tt>mail-debug</tt>, w&#228;hrend <tt>mail.debug</tt> falsch ist. Das GlassFish-Server-Backend wandelt die Bindestriche in die von der JavaMail-API erwarteten Punkte um.</p>
+
+</dd>
+<dt>Ziele</dt>
+<dd><p>Cluster und eigenst&#228;ndige Instanzen f&#252;r die JavaMail-Sitzung. Verschieben Sie die ben&#246;tigten Ziele in die Spalte "Ausgew&#228;hlte Ziele", indem Sie die Schaltfl&#228;chen "Hinzuf&#252;gen" und "Alle hinzuf&#252;gen" verwenden. Verschieben Sie die nicht ben&#246;tigten Ziele in die Spalte "Verf&#252;gbare Ziele", indem Sie die Schaltfl&#228;chen "Entfernen" und "Alle entfernen" verwenden.</p>
+
+<p>Diese Option wird nur dann angezeigt, wenn in der Dom&#228;ne Cluster oder eigenst&#228;ndige Instanzen erstellt wurden.</p>
+
+</dd>
+</dl>
+<h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-javamailsessioncreate.html">So erstellen Sie eine JavaMail-Sitzung</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsedit.html">So bearbeiten Sie eine JavaMail-Sitzung</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsdelete.html">So l&#246;schen Sie eine JavaMail-Sitzung</a></p>
+
+</li></ul>
+<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-javamail-resource-1"><tt>create-javamail-resource</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-javamail-resources-1"><tt>list-javamail-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-javamail-resource-1"><tt>delete-javamail-resource</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

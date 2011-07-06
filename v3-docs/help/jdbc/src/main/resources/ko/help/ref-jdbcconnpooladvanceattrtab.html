@@ -1,0 +1,180 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jdbcconnpooladvanceattrtab"></a><h4>연결 풀 고급 속성 편집</h4>
+<a name="indexterm-24"></a><p>연결 풀 고급 속성 편집 페이지를 사용하여 연결 누수를 진단하고 사용 편의성을
+높이는 속성을 지정합니다.</p>
+
+<p>연결 풀 고급 속성 편집 페이지에 포함된 옵션은 다음과 같습니다.</p>
+
+<dl><dt>기본값 로드</dt>
+<dd><p>모든 설정의 기본값을 복원하는 데 사용하는 버튼입니다.</p>
+
+</dd>
+<dt>풀 이름</dt>
+<dd><p>연결 풀의 이름입니다. 이름은 읽기 전용 필드입니다. 새 JDBC 연결 풀을 만들 때 연결 풀 이름만 지정할 수 있습니다.</p>
+
+</dd>
+<dt>명령문 시간 초과</dt>
+<dd><p>비정상적으로 길게 실행되는 쿼리를 종료하기 전까지의 시간 길이(초)입니다. GlassFish 서버에서는 명령문을 만들 때 <tt>QueryTimeout</tt>을 설정합니다. &#8211;1 값은 옵션이 비활성화되었음을 의미합니다. 기본값은 &#8211;1입니다.</p>
+
+</dd>
+<dt>명령문 캐시 크기</dt>
+<dd><p>가장 오래 전에 사용됨(LRU) 캐싱 메커니즘을 사용하여 캐시할 명령문 수입니다. 0 값은 명령문 캐싱을 비활성화합니다. 기본값은 0입니다.</p>
+
+</dd>
+<dt>초기 SQL</dt>
+<dd><p>풀에서 연결이 만들어질 때마다(재사용되지 않음) 실행할 SQL 문자열입니다. 이 문자열이 실행되면 연결 상태가 초기화됩니다.</p>
+
+</dd>
+<dt>SQL 추적 수신기</dt>
+<dd><p>응용 프로그램에서 실행한 SQL 명령문을 추적하도록 지정하는 수신기 구현 클래스 이름의 쉼표로 구분된 목록입니다. 수신기 클래스는 <tt>org.glassfish.api.jdbc.SQLTraceListener</tt> 인터페이스를 구현해야 합니다. 수신기를 사용하면 SQL 문에 대한 로그 메시지를 쉽게 필터링하고 관리자가 명령문을 분석하도록 할 수 있습니다. </p>
+
+</dd>
+<dt>JDBC 객체 래핑</dt>
+<dd><p>이 옵션을 활성화하면 Statement, PreparedStatement, CallableStatement, ResultSet, DatabaseMetaData에 대한 래핑된 JDBC 객체를 가져옵니다. 이 옵션은 기본적으로 활성화됩니다.</p>
+
+</dd>
+<dt>풀링</dt>
+<dd><p>풀에 대한 연결 풀링을 활성화합니다. 이 옵션은 기본적으로 활성화됩니다.</p>
+
+</dd>
+<dt>최대 1회 검증 기간</dt>
+<dd><p>연결을 최대 한 번 검증하기 위해 연속된 요청 간의 시간 간격(초)을 지정합니다. 이 속성을 적절한 값으로 설정하면 연결의 검증 요청 횟수가 최소화됩니다. 기본값은 0입니다. 값이 0이면 속성이 활성화되지 않습니다.</p>
+
+</dd>
+<dt>누수 시간 초과</dt>
+<dd><p>연결 풀의 연결 누수를 추적하는 시간(초)입니다. 이 필드를 사용하여 응용 프로그램에서 발생할 수 있는 잠재적인 연결 누수를 검색합니다. 지정된 기간 내에 연결이 응용 프로그램에 의해 풀로 되돌아가지 않으면 잠재적으로 누수되고 있다고 간주되어 호출자의 스택 추적이 로깅됩니다. 값이 0이면 연결 누수 추적이 비활성화되었음을 의미합니다. 기본값은 0입니다.</p>
+
+<p>이 필드를 누수 재생과 함께 사용하여 응용 프로그램에서 잠재적인 연결 누수가 발생하는 것을 방지할 수 있습니다.</p>
+
+</dd>
+<dt>누수 재생</dt>
+<dd><p>이 옵션을 활성화하면 누수 연결 추적이 완료된 후에 누수된 연결이 풀로 복원됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>만들기 재시도 횟수</dt>
+<dd><p>새 연결 만들기에 실패한 경우 재시도하는 횟수입니다. 0 값은 연결을 다시 만들려고 시도하지 않음을 의미합니다. 기본값은 0입니다.</p>
+
+</dd>
+<dt>재시도 간격</dt>
+<dd><p>연결을 만들기 위한 두 시도 간의 간격(초)입니다. 기본값은 10입니다. 이 속성은 만들기 재시도 횟수의 값이 0보다 큰 경우에만 사용됩니다.</p>
+
+</dd>
+<dt>느린 연결</dt>
+<dd><p>이 옵션을 활성화하면 연결이 사용될 경우에만 물리적 연결이 논리 모음과 연관됩니다. 또한 트랜잭션이 완료되고 구성 요소 메소드가 종료되면 연관 해제되어 물리적 연결의 재사용을 돕습니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>지연 연결 참여</dt>
+<dd><p>이 옵션을 활성화하면 실제로 자원이 메소드에 사용될 경우에만 자원이 트랜잭션에 등록됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>스레드와 연결</dt>
+<dd><p>이 옵션을 활성화하면, 연결이 스레드와 연관되어 연결에서 같은 스레드가 필요할 때 해당 스레드에 이미 연관된 연결을 재사용함으로써 풀에서 연결을 가져올 때 오버헤드 발생이 방지됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>연결 일치</dt>
+<dd><p>이 옵션을 활성화하면 풀에서 선택하는 연결이 특정 자격 증명이 있는 연결과 일치해야 합니다. 이 옵션은 여러 개의 사용자 자격 증명이 있는 응용 프로그램에서 연결 풀이 사용되는 경우 활성화해야 합니다. 이 옵션은 풀의 연결이 항상 같은 종류이어서 풀에서 선택된 연결을 자원 어댑터와 일치시킬 필요가 없음을 관리자가 알고 있을 때 안전하게 비활성화할 수 있습니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>최대 연결 사용자 수</dt>
+<dd><p>풀에서 재사용할 연결 횟수입니다. 연결을 지정된 횟수만큼 재사용한 다음에는 해당 연결이 닫힙니다. 연결이 재사용될 수 있는 횟수를 제한하여 응용 프로그램이 명령문을 종료하지 않은 경우 명령문 누수 발생을 방지할 수 있습니다. 0 값은 이 속성이 비활성화되었음을 의미합니다. 기본값은 0입니다.</p>
+
+</dd>
+<dt>연결 검증</dt>
+<dd><p>이 옵션을 활성화하면 연결 검증이 필수적으로 수행되어 서버가 연결되지 않은 경우 다시 연결될 수 있습니다.</p>
+
+</dd>
+<dt>검증 방법</dt>
+<dd><p>GlassFish 서버에서 데이터베이스 연결을 검증하는 방법은 다음과 같습니다.</p>
+
+<dl><dt><tt>auto-commit</tt> 및 <tt>metadata</tt></dt>
+<dd><p>GlassFish 서버는 <tt>con.getAutoCommit</tt> 또는 <tt>con.getMetaData</tt> 메소드를 호출하여 연결을 검증합니다. </p>
+
+
+<hr><p><b>주 - </b>많은 JDBC 드라이버에서 이러한 호출의 결과를 캐시하므로 이러한 호출을 사용하면 경우에 따라 신뢰할 수 없는 검증이 제공될 수 있습니다. 이러한 호출의 캐시 여부를 판단하려면 드라이버 공급업체에 확인합니다.</p>
+
+
+<hr>
+</dd>
+<dt><tt>custom-validation</tt></dt>
+<dd><p>GlassFish 서버는 사용자 정의 구현 클래스에 의해 검증 클래스 이름 필드에 지정된 사용자 정의 검증 메커니즘을 사용합니다.</p>
+
+</dd>
+<dt><tt>table</tt></dt>
+<dd><p>응용 프로그램에서 지정된 데이터베이스 테이블을 쿼리합니다. 액세스할 수 있는 테이블이 있어야 하지만 행은 없어도 됩니다. 행이 많이 있는 기존 테이블이나 이미 자주 액세스하는 테이블은 사용하지 마십시오.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>테이블 이름</dt>
+<dd><p>검증에 사용하는 데이터베이스 테이블의 이름입니다. 이 필드는 검증 방법이 <tt>table</tt>로 설정된 경우에만 적용됩니다.</p>
+
+</dd>
+<dt>검증 클래스 이름</dt>
+<dd><p>사용자 정의 검증 구현 클래스 이름입니다. 이 필드는 검증 방법이 <tt>custom-validation</tt>으로 설정된 경우에만 적용됩니다. 제공된 클래스 이름은 GlassFish 서버에서 액세스할 수 있어야 합니다. 지정된 클래스는 <tt>org.glassfish.api.jdbc.ConnectionValidation</tt> 인터페이스를 구현해야 합니다. </p>
+
+</dd>
+<dt>실패 시</dt>
+<dd><p>이 옵션을 활성화하면 GlassFish 서버가 풀에 있는 모든 연결을 닫고 연결 실패 시 연결을 다시 설정합니다. 이 옵션을 비활성화하면 개별 연결이 사용되는 경우에만 다시 설정됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>구성 요소가 아닌 호출자 허용</dt>
+<dd><p>이 옵션을 활성화하면 서블릿 필터 및 타사 지속성 관리자와 같이 구성 요소가 아닌 호출자가 풀을 사용할 수 있습니다. 구성 요소가 아닌 호출자가 얻은 연결은 트랜잭션이 종료될 때 컨테이너에 의해 자동으로 닫히지 않습니다. 이 연결은 호출자에 의해 명시적으로 닫혀야 합니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+</dl>
+<a name="gkonw"></a><h5>관련 작업</h5>
+
+<ul><li><p><a href="task-setdbaccess.html">데이터베이스 액세스를 설정하는 방법</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">JDBC 드라이버를 통합하는 방법</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">JDBC 연결 풀을 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">JDBC 연결 풀 일반 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">연결 풀 설정을 확인하는 방법</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">JDBC 연결 풀 고급 속성을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">JDBC 연결 풀 등록 정보를 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">JDBC 연결 풀을 삭제하는 방법</a></p>
+
+</li></ul>
+<a name="gkoli"></a><h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=add-resources-1"><tt>add-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jdbc-connection-pool-1"><tt>create-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jdbc-connection-pool-1"><tt>delete-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jdbc-connection-pools-1"><tt>list-jdbc-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=ping-connection-pool-1"><tt>ping-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-database-1"><tt>start-database</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-database-1"><tt>stop-database</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

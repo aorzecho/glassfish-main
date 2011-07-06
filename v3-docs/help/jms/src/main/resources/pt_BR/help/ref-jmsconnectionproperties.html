@@ -1,0 +1,71 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsconnectionproperties"></a><h4>Propriedades espec&#237;ficas das f&#225;bricas de conex&#245;es JMS</h4>
+<a name="indexterm-35"></a><a name="indexterm-36"></a><p>As propriedades adicionais a seguir est&#227;o dispon&#237;veis para uma f&#225;brica de conex&#245;es
+JMS.</p>
+
+<dl><dt><tt>ClientId</tt></dt>
+<dd><p>Especifica uma ID de cliente para uma f&#225;brica de conex&#245;es que ser&#225; usada por um assinante permanente.</p>
+
+</dd>
+<dt><tt>AddressList</tt></dt>
+<dd><p>Especifica os nomes (e, opcionalmente, n&#250;meros de porta) de uma inst&#226;ncia ou inst&#226;ncias de broker de mensagem com as quais os aplicativos ir&#227;o se comunicar. Cada endere&#231;o na lista especifica o nome do host (e, opcionalmente, porta do host e servi&#231;o de conex&#227;o) para a conex&#227;o. Por exemplo, o valor pode ser <tt>earth</tt> ou <tt>earth:7677</tt>. Especifique o n&#250;mero da porta se o broker de mensagem estiver em execu&#231;&#227;o em uma porta que n&#227;o seja a padr&#227;o (7676). Se a configura&#231;&#227;o da propriedade especificar v&#225;rios hosts e portas em um ambiente agrupado, o primeiro host dispon&#237;vel na lista ser&#225; usado, a n&#227;o ser que a propriedade <tt>AddressListBehavior</tt> esteja definida como <tt>RANDOM</tt></p>
+
+<p>Para obter detalhes, consulte <b>Guia para Jave Clients da Fila de mensagens Developer</b>.</p>
+
+<p>O valor padr&#227;o &#233; o host local e o n&#250;mero da porta local (7676). O cliente tentar&#225; uma conex&#227;o com um broker na porta 7676 do host local.</p>
+
+</dd>
+<dt><tt>UserName</tt></dt>
+<dd><p>O nome de usu&#225;rio para a f&#225;brica de conex&#245;es.</p>
+
+<p>O valor padr&#227;o &#233; <tt>guest</tt>.</p>
+
+</dd>
+<dt><tt>Password</tt></dt>
+<dd><p>A senha para a f&#225;brica de conex&#245;es.</p>
+
+<p>O valor padr&#227;o &#233; <tt>guest</tt>.</p>
+
+</dd>
+<dt><tt>ReconnectEnabled</tt></dt>
+<dd><p>Se definido como <tt>verdadeiro</tt>, especifica que o tempo de execu&#231;&#227;o do cliente tenta reconectar-se a um servidor de mensagem (ou &#224; lista de endere&#231;os na <tt>AddressList</tt> quando uma conex&#227;o &#233; perdida.</p>
+
+<p>O valor padr&#227;o &#233; <tt>verdadeiro</tt>.</p>
+
+</dd>
+<dt><tt>ReconnectAttempts</tt></dt>
+<dd><p>Especifica o n&#250;mero de tentativas para conectar-se (ou reconectar-se) para cada endere&#231;o na <tt>AddressList</tt> antes de o tempo de execu&#231;&#227;o do cliente tentar o novo endere&#231;o na lista. Um valor de -1 indica que o n&#250;mero de tentativas de reconex&#227;o &#233; ilimitado (o tempo de execu&#231;&#227;o do cliente tenta conectar-se ao primeiro endere&#231;o at&#233; conseguir). </p>
+
+<p>O valor padr&#227;o &#233; 3.</p>
+
+</dd>
+<dt><tt>ReconnectInterval</tt></dt>
+<dd><p>Especifica o intervalo em milissegundos entre tentativas de reconex&#227;o. Isso aplica-se a tentativas em cada endere&#231;o na <tt>AddressList</tt> e para endere&#231;os sucessivos na lista. Se o intervalo for muito curto, o broker n&#227;o tem tempo para recuperar-se. Se for muito longo, a reconex&#227;o pode representar um atraso inaceit&#225;vel. </p>
+
+<p>O valor padr&#227;o &#233; 30000.</p>
+
+</dd>
+<dt><tt>AddressListBehavior</tt></dt>
+<dd><p>Especifica se as tentativas de conex&#227;o est&#227;o na ordem de endere&#231;os no atributo da <tt>AddressList</tt> (<tt>PRIORITY</tt>) ou em uma ordem aleat&#243;ria (<tt>RANDOM</tt>).</p>
+
+<p><tt>RANDOM</tt> significa que a reconex&#227;o escolhe um endere&#231;o aleat&#243;rio na <tt>AddressList</tt>. Na probabilidade de v&#225;rios clientes tentarem uma conex&#227;o usando a mesma f&#225;brica de conex&#245;es, esse valor os impede de conectar-se ao mesmo endere&#231;o.</p>
+
+<p><tt>PRIORITY</tt> significa que a reconex&#227;o sempre tenta conectar-se ao primeiro endere&#231;o do servidor na <tt>AddressList</tt> e usa outro endere&#231;o somente se o primeiro broker n&#227;o estiver dispon&#237;vel.</p>
+
+<p>O valor padr&#227;o &#233; <tt>RANDOM</tt>.</p>
+
+</dd>
+<dt><tt>AddressListIterations</tt></dt>
+<dd><p>Especifica o n&#250;mero de vezes que o tempo de execu&#231;&#227;o do cliente itera atrav&#233;s da <tt>AddressList</tt>, em um esfor&#231;o para estabelecer (ou restabelecer) uma conex&#227;o. Um valor de -1 indica que o n&#250;mero de tentativas &#233; ilimitado.</p>
+
+<p>O valor padr&#227;o &#233; 3.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

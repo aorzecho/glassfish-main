@@ -1,0 +1,136 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-appdeployruby"></a><h4>Pour d&#233;ployer une application Ruby </h4><a name="indexterm-46"></a><a name="indexterm-47"></a><a name="indexterm-48"></a><ol>
+<li><b>Dans l&#8217;arborescence de navigation, s&#233;lectionnez le n&#339;ud Applications.</b><p>La page des applications s&#8217;affiche.</p></li>
+<li><b>Dans le tableau Applications d&#233;ploy&#233;es, cliquez sur le bouton D&#233;ployer.</b><p>La page D&#233;ploiement d&#8217;applications ou de modules s&#8217;affiche.</p></li>
+<li><b>Sp&#233;cifiez l&#8217;emplacement de l&#8217;application &#224; d&#233;ployer.</b><ul>
+<li><b>Si l&#8217;application est un fichier d&#8217;archive stock&#233; sur la machine client ou
+accessible depuis cette derni&#232;re, s&#233;lectionnez l&#8217;option Fichier empaquet&#233; &#224; t&#233;l&#233;charger sur le
+serveur.</b><p>L&#8217;ordinateur client est l&#8217;h&#244;te sur lequel vous visualisez la Console d'administration 
+via un navigateur.</p><p>Cliquez sur Parcourir pour acc&#233;der au fichier ou tapez le chemin d&#8217;acc&#232;s
+complet au fichier.</p></li>
+<li><b>Si l&#8217;application est un fichier d&#8217;archive stock&#233; sur la machine serveur ou
+une application non empaquet&#233;e dans un r&#233;pertoire &#233;clat&#233;, s&#233;lectionnez l&#8217;option Fichier local
+empaquet&#233; ou R&#233;pertoire accessible depuis GlassFish Server.</b><p>La machine serveur est l&#8217;h&#244;te sur lequel fonctionne le serveur d&#8217;administration du
+domaine. </p><p>Cliquez sur Parcourir les fichiers pour acc&#233;der &#224; un fichier ou Parcourir
+les dossiers pour acc&#233;der &#224; un r&#233;pertoire. Vous pouvez &#233;galement saisir le
+nom du chemin d&#8217;acc&#232;s complet au fichier ou au r&#233;pertoire. Il est
+courant de d&#233;ployer une application JRuby depuis un r&#233;pertoire.</p></li></ul></li>
+<li><b>Dans la liste d&#233;roulante Type, s&#233;lectionnez Application Ruby.</b><p>Si vous avez sp&#233;cifi&#233; un Fichier empaquet&#233; &#224; charger sur le serveur
+ou un Fichier local empaquet&#233; accessible depuis le GlassFish Server, le type
+d&#8217;application est d&#233;tect&#233; automatiquement. Si vous avez sp&#233;cifi&#233; un R&#233;pertoire accessible depuis
+le GlassFish Server, vous devez sp&#233;cifier le type manuellement.</p></li>
+<li><b>Dans le champ Nom de l&#8217;application, conservez le nom par d&#233;faut, qui
+correspond au nom du r&#233;pertoire ou au pr&#233;fixe du nom de fichier,
+ou bien saisissez un autre nom.</b><p>Le nom par d&#233;faut appara&#238;t si vous d&#233;cidez de t&#233;l&#233;charger un fichier.
+Le nom de l&#8217;application doit &#234;tre unique.</p></li>
+<li><b>Dans le champ Racine contexte, saisissez une cha&#238;ne qui identifie l&#8217;application Ruby.</b><p>Dans l&#8217;URL de l&#8217;application Ruby, la racine contexte suit imm&#233;diatement le num&#233;ro
+de port (<tt>http://</tt><i>host</i><tt>:</tt><i> port</i><tt>/</tt><i>context-root</i><tt>/...</tt>). La racine contexte doit commencer par une barre oblique,
+par exemple <tt>/hello</tt>.</p></li>
+<li><b>Cochez la case &#201;tat activ&#233; pour activer l&#8217;application.</b><p>Cette option est s&#233;lectionn&#233;e par d&#233;faut. Si cette option est d&#233;sactiv&#233;e, l&#8217;application
+est indisponible.</p></li>
+<li><b>Cochez la case Forcer le red&#233;ploiement pour forcer le red&#233;ploiement si l&#8217;application
+a d&#233;j&#224; &#233;t&#233; d&#233;ploy&#233;e.</b><p>Si cette option n&#8217;est pas s&#233;lectionn&#233;e, toute tentative de d&#233;ploiement d&#8217;une application
+d&#233;j&#224; d&#233;ploy&#233;e g&#233;n&#232;re une erreur. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Dans le champ Origine de JRuby, saisissez le chemin vers le r&#233;pertoire
+o&#249; le conteneur JRuby est install&#233;.</b><p>L&#8217;emplacement par d&#233;faut est <tt></tt><i>as-install</i><tt>/jruby</tt>. Si vous indiquez une valeur pour ce
+champ, la valeur de l&#8217;application remplace la valeur Origine de JRuby d&#233;finie
+pour le conteneur Ruby.</p></li>
+<li><b>Dans le champ Taille initiale du pool, saisissez le nombre d&#8217;ex&#233;cutions initial
+de JRuby pour d&#233;marrer.</b><p>La valeur doit &#234;tre sup&#233;rieure ou &#233;gale &#224; la valeur figurant dans le
+champ Taille minimale du pool et inf&#233;rieure ou &#233;gale &#224; la valeur dans
+le champ Taille maximale du pool. La valeur par d&#233;faut est 1.
+Si vous sp&#233;cifiez une valeur pour ce champ, la valeur de l&#8217;application
+remplace la valeur Taille initiale du pool d&#233;finie pour le conteneur Ruby.</p></li>
+<li><b>Dans le champ Taille minimale du pool, saisissez le nombre d&#8217;ex&#233;cutions minimal
+de JRuby dans le pool.</b><p>La valeur doit &#234;tre inf&#233;rieure ou &#233;gale &#224; la valeur dans le champ
+Taille initiale du pool et inf&#233;rieure ou &#233;gale &#224; la valeur dans le
+champ Taille maximale du pool. La valeur par d&#233;faut est 1. Si
+vous indiquez une valeur pour ce champ, la valeur de l&#8217;application remplace
+la valeur Taille minimale du pool d&#233;finie pour le conteneur Ruby.</p></li>
+<li><b>Dans le champ Taille maximale du pool, saisissez le nombre d&#8217;ex&#233;cutions maximal
+de JRuby dans le pool.</b><p>La valeur doit &#234;tre sup&#233;rieure ou &#233;gale &#224; la valeur du champ Taille
+minimale du pool et sup&#233;rieure ou &#233;gale &#224; la valeur du champ
+Taille initiale du pool. La valeur par d&#233;faut est 1. Si vous
+sp&#233;cifiez une valeur pour ce champ, la valeur de l&#8217;application remplace la
+valeur Taille maximale du pool d&#233;finie pour le conteneur Ruby.</p></li>
+<li><b>Dans la liste d&#233;roulante Structure, s&#233;lectionnez la structure sur laquelle l&#8217;application doit
+&#234;tre d&#233;ploy&#233;e.</b><p>Les choix disponibles sont <tt>rails</tt>, <tt>merb</tt>, <tt> sinatra</tt> et <tt>auto-detection</tt>. La valeur par
+d&#233;faut est <tt>auto-d&#233;tection</tt>. La d&#233;finition de cette propri&#233;t&#233; sur une valeur autre
+que <tt>auto-d&#233;tection </tt> contourne le processus d&#8217;auto-d&#233;tection normal, potentiellement long, et force le
+d&#233;ploiement sur la structure indiqu&#233;e. Si l&#8217;application d&#233;ploy&#233;e n&#8217;est pas &#233;crite pour
+la structure indiqu&#233;e, des erreurs se produisent.</p></li>
+<li><b>Dans la liste d&#233;roulante Environnement en rack, s&#233;lectionnez l&#8217;environnement dans lequel la
+structure JRuby, telle que Rails ou Merb, est ex&#233;cut&#233;e.</b><p>Les choix disponibles sont <tt>production</tt>, <tt>development</tt> et <tt>test</tt>. La valeur par d&#233;faut
+est <tt>development</tt>.</p></li>
+<li><b>Dans la liste d&#233;roulante MT-Safe, s&#233;lectionnez le param&#232;tre thread-safe pour la structure
+sur laquelle l&#8217;application sera ex&#233;cut&#233;e.</b><p>Cette propri&#233;t&#233; affecte les applications lanc&#233;es &#224; l&#8217;aide d&#8217;un script de d&#233;marrage
+fourni par l&#8217;utilisateur auto-d&#233;tect&#233;. Les choix disponibles sont les suivants :</p><dl><dt><tt>true</tt></dt>
+<dd><p>Indique que la structure est thread-safe et par cons&#233;quent que la cr&#233;ation d&#8217;un pool est inutile. </p>
+
+</dd>
+<dt><tt>false</tt></dt>
+<dd><p>Indique que l&#8217;application d&#233;marre avec un pool d&#8217;instances d&#8217;application, et que chaque instance de l&#8217;application est accessible &#224; un thread &#224; la fois.</p>
+
+</dd>
+<dt><tt>valeur par d&#233;faut</tt></dt>
+<dd><p>Le GlassFish Server tente de d&#233;tecter la s&#233;curit&#233; des threads automatiquement. Il s&#8217;agit de la valeur par d&#233;faut.</p>
+
+</dd>
+</dl>
+<p>Cette propri&#233;t&#233; affecte uniquement les structures lanc&#233;es l&#224; o&#249; la s&#233;curit&#233; des
+threads ne peut &#234;tre automatiquement d&#233;termin&#233;e. La d&#233;finition de cette valeur &#224;
+<tt>true</tt> n&#8217;entra&#238;ne pas le lancement d&#8217;une application Rails 2.1.<i>x</i> auto-d&#233;tect&#233;e en mode
+thread-safe, et ne peut &#234;tre utilis&#233; pour forcer une structure thread-safe &#224;
+d&#233;marrer au mode pool.</p></li>
+<li><b>Dans la liste d&#233;roulante Serveurs virtuels, s&#233;lectionnez le serveur virtuel &#224; associer
+&#224; cette application.</b></li>
+<li><b>Dans le champ Description, entrez une br&#232;ve description de cette application.</b></li>
+<li><b>Cliquez sur OK.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-applistdeployed.html">Pour afficher la liste des applications d&#233;ploy&#233;es</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">D&#233;ployer une application Web</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Pour d&#233;ployer une application d'entreprise</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Pour d&#233;ployer un client d'application</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Pour d&#233;ployer un module connecteur</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Pour d&#233;ployer un Jar EJB</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">Modification d'une application d&#233;ploy&#233;e</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Affichage des descripteurs d'une application</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Affichage des informations relatives aux extr&#233;mit&#233;s des services Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Lancement d'une application</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Lancer un client d'application</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">Red&#233;ploiement d'une application d&#233;ploy&#233;e</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Red&#233;marrage d'une application d&#233;ploy&#233;e</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsservice"></a><h4>JMS 服務</h4>
+<a name="indexterm-43"></a><p>使用 [JMS 服務] 頁面可配置供所有 JMS 連線使用的設定。</p>
+
+<p>如需有關配置 JMS 服務的更多資訊，請參閱 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob"><i>「Oracle GlassFish Server 3.1 Application Development Guide」</i>中的第 17 章「Using the Java Message Service」</a>。</p>
+
+<p>[JMS 服務] 頁面包含下列選項。</p>
+
+<dl><dt>載入預設值</dt>
+<dd><p>將所有設定復原為預設值的按鈕。</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>驗證 JMS 服務是否在預設 JMS 主機上執行的按鈕。若 JMS 服務已啟動並正常執行，會出現訊息報告 Ping 作業成功。</p>
+
+</dd>
+<dt>配置名稱</dt>
+<dd><p>套用此頁面上之設定的配置名稱。此欄位是唯讀欄位。</p>
+
+</dd>
+<dt>類型</dt>
+<dd><p> JMS 服務的存取類型。可用的選項包括：</p>
+
+<dl><dt>EMBEDDED</dt>
+<dd><p>存取本地主機上的 JMS 服務。JMS 服務會於 GlassFish Server 所在的 JVM 機器上啟動。惰性初始化會在第一次存取 JMS 服務時 (而非在 GlassFish Server 啟動時) 啟動預設內嵌代理程式。此為 JMS 服務的預設類型。</p>
+
+</dd>
+<dt>LOCAL</dt>
+<dd><p>存取本地主機上的 JMS 服務。JMS 提供者會與 GlassFish Server 一起啟動。</p>
+
+</dd>
+<dt>REMOTE</dt>
+<dd><p>存取另一個系統上的 JMS 服務。如果選擇了 [REMOTE]，則在下次啟動伺服器時 JMS 服務不會由 GlassFish Server 啟動。而是透過 Message Queue 來啟動和管理 JMS 服務，因此必須單獨啟動 Message Queue 代理程式。如需啟動代理程式的相關資訊，請參閱 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby"><i>「Oracle GlassFish Message Queue 4.5 Administration Guide」</i>中的「Starting Brokers」</a>。如果您選擇該值並使用遠端主機，請遵循<a href="task-jmshostedit.html">編輯 JMS 主機</a>中的說明來指定遠端主機的名稱。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>啟動逾時</dt>
+<dd><p>GlassFish Server 在 JMS 服務啟動時，於中斷啟動前等待的秒數。在運行緩慢或超載的系統中，請在預設逾時值的基礎上增大該值。預設值為 60。</p>
+
+</dd>
+<dt>啟動引數</dt>
+<dd><p>自訂 JMS 服務啟動的引數。使用可透過 <tt><i>as-install-parent</i>/mq/bin/imqbrokerd</tt> 指令提供的任何引數。</p>
+
+</dd>
+<dt>啟用重新連線</dt>
+<dd><p>若選取 [啟用重新連線] 核取方塊，JMS 服務會在連線遺失時嘗試重新連線至訊息伺服器 (或 AddressList 中的位址清單)。此選項預設為啟用。</p>
+
+</dd>
+<dt>重新連線間隔</dt>
+<dd><p>兩次重新連線嘗試之間的間隔秒數。此間隔適用於對 AddressList 中每個位址的重新連線嘗試，及對該清單中連續位址的重新連線嘗試。如果該間隔太短，則代理程式將沒有時間回復。如果該間隔太長，則重新連線會變得遲緩，以至於讓人無法接受。預設值是 5 秒。</p>
+
+</dd>
+<dt>重新連線嘗試</dt>
+<dd><p>用戶端執行階段嘗試連線 (或重新連線) AddressList 清單中每個位址的次數。到達這個值後，用戶端執行階段將嘗試連線清單中的下一個位址。值 -1 表示重新連線嘗試次數沒有限制 (用戶端執行階段將一直嘗試連線至第一個位址，直到連線成功)。預設值為 3。</p>
+
+</dd>
+<dt>預設 JMS 主機</dt>
+<dd><p>預設 JMS 主機的名稱。預設值為 <tt>default_JMS_host</tt>。</p>
+
+</dd>
+<dt>位址清單運作方式</dt>
+<dd><p>嘗試連線的順序。可用的選項包括：</p>
+
+<dl><dt><tt>random</tt></dt>
+<dd><p>從 AddressList 中隨機選取位址。如果許多用戶端嘗試使用同一個連線工廠來進行連線，請指定 <tt>random</tt> 以防止這些用戶端全部連線至同一個位址。此選項為預設值。</p>
+
+</dd>
+<dt><tt>priority</tt></dt>
+<dd><p>重新連線時始終嘗試連線 AddressList 中的第一個伺服器位址，而僅在第一個代理程式不可用時才使用其他位址。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>位址清單反覆運算</dt>
+<dd><p>JMS 服務建立 (或重新建立) 連線時，在 AddressList 中反覆運算的次數。值 -1 表示嘗試次數沒有限制。預設值為 3。</p>
+
+</dd>
+<dt>MQ 方案和 MQ 服務</dt>
+<dd><p>使用非預設的方案或服務時的 Message Queue 位址方案名稱和 Message Queue 連線服務名稱。如需語法資訊，請參閱<a href="ref-mqschemeservice.html">MQ 方案和 MQ 服務位址語法</a>。</p>
+
+</dd>
+<dt>其他特性</dt>
+<dd><p>JMS 服務的其他特性。</p>
+
+<p>如需可用特性的相關資訊，請參閱<a href="ref-jmsservice-additional-props.html">JMS 服務特有的特性</a>。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-jmsservice.html">配置 JMS 服務</a></p>
+
+</li>
+<li><p><a href="task-jmshostnew.html">建立 JMS 主機</a></p>
+
+</li>
+<li><p><a href="task-jmshostedit.html">編輯 JMS 主機</a></p>
+
+</li>
+<li><p><a href="task-jmshostdelete.html">刪除 JMS 主機</a></p>
+
+</li></ul>
+<h5>相關的 <tt>asadmin</tt> 指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=jms-ping-1"><tt>jms-ping</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

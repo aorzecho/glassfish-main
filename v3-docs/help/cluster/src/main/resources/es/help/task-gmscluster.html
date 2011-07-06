@@ -1,0 +1,71 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-gmscluster"></a><h4>Para configurar los Servicios de administraci&#243;n de grupos para un cl&#250;ster</h4><a name="indexterm-152"></a><p>Los Servicios de administraci&#243;n de grupos (GMS) son servicios en curso que
+proporcionan supervisi&#243;n del cl&#250;ster, pertenencia al cl&#250;ster y servicios de comunicaci&#243;n de
+grupos. Los GMS realizan las funciones siguientes:</p>
+
+
+<ul><li><p>Notifican los m&#243;dulos registrados en una instancia de GlassFish Server cuando se a&#241;aden o eliminan una o varias instancias en un cl&#250;ster, o cuando se sospecha o se confirma que han fallado.</p>
+
+</li>
+<li><p>Permiten enviar y recibir mensajes entre un grupo de procesos.</p>
+
+</li></ul>
+<ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, expanda el nodo Cl&#250;steres.</b></li>
+<li><b>Seleccione el cl&#250;ster para el que va a configurar los Servicios de
+administraci&#243;n de grupos (GMS).</b><p>Se abrir&#225; la p&#225;gina Informaci&#243;n general para el cl&#250;ster.</p></li>
+<li><b>Seleccione la casilla Habilitado de GMS para activar los GMS para el
+cl&#250;ster.</b><p>Esta opci&#243;n est&#225; seleccionada de forma predeterminada. Para inhabilitar los GMS para
+el cl&#250;ster, quiete la marca de selecci&#243;n de la casilla Habilitado de
+GMS.</p><p>Si est&#225;n habilitados, los Servicios de administraci&#243;n de grupos se inician en
+cada instancia del servidor en el cl&#250;ster y en el servidor de
+administraci&#243;n de dominios (DAS). El DAS participa en cada cl&#250;ster que tenga
+los GMS habilitados.</p></li>
+<li><b>En el campo Puerto de multidifusi&#243;n, especifique el puerto que utilizan los
+Servicios de administraci&#243;n de grupos para escuchar los eventos del grupo.</b><p>Especifique un n&#250;mero de puerto UDP est&#225;ndar entre 2048 y 32000. El
+valor predeterminado se genera autom&#225;ticamente dentro de este rango.</p></li>
+<li><b>En el campo Direcci&#243;n de multidifusi&#243;n, especifique la direcci&#243;n que utilizan los
+Servicios de administraci&#243;n de grupos para escuchar los eventos del grupo.</b><p>Especifique una direcci&#243;n de multidifusi&#243;n IP de clase D. Las direcciones IP
+de clase D est&#225;n en el intervalo <tt>224.0.0.0</tt> a <tt>239.255.255.255</tt>, inclusive. La
+direcci&#243;n <tt>224.0.0.0</tt> est&#225; reservada y no debe utilizarse. El valor predeterminado es
+228.9.<i>XX</i>.<i> YY</i>, donde <i>XX</i> e <i>YY </i> son valores independientes generados autom&#225;ticamente entre 0
+y 255.</p></li>
+<li><b>En el campo Enlazar direcci&#243;n de interfaz, indique la direcci&#243;n de la
+interfaz de red para los Servicios de administraci&#243;n de grupos si hay
+m&#225;s de una interfaz de red.</b><p>Esta opci&#243;n permite configurar la interfaz de red que se utilizar&#225; para
+los GMS si hay m&#225;s de una en cualquiera de los equipos
+en los que se alojan las instancias de servidor del cl&#250;ster. Este
+valor debe ser una direcci&#243;n IP de una interfaz de red local.
+De modo predeterminado, se utilizan todas las direcciones de interfaz de red
+p&#250;blicas.</p><p>Para especificar una direcci&#243;n que sea v&#225;lida para todas las instancias de
+GlassFish Server del cl&#250;ster, utilice una propiedad del sistema para establecer la
+direcci&#243;n de forma individual para cada instancia.</p><p>Por ejemplo, cree la propiedad del sistema <tt>GMS-BIND-INTERFACE-ADDRESS-<i>nombre_cl&#250;ster</i></tt> en el DAS. A
+continuaci&#243;n, configure la opci&#243;n Enlazar direcci&#243;n de interfaz como <tt>${GMS-BIND-INTERFACE-ADDRESS-<i>nombre_cl&#250;ster</i>}</tt> para especificar
+la propiedad del sistema. Por &#250;ltimo, para cada instancia del cl&#250;ster, configure
+la propiedad del sistema <tt>GMS-BIND-INTERFACE-ADDRESS-<i>nombre_cl&#250;ster</i></tt> con la direcci&#243;n de interfaz de red
+necesaria del equipo de la instancia.</p></li>
+<li>(Opcional) <b>Para especificar propiedades adicionales, seleccione la ficha Propiedades y la subficha Propiedades
+del cl&#250;ster.</b><p>GlassFish Server no define ninguna propiedad adicional para los GMS.</p><ul>
+<li><b>Para a&#241;adir una propiedad, haga clic en el bot&#243;n A&#241;adir propiedad. En
+la fila vac&#237;a escriba el nombre de la propiedad en el campo
+Nombre y el valor de la propiedad en el campo Valor.</b></li>
+<li><b>Para modificar una propiedad, edite su campo Valor.</b></li>
+<li><b>Para eliminar una propiedad, marque la casilla de verificaci&#243;n situada a la
+izquierda del campo Nombre de la propiedad que quiera eliminar y, a
+continuaci&#243;n, haga clic en el bot&#243;n Eliminar propiedades.</b></li></ul></li>
+<li><b>Haga clic en Guardar.</b></li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-gmsenable.html">Para habilitar los Servicios de administraci&#243;n de grupos</a></p>
+
+</li>
+<li><p><a href="task-gms.html">Para configurar los Servicios de administraci&#243;n de grupos</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

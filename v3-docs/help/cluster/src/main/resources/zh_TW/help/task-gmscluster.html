@@ -1,0 +1,38 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-gmscluster"></a><h4>為叢集配置群組管理服務設定</h4><a name="indexterm-152"></a><p>群組管理服務 (GMS) 是一種進程服務，可提供叢集監視、叢集成員身份和群組通訊服務。GMS 會執行下列功能：</p>
+
+
+<ul><li><p>從叢集增加或移除一或多個成員實例，或者一或多個成員實例疑似故障或確認故障時，會通知已在 GlassFish Server 實例中註冊的模組。</p>
+
+</li>
+<li><p>能夠在一組程序之間傳送和接收訊息。</p>
+
+</li></ul>
+<ol>
+<li><b>在瀏覽樹狀結構中，展開 [叢集] 節點。</b></li>
+<li><b>選取要為其配置群組管理服務 (GMS) 設定的叢集。</b><p>此時將開啟叢集的 [一般資訊] 頁面。</p></li>
+<li><b>選取 [GMS 已啟用] 核取方塊，為叢集啟用 GMS。</b><p>此選項預設為選取。若要停用叢集的 GMS，請取消核取 [GMS 已啟用] 核取方塊。</p><p>如果啟用，就會在叢集與 Domain Administration Server (DAS) 的每個伺服器實例中啟動群組管理服務。DAS 會參與每個已啟用 GMS 的叢集。</p></li>
+<li><b>在 [多重播送連接埠] 欄位中，輸入群組管理服務用來偵聽群組事件的連接埠。</b><p>指定標準 UDP 連接埠號碼，範圍介於 2048-32000 之間。預設值是自動產生的值 (介於此範圍內)。</p></li>
+<li><b>在 [多重播送位址] 欄位中，輸入群組管理服務用來偵聽群組事件的位址。</b><p>指定類別 D IP 多重播送位址。類別 D IP 位址的範圍是 <tt>224.0.0.0</tt> 到 <tt> 239.255.255.255</tt> (含)。位址 <tt>224.0.0.0</tt>
+為保留位址，不可使用。預設值是 228.9.<i>XX</i>.<i>YY</i>，其中 <i>XX</i> 與 <i>YY</i> 是自動產生的獨立值 (介於 0 至 255 之間)。</p></li>
+<li><b>在 [連結介面位址] 欄位中，輸入群組管理服務的網路介面位址 (如果有多個網路介面)。</b><p>如果叢集內託管伺服器實例的任一機器上有多個網路介面，則此設定可讓您配置將哪個網路介面用於 GMS。此值必須是本機網路介面 IP 位址。依預設，會使用所有公用網路介面位址。</p><p>若要指定叢集中所有 GlassFish Server 實例的有效位址，請使用系統特性來為每個實例個別設定位址。</p><p>例如，在 DAS 上建立系統特性 <tt>GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i></tt>。然後將這個 [連結介面位址] 選項設為 <tt>${GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i>}</tt>，來指定系統特性。最後，針對叢集中的每個實例，將 <tt>GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i></tt> 系統特性設定為實例的機器上所需的網路介面位址。</p></li>
+<li>(可選擇) <b>若要指定其他特性，請選取 [特性] 標籤和 [叢集特性] 子標籤。</b><p>GlassFish Server 未定義 GMS 的任何其他特性。</p><ul>
+<li><b>若要增加特性，請按一下 [增加特性] 按鈕。在出現的空白列中，於 [名稱] 欄位中鍵入特性名稱，然後在 [值] 欄位中鍵入特性值。</b></li>
+<li><b>若要修改特性，請編輯特性的 [值] 欄位。</b></li>
+<li><b>若要刪除特性，請選取您要刪除之特性 [名稱] 欄位左側的核取方塊，然後按一下 [刪除特性] 按鈕。</b></li></ul></li>
+<li><b>按一下 [儲存]。</b></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-gmsenable.html">啟用群組管理服務</a></p>
+
+</li>
+<li><p><a href="task-gms.html">配置群組管理服務</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

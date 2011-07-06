@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-networklistenernew"></a><h4>新しいネットワークリスナー</h4>
+<a name="indexterm-65"></a><p>新しいネットワークリスナーを作成するには、「新しいネットワークリスナー」ページを使用します。</p>
+
+<p>ネットワークリスナーを作成するときに、同時にネットワークリスナーが使用するプロトコルを作成できます。または、先に作成したプロトコルを使用することもできます。通常、ネットワークリスナーと関連付けられるプロトコルは 1 対 1 の関係になりますが、これは必須ではありません。</p>
+
+<p>「新しいネットワークリスナー」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>名前</dt>
+<dd><p>リスナーの一意の名前。ネットワークリスナー名の先頭に数字を使用することはできません。</p>
+
+</dd>
+<dt>プロトコル</dt>
+<dd><p>ネットワークリスナーに関連付けられているプロトコル。次のオプションは、新しいプロトコルを作成するか、既存のプロトコルを使用するかを指定します。</p>
+
+<dl><dt>新しいプロトコルを作成</dt>
+<dd><p>ネットワークリスナーに対して、新しいプロトコルをデフォルトの設定で作成します。プロトコルのデフォルト名は、ネットワークリスナーの名前に <tt>-protocol</tt> を付加した文字列になりますが、この値は編集できます。</p>
+
+<dl><dt>Virtual Server</dt>
+<dd><p>新しいプロトコルを作成する場合に、プロトコルに関連付けられる仮想サーバー。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>既存のプロトコルを使用</dt>
+<dd><p>選択したプロトコルを使用します。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>ステータス</dt>
+<dd><p>ネットワークリスナーのステータス。リスナーは、有効または無効の状態になります。このオプションはデフォルトで有効になっています。リスナーが無効の場合は、リスナーに接続しようとするとソケット例外 (<tt>java.net.ConnectException</tt>) が発生します。</p>
+
+<p>バージョン 9.1 より前の GlassFish サーバー では、有効化された属性が false に設定されたリスナーは、送信された要求に対して 404 応答コードを返します。現在のバージョンの GlassFish サーバー でこの動作を行うには、リスナーのステータスを有効に設定し、関連する各仮想サーバーのステータスをオフに設定します。仮想サーバーは、関連付けられたリスナーを「ネットワークリスナー」ドロップダウンリストに表示します。</p>
+
+</dd>
+<dt>Security</dt>
+<dd><p>このオプションを選択すると、ネットワークリスナーが使用するプロトコルのセキュリティーが有効になります。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>JK リスナー</dt>
+<dd><p>このオプションを選択すると、リスナーは Apache の <tt>mod-jk</tt> プロトコルをサポートします。<tt>mod-jk</tt> プロトコルは、Apache の <tt>httpd</tt> (Web サーバー) と GlassFish サーバー のバックエンドインスタンス間で使用される、専用の通信およびネットワークのプロトコルです。リスナーがこのプロトコルをサポートする場合、<tt>httpd</tt> はすべての静的なコンテンツを処理すると想定され、動的なリソース (サーブレットおよび JSP) の要求は、<tt>mod-jk</tt> に対応する GlassFish サーバー のネットワークリスナーに <tt>mod-jk</tt> プロトコルを使用してルーティングされます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>ポート</dt>
+<dd><p>リスナーが待機するポート番号。適切な値は 1 ～ 65535 です。UNIX システムでは、ポート 1 ～ 1024 で待機するソケットを作成する場合、スーパーユーザーの権限が必要です。</p>
+
+</dd>
+<dt>アドレス</dt>
+<dd><p>ネットワークリスナーが待機する IP アドレス。アドレスはドット区切りか IPv6 の表記法で指定します。すべての IP アドレスで待機する場合は、<tt>any</tt> (<tt>INADDR_ANY</tt>) を指定できます。ホスト名を指定できます。</p>
+
+</dd>
+<dt>スレッドプール</dt>
+<dd><p>ネットワークリスナーに関連付けられているスレッドプール。通常は、GlassFish サーバー のインストール時に設定される 2 つのスレッドプールのいずれかを選択します。</p>
+
+</dd>
+<dt>トランスポート</dt>
+<dd><p>ネットワークリスナーのトランスポートのタイプ。デフォルトでは、選択できるのは <tt>tcp</tt> のみです。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-networklistenernew.html">「ネットワークリスナーを作成する」</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">「ネットワークリスナーを編集する」</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">「ネットワークリスナーを削除する」</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">「プロトコルを作成する」</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">「プロトコルを編集する」</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">「プロトコルの SSL 設定を編集する」</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">「プロトコルの HTTP 設定を編集する」</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">「プロトコルのファイルキャッシュ設定を編集する」</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">「プロトコルを削除する」</a></p>
+
+</li>
+<li><p><a href="task-virtualservercreate.html">「仮想サーバーを作成する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-network-listener-1"><tt>create-network-listener</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-network-listeners-1"><tt>list-network-listeners</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-network-listener-1"><tt>delete-network-listener</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

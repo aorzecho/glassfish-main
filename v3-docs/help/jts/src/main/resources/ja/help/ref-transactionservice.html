@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transactionservice"></a><h4>トランザクションサービス</h4>
+<a name="indexterm-8"></a><p>トランザクションの回復、タイムアウト、ログを設定するには、「トランザクションサービス」ページを使用します。</p>
+
+<p>「トランザクションサービス」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>再起動時</dt>
+<dd><p>「有効」チェックボックスがオンの場合、GlassFish サーバー はサーバーの再起動時に未完了のトランザクションを回復しようとします。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>トランザクションタイムアウト</dt>
+<dd><p>完了していないトランザクションをロールバックする前にサーバーが待機する秒数。デフォルト値は 0 です。これは、サーバーがトランザクションが完了するまで無期限に待機するという意味です。</p>
+
+</dd>
+<dt>再試行タイムアウト</dt>
+<dd><p>GlassFish サーバー が到達不可能なサーバーに接続を試行する秒数。デフォルト値は 600 (10 分) です。</p>
+
+</dd>
+<dt>トランザクションログの位置</dt>
+<dd><p>サーバーログの保管場所。トランザクションログは、このフィールドで指定したディレクトリの <tt>tx</tt> サブディレクトリに保存されます。デフォルト値は「ドメイン属性」ページの「ログルート」フィールドで指定されたディレクトリです。このページは GlassFish サーバー ノードの「詳細」タブの下にあります。</p>
+
+</dd>
+<dt>特殊な結果判別</dt>
+<dd><p>到達不可能なサーバーを含むトランザクションをコミットするか、ロールバックするかの判断。デフォルト値はロールバックです。未確定なトランザクションのコミットは、アプリケーションのデータの整合性を損なう可能性があります。</p>
+
+</dd>
+<dt>キーポイント間隔</dt>
+<dd><p>トランザクションログファイルを圧縮するキーポイント操作間のトランザクション数。デフォルト値は 65,536 です。</p>
+
+</dd>
+<dt>追加プロパティー</dt>
+<dd><p>トランザクションサービスの追加プロパティー。</p>
+
+<p>利用可能なプロパティーの説明は、<a href="ref-transactionsvcproperties.html">「トランザクションサービスに固有のプロパティー」</a>を参照してください。</p>
+
+</dd>
+</dl>
+<a name="ginkt"></a><h5>関連操作</h5>
+
+<ul><li><p><a href="task-configtransservice.html">「トランザクションサービスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-configtransrecovery.html">「GlassFish サーバー によるトランザクションの復元方法を設定する」</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">「トランザクションタイムアウト値を設定する」</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">「トランザクションログの位置を設定する」</a></p>
+
+</li>
+<li><p><a href="task-setkeyptinterval.html">「キーポイント間隔を設定する」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

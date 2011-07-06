@@ -1,0 +1,93 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-transportedit"></a><h4>Para editar um transporte</h4><a name="indexterm-34"></a><ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
+<li><b>No n&#243; Configura&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o da Rede.</b></li>
+<li><b>No n&#243; Config da rede, selecione o n&#243; Transportes.</b><p>&#201; aberta a p&#225;gina Transportes.</p></li>
+<li><b>Na p&#225;gina Transportes, clique no nome do transporte a ser editado.</b><p>&#201; aberta a p&#225;gina Editar Transporte.</p></li>
+<li><b>No campo Nome da classe, digite o nome da implementa&#231;&#227;o do transporte</b><p>O valor padr&#227;o &#233; <tt>com.sun.grizzly.TCPSelectorHandler</tt>.</p></li>
+<li><b>No campo Manipulador de chave de sele&#231;&#227;o, digite o nome da classe
+de um manipulador de chave de sele&#231;&#227;o.</b><p>O nome da classe da implementa&#231;&#227;o do manipulador de chave de sele&#231;&#227;o.
+Um manipulador de chave de sele&#231;&#227;o &#233; uma classe abstrata que gerencia
+o ciclo de vida das chaves de sele&#231;&#227;o. Se voc&#234; n&#227;o especifica
+um valor, a implementa&#231;&#227;o padr&#227;o &#233; usada.</p></li>
+<li><b>Na lista suspensa Tipo de buffer, selecione o tipo de <tt>ByteBuffer</tt> a
+ser usado.</b><p>As escolhas dispon&#237;veis s&#227;o <tt>HEAP</tt> e <tt>DIRECT</tt>. O valor padr&#227;o &#233; <tt>HEAP</tt>.</p></li>
+<li><b>No campo Segmentos do aceitador, digite o n&#250;mero de processadores na m&#225;quina.</b><p>Um valor de &#8211;1 indica que o Grizzly ir&#225; calcular por si
+mesmo o n&#250;mero de segmentos do aceitador com base no n&#250;mero de
+processadores na m&#225;quina. O valor padr&#227;o &#233; 1. </p><p>Para definir o n&#250;mero de segmentos de processamento da solicita&#231;&#227;o, defina o
+valor Tamanho m&#225;ximo do conjunto de segmentos usado por uma escuta de
+rede que usa este transporte.</p></li>
+<li><b>No campo Contagem m&#225;xima de conex&#245;es, digite o n&#250;mero m&#225;ximo de conex&#245;es
+pendentes em uma escuta de rede que usa este transporte.</b><p>O valor padr&#227;o &#233; 4096.</p></li>
+<li><b>No campo Tamanho do buffer, digite o tamanho em bytes do buffer
+a ser fornecido para fluxos de entrada criados por uma escuta de
+rede que usa este transporte.</b><p>O valor padr&#227;o &#233; 8.192.</p></li>
+<li><b>No campo Tempo limite de chave ociosa, digite o n&#250;mero de segundos
+ap&#243;s o qual uma chave ociosa pode ser cancelada e o canal
+fechado.</b><p>O valor padr&#227;o &#233; 30.</p></li>
+<li><b>No campo Tempo limite de leitura, digite o n&#250;mero em milissegundos que
+o Servidor GlassFish aguarda durante a an&#225;lise do cabe&#231;alho e corpo da
+opera&#231;&#227;o de leitura.</b><p>O valor padr&#227;o &#233; 30.000.</p></li>
+<li><b>No campo Tempo limite do seletor de amostragem, digite o n&#250;mero em
+milissegundos que um seletor NIO ser&#225; bloqueado enquanto aguarda por eventos (solicita&#231;&#245;es
+de usu&#225;rios).</b><p>O valor padr&#227;o &#233; 1000.</p></li>
+<li><b>No campo Tempo limite de grava&#231;&#227;o, digite o n&#250;mero de milissegundos que
+o Servidor GlassFish aguarda antes de considerar que o cliente remoto desconectou
+ao gravar a resposta.</b><p>O valor padr&#227;o &#233; 30.000.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Exibir configura&#231;&#245;es ativado para descarregar as configura&#231;&#245;es
+internas do Grizzly nos registros do servidor.</b><p>Essa op&#231;&#227;o pode fornecer informa&#231;&#245;es &#250;teis para a depura&#231;&#227;o. Por padr&#227;o, a
+op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de sele&#231;&#227;o Snoop ativado para descarregar as informa&#231;&#245;es de
+solicita&#231;&#245;es/respostas no registro do servidor.</b><p>Essa op&#231;&#227;o pode fornecer informa&#231;&#245;es &#250;teis para a depura&#231;&#227;o, mas ir&#225; reduzir
+significativamente o desempenho. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
+<li><b>Selecione a caixa de di&#225;logo Sem atraso do TCP, para ativar o
+TCP_NODELAY (tamb&#233;m denominado como algoritmo de Nagel).</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li>
+<li><b>Clique em Salvar.</b>
+<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar Padr&#245;es e depois
+em Salvar. </p>
+
+
+<hr>
+</li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="task-networklistenernew.html">Para criar uma escuta de rede</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">Para editar uma escuta de rede</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">Para excluir uma escuta de rede</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">Para criar um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Para editar um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Para editar as configura&#231;&#245;es SSL para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Para editar as configura&#231;&#245;es HTTP para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Para editar as configura&#231;&#245;es de um arquivo de cache para um protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Para excluir um protocolo</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">Para criar um transporte</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">Para excluir um transporte</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

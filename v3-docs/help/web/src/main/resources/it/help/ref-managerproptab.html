@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-managerproptab"></a><h4>Manager Properties</h4>
+<a name="indexterm-50"></a><a name="indexterm-51"></a><p>La gestione delle sessioni consente di configurare la modalit&#224; di creazione ed
+eliminazione delle sessioni, la posizione di memorizzazione dello stato della sessione e
+il numero massimo di sessioni disponibili.</p>
+
+<p>Nella pagina Manager Properties &#232; possibile aggiungere o modificare le propriet&#224; di
+gestione delle sessioni per il contenitore Web.</p>
+
+<p>La pagina Manager Properties contiene le seguenti opzioni.</p>
+
+<dl><dt>Load Defaults</dt>
+<dd><p>Pulsante che consente di ripristinare i valori predefiniti di tutte le impostazioni.</p>
+
+</dd>
+<dt>Configuration Name</dt>
+<dd><p>Nome della configurazione a cui si applicano le impostazioni visualizzate nella pagina. Campo di sola lettura.</p>
+
+</dd>
+<dt>Reap Interval</dt>
+<dd><p>Numero di secondi precedenti all'eliminazione dei dati di una sessione inattiva dall'archivio. Il valore predefinito &#232; 60.</p>
+
+<p>Specificare un valore inferiore alla frequenza con cui i dati della sessione vengono modificati. Nel caso di un sito Web utilizzato di frequente, si consiglia ad esempio di specificare il valore pi&#249; basso possibile (1 secondo) per un servlet del contatore di accessi; in caso contrario, potrebbero andare perse le ultime visite ogni volta che si riavvia il server.</p>
+
+</dd>
+<dt>Max Sessions</dt>
+<dd><p>Numero massimo di sessioni memorizzabili nella cache. Un valore pari a -1 indica un numero di sessioni illimitato. Il valore predefinito &#232; -1. </p>
+
+<p>Una volta raggiunto il limite, ogni tentativo di creare una nuova sessione genera l'evento <tt>IllegalStateException</tt>.</p>
+
+</dd>
+<dt>Session File Name</dt>
+<dd><p>Percorso completo o relativo della directory in cui viene salvato lo stato della sessione a ogni avvio dell'applicazione, se consentito. Se il percorso non &#232; stato impostato, lo stato della sessione non viene salvato. Per impostazione predefinita, tale percorso non &#232; impostato.</p>
+
+<p>I percorsi relativi fanno riferimento alla directory temporanea di questa applicazione Web.</p>
+
+</dd>
+<dt>Additional Properties</dt>
+<dd><p>Propriet&#224; aggiuntive per la gestione delle sessioni. In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per la gestione delle sessioni.</p>
+
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">Configurare le propriet&#224; generali per il contenitore Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">Configurare le propriet&#224; di sessione per il contenitore Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">Configurare le propriet&#224; di gestione per il contenitore Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">Configurare le propriet&#224; dell'archivio per il contenitore Web</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">Configurare le impostazioni di disponibilit&#224; per il contenitore Web</a></p>
+
+</li></ul>
+<h5>Comandi <tt>asadmin</tt> correlati</h5>
+<p>Nessuno.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

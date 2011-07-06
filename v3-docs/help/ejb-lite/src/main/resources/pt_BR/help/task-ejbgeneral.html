@@ -1,0 +1,107 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbgeneral"></a><h4>Para configurar as defini&#231;&#245;es EJB</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, selecione o n&#243; Configura&#231;&#227;o.</b></li>
+<li><b>Selecione o n&#243; Recipiente EJB.</b><p>A p&#225;gina Enterprise Java Beans (EJB) &#233; aberta.</p></li>
+<li><b>No campo Localiza&#231;&#227;o de armazenamento da sess&#227;o, digite um novo valor para
+a localiza&#231;&#227;o de armazenamento da sess&#227;o.</b><p>Este campo especifica o diret&#243;rio onde os beans passivos de sess&#227;o com
+estado e os estados dos ponto de verifica&#231;&#227;o SFSB com persist&#234;ncia s&#227;o
+armazenados no sistema de arquivos. O valor padr&#227;o &#233; <tt>${com.sun.aas.instanceRoot}/session-store</tt>.</p><p>Os beans passivos s&#227;o beans de sess&#227;o com estados que tenham seus
+estados gravados em um arquivo no sistema de arquivos. Eles normalmente estavam
+ociosos por um determinado per&#237;odo de tempo e n&#227;o est&#227;o no momento
+sendo acessados por clientes. Da mesma forma, os estados do ponto de
+verifica&#231;&#227;o SFSB com persist&#234;ncia s&#227;o sess&#245;es individuais da Web cujos estados foram
+gravados em um arquivo no sistema de arquivos.</p><p>Esta configura&#231;&#227;o se aplica aos estados do ponto de verifica&#231;&#227;o SFSB somente
+se a disponibilidade do recipiente EJB estiver desativada. Para desativar a disponibilidade,
+consulte <a href="../../../ejb/pt_BR/help/task-ejbcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade do recipiente EJB</a>.</p></li>
+<li><b>Selecione o bot&#227;o Op&#231;&#227;o B ou Op&#231;&#227;o C para definir A op&#231;&#227;o
+de comprometer.</b><p>A op&#231;&#227;o de comprometer especifica como o recipiente efetua o cache de
+inst&#226;ncias de beans passivos entre transa&#231;&#245;es.</p><ul>
+<li><b>Se voc&#234; seleciona a Op&#231;&#227;o B (a padr&#227;o), o recipiente efetua o
+cache de uma inst&#226;ncia pronta entre transa&#231;&#245;es.</b></li>
+<li><b>Se voc&#234; seleciona a Op&#231;&#227;o C, o recipiente n&#227;o efetua o cache
+de uma inst&#226;ncia pronta entre transa&#231;&#245;es.</b></li></ul></li>
+<li><b>No campo Tamanho inicial e m&#237;nimo do conjunto, digite o n&#250;mero m&#237;nimo
+de beans a serem mantidos no conjunto.</b><p>O valor padr&#227;o &#233; 0.</p></li>
+<li><b>No campo Tamanho m&#225;ximo do conjunto, digite o n&#250;mero m&#225;ximo de beans
+que o recipiente pode manter no conjunto ao mesmo tempo.</b><p>O valor padr&#227;o &#233; 32.</p></li>
+<li><b>No campo Quantidade de redimensionamento do conjunto, digite o n&#250;mero de beans
+que s&#227;o removidos do conjunto, se estiverem ociosos por mais tempo do
+que o especificado no campo Tempo limite de conjunto ocioso.</b><p>O valor precisa ser ao menos 0 e menor do que o
+valor de Tamanho m&#225;ximo do conjunto. O valor padr&#227;o &#233; 8.</p></li>
+<li><b>No campo Tempo limite de conjunto ociosos, digite o tempo, em segundos,
+que um conjunto pode permanecer ocioso antes que seja removido do conjunto.</b><p>Ap&#243;s esta quantidade de tempo, o bean &#233; destru&#237;do. Um valor de
+0 significa que um bean pode permanecer ocioso indefinidamente. O valor padr&#227;o
+&#233; 600.</p></li>
+<li><b>No campo Tamanho m&#225;ximo do cache, digite a quantidade m&#225;xima de beans
+a serem mantidos no cache.</b><p>Aumente o n&#250;mero m&#225;ximo de beans no cache para eliminar a sobrecarga
+na cria&#231;&#227;o e destrui&#231;&#227;o do bean. No entanto, se o cache &#233;
+aumentado, o servidor consome mais mem&#243;ria e recursos. Assegure-se de que seu
+ambiente operacional seja suficiente para suas configura&#231;&#245;es do cache. Um valor de
+0 indica um cache n&#227;o vinculado. O valor padr&#227;o &#233; 512.</p></li>
+<li><b>No campo Quantidade de redimensionamento do cache, digite o n&#250;mero m&#225;ximo de
+beans que ser&#227;o passados para o estado passivo quando o cache estiver
+cheio.</b><p>Quando o n&#250;mero m&#225;ximo de beans no cache &#233; alcan&#231;ado, o recipiente
+remove uma quantidade de beans passivos do armazenamento de backup. Esse valor
+tamb&#233;m especifica o n&#250;mero de beans a serem criados se uma solicita&#231;&#227;o
+chega quando o conjunto n&#227;o tem beans dispon&#237;veis. O valor precisa ser
+maior do que 1 e menor do que o valor de Tamanho
+m&#225;ximo do cache. O valor padr&#227;o &#233; 32.</p></li>
+<li><b>No campo Tempo limite de remo&#231;&#227;o, digite o n&#250;mero de segundos ap&#243;s
+o qual o bean passivo &#233; removido do armazenamento da sess&#227;o.</b><p>Um valor de 0 especifica que o recipiente n&#227;o remove automaticamente os
+beans inativos. Se o valor da Tempo limite da remo&#231;&#227;o &#233; menor
+do que ou igual ao valor de Tempo limite de cache ocioso,
+os beans s&#227;o imediatamente removidos sem passarem para o estado passivo. O
+valor padr&#227;o &#233; 5.400.</p></li>
+<li><b>Na lista suspensa Diretriz da sele&#231;&#227;o de remo&#231;&#227;o, selecione a diretriz usada
+pelo recipiente para remover beans de sess&#245;es com estado do cache.</b><p>As escolhas s&#227;o as seguintes:</p><dl><dt>N&#227;o recentemente usado (NRU)</dt>
+<dd><p>(Padr&#227;o) Remove um bean que n&#227;o foi utilizado recentemente.</p>
+
+</dd>
+<dt>Primeiro a entrar, primeiro a sair (PAPS)</dt>
+<dd><p>Remove o bean mais antigo no cache.</p>
+
+</dd>
+<dt>Usado menos recentemente (NRU)</dt>
+<dd><p>Remove o bean menos acessado recentemente.</p>
+
+</dd>
+</dl>
+</li>
+<li><b>No campo Tempo limite de cache ocioso, digite o n&#250;mero m&#225;ximo de
+segundos que um bean pode permanecer ocioso no conjunto.</b><p>Ap&#243;s essa quantidade de tempo, o recipiente pode passar esse bean para
+o estado passivo. Um valor de 0 especifica que os beans nunca
+se tornam candidatos para passar para o estado passivo. O valor padr&#227;o
+&#233; 600.</p></li>
+<li>(Opcional) <b>Na se&#231;&#227;o Propriedades Adicionais, especifique as propriedades.</b><p>O Servidor GlassFish n&#227;o define propriedades adicionais para o recipiente EJB.</p><ul>
+<li><b>Para adicionar uma propriedade, clique no bot&#227;o Adicionar propriedade. Na linha em
+branco que &#233; exibida, digite o nome da propriedade no campo Nome
+e digite o valor da propriedade no campo Valor.</b></li>
+<li><b>Para modificar uma propriedade, edite o campo Valor da propriedade.</b></li>
+<li><b>Para excluir uma propriedade, marque a caixa de sele&#231;&#227;o &#224; esquerda do
+campo Nome da propriedade a ser exclu&#237;da. Clique no bot&#227;o Excluir propriedades.</b></li></ul></li>
+<li><b>Clique em Salvar.</b>
+<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar padr&#245;es e, em
+seguida, em Salvar. </p>
+
+
+<hr>
+</li>
+<li><b>Reinicie o Servidor GlassFish.</b></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="../../../ejb/pt_BR/help/task-ejbmdbpoolsettings.html">Para configurar as defini&#231;&#245;es do conjunto MDB</a></p>
+
+</li>
+<li><p><a href="../../../ejb/pt_BR/help/task-ejbtimerservice.html">Para configurar o servi&#231;o de temporizador EJB</a></p>
+
+</li>
+<li><p><a href="../../../ejb/pt_BR/help/task-ejbcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente EJB</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

@@ -1,0 +1,94 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterproperties"></a><h4>クラスタプロパティー</h4>
+<a name="indexterm-193"></a><a name="indexterm-194"></a><p>「クラスタプロパティー」ページには、選択したクラスタに対して設定されているプロパティーの一覧が表示されます。これらのプロパティーは、クラスタに関するオプションの設定情報を追加します。</p>
+
+<p>「クラスタ名」フィールドは、選択したクラスタの名前が表示される読み取り専用のフィールドです。</p>
+
+<p>プロパティーごとに、次の情報が表示されます。</p>
+
+<dl><dt>名前</dt>
+<dd><p>プロパティーの名前。</p>
+
+</dd>
+<dt>値</dt>
+<dd><p>選択したインスタンスに対して設定されているプロパティーの値。</p>
+
+</dd>
+<dt>説明</dt>
+<dd><p>プロパティーに関する詳細を提供するテキスト形式の説明。</p>
+
+</dd>
+</dl>
+<p>「追加のプロパティー」の表には、次のオプションも表示されます。</p>
+
+<dl><dt>プロパティーを追加</dt>
+<dd><p>プロパティーを追加するボタン。このボタンをクリックすると、「追加のプロパティー」の表に行が追加されます。</p>
+
+</dd>
+<dt>プロパティーを削除</dt>
+<dd><p>選択した 1 つまたは複数のプロパティーを削除するボタン。削除されたプロパティーはデフォルト値に戻ります。デフォルト値が設定されていない場合は未定義になります。</p>
+
+</dd>
+</dl>
+<p>GlassFish サーバー で定義されているクラスタプロパティーは次のとおりです。</p>
+
+<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
+<dd><p>クラスタがグループ管理サービス (GMS) からのメッセージを待機するポートのポート番号。ほとんどの場合、デフォルト値で問題ありません。</p>
+
+</dd>
+<dt><tt>GMS_LOOPBACK</tt></dt>
+<dd><p>インスタンスがクラスタにブロードキャストしたアプリケーションレベルのメッセージを、そのインスタンス自身が受信できるかどうかを指定します。</p>
+
+<p>次の値を指定できます。</p>
+
+<dl><dt><tt>false</tt></dt>
+<dd><p>インスタンスは自身からメッセージを受信<b>できません</b> (デフォルト)。</p>
+
+</dd>
+<dt><tt>true</tt></dt>
+<dd><p>インスタンスは自身からメッセージを受信できます。インスタンスがクラスタ内の唯一のインスタンスである場合にインスタンスをテストするには、この設定を使用します。</p>
+
+</dd>
+</dl>
+</dd>
+<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
+<dd><p>次のイベントのタイプのマルチキャストメッセージを反復処理または伝送する最大数。この数を超えるとメッセージは破棄されます。</p>
+
+
+<ul><li><p>グループの検出</p>
+
+</li>
+<li><p>メンバーのハートビート</p>
+
+</li>
+<li><p>メンバーシップの変更</p>
+
+</li></ul>
+<p>DAS およびクラスタ化されたインスタンスが配備されているネットワークの設定に一致させるには、この値をできる限り小さく設定します。システムの設定可能な最小値を判定するには、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=validate-multicast-1"><tt>validate-multicast</tt>(1)</a> サブコマンドを使用します。</p>
+
+<p>値 0 を指定すると、マルチキャストメッセージはブロードキャスト元のホストから送信されません。</p>
+
+<p>値 1 を指定すると、スイッチまたはルーターで接続された同じサブネット上のホスト間でメッセージがブロードキャストされなくなる場合があります。 </p>
+
+<p>デフォルトの 4 を指定すると、ホストがスイッチまたはルーターで接続されているネットワークのすべてのクラスタメンバーにメッセージが正常にブロードキャストされます。</p>
+
+</dd>
+</dl>
+<h5>同等の <tt>asadmin</tt> サブコマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=get-1"><tt>get</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-1"><tt>list</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

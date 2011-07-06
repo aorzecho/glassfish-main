@@ -1,0 +1,42 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbtimerservice"></a><h4>EJB 타이머 서비스를 구성하는 방법</h4><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>타이머 서비스는 Enterprise Bean 컨테이너에서 제공하며 Enterprise Bean에서 사용하는 알림이나 이벤트를 예약하는
+데 사용하는 영구적인 트랜잭션 알림 서비스입니다. Stateful Session Bean을 제외한 모든 Enterprise
+Bean에서는 타이머 서비스로부터 알림을 수신할 수 있습니다. 서비스에 의해 설정된 영구 타이머는
+서버가 종료되거나 다시 시작되어도 삭제되지 않습니다.</p>
+
+<ol>
+<li><b>탐색 트리에서 구성 노드를 선택합니다.</b></li>
+<li><b>EJB 컨테이너 노드를 선택합니다.</b><p>EJB(Enterprise Java Bean) 페이지가 열립니다.</p></li>
+<li><b>EJB 타이머 서비스 탭을 누릅니다.</b><p>EJB 타이머 서비스 페이지가 열립니다.</p></li>
+<li><b>최소 전달 간격 필드에 특정 타이머에 대한 다음 타이머 만료가 발생하기 전에
+허용되는 최소 시간(밀리초)을 입력합니다.</b><p>이 간격을 너무 낮게 설정하면 서버 오버헤드가 발생할 수 있습니다. 기본값은 1000입니다.</p></li>
+<li><b>최대 재전송 필드에 타이머 서비스가 예외 또는 롤백에 대한 타이머 만료 기한을
+전달하기 위해 시도하는 최대 횟수를 입력합니다.</b><p>기본값은 1입니다. </p></li>
+<li><b>재전송 간격 필드에 재전송 시도 간격(밀리초)을 입력합니다.</b><p>기본값은 5000입니다.</p></li>
+<li><b>타이머 데이터 소스 필드에 타이머 데이터 소스로 사용될 JDBC 자원의 JNDI 이름을
+입력합니다.</b><p>이 값을 지정하면 타이머 서비스 시스템 응용 프로그램에 대한 <tt>jdbc/__TimerPool</tt> 기본값보다 우선합니다.</p></li>
+<li><b>저장을 누릅니다.</b>
+<hr><p><b>참고 - </b>기본 설정으로 돌아가려면 기본값 로드 버튼을 누른 다음 저장을 누릅니다.</p>
+
+
+<hr>
+</li>
+<li><b>GlassFish 서버를 다시 시작합니다.</b></li></ol><h6>참조 </h6>
+<ul><li><p><a href="../../../ejb-lite/ko/help/task-ejbgeneral.html">To Configure EJB Settings</a></p>
+
+</li>
+<li><p><a href="task-ejbmdbpoolsettings.html">MDB 풀 설정을 구성하는 방법</a></p>
+
+</li>
+<li><p><a href="task-ejbcontaineravailability.html">EJB 컨테이너에 대한 가용성 설정을 구성하는 방법</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

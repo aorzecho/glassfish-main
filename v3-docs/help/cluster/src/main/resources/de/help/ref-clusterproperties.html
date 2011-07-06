@@ -1,0 +1,96 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterproperties"></a><h4>Clustereigenschaften</h4>
+<a name="indexterm-193"></a><a name="indexterm-194"></a><p>Auf der Seite "Clustereigenschaften" werden die Eigenschaften aufgelistet, die f&#252;r die ausgew&#228;hlten
+Cluster festgelegt sind. Diese Eigenschaften enthalten optionale Konfigurationsinformationen zum Cluster.</p>
+
+<p>Das Feld "Clustername" ist ein schreibgesch&#252;tztes Feld, in dem der Name des
+ausgew&#228;hlten Clusters angezeigt wird.</p>
+
+<p>F&#252;r jede Instanz werden folgende Informationen angezeigt:</p>
+
+<dl><dt>Name</dt>
+<dd><p>Der Name der Eigenschaft.</p>
+
+</dd>
+<dt>Wert</dt>
+<dd><p>Der Wert der Eigenschaft, der f&#252;r die ausgew&#228;hlte Instanz festgelegt ist.</p>
+
+</dd>
+<dt>Beschreibung</dt>
+<dd><p>Eine Textbeschreibung mit weiteren Informationen zur Eigenschaft.</p>
+
+</dd>
+</dl>
+<p>Die Tabelle "Weitere Eigenschaften" enth&#228;lt dar&#252;ber hinaus die folgenden Optionen.</p>
+
+<dl><dt>Eigenschaft hinzuf&#252;gen</dt>
+<dd><p>Schaltfl&#228;che zum Hinzuf&#252;gen einer Eigenschaft. Durch Klicken auf diese Schaltfl&#228;che wird eine Zeile zur Tabelle "Weitere Eigenschaften" hinzugef&#252;gt.</p>
+
+</dd>
+<dt>Eigenschaften l&#246;schen</dt>
+<dd><p>Schaltfl&#228;che zum L&#246;schen einer oder mehrerer ausgew&#228;hlter Eigenschaften. Eine gel&#246;schte Eigenschaft wird auf den Standardwert zur&#252;ckgesetzt oder, falls kein Standardwert vorhanden ist, nicht definiert.</p>
+
+</dd>
+</dl>
+<p>GlassFish-Server definiert die folgenden Clustereigenschaften:</p>
+
+<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
+<dd><p>Die Nummer des Ports, den der Cluster auf Meldungen des Gruppenverwaltungsdiensts (GMS, Group Management Service) &#252;berwacht. Der Standardwert reicht in vielen F&#228;llen aus.</p>
+
+</dd>
+<dt><tt>GMS_LOOPBACK</tt></dt>
+<dd><p>Gibt an, ob eine Instanz von sich selbst Meldungen auf Anwendungsebene erhalten kann, die die Instanz an den Cluster sendet.</p>
+
+<p>M&#246;gliche Werte:</p>
+
+<dl><dt><tt>falsch</tt></dt>
+<dd><p>Die Instanz darf <b>keine</b> Meldungen von sich selbst erhalten (Standardeinstellung).</p>
+
+</dd>
+<dt><tt>wahr</tt></dt>
+<dd><p>Die Instanz kann Meldungen von sich selbst erhalten. Verwenden Sie diese Einstellung zum Testen einer Instanz, wenn die Instanz die einzige Instanz in einem Cluster ist.</p>
+
+</dd>
+</dl>
+</dd>
+<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
+<dd><p>Die maximale Anzahl der Iterationen oder &#220;bertragungen, die bei einer Multicast-Meldung der folgenden Ereignistypen auftreten kann, bevor die Meldung verworfen wird:</p>
+
+
+<ul><li><p>Gruppenerkennung</p>
+
+</li>
+<li><p>Mitglied-Heartbeats</p>
+
+</li>
+<li><p>Mitgliedschafts&#228;nderungen</p>
+
+</li></ul>
+<p>Damit die Konfiguration des Netzwerks, auf dem der DAS und die Cluster-Instanzen bereitgestellt sind, &#252;bereinstimmt, setzen Sie diesen Wert so niedrig wie m&#246;glich. Um den geringstm&#246;glichen Wert f&#252;r das System festzustellen, verwenden Sie den Unterbefehl <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=validate-multicast-1"><tt>validate-multicast</tt>(1)</a>.</p>
+
+<p>Bei einem Wert von 0 wird sichergestellt, dass Multicast-Meldungen auf keinen Fall den Host verlassen, von dem sie gesendet werden.</p>
+
+<p>Ein Wert von 1 kann verhindern, dass Meldungen zwischen den &#252;ber einen Schalter oder Router verbundenen Hosts im gleichen Teilnetz gesendet wird. </p>
+
+<p>Der Standardwert betr&#228;gt 4. Dadurch wird sichergestellt, dass Meldungen zwischen allen Cluster-Mitgliedern in Netzwerken erfolgreich gesendet werden, in denen Hosts &#252;ber Schalter oder Router verbunden sind.</p>
+
+</dd>
+</dl>
+<h5>Entsprechende <tt>asadmin</tt>-Unterbefehle</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=get-1"><tt>get</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-1"><tt>list</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

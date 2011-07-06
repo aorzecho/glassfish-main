@@ -1,0 +1,102 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbgeneral"></a><h4>So konfigurieren Sie EJB-Einstellungen</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
+<li><b>W&#228;hlen Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
+<li><b>W&#228;hlen Sie den Knoten "EJB-Container".</b><p>Die Seite "Enterprise Java Beans (EJB)" wird ge&#246;ffnet.</p></li>
+<li><b>Geben Sie im Feld "Sitzungspeicherort" einen neuen Wert f&#252;r den Sitzungsspeicherort ein.</b><p>Dieses Feld gibt das Verzeichnis an, in dem passivierte Session-Beans mit Status
+und fortdauernde SFSB-Fixpunktzust&#228;nde im Dateisystem gespeichert werden. Der Standardwert lautet <tt>${com.sun.aas.instanceRoot}/session-store</tt>.</p><p>Passivierte Beans sind Session-Beans mit Status, deren Status in eine Datei auf
+dem Dateisystem geschrieben wurde. Passivierte Beans befinden sich typischerweise f&#252;r eine bestimmte
+Zeitspanne im Leerlauf und es wird nicht durch einen Client auf sie
+zugegriffen. Fortdauernde SFSB-Fixpunktzust&#228;nde sind individuelle SFSBs, deren Status in eine Datei auf
+dem Dateisystem geschrieben wurde.</p><p>Diese Einstellung gilt nur dann f&#252;r SFSB-Fixpunktzust&#228;nde, wenn die EJB-Container-Verf&#252;gbarkeit deaktiviert ist.
+Informationen zum Deaktivieren der Verf&#252;gbarkeit finden Sie unter <a href="../../../ejb/de/help/task-ejbcontaineravailability.html">To Configure Availability Settings for the EJB Container</a>.</p></li>
+<li><b>Aktivieren Sie die Optionsschaltfl&#228;che "Option B" oder "Option C", um die Durchf&#252;hrungsoption
+festzulegen.</b><p>Die Durchf&#252;hrungsoption gibt an, wie der Container passivierte Bean-Instanzen zwischen Transaktionen zwischenspeichert.</p><ul>
+<li><b>Wenn Sie "Option B" (Standardeinstellung) w&#228;hlen, speichert der Container eine bereite Instanz
+zwischen Transaktionen zwischen.</b></li>
+<li><b>Wenn Sie "Option C" w&#228;hlen, wird vom Container keine bereite Instanz zwischen
+Transaktionen zwischengespeichert.</b></li></ul></li>
+<li><b>Geben Sie im Feld "Urspr&#252;ngliche und minimale Poolgr&#246;&#223;e" die Mindestanzahl an Beans
+ein, die im Pool enthalten sein sollen.</b><p>Der Standardwert ist 0.</p></li>
+<li><b>Geben Sie im Feld "Maximale Poolgr&#246;&#223;e" die maximale Anzahl an Beans ein,
+die der Container parallel im Pool verwalten kann.</b><p>Der Standardwert lautet 32.</p></li>
+<li><b>Geben Sie im Feld "Umfang der Gr&#246;&#223;en&#228;nderungen des Pools" die Anzahl an
+Beans ein, die aus dem Pool entfernt werden, wenn sie sich l&#228;nger
+als im Feld "Pool-Leerlaufzeit" angegeben im Leerlauf befinden.</b><p>Der Wert muss gr&#246;&#223;er oder gleich 0 und kleiner als der Wert
+f&#252;r die maximale Poolgr&#246;&#223;e sein. Der Standardwert ist 8.</p></li>
+<li><b>Geben Sie im Feld "Pool-Leerlaufzeit" die Zeit in Sekunden an, die sich
+eine Bean im Pool im Leerlauf befinden kann, bevor sie aus dem
+Pool entfernt wird.</b><p>Nach diesem Zeitraum wird die Bean zerst&#246;rt. Der Wert 0 bedeutet, dass
+sich eine Bean zeitlich unbegrenzt im Leerlauf befinden kann. Der Standardwert ist
+600.</p></li>
+<li><b>Geben Sie im Feld "Maximale Cachegr&#246;&#223;e" die maximale Anzahl an Beans ein,
+die im Zwischenspeicher vorhanden sein k&#246;nnen.</b><p>Erh&#246;hen Sie die maximale Anzahl an Beans, die zwischengespeichert werden, um den
+Overhead f&#252;r das Erstellen und Zerst&#246;ren von Beans zu reduzieren. Beachten Sie
+jedoch, dass die Erh&#246;hung des Cachewerts dazu f&#252;hrt, dass der Server mehr
+Arbeitsspeicher und Ressourcen belegt. Stellen Sie sicher, dass die Betriebsumgebung die gew&#228;hlten
+Cacheeinstellungen unterst&#252;tzt. Der Wert 0 bedeutet einen nicht gebundenen Zwischenspeicher. Der Standardwert
+lautet 512.</p></li>
+<li><b>Geben Sie im Feld "Umfang der Gr&#246;&#223;en&#228;nderungen des Caches" die Anzahl an
+Beans, die passiviert werden sollen, wenn der Cache voll ist.</b><p>Wenn die maximale Anzahl an zwischengespeicherten Beans erreicht ist, entfernt der Container
+eine bestimmte Anzahl an passivierten Beans aus dem Sicherungsspeicher. Dieser Wert gibt
+zudem die Anzahl der Beans an, die erstellt werden m&#252;ssen, wenn eine
+Anforderung eingeht und im Pool keine Beans verf&#252;gbar sind. Der Wert muss
+gr&#246;&#223;er als 1 und kleiner als der Wert f&#252;r die maximale Cachegr&#246;&#223;e
+sein. Der Standardwert lautet 32.</p></li>
+<li><b>Geben Sie im Feld "Zeit&#252;berschreitung beim Entfernen" die Anzahl Sekunden ein, nach
+der eine passivierte Bean aus dem Sitzungsspeicher entfernt wird. </b><p>Der Wert 0 bedeutet, dass inaktive Beans vom Container nicht automatisch entfernt
+werden. Wenn der Wert f&#252;r die Zeit&#252;berschreitung beim Entfernen kleiner oder gleich
+dem Wert f&#252;r die Cache-Leerlaufzeit ist, werden Beans ohne Passivieren sofort entfernt.
+Der Standardwert lautet 5400.</p></li>
+<li><b>W&#228;hlen Sie in der Liste "Richtlinie f&#252;r Auswahl beim Entfernen" die Richtlinie
+aus, gem&#228;&#223; der der Container Session-Beans mit Status aus dem Zwischenspeicher entfernt.</b><p>Folgende Optionen stehen zur Auswahl:</p><dl><dt>Nicht in j&#252;ngerer Zeit verwendet (Not Recently Used (nru))?</dt>
+<dd><p>(Standardeinstellung) Entfernt eine Bean, die in letzter Zeit nicht verwendet wurde.</p>
+
+</dd>
+<dt>Zuerst hereingekommen, zuerst weitergeleitet (First In First Out (fifo))</dt>
+<dd><p>Entfernt die &#228;lteste Bean im Zwischenspeicher.</p>
+
+</dd>
+<dt>Zuletzt verwendet (Least Recently Used (lru))</dt>
+<dd><p>Entfernt die zuletzt verwendete Bean.</p>
+
+</dd>
+</dl>
+</li>
+<li><b>Geben Sie im Feld "Cache-Leerlaufzeit" die maximale Anzahl Sekunden ein, die eine
+Bean im Cache im Leerlauf verbleiben kann.</b><p>Nach diesem Zeitraum kann der Container diese Bean passivieren. Der Wert 0
+bedeutet, dass Beans nie f&#252;r eine Passivierung in Frage kommen. Der Standardwert
+ist 600.</p></li>
+<li>(Optional) <b>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</b><p>GlassFish-Server definiert keine weiteren Eigenschaften f&#252;r den EJB-Container.</p><ul>
+<li><b>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
+Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
+"Name" und den Eigenschaftswert in das Feld "Wert" ein.</b></li>
+<li><b>Um eine Eigenschaft zu &#228;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</b></li>
+<li><b>Um eine Eigenschaft zu l&#246;schen, aktivieren Sie das Kontrollk&#228;stchen links neben dem
+Feld "Name" der zu l&#246;schenden Eigenschaft und klicken Sie anschlie&#223;end auf die
+Schaltfl&#228;che "Eigenschaften l&#246;schen".</b></li></ul></li>
+<li><b>Klicken Sie auf "Speichern".</b>
+<hr><p><b>Tipp - </b>Um zu den Standardeinstellungen zur&#252;ckzukehren, klicken Sie auf die Schaltfl&#228;che "Standardwerte laden"
+und anschlie&#223;end auf "Speichern".</p>
+
+
+<hr>
+</li>
+<li><b>Starten Sie GlassFish-Server neu.</b></li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="../../../ejb/de/help/task-ejbmdbpoolsettings.html">To Configure MDB Pool Settings</a></p>
+
+</li>
+<li><p><a href="../../../ejb/de/help/task-ejbtimerservice.html">To Configure the EJB Timer Service</a></p>
+
+</li>
+<li><p><a href="../../../ejb/de/help/task-ejbcontaineravailability.html">To Configure Availability Settings for the EJB Container</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

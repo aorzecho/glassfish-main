@@ -1,0 +1,85 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-messagesecurityconfignew"></a><h4>New Message Security Configuration</h4>
+<a name="indexterm-229"></a><p>Nella pagina New Message Security Configuration &#232; possibile creare una configurazione HttpServlet
+per la sicurezza dei messaggi.</p>
+
+<p>La pagina New Message Security Configuration contiene le seguenti opzioni.</p>
+
+<dl><dt>Configuration Name</dt>
+<dd><p>Nome della configurazione a cui si applicano le impostazioni visualizzate nella pagina. Campo di sola lettura.</p>
+
+</dd>
+<dt>Authentication Layer</dt>
+<dd><p>Specifica il livello dei messaggi al quale viene eseguita l'autenticazione. Il valore deve essere <tt>SOAP</tt> o <tt>HttpServlet</tt>. Poich&#233; &#232; disponibile per impostazione predefinita una configurazione SOAP, l'unica scelta &#232; <tt>HttpServlet</tt>.</p>
+
+</dd>
+<dt>Provider ID</dt>
+<dd><p>Identificatore univoco della configurazione del provider per questa configurazione di sicurezza dei messaggi.</p>
+
+</dd>
+<dt>Default Provider</dt>
+<dd><p>Se questa opzione &#232; selezionata, questo provider &#232; il provider predefinito. Il provider predefinito verr&#224; chiamato per tutte le applicazioni che non identificano un provider specifico. Con l'opzione Provider Type &#232; possibile impostare il provider come provider client predefinito, provider server predefinito o entrambi.</p>
+
+</dd>
+<dt>Provider Type</dt>
+<dd><p>Specifica il tipo di provider. Sono disponibili le seguenti opzioni:</p>
+
+<dl><dt><tt>client</tt></dt>
+<dd><p>Specifica che il provider &#232; il provider di autenticazione client.</p>
+
+</dd>
+<dt><tt>server</tt></dt>
+<dd><p>Specifica che il provider &#232; il provider di autenticazione server.</p>
+
+</dd>
+<dt><tt>client-server</tt></dt>
+<dd><p>Specifica che il provider &#232; un provider di autenticazione sia client sia server.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Class Name</dt>
+<dd><p>Nome della classe di implementazione Java del provider. I provider di autenticazione client devono implementare l'interfaccia <tt>com.sun.enterprise.security.jauth.ClientAuthModule</tt> . I provider del lato server devono implementare l'interfaccia <tt>com.sun.enterprise.security.jauth.ServerAuthModule</tt> . I provider client/server devono implementare entrambe le interfacce.</p>
+
+</dd>
+<dt>Additional Properties</dt>
+<dd><p>Propriet&#224; aggiuntive per la configurazione della sicurezza dei messaggi.</p>
+
+</dd>
+</dl>
+<a name="gkokx"></a><h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-configmsgsecproviders.html">Configurare le risorse di GlassFish Server utilizzate dai provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfignew.html">Creare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfigedit.html">Modificare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfigdelete.html">Eliminare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfignew.html">Creare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfigedit.html">Modificare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfigdelete.html">Eliminare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-enablemesec4appclients.html">Abilitare la sicurezza dei messaggi per i client dell'applicazione</a></p>
+
+</li></ul>
+<a name="gkone"></a><h5>Comandi <tt>asadmin</tt> correlati</h5>
+<p>Nessuno.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

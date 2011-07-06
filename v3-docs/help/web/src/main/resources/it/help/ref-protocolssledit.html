@@ -1,0 +1,90 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolssledit"></a><h4>SSL</h4>
+<a name="indexterm-70"></a><a name="indexterm-71"></a><p>Nella pagina SSL &#232; possibile modificare le impostazioni SSL di un protocollo
+di rete.</p>
+
+<p>Le impostazioni specificate in questa pagina sono valide solo se nella pagina
+Edit Protocol &#232; abilitata la protezione.</p>
+
+<p>La pagina SSL contiene le seguenti opzioni.</p>
+
+<dl><dt>Configuration Name</dt>
+<dd><p>Nome della configurazione a cui si applicano le impostazioni visualizzate nella pagina. Campo di sola lettura.</p>
+
+</dd>
+<dt>SSL3</dt>
+<dd><p>Se la casella di controllo &#232; selezionata, il protocollo SSL3 &#232; abilitato per il protocollo. Questa opzione &#232; abilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>TLS</dt>
+<dd><p>Se la casella di controllo &#232; selezionata, il protocollo TSL &#232; abilitato per il protocollo. Questa opzione &#232; abilitata per impostazione predefinita.</p>
+
+</dd>
+<dt></dt>
+<dt>Client Authentication</dt>
+<dd><p>Se questa casella di controllo &#232; selezionata, i client devono identificarsi a ogni richiesta del server. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>Certificate Nickname</dt>
+<dd><p>Nickname del certificato del server nel database di certificati o il token PKCS#11. Nel certificato, il formato del nome &#232; <tt><i>tokenname</i>:<i>nickname</i></tt>. L'inclusione della parte <tt><i>tokenname</i>:</tt> in questo attributo &#232; facoltativa.</p>
+
+</dd>
+<dt>Key Store</dt>
+<dd><p>Nome del file keystore (ad esempio, <tt>keystore.jks </tt>).</p>
+
+</dd>
+<dt>Trust Algorithm</dt>
+<dd><p>Nome dell'algoritmo di gestione attendibile (ad esempio, PKIX) da utilizzare per la convalida del percorso di certificazione.</p>
+
+</dd>
+<dt>Max Certificate Length</dt>
+<dd><p>Numero massimo di certificati intermedi non autoemessi che esistono in un percorso di certificazione. Il campo viene utilizzato solo se il campo Trust Algorithm &#232; impostato su PKIX. Il valore 0 indica che il percorso pu&#242; contenere un solo certificato. Il valore -1 indica che la lunghezza del percorso non &#232; vincolata (non esiste un valore massimo). Se si imposta un valore inferiore a -1, viene generata un'eccezione.</p>
+
+</dd>
+<dt>Trust Store</dt>
+<dd><p>Nome del file truststore (ad esempio, <tt>cacerts.jks</tt>).</p>
+
+</dd>
+<dt>Cipher Suites</dt>
+<dd><p>Area in cui aggiungere o rimuovere i pacchetti di crittografia. Se non si aggiunge alcun pacchetto di crittografia, verranno utilizzati tutti quelli disponibili.</p>
+
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-protocolnew.html">Creare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Modificare le impostazioni SSL di un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP di un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
+
+</li></ul>
+<h5>Comandi <tt>asadmin</tt> correlati</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

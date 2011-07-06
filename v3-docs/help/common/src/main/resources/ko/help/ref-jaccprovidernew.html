@@ -1,0 +1,72 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jaccprovidernew"></a><h4>새 JACC 공급자</h4>
+<a name="indexterm-224"></a><p>새 JACC 공급자 페이지를 사용하여 GlassFish 서버에서 실행 중인 응용 프로그램에 타사
+인증 모듈을 사용할 수 있는 새 JSR-115/196compliant JACC(Java Authorization Contract for Containers)
+공급자를 만듭니다. JACC 공급자는 도메인의 <tt> domain.xml</tt> 파일에서 <tt>security-service</tt> 요소 내에 <tt>jacc-provider</tt> 요소로
+만들어집니다.</p>
+
+<p>기본 GlassFish 서버 설치에 <tt>default</tt>와 <tt>simple</tt>이라는 두 개의 JACC 공급자가 포함됩니다. 이러한
+두 개의 기본 공급자 외에도 새로 만든 모든 JACC 공급자가 포함됩니다. 기본
+GlassFish 서버 JACC 공급자는 JACC 사양을 준수하는 간단한 파일 기반 인증 엔진을
+구현합니다.</p>
+
+<p>모든 GlassFish 서버 JACC 공급자는 JAAS(Java Authentication and Authorization Service) API를 사용해야
+합니다. JAAS를 사용하면 서비스에서 사용자에 따라 액세스 제어를 인증하고 지정할 수 있습니다.
+JAAS는 표준 PAM(Pluggable Authentication Module) 프레임워크의 기술 버전을 구현합니다.</p>
+
+<p>JSR 196을 사용하여 다른 계층에서 플러그인을 개발할 수 있습니다. <tt>AuthConfigProvider</tt> 및 <tt>AuthConfigFactory</tt>와
+같은 새 인증 체계를 구성하는 방법을 변경하는 플러그인을 정의할 수 있습니다. 또한
+<tt>ServerAuthModule</tt> 및 <tt>ClientAuthModule</tt>과 같은 새 인증 체계를 정의할 수 있습니다.</p>
+
+<p>새 JACC 공급자 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>구성 이름</dt>
+<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+
+</dd>
+<dt>이름</dt>
+<dd><p>JACC 공급자의 이름입니다. 이 이름은 <tt>domain.xml</tt>의 <tt>jacc-provider</tt> 요소를 참조하는 데 사용됩니다.</p>
+
+</dd>
+<dt>정책 구성</dt>
+<dd><p>공급자별 <tt>javax.security.jacc.PolicyConfigurationFactory</tt>를 구현하는 <tt>javax.security.jacc.PolicyConfigurationFactory.provider</tt>에 대한 정규화된 클래스 이름입니다.</p>
+
+</dd>
+<dt>정책 공급자</dt>
+<dd><p><tt>java.security.Policy</tt>를 구현하는 <tt>javax.security.jacc.policy.provider</tt>에 대한 정규화된 클래스 이름입니다.</p>
+
+</dd>
+<dt>추가 등록 정보</dt>
+<dd><p>JACC 공급자의 추가 등록 정보입니다. JACC 공급자에 사용 가능한 추가 등록 정보의 설명은 <a href="ref-jaccproviderprop.html">JACC 공급자와 관련된 등록 정보</a>를 참조하십시오.</p>
+
+</dd>
+</dl>
+<a name="gkont"></a><h5>관련 작업</h5>
+
+<ul><li><p><a href="task-jaccprovidernew.html">JACC 공급자를 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-jaccprovideredit.html">JACC 공급자를 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-jaccproviderdelete.html">JACC 공급자를 삭제하는 방법</a></p>
+
+</li></ul>
+<a name="gkoov"></a><h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transactionservice"></a><h4>作業事件服務</h4>
+<a name="indexterm-8"></a><p>使用 [作業事件服務] 頁面可配置作業事件回復、逾時與記錄。</p>
+
+<p>[作業事件服務] 頁面包含下列選項。</p>
+
+<dl><dt>載入預設值</dt>
+<dd><p>將所有設定復原為預設值的按鈕。</p>
+
+</dd>
+<dt>配置名稱</dt>
+<dd><p>套用此頁面上之設定的配置名稱。此欄位是唯讀欄位。</p>
+
+</dd>
+<dt>在重新啟動時</dt>
+<dd><p>若選取 [已啟用] 核取方塊，當伺服器重新啟動時，GlassFish Server 會嘗試回復未完成的作業事件。此選項預設為停用。</p>
+
+</dd>
+<dt>作業事件逾時</dt>
+<dd><p>伺服器在回復未完成之作業事件前要等待的秒數。預設值為 0，表示伺服器會一直等待作業事件完成。</p>
+
+</dd>
+<dt>重試逾時</dt>
+<dd><p>GlassFish Server 嘗試連線至無法連線的伺服器的秒數。預設值為 600 (10 分鐘)。</p>
+
+</dd>
+<dt>作業事件記錄位置</dt>
+<dd><p>保存伺服器記錄的目錄。作業事件記錄會保存在此欄位指定之目錄的 <tt>tx</tt> 子目錄中。預設值為 [網域屬性] 頁面上的 [記錄根目錄] 欄位所指定的目錄，頁面位於 [GlassFish Server] 節點的 [進階] 標籤之下。</p>
+
+</dd>
+<dt>啟發式決策</dt>
+<dd><p>決定要確定還是回復與無法連接伺服器有關的作業事件。預設值為 [回復]。確定不確定的作業事件會破壞應用程式的資料完整性。</p>
+
+</dd>
+<dt>關鍵點間隔</dt>
+<dd><p>壓縮作業事件記錄檔之關鍵點作業間的作業事件數。預設值為 65,536。</p>
+
+</dd>
+<dt>其他特性</dt>
+<dd><p>作業事件服務的其他特性。</p>
+
+<p>如需可用特性的說明，請參閱<a href="ref-transactionsvcproperties.html">作業事件服務特有的特性</a>。</p>
+
+</dd>
+</dl>
+<a name="ginkt"></a><h5>相關作業</h5>
+
+<ul><li><p><a href="task-configtransservice.html">配置作業事件服務</a></p>
+
+</li>
+<li><p><a href="task-configtransrecovery.html">配置 GlassFish Server 回復作業事件的方式</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">設定作業事件逾時值</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">設定作業事件記錄的位置</a></p>
+
+</li>
+<li><p><a href="task-setkeyptinterval.html">設定關鍵點間隔</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

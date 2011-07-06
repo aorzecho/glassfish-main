@@ -1,0 +1,36 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-httpserviceprops"></a><h4>特定于 HTTP 服务的属性</h4>
+<a name="indexterm-57"></a><a name="indexterm-58"></a><p>以下附加属性可用于 HTTP 服务。如果指定这些属性，它们将应用到所有<a href="ref-group-networklisteners.html">网络侦听器</a>。</p>
+
+<dl><dt><tt>ssl-cache-entriese</tt></dt>
+<dd><p>要缓存的 SSL 会话的数量。默认值为 10,000。</p>
+
+</dd>
+<dt><tt>ssl3-session-timeout</tt></dt>
+<dd><p>缓存 SSL3 会话的间隔。默认值为 86,400。</p>
+
+</dd>
+<dt><tt>ssl-session-timeout</tt></dt>
+<dd><p>缓存 SSL2 会话的间隔。默认值为 100。</p>
+
+</dd>
+<dt><tt>proxyHandler</tt></dt>
+<dd><p><tt>com.sun.appserv.ProxyHandler</tt> 抽象类的自定义实现的全限定类名，后端 GlassFish Server 实例可以通过它检索关于 SSL 终端代理服务器（例如负载平衡器）拦截的原始客户机请求的信息。此抽象类的实现将在给定请求中检查自定义请求标头，这样，代理服务器可将有关原始客户机请求的信息传送至 Enterprise Server 实例，并将该信息返回给其调用方。</p>
+
+<p>默认实现将从名为 <tt>Proxy-ip</tt> 的 HTTP 请求标头中读取客户机 IP 地址，从名为 <tt>Proxy-keysize</tt> 的 HTTP 请求标头中读取 SSL <tt>keysize</tt>，并从名为 <tt>Proxy-auth-cert</tt> 的 HTTP 请求标头中读取 SSL 客户机证书链。<tt>Proxy-auth-cert</tt> 值必须包含 BASE-64 编码的客户机证书链，且无 <tt>BEGIN CERTIFICATE</tt> 和 <tt>END CERTIFICATE</tt> 边界，并将 <tt>\n</tt> 替换为 <tt>% d% a</tt>。</p>
+
+<p>仅当网络侦听器协议的 "HTTP" 页面的&#8220;验证传递&#8221;复选框设置为 true 时，才使用此设置。</p>
+
+</dd>
+<dt><tt>connectionTimeout</tt></dt>
+<dd><p>指定在接受一个连接后，请求 URI 行被提交之前网络侦听器需等待的秒数。默认值为 30。</p>
+
+</dd>
+</dl>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

@@ -1,0 +1,28 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-migrate-ejb-timers"></a><h4>EJB 타이머를 마이그레이션하는 방법</h4><a name="indexterm-158"></a><a name="indexterm-159"></a><a name="indexterm-160"></a><p>GlassFish 서버 인스턴스가 중지된 경우 해당 인스턴스에 설치된 EJB(Enterprise JavaBeans) 기술 타이머도
+실행이 중지됩니다. 인스턴스가 비정상적으로 또는 예기치 않게 중지된 경우 인스턴스가 중지된 동안
+이러한 타이머를 활성화하려면 타이머를 클러스터의 실행되고 있는 서버 인스턴스로 마이그레이션해야 합니다.</p>
+
+<ol>
+<li><b>탐색 트리에서 클러스터 노드를 확장합니다.</b></li>
+<li><b>탐색 트리의 클러스터 노드 아래에서 클러스터를 선택합니다.</b><p>클러스터에 대한 일반 정보 페이지가 열립니다.</p></li>
+<li><b>일반 정보 페이지에서 EJB 타이머 마이그레이션을 누릅니다.</b><p>EJB 타이머 마이그레이션 페이지가 열립니다.</p>
+<hr><p><b>주 - </b>클러스터의 모든 인스턴스가 실행되고 있는 경우 EJB 타이머 마이그레이션 버튼이 비활성화됩니다.</p>
+
+
+<hr>
+</li>
+<li><b>EJB 타이머 마이그레이션 페이지에서 타이머를 마이그레이션할 소스 인스턴스 및 대상 인스턴스를 선택합니다.</b><ol style="list-style-type: lower-alpha">
+<li><b>소스 드롭다운 목록에서 타이머를 마이그레이션할 중지된 인스턴스를 선택합니다.</b></li>
+<li>(옵션) <b>대상 드롭다운 목록에서 타이머를 마이그레이션할 실행되고 있는 인스턴스를 선택합니다. </b></li>
+<li><b>확인을 누릅니다.</b></li></ol></li>
+<li><b>EJB 타이머를 마이그레이션한 인스턴스를 중지하고 다시 시작합니다.</b><p>소스 인스턴스가 실행되고 있거나 대상 인스턴스가 실행되고 있지 않으면 관리 콘솔에 오류
+메시지가 표시됩니다.</p></li></ol>
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

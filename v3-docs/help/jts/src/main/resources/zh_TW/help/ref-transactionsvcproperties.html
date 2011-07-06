@@ -1,0 +1,48 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transactionsvcproperties"></a><h4>作業事件服務特有的特性</h4>
+<a name="indexterm-9"></a><a name="indexterm-10"></a><p>以下是配置作業事件服務時的可用特性。</p>
+
+<dl><dt><tt>oracle-xa-recovery-workaround</tt></dt>
+<dd><p>若設定為 <tt>true</tt>，則會使用 Oracle XA Resource 解決方法進行作業事件回復。預設值為 <tt>true</tt>。</p>
+
+</dd>
+<dt><tt>disable-distributed-transaction-logging</tt></dt>
+<dd><p>若設為 <tt>true</tt>，則會停用作業事件記錄，進而可能改善效能。若選取了 [啟用在重新啟動時] 核取方塊，則會忽略此特性。預設值為 <tt>false</tt>。</p>
+
+</dd>
+<dt><tt>xaresource-txn-timeout</tt></dt>
+<dd><p>變更 <tt>XAResource</tt> 逾時。某些情況下， <tt>XAResource</tt> 預設逾時可能會造成作業事件中斷，因此最好變更預設值。預設值僅適用於使用的 <tt>XAResource</tt> 。</p>
+
+</dd>
+<dt><tt>pending-txn-cleanup-interval</tt></dt>
+<dd><p>指定非同步執行緒檢查有無擱置作業事件並加以完成的間隔 (以秒為單位)。若未指定此特性，則不會有預設值。若存在此特性但沒有值，則預設值會是 60。</p>
+
+</dd>
+<dt><tt>use-last-agent-optimization</tt></dt>
+<dd><p>若設為 <tt>true</tt>，則會啟用最後的代理程式最佳化，以改善作業事件的流量。若在同一作業事件中混用非 XA 資源與 XA 資源，則非 XA 資源會是最後的代理程式。預設值為 <tt>true</tt>。</p>
+
+</dd>
+<dt><tt>delegated-recovery</tt></dt>
+<dd><p>若設為 <tt>true</tt>，則會啟用整個叢集內的委任回復。預設值為 false。</p>
+
+</dd>
+<dt><tt>wait-time-before-recovery-insec</tt></dt>
+<dd><p>指定等待時間 (單位為秒)，在經過這段時間之後，實例會啟動停用實例的回復作業。</p>
+
+</dd>
+<dt><tt>db-logging-resource</tt></dt>
+<dd><p>指定 JDBC 資源的 JNDI 名稱給記錄作業事件的資料庫。如需更多資訊，請參閱 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beanm"><i>「Oracle GlassFish Server 3.1 Application Development Guide」</i>中的第 15 章「Using the Transaction Service」</a>。沒有預設值。</p>
+
+</dd>
+<dt><tt>xa-servername</tt></dt>
+<dd><p>指定主機名稱，以便作業事件服務用於識別正由已安裝 GlassFish Server 管理的作業事件。有時候此功能可從記錄檔 (建立於執行 GlassFish Server 的其他主機上) 回復作業事件。</p>
+
+</dd>
+</dl>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

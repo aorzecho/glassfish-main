@@ -1,0 +1,181 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-accesslog"></a><h4>HTTP サービス</h4>
+<a name="indexterm-55"></a><a name="indexterm-56"></a><p>Web アプリケーションの一般的なアクセスログポリシーを指定するには、「HTTP サービス」ページを使用します。</p>
+
+<p>HTTP サービスは、Web アプリケーションを配備する機能、配備されている Web アプリケーションを HTTP クライアントでアクセス可能にする機能、および仮想サーバー、スレッド プール、ネットワーク構成機能を提供します。</p>
+
+<p>GlassFish サーバー は HTTP サービスのアクセスログを使用して、仮想サーバーのアクセスログのローテーションを有効にし、設定します。これらのログは、<tt><i>domain-dir</i>/logs/access</tt> ディレクトリに保存され、次のような名前が付けられます。<tt><i>virtual_server_name</i>_access_log.<i>yyyyMMdd</i>-<i>HH</i>h<i>mm</i>m<i>ss</i>s.txt</tt></p>
+
+<p>「HTTP サービス」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>SSO</dt>
+<dd><p>このサーバーのすべての仮想サーバー上で、同じレルムで設定されたすべての Web アプリケーションに対して、デフォルトでシングルサインオンを有効にするかどうかを指定します。このオプションが有効でない場合は、すべての仮想サーバーでシングルサインオンがデフォルトで無効になります。ユーザーは、各仮想サーバー上のアプリケーションごとに個別に認証を行う必要があります。この設定は各仮想サーバーで上書きできます。SSO は有効または無効にできます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>アクセスログ</dt>
+<dd><p>このオプションを選択する場合、このプロパティーが指定されていないすべての仮想サーバーサブ要素のアクセスログが有効になります。選択しない場合、このオプションにより、このプロパティーが指定されていないすべての仮想サーバーサブ要素のアクセスログが無効になります。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>ローテーション</dt>
+<dd><p>このオプションを選択すると、ログファイルのローテーションが有効になります。このオプションはデフォルトで有効になっています。</p>
+
+</dd>
+<dt>ローテーションポリシー</dt>
+<dd><p>使用可能なローテーションポリシーは <tt>time</tt> のみです。</p>
+
+</dd>
+<dt>ローテーション間隔</dt>
+<dd><p>アクセスログのローテーション間隔（分）です。このフィールドは、「ローテーションポリシー」が「<tt>time</tt>」の場合にのみ有効です。デフォルト値は 1,440 分 (24 時間) です。</p>
+
+</dd>
+<dt>ローテーションサフィックス</dt>
+<dd><p>ローテーション後にログファイルの最後に追加される文字列値。デフォルト値は <tt>yyyy-MM-dd</tt> です。</p>
+
+<p>ログローテーションごとに一意のサフィックスを作成するために必要な値がローテーションサフィックスに含まれていることを確認してください。たとえば、アクセスログを毎日複数回の頻度でローテーションする場合には、ローテーションサフィックスに時刻を含めます。</p>
+
+<p>ローテーション間隔が経過するたびにアクセスログファイルがローテーションされるようにするには、一意のサフィックスが必要です。新しいアクセスログファイルのローテーションサフィックスが既存のアクセスログファイルのローテーションサフィックスと同じ場合、ファイルはローテーションされません。</p>
+
+</dd>
+<dt>最大ファイル数</dt>
+<dd><p>ローテーションで維持するアクセスログファイルの最大数。負の値を指定すると、ファイル数は制限されません。デフォルト値は &#8211;1 です。</p>
+
+</dd>
+<dt>バッファーサイズ</dt>
+<dd><p>アクセスログバッファーのサイズ (バイト単位)。バッファーされていないアクセスログでは、0 以下の値を指定します。デフォルト値は 32768 です。</p>
+
+</dd>
+<dt>書き込み間隔</dt>
+<dd><p>ログがディスクに書き込まれるまでの秒数。アクセスログは、バッファーがいっぱいになるか、指定した時間が経過すると書き込まれます。0 以下の値を指定すると、バッファーがいっぱいでなくても常に書き込まれます。つまり、サーバーアクセスがあるたびに、ログメッセージはファイルに直接格納されます。デフォルト値は 300 です。</p>
+
+</dd>
+<dt>形式</dt>
+<dd><p>アクセスログに取り込まれる情報と取り込まれる順序を指定する文字列値。デフォルト値は次のとおりです。</p>
+
+<pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>形式文字列に含めることができる値は次のとおりです。</p>
+
+<dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
+<dd><p>指定した <i>name</i> を持つ要求属性の値を (<tt>toString</tt> メソッドを呼び出して) ログに記録します。</p>
+
+</dd>
+<dt><tt>%auth-user-name%</tt></dt>
+<dd><p>承認ユーザーの名前</p>
+
+</dd>
+<dt><tt>%client.name%</tt></dt>
+<dd><p>クライアントホスト名</p>
+
+</dd>
+<dt><tt>%client.dns%</tt></dt>
+<dd><p>クライアント DNS</p>
+
+</dd>
+<dt><tt>%cookie.<i>name</i>%</tt></dt>
+<dd><p>指定した <i>name</i> を持つ要求のクッキーの値</p>
+
+</dd>
+<dt><tt>%cookie.value%</tt></dt>
+<dd><p>要求にある最初のクッキーの値</p>
+
+</dd>
+<dt><tt>%datetime%</tt></dt>
+<dd><p>システム日付</p>
+
+</dd>
+<dt><tt>%request%</tt></dt>
+<dd><p>完全な HTTP 要求</p>
+
+</dd>
+<dt><tt>%status%</tt></dt>
+<dd><p>状態</p>
+
+</dd>
+<dt><tt>%response.length%</tt></dt>
+<dd><p>応答コンテンツ長</p>
+
+</dd>
+<dt><tt>%header.referer%</tt></dt>
+<dd><p>Referer ヘッダー</p>
+
+</dd>
+<dt><tt>%header.user-agent%</tt></dt>
+<dd><p>ユーザーエージェントヘッダー</p>
+
+</dd>
+<dt><tt>%http-method%</tt></dt>
+<dd><p>HTTP メソッド</p>
+
+</dd>
+<dt><tt>%http-uri%</tt></dt>
+<dd><p>HTTP URI</p>
+
+</dd>
+<dt><tt>%query-str%</tt></dt>
+<dd><p>HTTP クエリー文字列</p>
+
+</dd>
+<dt><tt>%http-version%</tt></dt>
+<dd><p>HTTP プロトコルバージョン</p>
+
+</dd>
+<dt><tt>%header.accept%</tt></dt>
+<dd><p>受け入れヘッダー</p>
+
+</dd>
+<dt><tt>%header.date%</tt></dt>
+<dd><p>日付ヘッダー</p>
+
+</dd>
+<dt><tt>%header.if-mod-since%</tt></dt>
+<dd><p>If-Modified-Since ヘッダー</p>
+
+</dd>
+<dt><tt>%header.auth%</tt></dt>
+<dd><p>認証ヘッダー</p>
+
+</dd>
+<dt><tt>%header.<i>any</i>%</tt></dt>
+<dd><p>RFC 2616 で定義された任意の有効な HTTP ヘッダー値 (<tt>any</tt> も有効なヘッダー値。ここでは変数として指定される)</p>
+
+</dd>
+<dt><tt>%session.<i>name</i>%</tt></dt>
+<dd><p><i>name</i> という名前を持つセッション属性の値。指定した属性がセッションに存在しない場合は <tt>NULL-SESSION-ATTRIBUTE-<i>name</i></tt>、セッションが存在しない場合は <tt>NULL-SESSION</tt> になります。</p>
+
+</dd>
+<dt><tt>%time-taken%</tt></dt>
+<dd><p>各要求の処理にかかった時間 (ミリ秒単位)</p>
+
+</dd>
+<dt><tt>%vs.id%</tt></dt>
+<dd><p>仮想サーバー ID</p>
+
+</dd>
+</dl>
+</dd>
+<dt>追加プロパティー</dt>
+<dd><p>HTTP サービスの追加プロパティー。利用可能なプロパティーの説明は、<a href="ref-httpserviceprops.html">「HTTP サービスに固有のプロパティー」</a>を参照してください。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-accesslog.html">「HTTP サービスを設定する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+<p>なし</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

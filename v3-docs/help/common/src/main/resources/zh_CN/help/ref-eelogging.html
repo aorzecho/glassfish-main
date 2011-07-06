@@ -1,0 +1,67 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-eelogging"></a><h4>日志程序设置</h4>
+<a name="indexterm-194"></a><p>使用&#8220;日志程序设置&#8221;页面可为选定 GlassFish Server 实例或群集配置日志记录。</p>
+
+<p>&#8220;日志程序设置&#8221;页面包含以下选项：</p>
+
+<dl><dt>配置名称</dt>
+<dd><p>要应用该页面上的设置的配置的名称。此字段为只读。</p>
+
+</dd>
+<dt>写入系统日志</dt>
+<dd><p>如果选中此选项，则除了服务器日志以外，系统还会将日志记录输出发送到 <tt>syslog</tt> 工具。此功能仅在 Solaris 和 Linux 系统上可用。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>日志文件</dt>
+<dd><p>服务器日志文件的替代名称或位置。默认位置为 <tt>glassfish/domains/domain1/logs/server.log</tt>。</p>
+
+</dd>
+<dt>日志处理程序</dt>
+<dd><p>自定义日志处理程序的绝对类名。自定义日志处理程序可让您将日志发送到除了 <tt>server.log</tt> 或 <tt>syslog</tt> 以外的其他目标。自定义处理程序必须扩展 <tt>java.util.logging.Handler</tt> 类（JSR 047 兼容 API）。将处理程序类置于 GlassFish Server 类路径中，以便在服务器启动过程中安装该处理程序。</p>
+
+</dd>
+<dt>文件轮转限制</dt>
+<dd><p>在轮转之前，服务器日志文件必须达到的大小（以字节为单位）。服务器日志达到指定大小时，GlassFish Server 将创建一个新的名为 <tt>server.log</tt> 的空文件，并将旧文件重命名为 <tt>server.log_</tt><i>date</i>，其中 <i>date</i> 是轮转文件的日期和时间。默认值为 2 兆字节。该限制的最小值为 500 千字节；如果指定更低的值，则要在达到 500 千字节时该文件才轮转。要关闭日志文件轮转，请将该值设置为 0。</p>
+
+</dd>
+<dt>文件轮转时间限制</dt>
+<dd><p>服务器日志必须轮转之前的分钟数。默认值为 0，表示文件达到&#8220;文件轮转限制&#8221;字段中指定的大小时进行轮转。如果指定一分钟或若干分钟，则时间限制将优先于&#8220;文件轮转限制&#8221;字段指定的大小限制。</p>
+
+</dd>
+<dt>刷新频率</dt>
+<dd><p>一次从队列写入到服务器日志的最大消息数。默认值为 1。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-eelogging.html">配置常规日志记录设置</a></p>
+
+</li>
+<li><p><a href="task-eelogginglevels.html">配置日志级别</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">查看 DAS 的日志文件</a></p>
+
+</li></ul>
+<h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=collect-log-files-1"><tt>collect-log-files</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-log-levels-1"><tt>list-log-levels</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=rotate-log-1"><tt>rotate-log</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-log-levels-1"><tt>set-log-levels</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

@@ -1,0 +1,151 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-protocolhttpedit"></a><h4>Modificare le impostazioni HTTP di un protocollo</h4><a name="indexterm-28"></a><a name="indexterm-29"></a><ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
+<li><b>Nel nodo Configuration, espandere il nodo Network Config.</b></li>
+<li><b>Nel nodo Network Config, selezionare il nodo Protocols.</b><p>Viene visualizzata la pagina Protocols.</p></li>
+<li><b>Nella pagina Protocols, fare clic sul nome del protocollo da modificare.</b><p>Viene visualizzata la pagina Edit Protocol.</p></li>
+<li><b>Nella pagina Edit Protocol, fare clic sulla scheda HTTP.</b><p>Viene visualizzata la pagina HTTP.</p></li>
+<li><b>Nel campo Server Name, digitare il nome host da utilizzare negli URL
+che il server invia al client.</b><p>Se il server utilizza un alias, questo nome corrisponde al nome alias.
+Se il server non utilizza un alias, lasciare vuoto questo campo.</p></li>
+<li><b>Dall'elenco a discesa Default Virtual Server, selezionare il server virtuale da associare
+al protocollo.</b><p>Nella pagina Virtual Servers &#232; possibile definire server virtuali.</p></li>
+<li><b>Nel campo Redirect Port, digitare il valore della porta da utilizzare per
+reindirizzare una richiesta su un'altra porta. </b><p>La richiesta viene reindirizzata automaticamente se si verificano le due condizioni seguenti:</p>
+
+
+<ul><li><p>Questo protocollo supporta richieste non SSL.</p>
+
+</li>
+<li><p>Viene ricevuta una richiesta per la quale un vincolo di protezione corrispondente richiede trasporto SSL.</p>
+
+</li></ul>
+<p>Se non si specifica una porta di reindirizzamento, viene utilizzato il numero
+di porta specificato nella richiesta originale.</p></li>
+<li><b>Nel campo Max Connections, digitare il numero massimo di connessioni persistenti da
+mantenere nella modalit&#224; Keep-Alive.</b><p>Il sottosistema Keep-Alive esegue regolarmente il polling delle connessioni inattive.</p></li>
+<li><b>Nel campo Timeout, digitare il numero massimo di secondi durante i quali
+una connessione pu&#242; essere considerata inattiva e mantenuta nello stato keep-alive.</b><p>Un valore inferiore o pari a 0 indica che le connessioni keep-alive
+sono mantenute aperte a tempo indeterminato. Il valore predefinito &#232; 30 secondi.</p></li>
+<li><b>Selezionare la casella di controllo Upload Timeout Enabled per chiudere la connessione
+di un servlet che legge byte lentamente una volta raggiunto il limite
+Connection Upload Timeout.</b><p>Se l'opzione non &#232; selezionata, non si verifica alcun timeout per le
+connessioni del servlet. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Connection Upload Timeout, digitare il timeout per i caricamenti (in
+millisecondi). </b><p>Questo campo &#232; applicabile solo se la casella Upload Timeout Disabled &#232;
+selezionata. Il valore predefinito &#232; 300000 millisecondi.</p></li>
+<li><b>Nel campo Request Timeout, immettere il numero di secondi al termine dei
+quali si verifica il timeout di una richiesta.</b><p>Se la richiesta non viene elaborata prima che sia raggiunto il valore
+di timeout, la richiesta viene ignorata. Il valore predefinito &#232; 30 secondi.</p></li>
+<li><b>Nel campo Send Buffer Size, digitare le dimensioni in byte del buffer
+di invio.</b><p>Il valore predefinito &#232; 8192 byte.</p></li>
+<li><b>Nel campo Header Buffer Length, digitare le dimensioni in byte del buffer
+utilizzato dai thread di elaborazione della richiesta per leggere i dati della
+richiesta.</b><p>Il valore predefinito &#232; 8192 byte.</p></li>
+<li><b>Nel campo Max Post Size, digitare le dimensioni massime in byte delle
+azioni POST.</b><p>Il valore predefinito &#232; 2097152 byte.</p></li>
+<li><b>Nel campo URI Encoding, digitare il nome del set di caratteri utilizzato
+per decodificare gli URI di richiesta ricevuti.</b><p>Il valore deve essere un nome del set di caratteri IANA valido.
+Il valore predefinito &#232; UTF-8.</p></li>
+<li><b>Nel campo Version, digitare la versione del protocollo HTTP utilizzato.</b><p>Il valore predefinito &#232; HTTP/1.1.</p></li>
+<li><b>Dall'elenco a discesa Compression, selezionare la compressione HTTP/1.1 GZIP da utilizzare per
+salvare la larghezza di banda del server.</b><p>Sono disponibili le seguenti opzioni:</p><dl><dt><tt>on</tt></dt>
+<dd><p>Comprime i dati.</p>
+
+</dd>
+<dt><tt>off</tt></dt>
+<dd><p>Disabilita la compressione.</p>
+
+</dd>
+<dt><tt>force</tt></dt>
+<dd><p>Forza la compressione dei dati in tutti i casi.</p>
+
+</dd>
+</dl>
+<p>Il valore predefinito &#232; <tt>off</tt>.</p></li>
+<li><b>Nel campo Compressible Mime Types, digitare un elenco separato da virgole di
+tipi MIME per i quali viene utilizzata la compressione HTTP.</b><p>Il valore predefinito &#232; <tt>text/html,text/xml,text/plain</tt>.</p></li>
+<li><b>Nel campo Compression Minimum Size, digitare le dimensioni minime di un file
+quando viene applicata la compressione.</b><p>&#200; necessario specificare questo valore se la compressione &#232; impostata su <tt>on</tt>
+o <tt>force </tt>. Il valore predefinito &#232; 2048 byte.</p></li>
+<li><b>Nel campo No-Compression User Agents, digitare un elenco separato da virgole di
+espressioni regolari corrispondenti ad agenti utente di client HTTP per cui non
+si desidera utilizzare la compressione.</b><p>Per impostazione predefinita questo valore &#232; una stringa vuota.</p></li>
+<li><b>Nel campo Restricted User Agents, digitare un elenco di agenti utenti con
+restrizioni a cui viene applicata la compressione HTTP.</b><p>Se non vengono specificati agenti utente, la compressione HTTP viene applicata a
+tutti gli agenti utente. Per impostazione predefinita non vengono specificati agenti utente.</p></li>
+<li><b>Nel campo Default Response Type, digitare una stringa che specifica il tipo
+di risposta predefinito.</b><p>Il formato &#232; una stringa delimitata da punti e virgola composta da
+tipo di contenuto, codifica, lingua e insieme di caratteri. Il valore predefinito
+&#232; <tt>text/html; charset=iso-8859-1</tt>.</p></li>
+<li><b>Nel campo Forced Response Type, digitare una stringa che specifica il tipo
+di richiesta utilizzato se non &#232; disponibile un mapping MIME con la
+stessa estensione del file.</b><p>Il formato &#232; una stringa delimitata da punti e virgola composta da
+tipo di contenuto, codifica, lingua e insieme di caratteri. Il valore predefinito
+&#232; <tt>text/html; charset=iso-8859-1</tt>.</p></li>
+<li><b>Nel campo Adapter, digitare il nome della classe dell'adattatore di risorsa statico.</b><p>Il valore predefinito &#232; <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p></li>
+<li><b>Selezionare la casella di controllo Comet Support Enabled per abilitare il supporto
+Comet per il protocollo.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo DNS Lookup Enabled per abilitare la ricerca
+DNS.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo RCM Support Enabled per abilitare RCM (Resource
+Configuration Management).</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Trace Enabled per abilitare l'operazione TRACE.</b><p>Se l'opzione &#232; disabilitata, GlassFish Server &#232; meno soggetto ad attacchi con
+script da altri siti. Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Auth Pass Through per indicare che il
+listener di rete che utilizza questo protocollo riceve il traffico da un
+server proxy con terminazione SSL.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Chunking Enabled per abilitare la suddivisione in
+blocchi della risposta HTTP.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo XPowered By Enabled per comunicare a GlassFish
+Server di utilizzare le intestazioni <tt>X-Powered-By</tt> conformemente alle specifiche Java Servlet 3.0
+e Java Server Pages 2.0.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Fare clic su Save.</b>
+<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
+su Save.</p>
+
+
+<hr>
+</li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-networklistenernew.html">Creare un listener di rete</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">Modificare un listener di rete</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">Eliminare un listener di rete</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">Creare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Modificare le impostazioni SSL di un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">Creare un trasporto</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">Modificare un trasporto</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">Eliminare un trasporto</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

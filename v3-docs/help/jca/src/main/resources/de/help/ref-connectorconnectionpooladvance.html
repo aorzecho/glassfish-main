@@ -1,0 +1,100 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpooladvance"></a><h4>Erweiterte Attribute des Konnektor-Verbindungspools bearbeiten</h4>
+<a name="indexterm-43"></a><p>Auf der Seite "Erweiterte Attribute des Konnektor-Verbindungspools bearbeiten" k&#246;nnen Sie die erweiterten
+Einstellungen f&#252;r einen Konnektor-Verbindungspool &#228;ndern.</p>
+
+<p>Die Seite "Erweiterte Attribute des Konnektor-Verbindungspools bearbeiten" enth&#228;lt die folgenden Optionen.</p>
+
+<dl><dt>Standardeinstellungen laden</dt>
+<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r alle Einstellungen.</p>
+
+</dd>
+<dt>Validate At Most Once (H&#246;chstens einmal &#252;berpr&#252;fen)</dt>
+<dd><p>Gibt das Zeitintervall (in Sekunden) zwischen den aufeinander folgenden Anforderungen an, die dazu dienen, eine Verbindung maximal ein Mal zu validieren. Der Standardwert lautet 0, d. h., das Attribut ist nicht aktiviert.</p>
+
+</dd>
+<dt>Leak Timeout (Verbindungsleck-Zeit&#252;berschreitung)</dt>
+<dd><p>Die Zeitspanne in Sekunden zur Verfolgung von Verbindungslecks in einem Verbindungspool. Der Wert 60 bedeutet, dass die Verfolgung von Verbindungslecks deaktiviert ist. Der Standardwert ist 0.</p>
+
+</dd>
+<dt>Leak Reclaim (Leck zur&#252;ckfordern)</dt>
+<dd><p>Wenn diese Option aktiviert ist, werden Verbindungen mit Leck im Pool wiederhergestellt, nachdem die Verfolgung von Verbindungslecks abgeschlossen ist. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Creation Retry Attempts (Herstellungs-Neuversuche)</dt>
+<dd><p>Die Anzahl der Neuversuche, wenn bei der Erstellung einer neuen Verbindung ein Fehler aufgetreten ist. Der Wert 0 bedeutet, dass keine Neuversuche zur Verbindungsherstellung unternommen werden. Der Standardwert ist 0.</p>
+
+</dd>
+<dt>Retry Interval (Wiederholungsintervall)</dt>
+<dd><p>Das Intervall (in Sekunden) zwischen zwei Versuchen zur Erstellung einer Verbindung. Dieses Attribut wird nur verwendet, wenn der Wert von "Herstellungs-Neuversuche" h&#246;her als 0 liegt. Der Standardwert betr&#228;gt 10 Sekunden.</p>
+
+</dd>
+<dt>Poolen</dt>
+<dd><p>Aktiviert das Verbindungspooling f&#252;r den Pool. Diese Option ist standardm&#228;&#223;ig aktiviert.</p>
+
+</dd>
+<dt>Lazy Association (Tr&#228;ge Assoziation)</dt>
+<dd><p>Bei aktivierter Option werden Verbindungen lose verkn&#252;pft, wenn eine Operation f&#252;r sie durchgef&#252;hrt wird. Die Verkn&#252;pfung wird wieder aufgehoben, wenn die Transaktion abgeschlossen ist und eine Komponentenmethode beendet wird. Auf diese Weise wird die Wiederverwendung der physischen Verbindungen vereinfacht. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Lazy Connection Enlistment (Inanspruchnahme tr&#228;ger Verbindungen)</dt>
+<dd><p>Bei aktivierter Option wird eine Ressource nur dann f&#252;r die Transaktion eingetragen, wenn sie tats&#228;chlich in einer Methode verwendet wird. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Associate with Thread (Mit Thread verkn&#252;pfen)</dt>
+<dd><p>Bei aktivierter Option wird eine Verbindung mit einem Thread verkn&#252;pft. Wenn derselbe Thread eine Verbindung ben&#246;tigt, kann er die bereits mit diesem Thread verkn&#252;pfte Verbindung wiederverwenden, wodurch die zus&#228;tzliche Belastung durch das Abrufen einer Verbindung aus dem Pool vermieden wird. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Match Connections (Verbindungen abgleichen)</dt>
+<dd><p>Bei aktivierter Option ist der Verbindungsabgleich f&#252;r den Pool aktiviert. Diese Option kann deaktiviert werden, wenn Sie wissen, dass die Verbindungen im Pool immer homogen sind und eine aus dem Pool abgerufene Verbindung daher nicht vom Ressourcenadapter abgeglichen werden muss. Diese Option ist standardm&#228;&#223;ig aktiviert.</p>
+
+</dd>
+<dt>Max. Verbindungsnutzung</dt>
+<dd><p>Die Anzahl der Wiederverwendungen einer Verbindung durch den Pool. Nachdem eine Verbindung so h&#228;ufig wie angegeben wiederverwendet wurde, wird sie geschlossen. Der Wert 0 bedeutet, dass dieses Attribut deaktiviert ist. Der Standardwert ist 0.</p>
+
+</dd>
+</dl>
+<a name="gkomp"></a><h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">So erstellen Sie einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">So bearbeiten Sie einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">So bearbeiten Sie die erweiterten Attribute eines Konnektor-Verbindungspools</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">So bearbeiten Sie die Eigenschaften eines Konnektor-Verbindungspools</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">So erstellen Sie eine Sicherheitzuordnung f&#252;r einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">So bearbeiten Sie eine Sicherheitzuordnung f&#252;r einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">So l&#246;schen Sie eine Sicherheitzuordnung f&#252;r einen Konnektor-Verbindungspool</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">So l&#246;schen Sie einen Konnektor-Verbindungspool</a></p>
+
+</li></ul>
+<a name="gkonj"></a><h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

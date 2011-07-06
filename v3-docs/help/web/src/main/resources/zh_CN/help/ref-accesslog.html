@@ -1,0 +1,181 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-accesslog"></a><h4>HTTP 服务</h4>
+<a name="indexterm-55"></a><a name="indexterm-56"></a><p>使用&#8220;HTTP 服务&#8221;页面可以指定 Web 应用程序的常规访问日志策略。</p>
+
+<p>HTTP 服务提供各种工具，可用于部署 Web 应用程序并使得部署的 Web 应用程序可被 HTTP 客户机访问；此外，还提供虚拟服务器、线程池和网络配置功能。</p>
+
+<p>GlassFish Server 使用&#8220;HTTP 服务访问日志&#8221;为虚拟服务器的访问日志启用和配置轮转。这些日志位于 <tt><i>domain-dir</i>/logs/access</tt> 目录中，命名如下：<tt><i>virtual_server_name</i>_access_log.<i>yyyyMMdd</i>-<i>HH</i>h<i>mm</i>m<i>ss</i>s.txt</tt></p>
+
+<p>&#8220;HTTP 服务&#8221;页面包含以下选项。</p>
+
+<dl><dt>装入默认值</dt>
+<dd><p>用于恢复所有设置的默认值的按钮。</p>
+
+</dd>
+<dt>配置名称</dt>
+<dd><p>要应用该页面上的设置的配置的名称。此字段为只读。</p>
+
+</dd>
+<dt>SSO</dt>
+<dd><p>确定在默认情况下，是否为此服务器上针对同一领域配置的所有虚拟服务器上的所有 Web 应用程序启用单点登录。如果未启用此选项，则在默认情况下禁用所有虚拟服务器的单点登录，用户必须在使用每台虚拟服务器上的每个应用程序时都分别进行验证。您可以覆盖单台虚拟服务器的此项设置。可以启用或禁用 SSO。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>访问日志记录</dt>
+<dd><p>如果选中此选项，则会对所有未指定此属性的虚拟服务器子元素启用访问日志记录。如果未选中此项，则对所有未指定此属性的虚拟服务器子元素禁用访问日志记录。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>轮转</dt>
+<dd><p>如果选中此选项，则将启用日志文件轮转。默认情况下启用此选项。</p>
+
+</dd>
+<dt>轮转策略</dt>
+<dd><p>唯一可用的轮转策略是 <tt>time</tt>。</p>
+
+</dd>
+<dt>轮转间隔</dt>
+<dd><p>访问日志的轮转之间间隔的分钟数。仅当轮转策略为 <tt>time</tt> 时，此字段才有效。默认值为 1,440 分钟（24 小时）。</p>
+
+</dd>
+<dt>轮转后缀</dt>
+<dd><p>要在轮转后添加到日志文件名末尾的字符串值。默认值为 <tt>yyyy-MM-dd</tt>。</p>
+
+<p>确保轮转后缀包含足够的值来为每个日志轮转创建一个唯一的后缀。例如，如果访问日志每天轮转多次，请在轮转后缀中包括轮转的时刻。</p>
+
+<p>需要一个唯一的后缀确保访问日志文件在每经过一个轮转时间间隔后都进行轮转。如果新访问日志文件的轮转后缀与现有访问日志文件的轮转后缀相同，则新文件将不轮转。</p>
+
+</dd>
+<dt>最大文件数</dt>
+<dd><p>要保留的最大轮转访问日志文件数。负值表示文件数不受限制。默认值为 &#8211;1。</p>
+
+</dd>
+<dt>缓冲区大小</dt>
+<dd><p>访问日志缓冲区的大小（以字节为单位），或者是小于或等于 0 的值（对于未缓冲的访问日志）。默认值为 32768。</p>
+
+</dd>
+<dt>写入间隔</dt>
+<dd><p>将日志写入磁盘之前的秒数。缓冲区已满或超过时间间隔时写入访问日志。如果该值小于或等于 0，则系统始终会将数据写入缓冲区，即使缓冲区未满也是如此。这意味着每次访问服务器时都将日志消息直接存储到该文件中。默认值为 300。</p>
+
+</dd>
+<dt>格式</dt>
+<dd><p>用于指定要在访问日志中捕获的信息以及信息捕获顺序的字符串值。默认值如下：</p>
+
+<pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>以下值可以包含在格式字符串中：</p>
+
+<dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
+<dd><p>记录具有给定 <i>name</i> 的请求属性的值（通过调用其 <tt>toString</tt> 方法）</p>
+
+</dd>
+<dt><tt>%auth-user-name%</tt></dt>
+<dd><p>授权用户的名字</p>
+
+</dd>
+<dt><tt>%client.name%</tt></dt>
+<dd><p>客户机主机名</p>
+
+</dd>
+<dt><tt>%client.dns%</tt></dt>
+<dd><p>客户机 DNS</p>
+
+</dd>
+<dt><tt>%cookie.<i>name</i>%</tt></dt>
+<dd><p>具有给定 <i>name</i> 的请求 cookie 的值</p>
+
+</dd>
+<dt><tt>%cookie.value%</tt></dt>
+<dd><p>在请求中找到的第一个 cookie 的值</p>
+
+</dd>
+<dt><tt>%datetime%</tt></dt>
+<dd><p>系统日期</p>
+
+</dd>
+<dt><tt>%request%</tt></dt>
+<dd><p>完整 HTTP 请求行</p>
+
+</dd>
+<dt><tt>%status%</tt></dt>
+<dd><p>状态</p>
+
+</dd>
+<dt><tt>%response.length%</tt></dt>
+<dd><p>响应内容长度</p>
+
+</dd>
+<dt><tt>%header.referer%</tt></dt>
+<dd><p>Referer 标头</p>
+
+</dd>
+<dt><tt>%header.user-agent%</tt></dt>
+<dd><p>User-Agent 标头</p>
+
+</dd>
+<dt><tt>%http-method%</tt></dt>
+<dd><p>HTTP 方法</p>
+
+</dd>
+<dt><tt>%http-uri%</tt></dt>
+<dd><p>HTTP URI</p>
+
+</dd>
+<dt><tt>%query-str%</tt></dt>
+<dd><p>HTTP 查询字符串</p>
+
+</dd>
+<dt><tt>%http-version%</tt></dt>
+<dd><p>HTTP 协议版本</p>
+
+</dd>
+<dt><tt>%header.accept%</tt></dt>
+<dd><p>Accept 标头</p>
+
+</dd>
+<dt><tt>%header.date%</tt></dt>
+<dd><p>Date 标头</p>
+
+</dd>
+<dt><tt>%header.if-mod-since%</tt></dt>
+<dd><p>If-Modified-Since 标头</p>
+
+</dd>
+<dt><tt>%header.auth%</tt></dt>
+<dd><p>Authorization 标头</p>
+
+</dd>
+<dt><tt>%header.<i>any</i>%</tt></dt>
+<dd><p>按照 RFC 2616 定义的任何有效 HTTP 标头值（<tt>any</tt> 也是有效的标头值；此处将其指定为变量）</p>
+
+</dd>
+<dt><tt>%session.<i>name</i>%</tt></dt>
+<dd><p>具有名称 <i>name</i> 的会话属性的值；如果命名属性在会话中不存在，则为 <tt>NULL-SESSION-ATTRIBUTE-<i>name</i></tt>；如果没有会话存在，则为 <tt>NULL-SESSION</tt></p>
+
+</dd>
+<dt><tt>%time-taken%</tt></dt>
+<dd><p>处理每个请求所用的时间（以毫秒为单位）</p>
+
+</dd>
+<dt><tt>%vs.id%</tt></dt>
+<dd><p>虚拟服务器 ID</p>
+
+</dd>
+</dl>
+</dd>
+<dt>其他属性</dt>
+<dd><p>HTTP 服务的其他属性。有关可用属性的说明，请参见<a href="ref-httpserviceprops.html">特定于 HTTP 服务的属性</a>。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-accesslog.html">配置 HTTP 服务</a></p>
+
+</li></ul>
+<h5>相关的 <tt>asadmin</tt> 命令</h5>
+<p>无。</p>
+
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

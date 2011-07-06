@@ -1,0 +1,108 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-webcontaineravailability"></a><h4>Web 容器可用性</h4>
+<a name="indexterm-39"></a><a name="indexterm-40"></a><p>使用&#8220;Web 容器可用性&#8221;页面可配置 Web 容器的可用性设置。</p>
+
+<p>&#8220;Web 容器可用性&#8221;页面包含以下选项。</p>
+
+<dl><dt>装入默认值</dt>
+<dd><p>用于恢复所有设置的默认值的按钮。</p>
+
+</dd>
+<dt>配置名称</dt>
+<dd><p>要应用该页面上的设置的配置的名称。此字段为只读。</p>
+
+</dd>
+<dt>可用性服务</dt>
+<dd><p>如果选中&#8220;已启用&#8221;复选框，将为 Web 容器启用可用性。</p>
+
+</dd>
+<dt>持久性类型</dt>
+<dd><p>使用的持久性机制。</p>
+
+
+<ul><li><p>如果<b>未</b>选中&#8220;已启用可用性服务&#8221;，请选择以下选项之一：</p>
+
+
+<ul><li><p><tt>memory</tt>，不提供任何会话持久性</p>
+
+</li>
+<li><p><tt>file</tt>，提供基于非高可用性文件系统的会话持久性</p>
+
+</li></ul>
+</li>
+<li><p>如果选中&#8220;已启用可用性服务&#8221;，请选择 <tt>replicated</tt> 以提供基于高可用性群集故障转移的会话持久性。</p>
+
+</li></ul>
+</dd>
+<dt>持久性频率</dt>
+<dd><p>存储 HTTP 会话的频率：</p>
+
+
+<ul><li><p><tt>web-method</tt>&#8212;将响应发送回客户机之前，在每个 Web 请求结束时存储会话状态。此模式为发生故障时完全更新会话状态提供了最好的保证。这是默认选项。</p>
+
+</li>
+<li><p><tt>time-based</tt>&#8212;在后台按照&#8220;清除时间间隔&#8221;设置设定的频率存储会话状态。有关该设置的更多信息，请参见<a href="task-webcontainermanagerprops.html">配置 Web 容器的管理器属性</a>。</p>
+
+<p>此模式不能较好的保证完全更新会话状态。但是，它可以提供很大的性能改善，因为在每个请求之后都不存储状态。</p>
+
+</li></ul>
+</dd>
+<dt>持久性范围</dt>
+<dd><p>发生存储所需的 HTTP 会话更改范围：</p>
+
+
+<ul><li><p><tt>session</tt>&#8212;每次都存储整个会话状态。此模式为正确存储任何可分发 Web 应用程序的会话数据提供了最好的保证。</p>
+
+</li>
+<li><p><tt>modified-session</tt>&#8212;如果会话状态已修改，则存储整个会话状态。如果调用了 <tt>HttpSession.setAttribute()</tt> 或 <tt>HttpSession.removeAttribute()</tt>，则系统将认为会话已被修改。您必须保证每次更改属性时都调用 <tt>setAttribute()</tt>。这不是 Java EE 规范的要求，但是此模式需要这样做才能正常工作。</p>
+
+</li>
+<li><p><tt>modified-attribute</tt>&#8212;仅存储修改后的会话属性。要使此模式正常工作，您必须遵循以下指导原则：</p>
+
+
+<ul><li><p>每次修改会话状态时都调用 <tt>setAttribute()</tt>。</p>
+
+</li>
+<li><p>确保各属性之间没有交叉引用。系统将对每个不同的属性关键字的对象图形单独进行序列化并单独存储。如果每个单独的关键字下的对象之间有对象交叉引用，则它们将不会被正确序列化和反序列化。</p>
+
+</li>
+<li><p>在多个属性之间分布会话状态，或者至少在只读属性和可修改属性之间分布会话状态。</p>
+
+</li></ul>
+</li></ul>
+</dd>
+<dt>单点登录状态</dt>
+<dd><p>如果选中&#8220;已启用&#8221;复选框，则单点登录状态可用于故障转移。</p>
+
+</dd>
+<dt>其他属性</dt>
+<dd><p>Web 容器可用性的其他属性。</p>
+
+<p>GlassFish Server 不定义任何其他 Web 容器可用性属性。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">配置 Web 容器的常规属性</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">配置 Web 容器的会话属性</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">配置 Web 容器的管理器属性</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">配置 Web 容器的存储属性</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">为 Web 容器配置可用性设置</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

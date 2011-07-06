@@ -1,0 +1,236 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolnew"></a><h4>Nouveau protocole</h4>
+<a name="indexterm-68"></a><p>Utilisez la page Nouveau protocole pour cr&#233;er un nouveau protocole r&#233;seau.</p>
+
+<p>Une fois que vous avez cr&#233;&#233; un protocole, en r&#232;gle g&#233;n&#233;rale, vous
+cr&#233;ez un auditeur de r&#233;seau du m&#234;me nom, et vous associez l&#8217;auditeur r&#233;seau
+au protocole. Vous pouvez &#233;galement cr&#233;er un auditeur de r&#233;seau et avoir un
+protocole avec des param&#232;tres par d&#233;faut cr&#233;&#233; pour vous en m&#234;me temps.</p>
+
+<p>La page Nouveau protocole contient les options suivantes&#160;:</p>
+
+<dl><dt>Nom de configuration</dt>
+<dd><p>Le nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
+
+</dd>
+<dt>Nom</dt>
+<dd><p>Le nom unique du protocole. Un nom de protocole ne peut pas commencer par un chiffre.</p>
+
+</dd>
+<dt>S&#233;curit&#233;</dt>
+<dd><p>Si l&#8217;option est s&#233;lectionn&#233;e, la s&#233;curit&#233; est activ&#233;e pour le protocole. Cette option est d&#233;sactiv&#233;e par d&#233;faut. Si vous activez la s&#233;curit&#233;, vous pouvez utiliser l&#8217;onglet SSL de la page Modification de protocole pour modifier les param&#232;tres de s&#233;curit&#233;. </p>
+
+</dd>
+<dt>Statut</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, le cache de fichiers est activ&#233;. Cette option est activ&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>&#194;ge max.</dt>
+<dd><p>&#194;ge maximum, en secondes, d&#8217;une entr&#233;e de cache valide.</p>
+
+<p>Ce param&#232;tre d&#233;termine comment des informations en cache depuis un certain temps sont utilis&#233;es apr&#232;s la mise en cache d&#8217;un fichier. Une entr&#233;e ant&#233;rieure &#224; l&#8217;&#226;ge maximal est remplac&#233;e par une nouvelle entr&#233;e pour le m&#234;me fichier. Si le contenu change rarement, augmentez cette valeur pour am&#233;liorer les performances.</p>
+
+<p>L&#8217;&#226;ge maximal optimal d&#233;pend de la fr&#233;quence &#224; laquelle les fichiers existants sont modifi&#233;s. Par exemple, si les fichiers sont modifi&#233;s quatre fois par jour &#224;&#160;intervalles r&#233;guliers, vous pouvez d&#233;finir l&#8217;&#226;ge maximal sur 21600 secondes (6 heures). Sinon, pensez &#224; d&#233;finir l&#8217;&#226;ge maximal sur la p&#233;riode la plus longue durant laquelle vous acceptez d&#8217;utiliser la version pr&#233;c&#233;dente d&#8217;un fichier apr&#232;s sa modification.</p>
+
+<p>La valeur par d&#233;faut est 30.</p>
+
+</dd>
+<dt>Taille max. du cache</dt>
+<dd><p>Taille totale maximale (en octets) du cache de fichiers sur le disque. La valeur par d&#233;faut est 10485760.</p>
+
+</dd>
+<dt>Nombre max. de fichiers</dt>
+<dd><p>Nombre maximal de fichiers pouvant &#234;tre stock&#233;s dans le cache.</p>
+
+<p>Si la valeur est trop &#233;lev&#233;e, le serveur met en cache les fichiers peu utiles qui consomment de la m&#233;moire. Si elle est trop faible, vous perdez l&#8217;avantage de la mise en cache. Testez diff&#233;rentes valeurs de cet attribut pour rechercher la solution optimale pour des applications sp&#233;cifiques.</p>
+
+<p>La valeur par d&#233;faut est 1024.</p>
+
+</dd>
+<dt>Nom de serveur</dt>
+<dd><p>Nom d&#8217;h&#244;te &#224; utiliser dans les URL envoy&#233;es par le serveur au client. Ce nom est l&#8217;alias si votre serveur en utilise un. Si votre serveur n&#8217;utilise aucun alias, laissez ce champ vide.</p>
+
+<p>Cette valeur affecte les URL que le serveur g&#233;n&#232;re automatiquement ; elle n&#8217;affecte pas les URL des r&#233;pertoires et des fichiers stock&#233;s dans le serveur. Si votre serveur utilise un alias, le nom du serveur doit &#234;tre le nom de l&#8217;alias. Si un signe deux-points et un num&#233;ro de port sont ajout&#233;s, ce port est utilis&#233; dans les URL envoy&#233;s au client par le serveur.</p>
+
+</dd>
+<dt>Serveur virtuel par d&#233;faut</dt>
+<dd><p>Le serveur virtuel &#224; associer &#224; ce protocole. La page Serveurs virtuels vous permet de d&#233;finir des serveurs virtuels.</p>
+
+</dd>
+<dt>Port de redirection</dt>
+<dd><p>Valeur de port qui redirige une requ&#234;te vers un autre port. GlassFish Server r&#233;achemine automatiquement la requ&#234;te si les deux conditions suivantes sont remplies :</p>
+
+
+<ul><li><p>L&#8217;auditeur de r&#233;seau qui r&#233;f&#233;rencie ce protocole prend en charge les requ&#234;tes non SSL.</p>
+
+</li>
+<li><p>Une requ&#234;te pour laquelle une contrainte de s&#233;curit&#233; correspondante requiert le transport SSL est re&#231;ue.</p>
+
+</li></ul>
+<p>Si aucun port de redirection n&#8217;est sp&#233;cifi&#233;, le GlassFish Server utilise le num&#233;ro de port sp&#233;cifi&#233; dans la requ&#234;te d&#8217;origine. Par d&#233;faut, aucun port n&#8217;est sp&#233;cifi&#233;. </p>
+
+</dd>
+<dt>Nb max. de connexions</dt>
+<dd><p>Sp&#233;cifie le nombre maximum de requ&#234;tes qui peuvent &#234;tre envoy&#233;es dans le pipeline jusqu&#224; ce que la connexion soit ferm&#233;e par le serveur. Le sous-syst&#232;me Keep-Alive interroge p&#233;riodiquement les connexions inactives. La valeur par d&#233;faut est 256.</p>
+
+<p>D&#233;finissez cette propri&#233;t&#233; sur 1 pour d&#233;sactiver la connexion Keep-Alive HTTP/1.0, ainsi que la connexion Keep-Alive HTTP/1.1 et le pipelining. Une valeur de 0 signifie que les requ&#234;tes sont toujours rejet&#233;es. Une valeur de -1 indique que le nombre de connexions persistantes est illimit&#233;.</p>
+
+</dd>
+<dt>D&#233;lai d&#8217;attente</dt>
+<dd><p>Temps maximum en secondes pendant lequel une connexion peut &#234;tre consid&#233;r&#233;e comme inactive et conserv&#233;e &#224; l&#8217;&#233;tat de persistance. Une valeur de 0 ou moins signifie que les connexions persistantes sont conserv&#233;es ouvertes ind&#233;finiment. La valeur par d&#233;faut est 30 secondes.</p>
+
+</dd>
+<dt>D&#233;lai d&#8217;expiration du chargement</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, la connexion pour un servlet qui lit les octets lentement est ferm&#233;e lorsque la limite de D&#233;lai d&#8217;expiration du chargement de la connexion est atteinte. Si cette option est d&#233;sactiv&#233;e, les connexions servlet n&#8217;ont pas de d&#233;lai d&#8217;expiration. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>D&#233;lai d&#8217;expiration du chargement de la connexion</dt>
+<dd><p>Le d&#233;lai d&#8217;expiration pour les t&#233;l&#233;chargements, en millisecondes. Ce champ n&#8217;est applicable que si la case Activ&#233; de D&#233;lai d&#8217;expiration du chargement est s&#233;lectionn&#233;e. La valeur par d&#233;faut est 300000 millisecondes.</p>
+
+</dd>
+<dt>D&#233;lai d&#8217;expiration de la requ&#234;te</dt>
+<dd><p>Nombre de secondes avant l&#8217;expiration de la requ&#234;te. Si la requ&#234;te n&#8217;est pas trait&#233;e avant d&#8217;atteindre la valeur de d&#233;lai d&#8217;expiration, la requ&#234;te est ignor&#233;e. La valeur par d&#233;faut est 30 secondes.</p>
+
+</dd>
+<dt>Taille du tampon d&#8217;envoi</dt>
+<dd><p>La taille (en octets) du tampon d&#8217;envoi. La valeur par d&#233;faut est 8192 octets.</p>
+
+</dd>
+<dt>Longueur du tampon d&#8217;en-t&#234;te</dt>
+<dd><p>La taille (en octets) du tampon utilis&#233; par la requ&#234;te traitant les threads pour lire les donn&#233;es de la requ&#234;te. La valeur par d&#233;faut est 8192 octets.</p>
+
+</dd>
+<dt>Taille maximum des billets</dt>
+<dd><p>La taille maximale en octets des actions POST. La valeur par d&#233;faut est 2097152 octets.</p>
+
+</dd>
+<dt>Codage URI</dt>
+<dd><p>Le nom du jeu de caract&#232;res utilis&#233; pour d&#233;coder les URI des requ&#234;tes re&#231;ues. La valeur doit &#234;tre un nom de jeu de caract&#232;res IANA valide. La valeur par d&#233;faut est UTF-8.</p>
+
+</dd>
+<dt>Version</dt>
+<dd><p>La version du protocole HTTP utilis&#233;e. La valeur par d&#233;faut est HTTP/1.1.</p>
+
+</dd>
+<dt>Compression</dt>
+<dd><p>Sp&#233;cifie l'utilisation de la compression HTTP/1.1 GZIP pour enregistrer la bande passante du serveur. Les choix disponibles sont les suivants :</p>
+
+<dl><dt><tt>on</tt></dt>
+<dd><p>Compresse les donn&#233;es.</p>
+
+</dd>
+<dt><tt>off</tt></dt>
+<dd><p>D&#233;sactive la compression.</p>
+
+</dd>
+<dt><tt>force</tt></dt>
+<dd><p>Force la compression des donn&#233;es dans tous les cas.</p>
+
+</dd>
+</dl>
+<p>La valeur par d&#233;faut est <tt>off</tt>.</p>
+
+</dd>
+<dt> Types MIME compressibles</dt>
+<dd><p>Une liste s&#233;par&#233;e par des virgules de types MIME pour lesquels la compression HTTP est utilis&#233;e. La valeur par d&#233;faut est <tt>text/html,text/xml,text/plain</tt>. </p>
+
+</dd>
+<dt>Taille minimum de compression</dt>
+<dd><p>La taille minimale d&#8217;un fichier lorsque la compression est appliqu&#233;e. Cette valeur doit &#234;tre configur&#233;e si la compression est d&#233;finie sur <tt>on</tt> ou <tt>force</tt>. La valeur par d&#233;faut est 2048 octets.</p>
+
+</dd>
+<dt>Agents utilisateur sans compression</dt>
+<dd><p>Une liste s&#233;par&#233;e par des virgules d&#8217;expressions r&#233;guli&#232;res correspondant &#224; des agents utilisateur de clients HTTP pour lesquels la compression ne devrait pas &#234;tre utilis&#233;e. Par d&#233;faut, cette valeur est une cha&#238;ne vide.</p>
+
+</dd>
+<dt>Agent utilisateur limit&#233;</dt>
+<dd><p>Une liste des agents utilisateur limit&#233;s sur lesquels la compression HTTP est appliqu&#233;e. Si aucun utilisateur agent n&#8217;est sp&#233;cifi&#233;, la compression HTTP est appliqu&#233;e &#224; tous les agents utilisateur. Par d&#233;faut, aucun utilisateur agent n&#8217;est sp&#233;cifi&#233;.</p>
+
+</dd>
+<dt>Type de r&#233;ponse par d&#233;faut</dt>
+<dd><p>Une cha&#238;ne qui sp&#233;cifie le type de r&#233;ponse par d&#233;faut. Le format est une cha&#238;ne s&#233;par&#233;e par des points-virgule pr&#233;sentant le type de contenu (content-type), l&#8217;encodage, la langue et le jeu de caract&#232;res. La valeur par d&#233;faut est <tt>text/html; charset=iso-8859-1</tt>.</p>
+
+</dd>
+<dt>Type de r&#233;ponse forc&#233;e</dt>
+<dd><p>Une cha&#238;ne qui sp&#233;cifie le type de requ&#234;te utilis&#233; si aucun mappage MIME n&#8217;est disponible correspondant &#224; l&#8217;extension du fichier. Le format est une cha&#238;ne s&#233;par&#233;e par des points-virgule pr&#233;sentant le type de contenu (content-type), l&#8217;encodage, la langue et le jeu de caract&#232;res. La valeur par d&#233;faut est <tt>text/html; charset=iso-8859-1</tt>.</p>
+
+</dd>
+<dt>Adaptateur</dt>
+<dd><p>Le nom de classe de l&#8217;adaptateur de ressources statiques. La valeur par d&#233;faut est <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p>
+
+</dd>
+<dt>Support Comet</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, la prise en charge de Comet est activ&#233;e pour l&#8217;auditeur de r&#233;seau qui r&#233;f&#233;rencie ce protocole. Par d&#233;faut, cette option est d&#233;sactiv&#233;e. Si votre servlet ou votre page JSP utilise la technologie Comet, assurez-vous qu&#8217;il ou elle est initialis&#233;(e) lorsque GlassFish Server d&#233;marre en ajoutant l&#8217;&#233;l&#233;ment <tt>load-on-startup</tt> &#224; votre fichier <tt>web.xml</tt>. Exemple&#160;:</p>
+
+<pre>&#60;servlet>
+&#60;servlet-name>CheckIn&#60;/servlet-name>
+&#60;servlet-class>CheckInServlet&#60;/servlet-class>
+&#60;load-on-startup>0&#60;/load-on-startup>
+&#60;/servlet></pre></dd>
+<dt>Recherche DNS</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, la recherche DNS est activ&#233;e. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Recherche DNS</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, la recherche DNS est activ&#233;e. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Prise en charge de RCM</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, RCM est activ&#233;. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Suivi</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, l&#8217;op&#233;ration Suivi est activ&#233;e. Si cette option est d&#233;sactiv&#233;e, GlassFish Server est moins expos&#233; &#224; des attaques de scripts entre sites. Cette option est activ&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Auth. d&#8217;intercommunication</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, l&#8217;auditeur de r&#233;seau qui utilise ce protocole re&#231;oit le trafic d&#8217;un serveur proxy &#224; terminaison SSL. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Segmentation</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, le d&#233;coupage des r&#233;ponses HTTP est activ&#233;. Cette option est activ&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>XPowered By</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, GlassFish Server utilise les en-t&#234;tes <tt>X-Powered-By</tt>? en fonction des sp&#233;cifications Java Servlet 3.0 et Java Server Pages 2.0. Cette option est activ&#233;e par d&#233;faut.</p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-protocolnew.html">Cr&#233;ation d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Modification d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Modifier les param&#232;tres SSL d'un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Modifier les param&#232;tres HTTP pour un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Modifier les param&#232;tres de cache de fichiers pour un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Suppression d'un protocole</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

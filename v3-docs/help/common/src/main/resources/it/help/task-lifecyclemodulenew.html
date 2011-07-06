@@ -1,0 +1,46 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-lifecyclemodulenew"></a><h4>Creare un modulo del ciclo di vita</h4><a name="indexterm-58"></a><ol>
+<li><b>Nella struttura ad albero, selezionare il nodo Lifecycle Modules.</b><p>Viene visualizzata la pagina Lifecycle Modules.</p></li>
+<li><b>Nella pagina Lifecycle Modules, fare clic su New.</b><p>Viene visualizzata la pagina New Lifecycle Module.</p></li>
+<li><b>Nel campo Name, digitare un nome per il modulo del ciclo di
+vita.</b></li>
+<li><b>Nel campo Class Name digitare il nome completo del file di classe
+del modulo.</b><p>La classe deve implementare l'interfaccia <tt> com.sun.appserv.server.LifecycleListener</tt>.</p></li>
+<li><b>Nel campo Classpath digitare il classpath per il modulo del ciclo di
+vita.</b><p>Il classpath specifica la posizione del modulo del ciclo di vita. Il
+valore predefinito &#232; <tt></tt><i>domain-dir</i><tt>/applications</tt>. Se il modulo si trova gi&#224; in questa
+directory (ossia nel classpath del server) il campo pu&#242; essere lasciato vuoto.</p></li>
+<li><b>Nel campo Load Order, digitare un valore per specificare l'ordine di caricamento
+del modulo del ciclo di vita all'avvio.</b><p>I moduli con i numeri di ordine di caricamento pi&#249; bassi verranno
+caricati per primi. Il valore pu&#242; essere compreso tra 101 e il
+valore <tt>MAXINT</tt> del sistema operativo. I valori compresi tra 1 e 100
+sono riservati.</p></li>
+<li><b>Nel campo Description, digitare una descrizione del modulo del ciclo di vita.</b></li>
+<li><b>Selezionare la casella di controllo Status Enabled per abilitare il modulo del
+ciclo di vita.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo On Load Failure Prevent Instance Startup per
+impostare l'arresto del server in caso di mancato caricamento del modulo del
+ciclo di vita.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Per aggiungere istanze server e cluster di destinazione in cui abilitare il
+modulo del ciclo di vita, selezionarli dall'elenco Available Targets e utilizzare il
+pulsante Add per spostarli nell'elenco Selected Targets.</b><p>L'opzione Target viene visualizzata se esistono cluster o istanze server standalone oltre
+all'istanza server predefinita (<tt>server</tt>). Per impostazione predefinita, il modulo del ciclo di
+vita viene abilitato nell'istanza server predefinita, denominata <tt>server</tt>. Utilizzare il pulsante Add
+All per eseguire la distribuzione in tutte le destinazioni. Utilizzare i pulsanti
+Remove e Remove All per rimuovere destinazioni dall'elenco Selected Targets.</p></li>
+<li><b>Fare clic su OK.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-lifecyclemoduleedit.html">Modificare un modulo del ciclo di vita</a></p>
+
+</li>
+<li><p><a href="task-lifecyclemoduledelete.html">Eliminare un modulo del ciclo di vita</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

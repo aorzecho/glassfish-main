@@ -1,0 +1,37 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-httpserviceprops"></a><h4>HTTP 서비스와 관련된 등록 정보</h4>
+<a name="indexterm-57"></a><a name="indexterm-58"></a><p>HTTP 서비스에 대해 다음과 같은 추가 등록 정보를 사용할 수 있습니다. 이러한
+등록 정보를 지정하면 모든 <a href="ref-group-networklisteners.html">네트워크 수신기</a>에 적용됩니다.</p>
+
+<dl><dt><tt>ssl-cache-entriese</tt></dt>
+<dd><p>캐시할 SSL 세션의 수입니다. 기본값은 10,000입니다.</p>
+
+</dd>
+<dt><tt>ssl3-session-timeout</tt></dt>
+<dd><p>SSL3 세션이 캐시되는 간격입니다. 기본값은 86,400입니다.</p>
+
+</dd>
+<dt><tt>ssl-session-timeout</tt></dt>
+<dd><p>SSL2 세션이 캐시되는 간격입니다. 기본값은 100입니다.</p>
+
+</dd>
+<dt><tt>proxyHandler</tt></dt>
+<dd><p>SSL 종료 프록시 서버(예: 로드 밸런서)가 가로챈 원래 클라이언트 요청에 대한 정보를 백엔드 GlassFish 서버 인스턴스가 검색할 수 있도록 하는 <tt>com.sun.appserv.ProxyHandler</tt> 추상 클래스의 사용자 정의 구현에 대한 정규화된 클래스 이름입니다. 이 추상 클래스 구현은 지정된 요청에서 사용자 정의 요청 헤더를 검사합니다. 사용자 정의 요청 헤더를 통해 프록시 서버는 원래 클라이언트 요청에 대한 정보를 Enterprise Server 인스턴스에 전달하고 해당 정보를 호출자에게 반환합니다.</p>
+
+<p>기본 구현은 <tt>Proxy-ip</tt>라는 HTTP 요청 헤더에서 클라이언트 IP 주소를, <tt>Proxy-keysize</tt>라는 HTTP 요청 헤더에서 SSL <tt>keysize</tt>를, <tt>Proxy-auth-cert</tt>라는 HTTP 요청 헤더에서 SSL 클라이언트 인증서 체인을 읽습니다. <tt>Proxy-auth-cert</tt> 값은 <tt>BEGIN CERTIFICATE</tt> 및 <tt>END CERTIFICATE</tt> 경계가 없고 <tt>% d% a</tt>로 바뀌는 <tt>\n</tt>이 있는 BASE-64로 인코딩된 클라이언트 인증서 체인을 포함해야 합니다.</p>
+
+<p>이 설정은 네트워크 수신기 프로토콜의 HTTP 페이지에 대한 인증 통과 확인란이 true로 설정된 경우에만 사용됩니다.</p>
+
+</dd>
+<dt><tt>connectionTimeout</tt></dt>
+<dd><p>네트워크 수신기가 연결을 승인한 후 요청 URI 라인이 제출될 때까지 기다리는 시간(초)을 지정합니다. 기본값은 30입니다.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

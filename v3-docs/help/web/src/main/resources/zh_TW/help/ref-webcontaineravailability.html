@@ -1,0 +1,108 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-webcontaineravailability"></a><h4>Web 容器可用性</h4>
+<a name="indexterm-39"></a><a name="indexterm-40"></a><p>使用 [Web 容器可用性] 頁面可配置 Web 容器的可用性設定。</p>
+
+<p>[Web 容器可用性] 頁面包含下列選項。</p>
+
+<dl><dt>載入預設值</dt>
+<dd><p>將所有設定復原為預設值的按鈕。</p>
+
+</dd>
+<dt>配置名稱</dt>
+<dd><p>套用此頁面上之設定的配置名稱。此欄位是唯讀欄位。</p>
+
+</dd>
+<dt>可用性服務</dt>
+<dd><p>如果選取 [已啟用] 核取方塊，則會為 Web 容器啟用可用性。</p>
+
+</dd>
+<dt>持續性類型</dt>
+<dd><p>所使用的持續性機制。</p>
+
+
+<ul><li><p>如果<b>未</b>核取 [啟用可用服務]，請選取下列其中一項：</p>
+
+
+<ul><li><p><tt>memory</tt>，用於沒有階段作業持續性的情況</p>
+
+</li>
+<li><p><tt>file</tt>，用於根據非高可用性檔案系統的階段作業持續性</p>
+
+</li></ul>
+</li>
+<li><p>若核取 [啟用可用服務]，請選取 <tt>replicated</tt>，用於根據高可用性叢集容錯移轉的階段作業持續性。</p>
+
+</li></ul>
+</dd>
+<dt>持續性頻率</dt>
+<dd><p>儲存 HTTP 階段作業的頻率：</p>
+
+
+<ul><li><p><tt>web-method</tt> &#8212; 在每個 Web 請求結束且將回應傳送回用戶端之前，儲存階段作業狀態。此模式為發生故障時完全更新階段作業狀態提供了最好的保證。此為預設值。</p>
+
+</li>
+<li><p><tt>time-based</tt> - 根據 [清除間隔] 設定中所設定的頻率，在背景儲存階段作業狀態。如需有關此設定的更多資訊，請參閱<a href="task-webcontainermanagerprops.html">配置 Web 容器的管理員特性</a>。</p>
+
+<p>此模式對完全更新階段作業狀態提供的保證較少。但是，它可以提供很大的效能改善，因為在每個請求之後都不儲存狀態。</p>
+
+</li></ul>
+</dd>
+<dt>持續性範圍</dt>
+<dd><p>要進行儲存所需的 HTTP 階段作業變更範圍：</p>
+
+
+<ul><li><p><tt>session</tt> &#8212; 每次都儲存整個階段作業狀態。此模式為正確儲存任何可分散 Web 應用程式的階段作業資料提供了最好的保證。</p>
+
+</li>
+<li><p><tt>modified-session</tt> &#8212; 如果階段作業狀態已修改，則儲存整個階段作業狀態。如果呼叫了 <tt>HttpSession.setAttribute() </tt> 或 <tt>HttpSession.removeAttribute()</tt>，則系統將認為階段作業已遭修改。必須保證每次變更屬性時都呼叫 <tt>setAttribute()</tt>。這不是 Java EE 規格的需求，但是此模式需要這樣做才能正常工作。</p>
+
+</li>
+<li><p><tt>modified-attribute</tt> &#8212; 僅儲存修改的階段作業屬性。若要使此模式正常運作，您必須遵循以下使用準則：</p>
+
+
+<ul><li><p>每次修改階段作業狀態時均呼叫 <tt>setAttribute()</tt>。</p>
+
+</li>
+<li><p>確定各屬性之間沒有交叉參照。系統將對每個不同屬性關鍵字下的物件圖形單獨進行串列化並單獨儲存。如果每個單獨的關鍵字下的物件之間存在物件交叉參照，則它們將不會進行正確串列化和反串列化。</p>
+
+</li>
+<li><p>在多個屬性之間分布階段作業狀態，或者至少在唯讀屬性和可修改屬性之間分布階段作業狀態。</p>
+
+</li></ul>
+</li></ul>
+</dd>
+<dt>單次登入狀態</dt>
+<dd><p>在選取 [已啟用] 核取方塊後，可用於容錯移轉的單次登入狀態。</p>
+
+</dd>
+<dt>其他特性</dt>
+<dd><p>Web 容器可用性的其他特性。</p>
+
+<p>GlassFish Server 未定義任何其他 Web 容器可用性特性。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">配置 Web 容器的一般特性</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">配置 Web 容器的階段作業特性</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">配置 Web 容器的管理員特性</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">配置 Web 容器的儲存特性</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">配置 Web 容器的可用性設定</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

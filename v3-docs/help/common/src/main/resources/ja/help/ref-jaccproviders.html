@@ -1,0 +1,71 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jaccproviders"></a><h4>JACC プロバイダ</h4>
+<a name="indexterm-223"></a><p>「JACC プロバイダ」ページを使用し、選択した GlassFish サーバー インスタンスまたはクラスタに JACC (Java Authorization Contract for Containers) プロバイダを設定します。</p>
+
+<p>JACC プロバイダは、GlassFish サーバー で実行しているアプリケーションのサードパーティー製認証モジュール で使用できます。デフォルトの GlassFish サーバー インストールには、2 つの JACC プロバイダ、<tt>default</tt> と
+<tt>simple</tt> が含まれます。これらのデフォルトのプロバイダは、JACC 仕様に準拠した簡単なファイルベース認証エンジンを実装します。独自のカスタム JACC プロバイダを作成することも可能です。<a href="task-jaccprovidernew.html">「JACC プロバイダを作成する」</a>を参照してください。</p>
+
+<p>JACC プロバイダの実装クラスの記述方法については、<a href="http://jcp.org/en/jsr/detail?id=115">http://jcp.org/en/jsr/detail?id=115</a> の JACC 仕様を参照してください。</p>
+
+<p>JACC プロバイダごとに、次の情報が表示されます。</p>
+
+<dl><dt>名前</dt>
+<dd><p>JACC プロバイダの名前。この名前は、<tt>domain.xml</tt> 内の <tt>jacc-provider</tt> 要素の参照に使用されます。</p>
+
+</dd>
+<dt>ポリシーの設定</dt>
+<dd><p>プロバイダ固有の <tt>javax.security.jacc.PolicyConfigurationFactory</tt> を実装する <tt>javax.security.jacc.PolicyConfigurationFactory.provider</tt> の完全修飾クラス名。</p>
+
+</dd>
+<dt>ポリシープロバイダ</dt>
+<dd><p><tt>java.security.Policy</tt> を実装する <tt>javax.security.jacc.policy.provider</tt> の完全修飾クラス名。</p>
+
+</dd>
+</dl>
+<p>デフォルトの JACC プロバイダは、次のプロパティーもサポートします。</p>
+
+<dl><dt>repository</dt>
+<dd><p>JACC ポリシーファイルが含まれるディレクトリ。<tt>default</tt> GlassFish サーバー JACC プロバイダの場合、デフォルトディレクトリーは <tt>${com.sun.aas.instanceRoot}/generated/policy</tt> です。<tt>simple</tt>GlassFish サーバー JACC プロバイダの場合、デフォルトではこのプロパティーは定義されません。</p>
+
+</dd>
+</dl>
+<p>「JACC プロバイダ」の表には、次のオプションも表示されます。</p>
+
+<dl><dt>新規</dt>
+<dd><p>新しい JACC プロバイダを作成するボタン。</p>
+
+</dd>
+<dt>削除</dt>
+<dd><p>選択した 1 つまたは複数の JACC プロバイダを削除するボタン。</p>
+
+</dd>
+</dl>
+<a name="gkokq"></a><h5>関連操作</h5>
+
+<ul><li><p><a href="task-jaccprovidernew.html">「JACC プロバイダを作成する」</a></p>
+
+</li>
+<li><p><a href="task-jaccprovideredit.html">「JACC プロバイダを編集する」</a></p>
+
+</li>
+<li><p><a href="task-jaccproviderdelete.html">「JACC プロバイダを削除する」</a></p>
+
+</li></ul>
+<a name="gkomu"></a><h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

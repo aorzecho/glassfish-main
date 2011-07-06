@@ -1,0 +1,51 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-logging-max-logfiles"></a><h4>Cambiare il numero limite dei file di log sottoposti a rotazione</h4><a name="indexterm-70"></a><a name="indexterm-71"></a><a name="indexterm-72"></a><p>Quando in GlassFish Server un file di log viene sottoposto a rotazione,
+si crea un nuovo file vuoto denominato <tt>server.log</tt> e il file precedente
+viene rinominato come <tt>server.log_ </tt><i>date</i>, dove <i>date</i> indica la data e ora di
+rotazione del file.</p>
+
+<p>Per impostazione predefinita, il numero di file di log sottoposti a rotazione
+&#232; limitato a 10. Quando viene raggiunto tale limite, il file di
+log meno recente viene sovrascritto alla successiva rotazione.</p>
+
+<p>Se necessario &#232; possibile modificare il numero limite di file sottoposti a
+rotazione. Il nuovo limite sar&#224; valido per la rotazione di file di
+log relativi sia alla registrazione degli accessi sia al log del server.</p>
+
+<ul>
+<li><b>Impostare la propriet&#224; <tt>com.sun.enterprise.server.logging.max_history_files </tt> sul numero massimo di file di log sottoposti
+a rotazione da conservare.</b><p>Per informazioni su come impostare una propriet&#224; di sistema vedere <a href="task-systemproperties.html">Gestire le propriet&#224; di sistema</a>.</p><p>Di seguito &#232; indicato il funzionamento della propriet&#224; di sistema <tt>com.sun.enterprise.server.logging.max_history_files</tt>:</p>
+<ul><li><p>Se la propriet&#224; non &#232; impostata, vengono conservati non oltre 10 file di log sottoposti a rotazione.</p>
+
+</li>
+<li><p>Se la propriet&#224; &#232; impostata su un numero non valido o su un valore nullo, vengono conservati non oltre 10 file di log sottoposti a rotazione.</p>
+
+</li>
+<li><p>Se la propriet&#224; &#232; impostata su 0, non viene conservato alcun file di log sottoposto a rotazione.</p>
+
+</li></ul>
+</li></ul><h6>Vedere anche</h6>
+<ul><li><p><a href="task-eelogging.html">Configurare impostazioni generali per il log</a></p>
+
+</li>
+<li><p><a href="task-eelogginglevels.html">Configurare i livelli di log</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">Visualizzare i file di log per il DAS</a></p>
+
+</li>
+<li><p><a href="task-logging-collectlogfiles.html">Creare un archivio ZIP di tutti i file di log</a></p>
+
+</li>
+<li><p><a href="task-systemproperties.html">Gestire le propriet&#224; di sistema</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

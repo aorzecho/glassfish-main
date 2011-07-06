@@ -1,0 +1,105 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-appedit"></a><h4>Editar Aplicativo</h4>
+<a name="indexterm-162"></a><p>Use a p&#225;gina Editar Aplicativo para modificar um aplicativo existente.</p>
+
+<p>A p&#225;gina Editar Aplicativo cont&#233;m algumas ou todas as seguintes op&#231;&#245;es, dependendo
+do tipo de aplicativo.</p>
+
+<dl><dt>Nome</dt>
+<dd><p>Campo somente leitura que exibe o nome do aplicativo em edi&#231;&#227;o.</p>
+
+<p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o nome e &#233; separado do nome por dois pontos (<tt>:</tt>). Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Se a caixa de sele&#231;&#227;o Ativado estiver marcada, o aplicativo est&#225; ativado. Por padr&#227;o, essa op&#231;&#227;o est&#225; selecionada.</p>
+
+</dd>
+<dt>Raiz de Contexto</dt>
+<dd><p>Para aplicativos Web, especifica o caminho do aplicativo. No URL do aplicativo Web, a raiz de contexto aparece imediatamente ap&#243;s o n&#250;mero da porta (<tt>http://<i>host</i>:<i>port</i>/<i> context-root</i>/...</tt>). A raiz de contexto deve iniciar com uma barra; por exemplo, <tt>/hello</tt>.</p>
+
+</dd>
+<dt>Disponibilidade</dt>
+<dd><p>Se a caixa de sele&#231;&#227;o Ativado estiver selecionada, a alta disponibilidade est&#225; ativada para sess&#245;es Web e para o ponto de verifica&#231;&#227;o e, potencialmente, a passiva&#231;&#227;o do bean da sess&#227;o com estado (SFSB). Se definido como falso (padr&#227;o), todo o salvamento da sess&#227;o Web e o ponto de verifica&#231;&#227;o SFSB ser&#227;o desativados para o aplicativo especificado, aplicativo Web ou m&#243;dulo EJB. Se definido como verdadeiro, o aplicativo ou m&#243;dulo especificado ser&#225; ativado para alta disponibilidade. Defina essa op&#231;&#227;o como verdadeira apenas se a alta disponibilidade estiver configurada e ativada em n&#237;veis mais altos, como os n&#237;veis do servidor e recipiente.</p>
+
+<p>Esta op&#231;&#227;o aparece se clusters ou inst&#226;ncias de servidores independentes, al&#233;m da inst&#226;ncia padr&#227;o do servidor (<tt>server</tt>), existirem.</p>
+
+</dd>
+<dt>Servidores Virtuais</dt>
+<dd><p>Os servidores virtuais associados ao aplicativo.</p>
+
+<p>A op&#231;&#227;o Servidores virtuais aparece somente se a inst&#226;ncia padr&#227;o do servidor, <tt> server</tt>, existir. Se os clusters ou outras inst&#226;ncias de servidores independentes existirem, &#233; poss&#237;vel selecionar os servidores virtuais depois da implanta&#231;&#227;o. V&#225; &#224; p&#225;gina Editar aplicativo, selecione a guia Destino e selecione Gerenciar servidores virtuais para o destino desejado.</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>(Para alguns tipos de aplicativos) Se a caixa de sele&#231;&#227;o Ativado estiver selecionada, o aplicativo usa o software Java Web Start. O Java Web Start fornece uma maneira n&#227;o dependente do navegador de implantar aplicativos Java a serem executados em uma M&#225;quina Virtual Java dedicada.</p>
+
+</dd>
+<dt>Descri&#231;&#227;o</dt>
+<dd><p>Uma breve descri&#231;&#227;o do aplicativo.</p>
+
+</dd>
+<dt>Local</dt>
+<dd><p>Arquivo somente leitura que exibe o local do aplicativo implementado. Este &#233; um campo somente leitura.</p>
+
+</dd>
+<dt>Bibliotecas</dt>
+<dd><p>Os arquivos JAR de biblioteca requeridos pelo aplicativo. Este &#233; um campo somente leitura.</p>
+
+</dd>
+<dt>M&#243;dulos e componentes</dt>
+<dd><p>Tabela que exibe os nomes dos m&#243;dulos do aplicativo e seus respectivos mecanismos. Em um ponto final de servi&#231;o Web, &#233; poss&#237;vel selecionar Visualizar ponto final para exibir a p&#225;gina Visualizar informa&#231;&#245;es do ponto final de um servi&#231;o Web. Em um cliente de aplicativo, &#233; poss&#237;vel selecionar Iniciar para exibir a p&#225;gina Iniciar cliente de aplicativo.</p>
+
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-appedit.html">Para editar um aplicativo implantado</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">Para exibir uma lista de aplicativos implantados</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">Para implantar um aplicativo Web</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Para implantar um Aplicativo Empresarial</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Para implantar um cliente aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Para implantar um m&#243;dulo conector</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Para implantar um EJB Jar</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Para exibir os descritores de um aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">Para visualizar destinos do aplicativo</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Para visualizar as informa&#231;&#245;es do ponto final para um servi&#231;o Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Para iniciar um aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Para iniciar um cliente de aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">Para reimplantar um aplicativo implantado</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Para recarregar um aplicativo implantado</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

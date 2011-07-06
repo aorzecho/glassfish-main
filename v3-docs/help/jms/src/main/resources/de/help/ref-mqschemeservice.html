@@ -1,0 +1,126 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-mqschemeservice"></a><h4>Syntax von MQ-Schema und MQ-Dienstadresse</h4>
+<p>Die vollst&#228;ndige Syntax f&#252;r die Adresse eines Nachrichtendiensts lautet </p>
+
+<pre><i>scheme</i>://<i>address-syntax</i></pre><p>dabei sind <i>Schema</i> und <i>Adress-Syntax </i> in der Tabelle unten beschrieben.</p>
+
+<p>Die Werte f&#252;r MQ-Schema und MQ-Dienst sind in den ersten beiden Spalten
+der folgenden Tabelle aufgef&#252;hrt.</p>
+
+<table><col width="16%"><col width="16%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"><p>Schema</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Verbindungs- dienst</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Beschreibung</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Adress-Syntax</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mq</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt> und <tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Die Message Queue-Clientlaufzeit stellt eine Verbindung
+zum MQ-Port-Mapper auf dem angegebenen Host und Port her. Der Port-Mapper gibt
+eine Liste der dynamisch eingerichteten Verbindungsdienstports zur&#252;ck, und die Message Queue-Clientlaufzeit stellt
+anschlie&#223;end eine Verbindung zu dem Port her, &#252;ber den der angegebene Verbindungsdienst
+gehostet wird.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>[</tt><i>Hostname</i><tt>][: </tt><i>Port</i><tt>][/</tt><i> Dienstname</i><tt>]</tt></p>
+
+<p>Standardeinstellungen: <i>hostName</i> = <tt>localhost</tt>, <i>port</i> = <tt>7676</tt>, <i>serviceName </i> = <tt>jms</tt></p>
+
+<p>Die Standardeinstellungen
+gelten ausschlie&#223;lich f&#252;r den <tt>jms</tt>-Verbindungsdienst. F&#252;r den Verbindungsdienst <tt>ssljms</tt> m&#252;ssen alle Variablen
+angegeben werden.</p>
+
+<p>Beispiel: <tt>mq:MyHost:7677/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqtcp</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Die Message Queue-Clientlaufzeit verbindet sich &#252;ber TCP mit dem angegebenen
+Host und Port (der MQ-Port-Mapper wird umgangen), um eine Verbindung herzustellen.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostname</i><tt>:</tt><i>anschlus</i><tt> /jms</tt></p>
+
+<p>Beispiel: <tt>mqtcp:localhost:7676/jms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqssl</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Die
+Message Queue-Clientlaufzeit verbindet sich &#252;ber SSL mit den angegebenen Host und Port
+(der MQ-Port-Mapper wird umgangen), um eine Verbindung herzustellen.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostname</i><tt>:</tt><i>anschluss</i><tt> /ssljms</tt></p>
+
+<p>Beispiel: <tt>mqssl:localhost:7676/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Die Message Queue-Clientlaufzeit stellt
+&#252;ber HTTP eine Verbindung zu einem Message Queue-Tunnel-Servlet mit der angegebenen URL
+her. (Der Broker muss f&#252;r den Zugriff auf das HTTP-Tunnel-Servlet konfiguriert sein,
+wie im Message Queue <b>Administrator&#8217;s Guide</b> beschrieben.)</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>Hostname</i><tt>:</tt><i> Port</i><tt>/</tt><i>Kontext-Root</i><tt> /tunnel</tt></p>
+
+<p>Wenn mehrere Brokerinstanzen das gleiche Tunnel-Servlet verwenden,
+dann ist die Syntax f&#252;r eine Verbindung mit einer bestimmten Brokerinstanz (eher
+als eine zuf&#228;llig Ausgew&#228;hlte): <tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>https</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpsjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Die Message Queue-Clientlaufzeit stellt eine sichere HTTPS-Verbindung zur
+angegebenen Message Queue-Tunnel-Servlet-URL her. (Der Broker muss f&#252;r den Zugriff auf das
+HTTPS-Tunnel-Servlet konfiguriert sein, wie im Message Queue <b>Administrator&#8217;s Guide</b>).</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>Hostname</i><tt>:</tt><i> Port</i><tt>/</tt><i>Kontext-Root</i><tt> /tunnel</tt></p>
+
+<p>Wenn mehrere Brokerinstanzen das gleiche
+Tunnel-Servlet verwenden, dann ist die Syntax f&#252;r eine Verbindung mit einer bestimmten
+Brokerinstanz (eher als eine zuf&#228;llig Ausgew&#228;hlte): <tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
+
+</td>
+</tr>
+</table>
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

@@ -1,0 +1,52 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectionservice"></a><h4>コネクタサービス</h4>
+<a name="indexterm-62"></a><p>リソースアダプタを管理するコネクタサービスの一般設定を変更するには、「コネクタサービス」ページを使用します。</p>
+
+<p>「コネクタサービス」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読み込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>シャットダウンタイムアウト</dt>
+<dd><p>GlassFish サーバー のシャットダウン中に、コネクタモジュールのインスタンスの <tt>ResourceAdapter.stop</tt> メソッドが完了するまでに待機する最大時間 (秒単位)。シャットダウンにかかる時間がこの値を超えるリソースアダプタは無視され、GlassFish サーバー はシャットダウンを継続します。デフォルト値は 30 秒です。</p>
+
+</dd>
+<dt>コネクタ Classloading のポリシー</dt>
+<dd><p>クラスの読み込みに使用するポリシー。次のタイプを指定できます。</p>
+
+<dl><dt><tt>derived</tt></dt>
+<dd><p>リソースアダプタのリソースを参照するアプリケーションに従って、リソースアダプタを提供します。このポリシーがデフォルトです。</p>
+
+</dd>
+<dt><tt>global</tt></dt>
+<dd><p>すべてのリソースアダプタが、すべてのアプリケーションから参照可能です。</p>
+
+</dd>
+</dl>
+<p>このポリシーは、プリインストールされた JMS システムリソースアダプタの <tt>jmsra</tt> には適用されません。このリソースアダプタは、常にすべてのアプリケーションから参照可能です。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-connectionservice.html">「コネクタサービスを設定する」</a></p>
+
+</li>
+<li><p><a href="../../../common/ja/help/task-appdeployconn.html">コネクタモジュールを配備する</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+<p>なし</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

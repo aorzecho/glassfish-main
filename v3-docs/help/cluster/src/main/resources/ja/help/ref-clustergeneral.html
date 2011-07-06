@@ -1,0 +1,85 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clustergeneral"></a><h4>一般情報</h4>
+<a name="indexterm-164"></a><a name="indexterm-165"></a><a name="indexterm-166"></a><a name="indexterm-167"></a><p>「一般情報」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>クラスタの起動</dt>
+<dd><p>クラスタを起動するボタン。クラスタ内のインスタンスがすべて実行されている場合は非アクティブになっています。</p>
+
+</dd>
+<dt>クラスタの停止</dt>
+<dd><p>クラスタを停止するボタン。クラスタ内のインスタンスがすべて停止している場合はこのボタンは非アクティブになっています。</p>
+
+</dd>
+<dt>EJB タイマーを移行</dt>
+<dd><p>クラスタ内の停止している GlassFish サーバー インスタンスから実行中のインスタンスにEnterprise JavaBeans(EJB) テクノロジのタイマーを移行するボタン。このボタンをクリックすると、「<a href="ref-migrateejbtimers.html">EJB タイマーを移行</a>」ページが表示されます。クラスタ内のインスタンスがすべて実行されている場合はこのボタンは非アクティブになっています。</p>
+
+</dd>
+<dt>ログのローテーション</dt>
+<dd><p>クラスタのログファイルのローテーションを行うボタン。ログファイルのローテーションが行われると、<tt>server.log_</tt><i> date-and-time</i><tt></tt> という形式のタイムスタンプ名を使用してファイル名が変更され、新しいログメッセージのために空のログファイルが作成されます。この変更は動的に適用されます。サーバーの再起動は必要ありません。</p>
+
+</dd>
+<dt>クラスタ名</dt>
+<dd><p>クラスタが作成されたときにクラスタに割り当てられた名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>JVM</dt>
+<dd><p>「JVM レポート」をクリックすると、Java 仮想マシンに関するレポートが、新しいウィンドウに表示されます。表示されるレポートは、概要レポート、メモリー管理およびガベージコレクションレポート、クラスローディングレポート、および現在のスレッドのダンプです。</p>
+
+</dd>
+<dt>設定</dt>
+<dd><p>クラスタの作成時にクラスタに対して選択された設定。設定をクリックすると、クラスタの「<a href="../../../common/ja/help/ref-configuration.html">設定</a>」ページが表示されます。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>GMS</dt>
+<dd><p>このオプションを有効にすると、クラスタ内の各 GlassFish サーバー インスタンスとドメイン管理サーバー (Domain Administration Server、DAS) でグループ管理サービス (GMS) が開始されます。DAS は、GMS が有効になっている各クラスタに参加します。GMS は、クラスタの監視、クラスタのメンバーシップ、およびグループ通信の各サービスを提供します。このオプションはデフォルトで有効になっています。</p>
+
+</dd>
+<dt>マルチキャストポート</dt>
+<dd><p>GMS がグループイベントを待機する通信ポートのポート番号。2048 - 32000 の間の有効なポート番号を指定する必要があります。デフォルト値は、この範囲から自動的に生成されます。</p>
+
+</dd>
+<dt>マルチキャストアドレス</dt>
+<dd><p>GMS がグループイベントを待機するアドレス。224.0.0.0 - 239.255.255.255 の間のマルチキャストアドレスを指定する必要があります。デフォルト値は 228.9.<i>XX</i>.<i>YY</i> です。<i>XX</i> と <i>YY</i> は、自動的に生成される 0 - 255 の間の独立した値です。</p>
+
+</dd>
+<dt>インタフェースアドレスのバインド</dt>
+<dd><p>GMS がバインドされるネットワークインタフェースのインターネットプロトコル (IP) アドレス。ローカルネットワークインタフェースの IP アドレスを指定する必要があります。デフォルト値は、すべてのパブリックネットワークインタフェースのアドレスです。</p>
+
+<p>マルチホームマシンでは、このオプションで、GMS に使用するネットワークインタフェースを設定します。マルチホームマシンには複数のネットワークインタフェースがあります。</p>
+
+<p>クラスタ内のすべての GlassFish サーバー インスタンスに対して有効なアドレスを指定するには、システムプロパティーを使用してそのアドレスを各インスタンスに個別に設定します。</p>
+
+<p>たとえば、「<a href="ref-clustersystemproperties.html">クラスタシステムプロパティー</a>」ページを使用して <tt>GMS-BIND-INTERFACE-ADDRESS-<i>cluster-name</i></tt> というシステムプロパティーを作成します。次に、そのページの「バインドアドレス」オプションを <tt>${GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i>}</tt> に設定してそのシステムプロパティーを指定します。最後に、クラスタ内の各インスタンスについて、<tt>GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i></tt> システムプロパティーをそのインスタンスのマシンで必要なネットワークインタフェースのアドレスに設定します。</p>
+
+</dd>
+<dt>ステータス</dt>
+<dd><p>クラスタ内の実行されているインスタンスと実行されていないインスタンスの数が表示されます。このフィールドは読み取り専用です。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-gmscluster.html">「クラスタのグループ管理サービスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-migrate-ejb-timers.html">「EJB タイマーを移行する」</a></p>
+
+</li></ul>
+<h5>同等の <tt>asadmin</tt> サブコマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=generate-jvm-report-1"><tt>generate-jvm-report</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=migrate-timers-1"><tt>migrate-timers</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=rotate-log-1"><tt>rotate-log</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

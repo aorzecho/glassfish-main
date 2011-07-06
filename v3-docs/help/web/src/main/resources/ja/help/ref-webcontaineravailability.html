@@ -1,0 +1,108 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-webcontaineravailability"></a><h4>Web コンテナの可用性</h4>
+<a name="indexterm-39"></a><a name="indexterm-40"></a><p>Web コンテナの可用性を設定するには、「Web コンテナの可用性」ページを使用します。</p>
+
+<p>「Web コンテナの可用性」ページには、次のオプションが含まれています。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>Availability Service</dt>
+<dd><p>「有効」チェックボックスを選択すると、Web コンテナで可用性が有効になります。</p>
+
+</dd>
+<dt>持続性タイプ</dt>
+<dd><p>使用される持続メカニズム。</p>
+
+
+<ul><li><p>「可用性サービス」の「有効」を<b>選択しない</b>場合は、次のいずれかを選択します。</p>
+
+
+<ul><li><p>セッション持続なしの場合は「<tt>memory</tt>」</p>
+
+</li>
+<li><p>高可用ではないファイルシステムに基づいたセッション持続の場合は「<tt>file</tt>」</p>
+
+</li></ul>
+</li>
+<li><p>「可用性サービス」の「有効」を選択した場合は、高可用のクラスタフェイルオーバーに基づいたセッション持続の「<tt>replicated</tt>」を選択します。</p>
+
+</li></ul>
+</dd>
+<dt>持続化の頻度</dt>
+<dd><p>HTTP セッションの保存頻度:</p>
+
+
+<ul><li><p><tt>web-method</tt> - セッション状態は、各 Web 要求の終了時に、クライアントに応答を返信する前に格納されます。このモードでは、障害発生時にセッション状態を完全に更新するための最良の保証が得られます。これはデフォルトの設定です。</p>
+
+</li>
+<li><p><tt>time-based</tt> - セッション状態が、「取得間隔」によって設定された頻度でバックグラウンドに格納されます。この設定の詳細については、<a href="task-webcontainermanagerprops.html">「Web コンテナのマネージャープロパティーを設定する」</a>を参照してください。</p>
+
+<p>このモードでは、セッション状態が完全に更新されるという保証は低くなります。ただし、各要求後に状態が格納されないので、パフォーマンスが大幅に向上します。</p>
+
+</li></ul>
+</dd>
+<dt>持続性の範囲</dt>
+<dd><p>保存の発生に必要な HTTP セッション変更の範囲:</p>
+
+
+<ul><li><p><tt>session</tt> - 常にすべてのセッション状態が格納されます。このモードでは、セッションデータを分散可能な Web アプリケーションに正しく格納するための最良の保証が得られます。</p>
+
+</li>
+<li><p><tt>modified-session</tt> - セッション状態が変更された場合、すべてのセッション状態が格納されます。<tt>HttpSession.setAttribute()</tt> または <tt>HttpSession.removeAttribute()</tt> が呼び出された場合に、セッションが変更されたと見なします。属性が変更されるたびに、必ず <tt>setAttribute()</tt> を呼び出す必要があります。これは Java EE 仕様の要件ではありませんが、このモードを正しく動作させるために必要になります。</p>
+
+</li>
+<li><p><tt>modified-attribute</tt> - 変更されたセッション属性だけが格納されます。このモードを正しく動作させるには、次のガイドラインに従う必要があります。</p>
+
+
+<ul><li><p>セッション状態が変更されるたびに、<tt>setAttribute()</tt> を呼び出します。</p>
+
+</li>
+<li><p>属性間で相互参照しないようにします。別個の各属性キーにあるオブジェクトグラフを直列化し、別々に格納します。別個の各キーにあるオブジェクト間に相互参照がある場合は、正常な直列化および直列化復元は行われません。</p>
+
+</li>
+<li><p>複数の属性間、または少なくとも読み取り専用属性と変更可能な属性間でセッション状態を分散します。</p>
+
+</li></ul>
+</li></ul>
+</dd>
+<dt>シングルサインオン状態</dt>
+<dd><p>「有効」チェックボックスを選択すると、フェイルオーバーでシングルサインオン状態が有効になります。</p>
+
+</dd>
+<dt>追加プロパティー</dt>
+<dd><p>Web コンテナの可用性の追加プロパティー。</p>
+
+<p>GlassFish サーバー は Web コンテナの可用性の追加プロパティーを定義しません。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">「Web コンテナの一般プロパティーを設定する」</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">「Web コンテナのセッションプロパティーを設定する」</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">「Web コンテナのマネージャープロパティーを設定する」</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">「Web コンテナのストアプロパティーを設定する」</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">「Web コンテナの可用性を設定する」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

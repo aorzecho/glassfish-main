@@ -1,0 +1,83 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolfilecacheedit"></a><h4>파일 캐시</h4>
+<a name="indexterm-74"></a><a name="indexterm-75"></a><p>파일 캐시 페이지에서는 네트워크 프로토콜에 대한 파일 캐시 설정을 수정할 수 있습니다.</p>
+
+<p>파일 캐시 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>기본값 로드</dt>
+<dd><p>모든 설정의 기본값을 복원하는 데 사용하는 버튼입니다.</p>
+
+</dd>
+<dt>구성 이름</dt>
+<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+
+</dd>
+<dt>프로토콜 이름</dt>
+<dd><p>프로토콜의 이름입니다. 프로토콜 이름 필드는 읽기 전용 필드입니다. 새 프로토콜을 만들 때만 이름을 지정할 수 있습니다.</p>
+
+</dd>
+<dt>상태</dt>
+<dd><p>이 옵션을 선택하면 파일 캐시 상태가 활성화됩니다. 이 옵션은 기본적으로 선택됩니다.</p>
+
+</dd>
+<dt>최대 사용 기간</dt>
+<dd><p>유효한 캐시 항목에 대한 최대 사용 기간(초)입니다.</p>
+
+<p>이 매개 변수는 파일이 캐시된 후 캐시된 정보가 사용되는 기간을 제어합니다. 최대 사용 기간보다 오래된 항목은 같은 파일에 대한 새 항목으로 대체됩니다. 내용이 자주 바뀌지 않는 경우에는 성능 향상을 위해 이 값을 늘리십시오.</p>
+
+<p>최적의 최대 사용 기간은 기존 파일이 정기적으로 수정되는지 여부에 따라 다릅니다. 예를 들어 파일이 하루에 네 번 정기적인 간격으로 수정되는 경우 최대 사용 기간을 21600초(6시간)로 설정하는 것이 좋습니다. 그렇지 않은 경우에는 파일이 수정된 후 파일의 이전 버전을 서비스하려고 하는 가장 긴 시간으로 최대 사용 기간을 설정하는 것을 고려해 보십시오.</p>
+
+<p>기본값은 30입니다.</p>
+
+</dd>
+<dt>최대 캐시 크기</dt>
+<dd><p>디스크에 있는 파일 캐시의 최대 전체 크기(바이트)입니다. 기본값은 10485760입니다.</p>
+
+</dd>
+<dt>최대 파일 수</dt>
+<dd><p>파일 캐시에 저장할 수 있는 파일의 최대 수입니다.</p>
+
+<p>값이 너무 크면 서버가 자주 사용되지 않은 파일까지 캐시하므로 메모리가 낭비됩니다. 값이 너무 작으면 캐싱의 장점이 사라질 수 있습니다. 이 속성에 여러 값을 테스트하여 특정 응용 프로그램에 맞는 최적의 솔루션을 찾으십시오.</p>
+
+<p>기본값은 1024입니다.</p>
+
+</dd>
+</dl>
+<h5>관련 작업</h5>
+
+<ul><li><p><a href="task-protocolnew.html">프로토콜을 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">프로토콜을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">프로토콜에 대한 SSL 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">프로토콜에 대한 HTTP 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">프로토콜에 대한 파일 캐시 설정을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">프로토콜을 삭제하는 방법</a></p>
+
+</li></ul>
+<h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

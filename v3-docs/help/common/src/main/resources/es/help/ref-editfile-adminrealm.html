@@ -1,0 +1,43 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-editfile-adminrealm"></a><h4>Propiedades espec&#237;ficas de la clase <tt>FileRealm</tt></h4>
+<a name="indexterm-202"></a><a name="indexterm-203"></a><p>Las siguientes propiedades son necesarias para un dominio<tt>file</tt>.</p>
+
+<dl><dt>Contexto JAAS</dt>
+<dd><p>El contexto JAAS (Servicio de autorizaci&#243;n y autenticaci&#243;n de Java) (el identificador para el m&#243;dulo de inicio de sesi&#243;n que se utiliza para este dominio). El &#250;nico valor v&#225;lido es <tt>fileRealm</tt></p>
+
+</dd>
+<dt>Archivo clave</dt>
+<dd><p>Ruta completa y nombre del archivo donde el servidor almacenar&#225; toda la informaci&#243;n sobre usuarios, grupos y contrase&#241;as para este dominio. El valor predeterminado es <i>domain-dir</i><tt>/config/keyfile</tt> para el dominio <tt>file</tt> y <i>domain-dir</i><tt>/config/admin-keyfile</tt> para el dominio <tt>admin-realm </tt>.</p>
+
+</dd>
+</dl>
+<p>El archivo clave para el dominio <tt>file</tt> est&#225; inicialmente vac&#237;o, as&#237; que
+los usuarios deben agregarse en la p&#225;gina <a href="ref-managefilerealm.html">Usuarios de archivo</a> antes de que se
+utilice el dominio <tt>file</tt>.</p>
+
+<p>El archivo clave para el dominio <tt>admin-realm</tt> inicialmente contiene el nombre de
+usuario del administrador, la contrase&#241;a del administrador en formato cifrado, y el
+grupo al que pertenece este usuario (<tt>asadmin</tt> de forma predeterminada). Para obtener
+m&#225;s informaci&#243;n sobre la adici&#243;n de usuarios a <tt>admin-realm</tt>, consulte <a href="task-accessadmintools.html">C&#243;mo otorgar acceso a las herramientas de administraci&#243;n.</a>.</p>
+
+
+<hr><p><b>Nota - </b>Los usuarios del grupo <tt>asadmin</tt> en <tt>admin-realm </tt> est&#225;n autorizados a utilizar las
+herramientas Consola de administraci&#243;n y <tt>asadmin</tt>. Agregue s&#243;lo usuarios a este grupo
+que tiene privilegios administrativos del servidor.</p>
+
+
+<hr>
+<p>La siguiente propiedad opcional se encuentra disponible para un dominio <tt>file</tt>.</p>
+
+<dl><dt>Asignar grupos</dt>
+<dd><p>Una lista separada por comas de nombres de grupos. Todos los clientes que presenten certificados v&#225;lidos se asignan a estos grupos, por ejemplo, <tt>employee,manager </tt>, donde estos son los nombres de grupos de usuarios.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

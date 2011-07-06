@@ -1,0 +1,85 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsconnectionnew"></a><h4>Para crear un recurso de f&#225;brica de conexi&#243;n JMS</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><p>Cuando se crea una f&#225;brica de conexi&#243;n JMS, GlassFish Server crea un
+conjunto de conexiones de conector y un recurso de conector para la
+f&#225;brica de conexi&#243;n. Puede ver estos objetos en el nodo Conectores.</p>
+
+<ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, expanda el nodo Recursos.</b></li>
+<li><b>En el nodo Recursos, ampl&#237;e el nodo Recursos JMS.</b></li>
+<li><b>En el nodo de Recursos JMS, seleccione el nodo F&#225;bricas de conexi&#243;n
+JMS.</b><p>Se abrir&#225; la p&#225;gina F&#225;bricas de conexi&#243;n JMS.</p></li>
+<li><b>En la p&#225;gina F&#225;bricas de conexi&#243;n JMS, haga clic en Nuevo.</b><p>Se muestra la p&#225;gina Nueva f&#225;brica de conexi&#243;n JMS.</p></li>
+<li><b>En el campo Nombre de conjunto, introduzca el nombre exclusivo de la
+f&#225;brica de conexi&#243;n. </b><p>GlassFish Server establece el nombre JNDI de la f&#225;brica de conexi&#243;n en
+este valor.</p></li>
+<li><b>En la lista desplegable Tipo de recurso, seleccione <tt>javax.jms.ConnectionFactory</tt>, <tt>javax.jms.QueueConnectionFactory</tt> o <tt>javax.jms.TopicConnectionFactory</tt>.</b></li>
+<li><b>En el campo Descripci&#243;n, introduzca una descripci&#243;n de la f&#225;brica de conexi&#243;n.</b></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Estado habilitado para habilitar el recurso en
+tiempo de ejecuci&#243;n.</b><p>Esta opci&#243;n se habilita por defecto.</p></li>
+<li><b>En el campo Tama&#241;o de conjunto inicial y m&#237;nimo, introduzca el n&#250;mero
+m&#237;nimo de conexiones del conjunto.</b><p>El valor predeterminado es 8.</p></li>
+<li><b>En el campo Tama&#241;o de conjunto m&#225;ximo, especifique el n&#250;mero m&#225;ximo de
+conexiones del conjunto.</b><p>El valor predeterminado es 32.</p></li>
+<li><b>En el campo Cantidad de redimensionamiento del conjunto, especifique el n&#250;mero de
+conexiones que se eliminar&#225;n cuando se upere el tiempo l&#237;mite de espera de
+inactividad del conjunto.</b><p>El valor predeterminado es 2.</p></li>
+<li><b>En el campo Tiempo de espera de inactividad, indique el tiempo m&#225;ximo
+que una conexi&#243;n puede permanecer inactiva en el conjunto, en segundos.</b><p>El valor predeterminado es 300.</p></li>
+<li><b>En el campo Tiempo de espera m&#225;ximo, indique la cantidad de tiempo
+que la aplicaci&#243;n que solicita una conexi&#243;n puede esperar antes de superar
+el l&#237;mite de espera para establecer la conexi&#243;n.</b><p>El valor predeterminado es 60000.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Cerrar todas las conexiones en caso de
+fallo, de manera que GlassFish Server cerrar&#225; todas las conexiones del conjunto
+y las restablecer&#225; con que tan s&#243;lo se produzca el fallo de
+una conexi&#243;n.</b><p>Si no selecciona esta casilla de verificaci&#243;n, las conexiones individuales se restablecer&#225;n
+s&#243;lo cuando vaya a utilizarlas. Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Para un recurso de f&#225;brica de conexi&#243;n JMS, seleccione el nivel de
+compatibilidad de transacci&#243;n.</b><p>El valor seleccionado sobrescribe el atributo de compatibilidad de transacci&#243;n en el
+adaptador de recursos, de manera que es compatible en sentido descendente.</p><ul>
+<li><b>Seleccione XATransaction (el valor predeterminado para el adaptador de recursos) para un
+recurso que se pueda utilizar para transacciones que supongan el uso de
+m&#225;s de un recurso dentro de un &#225;mbito de transacci&#243;n.</b><p>Por ejemplo, en las transacciones pueden involucrarse este recurso m&#225;s un recurso
+JDBC, un recurso de conector u otro recurso de f&#225;brica de conexi&#243;n
+JMS. Este valor ofrece la m&#225;xima flexibilidad. Un recurso que se configure
+como XATransaction participar&#225; en operaciones de confirmaci&#243;n de dos fases.</p></li>
+<li><b>Seleccione LocalTransaction para un recurso que se puede utilizar para transacciones que
+impliquen s&#243;lo un recurso dentro del &#225;mbito de la transacci&#243;n o como
+el &#250;ltimo agente en una transacci&#243;n distribuida que implique m&#225;s de un
+recurso XA.</b><p>Este valor ofrece un rendimiento mucho m&#225;s &#243;ptimo. Un recurso que se
+configure como LocalTransaction no se utilizar&#225; en operaciones de confirmaci&#243;n de dos
+fases.</p></li>
+<li><b>Seleccione NoTransaction para un recurso que nunca puede participar en transacciones.</b><p>Esta configuraci&#243;n es de uso limitado en aplicaciones JMS.</p></li></ul></li>
+<li><b>Marque la casilla de verificaci&#243;n Validaci&#243;n de conexi&#243;n necesaria para habilitar la
+validaci&#243;n de la conexi&#243;n.</b><p>Si se selecciona esta opci&#243;n, las conexiones se validan antes de proporcion&#225;rselas
+a la aplicaci&#243;n. Si falla la validaci&#243;n de un recurso, &#233;ste se
+destruye, para a continuaci&#243;n crear y devolver un recurso nuevo. Esta opci&#243;n
+se deshabilita por defecto.</p></li>
+<li>(Opcional) <b>En la secci&#243;n Propiedades adicionales, especifique propiedades adicionales de la f&#225;brica de
+conexi&#243;n.</b><p>Para obtener informaci&#243;n sobre las propiedades disponibles, consulte <a href="ref-jmsconnectionproperties.html">Propiedades espec&#237;ficas de las f&#225;bricas de conexi&#243;n JMS</a>.</p><p>Para a&#241;adir una propiedad, haga clic en el bot&#243;n A&#241;adir propiedad. En
+la fila vac&#237;a escriba el nombre de la propiedad en el campo
+Nombre y el valor de la propiedad en el campo Valor.</p></li>
+<li><b>Haga clic en Aceptar.</b></li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-jmsconnectionedit.html">Para editar un recurso de f&#225;brica de conexi&#243;n JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsconnectiondelete.html">Para eliminar un recurso de f&#225;brica de conexi&#243;n JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationnew.html">Para crear un recurso de destino JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationedit.html">Para editar un recurso de destino JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationdelete.html">Para eliminar un recurso de destino JMS</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

@@ -1,0 +1,193 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolhttpedit"></a><h4>HTTP</h4>
+<a name="indexterm-72"></a><a name="indexterm-73"></a><p>使用 "HTTP" 页面可以修改网络协议的 HTTP 设置。</p>
+
+<p>"HTTP" 页面包含以下选项。</p>
+
+<dl><dt>装入默认值</dt>
+<dd><p>用于恢复所有设置的默认值的按钮。</p>
+
+</dd>
+<dt>配置名称</dt>
+<dd><p>要应用该页面上的设置的配置的名称。此字段为只读。</p>
+
+</dd>
+<dt>协议名称</dt>
+<dd><p>协议名称。&#8220;协议名称&#8221;字段是只读字段。只能在创建新协议时指定名称。</p>
+
+</dd>
+<dt>服务器名称</dt>
+<dd><p>要在服务器发送给客户机的 URL 中使用的主机名。如果服务器使用别名，则此名称为别名。如果服务器未使用别名，请将此字段保留为空。</p>
+
+</dd>
+<dt>默认虚拟服务器</dt>
+<dd><p>要与协议关联的虚拟服务器。使用&#8220;虚拟服务器&#8221;页面可以定义虚拟服务器。</p>
+
+</dd>
+<dt>重定向端口</dt>
+<dd><p>将请求重定向至另一端口的端口值。如果满足以下两个条件，GlassFish Server 将自动重定向请求：</p>
+
+
+<ul><li><p>此协议支持非 SSL 请求。</p>
+
+</li>
+<li><p>接收匹配安全性约束需要 SSL 传输的请求。</p>
+
+</li></ul>
+<p>如果未指定重定向端口，则 GlassFish Server 会使用原始请求中指定的端口号。</p>
+
+</dd>
+<dt>最大连接数</dt>
+<dd><p>要维持在保持活动模式的持久性连接最大数目。保持活动子系统会定期轮询空闲连接。默认值为 256。</p>
+
+</dd>
+<dt>超时</dt>
+<dd><p>可以认为连接处于空闲状态并维持在保持活动状态的最长时间（以秒为单位）。如果值为 0 或小于 0，则表示保持活动连接将无限期地保持打开状态。默认值为 30 秒。</p>
+
+</dd>
+<dt>上载超时</dt>
+<dd><p>如果选中此选项，则在到达&#8220;连接上载超时&#8221;限制之后，缓慢读取字节的 Servlet 连接将被关闭。如果禁用此选项，则 Servlet 连接将不会超时。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>连接上载超时</dt>
+<dd><p>上载的超时，以毫秒为单位。只有在选中&#8220;启用上载超时&#8221;复选框时，此字段才可用。默认值为 300000 毫秒。</p>
+
+</dd>
+<dt>请求超时</dt>
+<dd><p>在请求超时之前经过的秒数。如果在到达超时值之前未处理请求，则请求将被忽略。默认值为 30 秒。</p>
+
+</dd>
+<dt>发送缓冲区大小</dt>
+<dd><p>发送缓冲区大小（以字节为单位）。默认值为 8192 字节。</p>
+
+</dd>
+<dt>标头缓冲区长度</dt>
+<dd><p>请求处理线程用于读取请求数据的缓冲区的大小（以字节为单位）。默认值为 8192 字节。</p>
+
+</dd>
+<dt>最大 POST 大小</dt>
+<dd><p>POST 操作的最大大小（以字节为单位）。默认值为 2097152 字节。</p>
+
+</dd>
+<dt>URI 编码</dt>
+<dd><p>用于对接收的请求 URI 进行解码的字符集的名称。该值必须是有效的 IANA 字符集名称。默认值为 UTF-8。</p>
+
+</dd>
+<dt>版本</dt>
+<dd><p>使用的 HTTP 协议的版本。默认值为 HTTP/1.1。</p>
+
+</dd>
+<dt>压缩</dt>
+<dd><p>指定使用 HTTP/1.1 GZIP 压缩来节约服务器带宽。可用选项为：</p>
+
+<dl><dt><tt>on</tt></dt>
+<dd><p>压缩数据。</p>
+
+</dd>
+<dt><tt>off</tt></dt>
+<dd><p>禁用压缩。</p>
+
+</dd>
+<dt><tt>force</tt></dt>
+<dd><p>在所有情况下强制执行数据压缩。</p>
+
+</dd>
+</dl>
+<p>默认值为 <tt>off</tt>。</p>
+
+</dd>
+<dt>可压缩 Mime 类型</dt>
+<dd><p>使用 HTTP 压缩的 MIME 类型的逗号分隔列表。默认值为 <tt>text/html,text/xml,text/plain</tt>。</p>
+
+</dd>
+<dt>最小压缩大小</dt>
+<dd><p>应用压缩时，文件的最小大小。如果&#8220;压缩&#8221;设置为 <tt>on</tt> 或 <tt>force</tt>，则必须设置此值。默认值为 2048 字节。</p>
+
+</dd>
+<dt>无压缩用户代理</dt>
+<dd><p>匹配不应使用压缩的 HTTP 客户机的用户代理的正则表达式列表，以逗号分隔。默认情况下，此值为空字符串。</p>
+
+</dd>
+<dt>受限用户代理</dt>
+<dd><p>应用了 HTTP 压缩的受限用户代理的列表。如果未指定用户代理，则 HTTP 压缩将应用到所有用户代理。默认情况下，未指定用户代理。</p>
+
+</dd>
+<dt>默认响应类型</dt>
+<dd><p>指定默认响应类型的字符串。此格式是以分号分隔的字符串，由内容类型、编码、语言和字符集组成。默认值为 <tt>text/html; charset=iso-8859-1</tt>。</p>
+
+</dd>
+<dt>强制响应类型</dt>
+<dd><p>一个字符串，该字符串指定在没有与文件扩展名匹配的 MIME 映射时使用的请求类型。此格式是以分号分隔的字符串，由内容类型、编码、语言和字符集组成。默认值为 <tt>text/html; charset=iso-8859-1</tt>。</p>
+
+</dd>
+<dt>适配器</dt>
+<dd><p>静态资源适配器的类名。默认值为 <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>。</p>
+
+</dd>
+<dt>Comet 支持</dt>
+<dd><p>如果选中此选项，则将为协议启用 Comet 支持。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>DNS 查找</dt>
+<dd><p>如果选中此选项，则将启用域名系统 (DNS) 查找。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>RCM 支持</dt>
+<dd><p>如果选中此选项，则将启用资源配置管理 (RCM)。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>跟踪</dt>
+<dd><p>如果选中此选项，则将启用跟踪操作。如果禁用此选项，则 GlassFish Server 将不易受到跨站点脚本攻击。默认情况下启用此选项。</p>
+
+</dd>
+<dt>验证传递</dt>
+<dd><p>如果选中此选项，则指示使用此协议的网络侦听器将接收来自 SSL 终端代理服务器的流量。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>分块</dt>
+<dd><p>如果选中此选项，则将启用 HTTP 响应分块。默认情况下启用此选项。</p>
+
+</dd>
+<dt>XPowered By</dt>
+<dd><p>如果选中此选项，则 GlassFish Server 将根据 Java Servlet 3.0 和 Java Server Pages 2.0 规范使用 <tt>X-Powered-By</tt> 标头。默认情况下启用此选项。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-protocolnew.html">创建协议</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">编辑协议</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">编辑协议的 SSL 设置</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">编辑协议的 HTTP 设置</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">编辑协议的文件高速缓存设置</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">删除协议</a></p>
+
+</li></ul>
+<h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

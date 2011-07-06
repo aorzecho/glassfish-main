@@ -1,0 +1,29 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-editcertrealm"></a><h4>Propriet&#224; specifiche della classe <tt>CertificateRealm </tt></h4>
+<a name="indexterm-204"></a><a name="indexterm-205"></a><p>Il settore <tt>certificate</tt> supporta l'autenticazione SSL. Questo settore imposta l'identit&#224; dell'utente nel
+contesto di sicurezza di GlassFish Server e lo compila con i dati
+utente ottenuti dai certificati client verificati tramite crittografia nei file truststore e
+keystore. Aggiungere utenti a questi file utilizzando <tt>keytool</tt> o <tt>certutil</tt>. Per maggiori
+informazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-1841&id=gijrp">Parte&#160;VII, Security in <i>The Java EE 6 Tutorial</i></a>.</p>
+
+<p>Con il settore <tt>certificate</tt>, i contenitori Java gestiscono l'elaborazione delle autorizzazioni sulla
+base del nome distinto (DN, Distinguished Name) dell'utente ottenuto dal rispettivo certificato.
+Il nome distinto &#232; il nome dell'entit&#224; la cui chiave pubblica viene
+identificata dal certificato. Questo nome utilizza lo standard X.500, pertanto viene utilizzato
+in modo univoco su Internet. Per ulteriori informazioni su archivi chiave e
+attendibilit&#224;, fare riferimento alla <a href="http://java.sun.com/j2se/1.4.2/docs/tooldocs/solaris/keytool.html">documentazione dei keytool</a>.</p>
+
+<p>Per un settore <tt>certificate</tt> &#232; disponibile la seguente priorit&#224; opzionale.</p>
+
+<dl><dt>Assign Groups</dt>
+<dd><p>Elenco separato da virgole di nomi di gruppi. Tutti i client con certificati validi vengono assegnati a questi gruppi, ad esempio <tt>employee,manager</tt>, dove questi sono i nomi dei gruppi di utenti.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

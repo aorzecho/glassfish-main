@@ -1,0 +1,82 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-standaloneinstancenew"></a><h4>新建独立服务器实例</h4>
+<a name="indexterm-202"></a><a name="indexterm-203"></a><a name="indexterm-204"></a><p>使用&#8220;新建独立服务器实例&#8221;页面可创建独立的 GlassFish Server 实例。</p>
+
+<p>&#8220;新建独立服务器实例&#8221;包含以下选项。</p>
+
+<dl><dt>实例名称</dt>
+<dd><p>要创建的实例的名称。</p>
+
+<p>名称必须满足以下要求：</p>
+
+
+<ul><li><p>名称开头必须是字母、数字或下划线。</p>
+
+</li>
+<li><p>名称只能包含以下字符：</p>
+
+
+<ul><li><p>小写字母</p>
+
+</li>
+<li><p>大写字母</p>
+
+</li>
+<li><p>数字</p>
+
+</li>
+<li><p>连字符</p>
+
+</li>
+<li><p>句点</p>
+
+</li>
+<li><p>下划线</p>
+
+</li></ul>
+</li>
+<li><p>名称在域中必须是唯一的，不得是另一个 GlassFish Server 实例、群集、命名配置或节点的名称。</p>
+
+</li>
+<li><p>名称不得是<tt>域</tt>、<tt>服务器</tt>或 GlassFish Server 保留的任何其他关键字。</p>
+
+</li></ul>
+</dd>
+<dt>节点</dt>
+<dd><p>现有节点的下拉式列表，定义实例可驻留的主机。必须从列表中选择一个节点。如果要在运行域管理服务器 (domain administration server, DAS) 的主机上创建实例，请选择预定义节点 <tt>localhost-<i>domain</i></tt>。</p>
+
+</dd>
+<dt>配置</dt>
+<dd><p>实例可使用的现有命名配置的下拉式列表。必须从该列表中选择一个配置。创建实例时，实例将使用选定的配置。</p>
+
+</dd>
+<dt>复制选定的配置</dt>
+<dd><p>如果选择此选项，则在创建实例时将复制选定的配置。会为该配置的副本指定一个名称 <tt><i>instance-name</i>-config</tt>，其中 <i>instance-name</i> 是在&#8220;实例名称&#8221;字段中键入的实例名称。</p>
+
+<p>如果从&#8220;配置&#8221;下拉式列表中选择了 <tt>default-config</tt>，则必须选择此选项。<tt>default-config</tt> 配置只能被复制而不能被引用。</p>
+
+</dd>
+<dt>引用选定的配置</dt>
+<dd><p>如果选择此选项，实例将使用指定的现有命名配置。</p>
+
+<p>如果从&#8220;配置&#8221;下拉式列表中选择了 <tt>default-config</tt>，则<b>不能</b>选择此选项。<tt>default-config</tt> 配置只能被复制而不能被引用。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-create-standalone-instance.html">创建独立 GlassFish Server 实例</a></p>
+
+</li></ul>
+<h5>等效的 <tt>asadmin</tt> 子命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-instance-1"><tt>create-instance</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

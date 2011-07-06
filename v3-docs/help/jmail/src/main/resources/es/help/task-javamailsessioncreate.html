@@ -1,0 +1,85 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-javamailsessioncreate"></a><h4>Para crear una sesi&#243;n JavaMail</h4><a name="indexterm-1"></a><ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Recursos.</b></li>
+<li><b>En el nodo Recursos, seleccione Sesiones JavaMail.</b><p>Se abrir&#225; la p&#225;gina Sesiones JavaMail.</p></li>
+<li><b>En la tabla Sesiones, haga clic en Nuevo.</b><p>Se abrir&#225; la p&#225;gina Nueva sesi&#243;n JavaMail.</p></li>
+<li><b>En el campo Nombre JNDI, introduzca un nombre &#250;nico para el recurso
+de sesi&#243;n de correo electr&#243;nico. </b><p>Utilice el prefijo de subcontexto de nombres <tt>mail/</tt> para recursos de JavaMail.
+Por ejemplo: <tt> mail/MySession</tt>. El nombre debe contener &#250;nicamente caracteres alfanum&#233;ricos, de subrayado,
+guiones y puntos.</p></li>
+<li><b>En el campo Host de correo, escriba el nombre de host del
+servidor de correo electr&#243;nico predeterminado.</b><p>Los m&#233;todos de conexi&#243;n de los objetos Almacenamiento y Transporte utilizan este
+valor si no se suministra una propiedad de host espec&#237;fica de protocolo.
+El nombre debe ser soluble en un nombre de host real.</p></li>
+<li><b>En el campo Usuario predeterminado escriba el nombre de usuario que se
+debe proporcionar cuando se conecta a un servidor de correo electr&#243;nico. </b><p>Los m&#233;todos de conexi&#243;n de los objetos Almacenamiento y Transporte utilizan este
+valor si no se suministra una propiedad de nombre de usuario espec&#237;fica
+del protocolo. El nombre de usuario debe contener &#250;nicamente caracteres alfanum&#233;ricos, de
+subrayado, guiones y puntos.</p></li>
+<li><b>En el campo Direcci&#243;n de remitente predeterminada, escriba la direcci&#243;n de correo
+electr&#243;nico del usuario predeterminado.</b><p>El formato es <i>nombreusuario</i><tt>@</tt><i>host</i>.<i>dominio</i>. </p></li>
+<li><b>En el campo Descripci&#243;n, escriba una descripci&#243;n de esta sesi&#243;n de correo
+electr&#243;nico.</b></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Estado habilitado para habilitar la sesi&#243;n de
+correo electr&#243;nico.</b><p>El valor predeterminado es Habilitado.</p></li>
+<li><b>En el campo Protocolo de almacenamiento, defina el servicio de protocolo de
+almacenamiento que se va a utilizar.</b><p>El servicio de protocolo de almacenamiento se conecta a un servidor de
+correo electr&#243;nico, recupera mensajes, y los guarda en una o varias carpetas.
+Los valores permitidos son  <tt>imap</tt>, <tt>pop3</tt>, <tt>imaps</tt> y <tt>pop3s</tt>. El valor predeterminado es
+<tt>imap</tt>.</p></li>
+<li><b>En el campo Clase de protocolo de almacenamiento, especifique la clase de
+implementaci&#243;n del proveedor de servicios para el almacenamiento.</b><p>Los valores permitidos son:</p>
+
+
+<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
+
+</li></ul>
+<p>El valor predeterminado es <tt>com.sun.mail.imap.IMAPStore</tt>.</p></li>
+<li><b>En el campo Protocolo de transporte, especifique el m&#233;todo de comunicaci&#243;n de
+transporte.</b><p>El servicio de protocolo de transporte env&#237;a mensajes. Los valores permitidos son 
+<tt>smtp</tt> y <tt>smtps</tt>. Por defecto, el Protocolo de transporte es <tt>smtp</tt>.</p></li>
+<li><b>En el campo Protocolo de transporte, especifique la clase de implementaci&#243;n del
+proveedor de servicios para el transporte.</b><p>El valor predeterminado es <tt>com.sun.mail.smtp.SMTPTransport</tt>.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Depurar para habilitar para esta sesi&#243;n de
+correo electr&#243;nico una salida de depuraci&#243;n adicional, incluido un seguimiento de protocolo.</b><p>Si el nivel de registro de JavaMail se ha definido como <tt>FINE</tt>
+o FINER, la salida de depuraci&#243;n se genera y se incluye en
+el archivo de registros del sistema. Vea <a href="../../../common/es/help/task-eelogginglevels.html">Configurar niveles de registro</a> para obtener informaci&#243;n sobre
+la definici&#243;n del nivel de registro. Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li>(Opcional) <b>En la tabla Propiedades adicionales, especifique otras propiedades requeridas por las aplicaciones,
+como una propiedad de host o nombre de usuario espec&#237;fico del protocolo.</b><p>Para obtener una lista de las propiedades disponibles, consulte la <a href="http://java.sun.com/products/javamail/javadocs/index.html">documentaci&#243;n de la API de JavaMail</a>. Las
+propiedades adicionales deben comenzar por <tt>mail-</tt> y como separadores se deben utilizar
+guiones en lugar de puntos. Por ejemplo, <tt>mail-debug</tt> es correcta, pero <tt>mail.debug</tt>
+no lo es. El back end de GlassFish Server convierte los guiones
+en los puntos que espera la API de JavaMail.</p><p>Para a&#241;adir una propiedad, haga clic en el bot&#243;n A&#241;adir propiedad. En
+la fila vac&#237;a escriba el nombre de la propiedad en el campo
+Nombre y el valor de la propiedad en el campo Valor.</p></li>
+<li><b>En la lista de destinos disponibles, seleccione el destino o los destinos
+en los que desea configurar la sesi&#243;n de correo. A continuaci&#243;n, haga
+clic en Agregar.</b><p>Los destinos pueden ser cl&#250;steres o instancias de servidor independientes. Si no
+selecciona un destino, la sesi&#243;n se configura en la instancia de servidor
+predeterminada <tt>server</tt>.</p></li>
+<li><b>Haga clic en Aceptar.</b></li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-javamailsessionsedit.html">Para editar una sesi&#243;n JavaMail</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsdelete.html">Para eliminar una sesi&#243;n JavaMail</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

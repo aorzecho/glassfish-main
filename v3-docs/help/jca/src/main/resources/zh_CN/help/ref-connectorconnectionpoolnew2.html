@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpoolnew2"></a><h4>新建连接器连接池（步骤 2，共 2 步）</h4>
+<a name="indexterm-41"></a><p>使用&#8220;新建连接器连接池（步骤 2，共 2 步）&#8221;页面可以创建新的连接器连接池。</p>
+
+<p>&#8220;新建连接器连接池（步骤 2，共 2 步）&#8221;页面包含以下选项。</p>
+
+<dl><dt>Ping</dt>
+<dd><p>如果启用此选项，则在创建或重新配置过程中，将对连接池进行 ping 操作，以识别其属性的任何错误值并发出警告。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>说明</dt>
+<dd><p>连接器连接池的说明。</p>
+
+</dd>
+<dt>初始和最小池大小</dt>
+<dd><p>连接器连接池中连接的最小数目。默认值为 8。</p>
+
+</dd>
+<dt>最大池大小</dt>
+<dd><p>连接器连接池中连接的最大数目。默认值为 32。</p>
+
+</dd>
+<dt>池大小调整数量</dt>
+<dd><p>池空闲超时到期后要删除的连接数。默认值为 2。</p>
+
+</dd>
+<dt>空闲超时</dt>
+<dd><p>连接在池中保持空闲的最长时间（以秒为单位）。默认值为 300。</p>
+
+</dd>
+<dt>最长等待时间</dt>
+<dd><p>在达到连接超时之前，请求连接的应用程序所等待的时间。默认值为 60000。</p>
+
+</dd>
+<dt>连接验证</dt>
+<dd><p>如果选中&#8220;需要&#8221;复选框，则先验证连接，然后才将其提供给应用程序。如果资源验证失败，则销毁此资源，然后创建并返回一个新的资源。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>一旦失败</dt>
+<dd><p>如果选中&#8220;关闭所有连接&#8221;复选框，则 GlassFish Server 将在某个连接失败时关闭池中的所有连接并重新建立这些连接。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>事务支持</dt>
+<dd><p>选择的事务支持将以向下兼容方式覆盖与此连接池关联的资源适配器中的事务支持属性。也就是说，它支持的事务级别可以比资源适配器中指定的事务级别低或与其相同，但不能指定更高的级别。</p>
+
+<p>值可为以下任意一种：</p>
+
+<dl><dt>XATransaction</dt>
+<dd><p>资源适配器通过实现 LocalTransaction 和 XAResource 接口，支持资源管理器本地事务和 JTA 事务。XA 事务由事务管理器在资源管理器外部进行控制和调整。</p>
+
+</dd>
+<dt>LocalTransaction</dt>
+<dd><p>资源适配器通过实现 LocalTransaction 接口支持本地事务。本地事务的管理在资源管理器内部进行，不涉及任何外部事务管理器。</p>
+
+</dd>
+<dt>NoTransaction</dt>
+<dd><p>资源适配器不支持资源管理器本地事务或 JTA 事务，也不实现 XAResource 或 LocalTransaction 接口。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>其他属性</dt>
+<dd><p>连接器连接池的其他属性。可用属性取决于连接器连接池的资源适配器。可以使用在此表中指定的名称-值对，覆盖由资源适配器供应商定义的属性默认值。</p>
+
+<p>如果您为属性指定了名称而没有指定值，则在创建完连接池时，该属性将从表中删除。如果您现在不希望设置某个属性的值，但希望将该属性保留在表中以便在以后设置值，请在&#8220;值&#8221;字段中键入一对空括号：</p>
+
+<pre>()</pre></dd>
+</dl>
+<a name="gkomy"></a><h5>相关任务</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">创建连接器连接池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">编辑连接器连接池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">编辑连接器连接池高级属性</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">编辑连接器连接池属性</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">为连接器连接池创建安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">编辑连接器连接池的安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">删除连接器连接池的安全映射</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">删除连接器连接池</a></p>
+
+</li></ul>
+<a name="gkokt"></a><h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

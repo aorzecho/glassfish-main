@@ -1,0 +1,132 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-redeploy"></a><h4>Reimplantar Aplicativos ou M&#243;dulos</h4>
+<a name="indexterm-185"></a><a name="indexterm-186"></a><p>Use a p&#225;gina Reimplantar Aplicativos ou M&#243;dulos para implantar outra vez um
+aplicativo implantado anteriormente.</p>
+
+<p>A p&#225;gina Reimplantar Aplicativos ou M&#243;dulos cont&#233;m as seguintes op&#231;&#245;es</p>
+
+<dl><dt>Local</dt>
+<dd><p>O local do novo arquivo compactado do aplicativo que est&#225; sendo reimplantado.</p>
+
+<p>As seguintes op&#231;&#245;es especificam de onde o arquivo compactado &#233; acessado e se &#233; um arquivo ou um diret&#243;rio.</p>
+
+<dl><dt>Arquivo empacotado a ser carregado no servidor </dt>
+<dd><p>O arquivo compactado reside ou &#233; acessado no computador cliente.</p>
+
+<p>O computador cliente &#233; o host em que voc&#234; visualiza o Console de Administra&#231;&#227;o por meio de um navegador.</p>
+
+</dd>
+<dt>Arquivo ou diret&#243;rio empacotado local que &#233; acessado no Servidor GlassFish</dt>
+<dd><p>O arquivo &#233; um arquivo que reside no computador servidor ou &#233; um aplicativo n&#227;o empacotado, em um diret&#243;rio destacado.</p>
+
+<p>O computador servidor &#233; o host que executa o servidor de administra&#231;&#227;o de dom&#237;nio do Servidor GlassFish . </p>
+
+</dd>
+</dl>
+</dd>
+<dt>Nome do Aplicativo</dt>
+<dd><p>Campo somente leitura que exibe o nome do aplicativo que est&#225; sendo reimplantado.</p>
+
+<p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o nome e &#233; separado do nome por dois pontos (<tt>:</tt>). Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>Precompilar JSPs</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, os arquivos JavaServer Pages ( JSP) ser&#227;o pr&#233;-compilados. Se esta op&#231;&#227;o for desativada, os arquivos JSP ser&#227;o compilados no tempo de execu&#231;&#227;o, quando forem acessados pela primeira vez. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Executar verificador</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, os descritores de implanta&#231;&#227;o s&#227;o verificados antes da implanta&#231;&#227;o. Se a verifica&#231;&#227;o falhar, a implanta&#231;&#227;o n&#227;o ser&#225; realizada. O verificador examina a estrutura e o conte&#250;do dos descritores de implanta&#231;&#227;o. A verifica&#231;&#227;o de aplicativos grandes geralmente consome muito tempo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+<p>Os pacotes verificadores devem ser instalados a partir da Ferramenta de atualiza&#231;&#227;o, ou um aviso &#233; registrado e esta op&#231;&#227;o &#233; ignorada.</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o acesso ao Java Web Start ser&#225; permitido para um m&#243;dulo cliente aplicativo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+</dd>
+<dt>Manter estado</dt>
+<dd><p>Essa op&#231;&#227;o controla se as sess&#245;es Web, as inst&#226;ncias SFSB e os temporizadores EJB criados persistentemente s&#227;o retidos entre as reimplementa&#231;&#245;es. </p>
+
+<p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada. Esta op&#231;&#227;o &#233; suportada somente na inst&#226;ncia padr&#227;o do servidor, denominada <tt>server</tt>. N&#227;o &#233; suportada e ignorada em nenhum outro destino.</p>
+
+<p>Algumas altera&#231;&#245;es em um aplicativo entre as reimplanta&#231;&#245;es impedem que este recurso funcione corretamente. Por exemplo, n&#227;o altere o conjunto de vari&#225;veis da inst&#226;ncia na classe do bean SFSB.</p>
+
+<p>Em aplicativos Web, este recurso se aplica somente se no arquivo <tt>glassfish-web-app.xml </tt> o atributo <tt>persistence-type</tt> do elemento <tt> session-manager</tt> for <tt>file</tt>.</p>
+
+<p>Em inst&#226;ncias do bean de sess&#227;o com estado, o tipo de persist&#234;ncia sem alta disponibilidade est&#225; definido no servidor (a op&#231;&#227;o Tipo de persist&#234;ncia SFSB) e deve estar definido como <tt>file</tt>, que &#233; o valor padr&#227;o e recomendado.</p>
+
+<p>Se qualquer sess&#227;o Web ativa, inst&#226;ncia SFSB ou temporizador EJB falhar em ser preservado ou restaurado, <b>nenhum</b> deles estar&#225; dispon&#237;vel quando a reimplementa&#231;&#227;o tiver sido conclu&#237;da. Entretanto, a reimplanta&#231;&#227;o continuar&#225; e um aviso ser&#225; registrado em log.</p>
+
+<p>Para preservar dados do estado ativo, o Servidor GlassFish serializa os dados e os salva na mem&#243;ria. Para restaurar os dados, o carregador de classe do aplicativo que acabou de ser reimplementado desserializa todos os dados anteriormente salvos.</p>
+
+</dd>
+<dt>Preservar recursos no escopo do aplicativo</dt>
+<dd><p>Se marcada, preserva quaisquer recursos no escopo do aplicativo e os restaura durante a reimplanta&#231;&#227;o. Por padr&#227;o, esta op&#231;&#227;o n&#227;o est&#225; marcada.</p>
+
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-appredeploy.html">Para reimplantar um aplicativo implantado</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">Para exibir uma lista de aplicativos implantados</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">Para implantar um aplicativo Web</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Para implantar um Aplicativo Empresarial</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Para implantar um cliente aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Para implantar um m&#243;dulo conector</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Para implantar um EJB Jar</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">Para editar um aplicativo implantado</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Para exibir os descritores de um aplicativo</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Para visualizar as informa&#231;&#245;es do ponto final para um servi&#231;o Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Para iniciar um aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Para iniciar um cliente de aplicativo</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Para recarregar um aplicativo implantado</a></p>
+
+</li>
+<li><p><a href="../../../ejb/pt_BR/help/task-ejbcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente EJB</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=redeploy-1"><tt>redeploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-modules-1"><tt>list-modules</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

@@ -1,0 +1,128 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-connectorconnectionpooledit"></a><h4>Modifier un pool de connexions de connecteur</h4><a name="indexterm-5"></a><ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Ressources.</b></li>
+<li><b>D&#233;veloppez le n&#339;ud Connecteurs.</b></li>
+<li><b>Sous le n&#339;ud Connecteurs, s&#233;lectionnez le n&#339;ud Pools de connexions du connecteur.</b><p>La page Pools de connexions du connecteur s&#8217;ouvre.</p></li>
+<li><b>Sur la page Pools de connexions du connecteur, cliquez le nom du
+pool de connexions du connecteur que vous modifiez.</b><p>La page Modification du pool de connexions du connecteur s&#8217;ouvre.</p></li>
+<li><b>Dans la liste d&#233;roulante Adaptateur de ressources, s&#233;lectionnez un autre adaptateur de
+ressources.</b></li>
+<li><b>Dans la liste d&#233;roulante D&#233;finition de connexion, s&#233;lectionnez le nom de classe
+du d&#233;finition de connexion. </b><p>Les choix dans la liste d&#233;pendent de l&#8217;adaptateur de ressource que vous
+avez s&#233;lectionn&#233;. La d&#233;finition de connexion identifie l&#8217;&#233;l&#233;ment <tt>connection-definition</tt> d&#8217;un adaptateur de
+ressource dans le fichier <tt>ra.xml</tt>.</p></li>
+<li><b>S&#233;lectionnez la case Activ&#233; de Ping pour envoyer une requ&#234;te de ping
+au pool de connexions lors de la cr&#233;ation ou de la reconfiguration
+pour identifier et avertir de toute valeur erron&#233;e pour ses attributs.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Dans le champ Description, saisissez une description du pool de connexions du
+connecteur.</b></li>
+<li><b>Dans le champ Taille initiale et minimale du pool, sp&#233;cifiez le nombre
+minimum de connexions dans le pool de connexions du connecteur.</b><p>La valeur par d&#233;faut est 8.</p></li>
+<li><b>Dans le champ Taille maximale du pool, sp&#233;cifiez le nombre maximum de
+connexions dans le pool de connexions du connecteur.</b><p>La valeur par d&#233;faut est 32.</p></li>
+<li><b>Dans le champ Valeur de redimensionnement du pool, sp&#233;cifiez le nombre de
+connexions &#224; supprimer lorsque le d&#233;lai d&#8217;inactivit&#233; du pool expire. </b><p>La valeur par d&#233;faut est 2.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;inactivit&#233;, sp&#233;cifiez le temps maximum (en secondes) pendant
+lequel une connexion peut rester inactive dans le pool.</b><p>La valeur par d&#233;faut est 300.</p></li>
+<li><b>Dans le champ Attente max., sp&#233;cifiez le temps pendant lequel l&#8217;application demandant
+une connexion patientera avant d&#8217;obtenir une expiration de la connexion.</b><p>La valeur par d&#233;faut est 60 000.</p></li>
+<li><b>Cochez la case Validation des connexions requise pour activer la validation des
+connexions.</b><p>Si la case Requis est s&#233;lectionn&#233;e, les connexions sont valid&#233;es avant d&#8217;&#234;tre
+donn&#233;es &#224; l&#8217;application. Si la validation d&#8217;une ressource &#233;choue, elle est d&#233;truite
+et une nouvelle ressource est cr&#233;&#233;e et renvoy&#233;e. Cette option est d&#233;sactiv&#233;e
+par d&#233;faut.</p></li>
+<li><b>S&#233;lectionnez la case &#201;chec sur tout afin que GlassFish Server ferme toutes
+les connexions du pool et les r&#233;tablisse si une connexion unique &#233;choue.
+</b><p>Si vous ne s&#233;lectionnez pas cette case, les connexions individuelles ne seront
+r&#233;tablies que lorsqu&#8217;elles seront utilis&#233;es.</p></li>
+<li><b>Dans la liste d&#233;roulante Prise en charge des transactions, s&#233;lectionnez le type
+de prise en charge de transactions pour le pool de connexions.</b><p>La prise en charge des transactions choisie remplace l&#8217;attribut de prise en
+charge des transactions dans l&#8217;adaptateur de ressources associ&#233; &#224; ce pool de
+connexions de fa&#231;on &#224; garantir la compatibilit&#233; descendante. En d&#8217;autres mots, il
+peut prendre en charge un niveau de transaction inf&#233;rieur &#224; celui sp&#233;cifi&#233;
+dans l&#8217;adaptateur de ressources, ou le m&#234;me niveau de transaction que celui
+sp&#233;cifi&#233; dans l&#8217;adaptateur de ressources, mais il ne peut pas sp&#233;cifier un
+niveau sup&#233;rieur.</p><p>Les options suivantes sont disponibles dans la liste d&#233;roulante : </p><ul>
+<li><b>NoTransaction : indique que l&#8217;adaptateur de ressources ne prend pas en charge
+les transactions JTA ou les transactions locales du gestionnaire de ressources et n&#8217;impl&#233;mente
+pas les interfaces XAResource ou LocalTransaction.</b></li>
+<li><b>LocalTransaction : indique que l&#8217;adaptateur de ressources prend en charge les transactions
+locales en impl&#233;mentant l&#8217;interface LocalTransaction.</b><p>Les transactions locales sont g&#233;r&#233;es dans un gestionnaire de ressources et n&#8217;impliquent
+aucun gestionnaire de transactions externe.</p></li>
+<li><b>XATransaction : indique que l&#8217;adaptateur de ressources prend en charge les transactions
+JTA et les transactions locales du gestionnaire de ressources en impl&#233;mentant les
+interfaces LocalTransaction et XAResource. </b><p>Les transactions XA sont contr&#244;l&#233;es et d&#233;termin&#233;es par un gestionnaire de transactions
+externe &#224; un gestionnaire de ressources.</p></li></ul></li>
+<li>(Facultatif) <b>Cliquez sur le bouton Vider pour &#233;liminer toutes les connexions du pool.
+</b><p>Cliquez sur le bouton Vider revient &#224; d&#233;truire toutes les connexions existantes,
+&#224; recr&#233;er les connexions &#233;tablies pour le pool et &#224; restaurer le
+pool &#224; sa taille initiale et minimale.</p></li>
+<li>(Facultatif) <b>Cliquez sur le bouton Ping pour v&#233;rifier que le pool de connexions
+est utilisable. </b></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-connectorresourcenew.html">Cr&#233;er une ressource de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorresourceedit.html">Modifier une ressource du connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorresourcesdelete.html">Pour supprimer une ressource de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolnew.html">Cr&#233;er un pool de connexions de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">Modifier les attributs avanc&#233;s d'un pool de connexions de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">Modifier les propri&#233;t&#233;s d'un pool de connexions de connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">Cr&#233;er un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">Pour modifier un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">Supprimer un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">Supprimer un pool de connexions du connecteur</a></p>
+
+</li>
+<li><p><a href="task-setupeisaccess.html">Configurer l'acc&#232;s &#224; EIS</a></p>
+
+</li>
+<li><p><a href="task-adminobjectnew.html">Cr&#233;er une ressource d'objet g&#233;r&#233;</a></p>
+
+</li>
+<li><p><a href="task-adminobjectedit.html">Modifier une ressource d'objet administr&#233;</a></p>
+
+</li>
+<li><p><a href="task-administeredobjectresourcedelete.html">Supprimer une ressource d'objet g&#233;r&#233;</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapnew.html">Cr&#233;er un mappage de s&#233;curit&#233; de travail</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapedit.html">Modifier un mappage de s&#233;curit&#233; de travail</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapdelete.html">Supprimer un mappage de s&#233;curit&#233; de travail</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

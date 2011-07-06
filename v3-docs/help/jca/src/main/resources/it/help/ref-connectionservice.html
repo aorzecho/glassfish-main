@@ -1,0 +1,53 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectionservice"></a><h4>Servizio connettore</h4>
+<a name="indexterm-62"></a><p>Nella pagina Connector Service &#232; possibile modificare le impostazioni generali del servizio
+connettore, che controlla gli adattatori di risorsa.</p>
+
+<p>La pagina Connector Service contiene le seguenti opzioni.</p>
+
+<dl><dt>Load Defaults</dt>
+<dd><p>Pulsante che consente di ripristinare i valori predefiniti di tutte le impostazioni.</p>
+
+</dd>
+<dt>Configuration Name</dt>
+<dd><p>Nome della configurazione a cui si applicano le impostazioni visualizzate nella pagina. Campo di sola lettura.</p>
+
+</dd>
+<dt>Shutdown Timeout</dt>
+<dd><p>Numero massimo di secondi consentito durante l'arresto di GlassFish Server per il completamento del metodo <tt>ResourceAdapter.stop</tt> dell'istanza di un modulo connettore. Gli adattatori di risorsa che richiedono tempi di arresto pi&#249; prolungati vengono ignorati e si prosegue con l'arresto di GlassFish Server. Il valore predefinito &#232; 30 secondi.</p>
+
+</dd>
+<dt>Connector Classloading Policy</dt>
+<dd><p>Criterio da utilizzare per il caricamento delle classi. Sono disponibili le seguenti opzioni:</p>
+
+<dl><dt><tt>derived</tt></dt>
+<dd><p>Indica che gli adattatori di risorsa vengono forniti in base ai riferimenti di un'applicazione a qualsiasi risorsa dell'adattatore di risorsa. Questo &#232; il criterio predefinito.</p>
+
+</dd>
+<dt><tt>global</tt></dt>
+<dd><p>Indica che tutti gli adattatori di risorsa saranno visibili a tutte le applicazioni.</p>
+
+</dd>
+</dl>
+<p>Questo criterio non &#232; valido per l'adattatore di risorsa di sistema JMS preinstallato, <tt> jmsra</tt>, che &#232; sempre visibile a tutte le applicazioni.</p>
+
+</dd>
+</dl>
+<h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-connectionservice.html">Configurare il servizio connettore</a></p>
+
+</li>
+<li><p><a href="../../../common/it/help/task-appdeployconn.html">To Deploy a Connector Module</a></p>
+
+</li></ul>
+<h5>Comandi <tt>asadmin</tt> correlati</h5>
+<p>Nessuno.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

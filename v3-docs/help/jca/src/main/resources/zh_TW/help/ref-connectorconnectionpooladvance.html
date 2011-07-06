@@ -1,0 +1,99 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpooladvance"></a><h4>編輯連接器連線池進階屬性</h4>
+<a name="indexterm-43"></a><p>使用 [編輯連接器連線池進階屬性] 頁面可修改連接器連線池的進階設定。</p>
+
+<p>[編輯連接器連線池進階屬性] 頁面包含下列選項。</p>
+
+<dl><dt>載入預設值</dt>
+<dd><p>將所有設定復原為預設值的按鈕。</p>
+
+</dd>
+<dt>驗證間隔最久時間</dt>
+<dd><p>指定連續請求驗證連線的最長時間間隔 (以秒為單位)。預設值為 0，表示未啟用該屬性。</p>
+
+</dd>
+<dt>錯誤逾時</dt>
+<dd><p>追蹤連線池中連線錯誤的時間 (以秒為單位)。0 值表示已停用連線錯誤追蹤。預設值為 0。</p>
+
+</dd>
+<dt>錯誤收回</dt>
+<dd><p>若選取了此選項，則在錯誤連線追蹤完成之後，會將錯誤的連線復原至連線池中。此選項預設為停用。</p>
+
+</dd>
+<dt>建立重試嘗試</dt>
+<dd><p>在建立新連線失敗之後，將進行的嘗試次數。0 值表示不會再次嘗試建立連線。預設值為 0。</p>
+
+</dd>
+<dt>重試間隔</dt>
+<dd><p>兩次嘗試建立連線的時間間隔 (以秒為單位)。僅當 [建立重新嘗試次數] 的值大於 0 時，才使用該屬性。預設值為 10 秒。</p>
+
+</dd>
+<dt>池儲存</dt>
+<dd><p>針對池啟用連線池儲存。此選項預設為啟用。</p>
+
+</dd>
+<dt>惰性關聯</dt>
+<dd><p>若選取了此選項，當作業於連線上執行時，會為連線建立惰性關聯。當作業事件完成且元件方法結束時，這些連線便會取消關聯，從而可以重複使用實體連線。此選項預設為停用。</p>
+
+</dd>
+<dt>惰性連線登記</dt>
+<dd><p>若選取了此選項，僅當資源在方法中實際使用時，才會將該資源登記至作業事件。此選項預設為停用。</p>
+
+</dd>
+<dt>與執行緒建立關聯</dt>
+<dd><p>若選取了此選項，會將連線與執行緒建立關聯。當相同的執行緒需要連線時，便可以重複使用已與該執行緒建立關聯的連線，而省下從池中取得連線的經常性耗用時間。此選項預設為停用。</p>
+
+</dd>
+<dt>比對連線</dt>
+<dd><p>若選取了此選項，會啟用池的連線比對。您可以在以下情況下停用此選項：您知道池中的連線一定是同質連線，因此不需要資源配接卡對從池中挑選的連線進行比對。此選項預設為啟用。</p>
+
+</dd>
+<dt>比對連線使用率</dt>
+<dd><p>連線池應重複使用連線的次數。重複使用指定次數的連線後，就會關閉連線。0 值表示沒有啟用此屬性。預設值為 0。</p>
+
+</dd>
+</dl>
+<a name="gkomp"></a><h5>相關作業</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">建立連接器連線池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">編輯連接器連線池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">編輯連接器連線池進階屬性</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">編輯連接器連線池特性</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">建立連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">編輯連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">刪除連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">刪除連接器連線池</a></p>
+
+</li></ul>
+<a name="gkonj"></a><h5>相關的 <tt>asadmin</tt> 指令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

@@ -1,0 +1,97 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterinstances"></a><h4>群集服务器实例</h4>
+<a name="indexterm-173"></a><a name="indexterm-174"></a><p>使用&#8220;群集服务器实例&#8221;页面可在当前群集中创建和管理 GlassFish Server 实例。</p>
+
+<p>&#8220;群集名称&#8221;字段是只读字段，其中显示当前群集的名称。</p>
+
+<p>&#8220;群集服务器实例&#8221;页面显示属于当前群集的实例的列表。对于每个实例，将提供以下信息。</p>
+
+<dl><dt>名称</dt>
+<dd><p>创建实例时为其指定的名称。单击此名称可打开实例的<a href="ref-clusterinstanceedit.html">常规信息</a>页面。</p>
+
+</dd>
+<dt>LB 权重</dt>
+<dd><p>一个表示实例的负载平衡权重的整数。</p>
+
+<p>负载平衡权重确定在对群集的所有请求中，实例应处理的请求所占的比例。</p>
+
+<p>例如，在一个具有两个实例的群集中，您可能需要一个实例来处理四分之一的请求，另一实例处理四分之三的请求。在这种情况下，将处理四分之一请求的实例的权重设置为 1，将另一实例的权重设置为 3。如果您喜欢使用百分比，则分别将权重设置为 25 和 75。</p>
+
+<p>默认权重为 100。</p>
+
+</dd>
+<dt>配置</dt>
+<dd><p>实例引用的配置。单击配置可打开实例的<a href="../../../common/zh_CN/help/ref-configuration.html">配置</a>页面。</p>
+
+</dd>
+<dt>节点</dt>
+<dd><p>实例驻留的节点的名称。单击名称打开节点的<a href="ref-nodeedit.html">编辑节点</a>页面。</p>
+
+</dd>
+<dt>状态</dt>
+<dd><p>指示实例是在运行、需要重新启动以根据配置更改进行更新，还是未运行。此字段为只读。</p>
+
+</dd>
+</dl>
+<p>&#8220;服务器实例&#8221;表还包含以下选项。</p>
+
+<dl><dt>新建</dt>
+<dd><p>用于向群集添加实例的按钮。</p>
+
+</dd>
+<dt>删除</dt>
+<dd><p>用于删除群集中一个或多个所选实例的按钮。</p>
+
+
+<hr><p><b>注意 - </b>如果使用的是带有主代理的 Java 消息服务 (Java Message Service, JMS) 群集，请不要删除与该主代理关联的实例。如果必须删除该实例，请使用 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=change-master-broker-1"><tt>change-master-broker</tt>(1)</a> 子命令将该主代理指定给另一个实例。</p>
+
+
+<hr>
+</dd>
+<dt>开始</dt>
+<dd><p>用于启动群集中一个或多个所选实例的按钮。</p>
+
+</dd>
+<dt>停止</dt>
+<dd><p>用于停止群集中一个或多个所选实例的按钮。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-create-clustered-instance.html">将 GlassFish Server 实例添加到群集</a></p>
+
+</li>
+<li><p><a href="task-delete-clustered-instances.html">删除群集 GlassFish Server 实例</a></p>
+
+</li>
+<li><p><a href="task-start-clustered-instances.html">启动群集 GlassFish Server 实例</a></p>
+
+</li>
+<li><p><a href="task-stop-clustered-instances.html">停止群集 GlassFish Server 实例</a></p>
+
+</li></ul>
+<h5>等效的 <tt>asadmin</tt> 子命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-instance-1"><tt>create-instance</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-instance-1"><tt>delete-instance</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-instances-1"><tt>list-instances</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-instance-1"><tt>start-instance</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-instance-1"><tt>stop-instance</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

@@ -1,0 +1,82 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-editjdbcrealm"></a><h4>F&#252;r die <tt>JDBCRealm</tt>-Klasse spezifische Eigenschaften</h4>
+<a name="indexterm-206"></a><a name="indexterm-207"></a><p>Um Ihre Webseiten oder Webanwendungen zu sch&#252;tzen, k&#246;nnen Sie die Sicherheit so
+einstellen, dass nur registrierte Benutzer darauf zugreifen k&#246;nnen. Dies wird auch als
+Authentifizierungsm&#246;glichkeit bezeichnet. Dieser Bereichstyp bezieht das Speichern von Berechtigungsnachweisen der Benutzer innerhalb
+der Datenbank mit ein. GlassFish-Server verwendet die Datenbankinformationen und die aktivierte Option
+f&#252;r den JDBC-Bereich in der Konfigurationsdatei.</p>
+
+<p>Folgende Eigenschaften sind f&#252;r einen JDBC-Bereich erforderlich.</p>
+
+<dl><dt>JAAS-Kontext</dt>
+<dd><p>Der JAAS-(Java-Authentifizierungs- und Autorisierungsdienst)-Kontext (die Kennung f&#252;r das Anmeldemodul, das f&#252;r diesen Bereich zu verwenden ist). Der einzig g&#252;ltige Wert ist <tt>jdbcRealm</tt>.</p>
+
+</dd>
+<dt>JNDI</dt>
+<dd><p>Der JNDI-Name f&#252;r diesen Bereich. Der Standardwert ist <tt>jdbc/security</tt>.</p>
+
+</dd>
+<dt>Benutzertabelle</dt>
+<dd><p>Die Tabelle, die eine Liste der autorisierten Benutzer f&#252;r diesen Bereich enth&#228;lt. Der Standardwert ist <tt>usertable</tt>.</p>
+
+</dd>
+<dt>Benutzernamenspalte</dt>
+<dd><p>Name der Spalte mit Liste der Benutzer in der Benutzertabelle. Der Standardwert ist <tt>userid</tt>.</p>
+
+</dd>
+<dt>Passwortspalte</dt>
+<dd><p>Name der Spalte mit dem entsprechenden Benutzerpasswort in der Benutzertabelle. Der Standardwert ist <tt>password</tt>.</p>
+
+</dd>
+<dt>Gruppentabelle</dt>
+<dd><p>Name der Gruppentabelle in der Datenbank. Der Standardwert ist <tt>grouptable</tt>.</p>
+
+</dd>
+<dt>Spalte mit Gruppennamen</dt>
+<dd><p>Name der Spalte mit Gruppennamen in der Gruppentabelle der Datenbank. Der Standardwert ist <tt>groupid</tt>.</p>
+
+</dd>
+</dl>
+<p>Die folgenden optionalen Eigenschaften sind f&#252;r einen JDBC-Bereich verf&#252;gbar.</p>
+
+<dl><dt>Gruppen zuweisen</dt>
+<dd><p>Eine durch Kommata getrennte Liste mit Gruppennamen. Alle Clients, die &#252;ber g&#252;ltige Zertifikate verf&#252;gen, werden diesen Gruppen zugewiesen, zum Beispiel <tt>employee,manager </tt>, wobei dies die Namen von Benutzergruppen sind.</p>
+
+</dd>
+<dt>Datenbankbenutzer</dt>
+<dd><p>Hier haben Sie die M&#246;glichkeit, den Datenbank-Benutzernamen im Bereich anstelle des <tt>jdbc-connection-pool</tt> anzugeben. Dadurch wird verhindert, dass andere Anwendungen die Datenbank aufrufen, eine Verbindung erhalten und die Benutzertabelle durchsuchen k&#246;nnen. Standardm&#228;&#223;ig wird die <tt>jdbc-connection-pool</tt>-Konfiguration verwendet.</p>
+
+</dd>
+<dt>Datenbank-Passwort</dt>
+<dd><p>Hier haben Sie die M&#246;glichkeit, das Datenbank-Passwort im Bereich anstelle des <tt>jdbc-connection-pool</tt> anzugeben. Dadurch wird verhindert, dass andere Anwendungen die Datenbank aufrufen, eine Verbindung erhalten und die Benutzertabelle durchsuchen k&#246;nnen. Standardm&#228;&#223;ig wird die <tt>jdbc-connection-pool</tt>-Konfiguration verwendet.</p>
+
+</dd>
+<dt>Verarbeitungsalgorithmus</dt>
+<dd><p>(Optional) Gibt den Verarbeitungsalgorithmus an. Der Standardwert ist <tt>SHA-256</tt>. Sie k&#246;nnen jeden beliebigen Algorithmus verwenden, der von JDK unterst&#252;tzt wird, oder none.</p>
+
+
+<hr><p><b>Hinweis - </b>In Versionen von GlassFish-Server vor 3.1 war der standardm&#228;&#223;ige Algorithmus <tt>MD5</tt>. Wenn Sie Anwendungen verwenden, die vom Algorithmus <tt>MD5</tt> abh&#228;ngen, k&#246;nnen Sie den Standardwert <tt>SHA-25</tt> au&#223;er Kraft setzen, indem Sie den Unterbefehl <tt>asadmin set</tt> verwenden:</p>
+
+<pre>asadmin> <tt><b>set server.security-service.property.default-digest-algorithm=MD5</b></tt></pre><p>Sie k&#246;nnen den Unterbefehl <tt>asadmin get</tt> verwenden, um zu bestimmen, welcher Unterbefehl derzeit verwendet wird:</p>
+
+<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>Bitte beachten Sie: Bei einer Aktualisierung von GlassFish-Server v2.<i>x</i> oder v3.0.<i> x</i> auf GlassFish-Server 3.1 wird der standardm&#228;&#223;ige Algorithmus automatisch auf <tt>MD5</tt> gesetzt, wenn der Verarbeitungsalgorithmus nicht explizit in der &#228;lteren GlassFish-Server-Version festgelegt wurde. Dadurch wird die R&#252;ckw&#228;rtskompatibilit&#228;t beibehalten.</p>
+
+
+<hr>
+</dd>
+<dt>Kodierung</dt>
+<dd><p>Die Kodierung. Zul&#228;ssige Werte sind <tt>Hex</tt> und <tt> Base64</tt>. Wenn der <tt>digest-algorithm</tt> angegeben ist, dann ist der Standardwert <tt>Hex</tt>. Wenn der <tt>digest-algorithm</tt> nicht angegeben ist, dann ist standardm&#228;&#223;ig keine Kodierung angegeben.</p>
+
+</dd>
+<dt>Zeichensatz</dt>
+<dd><p>Der Zeichensatz f&#252;r den Verarbeitungsalgorithmus. </p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

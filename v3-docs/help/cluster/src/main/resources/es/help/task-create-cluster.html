@@ -1,0 +1,155 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-create-cluster"></a><h4>Para crear un cl&#250;ster</h4><a name="indexterm-1"></a><p>Un <b>cl&#250;ster</b> es un grupo de instancias de GlassFish Server con nombre
+que comparten las mismas aplicaciones, los mismos recursos y la informaci&#243;n de
+configuraci&#243;n.</p>
+
+<p>Un cl&#250;ster proporciona una gran disponibilidad a trav&#233;s la escalabilidad, el equilibrio
+de carga y la protecci&#243;n contra fallos. Cuando falla una instancia o
+un host de un cl&#250;ster, GlassFish Server detecta el error, redirige las
+solicitudes de la instancia fallida a otras instancias del cl&#250;ster y recupera
+el estado de la sesi&#243;n del usuario. Dado que los mismos recursos
+y aplicaciones est&#225;n en todas las instancias del cl&#250;ster, una instancia puede
+conmutar por error a cualquier otra instancia del cl&#250;ster.</p>
+
+<p>GlassFish Server permite administrar todas las instancias de un cl&#250;ster como una
+sola unidad desde un &#250;nico host, independientemente de si residen en el
+mismo host o no.</p>
+
+<h6>Antes de empezar</h6><p>Si tiene previsto a&#241;adir instancias de GlassFish Server al cl&#250;ster que est&#225;
+creando, aseg&#250;rese de que los nodos en los que vayan a residir
+las instancias ya existan.</p>
+
+<ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, seleccione el nodo Cl&#250;steres.</b><p>Se abrir&#225; la p&#225;gina Cl&#250;steres.</p></li>
+<li><b>En la p&#225;gina Cl&#250;steres, haga clic en Nuevo. </b><p>Se abrir&#225; la p&#225;gina Cl&#250;ster nuevo.</p></li>
+<li><b>En el campo Cl&#250;ster nuevo, escriba un nombre para el cl&#250;ster.</b><p>El nombre debe cumplir los siguientes requisitos:</p>
+<ul><li><p>El nombre debe empezar por una letra, un n&#250;mero o un car&#225;cter de subrayado.</p>
+
+</li>
+<li><p>El nombre s&#243;lo puede contener los siguientes caracteres:</p>
+
+
+<ul><li><p>Letras en min&#250;scula</p>
+
+</li>
+<li><p>Letras en may&#250;scula</p>
+
+</li>
+<li><p>N&#250;meros</p>
+
+</li>
+<li><p>Gui&#243;n</p>
+
+</li>
+<li><p>Punto</p>
+
+</li>
+<li><p>Subrayado</p>
+
+</li></ul>
+</li>
+<li><p>El nombre debe ser exclusivo en el dominio y no debe ser el nombre de otro cl&#250;ster, una configuraci&#243;n con nombre, una instancia de GlassFish Server ni otro nodo.</p>
+
+</li>
+<li><p>El nombre non debe ser <tt>domain</tt>, <tt>server</tt> ni otra palabra clave reservada para GlassFish Server.</p>
+
+</li></ul>
+</li>
+<li><b>En la lista desplegable Configuraci&#243;n, seleccione la configuraci&#243;n con nombre que utilizar&#225;
+el cl&#250;ster.</b>
+<hr><p><b>Nota - </b>Si selecciona <tt>default-config</tt>, debe especificar en el paso siguiente que la configuraci&#243;n
+<b>no</b> es compartida. La configuraci&#243;n de <tt>default-config</tt> no se puede compartir.</p>
+
+
+<hr>
+</li>
+<li><b>Indique si la configuraci&#243;n que utilizar&#225; el cl&#250;ster es compartida.</b><ul>
+<li><b>Si la configuraci&#243;n no es compartida, deje seleccionada la opci&#243;n Realizar una
+copia de la configuraci&#243;n seleccionada. </b><p>La configuraci&#243;n seleccionada se copia cuando se crea el cl&#250;ster. Se asigna
+el nombre <tt><i>nombre_cl&#250;ster</i>-config</tt> a la copia de la configuraci&#243;n, donde <i>nombre_cl&#250;ster</i> es
+el nombre del cl&#250;ster que se est&#225; creando.</p></li>
+<li><b>Si la configuraci&#243;n es compartida, seleccione la opci&#243;n Hacer referencia a la
+configuraci&#243;n seleccionada.</b><p>El cl&#250;ster utilizar&#225; la configuraci&#243;n con nombre especificada.</p></li></ul></li>
+<li>(Opcional) <b><a name="indexterm-2"></a>Agregue instancias de GlassFish Server al cl&#250;ster.</b>
+<hr><p><b>Nota - </b>Para crear una instancia en un nodo de tipo CONFIG que representa
+un host remoto deber&#225; utilizar el subcomando <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a>. No se puede utilizar
+el Consola de administraci&#243;n para este fin.</p>
+
+
+<hr>
+<p>Tambi&#233;n puede <a href="task-create-clustered-instance.html">agregar instancias despu&#233;s de crear cl&#250;ster</a>.</p><p>Agregue cada una de las instancias del modo siguiente:</p><ol style="list-style-type: lower-alpha">
+<li><b>En el &#225;rea Instancias del servidor que se crear&#225;n, haga clic en
+Agregar.</b><p>Se agregar&#225; una fila a la tabla de instancias del cl&#250;ster.</p></li>
+<li><b>En el campo Nombre de instancia, escriba un nombre para la instancia.</b></li>
+<li><b>En el campo Ponderaci&#243;n, escriba un n&#250;mero entero que representar&#225; la ponderaci&#243;n
+del equilibrio de carga de la instancia.</b><p>La ponderaci&#243;n de equilibrio de carga determina la proporci&#243;n de todas las
+solicitudes con respecto al cl&#250;ster que debe procesar la instancia.</p><p>Por ejemplo, en un cl&#250;ster de dos instancias, puede necesitar que una
+instancia procese una solicitud de cuatro, y que otra procese las otras
+tres. En este caso, configure la ponderaci&#243;n de la instancia que debe
+procesar una de las cuatro solicitudes como 1 y la ponderaci&#243;n de
+la otra instancia como 3. Si prefiere usar porcentajes, defina las ponderaciones
+de las instancias como 25 y 75, respectivamente.</p><p>La ponderaci&#243;n predeterminada es 100. </p></li>
+<li><b>En la lista desplegable Nodo, seleccione el nodo en el que residir&#225;
+la instancia.</b></li></ol></li>
+<li><b>Haga clic en Aceptar.</b><p>Volver&#225; a la p&#225;gina Cl&#250;steres. El cl&#250;ster se a&#241;adir&#225; a la tabla
+de cl&#250;steres de la p&#225;gina.</p></li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-delete-cluster.html">Para eliminar un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-availabilityservice.html">Para configurar las opciones de disponibilidad de un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-start-cluster.html">Para iniciar un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-stop-cluster.html">Para detener un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-modify-cluster-config.html">Para modificar la configuraci&#243;n de un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-deploy.html">Para implementar una aplicaci&#243;n en un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-list.html">Para enumerar las aplicaciones que se han implementado en un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-undeploy.html">Para anular la implementaci&#243;n de aplicaciones de un cluster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-remove.html">Para eliminar aplicaciones de un cluster </a> </p>
+
+</li>
+<li><p><a href="task-cluster-app-edit.html">Para editar una aplicaci&#243;n que est&#225; implementada en un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-enable-disable.html">Para habilitar o inhabilitar una aplicaci&#243;n que est&#225; implementada en un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-lb-enable-disable.html">Para habilitar o inhabilitar el equilibrio de carga para una aplicaci&#243;n implementada en un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-create.html">Para crear un recurso para un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-display.html">Para enumerar los recursos para un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-enable-disable.html">Para habilitar o inhabilitar un recurso de forma global</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-edit.html">Para editar un recurso para un cl&#250;ster</a></p>
+
+</li>
+<li><p><a href="task-upgrade-components.html">Para actualizar componentes sin p&#233;rdida de servicio</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

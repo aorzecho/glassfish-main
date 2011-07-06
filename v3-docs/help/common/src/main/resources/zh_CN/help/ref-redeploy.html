@@ -1,0 +1,131 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-redeploy"></a><h4>重新部署应用程序或模块</h4>
+<a name="indexterm-185"></a><a name="indexterm-186"></a><p>使用&#8220;重新部署应用程序或模块&#8221;页面可以重新部署先前部署的应用程序。</p>
+
+<p>&#8220;重新部署应用程序或模块&#8221;页面包含以下选项：</p>
+
+<dl><dt>位置</dt>
+<dd><p>您要重新部署的应用程序新归档的位置。</p>
+
+<p>以下选项指明了可以访问归档文件的位置，以及归档文件是一个文件还是一个目录。</p>
+
+<dl><dt>要上载到服务器的打包文件</dt>
+<dd><p>归档文件位于客户机中的文件或可从客户机访问的文件中。</p>
+
+<p>客户机是可通过浏览器查看管理控制台的主机。</p>
+
+</dd>
+<dt>可从 GlassFish Server 访问的本地打包文件或目录</dt>
+<dd><p>归档文件是位于服务器计算机上的文件，或者是展开目录中的未打包应用程序。</p>
+
+<p>服务器计算机是运行 GlassFish Server 域管理服务器的主机。 </p>
+
+</dd>
+</dl>
+</dd>
+<dt>应用程序名称</dt>
+<dd><p>显示要重新部署的应用程序名称的只读字段。</p>
+
+<p>名称可包含可选的版本标识符，它跟在名称后面，并与名称以冒号(<tt>:</tt>) 分隔。有关模块和应用程序版本的更多信息，请参见<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv"><i>《Oracle GlassFish Server 3.1 Application Deployment Guide》</i>中的"Module and Application Versions"</a>。</p>
+
+</dd>
+<dt>预编译 JSP</dt>
+<dd><p>如果选中了此选项，将对 JavaServer Pages (JSP) 文件进行预编译。如果禁用此选项，则在运行时首次访问 JSP 文件时对其进行编译。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>运行验证器</dt>
+<dd><p>如果选择此选项，则会在部署之前验证部署描述符。如果验证失败，则部署将不会执行。验证器将检查部署描述符的结构和内容。大型应用程序的检验通常会很耗费时间。默认情况下禁用此选项。</p>
+
+<p>必须从更新工具安装验证器软件包，否则将记录一条警告，并忽略此选项。</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>如果选中此选项，则允许应用程序客户机模块访问 Java Web Start。默认情况下禁用此选项。</p>
+
+</dd>
+<dt>保持状态</dt>
+<dd><p>此选项控制是否在重新部署期间保留 Web 会话、SFSB 实例和持久创建的 EJB 计时器。</p>
+
+<p>默认情况下禁用此选项。只有名为 <tt>server</tt> 的默认服务器实支持此选项。任何其他目标都不支持此选项并将其忽略。</p>
+
+<p>在两次重新部署期间对应用程序所做的某些更改会阻碍此功能正常工作。例如，不要更改 SFSB Bean 类中的实例变量集。</p>
+
+<p>对于 Web 应用程序，仅当 <tt>glassfish-web-app.xml </tt>文件中 <tt>session-manager</tt> 元素的 <tt>persistence-type</tt> 属性是 <tt>file</tt> 时，此功能才适用。</p>
+
+<p>对于有状态会话 Bean 实例，在服务器中设置不支持高可用性的持久性类型（&#8220;SFSB 持久性类型&#8221;选项）且必须将其设置为 <tt>file</tt>，这是默认值，建议使用该值。</p>
+
+<p>如果无法保留或恢复任何活动 Web 会话、SFSB 实例或 EJB 计时器，则在重新部署完成时这些资源将<b>无</b>一可用。但是，重新部署将继续，并且记录一个警告。</p>
+
+<p>为了保留活动状态数据，GlassFish Server 将对数据进行序列化，并将其保存在内存中。为了恢复这些数据，新近重新部署的应用程序的类加载器将对先前保存的数据进行反序列化。</p>
+
+</dd>
+<dt>保留以应用程序为作用域的资源</dt>
+<dd><p>如果选中，将保留任何以应用程序为作用域的资源并在重新部署过程中恢复这些资源。默认情况下该选项处于未选中状态。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-appredeploy.html">重新部署已部署的应用程序</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">查看已部署应用程序列表</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">部署 Web 应用程序</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">部署企业应用程序</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">部署应用程序客户机</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">部署连接器模块</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">部署 EJB Jar</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">编辑已部署的应用程序</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">查看应用程序描述符</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">查看 Web 服务的端点信息</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">启动应用程序</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">启动应用程序客户机</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">重新装入已部署的应用程序</a></p>
+
+</li>
+<li><p><a href="../../../ejb/zh_CN/help/task-ejbcontaineravailability.html">为 EJB 容器配置可用性设置</a></p>
+
+</li></ul>
+<h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=redeploy-1"><tt>redeploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-modules-1"><tt>list-modules</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

@@ -1,0 +1,62 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-appedit"></a><h4>编辑已部署的应用程序</h4><a name="indexterm-44"></a><ol>
+<li><b>在导航树中，选择&#8220;应用程序&#8221;节点。</b><p>此时将打开&#8220;应用程序&#8221;页面。</p></li>
+<li><b>从&#8220;已部署的应用程序&#8221;表中，单击要编辑的应用程序的名称。</b><p>名称可包含可选的版本标识符，它跟在名称后面，并与名称以冒号(<tt>:</tt>) 分隔。有关模块和应用程序版本的更多信息，请参见<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv"><i>《Oracle GlassFish Server 3.1 Application Deployment Guide》</i>中的"Module and Application Versions"</a>。</p><p>此时将打开&#8220;编辑应用程序&#8221;页面。</p></li>
+<li><b>取消选择&#8220;启用状态&#8221;复选框以禁用应用程序状态，使其变为不可用。</b><p>默认情况下，只要一部署应用程序，其状态便为&#8220;启用&#8221;。 </p></li>
+<li><b>对于 Web 应用程序，请在&#8220;上下文根目录&#8221;字段中，键入应用程序的路径。</b><p>在 Web 应用程序的 URL 中，上下文根目录要紧跟着端口号 (<tt>http://</tt><i>host</i><tt>:</tt><i>port </i><tt>/</tt><i>context-root</i><tt>/...</tt>)。确保上下文根路径以正斜杠开头，例如 <tt>/hello</tt>。</p></li>
+<li><b>取消选中&#8220;已启用可用性&#8221;复选框可为应用程序禁用会话持久性和 SFSB 检查点操作。</b><p>如果选中&#8220;已启用&#8221;复选框，则为 Web 会话和有状态会话 Bean (stateful session bean, SFSB) 检查点操作和潜在钝化启用高可用性。如果设置为 false（默认值），则对指定应用程序、Web 应用程序或 EJB
+模块禁用所有 Web 会话保存和 SFSB 检查点操作。如果设置为 true，则为指定的应用程序或模块启用高可用性。仅当在更高级别上（比如服务器级别和容器级别）配置和启用高可用性时，此选项才设置为 true。</p><p>如果除默认服务器实例 (<tt>server</tt>) 以外还存在群集或独立服务器实例，则会显示该选项。</p></li>
+<li><b>从&#8220;虚拟服务器&#8221;下拉式列表中，选择要与此应用程序关联的虚拟服务器。</b><p>只要存在存在默认服务器实例 <tt> server</tt>，则出现&#8220;虚拟服务器&#8221;选项。如果存在群集或其他独立服务器实例，则可以在部署后选择虚拟服务器。转至&#8220;编辑应用程序&#8221;页面，选择&#8220;目标&#8221;选项卡，然后为所需目标选择&#8220;管理虚拟服务器&#8221;。</p></li>
+<li><b>选中&#8220;启用 Java Web Start&#8221;复选框，以使用 Java Web Start 软件来部署应用程序。</b><p>默认情况下，根据最初部署时的设置禁用或启用该选项。</p></li>
+<li><b>在&#8220;说明&#8221;字段中，键入此应用程序的说明。</b></li>
+<li><b>要查看应用程序的模块描述符列表，请单击&#8220;描述&#8221;选项卡。有关更多详细信息，请参见<a href="task-appviewdesc.html">查看应用程序描述符</a></b></li>
+<li><b>默认情况下，应用程序在所有目标上的&#8220;状态&#8221;都为&#8220;已启用&#8221;。要查看启用了应用程序的目标，请单击&#8220;目标&#8221;选项卡。可以在一个或多个目标上启用或禁用应用程序。请参见<a href="task-appviewtargets.html">查看应用程序目标</a>。</b></li>
+<li><b>单击&#8220;保存&#8221;。</b></li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-applistdeployed.html">查看已部署应用程序列表</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">部署 Web 应用程序</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">部署企业应用程序</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">部署应用程序客户机</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">部署连接器模块</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">部署 EJB Jar</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">查看应用程序描述符</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">查看应用程序目标</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">查看 Web 服务的端点信息</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">启动应用程序</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">启动应用程序客户机</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">重新部署已部署的应用程序</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">重新装入已部署的应用程序</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

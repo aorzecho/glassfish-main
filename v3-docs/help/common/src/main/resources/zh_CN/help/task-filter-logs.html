@@ -1,0 +1,100 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-filter-logs"></a><h4>过滤显示的日志记录</h4><h6>开始之前</h6><p>请确保查看的是域管理服务器 (domain administration server, DAS)、群集 GlassFish Server 实例或独立实例的日志文件。有关更多信息，请参见以下主题：</p>
+
+
+<ul><li><p><a href="task-logviewer.html">查看 DAS 的日志文件</a></p>
+
+</li>
+<li><p><a href="../../../cluster/zh_CN/help/task-view-logs-clustered-instance.html">查看群集 GlassFish Server 实例的日志文件</a></p>
+
+</li>
+<li><p><a href="../../../cluster/zh_CN/help/task-view-logs-standalone-instance.html">查看独立 GlassFish Server 实例的日志文件</a></p>
+
+</li></ul>
+<ol>
+<li><b>在&#8220;搜索条件&#8221;区域中，按内容、时间段和日志级别过滤记录。</b><ol style="list-style-type: lower-alpha">
+<li><b>要只显示包含特定文本的记录，请在&#8220;文本搜索&#8221;字段中键入该文本。</b><p>该搜索区分大小写。</p></li>
+<li><b>要选择显示日志记录的时间段，请使用&#8220;时间戳&#8221;选项。</b><ul>
+<li><b>要查看最近的消息，请选择&#8220;最近&#8221;（默认值）。</b></li>
+<li><b>如果只查看特定时间段内的消息，请选择&#8220;特定范围&#8221;并在显示的&#8220;从&#8221;字段和&#8220;到&#8221;字段中键入日期和时间值。</b><p>&#8220;日期&#8221;值必须为以下格式：</p><pre><i>MM</i>/<i>DD</i>/<i>YY</i></pre><dl><dt><i>MM</i></dt>
+<dd><p>范围在 1&#8211;12 之间的整数，表示月份。例如，1 表示 1 月，10 表示 10 月。</p>
+
+</dd>
+<dt><i>DD</i></dt>
+<dd><p>范围在 1&#8211;31 之间的整数，表示每月中的日期。</p>
+
+</dd>
+<dt><i>YY</i></dt>
+<dd><p>年的最后两位数字，例如，11 代表 2011 年。</p>
+
+</dd>
+</dl>
+<p>例如，要指定日期 2011 年 2 月 1 日，请在&#8220;日期&#8221;字段键入 <tt>2/1/11</tt>。</p><p>&#8220;时间&#8221;值必须为以下格式：</p><pre><i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i></pre><dl><dt><i>hh</i></dt>
+<dd><p>范围在 0&#8211;23 之间的整数，表示小时。对于下午的时间，使用范围在 12&#8211;23 之间的整数，例如，14 表示下午 2 点。</p>
+
+</dd>
+<dt><i>MM</i></dt>
+<dd><p>范围在 0&#8211;59 之间的整数，表示小时中的分钟数。</p>
+
+</dd>
+<dt><i>ss</i></dt>
+<dd><p>范围在 0&#8211;59 之间的整数，表示秒数。</p>
+
+</dd>
+<dt><i>SSS</i></dt>
+<dd><p>如有需要，可使用范围在 000&#8211;999 之间的三位数整数（带前导零）表示毫秒数。 </p>
+
+</dd>
+</dl>
+<p>例如，要指定时间下午 5:10，请在&#8220;时间&#8221;字段中键入 <tt>17:10:00.000</tt>。</p><p>如果&#8220;从&#8221;字段中的时间值迟于&#8220;到&#8221;字段中的时间值，将显示错误消息。</p></li></ul></li>
+<li><b>按日志级别过滤消息。</b><p>为确保要查看的消息都显示在服务器日志中，请先在&#8220;模块日志级别&#8221;页面上<a href="task-eelogginglevels.html">设置适当的日志级别</a>。</p><p>如果选择按日志级别过滤日志消息，将只显示符合指定过滤条件的消息。不过，这种过滤不影响将哪些消息记录到服务器日志中。</p><ol style="list-style-type: lower-roman">
+<li><b>在&#8220;日志级别&#8221;下拉式列表中，选择日志级别。</b></li>
+<li><b>要只显示选定级别的消息，请选择&#8220;请勿包括更严重的消息&#8221;选项。</b><p>默认情况下，将显示服务器日志中选定日志级别和更严重级别的所有消息。</p></li></ol></li></ol></li>
+<li><b>在&#8220;高级搜索&#8221;区域中，按日志程序名称空间过滤记录，并选择要显示的信息量。</b><ol style="list-style-type: lower-alpha">
+<li><b>单击&#8220;高级搜索&#8221;链接。</b><p>&#8220;高级搜索&#8221;区域将添加到&#8220;日志查看器&#8221;窗口。</p></li>
+<li><b>要按模块过滤，请从&#8220;日志程序&#8221;下拉式列表中选择一个或多个名称空间。</b><p>通过按住 Shift 键单击或按住 Ctrl 键单击选择多个名称空间。</p><p>选择较高级别的名称空间也就选择了该名称空间下的所有名称空间。例如，选择 <tt>javax.enterprise.system</tt> 会同时选择该名称空间下所有模块的日志程序，例如 <tt>javax.enterprise.system.core</tt>、<tt>javax.enterprise.system.tools.admin</tt> 等等。</p></li>
+<li><b>要从日志程序中查看某个特定应用程序的消息，请在&#8220;自定义日志程序&#8221;字段中，分行键入每个日志程序的名称。</b><p>如果应用程序具有多个模块，您可以查看任何模块，也可以查看所有模块。例如，某个应用程序可能具有以下日志程序：</p>
+<ul><li><p><tt>com.example.myapp.module1</tt></p>
+
+</li>
+<li><p><tt>com.example.myapp.module2</tt></p>
+
+</li>
+<li><p><tt>com.example.myapp.module3</tt></p>
+
+</li></ul>
+<p>要查看应用程序中所有模块的消息，请键入 <tt>com.mycompany.myapp</tt>。要只查看 <tt>module2</tt> 的消息，请键入 <tt>com.example.myapp.module2</tt>。</p><p>指定一个或多个自定义日志程序时，仅当在&#8220;日志程序&#8221;区域中显式指定了 GlassFish Server 模块的消息，才会显示这些消息。</p></li>
+<li><b>从&#8220;显示&#8221;下拉式列表中，选择要显示的消息量。</b><p>所显示消息的默认数目为 40。其他选项为 100、250 和 1000。</p></li>
+<li><b>要查看堆栈追踪，请取消选中&#8220;限制过长的消息&#8221;选项。</b><p>默认情况下，堆栈追踪不出现在查看器中。要查看堆栈追踪，请单击消息的（详细资料）链接。</p></li>
+<li><b>要隐藏&#8220;高级搜索&#8221;区域，请单击&#8220;基本搜索&#8221;链接。</b></li></ol></li>
+<li><b>要指定您要查看的实例和相关联的日志文件，请使用&#8220;修改搜索&#8221;区域。</b><ul>
+<li><b>从&#8220;实例&#8221;下拉式列表中，选择实例。</b><p>默认值是您最初选择查看日志文件的实例。如果选择查看域管理服务器 (domain administration server, DAS) 的日志文件，则默认值是 server（表示 DAS）。 </p></li>
+<li><b>在&#8220;日志文件&#8221;下拉式列表中，选择日志文件。</b><p>默认名称为 <tt>server.log</tt>。其他选项取决于选定目标的日志设置。</p></li></ul></li>
+<li><b>在&#8220;搜索结果&#8221;区域中，自定义日志消息的显示。</b><p>&#8220;搜索结果&#8221;区域将按照&#8220;日志设置&#8221;页面和&#8220;日志级别&#8221;页面中的设置，显示最近的 40 条服务器日志条目。</p><ul>
+<li><b>要按不同方式对消息进行排序，请单击列中的箭头。</b></li>
+<li><b>要以格式化版本查看消息，请单击此消息的（详细资料）链接。</b><p>此时将打开&#8220;日志条目详细资料&#8221;窗口，其中包含此消息的格式化版本。</p></li>
+<li><b>要查看日志文件中较早或较新的条目，请单击位于表顶部的&#8220;记录早于&#8221;和&#8220;记录晚于&#8221;。</b></li></ul></li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-eelogging.html">配置常规日志记录设置</a></p>
+
+</li>
+<li><p><a href="task-eelogginglevels.html">配置日志级别</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">查看 DAS 的日志文件</a></p>
+
+</li>
+<li><p><a href="../../../cluster/zh_CN/help/task-view-logs-clustered-instance.html">查看群集 GlassFish Server 实例的日志文件</a></p>
+
+</li>
+<li><p><a href="../../../cluster/zh_CN/help/task-view-logs-standalone-instance.html">查看独立 GlassFish Server 实例的日志文件</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

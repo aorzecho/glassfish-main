@@ -1,0 +1,94 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterproperties"></a><h4>群集属性</h4>
+<a name="indexterm-193"></a><a name="indexterm-194"></a><p>&#8220;群集属性&#8221;页面显示为所选群集设置的属性的列表。这些属性添加了有关群集的可选配置信息。</p>
+
+<p>&#8220;群集名称&#8221;字段是只读字段，其中显示所选群集的名称。</p>
+
+<p>对于每个属性，都将显示以下信息：</p>
+
+<dl><dt>名称</dt>
+<dd><p>属性名称。</p>
+
+</dd>
+<dt>值</dt>
+<dd><p>为选定的实例设置的属性的值。</p>
+
+</dd>
+<dt>说明</dt>
+<dd><p>提供有关属性的详细信息的文本说明。</p>
+
+</dd>
+</dl>
+<p>&#8220;其他属性&#8221;表还包含以下选项。</p>
+
+<dl><dt>添加属性</dt>
+<dd><p>用于添加属性的按钮。单击此按钮可向&#8220;其他属性&#8221;表中添加一行。</p>
+
+</dd>
+<dt>删除属性</dt>
+<dd><p>用于删除一个或多个选定属性的按钮。删除的任何属性会恢复其默认值，或者如果没有设置默认值，则未定义。</p>
+
+</dd>
+</dl>
+<p>GlassFish Server 定义了以下群集属性：</p>
+
+<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
+<dd><p>群集用于侦听来自组管理服务 (Group Management Service, GMS) 消息的端口的端口号。默认值在大多数情况下可满足要求。</p>
+
+</dd>
+<dt><tt>GMS_LOOPBACK</tt></dt>
+<dd><p>指定实例是否可以接收其广播到群集的应用级消息。</p>
+
+<p>可能的值如下：</p>
+
+<dl><dt><tt>false</tt></dt>
+<dd><p>实例<b>不</b>能接收自己发送的消息（默认）。</p>
+
+</dd>
+<dt><tt>true</tt></dt>
+<dd><p>实例可以接收自己发送的消息。当实例是群集中的唯一实例时使用此设置对该实例进行测试。</p>
+
+</dd>
+</dl>
+</dd>
+<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
+<dd><p>以下类型事件的多播消息在被丢弃之前可以尝试的最大迭代数或传输数：</p>
+
+
+<ul><li><p>组搜索</p>
+
+</li>
+<li><p>成员心跳</p>
+
+</li>
+<li><p>成员关系更改</p>
+
+</li></ul>
+<p>要匹配在其上部署 DAS 和群集实例的网络配置，可将此值设置的尽可能小些。要确定系统的最小可能值，可使用 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=validate-multicast-1"><tt>validate-multicast</tt>(1)</a> 子命令。</p>
+
+<p>值 0 确保多播消息从不离开广播它们的主机。</p>
+
+<p>值 1 会阻止在同一子网上通过交换机或路由器连接的主机之间广播消息。 </p>
+
+<p>默认值为 4，将确保消息成功广播到通过交换机或路由器连接主机的网络中的所有群集成员。</p>
+
+</dd>
+</dl>
+<h5>等效的 <tt>asadmin</tt> 子命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=get-1"><tt>get</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-1"><tt>list</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

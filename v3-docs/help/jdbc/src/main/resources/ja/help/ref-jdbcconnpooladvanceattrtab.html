@@ -1,0 +1,179 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jdbcconnpooladvanceattrtab"></a><h4>接続プールの詳細属性を編集</h4>
+<a name="indexterm-24"></a><p>「接続プールの詳細属性を編集」ページを使用して、接続リークの診断と使いやすさの向上に役立つ属性を指定します。</p>
+
+<p>「接続プールの詳細属性を編集」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読み込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>プール名</dt>
+<dd><p>接続プールの名前。名前は読み取り専用フィールドです。接続プール名は、新しい JDBC 接続プールの作成時にのみ指定できます。</p>
+
+</dd>
+<dt>文のタイムアウト</dt>
+<dd><p>異常に長い時間実行されているクエリーを終了させるまでの時間の長さ (秒数)。GlassFish サーバー は、作成される文に <tt>QueryTimeout</tt> を設定します。値の &#8211;1 は、オプションが無効であることを示しています。デフォルト値は &#8211;1 です。</p>
+
+</dd>
+<dt>文のキャッシュサイズ</dt>
+<dd><p>LRU (Least Recently Used) キャッシュメカニズムを使用してキャッシュされる文の数。0 を指定すると、文のキャッシュは無効になります。デフォルト値は 0 です。</p>
+
+</dd>
+<dt>SQL の初期化</dt>
+<dd><p>プールに接続が作成される (再使用以外) ときに実行される SQL 文字列。この文字列の実行で、接続の状態が初期化されます。</p>
+
+</dd>
+<dt>SQL トレースリスナー</dt>
+<dd><p>リスナー実装クラス名のコンマ区切りのリスト。アプリケーションによって実行される SQL 文をトレースすることを指定します。リスナークラスは <tt>org.glassfish.api.jdbc.SQLTraceListener</tt> インタフェースを実装する必要があります。リスナーを使用すると、SQL 文のログメッセージに簡単にフィルタを適用することができ、管理者が文を解析する際に役立ちます。 </p>
+
+</dd>
+<dt>JDBC オブジェクトをラップ</dt>
+<dd><p>このオプションが有効な場合、アプリケーションは Statement、PreparedStatement、CallableStatement、ResultSet、DatabaseMetaData に対してラップされた JDBC オブジェクトを取得します。このオプションはデフォルトで有効になっています。</p>
+
+</dd>
+<dt>プール</dt>
+<dd><p>プールの接続プールを有効にします。このオプションはデフォルトで有効になっています。</p>
+
+</dd>
+<dt>最大で 1 回検証</dt>
+<dd><p>接続を確認するための連続した要求の時間間隔を秒単位で一度だけ指定します。この属性を適切な値に設定すると、接続ごとの確認要求回数を最小にすることができます。デフォルト値は 0 です。この属性が無効であることを意味します。</p>
+
+</dd>
+<dt>リークタイムアウト</dt>
+<dd><p>接続プール内の接続リークを追跡する時間 (秒)。このフィールドを使用して、アプリケーションによる接続リークの可能性を検出します。アプリケーションが指定された期間内に接続をプールに戻さなかった場合、この接続はリークしている可能性があると見なされ、呼び出し側のスタックトレースがログに記録されます。0 を指定すると、接続リークのトレースは無効になります。デフォルト値は 0 です。</p>
+
+<p>このフィールドを「リーク再要求」とともに使用すると、アプリケーションによる潜在的な接続リークを避けることができます。</p>
+
+</dd>
+<dt>リーク再要求</dt>
+<dd><p>このオプションを有効にすると、リーク接続の追跡が完了したあとで、リークした接続がプールに復元されます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>作成再試行回数</dt>
+<dd><p>新しい接続の作成に失敗した場合に行われる試行の回数。0 を指定すると、接続の再試行は行われません。デフォルト値は 0 です。</p>
+
+</dd>
+<dt>再試行間隔</dt>
+<dd><p>接続作成の試行の間隔 (秒数)。デフォルト値は 10 です。この属性は、「作成再試行回数」が 1 以上の場合にのみ使用されます。</p>
+
+</dd>
+<dt>使用時にのみ関連付け</dt>
+<dd><p>このオプションが有効な場合、物理的な接続は、接続を使用しているときにのみ論理的な接続に関連付けられます。トランザクションが完了してコンポーネントメソッドが終了したときに関連付けが解除されるため、物理的な接続を再利用しやすくなります。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>使用時にのみ接続を登録</dt>
+<dd><p>このオプションが有効な場合、リソースは実際にメソッドで使用されるときにのみトランザクションに登録されます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>スレッドとの関連付け</dt>
+<dd><p>このオプションが有効な場合、接続とスレッドが関連付けられます。これにより、同じスレッドが接続を必要とするときは、そのスレッドにすでに関連付けられている接続を再利用できるため、プールから接続を取得するオーバーヘッドが発生しません。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>接続のマッチング</dt>
+<dd><p>このオプションが有効な場合、プールから選択された接続は、特定の証明書を持つ接続にマッチングされます。複数のユーザー証明書を持つアプリケーションによって接続プールが使用されている場合は、このオプションを有効にする必要があります。プール内の接続が常に同じ種類であり、プールから選択した接続とリソースアダプタを照合する必要がないことを管理者が確認している場合は、このオプションを無効にしてもかまいません。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>最大接続使用数</dt>
+<dd><p>接続をプールで再利用する回数。指定された回数だけ再利用されると、その接続は閉じられます。接続を再利用できる回数を制限することにより、アプリケーションが文を閉じていない場合に、文のリークを避けることができます。値の 0 は、この属性が無効であることを示します。デフォルト値は 0 です。</p>
+
+</dd>
+<dt>接続検証</dt>
+<dd><p>このオプションが有効な場合、障害発生時にサーバーが再接続するための接続検証が必要です。</p>
+
+</dd>
+<dt>検証方法</dt>
+<dd><p>GlassFish サーバー は、データベース接続を次の方法で検証できます。</p>
+
+<dl><dt><tt>auto-commit</tt> および <tt>metadata</tt></dt>
+<dd><p>GlassFish サーバー は、<tt>con.getAutoCommit</tt> または <tt>con.getMetaData</tt> メソッドを呼び出して接続を検証します。 </p>
+
+
+<hr><p><b>注 - </b>多数の JDBC ドライバが、これらの呼び出しの結果をキャッシュします。その結果、これらの呼び出しを使用すると、信頼できる検証が行われない場合もあります。呼び出しがキャッシュされるかどうかについて、ドライバベンダーに問い合わせる必要があります。</p>
+
+
+<hr>
+</dd>
+<dt><tt>custom-validation</tt></dt>
+<dd><p>GlassFish サーバー は、カスタム実装クラスで「検証クラス名」フィールドに指定した、ユーザー定義の検証メカニズムを使用します。</p>
+
+</dd>
+<dt><tt>table</tt></dt>
+<dd><p>アプリケーションは指定されたデータベース表に問い合わせます。表が存在していてアクセス可能である必要がありますが、行は必要ありません。多くの行を持つ既存の表や、すでに頻繁にアクセスされている表を使用しないでください。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>テーブル名</dt>
+<dd><p>検証に使用するデータベース表の名前。このフィールドは、「検証方法」が <tt>table</tt> に設定された場合にのみ適用されます。</p>
+
+</dd>
+<dt>検証クラス名</dt>
+<dd><p>カスタム検証の実装クラス名。このフィールドは、「検証方法」が <tt>custom-validation</tt> に設定された場合にのみ適用されます。指定したクラス名は、GlassFish サーバー からアクセス可能である必要があります。指定したクラスは、 <tt>org.glassfish.api.jdbc.ConnectionValidation</tt> インタフェースを実装する必要があります。</p>
+
+</dd>
+<dt>すべての障害で</dt>
+<dd><p>このオプションが有効な場合、いずれかの接続で障害が発生すると、GlassFish サーバー はプール内のすべての接続を閉じ、それらを再度確立します。このオプションが無効な場合、個々の接続はそれぞれの使用時のみ再度確立されます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>コンポーネント以外の呼び出し元を許可</dt>
+<dd><p>このオプションが有効な場合、サーブレットフィルタや他社の持続マネージャーなど、コンポーネント以外の呼び出し元がプールを使用できます。コンポーネント以外の呼び出し元によって取得された接続は、トランザクションの終わりにコンテナによって自動的に閉じられません。呼び出し元が明示的に閉じる必要があります。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+</dl>
+<a name="gkonw"></a><h5>関連操作</h5>
+
+<ul><li><p><a href="task-setdbaccess.html">「データベースアクセスを設定する」</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">「JDBC ドライバを統合する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">「JDBC 接続プールを作成する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">「JDBC 接続プールの一般設定を編集する」</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">「接続プール設定を検証する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">「JDBC 接続プールの詳細属性を編集する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">「JDBC 接続プールのプロパティーを編集する」</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">「JDBC 接続プールを削除する」</a></p>
+
+</li></ul>
+<a name="gkoli"></a><h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=add-resources-1"><tt>add-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jdbc-connection-pool-1"><tt>create-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jdbc-connection-pool-1"><tt>delete-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jdbc-connection-pools-1"><tt>list-jdbc-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=ping-connection-pool-1"><tt>ping-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-database-1"><tt>start-database</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-database-1"><tt>stop-database</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

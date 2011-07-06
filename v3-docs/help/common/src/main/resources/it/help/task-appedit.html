@@ -1,0 +1,87 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-appedit"></a><h4>Modificare un'applicazione distribuita</h4><a name="indexterm-44"></a><ol>
+<li><b>Nella struttura ad albero, selezionare il nodo Applications.</b><p>Viene visualizzata la pagina Applications. </p></li>
+<li><b>Dalla tabella Deployed Applications, fare clic sul nome dell'applicazione da modificare.</b><p>Il nome pu&#242; includere un identificatore di versione opzionale, che segue il
+nome ed &#232; separato da questo da due punti (<tt>:</tt>). Per ulteriori
+informazioni sulle versioni di moduli e applicazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions in <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p><p>Viene visualizzata la pagina Edit Application.</p></li>
+<li><b>Deselezionare la casella di controllo Status Enabled per disabilitare lo stato dell'applicazione
+in modo che non sia disponibile.</b><p>Per impostazione predefinita, lo stato di un'applicazione viene abilitato non appena viene
+distribuita. </p></li>
+<li><b>Per un'applicazione Web, nel campo Context Root digitare il percorso per l'applicazione.</b><p>Nell'URL dell'applicazione Web, la root di contesto si trova subito dopo il
+numero della porta (<tt>http://</tt><i> host</i><tt>:</tt><i>port</i><tt>/</tt><i>context-root</i><tt>/... </tt>). Verificare che la root di contesto inizi con
+una barra, ad esempio <tt> /hello</tt>.</p></li>
+<li><b>Deselezionare la casella di controllo Availability Enabled per disabilitare la persistenza delle
+sessioni e la definizione di checkpoint SFSB per l'applicazione.</b><p>Se &#232; selezionata la casella di controllo Enabled, &#232; abilitata l'alta disponibilit&#224;
+per le sessioni Web e per la definizione di checkpoint e potenzialmente
+la passivazione dei bean di sessione con stato (SFSB). Se si imposta
+false (valore predefinito), il salvataggio delle sessioni Web e la definizione di
+checkpoint SFSB vengono disabilitati per l'applicazione, l'applicazione Web o il modulo EJB
+specificato. Se si imposta true, l'applicazione o il modulo specificato viene abilitato
+per l'alta disponibilit&#224;. Impostare l'opzione su true solo se l'alta disponibilit&#224; &#232;
+configurata e abilitata ai livelli superiori, ad esempio al livello del server
+e del contenitore.</p><p>Questa opzione viene visualizzata se esistono cluster o istanze server standalone oltre
+all'istanza server predefinita (<tt>server</tt>).</p></li>
+<li><b>Dall'elenco a discesa Virtual Server, selezionare il server virtuale da associare a
+questa applicazione.</b><p>L'opzione Virtual Servers viene visualizzata se esiste solo l'istanza server predefinita <tt>server </tt>.
+Se esistono cluster o altre istanze server standalone, &#232; possibile selezionare i
+server virtuali dopo la distribuzione. Andare alla pagina Edit Application, selezionare la
+scheda Target, quindi selezionare Manage Virtual Servers per la destinazione desiderata.</p></li>
+<li><b>Selezionare la casella di controllo Java Web Start Enabled per distribuire l'applicazione
+utilizzando il software Java Web Start.</b><p>Questa opzione &#232; abilitata o disabilitata per impostazione predefinita in base alla
+sua impostazione al momento della distribuzione originaria.</p></li>
+<li><b>Nel campo Description, digitare una descrizione per l'applicazione.</b></li>
+<li><b>Per visualizzare l'elenco dei descrittori di modulo per l'applicazione, fare clic sulla
+scheda Description. Per ulteriori dettagli, vedere <a href="task-appviewdesc.html">Visualizzare i descrittori di un'applicazione</a>.</b></li>
+<li><b>Per impostazione predefinita, lo stato di un'applicazione &#232; Enabled in tutte le
+destinazioni. Per visualizzare le destinazioni in cui l'applicazione &#232; stata abilitata, fare
+clic sulla scheda Targets. &#200; possibile abilitare o disabilitare applicazioni in una
+o pi&#249; destinazioni. Vedere <a href="task-appviewtargets.html">Visualizzare le destinazioni di un'applicazione</a>.</b></li>
+<li><b>Fare clic su Save.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-applistdeployed.html">Visualizzare un elenco di applicazioni distribuite</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">Distribuire un'applicazione Web</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Distribuire un'applicazione enterprise</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Distribuire un client dell'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Distribuire un modulo connettore</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Distribuire un file JAR EJB</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Visualizzare i descrittori di un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">Visualizzare le destinazioni di un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Visualizzare informazioni su endpoint per servizi Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Avviare un'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Avviare un client dell'applicazione</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">Ridistribuire un'applicazione distribuita</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Ricaricare un'applicazione distribuita</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

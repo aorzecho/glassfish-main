@@ -1,0 +1,42 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-webcontainermanagerprops"></a><h4>配置 Web 容器的管理員特性</h4><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>階段作業管理員提供各式方法，以配置建立與銷毀階段作業的方式、階段作業狀態的儲存位置，以及可用的最大階段作業數。</p>
+
+<ol>
+<li><b>在瀏覽樹狀結構中，展開 [配置] 節點。</b></li>
+<li><b>選取您要變更的配置。</b></li>
+<li><b>在配置的節點下，選取 [Web 容器] 節點。</b><p>[一般特性] 頁面會隨即開啟。</p></li>
+<li><b>在 [一般特性] 頁面上，按一下 [管理員特性] 標籤。</b><p>[管理員特性] 頁面會隨即開啟。</p></li>
+<li><b>在 [清除間隔] 欄位中，鍵入在刪除存放區內非使用中的階段作業資料之前，需等待的秒數。</b><p>預設值為 60。</p><p>將此值設為低於階段作業資料變更的頻率。例如，在經常存取的網站上，應將符合項目計數器 Servlet 的此值盡可能設得較低 (1 秒)；否則您可能會在每次重新啟動伺服器時遺失最後數個符合項目。</p></li>
+<li><b>在 [最大階段作業] 欄位中，鍵入可以快取的最大階段作業數目。</b><p>&#8211;1 值表示階段作業數目沒有限制。預設值為 &#8211;1。</p><p>到達限制後，嘗試建立新的階段作業會導致丟出 <tt>IllegalStateException</tt>。</p></li>
+<li><b>在 [階段作業檔案名稱] 欄位中，鍵入於應用程式重新啟動之間保留階段作業狀態之目錄的絕對或相對路徑 (如果可能保留狀態的話)。</b><p>若沒有設定此路徑，則不會保留階段作業狀態。依預設，不會設定此路徑。</p><p>相對路徑是相對於此 Web 應用程式暫存目錄的路徑。</p><p>只有在 [持續性類型] 為 <tt>memory</tt> 時，此設定才適用。若要設定 [持續性類型]，請參閱<a href="task-webcontaineravailability.html">配置 Web 容器的可用性設定</a>。</p></li>
+<li>(可選擇) <b>在 [其他特性] 區段中，指定其他特性。</b><p>GlassFish Server 未定義階段作業管理員的任何其他特性。</p><ul>
+<li><b>若要增加特性，請按一下 [增加特性] 按鈕。在出現的空白列中，於 [名稱] 欄位中鍵入特性名稱，然後在 [值] 欄位中鍵入特性值。</b></li>
+<li><b>若要修改特性，請編輯特性的 [值] 欄位。</b></li>
+<li><b>若要刪除特性，請選取您要刪除之特性 [名稱] 欄位左側的核取方塊，然後按一下 [刪除特性] 按鈕。</b></li></ul></li>
+<li><b>按一下 [儲存]。</b>
+<hr><p><b>提示 - </b>若要回到預設設定，請按一下 [載入預設值] 按鈕，然後按一下 [儲存]。</p>
+
+
+<hr>
+</li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-webcontainergeneral.html">配置 Web 容器的一般特性</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">配置 Web 容器的階段作業特性</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">配置 Web 容器的儲存特性</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">配置 Web 容器的可用性設定</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

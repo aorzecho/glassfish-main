@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-javamailsessionsedit"></a><h4>Editar sesiones JavaMail</h4>
+<a name="indexterm-23"></a><p>Utilice la p&#225;gina Editar sesiones JavaMail para editar una sesi&#243;n JavaMail.</p>
+
+<p>La p&#225;gina Editar sesiones JavaMail contiene las siguientes opciones.</p>
+
+<dl><dt>Cargar valores predeterminados</dt>
+<dd><p>Bot&#243;n para restablecer los valores predeterminados de toda la configuraci&#243;n.</p>
+
+</dd>
+<dt>Nombre JNDI</dt>
+<dd><p>Un nombre exclusivo que identifica las sesiones JavaMail. El nombre JNDI es un campo de s&#243;lo lectura. &#218;nicamente puede especificar el nombre JNDI al crear una nueva sesi&#243;n JavaMail.</p>
+
+</dd>
+<dt>Host de correo</dt>
+<dd><p>El host del servidor de correo predeterminado. Los m&#233;todos de conexi&#243;n de los objetos Almacenamiento y Transporte utilizan este valor si no se suministra una propiedad de host espec&#237;fica de protocolo. El nombre debe ser soluble en un nombre de host real.</p>
+
+</dd>
+<dt>Usuario predeterminado</dt>
+<dd><p>El nombre de usuario que se debe proporcionar cuando se conecta a un servidor de correo. Los m&#233;todos de conexi&#243;n de los objetos Almacenamiento y Transporte utilizan este valor si no se suministra una propiedad de nombre de usuario espec&#237;fica del protocolo. El nombre de usuario debe contener &#250;nicamente caracteres alfanum&#233;ricos, de subrayado, guiones y puntos.</p>
+
+</dd>
+<dt>Direcci&#243;n de remitente predeterminada</dt>
+<dd><p>La direcci&#243;n de correo electr&#243;nico del usuario predeterminado. El formato es <i>nombreusuario</i><tt>@</tt><i>host</i>.<i>dominio</i>. </p>
+
+</dd>
+<dt>Descripci&#243;n</dt>
+<dd><p>Una descripci&#243;n de esta sesi&#243;n de correo electr&#243;nico.</p>
+
+</dd>
+<dt>Estado</dt>
+<dd><p>El estado de la sesi&#243;n de correo electr&#243;nico. La sesi&#243;n de correo electr&#243;nico puede habilitarse o deshabilitarse. El valor predeterminado es Habilitado.</p>
+
+</dd>
+<dt>Protocolo de almacenamiento</dt>
+<dd><p>El servicio de protocolo de almacenamiento, que se conecta con un servidor de correo electr&#243;nico, recupera mensajes y los guarda en una o varias carpetas. Los valores permitidos son  <tt>imap</tt>, <tt>pop3</tt>, <tt>imaps</tt> y <tt>pop3s</tt>. El valor predeterminado es <tt>imap</tt>.</p>
+
+</dd>
+<dt>Clase de protocolo de almacenamiento</dt>
+<dd><p>La clase de implementaci&#243;n del proveedor de servicios para el almacenamiento. Los valores permitidos son:</p>
+
+
+<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
+
+</li></ul>
+<p>El valor predeterminado es <tt>com.sun.mail.imap.IMAPStore</tt>.</p>
+
+</dd>
+<dt>Protocolo de transporte</dt>
+<dd><p>El servicio de protocolo de transporte, que env&#237;a mensajes. Los valores permitidos son  <tt>smtp</tt> y <tt>smtps</tt>. El valor predeterminado es <tt>smtp</tt>.</p>
+
+</dd>
+<dt>Clase de protocolo de transporte</dt>
+<dd><p>La clase de implementaci&#243;n del proveedor de servicios para el transporte. Los valores permitidos son:</p>
+
+
+<ul><li><p><tt>com.sun.mail.smtp.SMTPTransport</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.smtp.SMTPSSLTransport</tt></p>
+
+</li></ul>
+<p>El valor predeterminado es <tt>com.sun.mail.smtp.SMTPTransport</tt>.</p>
+
+</dd>
+<dt>Depurar</dt>
+<dd><p>Si esta opci&#243;n est&#225; seleccionada, la depuraci&#243;n para este recurso est&#225; habilitada. Si el nivel de registro de JavaMail se ha definido como <tt>FINE</tt> o FINER, la salida de depuraci&#243;n se genera y se incluye en el archivo de registros del sistema. Vea <a href="../../../common/es/help/task-eelogginglevels.html">Configurar niveles de registro</a> para obtener informaci&#243;n sobre la definici&#243;n del nivel de registro.</p>
+
+</dd>
+<dt>Propiedades adicionales</dt>
+<dd><p>Propiedades adicionales de las sesiones JavaMail. Para obtener una lista de las propiedades disponibles, consulte la <a href="http://java.sun.com/products/javamail/javadocs/index.html">documentaci&#243;n de la API de JavaMail</a>. Las propiedades adicionales deben comenzar por <tt>mail-</tt> y como separadores se deben utilizar guiones en lugar de puntos. Por ejemplo, <tt>mail-debug</tt> es correcta, pero <tt>mail.debug</tt> no lo es. El back end de GlassFish Server convierte los guiones en los puntos que espera la API de JavaMail.</p>
+
+</dd>
+</dl>
+<h5>Tareas relacionadas</h5>
+
+<ul><li><p><a href="task-javamailsessioncreate.html">Para crear una sesi&#243;n JavaMail</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsedit.html">Para editar una sesi&#243;n JavaMail</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsdelete.html">Para eliminar una sesi&#243;n JavaMail</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-javamail-resource-1"><tt>create-javamail-resource</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-javamail-resources-1"><tt>list-javamail-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-javamail-resource-1"><tt>delete-javamail-resource</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

@@ -1,0 +1,126 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-create-cluster"></a><h4>クラスタを作成する</h4><a name="indexterm-1"></a><p><b>クラスタ</b>は、同じアプリケーション、リソース、および設定情報を共有する GlassFish サーバー インスタンスの集まりに名前を付けたものです。</p>
+
+<p>クラスタは、スケーラビリティー、負荷分散、および障害保護によって高可用性を実現します。あるインスタンスまたはクラスタ内のあるホストに障害が起きると、GlassFish サーバー は障害を検出し、障害の起きたインスタンスからクラスタ内のほかのインスタンスに要求をリダイレクトし、ユーザーセッションの状態を回復します。クラスタ内のすべてのインスタンス上には同一のアプリケーションとリソースがあるため、インスタンスはクラスタ内のほかのどのインスタンスにも処理を継続させることができます。</p>
+
+<p>GlassFish サーバー では、インスタンスの存在する場所が同じホストか異なるホストかに関係なく、1 つのホストの 1 つのユニットとしてクラスタ内のすべてのインスタンスを管理できます。</p>
+
+<h6>始める前に</h6><p>作成中のクラスタに GlassFish サーバー インスタンスを追加する予定がある場合は、それらのインスタンスを追加するノードが存在していることを確認します。</p>
+
+<ol>
+<li><b>ナビゲーションツリーで、「クラスタ」ノードを選択します。</b><p>「クラスタ」ページが開きます。</p></li>
+<li><b>「クラスタ」ページで、「新規」をクリックします。 </b><p>「新しいクラスタ」ページが開きます。</p></li>
+<li><b>「クラスタ名」フィールドに、クラスタの名前を入力します。</b><p>名前は次の要件を満たしてください。</p>
+<ul><li><p>名前は英数字または下線で始めます。</p>
+
+</li>
+<li><p>名前に含めることができるのは次の文字だけです。</p>
+
+
+<ul><li><p>小文字</p>
+
+</li>
+<li><p>大文字</p>
+
+</li>
+<li><p>数値</p>
+
+</li>
+<li><p>ハイフン</p>
+
+</li>
+<li><p>ピリオド</p>
+
+</li>
+<li><p>下線</p>
+
+</li></ul>
+</li>
+<li><p>名前はドメイン内で一意にします。また、別のクラスタ、名前付き設定、GlassFish サーバー インスタンス、またはノードの名前にすることはできません。</p>
+
+</li>
+<li><p><tt>ドメイン</tt>、<tt>サーバー</tt>、または GlassFish サーバー で予約されているほかのキーワードを名前に使用してはいけません。</p>
+
+</li></ul>
+</li>
+<li><b>「設定」ドロップダウンリストで、クラスタが使用する名前付き設定を選択します。</b>
+<hr><p><b>注 - </b>「<tt>デフォルト設定</tt>」を選択した場合は、設定を共有<b>しない</b>ことを次の手順で指定する必要があります。「<tt>デフォルト設定</tt>」は共有できません。</p>
+
+
+<hr>
+</li>
+<li><b>クラスタが使用する設定を共有するかどうかを指定します。</b><ul>
+<li><b>設定を共有しない場合は、「選択している設定のコピーの作成」オプションをオンのままにしておきます。 </b><p>クラスタが作成されると、選択した設定がコピーされます。設定のコピーには、<tt><i>cluster-name</i>-config</tt> という名前が割り当てられます。<i>cluster-name</i> は、作成しているクラスタの名前です。</p></li>
+<li><b>設定を共有する場合は、「選択している設定への参照」オプションをオンにします。</b><p>クラスタは、指定した既存の名前付き設定を使用します。</p></li></ul></li>
+<li>(省略可能) <b><a name="indexterm-2"></a>GlassFish サーバー インスタンスをクラスタに追加します。</b>
+<hr><p><b>注 - </b>遠隔ホストを表す CONFIG タイプのノードにインスタンスを作成するには、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a> サブコマンドを使用する必要があります。この目的で 管理コンソール を使用することはできません。</p>
+
+
+<hr>
+<p><a href="task-create-clustered-instance.html">クラスタ作成後にサーバーインスタンスを追加する</a>ことも可能です。</p><p>各インスタンスを次のように追加します。</p><ol style="list-style-type: lower-alpha">
+<li><b>「作成するサーバーインスタンス」セクションで、「追加」をクリックします。</b><p>クラスタ内のインスタンスの表に行が追加されます。</p></li>
+<li><b>「インスタンス名」フィールドに、インスタンスの名前を入力します。</b></li>
+<li><b>「重み」フィールドに、インスタンスの負荷分散の重みを表す整数を入力します。</b><p>負荷分散の重みは、クラスタに対するすべての要求のうちインスタンスが処理する必要がある割合を決定します。</p><p>たとえば、2 つのインスタンスで構成されるクラスタで、一方のインスタンスで 4 つの要求のうちの 1 つを処理し、もう一方のインスタンスで残りの 3 つの要求を処理しなければならない場合があります。この場合、4 つの要求のうちの 1 つを処理するインスタンスの重みを 1
+に設定し、もう一方のインスタンスの重みを 3 に設定します。パーセントを使用する場合は、インスタンスの重みをそれぞれ 25 と 75 に設定します。</p><p>デフォルトの重みは 100 です。</p></li>
+<li><b>「ノード」ドロップダウンリストで、インスタンスが配置されるノードを選択します。</b></li></ol></li>
+<li><b>「了解」をクリックします。</b><p>「クラスタ」ページに戻ります。ページのクラスタの表にクラスタが追加されます。</p></li></ol><h6>参照</h6>
+<ul><li><p><a href="task-delete-cluster.html">「クラスタを削除する」</a></p>
+
+</li>
+<li><p><a href="task-availabilityservice.html">「クラスタの可用性を設定する」</a></p>
+
+</li>
+<li><p><a href="task-start-cluster.html">「クラスタを起動する」</a></p>
+
+</li>
+<li><p><a href="task-stop-cluster.html">「クラスタを停止する」</a></p>
+
+</li>
+<li><p><a href="task-modify-cluster-config.html">「クラスタの設定を変更する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-deploy.html">「アプリケーションをクラスタに配備する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-list.html">「クラスタに配備されているアプリケーションを一覧表示する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-undeploy.html">「クラスタからアプリケーションの配備を取り消す」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-remove.html">「クラスタからアプリケーションを削除する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-edit.html">「クラスタに配備されているアプリケーションを編集する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-enable-disable.html">「クラスタに配備されているアプリケーションを有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-cluster-app-lb-enable-disable.html">「クラスタに配備されているアプリケーションの負荷分散を有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-create.html">「クラスタのリソースを作成する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-display.html">「クラスタのリソースを一覧表示する」</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-enable-disable.html">「リソースをグローバルに有効または無効にする」</a></p>
+
+</li>
+<li><p><a href="task-cluster-resource-edit.html">「クラスタのリソースを編集する」</a></p>
+
+</li>
+<li><p><a href="task-upgrade-components.html">「サービスを停止せずにコンポーネントをアップグレードする」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

@@ -1,0 +1,162 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpooladvance"></a><h4>Modifier les attributs avanc&#233;s d&#8217;un pool de connexions JDBC</h4><a name="indexterm-11"></a><ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Ressources.</b></li>
+<li><b>Sous le n&#339;ud Ressources, s&#233;lectionnez le n&#339;ud JDBC.</b></li>
+<li><b>Sous le n&#339;ud JDBC, s&#233;lectionnez le n&#339;ud Pools de connexions.</b><p>La page Pools de connexions s&#8217;ouvre.</p></li>
+<li><b>Dans la page Pools de connexions, cliquez sur le nom du pool
+que vous modifiez.</b><p>La page Modification du pool de connexions s&#8217;ouvre.</p></li>
+<li><b>Dans la page Modification du pool de connexions, cliquez sur l&#8217;onglet Avanc&#233;.</b><p>La page Modifier les attributs avanc&#233;s d&#8217;un pool de connexions s&#8217;affiche.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;expiration de l&#8217;instruction, entrez le d&#233;lai, en seconde,
+au-del&#224; duquel les requ&#234;tes d&#8217;ex&#233;cution anormalement longues seront abandonn&#233;es.</b><p>GlassFish Server va d&#233;finir <tt>QueryTimeout</tt> sur les instructions cr&#233;&#233;es. D&#233;finissez la valeur
+sur -1 pour d&#233;sactiver cette option. La valeur par d&#233;faut est -1.</p></li>
+<li><b>Dans le champ Taille du cache d&#8217;instruction, entrez le nombre d&#8217;instructions devant &#234;tre
+plac&#233;es en m&#233;moire cache via le syst&#232;me de mise en cache LRU
+(utilis&#233; le moins r&#233;cemment).</b><p>Pour d&#233;sactiver la mise en cache des instructions, entrez la valeur 0.
+La valeur par d&#233;faut est 0.</p></li>
+<li><b>Dans le champ Init SQL, tapez une cha&#238;ne SQL &#224; ex&#233;cuter lors
+de la cr&#233;ation (mais pas de la r&#233;utilisation) d&#8217;une connexion dans le
+pool.</b><p>L&#8217;ex&#233;cution de cette cha&#238;ne initialise l&#8217;&#233;tat de la connexion.</p></li>
+<li><b>Dans le champ Listeners de suivi SQL, tapez une liste de noms
+de classe d&#8217;impl&#233;mentation des listeners s&#233;par&#233;s par des virgules pour indiquer que
+les instructions SQL ex&#233;cut&#233;es par les applications sont suivies.</b><p>Les classes de listeners doivent impl&#233;menter l&#8217;interface <tt>org.glassfish.api.jdbc.SQLTraceListener</tt> . L&#8217;utilisation de listeners
+facilite le filtrage des messages du fichier journal des instructions SQL et aide
+les administrateurs &#224; analyser ces instructions.</p></li>
+<li><b>Cochez la case Imbriquer des objets JDBC pour que les applications imbriquent
+les objets JDBC pour <tt>Statement</tt>, <tt>PreparedStatement</tt>, <tt>CallableStatement</tt>, <tt>ResultSet</tt> et <tt>DatabaseMetaData</tt>. </b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
+<li><b>Cochez la case Groupement pour activer le regroupement des connexions du pool.</b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
+<li><b>Dans le champ Valider une fois au plus, saisissez le d&#233;lai, en
+secondes, au bout duquel une connexion est valid&#233;e une fois au plus.</b><p>La d&#233;finition de cet attribut sur une valeur appropri&#233;e r&#233;duit le nombre
+de demandes de validation &#233;manant d'une connexion. La valeur par d&#233;faut est
+0, ce qui signifie que l'attribut n'est pas activ&#233;. </p></li>
+<li><b>Dans le champ D&#233;lai de fuite, saisissez la dur&#233;e, en secondes, du
+suivi des fuites de connexion dans un pool de connexions.</b><p>Ce champ permet de d&#233;tecter les &#233;ventuelles fuites de connexion de l&#8217;application.
+Une connexion non renvoy&#233;e au pool par l&#8217;application dans l&#8217;intervalle sp&#233;cifi&#233; est
+soup&#231;onn&#233;e de pr&#233;senter une fuite&#160;; un suivi de pile de l&#8217;appelant est
+alors consign&#233; dans le journal. D&#233;finissez la valeur sur 0 pour d&#233;sactiver
+le suivi des fuites de connexion. La valeur par d&#233;faut est 0.</p><p>Utilisez ce champ avec le champ R&#233;cup&#233;ration de la fuite pour &#233;viter
+tout risque de fuite de connexion de l&#8217;application.</p></li>
+<li><b>Cochez la case R&#233;cup&#233;ration de la fuite pour restaurer les connexions pr&#233;sentant
+des fuites dans le pool une fois le suivi des fuites de
+connexion termin&#233;.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Dans le champ Tentatives de cr&#233;ation, saisissez le nombre de tentatives de
+cr&#233;ation en cas d&#8217;&#233;chec lors de la cr&#233;ation d&#8217;une connexion.</b><p>D&#233;finissez la valeur sur 0 pour annuler les tentatives de recr&#233;ation de
+la connexion. La valeur par d&#233;faut est 0.</p></li>
+<li><b>Dans le champ Intervalle de tentative, saisissez l&#8217;intervalle, en secondes, entre deux
+tentatives de cr&#233;ation d&#8217;une connexion.</b><p>La valeur par d&#233;faut est 10. Cet attribut n&#8217;est utilis&#233; que si
+la valeur de l&#8217;option Nouvelles tentatives de cr&#233;ation est sup&#233;rieure &#224; 0.</p></li>
+<li><b>Cochez la case Association diff&#233;r&#233;e pour n&#8217;associer une connexion physique &#224; une collection
+logique que lorsque la connexion est utilis&#233;e. </b><p>Les connexions sont dissoci&#233;es lorsque la transaction est termin&#233;e et qu&#8217;une m&#233;thode
+de composant prend fin, ce qui facilite la r&#233;utilisation des connexions physiques.
+Si cette option est d&#233;sactiv&#233;e, une connexion physique est associ&#233;e &#224; une connexion
+logique avant m&#234;me d&#8217;&#234;tre utilis&#233;e. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Cochez la case Enr&#244;lement diff&#233;r&#233; de la connexion pour enr&#244;ler une ressource
+dans la transaction uniquement lorsqu&#8217;elle est utilis&#233;e dans une m&#233;thode.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Cochez la case Associer au thread pour cr&#233;er des associations entre des
+connexions et des threads.</b><p>Lorsqu&#8217;un thread a besoin d&#8217;une autre connexion, il peut r&#233;utiliser la connexion
+qui lui est d&#233;j&#224; associ&#233;e, ce qui &#233;vite toute surcharge g&#233;n&#233;r&#233;e par
+une autre connexion du pool. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Cochez la case Faire correspondre les connexions pour activer la mise en
+correspondance des connexions du pool.</b><p>Si cette option est activ&#233;e, une connexion s&#233;lectionn&#233;e dans le pool doit &#234;tre
+mise en correspondance avec les connexions disposant de certaines informations d&#8217;identification. Cette option
+doit &#234;tre activ&#233;e si le pool de connexions est utilis&#233; par des
+applications disposant de plusieurs informations d&#8217;identification utilisateur. Cette option peut &#234;tre d&#233;sactiv&#233;e
+si l&#8217;administrateur sait que les connexions du pool seront toujours homog&#232;nes et
+qu&#8217;il est donc inutile pour l&#8217;adaptateur de ressources d&#8217;associer une connexion emprunt&#233;e
+au pool. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Dans le champ Utilisation max. des connexions, saisissez le nombre de r&#233;utilisations
+d&#8217;une connexion par le pool.</b><p>Une fois qu&#8217;une connexion a &#233;t&#233; r&#233;utilis&#233;e le nombre de fois sp&#233;cifi&#233;,
+elle est ferm&#233;e. En limitant le nombre de r&#233;utilisations d&#8217;une connexion, vous
+pouvez &#233;viter les fuites d&#8217;instruction lorsqu&#8217;une application ne ferme pas des instructions. D&#233;finissez la
+valeur sur 0 pour d&#233;sactiver cet attribut. La valeur par d&#233;faut est
+0.</p></li>
+<li><b>Cochez la case Validation des connexions requise pour activer la validation des
+connexions.</b><p>La validation des connexions permet au serveur de se reconnecter en cas
+d&#8217;&#233;chec.</p></li>
+<li><b>Dans la liste d&#233;roulante M&#233;thode de validation, s&#233;lectionnez une m&#233;thode de validation.</b><p>GlassFish Server peut valider les connexions &#224; la base de donn&#233;es de
+l&#8217;une des mani&#232;res suivantes.</p><dl><dt><tt>auto-commit</tt> et <tt>metadata</tt></dt>
+<dd><p>GlassFish Server valide une connexion en appelant les m&#233;thodes <tt>con.getAutoCommit</tt> et <tt>con.getMetaData</tt>. </p>
+
+
+<hr><p><b>Remarque - </b>La plupart des pilotes JDBC mettent en cache le r&#233;sultat de ces appels. Par cons&#233;quent, l&#8217;utilisation de ces appels ne donne pas toujours une validation fiable. Contactez votre fournisseur de pilotes pour savoir si ces appels sont mis ou non en cache.</p>
+
+
+<hr>
+</dd>
+<dt><tt>custom-validation</tt></dt>
+<dd><p>GlassFish Server utilise un m&#233;canisme de validation d&#233;fini par l&#8217;utilisateur sp&#233;cifi&#233; par la classe d&#8217;impl&#233;mentation personnalis&#233;e dans le champ Nom de classe de validation.</p>
+
+</dd>
+<dt><tt>table</tt></dt>
+<dd><p>L&#8217;application interroge la table de base de donn&#233;es sp&#233;cifi&#233;e. La table doit exister et &#234;tre accessible mais ne requiert aucune ligne. N&#8217;utilisez pas une table existante comportant un nombre important de lignes ou une table d&#233;j&#224; fr&#233;quemment consult&#233;e. </p>
+
+</dd>
+</dl>
+</li>
+<li><b>Si vous s&#233;lectionnez <tt>table</tt> dans la liste d&#233;roulante M&#233;thode de validation, s&#233;lectionnez
+le nom de la table de base de donn&#233;es dans la liste
+d&#233;roulante Nom de la table.</b></li>
+<li><b>Si vous s&#233;lectionnez <tt>custom-validation</tt> dans la liste d&#233;roulante M&#233;thode de validation, saisissez le
+nom de la classe d&#8217;impl&#233;mentation de la validation personnalis&#233;e.</b><p>GlassFish Server doit pouvoir acc&#233;der au nom de classe indiqu&#233;. La classe sp&#233;cifi&#233;e
+doit impl&#233;menter l&#8217;interface <tt>org.glassfish.api.jdbc.ConnectionValidation</tt> .</p></li>
+<li><b>Cochez la case Fermer toutes les connexions sur tout &#233;chec pour que
+le serveur ferme et r&#233;tablisse toutes les connexions du pool en cas
+d&#8217;&#233;chec d&#8217;une connexion.</b><p>Si cette option est d&#233;sactiv&#233;e, les connexions individuelles ne sont r&#233;tablies que
+lorsqu&#8217;elles sont utilis&#233;es.  Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>Cochez la case Autoriser des programmes appelants non-composant de sorte que le
+pool puisse &#234;tre utilis&#233; par des programmes appelants non-composant, tels que des
+filtres de servlet et des gestionnaires de persistance tiers.</b><p>Les connexions obtenues par des programmes appelants non-composant ne sont pas automatiquement ferm&#233;es
+&#224; la fin d&#8217;une transaction par le conteneur. Elles doivent &#234;tre explicitement ferm&#233;es
+par le programme appelant. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li>(Facultatif) <b>Cliquez sur le bouton Vider sur l'onglet G&#233;n&#233;ral pour vider toutes les
+connexions du pool. </b><p>Cliquez sur le bouton Vider revient &#224; d&#233;truire toutes les connexions existantes,
+&#224; recr&#233;er les connexions &#233;tablies pour le pool et &#224; restaurer le
+pool &#224; sa taille initiale et minimale.</p></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-setdbaccess.html">Configurer l'acc&#232;s &#224; la base de donn&#233;es</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">Int&#233;grer un pilote JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">Cr&#233;er une ressource JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">Modifier une ressource JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">Pour modifier les cibles de ressources JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">Supprimer une ressource JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">Cr&#233;er un pool de connexions JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">Modifier les param&#232;tres g&#233;n&#233;raux du pool de connexions JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">V&#233;rifier les param&#232;tres du pool de connexions</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Modifier les propri&#233;t&#233;s d'un pool de connexions JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Supprimer un pool de connexions JDBC</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

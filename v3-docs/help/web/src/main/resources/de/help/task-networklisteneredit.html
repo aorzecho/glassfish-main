@@ -1,0 +1,81 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-networklisteneredit"></a><h4>So bearbeiten Sie ein Netzwerk-Zielger&#228;t</h4><a name="indexterm-22"></a><ol>
+<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
+<li><b>Erweitern Sie unter dem Konfigurationsknoten den Knoten "Netzwerk konfigurieren".</b></li>
+<li><b>W&#228;hlen Sie unter dem Knoten "Netzwerkkonfiguration" den Knoten "Netzwerk-Zielger&#228;te".</b><p>Die Seite "Netzwerk-Zielger&#228;te" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Netzwerk-Zielger&#228;te" auf den Namen des zu bearbeitenden
+Netzwerk-Zielger&#228;ts.</b><p>Die Seite "Netzwerk-Zielger&#228;t bearbeiten" wird ge&#246;ffnet.</p></li>
+<li><b>Markieren Sie das Kontrollk&#228;stchen "Status aktiviert" oder entfernen Sie die Markierung, um
+den Status des Netzwerkzielger&#228;ts zu &#228;ndern.</b><p>Das Zielger&#228;t kann aktiviert oder deaktiviert werden. Diese Option ist standardm&#228;&#223;ig aktiviert.
+Wenn das Zielger&#228;t deaktiviert ist, f&#252;hren alle Versuche, eine Verbindung zum Zielger&#228;t herzustellen,
+zu einer Socket-Ausnahme (<tt>java.net.ConnectException</tt>).</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Sicherheit", um Sicherheit f&#252;r das vom Netzwerk-Zielger&#228;t verwendete
+Protokoll zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "JK-Zielger&#228;t", um anzugeben, dass das Zielger&#228;t das Apache-Protokoll
+<tt>mod-jk</tt> unterst&#252;tzt.</b><p>Das Protokoll <tt>mod-jk</tt> ist ein propriet&#228;res Kommunikations-/Netzwerkprotokoll zwischen dem Apache-Webserver <tt>httpd</tt> und
+einer Backend-Instanz von GlassFish-Server. Wenn das Zielger&#228;t dieses Protokoll unterst&#252;tzt, wird davon
+ausgegangen, dass <tt>httpd</tt> den gesamten statischen Inhalt verarbeitet, w&#228;hrend alle Anforderungen von
+dynamischen Ressourcen (d.&#160;h. Servlets und JSPs) an das <tt>mod-jk</tt>-f&#228;hige Zielger&#228;t von GlassFish-Server
+weitergeleitet werden, wobei das Protokoll <tt>mod-jk</tt> verwendet wird. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Geben Sie im Feld "Port" die Nummer des Ports ein, den das
+Netzwerk-Zielger&#228;t &#252;berwachen soll. </b><p>G&#252;ltige Werte sind 1 bis 65535. Bei einem UNIX-System sind zum Erstellen
+von Sockets, die die Ports 1 bis 1024 &#252;berwachen, Superuser-Rechte erforderlich.</p></li>
+<li><b>Geben Sie im Feld "Adresse" die IP-Adresse ein, &#252;ber die die Verbindung
+zum Netzwerkzielger&#228;t hergestellt wird. </b><p>Die Adresse kann als Punktepaar oder in IPv6-Notation angegeben werden. Beim Wert
+<tt>any</tt> (f&#252;r <tt>INADDR_ANY</tt>) werden alle IP-Adressen &#252;berwacht. Auch die Angabe eines Hostnamens
+ist m&#246;glich.</p></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Threadpool" den Threadpool aus, der mit dem
+Netzwerk-Zielger&#228;t verbunden werden soll.</b></li>
+<li><b>Klicken Sie auf "Speichern".</b>
+<hr><p><b>Tipp - </b>Um zu den Standardeinstellungen zur&#252;ckzukehren, klicken Sie auf die Schaltfl&#228;che "Standardwerte laden"
+und anschlie&#223;end auf "Speichern".</p>
+
+
+<hr>
+</li></ol><h6>N&#228;chste Schritte</h6><p>Auf den Registerkarten "SSL", "HTTP" und "Dateicache" k&#246;nnen Sie die Einstellungen f&#252;r
+das mit dem Netzwerk-Zielger&#228;t verbundene Protokoll bearbeiten. Die Registerkarte "SSL" ist nur
+dann von Bedeutung, wenn Sie Sicherheit f&#252;r das Netzwerk-Zielger&#228;t aktiviert haben.</p>
+
+<h6>Siehe auch</h6>
+<ul><li><p><a href="task-networklistenernew.html">So erstellen Sie ein Netzwerk-Zielger&#228;t</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">So l&#246;schen Sie ein Netzwerk-Zielger&#228;t</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">So erstellen Sie ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">So bearbeiten Sie ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">So bearbeiten Sie SSL-Einstellungen f&#252;r ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">So bearbeiten Sie HTTP-Einstellungen f&#252;r ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">So bearbeiten Sie Dateicache-Einstellungen f&#252;r ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">So l&#246;schen Sie ein Protokoll</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">So erstellen Sie einen Transport</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">So bearbeiten Sie einen Transport</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">So l&#246;schen Sie einen Transport</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

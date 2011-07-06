@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-setadvanceappconfig"></a><h4>Impostare la configurazione delle applicazioni</h4><a name="indexterm-4"></a><a name="indexterm-5"></a><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>Nella pagina Applications Configuration &#232; possibile impostare propriet&#224; per assicurare che vengano
+eseguiti il rilevamento delle modifiche apportate alle applicazioni distribuite e il ricaricamento
+delle classi modificate.</p>
+
+<ol>
+<li><b>Nella struttura ad albero, selezionare il nodo GlassFish Server.</b><p>Viene visualizzata la pagina General Information.</p></li>
+<li><b>Nella pagina General Information, fare clic sulla scheda Advanced.</b><p>Viene visualizzata la pagina Applications Configuration.</p></li>
+<li><b>Selezionare la casella di controllo Reload Enabled per abilitare il ricaricamento dinamico
+delle applicazioni.</b><p>Quando &#232; abilitato il ricaricamento dinamico non &#232; necessario ridistribuire un'applicazione o
+un modulo quando se ne modifica il codice o i descrittori di
+distribuzione. &#200; sufficiente copiare le pagine JSP (JavaServer Pages) o i file
+di classe modificati nella directory di distribuzione dell'applicazione o del modulo. Il
+server controlla periodicamente la presenza di eventuali modifiche nella directory di distribuzione
+e ridistribuisce l'applicazione, automaticamente e dinamicamente, con le modifiche. Tale caratteristica risulta
+utile in un ambiente di sviluppo, in quanto consente di sottoporre a
+test rapidi le modifiche al software. In un ambiente di produzione, il
+ricaricamento dinamico pu&#242; tuttavia compromettere le prestazioni. Inoltre, ogni volta che viene
+eseguito un ricaricamento, le sessioni eseguite al momento del transito diventano non
+valide. Il client deve riavviare la sessione. </p><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Reload Poll Interval digitare la lunghezza in secondi dell'intervallo in
+base al quale verificare la presenza di eventuali modifiche al codice in
+applicazioni e moduli e ricaricare dinamicamente tali applicazioni e moduli. </b><p>Il valore predefinito &#232; 2.</p></li>
+<li><b>Nel campo Admin Session Timeout digitare il numero di minuti di inattivit&#224;
+trascorsi i quali si verifica il timeout di una sessione di Administration
+Console.</b><p>Il valore predefinito &#232; 60.</p></li>
+<li><b>Selezionare la casella di controllo Auto Deploy Enabled per abilitare la distribuzione
+automatica delle applicazioni.</b><p>Se si copia un file di un'applicazione o un modulo (JAR, WAR,
+RAR o EAR) in una directory specifica, quindi si abilita la distribuzione
+automatica, l'applicazione o il modulo viene distribuito automaticamente. Questa opzione &#232; abilitata
+per impostazione predefinita.</p></li>
+<li><b>Nel campo Auto Deploy Poll Interval digitare la lunghezza in secondi dell'intervallo
+in base al quale verificare la presenza di eventuali modifiche al codice
+in applicazioni e moduli e ricaricare dinamicamente tali applicazioni e moduli. </b><p>Il valore predefinito &#232; 2. Le modifiche dell'intervallo di polling non influiscono
+sul tempo necessario per la distribuzione di un'applicazione o un modulo. </p></li>
+<li><b>Nel campo Auto Deploy Retry Timeout, digitare il numero di secondi durante
+i quali la dimensione di un file copiato parzialmente pu&#242; rimanere invariata
+prima che si verifichi un errore.</b><p>Il valore predefinito &#232; 4.</p></li>
+<li><b>Nel campo Auto Deploy Directory digitare il percorso completo della directory da
+sottoporre a monitoraggio per la distribuzione automatica delle applicazioni.</b><p>Il valore predefinito &#232; <tt></tt><i>domain-dir</i><tt>/autodeploy</tt>.</p></li>
+<li><b>Nell'elenco a discesa XML Validation specificare il tipo di convalida XML da
+eseguire sui descrittori di distribuzione standard e di GlassFish Server.</b><p>Di seguito sono indicati i tipi disponibili:</p><dl><dt><tt>full</tt></dt>
+<dd><p>Se la convalida XML non riesce, non riesce neanche la distribuzione. Questo &#232; il valore predefinito.</p>
+
+</dd>
+<dt><tt>parsing</tt></dt>
+<dd><p>Vengono segnalati errori della convalida XML, ma la distribuzione viene eseguita.</p>
+
+</dd>
+<dt><tt>none</tt></dt>
+<dd><p>La convalida XML non viene eseguita.</p>
+
+</dd>
+</dl>
+</li>
+<li><b>Selezionare la casella di controllo Verifier Enabled per verificare i file del
+descrittore di distribuzione.</b><p>Il verificatore esamina la struttura e il contenuto del file prima della
+distribuzione automatica. Se la verifica non riesce, la distribuzione non viene eseguita.
+La verifica di applicazioni di grandi dimensioni richiede spesso tempi lunghi. Questa
+opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Selezionare la casella di controllo Precompile Enabled per precompilare i file JSP.</b><p>Se l'opzione &#232; disabilitata, i file JSP vengono compilati in fase di
+runtime al primo accesso. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per le applicazioni.</p><ul>
+<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
+vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
+valore della propriet&#224; nel campo Value.</b></li>
+<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
+della propriet&#224;.</b></li>
+<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
+campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
+Delete Properties.</b></li></ul></li>
+<li><b>Fare clic su Save.</b>
+<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
+su Save.</p>
+
+
+<hr>
+</li>
+<li><b>Riavviare il server.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-generaltab.html">Visualizzare informazioni generali per il DAS</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">Visualizzare i file di log per il DAS</a></p>
+
+</li>
+<li><p><a href="task-filter-logs.html">Filtrare i record dei log visualizzati</a></p>
+
+</li>
+<li><p><a href="task-setadvancedomainattributes.html">Impostare gli attributi di dominio</a></p>
+
+</li>
+<li><p><a href="task-setadminpassword.html">Modificare la password dell'amministratore</a></p>
+
+</li>
+<li><p><a href="task-systemproperties.html">Gestire le propriet&#224; di sistema</a></p>
+
+</li>
+<li><p><a href="task-appmonitoringdata.html">Visualizzare i dati di monitoraggio delle applicazioni</a></p>
+
+</li>
+<li><p><a href="task-servermonitoringdata.html">Visualizzare i dati di monitoraggio dei server</a></p>
+
+</li>
+<li><p><a href="task-resourcemonitoringdata.html">Visualizzare i dati di monitoraggio delle risorse</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

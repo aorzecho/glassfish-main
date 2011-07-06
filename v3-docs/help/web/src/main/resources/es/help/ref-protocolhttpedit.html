@@ -1,0 +1,194 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolhttpedit"></a><h4>HTTP</h4>
+<a name="indexterm-72"></a><a name="indexterm-73"></a><p>Utilice la p&#225;gina HTTP para modificar la configuraci&#243;n HTTP para un protocolo
+de red. </p>
+
+<p>La p&#225;gina HTTP contiene las opciones siguientes.</p>
+
+<dl><dt>Cargar valores predeterminados</dt>
+<dd><p>Bot&#243;n para restablecer los valores predeterminados de todos los par&#225;metros de configuraci&#243;n.</p>
+
+</dd>
+<dt>Nombre de la configuraci&#243;n</dt>
+<dd><p>El nombre de la configuraci&#243;n a la que se aplican los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
+
+</dd>
+<dt>Nombre del protocolo</dt>
+<dd><p>El nombre del protocolo. El campo Nombre del protocolo es un campo de s&#243;lo lectura. &#218;nicamente puede especificar el nombre al crear un nuevo protocolo.</p>
+
+</dd>
+<dt>Nombre de servidor</dt>
+<dd><p>El nombre de host que utilizar en las URL que el servidor env&#237;a al cliente. Este nombre es el nombre de alias si el servidor utiliza un alias. Si el servidor no utiliza un alias, deje el campo en blanco.</p>
+
+</dd>
+<dt>Servidor virtual predeterminado</dt>
+<dd><p>El servidor virtual que se va a asociar al protocolo. Utilice la p&#225;gina de Servidores virtuales para definir dichos servidores.</p>
+
+</dd>
+<dt>Redirigir puerto</dt>
+<dd><p>Valor de puerto que redirige una solicitud a otro puerto. GlassFish Server redirige autom&#225;ticamente la solicitud si se dan estas dos condiciones:</p>
+
+
+<ul><li><p>Este protocolo admite solicitudes que no sean SSL.</p>
+
+</li>
+<li><p>Se recibe una solicitud para la que una restricci&#243;n de seguridad coincidente requiere transporte SSL.</p>
+
+</li></ul>
+<p>Si no se especifica un puerto de redirecci&#243;n, GlassFish Server utiliza el n&#250;mero de puerto especificado en la solicitud original.</p>
+
+</dd>
+<dt>Conexiones m&#225;ximas</dt>
+<dd><p>El n&#250;mero m&#225;ximo de conexiones persistentes que mantener en el modo de mantenimiento de conexiones. El subsistema de mantenimiento de conexiones sondea peri&#243;dicamente las conexiones inactivas. El valor predeterminado es 256.</p>
+
+</dd>
+<dt>Tiempo de espera</dt>
+<dd><p>El tiempo m&#225;ximo en segundos que una conexi&#243;n puede considerarse como inactiva y conservarse en el estado de mantenimiento. Un valor de 0 o menos significa que las conexiones de mantenimiento se mantienen abiertas de forma indefinida. El valor predeterminado es 30 segundos.</p>
+
+</dd>
+<dt>Tiempo de espera de cargar</dt>
+<dd><p>Si esta opci&#243;n se encuentra seleccionada, la conexi&#243;n a un servlet que lee bytes lentamente se cerrar&#225; tras alcanzarse el l&#237;mite del Tiempo de carga de espera de conexi&#243;n. Si esta opci&#243;n se encuentra deshabilitada, las conexiones del servlet no agotan el tiempo de espera. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Tiempo de carga de espera</dt>
+<dd><p>El tiempo de carga de espera, en milisegundos. Este campo &#250;nicamente est&#225; disponible si se ha seleccionado la casilla de verificaci&#243;n destinada a habilitar el tiempo de carga de espera. El valor predeterminado es 300000 milisegundos.</p>
+
+</dd>
+<dt>Tiempo de espera de solicitud</dt>
+<dd><p>N&#250;mero de segundos antes de que se agote el tiempo de espera de una solicitud. Si la solicitud no se procesa antes de alcanzarse el valor de tiempo de espera, se ignorar&#225; la solicitud. El valor predeterminado es 30 segundos.</p>
+
+</dd>
+<dt>Tama&#241;o del b&#250;fer de env&#237;o</dt>
+<dd><p>El tama&#241;o en bytes del b&#250;fer de env&#237;o. El valor predeterminado es 8192 bytes.</p>
+
+</dd>
+<dt>Longitud del b&#250;fer de encabezado</dt>
+<dd><p>Tama&#241;o, en bytes, del b&#250;fer utilizado por los subprocesos de procesamiento de solicitudes para leer los datos de las solicitudes. El valor predeterminado es 8192 bytes.</p>
+
+</dd>
+<dt>Tama&#241;o m&#225;ximo de publicaci&#243;n</dt>
+<dd><p>El tama&#241;o m&#225;ximo en bytes de las acciones POST. El valor predeterminado es 2097152 bytes.</p>
+
+</dd>
+<dt>Codificaci&#243;n de URI</dt>
+<dd><p>El nombre del conjunto de caracteres que se utiliza para decodificar los URI de solicitud recibidos. El valor debe ser un nombre de conjunto de caracteres IANA v&#225;lido. El valor predeterminado es UTF-8.</p>
+
+</dd>
+<dt>Versi&#243;n</dt>
+<dd><p>La versi&#243;n del protocolo HTTP utilizado. El valor predeterminado es HTTP/1.1.</p>
+
+</dd>
+<dt>Compresi&#243;n</dt>
+<dd><p>Especifica el uso de compresi&#243;n GZIP HTTP/1.1 para ahorrar ancho de banda de servidor. Las opciones disponibles son:</p>
+
+<dl><dt><tt>on</tt></dt>
+<dd><p>Comprime datos.</p>
+
+</dd>
+<dt><tt>off</tt></dt>
+<dd><p>Inhabilita la compresi&#243;n.</p>
+
+</dd>
+<dt><tt>force</tt></dt>
+<dd><p>Fuerza la compresi&#243;n de datos en todos los casos.</p>
+
+</dd>
+</dl>
+<p>El valor predeterminado es <tt>off</tt>.</p>
+
+</dd>
+<dt>Tipos MIME comprimibles</dt>
+<dd><p>Una lista separada por comas de los tipos MIME para los que se haya utilizado compresi&#243;n HTTP. El valor predeterminado es <tt>text/html,text/xml,text/plain</tt>.</p>
+
+</dd>
+<dt>Tama&#241;o m&#237;nimo de compresi&#243;n</dt>
+<dd><p>El tama&#241;o m&#237;nimo de un archivo cuando se le aplica compresi&#243;n. Este valor debe configurarse si Compresi&#243;n se establece en <tt>on</tt> o <tt>force</tt>. El valor predeterminado es 2048 bytes.</p>
+
+</dd>
+<dt>Agentes de usuario sin compresi&#243;n</dt>
+<dd><p>Una lista separada por comas de expresiones regulares que coinciden con agentes de usuario de clientes HTTP para los que no se debe usar compresi&#243;n. De forma predeterminada, este valor es una cadena vac&#237;a. </p>
+
+</dd>
+<dt>Agente de usuario restringido</dt>
+<dd><p>Una lista de agentes de usuario restringidos a los que se les aplica compresi&#243;n HTTP. Si no se ha especificado ning&#250;n agente de usuario, se aplica la compresi&#243;n HTTP a todos los agentes de usuario. De forma predeterminada, no hay agentes de usuario especificados. </p>
+
+</dd>
+<dt>Tipo de respuesta predeterminada</dt>
+<dd><p>Una cadena que especifica el tipo de respuesta predeterminada. El formato es una cadena separada por punto y coma que incluye el tipo de contenido, la codificaci&#243;n, el idioma y el conjunto de caracteres. El valor predeterminado es <tt>text/html; charset=iso-8859-1</tt>.</p>
+
+</dd>
+<dt>Tipo de respuesta forzada</dt>
+<dd><p>Una cadena que especifica el tipo de solicitud utilizado en caso de que no haya ninguna asignaci&#243;n MIME disponible que coincida con la extensi&#243;n del archivo. El formato es una cadena separada por punto y coma que incluye el tipo de contenido, la codificaci&#243;n, el idioma y el conjunto de caracteres. El valor predeterminado es <tt>text/html; charset=iso-8859-1</tt>.</p>
+
+</dd>
+<dt>Adaptador</dt>
+<dd><p>El nombre de clase del adaptador de recursos est&#225;tico. El valor predeterminado es <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p>
+
+</dd>
+<dt>Compatibilidad con Comet</dt>
+<dd><p>Si esta opci&#243;n est&#225; seleccionada, la asistencia de Comet se habilita para el protocolo. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>B&#250;squeda de DNS</dt>
+<dd><p>Si esta opci&#243;n se encuentra seleccionada, la b&#250;squeda en el sistema de nombres de dominio (DNS) est&#225; habilitada. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Compatibilidad de RCM</dt>
+<dd><p>Si esta opci&#243;n se encuentra seleccionada, la administraci&#243;n de configuraci&#243;n de recursos (RCM) est&#225; habilitada. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Seguimiento</dt>
+<dd><p>Si esta opci&#243;n se encuentra seleccionada, la operaci&#243;n TRACE est&#225; habilitada. Si esta opci&#243;n se encuentra deshabilitada, GlassFish Server es menos susceptible de sufrir ataques de secuencias de comandos entre sitios. Esta opci&#243;n se habilita por defecto.</p>
+
+</dd>
+<dt>Pase de autenticaci&#243;n</dt>
+<dd><p>Si esta opci&#243;n se encuentra seleccionada, eso indica que la escucha de red que utiliza este protocolo recibe tr&#225;fico desde un servidor proxy con terminaci&#243;n SSL. Esta opci&#243;n se deshabilita por defecto.</p>
+
+</dd>
+<dt>Fragmentando</dt>
+<dd><p>Si esta opci&#243;n se encuentra seleccionada, la fragmentaci&#243;n de respuesta HTTP est&#225; habilitada. Esta opci&#243;n se habilita por defecto.</p>
+
+</dd>
+<dt>Funciona gracias a</dt>
+<dd><p>Si est&#225; seleccionada esta opci&#243;n, GlassFish Server utiliza encabezados de <tt>X-Powered-By</tt> conforme a las especificaciones de Java Servlet 3.0 y Java Server Pages 2.0. Esta opci&#243;n se habilita por defecto.</p>
+
+</dd>
+</dl>
+<h5>Tareas relacionadas</h5>
+
+<ul><li><p><a href="task-protocolnew.html">C&#243;mo crear un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">C&#243;mo editar un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">C&#243;mo editar la configuraci&#243;n SSL para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">C&#243;mo editar la configuraci&#243;n HTTP para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">C&#243;mo editar la cach&#233; de archivos para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">C&#243;mo eliminar un protocolo</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

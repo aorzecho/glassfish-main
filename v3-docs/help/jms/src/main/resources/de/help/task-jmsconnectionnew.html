@@ -1,0 +1,71 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsconnectionnew"></a><h4>So erstellen Sie eine JMS-Verbindungsfactory-Ressource</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><p>Wenn Sie eine JMS-Verbindungsfactory erstellen, erstellt GlassFish-Server einen Konnektor-Verbindungspool und eine Verbindungsressource
+f&#252;r die Verbindungsfactory. Diese Objekte werden unter dem Knoten "Konnektoren" angezeigt.</p>
+
+<ol>
+<li><b>Erweitern Sie in der Navigationsstruktur den Ressourcenknoten.</b></li>
+<li><b>Erweitern Sie unter dem Ressourcenknoten den Knoten "JMS-Ressourcen".</b></li>
+<li><b>W&#228;hlen Sie unter dem Knoten "JMS-Ressourcen" den Knoten "JMS-Verbindungs-Factories" aus.</b><p>Die Seite "JMS-Verbindungs-Factories" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "JMS-Verbindungs-Factories" auf "Neu".</b><p>Die Seite "Neue JMS-Verbindungs-Factory" wird ge&#246;ffnet.</p></li>
+<li><b>Geben Sie im Feld "Poolname" den eindeutigen Namen der Verbindungsfactory ein. </b><p>GlassFish-Server legt den JNDI-Namen der Verbindungsfactory f&#252;r diesen Wert fest.</p></li>
+<li><b>W&#228;hlen Sie in der Dropdown-Liste "Ressourcentyp" entweder <tt>javax.jms.ConnectionFactory</tt>, <tt>javax.jms.QueueConnectionFactory</tt> oder <tt>javax.jms.TopicConnectionFactory</tt> aus.</b></li>
+<li><b>Geben Sie im Feld "Beschreibung" eine Beschreibung der Verbindungsfactory ein.</b></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Status", um die Ressource zur Laufzeit zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
+<li><b>Geben Sie im Feld "Urspr&#252;ngliche und minimale Poolgr&#246;&#223;e" die Mindestanzahl an Verbindungen
+im Pool ein.</b><p>Der Standardwert ist 8.</p></li>
+<li><b>Geben Sie im Feld "Maximale Poolgr&#246;&#223;e" die maximale Anzahl an Verbindungen im
+Pool ein.</b><p>Der Standardwert lautet 32.</p></li>
+<li><b>Geben Sie im Feld "Umfang der Gr&#246;&#223;en&#228;nderungen des Pools" die Anzahl an
+Verbindungen ein, die nach Ablauf der Pool-Leerlaufzeit entfernt werden sollen.</b><p>Der Standardwert ist 2.</p></li>
+<li><b>Geben Sie im Feld "Leerlaufzeitlimit" die maximale Dauer (in Sekunden) an, die
+eine Verbindung im Leerlauf im Pool verbleiben kann.</b><p>Der Standardwert betr&#228;gt 300.</p></li>
+<li><b>Geben Sie im Feld "Maximale Wartezeit" die maximale Zeitspanne an, die eine
+Anwendung nach dem Anfordern einer Verbindung wartet, bevor eine Verbindungszeit&#252;berschreitung ausgegeben wird.</b><p>Der Standardwert lautet 60000.</p></li>
+<li><b>Aktivieren Sie f&#252;r "Bei s&#228;mtlichen Fehlern" das Kontrollk&#228;stchen "S&#228;mtliche Verbindungen trennen", damit
+GlassFish-Server bei einem einzigen Verbindungsabbruch alle Verbindungen im Pool schlie&#223;t und anschlie&#223;end
+wiederherstellt.</b><p>Wenn Sie dieses Kontrollk&#228;stchen nicht aktivieren, werden einzelne Verbindungen nur neu aufgebaut,
+wenn sie verwendet werden. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>W&#228;hlen Sie f&#252;r eine JMS-Verbindungsfactory-Ressourcen die Ebene der Transaktionsunterst&#252;tzung aus.</b><p>Der ausgew&#228;hlte Wert &#252;berschreibt das im Ressourcenadapter festgelegte Attribut f&#252;r die Transaktionsunterst&#252;tzung
+in einer Weise, mit der Abw&#228;rtskompatibilit&#228;t gew&#228;hrleistet wird.</p><ul>
+<li><b>W&#228;hlen Sie "XATransaction" (der Standardwert f&#252;r den JMS-Ressourcenadapter) f&#252;r eine Ressource aus,
+die f&#252;r Transaktionen verwendet werden kann, f&#252;r welche mehrere Ressourcen innerhalb eines
+Transaktionsbereichs verwendet werden.</b><p>Beispiel: Transaktionen k&#246;nnen diese Ressource sowie eine JDBC-Ressource, eine Verbindungsressource oder eine
+andere JMS-Verbindungsfactory-Ressource verwenden. Dieser Wert bietet die meiste Flexibilit&#228;t. Eine als XATransaction
+konfigurierte Ressource wird f&#252;r zweiphasige Durchf&#252;hrungsoperationen verwendet.</p></li>
+<li><b>W&#228;hlen Sie "LocalTransaction" f&#252;r eine Ressource, die entweder f&#252;r Transaktionen mit nur
+einer Ressource innerhalb des Transaktionsbereichs oder als letzter Agent in einer verteilten
+Transaktion mit mehreren XA-Ressourcen verwendet wird.</b><p>Dieser Wert bietet eine geringf&#252;gig bessere Leistung. Eine als LocalTransaction konfigurierte Ressource
+wird nicht in zweiphasigen Durchf&#252;hrungsoperationen verwendet.</p></li>
+<li><b>W&#228;hlen Sie "NoTransaction" f&#252;r eine Ressource, die nicht f&#252;r Transaktionen verwendet werden
+kann.</b><p>Diese Einstellung wird f&#252;r JMS-Anwendungen nur eingeschr&#228;nkt verwendet.</p></li></ul></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Verbindungs&#252;berpr&#252;fung erforderlich", um die Verbindungs&#252;berpr&#252;fung zu aktivieren.</b><p>Bei aktivierter Option werden Verbindungen vor der &#220;bergabe an die Anwendung &#252;berpr&#252;ft.
+Schl&#228;gt die &#220;berpr&#252;fung einer Ressource fehl, so wird die Ressource zerst&#246;rt, und
+eine neue Ressource wird erstellt und zur&#252;ckgegeben. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li>(Optional) <b>Geben Sie im Abschnitt "Weitere Eigenschaften" zus&#228;tzliche Eigenschaften f&#252;r die Verbindungsfactory an.</b><p>Information zu verf&#252;gbaren Eigenschaften finden Sie unter <a href="ref-jmsconnectionproperties.html">Spezifische Eigenschaften von JMS-Verbindungsfactories</a>.</p><p>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
+Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
+"Name" und den Eigenschaftswert in das Feld "Wert" ein.</p></li>
+<li><b>Klicken Sie auf "OK".</b></li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="task-jmsconnectionedit.html">So bearbeiten Sie eine JMS-Verbindungsfactory-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jmsconnectiondelete.html">So l&#246;schen Sie eine JMS-Verbindungsfactory-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationnew.html">So erstellen Sie eine JMS-Zielressource</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationedit.html">So bearbeiten Sie eine JMS-Zielressource</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationdelete.html">So l&#246;schen Sie eine JMS-Zielressource</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

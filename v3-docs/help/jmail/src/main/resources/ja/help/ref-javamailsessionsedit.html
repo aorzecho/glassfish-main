@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-javamailsessionsedit"></a><h4>JavaMail セッションを編集</h4>
+<a name="indexterm-23"></a><p>JavaMail セッションを編集するには、「JavaMail セッションを編集」ページを使用します。</p>
+
+<p>「JavaMail セッションを編集」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>JNDI 名</dt>
+<dd><p>JavaMail セッションを識別する一意の名前。JNDI 名は読み取り専用フィールドです。JNDI 名を指定できるのは、新しい JavaMail セッションの作成時のみです。</p>
+
+</dd>
+<dt>メールホスト</dt>
+<dd><p>デフォルトメールサーバーのホスト名。プロトコル固有のホストプロパティーが提供されていない場合、Store オブジェクトと Transport オブジェクトの接続メソッドはこの値を使用します。この名前は実際のホスト名として解決可能でなければいけません。</p>
+
+</dd>
+<dt>デフォルトユーザー</dt>
+<dd><p>メールサーバーへの接続時に渡されるユーザー名。プロトコル固有の username プロパティーが提供されていない場合、Store オブジェクトと Transport オブジェクトの接続メソッドはこの値を使用します。ユーザー名に使用できるのは、英数字、アンダースコア、ダッシュ、またはドットのみです。</p>
+
+</dd>
+<dt>デフォルトの差出人アドレス</dt>
+<dd><p>デフォルトユーザーの電子メールアドレス。形式は、<i>username</i><tt>@</tt><i>host</i>.<i>domain</i> です。</p>
+
+</dd>
+<dt>説明</dt>
+<dd><p>メールセッションの説明。</p>
+
+</dd>
+<dt>ステータス</dt>
+<dd><p>メールセッションのステータス。メールセッションは、有効または無効の状態になります。デフォルト値は「有効」です。</p>
+
+</dd>
+<dt>ストアプロトコル</dt>
+<dd><p>メールサーバーに接続してメッセージを取得し、1 つまたは複数のフォルダにメッセージを保存するストレージプロトコルサービス。指定できるのは、<tt>imap</tt>、<tt>pop3</tt>、<tt>imaps</tt>、および <tt>pop3s</tt> です。デフォルト値は <tt>imap</tt> です。</p>
+
+</dd>
+<dt>ストアプロトコルクラス</dt>
+<dd><p>ストレージのサービスプロバイダ実装クラス。指定できる値は次のとおりです。</p>
+
+
+<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
+
+</li></ul>
+<p>デフォルト値は <tt>com.sun.mail.imap.IMAPStore</tt> です。</p>
+
+</dd>
+<dt>トランスポートプロトコル</dt>
+<dd><p>メッセージを送信するトランスポートプロトコルサービス。指定できる値は、<tt>smtp</tt> と <tt>smtps</tt> です。デフォルト値は <tt>smtp</tt> です。</p>
+
+</dd>
+<dt>トランスポートプロトコルクラス</dt>
+<dd><p>トランスポートのサービスプロバイダ実装クラス。指定できる値は次のとおりです。</p>
+
+
+<ul><li><p><tt>com.sun.mail.smtp.SMTPTransport</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.smtp.SMTPSSLTransport</tt></p>
+
+</li></ul>
+<p>デフォルト値は <tt>com.sun.mail.smtp.SMTPTransport</tt> です。</p>
+
+</dd>
+<dt>デバッグ</dt>
+<dd><p>このオプションを選択すると、このリソースでデバッグが有効になります。JavaMail のログレベルを <tt>FINE</tt> またはそれ以上に設定した場合、デバッグ出力が生成され、システムのログファイルに含まれます。ログレベルの設定の詳細については、<a href="../../../common/ja/help/task-eelogginglevels.html">ログレベルを設定する</a>を参照してください。</p>
+
+</dd>
+<dt>追加プロパティー</dt>
+<dd><p>JavaMail セッションの追加プロパティー。利用可能なプロパティーの一覧については、<a href="http://java.sun.com/products/javamail/javadocs/index.html">JavaMail API マニュアル</a> を参照してください。追加プロパティーの名前は <tt>mail-</tt> で始まり、区切り文字として (ピリオドではなく) ハイフンを使用する必要があります。たとえば、<tt>mail-debug</tt> は正しい名前ですが、<tt>mail.debug</tt> は正しくありません。GlassFish サーバー バックエンドが、JavaMail API に応じてハイフンをピリオドに変換します。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-javamailsessioncreate.html">「JavaMail セッションを作成する」</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsedit.html">「JavaMail セッションを編集する」</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsdelete.html">「JavaMail セッションを削除する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-javamail-resource-1"><tt>create-javamail-resource</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-javamail-resources-1"><tt>list-javamail-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-javamail-resource-1"><tt>delete-javamail-resource</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

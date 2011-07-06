@@ -1,0 +1,85 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-networklisteneredit"></a><h4>C&#243;mo editar la escucha de red</h4><a name="indexterm-22"></a><ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraci&#243;n.</b></li>
+<li><b>En el nodo Configuraci&#243;n, expanda el nodo Configuraci&#243;n de red.</b></li>
+<li><b>En el nodo Configuraci&#243;n de red, seleccione el nodo Escuchas de red.</b><p>Se abrir&#225; la p&#225;gina Escuchas de red.</p></li>
+<li><b>En la p&#225;gina Escuchas de red, haga clic en el nombre de
+la escucha que est&#225; editando.</b><p>Se abrir&#225; la p&#225;gina Editar escucha de red.</p></li>
+<li><b>Seleccione o anule la selecci&#243;n de la casilla de verificaci&#243;n Estado habilitado
+para cambiar el estado de la escucha de red.</b><p>La escucha puede estar habilitada o deshabilitada. Esta opci&#243;n se habilita por
+defecto. Si la escucha se encuentra deshabilitada, cualquier intento de establecer una conexi&#243;n
+con ella tiene como resultado una excepci&#243;n de socket (<tt>java.net.ConnectException</tt>). </p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Seguridad habilitada para habilitar la seguridad para
+el protocolo que utiliza la escucha de red. </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de la escucha JK para
+especificar que la escucha admite el protocolo <tt>mod-jk</tt> de Apache. </b><p>El protocolo <tt>mod-jk</tt> es un protocolo de red/comunicaci&#243;n de propiedad entre <tt>httpd</tt>
+de Apache (servidor web) y una  instancia back-end de GlassFish Server. Si
+la escucha admite este protocolo, se supone que <tt>httpd</tt> maneja todo el
+contenido est&#225;tico, mientras que cualquier solicitud de recursos din&#225;micos (es decir, servlets
+y JSP) se direccionan a la escucha de red con el protocolo
+<tt>mod jk</tt> habilitado de GlassFish Server a trav&#233;s del protocolo  <tt>mod-jk</tt>. Esta opci&#243;n
+se deshabilita por defecto.</p></li>
+<li><b>En el campo Puerto, introduzca el n&#250;mero de puerto en el que
+se efectuar&#225; la escucha de red.</b><p>Los valores v&#225;lidos se encuentran entre 1 y 65535. En un sistema
+UNIX, la creaci&#243;n de sockets de escucha para puertos 1-1024 requiere privilegios
+de superusuario.</p></li>
+<li><b>En el campo Direcci&#243;n, escriba la direcci&#243;n IP en la que se
+efectuar&#225; la escucha de red.</b><p>La direcci&#243;n se puede especificar en par punteado o notaci&#243;n IPv6. Puede
+ser <tt>cualquiera</tt> (para <tt>INADDR_ANY</tt>) para recibir escuchas en todas las direcciones IP.
+Puede ser un nombre de host. </p></li>
+<li><b>En la lista desplegable Conjunto de subprocesos, seleccione el conjunto de subprocesos
+que se debe asociar a la escucha de red.</b></li>
+<li><b>Haga clic en Guardar.</b>
+<hr><p><b>Consejo - </b>Para volver a los valores de configuraci&#243;n predeterminados, haga clic en el
+bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
+
+
+<hr>
+</li></ol><h6>Pasos siguientes</h6><p>Puede utilizar las fichas SSL, HTTP y Cach&#233; de archivos para editar
+la configuraci&#243;n del protocolo asociado a la escucha de red. La ficha SSL
+&#250;nicamente tiene sentido si se ha habilitado la seguridad para la escucha de
+red. </p>
+
+<h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-networklistenernew.html">C&#243;mo crear una escucha de red</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">C&#243;mo eliminar una escucha de red</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">C&#243;mo crear un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">C&#243;mo editar un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">C&#243;mo editar la configuraci&#243;n SSL para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">C&#243;mo editar la configuraci&#243;n HTTP para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">C&#243;mo editar la cach&#233; de archivos para un protocolo</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">C&#243;mo eliminar un protocolo</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">C&#243;mo crear un transporte</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">C&#243;mo editar un transporte</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">C&#243;mo eliminar un transporte</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

@@ -1,0 +1,104 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transportedit"></a><h4>トランスポートの編集</h4>
+<a name="indexterm-78"></a><p>既存のトランスポートの設定を変更するには、「トランスポートの編集」ページを使用します。</p>
+
+<p>「トランスポートの編集」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>名前</dt>
+<dd><p>トランスポートの名前。名前は読み取り専用フィールドです。名前を指定できるのは、新しいトランスポートの作成時のみです。</p>
+
+</dd>
+<dt>クラス名</dt>
+<dd><p>トランスポート実装のクラス名。デフォルト値は、<tt>com.sun.grizzly.TCPSelectorHandler</tt> です。</p>
+
+</dd>
+<dt>選択キーハンドラ</dt>
+<dd><p>選択キーハンドラのクラス名。選択キーハンドラは、選択キーのライフサイクルを管理する抽象クラスです。値を指定しない場合は、デフォルトの実装が使用されます。</p>
+
+</dd>
+<dt>バイトバッファーのタイプ</dt>
+<dd><p>使用する <tt>ByteBuffer</tt> のタイプ。 選択可能な値は、<tt>HEAP</tt> および <tt>DIRECT</tt> です。 デフォルト値は <tt>HEAP</tt> です。</p>
+
+</dd>
+<dt>アクセプタスレッド</dt>
+<dd><p>マシンのプロセッサの数。-1 を指定すると、Grizzly がマシンのプロセッサの数に基づいてアクセプタスレッドの数を計算します。デフォルト値は 1 です。</p>
+
+<p>要求処理スレッドの数を設定するには、このトランスポートを使用するネットワークリスナーで使用される、スレッドプールの「最大スレッドプールサイズ」の値を設定します。</p>
+
+</dd>
+<dt>最大接続数</dt>
+<dd><p>このトランスポートを使用するネットワークリスナーで保留中の接続の最大数。デフォルト値は 4096 です。</p>
+
+</dd>
+<dt>バッファーサイズ</dt>
+<dd><p>このトランスポートを使用するネットワークリスナーが作成する、入力ストリーム用のバッファーのサイズ (バイト単位)。デフォルト値は 8192 です。</p>
+
+</dd>
+<dt>アイドルキータイムアウト</dt>
+<dd><p>アイドルキーがキャンセルされ、チャンネルが閉じられるまでの時間 (秒単位)。デフォルト値は 30 です。</p>
+
+</dd>
+<dt>読み取りタイムアウト</dt>
+<dd><p>読み取り操作のヘッダーと本文の解析フェーズ中に GlassFish サーバー が待機する時間 (ミリ秒単位)。デフォルト値は 30,000 です。</p>
+
+</dd>
+<dt>セレクタポーリングタイムアウト</dt>
+<dd><p>NIO Selector がイベント (ユーザーの要求) の待機をブロックする時間 (ミリ秒単位)。デフォルト値は 1000 です。</p>
+
+</dd>
+<dt>書き込みタイムアウト</dt>
+<dd><p>応答の書き込み時に、リモートクライアントが切断されたと見なされるまでに GlassFish サーバー が待機する時間 (ミリ秒単位)。デフォルト値は 30,000 です。</p>
+
+</dd>
+<dt>表示設定</dt>
+<dd><p>このオプションを選択すると、Grizzly の内部設定がサーバーログにフラッシュされます。このオプションにより、デバッグに有効な情報が得られる場合があります。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>スヌープ</dt>
+<dd><p>このオプションを選択すると、要求と応答の情報がサーバーログにダンプされます。このオプションにより、デバッグに有効な情報を得られる場合がありますが、パフォーマンスが大きく低下します。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>Tcp 遅延なし</dt>
+<dd><p>このオプションを選択すると、TCP_NODELAY (Nagle のアルゴリズム) が有効になります。このオプションはデフォルトで有効になっています。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-transportnew.html">「トランスポートを作成する」</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">「トランスポートを編集する」</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">「トランスポートを削除する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li>
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-transport-1"><tt>create-transport</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-transports-1"><tt>list-transports</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-transport-1"><tt>delete-transport</tt>(1)</a></p>
+
+</li></ul>
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

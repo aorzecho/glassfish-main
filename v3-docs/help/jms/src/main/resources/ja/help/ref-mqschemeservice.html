@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-mqschemeservice"></a><h4>MQ スキームと MQ サービスのアドレスの構文</h4>
+<p>メッセージサービスのアドレスのフル構文は次のとおりです。</p>
+
+<pre><i>scheme</i>://<i>address-syntax</i></pre><p>ここで、<i>scheme</i> と <i>address-syntax</i> は次の表に示します。</p>
+
+<p>「MQ スキーム」と「MQ サービス」については、次の表の最初の 2 列に値が表示されています。</p>
+
+<table><col width="16%"><col width="16%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"><p>スキーム名</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>接続サービス</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>説明</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>アドレス構文</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mq</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt> と <tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue クライアントランタイムは、指定したホストとポートで MQ ポートマッパーへの接続を確立します。ポートマッパーは動的に確立された接続サービスポートのリストを返し、次に Message
+Queue クライアントランタイムが指定された接続サービスをホストするポートへの接続を確立します。</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>[</tt><i>hostName</i><tt>][:</tt><i> port</i><tt>][/</tt><i>serviceName</i><tt> ]</tt></p>
+
+<p>デフォルトは次のとおりです。 <i>hostName</i> = <tt>localhost</tt>, <i>port</i> = <tt>7676</tt>, <i>serviceName </i> = <tt>jms</tt></p>
+
+<p>デフォルトは <tt>jms</tt>
+接続サービスだけに適用されます。<tt>ssljms</tt> 接続サービスの場合、すべての変数を指定する必要があります。</p>
+
+<p>次に例を示します。 <tt>mq:MyHost:7677/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqtcp</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue クライアントランタイムは、MQ ポートマッパーをバイパスして、指定したホストとポートにTCP 接続を確立します。</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /jms</tt></p>
+
+<p>次に例を示します。 <tt>mqtcp:localhost:7676/jms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqssl</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue クライアントランタイムは、MQ ポートマッパーをバイパスして、指定したホストとポートにセキュリティー保護された SSL
+接続を確立します。</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /ssljms</tt></p>
+
+<p>次に例を示します。 <tt>mqssl:localhost:7676/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue クライアントランタイムは、指定された URL の Message Queue トンネルサーブレットに HTTP 接続を確立します。ブローカは、Message Queue
+の『<b>管理ガイド</b>』で説明されているとおり、HTTP トンネルサーブレットにアクセスするように設定する必要があります。</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>複数のブローカインスタンスが同じトンネルサーブレットを使用している場合、無作為に選択されたブローカインスタンスではなく、特定のブローカインスタンスに接続する構文は次のとおりです。<tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>https</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpsjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue クライアントランタイムは、指定された Message Queue トンネルサーブレット URL にセキュリティー保護された HTTPS 接続を確立します。ブローカは、Message Queue
+の『<b>管理ガイド</b>』で説明されているとおり、HTTPS トンネルサーブレットにアクセスするように設定する必要があります。</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>複数のブローカインスタンスが同じトンネルサーブレットを使用している場合、無作為に選択されたブローカインスタンスではなく、特定のブローカインスタンスに接続する構文は次のとおりです。<tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
+
+</td>
+</tr>
+</table>
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

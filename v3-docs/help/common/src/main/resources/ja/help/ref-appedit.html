@@ -1,0 +1,104 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-appedit"></a><h4>アプリケーションを編集</h4>
+<a name="indexterm-162"></a><p>既存のアプリケーションを変更するには、「アプリケーションを編集」ページを使用します。</p>
+
+<p>「アプリケーションを編集」ページには、アプリケーションのタイプに応じて、次のオプションのすべてまたは一部が表示されます。</p>
+
+<dl><dt>名前</dt>
+<dd><p>編集するアプリケーションの名前を表示する読み取り専用フィールド。</p>
+
+<p>名前には、オプションのバージョン ID を含めることができます。このバージョン ID は名前のあとに続き、コロン (<tt>:</tt>) で名前と区切ります。モジュールとアプリケーションのバージョンについては、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「Module and Application Versions」</a>を参照してください。</p>
+
+</dd>
+<dt>ステータス</dt>
+<dd><p>「使用可能」チェックボックスがオンの場合、アプリケーションは使用可能です。これは標準でオンになっています。</p>
+
+</dd>
+<dt>コンテキストルート</dt>
+<dd><p>Web アプリケーションの場合、アプリケーションのパスを指定します。Web アプリケーションの URL では、コンテキストルートはポート番号の直後に続きます (<tt>http://<i>host</i>:<i>port </i>/<i>context-root</i>/...</tt>)。たとえば <tt>/hello</tt> のように、コンテキストルートがスラッシュで始まるようにしてください。</p>
+
+</dd>
+<dt>可用性</dt>
+<dd><p>「有効」チェックボックスを選択すると、Web セッション、ステートフルセッション Bean (SFSB) チェックポイント設定、パッシベーションなどに備えて高可用性が有効になります。false (デフォルト) に設定すると、すべての Web セッションの保存と SFSB のチェックポイント設定が、指定されたアプリケーション、Web アプリケーション、または EJB モジュールで無効になります。true に設定すると、指定されたアプリケーションまたはモジュールで高可用性が有効になります。このオプションは、高可用性がサーバーレベルやコンテナレベルなどのより高いレベルで設定および有効化されている場合のみ、true に設定します。</p>
+
+<p>このオプションは、デフォルトのサーバーインスタンス (<tt>server</tt>) のほかにクラスタまたはスタンドアロンサーバーインスタンスが存在する場合に表示されます。</p>
+
+</dd>
+<dt>Virtual Servers</dt>
+<dd><p>このアプリケーションと関連付けられている仮想サーバー。</p>
+
+<p>「仮想サーバー」オプションは、デフォルトサーバーインスタンス <tt>server</tt> だけが存在する場合に表示されます。クラスタまたはその他のスタンドアロンサーバーインスタンスが存在する場合は、配備後、仮想サーバーを選択できます。「アプリケーションを編集」ページに移動して「ターゲット」タブを選択し、目的のターゲットに「仮想サーバーの管理」を選択してください。</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>(一部のアプリケーションタイプのみ) 「使用可能」チェックボックスがオンの場合、アプリケーションは Java Web Start ソフトウェアを使用します。Java Web Start ではブラウザに依存しない方法で、専用の Java 仮想マシンで実行する Java アプリケーションを配備できます。</p>
+
+</dd>
+<dt>説明</dt>
+<dd><p>アプリケーションの短い説明。</p>
+
+</dd>
+<dt>位置</dt>
+<dd><p>配備されているアプリケーションの場所。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>ライブラリ</dt>
+<dd><p>アプリケーションに必要なライブラリ JAR ファイル。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>モジュールとコンポーネント</dt>
+<dd><p>アプリケーションのモジュールの名前とそれぞれのエンジンを表示する表。Web サービスエンドポイントには、「エンドポイントの表示」を選択し、「Web サービスエンドポイント情報」ページを表示できます。アプリケーションクライアントには、「起動」を選択し、「アプリケーションクライアントの起動」ページを表示できます。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-appedit.html">「配備済みアプリケーションを編集する」</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">「配備されているアプリケーションのリストを表示する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">「Web アプリケーションを配備する」</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">「エンタープライズアプリケーションを配備する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">「アプリケーションクライアントを配備する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">「コネクタモジュールを配備する」</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">「EJB JAR を配備する」</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">「アプリケーションの記述子を表示する」</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">「アプリケーションターゲットを表示する」</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">「Web サービスのエンドポイント情報を表示する」</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">「アプリケーションを起動する」</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">「アプリケーションクライアントを起動する」</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">「配備済みアプリケーションを再配備する」</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">「配備済みアプリケーションを再読み込みする」</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

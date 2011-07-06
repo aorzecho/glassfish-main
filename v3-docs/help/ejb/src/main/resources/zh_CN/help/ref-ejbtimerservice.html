@@ -1,0 +1,56 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ejbtimerservice"></a><h4>EJB 计时器服务</h4>
+<a name="indexterm-18"></a><a name="indexterm-19"></a><a name="indexterm-20"></a><p>使用&#8220;EJB 计时器服务&#8221;页面可以配置 EJB 计时器服务。</p>
+
+<p>计时器服务是由企业 Bean 容器提供的持久性和事务性通知服务，用于安排企业 Bean 使用的通知或事件。所有 Enterprise Bean（有状态会话 Bean 除外）均可从计时器服务接收通知。关闭或重新启动服务器时，不会销毁由服务设置的持久性计时器。</p>
+
+<p>&#8220;EJB 计时器服务&#8221;页面包含以下选项。</p>
+
+<dl><dt>装入默认值</dt>
+<dd><p>用于恢复所有设置的默认值的按钮。</p>
+
+</dd>
+<dt>配置名称</dt>
+<dd><p>要应用该页面上的设置的配置的名称。此字段为只读。</p>
+
+</dd>
+<dt>最短传送时间间隔</dt>
+<dd><p>对于特定计时器，允许在下一次计时器到期之前经过的最小毫秒数。如果将此时间间隔设置得过小，则可能会导致服务器过载。默认值是 1000。</p>
+
+</dd>
+<dt>最大重新传送数</dt>
+<dd><p>计时器服务尝试传送异常或回滚计时器到期的最大次数。默认值为 1。</p>
+
+</dd>
+<dt>重新传送时间间隔</dt>
+<dd><p>重新传送尝试之间的时间间隔（以毫秒为单位）。默认值为 5000。</p>
+
+</dd>
+<dt>计时器数据源</dt>
+<dd><p>将用作计时器数据源的 JDBC 资源的 JNDI 名称。如果指定，则此值将覆盖计时器服务系统应用程序的 <tt>jdbc/__TimerPool</tt> 的默认值。</p>
+
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-ejbtimerservice.html">配置 EJB 计时器服务</a></p>
+
+</li>
+<li><p><a href="../../../ejb-lite/zh_CN/help/task-ejbgeneral.html">配置 EJB 设置</a></p>
+
+</li>
+<li><p><a href="task-ejbmdbpoolsettings.html">配置 MDB 池设置</a></p>
+
+</li></ul>
+<h5>相关的 <tt>asadmin</tt> 命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-timers-1"><tt>list-timers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

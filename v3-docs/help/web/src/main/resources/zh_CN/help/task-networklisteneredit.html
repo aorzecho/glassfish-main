@@ -1,0 +1,63 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-networklisteneredit"></a><h4>编辑网络侦听器</h4><a name="indexterm-22"></a><ol>
+<li><b>在导航树中，展开&#8220;配置&#8221;节点。</b></li>
+<li><b>在&#8220;配置&#8221;节点下，展开&#8220;网络配置&#8221;节点。</b></li>
+<li><b>在&#8220;网络配置&#8221;节点下，选择&#8220;网络侦听器&#8221;节点。</b><p>此时将打开&#8220;网络侦听器&#8221;页面。</p></li>
+<li><b>在&#8220;网络侦听器&#8221;页面上，单击要编辑的网络侦听器的名称。</b><p>此时将打开&#8220;编辑网络侦听器&#8221;页面。</p></li>
+<li><b>选择或取消选择&#8220;启用状态&#8221;复选框，以更改网络侦听器的状态。</b><p>侦听器可能已启用或已禁用。默认情况下启用此选项。如果禁用了侦听器，则在尝试连接到侦听器时，会导致套接字异常 (<tt>java.net.ConnectException</tt>)。</p></li>
+<li><b>选中&#8220;启用安全性&#8221;复选框，为网络侦听器使用的协议启用安全性。</b><p>默认情况下禁用此选项。</p></li>
+<li><b>选中&#8220;启用 JK 侦听器&#8221;复选框，指定侦听器支持 Apache 的 <tt>mod-jk</tt> 协议。</b><p><tt>mod-jk</tt> 协议是 Apache 的 <tt>httpd</tt>（Web 服务器）与 GlassFish Server 后端实例之间的专有通信/网络协议。如果侦听器支持此协议，则假定 <tt>httpd</tt> 处理所有静态内容，而针对动态资源（即 Servlet
+和 JSP）的任何请求，都将使用 <tt>mod-jk</tt> 协议路由到 GlassFish Server 的启用 <tt>mod-jk</tt> 的网络侦听器。默认情况下禁用此选项。</p></li>
+<li><b>在&#8220;端口&#8221;字段中，键入网络侦听器将侦听的端口号。</b><p>合法值为 1 - 65535。在 UNIX 系统上，创建侦听端口 1 - 1024 的套接字需要超级用户权限。</p></li>
+<li><b>在&#8220;地址&#8221;字段中，键入网络侦听器将侦听的 IP 地址。</b><p>该地址可以采用点对形式或 IPv6 表示法。它可以为 <tt>any</tt>（对于 <tt>INADDR_ANY</tt>），侦听所有 IP 地址。它可以为主机名。</p></li>
+<li><b>从&#8220;线程池&#8221;下拉式列表中，选择要与网络侦听器关联的线程池。</b></li>
+<li><b>单击&#8220;保存&#8221;。</b>
+<hr><p><b>提示 - </b>要返回到默认设置，请单击&#8220;装入默认值&#8221;按钮，然后单击&#8220;保存&#8221;。</p>
+
+
+<hr>
+</li></ol><h6>接下来的操作</h6><p>可以使用 "SSL"、"HTTP" 和&#8220;文件高速缓存&#8221;选项卡来编辑与网络侦听器关联的协议的设置。只有在为网络侦听器启用了安全性时，"SSL" 选项卡才有意义。</p>
+
+<h6>另请参见</h6>
+<ul><li><p><a href="task-networklistenernew.html">创建网络侦听器</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">删除网络侦听器</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">创建协议</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">编辑协议</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">编辑协议的 SSL 设置</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">编辑协议的 HTTP 设置</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">编辑协议的文件高速缓存设置</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">删除协议</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">创建传输</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">编辑传输</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">删除传输</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

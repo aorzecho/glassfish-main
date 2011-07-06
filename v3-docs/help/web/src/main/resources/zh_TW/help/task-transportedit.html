@@ -1,0 +1,67 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-transportedit"></a><h4>編輯傳輸</h4><a name="indexterm-34"></a><ol>
+<li><b>在瀏覽樹狀結構中，展開 [配置] 節點。</b></li>
+<li><b>在 [配置] 節點下，展開 [網路配置] 節點。</b></li>
+<li><b>在 [網路配置] 節點下，選取 [傳輸] 節點。</b><p>此時將會開啟 [傳輸] 頁面。</p></li>
+<li><b>在 [傳輸] 頁面上，按一下您要編輯的傳輸名稱。</b><p>[編輯傳輸] 頁面會隨即開啟。</p></li>
+<li><b>在 [類別名稱] 欄位中，鍵入傳輸實作的類別名稱。</b><p>預設值為 <tt>com.sun.grizzly.TCPSelectorHandler</tt>。</p></li>
+<li><b>在 [選取金鑰處理程式] 欄位中，鍵入選取金鑰處理程式的類別名稱。</b><p>選取金鑰處理程式的類別名稱。選取金鑰處理程式是管理選取金鑰生命週期的抽象類別。 如果您沒有指定值，則會使用預設的實作。</p></li>
+<li><b>從 [ByteBuffer 類型] 下拉式清單中，選取要使用的 <tt>ByteBuffer</tt> 類型。</b><p>可用的選擇有 <tt>HEAP</tt> 和 <tt>DIRECT</tt>。預設值為 <tt>HEAP</tt>。</p></li>
+<li><b>在 [接收器執行緒] 欄位中，鍵入機器中的處理器數目。</b><p>&#8211;1 值表示 Grizzly 將會根據機器中的處理器數目，計算接收器執行緒本身的數目。預設值為 1。</p><p>若要設定請求處理執行緒的數目，請設定使用此傳輸之網路偵聽程式所用執行緒池的 [最大執行緒池大小] 值。</p></li>
+<li><b>在 [最大連線數] 欄位中，鍵入使用此傳輸之網路偵聽程式上的最大擱置連線數目。</b><p>預設值為 4096。</p></li>
+<li><b>在 [緩衝區大小] 欄位中，鍵入針對使用此傳輸之網路偵聽程式所建立的輸入串流提供的緩衝區大小 (以位元組為單位)。</b><p>預設值為 8192。</p></li>
+<li><b>在 [閒置金鑰逾時] 欄位中，鍵入在閒置金鑰將取消且通道將關閉之前經過的秒數。</b><p>預設值為 30。</p></li>
+<li><b>在 [讀取逾時] 欄位中，鍵入 GlassFish Server 在讀取作業的標頭和內文剖析階段期間等待的毫秒數。</b><p>預設值為 30,000。</p></li>
+<li><b>在 [選擇器輪詢逾時] 欄位中，鍵入 NIO 選擇器將會封鎖以等待事件 (使用者請求) 的毫秒數。</b><p>預設值為 1000。</p></li>
+<li><b>在 [寫入逾時] 欄位中，鍵入 GlassFish Server 在寫入回應時將遠端用戶端視為中斷連線前等待的毫秒數。</b><p>預設值為 30,000。</p></li>
+<li><b>選取 [啟用顯示配置] 核取方塊可將 Grizzly 的內部配置寫回伺服器記錄。</b><p>此選項可提供有用的資訊以供除錯。此選項預設為停用。</p></li>
+<li><b>選取 [啟用探測] 核取方塊可將請求/回應資訊傾印到伺服器記錄。</b><p>此選項可提供有用的資訊以供除錯，但會大幅降低效能。此選項預設為停用。</p></li>
+<li><b>選取 [TCP 無延遲] 核取方塊可啟用 TCP_NODELAY (也稱為 Nagle 演算法)。</b><p>此選項預設為啟用。</p></li>
+<li><b>按一下 [儲存]。</b>
+<hr><p><b>提示 - </b>若要回到預設設定，請按一下 [載入預設值] 按鈕，然後按一下 [儲存]。</p>
+
+
+<hr>
+</li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-networklistenernew.html">建立網路偵聽程式</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">編輯網路偵聽程式</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">刪除網路偵聽程式</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">建立通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">編輯通訊協定</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">編輯通訊協定的 SSL 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">編輯通訊協定的 HTTP 設定</a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">編輯通訊協定的檔案快取設定</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">刪除通訊協定</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">建立傳輸</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">刪除傳輸</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

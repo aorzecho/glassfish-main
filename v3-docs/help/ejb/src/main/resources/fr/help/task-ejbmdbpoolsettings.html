@@ -1,0 +1,59 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbmdbpoolsettings"></a><h4>Pour configurer les param&#232;tres du pool MDB</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><a name="indexterm-3"></a><a name="indexterm-4"></a><a name="indexterm-5"></a><p>Les beans g&#233;r&#233;s par message sont similaires au pool des beans de
+session. Par d&#233;faut, le conteneur conserve un pool de beans g&#233;r&#233;s par
+message.</p>
+
+<p>Pour ajuster la configuration de ce pool, proc&#233;dez comme suit : </p>
+
+<ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
+<li><b>S&#233;lectionnez le n&#339;ud Conteneur EJB.</b><p>La page Enterprise Java Beans (EJB) s&#8217;ouvre. </p></li>
+<li><b>Cliquez sur l&#8217;onglet Param&#232;tres de MDB.</b><p>La page Param&#232;tres de pool MDB par d&#233;faut s&#8217;affiche.</p></li>
+<li><b>Dans le champ Taille initiale et minimale du pool, indiquez le nombre
+minimum de beans de message &#224; conserver dans le pool.</b><p>La valeur par d&#233;faut est 0.</p></li>
+<li><b>Dans le champ Taille maximale du pool, indiquez le nombre maximum de
+beans que le conteneur peut conserver dans le pool &#224; un moment
+donn&#233;.</b><p>La valeur par d&#233;faut est 32.</p></li>
+<li><b>Dans le champ Valeur de redimensionnement du pool, indiquez le nombre de
+beans &#224; supprimer du pool s&#8217;ils sont inactifs pendant une dur&#233;e sup&#233;rieure
+&#224; celle sp&#233;cifi&#233;e dans le champ D&#233;lai d&#8217;inactivit&#233; du pool.</b><p>La valeur doit &#234;tre 0 minimum et &#234;tre inf&#233;rieure &#224; la valeur
+du champ Taille maximale du pool. La valeur par d&#233;faut est 8.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;inactivit&#233; du pool, indiquez la dur&#233;e exprim&#233;e en
+secondes durant laquelle un bean peut demeurer inactif avant d&#8217;&#234;tre supprim&#233; du
+pool.</b><p>Au-del&#224; de cette p&#233;riode, le bean est d&#233;truit. La valeur 0 signifie qu&#8217;un
+bean peut rester inactif pendant une dur&#233;e ind&#233;finie. La valeur par d&#233;faut
+est 600.</p></li>
+<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>GlassFish Server ne d&#233;finit aucune autre propri&#233;t&#233; pour le pool MDB.</p><ul>
+<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
+ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
+champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
+<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
+<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
+Nom de la propri&#233;t&#233; que vous supprimez,  puis cliquez sur le
+bouton Supprimer propri&#233;t&#233;s.</b></li></ul></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li>
+<li><b>Red&#233;marrez GlassFish Server.</b></li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="../../../ejb-lite/fr/help/task-ejbgeneral.html">To Configure EJB Settings</a></p>
+
+</li>
+<li><p><a href="task-ejbtimerservice.html">Pour configurer le service d'horloge EJB</a></p>
+
+</li>
+<li><p><a href="task-ejbcontaineravailability.html">Pour configurer les param&#232;tres de disponibilit&#233; du conteneur EJB</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

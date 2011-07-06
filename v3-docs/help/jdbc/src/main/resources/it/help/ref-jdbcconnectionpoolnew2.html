@@ -1,0 +1,123 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jdbcconnectionpoolnew2"></a><h4>New JDBC Connection Pool (Step 2 of 2)</h4>
+<a name="indexterm-22"></a><p>Nella pagina New JDBC Connection Pool (Step 2 of 2) &#232; possibile
+creare un nuovo pool di connessione JDBC.</p>
+
+<p>La pagina New JDBC Connection Pool (Step 2 of 2) contiene le
+seguenti opzioni.</p>
+
+<dl><dt>Datasource Classname</dt>
+<dd><p>Nome della classe specifica del produttore che implementa l'API <tt>DataSource </tt>, <tt>ConnectionPoolDataSource</tt> o <tt>XADataSource</tt>. Se &#232; stata selezionata una risorsa di tipo origine dati, nel campo in genere viene inserito automaticamente il nome classe associato al tipo di risorsa e al produttore di database scelti. Se &#232; stato selezionato il tipo di risorsa <tt>java.sql.Driver</tt>, il campo &#232; disabilitato.</p>
+
+</dd>
+<dt>Driver Classname</dt>
+<dd><p>Nome classe del driver JDBC fornito dal produttore. Se &#232; stato selezionato il tipo di risorsa <tt>java.sql.Driver</tt>, nel campo in genere viene inserito automaticamente il nome classe associato al tipo di risorsa e al produttore di database scelti. Se &#232; stata selezionata una risorsa di tipo origine dati, il campo &#232; disabilitato.</p>
+
+</dd>
+<dt>Ping</dt>
+<dd><p>Se questa opzione &#232; selezionata, durante la creazione o la riconfigurazione del pool verr&#224; eseguito automaticamente il ping del pool al fine di identificare e segnalare eventuali valori errati degli attributi. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
+
+</dd>
+<dt>Description</dt>
+<dd><p>Breve descrizione del pool di connessione.</p>
+
+</dd>
+<dt>Initial and Minimum Pool Size</dt>
+<dd><p>Numero minimo di connessioni per il pool. Questo valore determina inoltre il numero di connessioni inserite nel pool al momento della sua creazione o all'avvio di GlassFish Server. Il valore predefinito &#232; 8.</p>
+
+</dd>
+<dt>Maximum Pool Size</dt>
+<dd><p>Numero massimo di connessioni per il pool. Il valore predefinito &#232; 32.</p>
+
+</dd>
+<dt>Pool Resize Quantity</dt>
+<dd><p>Quando le dimensioni del pool aumentano o diminuiscono, le variazioni avvengono in batch. Questo valore determina il numero di connessioni presenti nel batch. Se il valore &#232; troppo grande pu&#242; generare ritardi nella creazione e nella riattivazione delle connessioni, mentre se &#232; troppo piccolo pu&#242; ridurre le prestazioni complessive. Il valore predefinito &#232; 2.</p>
+
+</dd>
+<dt>Idle Timeout</dt>
+<dd><p>Numero massimo di secondi durante i quali una connessione pu&#242; rimanere inattiva nel pool. Una volta trascorso tale numero di secondi, la connessione viene rimossa dal pool. Il valore predefinito &#232; 300.</p>
+
+</dd>
+<dt>Max Wait Time</dt>
+<dd><p>Tempo massimo di attesa (in millisecondi) per la richiesta di connessione da parte di un'applicazione prima del timeout. Il valore predefinito &#232; 60.000.</p>
+
+</dd>
+<dt>Non Transactional Connections</dt>
+<dd><p>Se questa opzione &#232; abilitata, vengono restituite connessioni non transazionali.</p>
+
+</dd>
+<dt>Transaction Isolation</dt>
+<dd><p>Se viene specificato un livello di isolamento della transazione, le connessioni del pool funzionano al livello specificato. In caso contrario, le connessioni funzionano con i livelli di isolamento predefiniti forniti dal driver JDBC. Per impostazione predefinita, per questa opzione non viene specificato alcun valore.</p>
+
+</dd>
+<dt>Isolation Level</dt>
+<dd><p>Se la casella di controllo Guaranteed &#232; selezionata, tutte le connessioni del pool presentano lo stesso livello di isolamento. Ad esempio, se il livello di isolamento della connessione viene modificato attraverso il codice (mediante <tt>con.setTransactionIsolation</tt>) al momento dell'ultimo utilizzo, questa funzione riporta lo stato al livello di isolamento specificato. Questa opzione &#232; abilitata per impostazione predefinita.</p>
+
+<p>Questa opzione pu&#242; essere implementata soltanto se &#232; stato specificato un livello di isolamento.</p>
+
+</dd>
+<dt>Additional Properties</dt>
+<dd><p>Propriet&#224; aggiuntive per il pool di connessione JDBC. Tali propriet&#224; possono includere il nome del database (URL), il nome utente e la password. La tabella in genere contiene le propriet&#224; utilizzate dal produttore del database.</p>
+
+<p>Per una descrizione di alcune delle propriet&#224; disponibili, vedere <a href="ref-jdbc-properties.html">Propriet&#224; specifiche per i pool di connessione JDBC</a>.</p>
+
+<p>Se non si specifica un valore per una propriet&#224;, questa viene rimossa dalla tabella al termine della creazione del pool di connessione. Se anzich&#233; impostare il valore di una propriet&#224; in questa fase si preferisce conservare la propriet&#224; nella tabella in modo da impostare il valore in un secondo momento, digitare due parentesi vuote nel campo Value:</p>
+
+<pre>()</pre></dd>
+</dl>
+<a name="gkolq"></a><h5>Attivit&#224; correlate</h5>
+
+<ul><li><p><a href="task-setdbaccess.html">Impostare l'accesso al database</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">Integrare un driver JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">Creare un pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooledit.html">Modificare le impostazioni generali del pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">Verificare le impostazioni del pool di connessione</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">Modificare gli attributi avanzati del pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Modificare le propriet&#224; del pool di connessione JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Eliminare un pool di connessione JDBC</a></p>
+
+</li></ul>
+<a name="gkokk"></a><h5>Comandi <tt>asadmin</tt> correlati</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=add-resources-1"><tt>add-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jdbc-connection-pool-1"><tt>create-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jdbc-connection-pool-1"><tt>delete-jdbc-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jdbc-connection-pools-1"><tt>list-jdbc-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=ping-connection-pool-1"><tt>ping-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-database-1"><tt>start-database</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-database-1"><tt>stop-database</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

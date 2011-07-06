@@ -1,0 +1,94 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-change-standalone-instance-ports"></a><h4>修改獨立 GlassFish Server 實例的連接埠號碼</h4><a name="indexterm-131"></a><a name="indexterm-132"></a><a name="indexterm-133"></a><p>獨立 GlassFish Server 實例的連接埠號碼，最初是在實例參照的配置中設定。例如，如果參照相同配置的兩個實例位於同一主機上，則必須修改這些連接埠號碼。在此情況下，必須修改其中一個實例的連接埠號碼，因為兩個實例會參照相同的配置。</p>
+
+<p>實例的連接埠號碼會儲存為 Java 系統特性。GlassFish Server 啟動時，這些特性會透過 Java 應用程式啟動程式的 <tt>-D</tt> 選項，傳遞至 Java 應用程式啟動程式。 </p>
+
+<ol>
+<li><b>在瀏覽樹狀結構中，選取 [獨立實例] 節點。</b><p>此時將開啟 [獨立伺服器實例] 頁面。</p></li>
+<li><b>選取要修改其連接埠號碼的實例。</b><p>此時將開啟實例的 [一般資訊] 頁面。</p></li>
+<li><b>在 [一般資訊] 頁面上，按一下 [特性] 標籤。</b><p>此時將開啟 [實例系統特性] 頁面。</p><p>此頁面會顯示實例之下列系統特性目前的值：</p>
+<ul><li><p><a href="../../../common/zh_TW/help/ref-predefinedconfigsysproperties.html">實例配置中預先定義的連接埠號碼</a></p>
+
+</li>
+<li><p>為實例定義的自訂特性 (如果有)</p>
+
+</li></ul>
+</li>
+<li><b>對於您要修改的每個現有特性，請在該特性的 [置換值] 欄位中鍵入新值。</b></li>
+<li><b>為所需的任何其他特性設定值。</b><ol style="list-style-type: lower-alpha">
+<li><b>在 [其他特性] 表格中，按一下 [增加特性]。</b><p>隨即會在其他特性表中增加一列。</p></li>
+<li><b>在 [實例變數名稱] 欄位中，鍵入特性名稱。</b></li>
+<li><b>在 [置換值] 欄位中，鍵入值。</b></li></ol></li>
+<li><b>按一下 [儲存]。</b></li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-create-standalone-instance.html">建立獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-delete-standalone-instances.html">刪除獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-start-standalone-instances.html">啟動獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-stop-standalone-instances.html">停止獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-view-logs-standalone-instance.html">檢視獨立 GlassFish Server 實例的記錄檔</a></p>
+
+</li>
+<li><p><a href="task-recovertransactions-standalone-instance.html">回復獨立 GlassFish Server 實例的作業事件</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-deploy.html">將應用程式部署至獨立 GlassFish Server 實例</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-list.html">列出已部署至獨立 GlassFish Server 實例的應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-undeploy.html">從獨立 GlassFish Server 實例取消部署應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-remove.html">從獨立 GlassFish Server 實例移除應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-edit.html">編輯已部署至獨立 GlassFish Server 實例的應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-enable-disable.html">啟用或停用已部署至獨立 GlassFish Server 實例的應用程式</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">啟用或停用已部署至獨立 GlassFish Server 實例之應用程式的負載平衡</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-create.html">為獨立 GlassFish Server 實例建立資源</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-display.html">列出獨立 GlassFish Server 實例的資源</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-enable-disable.html">啟用或停用獨立 GlassFish Server 實例的資源</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-edit.html">編輯獨立 GlassFish Server 實例的資源</a></p>
+
+</li>
+<li><p><a href="task-set-props-standalone-instance.html">為獨立 GlassFish Server 實例設定僅限實例的特性</a></p>
+
+</li>
+<li><p><a href="task-mon-app-standalone-instance.html">檢視獨立 GlassFish Server 實例的應用程式監視資料</a></p>
+
+</li>
+<li><p><a href="task-mon-server-standalone-instance.html">檢視獨立 GlassFish Server 實例的虛擬伺服器監視資料</a></p>
+
+</li>
+<li><p><a href="task-mon-resource-standalone-instance.html">檢視獨立 GlassFish Server 實例的資源監視資料</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

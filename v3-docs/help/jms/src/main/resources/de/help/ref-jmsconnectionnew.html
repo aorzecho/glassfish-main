@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsconnectionnew"></a><h4>Neue JMS-Verbindungs-Factory</h4>
+<a name="indexterm-31"></a><a name="indexterm-32"></a><p>Auf der Seite "Neue JMS-Verbindungs-Factory" k&#246;nnen Sie eine neue JMS-Verbindungsfactory erstellen.</p>
+
+<p>Die Seite "Neue JMS-Verbindungs-Factory" enth&#228;lt die folgenden Optionen.</p>
+
+<dl><dt>Pool Name (Poolname)</dt>
+<dd><p>Ein eindeutiger Name, der die Verbindungsfactory identifiziert. GlassFish-Server legt den JNDI-Namen der Verbindungsfactory f&#252;r diesen Wert fest.</p>
+
+</dd>
+<dt>Resource Type (Ressourcen-Typ)</dt>
+<dd><p>Der Ressourcentyp der Verbindungsfactory. Zur Auswahl stehen <tt>javax.jms.ConnectionFactory</tt>, <tt>javax.jms.QueueConnectionFactory</tt> und <tt>javax.jms.TopicConnectionFactory</tt>.</p>
+
+</dd>
+<dt>Beschreibung</dt>
+<dd><p>Eine Beschreibung der Verbindungsfactory.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Der Status der Verbindungsfactory. Die Verbindungsfactory kann aktiviert oder deaktiviert sein. Diese Option ist standardm&#228;&#223;ig aktiviert.</p>
+
+</dd>
+<dt>Initial and Minimum Pool Size (Urspr&#252;ngliche und minimale Poolgr&#246;&#223;e)</dt>
+<dd><p>Die minimale Anzahl an Verbindungen im Pool f&#252;r die Verbindungsfactory. Der Standardwert ist 8.</p>
+
+</dd>
+<dt>Maximum Pool Size (Maximale Poolgr&#246;&#223;e)</dt>
+<dd><p>Die maximale Anzahl an Verbindungen im Pool f&#252;r die Verbindungsfactory. Der Standardwert lautet 32.</p>
+
+</dd>
+<dt>Pool Resize Quantity (Anzahl der Gr&#246;&#223;en&#228;nderungen des Pools)</dt>
+<dd><p>Die Anzahl an Verbindungen, die nach Ablauf der Pool-Leerlaufzeit entfernt werden sollen. Der Standardwert ist 2.</p>
+
+</dd>
+<dt>Idle Timeout (Leerlaufzeitlimit)</dt>
+<dd><p>Die maximale Zeit in Sekunden, die sich eine Verbindung im Pool im Leerlauf befinden kann. Der Standardwert betr&#228;gt 300.</p>
+
+</dd>
+<dt>Max Wait Time (Maximale Wartezeit)</dt>
+<dd><p>Die Zeitspanne, die eine Anwendung nach dem Anfordern einer Verbindung abwartet, bevor eine Verbindungszeit&#252;berschreitung ausgegeben wird. Der Standardwert lautet 60000.</p>
+
+</dd>
+<dt>On Any Failure (Bei s&#228;mtlichen Fehlern)</dt>
+<dd><p>Wenn das Kontrollk&#228;stchen "S&#228;mtliche Verbindungen trennen" aktiviert ist, schlie&#223;t GlassFish-Server bei einem einzigen Verbindungsabbruch alle Verbindungen im Pool und stellt sie wieder her. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Transaktionsunterst&#252;tzung</dt>
+<dd><p>Die gew&#228;hlte Transaktionsunterst&#252;tzung &#252;berschreibt das Transaktionsunterst&#252;tzungsattribut des mit diesem Verbindungspool verkn&#252;pften Ressourcenadapters in einer Weise, mit der Abw&#228;rtskompatibilit&#228;t gew&#228;hrleistet wird. Anders ausgedr&#252;ckt: Es kann dieselbe oder eine niedrigere Transaktionsebene unterst&#252;tzt werden als die im Ressourcenadapter angegebene, jedoch keine h&#246;here Transaktionsebene.</p>
+
+<p>Folgende Werte sind m&#246;glich:</p>
+
+<dl><dt>XATransaction</dt>
+<dd><p>Die Ressource kann f&#252;r Transaktionen eingesetzt werden, f&#252;r die mehrere Ressourcen innerhalb eines Transaktionsbereichs verwendet werden. Dies ist der Standardwert f&#252;r eine JMS-Verbindungsfactory. </p>
+
+<p>Beispiel: Transaktionen k&#246;nnen diese Ressource sowie eine JDBC-Ressource, eine Verbindungsressource oder eine andere JMS-Verbindungsfactory-Ressource verwenden. Dieser Wert bietet die meiste Flexibilit&#228;t. Eine als XATransaction konfigurierte Ressource wird f&#252;r zweiphasige Durchf&#252;hrungsoperationen verwendet.</p>
+
+</dd>
+<dt>LocalTransaction</dt>
+<dd><p>Die Ressource kann entweder f&#252;r Transaktionen mit nur einer Ressource innerhalb des Transaktionsbereichs oder als letzter Agent in einer verteilten Transaktion mit mehreren XA-Ressourcen verwendet werden.</p>
+
+<p>Dieser Wert bietet eine geringf&#252;gig bessere Leistung. Eine als LocalTransaction konfigurierte Ressource wird nicht in zweiphasigen Durchf&#252;hrungsoperationen verwendet.</p>
+
+</dd>
+<dt>NoTransaction</dt>
+<dd><p>Die Ressource kann nie in Transaktionen verwendet werden. Diese Einstellung wird f&#252;r JMS-Anwendungen nur eingeschr&#228;nkt verwendet.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Connection Validation (Verbindungs&#252;berpr&#252;fung)</dt>
+<dd><p>Wenn das Kontrollk&#228;stchen "Erforderlich" aktiviert ist, werden Verbindungen vor der &#220;bergabe an die Anwendung &#252;berpr&#252;ft. Schl&#228;gt die &#220;berpr&#252;fung einer Ressource fehl, so wird die Ressource zerst&#246;rt, und eine neue Ressource wird erstellt und zur&#252;ckgegeben. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
+
+</dd>
+<dt>Weitere Eigenschaften</dt>
+<dd><p>Weitere Eigenschaften f&#252;r die Verbindungsfactory.</p>
+
+<p>Information zu verf&#252;gbaren Eigenschaften finden Sie unter <a href="ref-jmsconnectionproperties.html">Spezifische Eigenschaften von JMS-Verbindungsfactories</a>.</p>
+
+</dd>
+<dt>Ziele</dt>
+<dd><p>Cluster und eigenst&#228;ndige Instanzen f&#252;r die Verbindungsfactory. Verschieben Sie die ben&#246;tigten Ziele in die Spalte "Ausgew&#228;hlte Ziele", indem Sie die Schaltfl&#228;chen "Hinzuf&#252;gen" und "Alle hinzuf&#252;gen" verwenden. Verschieben Sie die nicht ben&#246;tigten Ziele in die Spalte "Verf&#252;gbare Ziele", indem Sie die Schaltfl&#228;chen "Entfernen" und "Alle entfernen" verwenden.</p>
+
+<p>Diese Option wird nur dann angezeigt, wenn in der Dom&#228;ne Cluster oder eigenst&#228;ndige Instanzen erstellt wurden.</p>
+
+</dd>
+</dl>
+<h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-jmsconnectionnew.html">So erstellen Sie eine JMS-Verbindungsfactory-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jmsconnectionedit.html">So bearbeiten Sie eine JMS-Verbindungsfactory-Ressource</a></p>
+
+</li>
+<li><p><a href="task-jmsconnectiondelete.html">So l&#246;schen Sie eine JMS-Verbindungsfactory-Ressource</a></p>
+
+</li></ul>
+<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jms-resource-1"><tt>create-jms-resource</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jms-resources-1"><tt>list-jms-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jms-resource-1"><tt>delete-jms-resource</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

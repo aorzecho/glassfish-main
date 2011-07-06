@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transactionservice"></a><h4>트랜잭션 서비스</h4>
+<a name="indexterm-8"></a><p>트랜잭션 서비스 페이지에서는 트랜잭션 복구, 시간 초과 및 로깅을 구성할 수 있습니다.</p>
+
+<p>트랜잭션 서비스 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>기본값 로드</dt>
+<dd><p>모든 설정의 기본값을 복원하는 데 사용하는 버튼입니다.</p>
+
+</dd>
+<dt>구성 이름</dt>
+<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+
+</dd>
+<dt>다시 시작 시</dt>
+<dd><p>사용 가능 확인란이 선택되어 있으면 GlassFish 서버에서 서버가 다시 시작할 때 완료되지 않은 트랜잭션을 복구하려 합니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+
+</dd>
+<dt>트랜잭션 시간 초과</dt>
+<dd><p>서버가 완료되지 않은 트랜잭션을 롤백하기 전에 대기하는 시간(초)입니다. 기본값은 0이며, 이때 서버는 트랜잭션이 완료될 때까지 무기한 기다립니다.</p>
+
+</dd>
+<dt>재시도 시간 초과</dt>
+<dd><p>GlassFish 서버에서 연결할 수 없는 서버에 연결을 시도하는 시간(초)입니다. 기본값은 600(10분)입니다.</p>
+
+</dd>
+<dt>트랜잭션 로그 위치</dt>
+<dd><p>서버 로그가 저장되는 디렉토리입니다. 트랜잭션 로그는 이 필드에서 지정한 디렉토리의 <tt>tx</tt> 하위 디렉토리에 저장됩니다. 기본값은 GlassFish 서버 노드의 고급 탭 아래에 있는 도메인 속성 페이지의 로그 루트 필드에 지정된 디렉토리입니다.</p>
+
+</dd>
+<dt>발견적 판단</dt>
+<dd><p>연결할 수 없는 서버와 관련된 트랜잭션을 완결할지 또는 롤백할지를 결정합니다. 기본값은 롤백입니다. 확정되지 않은 트랜잭션을 완결하면 응용 프로그램의 데이터 무결성이 손상될 수 있습니다.</p>
+
+</dd>
+<dt>키포인트 간격</dt>
+<dd><p>트랜잭션 로그 파일을 압축하는 키포인트 작업 간의 트랜잭션 수입니다. 기본값은 65,536입니다.</p>
+
+</dd>
+<dt>추가 등록 정보</dt>
+<dd><p>트랜잭션 서비스의 추가 등록 정보입니다.</p>
+
+<p>사용할 수 있는 등록 정보에 대한 설명은 <a href="ref-transactionsvcproperties.html">트랜잭션 서비스와 관련된 등록 정보</a>를 참조하십시오.</p>
+
+</dd>
+</dl>
+<a name="ginkt"></a><h5>관련 작업</h5>
+
+<ul><li><p><a href="task-configtransservice.html">트랜잭션 서비스를 구성하는 방법</a></p>
+
+</li>
+<li><p><a href="task-configtransrecovery.html">GlassFish 서버에서 트랜잭션 복구 방식을 구성하는 방법</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">트랜잭션 시간 초과 값을 설정하는 방법</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">트랜잭션 로그의 위치를 설정하는 방법</a></p>
+
+</li>
+<li><p><a href="task-setkeyptinterval.html">키포인트 간격을 설정하는 방법</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

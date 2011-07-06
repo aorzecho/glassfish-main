@@ -1,0 +1,99 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-editnode"></a><h4>노드를 편집하는 방법</h4><a name="indexterm-157"></a><p>노드를 편집하면 GlassFish 서버 노드의 구성 데이터가 업데이트됩니다. 노드를 편집하면 노드 유형을
+CONFIG에서 SSH로 변경하여 노드에 대해 SSH 통신을 활성화할 수도 있습니다.</p>
+
+<p>노드 유형을 CONFIG에서 SSH로 변경하는 경우 다음 필드를 비워 두면 기본값이 적용됩니다.</p>
+
+
+<ul><li><p>SSH 포트</p>
+
+</li>
+<li><p>SSH 사용자 이름</p>
+
+</li>
+<li><p>키 파일</p>
+
+</li></ul>
+<ol>
+<li><b>탐색 트리에서 노드 노드를 확장합니다.</b></li>
+<li><b>노드 목록에서 편집할 노드를 선택합니다.</b><p>노드 편집 페이지가 열립니다.</p></li>
+<li><b>유형 드롭다운 목록에서 업데이트된 노드 유형을 선택합니다.</b><ul>
+<li><b>노드가 SSH(보안 쉘)를 통한 통신을 지원하도록 하려면 SSH를 선택합니다.</b></li>
+<li><b>노드에서 원격 구성에 대한 지원을 제거하려면 CONFIG를 선택합니다.</b><p>CONFIG를 선택하면 SSH 구성에 대한 옵션이 표시되지 않습니다. 현재 노드 유형이 SSH인데
+CONFIG를 선택하는 경우 변경 사항을 저장하면 노드의 구성에서 SSH 구성 데이터가 제거됩니다.</p></li></ul></li>
+<li><b>노드 호스트 필드에 업데이트된 노드가 나타낼 호스트의 이름을 입력합니다.</b><p>이 필드가 필수인지의 여부는 노드 유형에 따라 결정됩니다.</p>
+<ul><li><p>노드 유형이 CONFIG이면 호스트 이름을 생략할 수 있습니다. 호스트 이름은 노드에 있는 인스턴스를 만들 때 지정할 수 있습니다.</p>
+
+</li>
+<li><p>노드 유형이 SSH이면 호스트 이름을 지정해야 합니다. 그렇지 않으면 오류가 발생합니다.</p>
+
+</li></ul>
+</li>
+<li><b>노드 디렉토리 필드에 노드에 만들어져 있는 GlassFish 서버 인스턴스를 포함할 디렉토리의 경로를
+입력합니다.</b><p>상대 경로를 입력하는 경우 경로가 <i>as-install</i> 디렉토리를 기준으로 합니다. 여기서 <i>as-install</i>은(는) 호스트의
+GlassFish 서버 소프트웨어의 기본 설치 디렉토리입니다.</p></li>
+<li><b>설치 디렉토리 필드에 호스트에 있는 GlassFish 서버 소프트웨어의 상위 기본 설치 디렉토리의
+전체 경로를 입력합니다(예: <tt>/export/glassfish3/</tt>).</b></li>
+<li><b>노드의 매개 변수 검증이 실패하더라도 DAS(도메인 관리 서버)의 구성에 노드가 만들어지도록 강제
+적용하려면 강제 적용 옵션을 활성화합니다.</b></li>
+<li><b>SSH 포트 필드에 이 노드의 호스트에 대한 SSH 연결에 사용할 포트를 입력합니다.</b><p>노드 유형을 CONFIG에서 SSH로 변경하고 이 필드를 비워 두면 SSH 포트 옵션이
+22로 설정됩니다.</p></li>
+<li><b>SSH 사용자 이름 필드에 SSH를 통해 호스트에 연결하기 위한 프로세스를 실행할 이
+노드의 호스트 사용자 이름을 입력합니다.</b><p>노드 유형을 CONFIG에서 SSH로 변경하고 이 필드를 비워 두면 SSH 사용자 이름
+옵션이 DAS 프로세스를 실행하고 있는 사용자로 설정됩니다.</p></li>
+<li><b>이 노드의 호스트에 로그인할 때 SSH 사용자를 인증하는 방식을 지정합니다.</b><ul>
+<li><b>SSH 개인 키 파일을 통해 인증을 지정하려면 다음 단계를 수행합니다.</b><ol style="list-style-type: lower-alpha">
+<li><b>SSH 사용자 인증 드롭다운 목록에서 키 파일을 선택합니다.</b></li>
+<li><b>키 파일 필드에 SSH 사용자 이름 옵션에서 지정하는 사용자에 대한 SSH 개인
+키 파일의 절대 경로를 입력합니다. </b>
+<hr><p><b>주 - </b>또한 GlassFish 서버는 암호 파일의 <tt>AS_ADMIN_SSHPASSWORD</tt> 항목을 통한 암호 인증을 지원합니다. 암호
+파일은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> 유틸리티의 <tt>--paswordfile</tt> 옵션에 지정되어 있습니다.</p>
+
+
+<hr>
+<p>노드 유형을 CONFIG에서 SSH로 변경하고 이 필드를 비워 두면 키 파일 옵션이
+사용자의 <tt>.ssh</tt> 디렉토리에 있는 키 파일로 설정됩니다. 키 파일이 여러 개 있을
+경우 GlassFish 서버에서는 다음 순서로 기본 설정을 사용합니다.</p>
+<ul><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>ID</tt></p>
+
+</li></ul>
+</li></ol></li>
+<li><b>DAS 구성에 저장된 암호를 통해 인증을 지정하려면 다음 단계를 수행합니다.</b>
+<hr><p><b>주의 - </b>이 암호는 DAS 구성에 일반 텍스트로 저장됩니다. 보안 강화를 위해 키 파일이나
+암호 별칭을 사용합니다.</p>
+
+
+<hr>
+<ol style="list-style-type: lower-alpha">
+<li><b>SSH 사용자 인증 드롭다운 목록에서 암호를 선택합니다.</b></li>
+<li><b>SSH 암호 필드에 SSH 사용자가 이 노드의 호스트에 로그인할 때 사용하는 암호를
+입력합니다. </b></li>
+<li><b>SSH 암호 확인 필드에 암호를 다시 입력합니다.</b></li></ol></li>
+<li><b>암호 별칭을 통해 인증을 지정하려면 다음 단계를 수행합니다.</b><ol style="list-style-type: lower-alpha">
+<li><b>SSH 사용자 인증 드롭다운 목록에서 암호 별칭을 선택합니다.</b></li>
+<li><b>암호 별칭 드롭다운 목록에서 기존 별칭을 선택합니다.</b></li></ol></li></ul></li>
+<li><b>저장을 누릅니다.</b></li></ol><h6>참조 </h6>
+<ul><li><p><a href="task-createnode.html">노드를 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-deletenode.html">노드를 삭제하는 방법</a></p>
+
+</li>
+<li><p><a href="task-listnodes.html">현재 도메인의 모든 노드를 나열하는 방법</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

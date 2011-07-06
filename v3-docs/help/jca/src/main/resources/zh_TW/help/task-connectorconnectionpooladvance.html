@@ -1,0 +1,84 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-connectorconnectionpooladvance"></a><h4>編輯連接器連線池進階屬性</h4><a name="indexterm-6"></a><ol>
+<li><b>在瀏覽樹狀結構中，展開 [資源] 節點。</b></li>
+<li><b>展開 [連接器] 節點。</b></li>
+<li><b>在 [連接器] 節點下，選取 [連接器連線池] 節點。</b><p>[連接器連線池] 頁面會隨即開啟。</p></li>
+<li><b>在 [連接器連線池] 頁面上，按一下要編輯的連接器連線池名稱。</b><p>[編輯連接器連線池] 頁面會隨即開啟。</p></li>
+<li><b>在 [編輯連接器連線池] 頁面上，按一下 [進階] 標籤。</b><p>[編輯連接器連線池進階屬性] 頁面會隨即開啟。</p></li>
+<li><b>在 [驗證間隔最久時間] 欄位中，鍵入到達驗證連線間隔最長時間之前，等待的時間長度 (以秒為單位)。</b><p>將此屬性設定為適當值，可將驗證連線請求的數目減至最小。預設值為 0，表示未啟用該屬性。</p></li>
+<li><b>在 [錯誤逾時] 欄位中，鍵入追蹤連線池中錯誤連線的時間長度 (以秒為單位)。</b><p>0 值表示已停用連線錯誤追蹤。預設值為 0。</p></li>
+<li><b>選取 [錯誤收回] 核取方塊，可在連線錯誤追蹤完成之後，將錯誤連線復原至連線池。</b><p>此選項預設為停用。</p></li>
+<li><b>在 [建立重新嘗試次數] 欄位中，鍵入建立新連線失敗之後，將進行的嘗試次數。</b><p>0 值表示不會再次嘗試建立連線。預設值為 0。</p></li>
+<li><b>在 [重試間隔] 欄位中，鍵入兩次嘗試建立連線之間的時間間隔 (以秒為單位)。</b><p>僅當 [建立重新嘗試次數] 的值大於 0 時，才使用該屬性。預設值為 10 秒。</p></li>
+<li><b>選取 [池儲存] 核取方塊可針對池啟用連線池儲存。</b><p>此選項預設為啟用。</p></li>
+<li><b>選取 [惰性關聯] 核取方塊可在作業於連線上執行時，為連線建立惰性關聯。</b><p>當作業事件完成且元件方法結束時，這些連線便會取消關聯，從而可以重複使用實體連線。此選項預設為停用。</p></li>
+<li><b>選取 [惰性連線登記] 核取方塊，可僅在資源實際用於方法中時，才將資源登記至作業事件。</b><p>此選項預設為停用。</p></li>
+<li><b>選取 [與執行緒建立關聯] 核取方塊，可將連線與執行緒建立關聯。</b><p>當相同的執行緒需要連線時，便可以重複使用已與該執行緒建立關聯的連線，而省下從池中取得連線的經常性耗用時間。此選項預設為停用。</p></li>
+<li><b>選取 [比對連線] 核取方塊，可啟用池的連線比對功能。</b><p>如果您知道池中的連線一定是同質連線，因此不需要資源配接卡對從池中挑選的連線進行比對，可以停用此選項。此選項預設為啟用。</p></li>
+<li><b>在 [比對連線使用率] 欄位中，鍵入池重複使用連線的次數。</b><p>重複使用指定次數的連線後，就會關閉連線。0 值表示沒有啟用此屬性。預設值為 0。</p></li>
+<li><b>按一下 [儲存]。</b>
+<hr><p><b>提示 - </b>若要回到預設設定，請按一下 [載入預設值] 按鈕，然後按一下 [儲存]。</p>
+
+
+<hr>
+</li></ol><h6>另請參閱</h6>
+<ul><li><p><a href="task-connectorresourcenew.html">建立連接器資源</a></p>
+
+</li>
+<li><p><a href="task-connectorresourceedit.html">編輯連接器資源</a></p>
+
+</li>
+<li><p><a href="task-connectorresourcesdelete.html">刪除連接器資源</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolnew.html">建立連接器連線池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">編輯連接器連線池</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">編輯連接器連線池特性</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">建立連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">編輯連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">刪除連接器連線池的安全性對映</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">刪除連接器連線池</a></p>
+
+</li>
+<li><p><a href="task-setupeisaccess.html">設定 EIS 存取</a></p>
+
+</li>
+<li><p><a href="task-adminobjectnew.html">建立管理物件資源</a></p>
+
+</li>
+<li><p><a href="task-adminobjectedit.html">編輯管理物件資源</a></p>
+
+</li>
+<li><p><a href="task-administeredobjectresourcedelete.html">刪除受管理物件資源</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapnew.html">建立工作安全性對映</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapedit.html">編輯工作安全性對映</a></p>
+
+</li>
+<li><p><a href="task-worksecuritymapdelete.html">刪除工作安全性對映</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

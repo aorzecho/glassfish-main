@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpooledit"></a><h4>编辑 JDBC 连接池常规设置</h4><a name="indexterm-10"></a><ol>
+<li><b>在导航树中，展开&#8220;资源&#8221;节点。</b></li>
+<li><b>在&#8220;资源&#8221;节点下，展开 "JDBC" 节点。</b></li>
+<li><b>在 "JDBC" 节点下，选择&#8220;连接池&#8221;节点。</b><p>此时将打开&#8220;连接池&#8221;页面。</p></li>
+<li><b>单击您要编辑的连接池的名称。</b><p>此时将打开&#8220;编辑连接池&#8221;页面。</p></li>
+<li><b>从&#8220;资源类型&#8221;下拉式列表中，选择一种资源类型。</b><p>选项包括 <tt>javax.sql.DataSource</tt>（仅本地事务） 、<tt>javax.sql.XADataSource</tt>（全局事务）和 <tt>java.sql.ConnectionPoolDataSource</tt>（本地事务，性能可能会提高）。</p></li>
+<li><b>在&#8220;数据源类名称&#8221;字段中，键入实现 <tt>DataSource</tt>、<tt>ConnectionPoolDataSource</tt> 或 <tt>XADataSource</tt> API 的特定于供应商的类名。</b><p>如果选择了一种数据源资源类型，则此字段通常会自动填充与您选择的资源类型和数据库供应商关联的类名。如果选择了 <tt>java.sql.Driver</tt> 资源类型，则此字段将被禁用。</p></li>
+<li><b>在&#8220;驱动程序类名&#8221;字段中，键入实现 <tt>java.sql.Driver</tt> API 的特定于供应商的类名。</b><p>如果选择了 <tt>java.sql.Driver</tt> 资源类型，则此字段通常会自动填充与您选择的驱动程序和数据库供应商关联的类名。如果选择了一种数据源资源类型，则此字段将被禁用。</p></li>
+<li><b>选中&#8220;启用 Ping&#8221;复选框，在池创建或重新配置过程中自动对池进行 ping 操作，以识别任何错误属性值并发出警告。</b><p>默认情况下禁用此选项。</p></li>
+<li><b>在&#8220;说明&#8221;字段中，键入连接池的简短说明。</b></li>
+<li><b>在&#8220;初始和最小池大小&#8221;字段中，键入此池的最小连接数。</b><p>该值还确定了首次创建池或 GlassFish Server 启动时，置于池中的连接的数目。默认值为 8。</p></li>
+<li><b>在&#8220;最大池大小&#8221;字段中，键入此池的最大连接数。</b><p>默认值为 32。</p></li>
+<li><b>在&#8220;池大小调整数量&#8221;字段中，键入每个池大小调整批处理中的连接数。</b><p>当池根据最大和最小池大小进行相应扩大或缩小时，将以批处理方式调整其大小。此值确定批处理中的连接数目。如果将该值设置得过大，则会延迟连接创建和回收；如果将该值设置得过小，则会降低效率。默认值为 2。</p></li>
+<li><b>在&#8220;空闲超时&#8221;字段中，键入连接可在池中保持空闲的最长时间（以秒为单位）。</b><p>一旦超过此时间，即从池中删除该连接。默认值为 300。</p></li>
+<li><b>在&#8220;最长等待时间&#8221;字段中，键入请求连接的应用程序在连接超时之前等待的最长时间（以毫秒为单位）。</b><p>默认值为 60,000。</p></li>
+<li><b>选中&#8220;启用非事务连接&#8221;复选框，以返回非事务连接。</b><p>默认情况下禁用此选项。</p></li>
+<li><b>从下拉式列表中选择连接池的事务隔离级别。 </b><p>如果不指定此参数，连接将使用 JDBC 驱动程序提供的默认隔离级别进行操作。默认情况下，未指定此选项。</p></li>
+<li><b>选中&#8220;保证隔离级别&#8221;复选框，以便从池中获取的所有连接都具有相同的隔离级别。</b><p>例如，如果上次使用连接时通过编程方式（使用 <tt>con.setTransactionIsolation</tt>）更改了连接的隔离级别，此机制会将状态更改回指定的隔离级别。</p><p>仅当已指定事务隔离级别时，此设置才适用。</p></li>
+<li><b>单击 "Ping" 按钮，验证数据库连接。</b><p>管理控制台将尝试连接到数据库。如果出现错误消息，请检查数据库服务器是否已启动。</p></li>
+<li><b>单击&#8220;刷新&#8221;按钮，将连接池重置为初始状态。</b><p>将销毁所有现有活动连接，这意味着与这些连接相关联的事务都将丢失。该子命令随后将重新创建该池的初始连接，并将该池还原到其稳定池大小。</p></li>
+<li><b>单击&#8220;保存&#8221;。</b>
+<hr><p><b>提示 - </b>要返回到默认设置，请单击&#8220;装入默认值&#8221;按钮，然后单击&#8220;保存&#8221;。</p>
+
+
+<hr>
+</li></ol><h6>另请参见</h6>
+<ul><li><p><a href="task-setdbaccess.html">设置数据库访问</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">集成 JDBC 驱动程序</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">创建 JDBC 资源</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">编辑 JDBC 资源</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">编辑 JDBC 资源目标</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">删除 JDBC 资源</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">创建 JDBC 连接池</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">编辑 JDBC 连接池高级属性</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">验证连接池设置</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">编辑 JDBC 连接池属性</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">删除 JDBC 连接池</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

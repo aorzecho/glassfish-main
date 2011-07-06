@@ -1,0 +1,132 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-redeploy"></a><h4>Red&#233;ploiement d&#8217;applications ou de modules</h4>
+<a name="indexterm-185"></a><a name="indexterm-186"></a><p>Pour red&#233;ployer une application qui a d&#233;j&#224; &#233;t&#233; d&#233;ploy&#233;e, utilisez la page
+Red&#233;ploiement d&#8217;applications ou de modules.</p>
+
+<p>La page Red&#233;ploiement d&#8217;applications ou de modules contient les options suivantes&#160;:</p>
+
+<dl><dt>Lieu</dt>
+<dd><p>Le lieu de la nouvelle archive de l&#8217;application que vous red&#233;ployez.</p>
+
+<p>Les options suivantes indiquent les points d&#8217;acc&#232;s &#224; l&#8217;archive et pr&#233;cisent si cette derni&#232;re est un fichier ou un r&#233;pertoire.</p>
+
+<dl><dt>Fichier empaquet&#233; &#224; t&#233;l&#233;charger sur le serveur</dt>
+<dd><p>L&#8217;archive est contenue dans un fichier stock&#233; sur la machine client ou accessible depuis cette m&#234;me machine.</p>
+
+<p>L&#8217;ordinateur client est l&#8217;h&#244;te sur lequel vous visualisez la Console d'administration via un navigateur.</p>
+
+</dd>
+<dt>Fichier empaquet&#233; ou r&#233;pertoire local accessible depuis le GlassFish Server</dt>
+<dd><p>L&#8217;archive est un fichier stock&#233; sur la machine serveur ou une application non empaquet&#233;e contenue dans un r&#233;pertoire &#233;clat&#233;.</p>
+
+<p>Le serveur est l&#8217;h&#244;te qui ex&#233;cute le serveur d&#8217;administration du domaine GlassFish Server. </p>
+
+</dd>
+</dl>
+</dd>
+<dt>Nom de l&#8217;application</dt>
+<dd><p>Champ en lecture seule indiquant le nom de l&#8217;application que vous red&#233;ployez.</p>
+
+<p>Le nom peut &#234;tre suivi d'un identificateur de version facultatif dont il est s&#233;par&#233; par un signe deux-points (<tt>:</tt>). Pour plus d'informations sur le module et les versions d'application, reportez-vous &#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions du <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
+
+</dd>
+<dt>Pr&#233;compiler les JSP</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, les fichiers JavaServer Pages ( JSP) sont pr&#233;compil&#233;s. Si cette option est d&#233;sactiv&#233;e, les fichiers JSP sont compil&#233;s au moment de l&#8217;ex&#233;cution lors de leur premier acc&#232;s. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Ex&#233;cuter le v&#233;rificateur</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, les descripteurs de d&#233;ploiement sont v&#233;rifi&#233;s avant le d&#233;ploiement. En cas d&#8217;&#233;chec de la v&#233;rification, le d&#233;ploiement n&#8217;a pas lieu. Le v&#233;rificateur examine la structure et le contenu des descripteurs de d&#233;ploiement. La v&#233;rification d&#8217;applications volumineuses est souvent une t&#226;che qui demande du temps. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+<p>Les packages du v&#233;rificateur doivent &#234;tre install&#233;s &#224; partir de l'outil de mise &#224; jour ou un avertissement est enregistr&#233; et cette option est ignor&#233;e. </p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, l&#8217;acc&#232;s &#224; Java Web Start est autoris&#233; pour un module client de l&#8217;application. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>Garder l'&#233;tat</dt>
+<dd><p>Cette option d&#233;termine si les sessions web, les instances SFSB et les horloges EJB cr&#233;&#233;es de fa&#231;on persistante sont conserv&#233;es entre les red&#233;ploiements. </p>
+
+<p>Cette option est d&#233;sactiv&#233;e par d&#233;faut. Cette option n'est prise en charge que sur l'instance de serveur par d&#233;faut, appel&#233;e <tt>server</tt>. Elle n'est pas prise en charge et est ignor&#233;e pour toute autre cible. </p>
+
+<p>Certaines modifications apport&#233;es &#224; une application entre des red&#233;ploiements emp&#234;chent cette fonctionnalit&#233; de fonctionner correctement. Par exemple, ne modifiez pas l'ensemble des variables d'instance dans la classe de bean SFSB. </p>
+
+<p>Pour les applications Web, cette fonction n'est applicable que si dans le fichier <tt>glassfish-web-app.xml</tt>, l'attribut <tt>persistence-type</tt> de l'&#233;l&#233;ment <tt>session-manager</tt> est <tt>file</tt>.</p>
+
+<p>Pour les instances de bean de session avec &#233;tat, le type de persistance sans haute disponibilit&#233; est d&#233;fini dans le serveur (l'option Type de persistance SFSB) et doit &#234;tre d&#233;fini sur <tt>file</tt>, qui est la valeur par d&#233;faut et recommand&#233;e. </p>
+
+<p>Si la conservation ou la restauration d'une session Web, d'une instance de SFSB ou d'une horloge EJB active &#233;choue, <b>aucune</b> d'entre elles ne sera disponible une fois le red&#233;ploiement termin&#233;. Toutefois, le red&#233;ploiement se poursuit et un avertissement est enregistr&#233;.</p>
+
+<p>Pour conserver les donn&#233;es d'&#233;tat actives, GlassFish Server s&#233;rialise les donn&#233;es et les enregistre dans la m&#233;moire. Pour restaurer les donn&#233;es, le chargeur de classe de l&#8217;application qui vient d&#8217;&#234;tre red&#233;ploy&#233;e d&#233;s&#233;rialise les donn&#233;es qui ont &#233;t&#233; enregistr&#233;es.</p>
+
+</dd>
+<dt>Conserver les ressources limit&#233;es &#224; l'application</dt>
+<dd><p>Si cette option est coch&#233;e, elle conserve les ressources limit&#233;es &#224; l'application et les restaure pendant le red&#233;ploiement. Elle n'est pas coch&#233;e par d&#233;faut. </p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-appredeploy.html">Red&#233;ploiement d'une application d&#233;ploy&#233;e</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">Pour afficher la liste des applications d&#233;ploy&#233;es</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">D&#233;ployer une application Web</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Pour d&#233;ployer une application d'entreprise</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Pour d&#233;ployer un client d'application</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Pour d&#233;ployer un module connecteur</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Pour d&#233;ployer un Jar EJB</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">Modification d'une application d&#233;ploy&#233;e</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Affichage des descripteurs d'une application</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Affichage des informations relatives aux extr&#233;mit&#233;s des services Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Lancement d'une application</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Lancer un client d'application</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Recharger une application d&#233;ploy&#233;e</a></p>
+
+</li>
+<li><p><a href="../../../ejb/fr/help/task-ejbcontaineravailability.html">To Configure Availability Settings for the EJB Container</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=redeploy-1"><tt>redeploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-modules-1"><tt>list-modules</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

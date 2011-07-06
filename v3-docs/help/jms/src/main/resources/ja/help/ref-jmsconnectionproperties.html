@@ -1,0 +1,70 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jmsconnectionproperties"></a><h4>JMS 接続ファクトリに固有のプロパティー</h4>
+<a name="indexterm-35"></a><a name="indexterm-36"></a><p>JMS 接続プロパティーで使用できる追加プロパティーは次のとおりです。</p>
+
+<dl><dt><tt>ClientId</tt></dt>
+<dd><p>永続的なサブスクライバが使用する接続ファクトリのクライアント ID を指定します。</p>
+
+</dd>
+<dt><tt>AddressList</tt></dt>
+<dd><p>アプリケーションが通信する 1 つまたは複数のメッセージブローカインスタンスの名前 (およびオプションでポート番号) を指定します。リスト内の各アドレスは接続用のホスト名、およびオプションでホストポートと接続サービスを指定します。たとえば、可能な値には <tt>earth</tt> や <tt>earth:7677</tt> があります。メッセージブローカがデフォルト (7676) 以外のポートで実行している場合は、ポート番号を指定します。プロパティー設定でクラスタ環境内の複数のホストとポートが指定されている場合、<tt>AddressListBehavior</tt> プロパティーが <tt>RANDOM</tt> に設定されていなければ、リスト内の最初の使用可能ホストが使用されます。</p>
+
+<p>詳細については、『<b>Message Queue Developer&#8217;s Guide for Java Clients</b>』を参照してください。</p>
+
+<p>デフォルト値は、ローカルホストおよびデフォルトのポート番号 (7676) です。クライアントは、ローカルホストのポート 7676 のブローカへの接続を試行します。</p>
+
+</dd>
+<dt><tt>UserName</tt></dt>
+<dd><p>接続ファクトリのユーザー名。</p>
+
+<p>デフォルト値は <tt>guest</tt> です。</p>
+
+</dd>
+<dt><tt>Password</tt></dt>
+<dd><p>接続ファクトリのパスワード。</p>
+
+<p>デフォルト値は <tt>guest</tt> です。</p>
+
+</dd>
+<dt><tt>ReconnectEnabled</tt></dt>
+<dd><p><tt>true</tt> に設定すると、接続が失われたときに、クライアントランタイムがメッセージサーバー (または <tt>AddressList</tt> で指定したアドレスのリスト) に再接続を試みます。</p>
+
+<p>デフォルト値は <tt>true</tt> です。</p>
+
+</dd>
+<dt><tt>ReconnectAttempts</tt></dt>
+<dd><p>クライアントランタイムがリストの次のアドレスを試行する前に、<tt>AddressList</tt> に指定した各アドレスへの接続 (または再接続) を試行する回数を指定します。値 -1 は、再試行回数が無制限であることを示します。クライアントランタイムは、接続が成功するまで最初のアドレスへの接続を試みます。</p>
+
+<p>デフォルト値は 3 です。</p>
+
+</dd>
+<dt><tt>ReconnectInterval</tt></dt>
+<dd><p>再接続を試行する間隔をミリ秒単位で指定します。これは、<tt>AddressList</tt> で指定した各アドレスおよびリストの次のアドレスへの試行に適用されます。間隔が短すぎると、ブローカがリカバリする時間がなくなります。間隔が長すぎると、再接続が許容できない遅延を示す場合があります。</p>
+
+<p>デフォルト値は 30000 です。</p>
+
+</dd>
+<dt><tt>AddressListBehavior</tt></dt>
+<dd><p>接続の試行を <tt>AddressList</tt> 属性で指定したアドレスの順序 (<tt>PRIORITY</tt>) で行うか、またはランダムな順序 (<tt>RANDOM</tt>) で行うかを指定します。</p>
+
+<p><tt>RANDOM</tt> は、再接続で <tt>AddressList</tt> から任意のアドレスが選択されたことを意味します。多数のクライアントが同じ接続ファクトリを使用して接続を試行する可能性がある場合は、この値を指定することによりすべてのクライアントが同じアドレスに接続しないようにできます。</p>
+
+<p><tt>PRIORITY</tt> は、再接続が常に <tt>AddressList</tt> に指定した最初のサーバーのアドレスへの接続を試行し、最初のブローカが利用できない場合にのみほかのアドレスを使用することを意味します。</p>
+
+<p>デフォルト値は <tt>RANDOM</tt> です。</p>
+
+</dd>
+<dt><tt>AddressListIterations</tt></dt>
+<dd><p>接続の確立 (または再確立) のために、クライアントランタイムが <tt>AddressList</tt> を介して反復する回数を指定します。値 -1 は試行回数が無制限であることを示します。</p>
+
+<p>デフォルト値は 3 です。</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

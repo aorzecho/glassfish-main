@@ -1,0 +1,114 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-javamailsessioncreate"></a><h4>새 JavaMail 세션</h4>
+<a name="indexterm-22"></a><p>새 JavaMail 세션 페이지에서는 JavaMail 세션 자원을 만들 수 있습니다.</p>
+
+<p>새 JavaMail 세션 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>JNDI 이름</dt>
+<dd><p>메일 세션을 식별하는 고유한 이름입니다. JavaMail 자원에 이름 지정 하위 컨텍스트 접두어 <tt>mail/</tt>을 사용합니다. 예를 들면 다음과 같습니다. <tt> mail/MySession</tt>입니다. 이름에는 영숫자, 밑줄, 대시 또는 점 문자만 사용해야 합니다.</p>
+
+</dd>
+<dt>메일 호스트</dt>
+<dd><p>기본 메일 서버의 호스트 이름입니다. 프로토콜 관련 호스트 등록 정보를 제공하지 않으면 저장소 및 전송 객체의 연결 메소드에서 이 값을 사용합니다. 이름을 실제 호스트 이름으로 확인할 수 있어야 합니다.</p>
+
+</dd>
+<dt>기본 사용자</dt>
+<dd><p>메일 서버에 연결할 때 입력할 사용자 이름입니다. 프로토콜 관련 아이디 등록 정보를 제공하지 않으면 저장소 및 전송 객체의 연결 메소드에서 이 값을 사용합니다. 사용자 이름에는 영숫자, 밑줄, 대시 또는 점 문자만 사용해야 합니다.</p>
+
+</dd>
+<dt>기본 보낸 사람 주소</dt>
+<dd><p>기본 사용자의 전자 메일 주소입니다. 형식은 <i>username</i><tt>@</tt><i>host</i>.<i>domain</i>입니다.</p>
+
+</dd>
+<dt>설명</dt>
+<dd><p>이 메일 세션에 대한 설명입니다.</p>
+
+</dd>
+<dt>상태</dt>
+<dd><p>메일 세션의 상태입니다. 메일 세션은 사용 가능하거나 사용 가능하지 않을 수 있습니다. 기본값은 사용 가능입니다.</p>
+
+</dd>
+<dt>저장소 프로토콜</dt>
+<dd><p>메일 서버에 연결하여 메시지를 검색하고 하나 이상의 폴더에 메시지를 저장하는 저장소 프로토콜 서비스입니다. 허용되는 값은 <tt>imap</tt>, <tt>pop3</tt>, <tt>imaps</tt>&#183;및 <tt>pop3s</tt>입니다. 기본값은 <tt>imap</tt>입니다.</p>
+
+</dd>
+<dt>저장소 프로토콜 클래스</dt>
+<dd><p>저장소에 대한 서비스 공급자 구현 클래스입니다. 허용되는 값은 다음과 같습니다.</p>
+
+
+<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
+
+</li></ul>
+<p>기본값은 <tt>com.sun.mail.imap.IMAPStore</tt>입니다.</p>
+
+</dd>
+<dt>전송 프로토콜</dt>
+<dd><p>메시지를 보내는 전송 프로토콜 서비스입니다. 허용되는 값은 <tt>smtp</tt> 및 <tt>smtps</tt>입니다. 기본값은 <tt>smtp</tt>입니다.</p>
+
+</dd>
+<dt>전송 프로토콜 클래스</dt>
+<dd><p>전송에 대한 서비스 공급자 구현 클래스입니다. 허용되는 값은 다음과 같습니다.</p>
+
+
+<ul><li><p><tt>com.sun.mail.smtp.SMTPTransport</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.smtp.SMTPSSLTransport</tt></p>
+
+</li></ul>
+<p>기본값은 <tt>com.sun.mail.smtp.SMTPTransport</tt>입니다.</p>
+
+</dd>
+<dt>디버그</dt>
+<dd><p>이 옵션을 선택하면 이 자원에 대한 디버깅이 활성화됩니다. JavaMail 로그 수준을 <tt>FINE</tt> 이상으로 설정한 경우 디버깅 출력이 생성되어 시스템 로그 파일에 포함됩니다. 로그 수준 설정에 대한 자세한 내용은 <a href="../../../common/ko/help/task-eelogginglevels.html">To Configure Log Levels</a>을 참조하십시오.</p>
+
+</dd>
+<dt>추가 등록 정보</dt>
+<dd><p>JavaMail 세션에 대한 추가 등록 정보입니다. 사용 가능한 등록 정보 목록은 <a href="http://java.sun.com/products/javamail/javadocs/index.html">JavaMail API 설명서</a>를 참조하십시오. 추가 등록 정보는 <tt>mail-</tt>로 시작해야 하며 마침표가 아닌 하이픈을 구분자로 사용해야 합니다. 예를 들어 <tt>mail-debug</tt>는 올바르며 <tt>mail.debug</tt>는 잘못되었습니다. GlassFish 서버 백엔드는 하이픈을 JavaMail API에서 요구하는 마침표로 변환합니다.</p>
+
+</dd>
+<dt>대상</dt>
+<dd><p>JavaMail 세션에 대한 클러스터 및 독립 실행형 인스턴스입니다. 추가 및 모두 추가 버튼을 사용하여 원하는 대상을 선택한 대상 열로 이동합니다. 제거 및 모두 제거 버튼을 사용하여 필요하지 않은 대상을 사용 가능한 대상 열로 이동합니다.</p>
+
+<p>이 옵션은 클러스터나 독립 실행형 인스턴스가 도메인에 만들어진 경우에만 표시됩니다.</p>
+
+</dd>
+</dl>
+<h5>관련 작업</h5>
+
+<ul><li><p><a href="task-javamailsessioncreate.html">JavaMail 세션을 만드는 방법</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsedit.html">JavaMail 세션을 편집하는 방법</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsdelete.html">JavaMail 세션을 삭제하는 방법</a></p>
+
+</li></ul>
+<h5>관련 <tt>asadmin</tt> 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-javamail-resource-1"><tt>create-javamail-resource</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-javamail-resources-1"><tt>list-javamail-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-javamail-resource-1"><tt>delete-javamail-resource</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

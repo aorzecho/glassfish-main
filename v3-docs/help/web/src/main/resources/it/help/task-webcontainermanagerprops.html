@@ -1,0 +1,63 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-webcontainermanagerprops"></a><h4>Configurare le propriet&#224; di gestione per il contenitore Web</h4><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>La gestione delle sessioni consente di configurare la modalit&#224; di creazione ed
+eliminazione delle sessioni, la posizione di memorizzazione dello stato della sessione e
+il numero massimo di sessioni disponibili.</p>
+
+<ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
+<li><b>Selezionare la configurazione da modificare.</b></li>
+<li><b>Nel nodo della configurazione, selezionare il nodo Web Container.</b><p>Viene visualizzata la pagina General Properties.</p></li>
+<li><b>Nella pagina General Properties, fare clic sulla scheda Manager Properties.</b><p>Viene visualizzata la pagina Manager Properties.</p></li>
+<li><b>Nel campo Reap Interval, digitare il numero di secondi al termine dei
+quali i dati della sessione inattiva vengono eliminati dall'archivio.</b><p>Il valore predefinito &#232; 60.</p><p>Specificare un valore inferiore alla frequenza con cui i dati della sessione
+vengono modificati. Nel caso di un sito Web utilizzato di frequente, si
+consiglia ad esempio di specificare il valore pi&#249; basso possibile (1 secondo)
+per un servlet del contatore di accessi; in caso contrario, potrebbero andare
+perse le ultime visite ogni volta che si riavvia il server.</p></li>
+<li><b>Nel campo Max Sessions, digitare il numero massimo di sessioni memorizzabili nella
+cache.</b><p>Un valore pari a -1 indica un numero di sessioni illimitato. Il
+valore predefinito &#232; -1.</p><p>Una volta raggiunto il limite, ogni tentativo di creare una nuova sessione
+genera l'evento <tt>IllegalStateException</tt>.</p></li>
+<li><b>Nel campo Session Filename, digitare il percorso completo o relativo della directory
+in cui viene salvato lo stato della sessione a ogni avvio dell'applicazione,
+se consentito.</b><p>Se il percorso non &#232; stato impostato, lo stato della sessione non
+viene salvato. Per impostazione predefinita, tale percorso non &#232; impostato.</p><p>I percorsi relativi fanno riferimento alla directory temporanea di questa applicazione Web.</p><p>Questa impostazione &#232; valida solo se l'opzione Persistence Type &#232; impostata su
+<tt>memory</tt>. Per impostare l'opzione Persistence Type, vedere <a href="task-webcontaineravailability.html">Configurare le impostazioni di disponibilit&#224; per il contenitore Web</a>.</p></li>
+<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per la gestione
+delle sessioni.</p><ul>
+<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
+vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
+valore della propriet&#224; nel campo Value.</b></li>
+<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
+della propriet&#224;.</b></li>
+<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
+campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
+Delete Properties.</b></li></ul></li>
+<li><b>Fare clic su Save.</b>
+<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
+su Save.</p>
+
+
+<hr>
+</li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-webcontainergeneral.html">Configurare le propriet&#224; generali per il contenitore Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">Configurare le propriet&#224; di sessione per il contenitore Web</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">Configurare le propriet&#224; dell'archivio per il contenitore Web</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">Configurare le impostazioni di disponibilit&#224; per il contenitore Web</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

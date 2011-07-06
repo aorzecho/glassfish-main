@@ -1,0 +1,122 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-mqschemeservice"></a><h4>MQ 체계 및 MQ 서비스 주소 구문</h4>
+<p>메시지 서비스 주소에 대한 전체 구문은 다음과 같습니다.</p>
+
+<pre><i>scheme</i>://<i>address-syntax</i></pre><p>여기서 <i>scheme</i> 및 <i>address-syntax</i>는 아래 표에서 설명합니다.</p>
+
+<p>MQ 방법 및 MQ 서비스는 다음 표의 처음 두 열에 표시된 값입니다.</p>
+
+<table><col width="16%"><col width="16%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"><p>스키마
+이름</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>연결 서비스</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>설명</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>주소 구문</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mq</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt> 및 <tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue 클라이언트 런타임은 지정된 호스트 및 포트에서
+MQ 포트 매퍼로 연결을 만듭니다. 포트 매퍼는 동적으로 설정된 연결 서비스 포트의
+목록을 반환하고, Message Queue 클라이언트 런타임은 지정된 연결 서비스를 호스트하는 포트에 연결합니다.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>[</tt><i>hostName</i><tt>][:</tt><i> port</i><tt>][/</tt><i>serviceName</i><tt> ]</tt></p>
+
+<p>기본값:
+<i>hostName</i> = <tt>localhost</tt>, <i>port</i> = <tt>7676</tt>, <i>serviceName </i> = <tt>jms</tt></p>
+
+<p>기본값은 <tt>jms</tt> 연결 서비스에만
+적용됩니다. <tt>ssljms</tt> 연결 서비스의 경우 모든 변수를 지정해야 합니다.</p>
+
+<p>예: <tt>mq:MyHost:7677/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqtcp</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>jms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue 클라이언트
+런타임은 지정된 호스트 및 포트로 TCP 연결을 만들어서(MQ 포트 매퍼 우회) 연결을
+설정합니다.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt>/jms</tt></p>
+
+<p>예: <tt>mqtcp:localhost:7676/jms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>mqssl</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>ssljms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue 클라이언트 런타임은 지정된 호스트 및 포트로 보안 SSL 연결을
+만들어서(MQ 포트 매퍼 우회) 연결을 설정합니다.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt>/ssljms</tt></p>
+
+<p>예: <tt>mqssl:localhost:7676/ssljms</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue 클라이언트 런타임은 지정된 URL의
+Message Queue 터널 서블릿에 대한 HTTP 연결을 만듭니다. 브로커는 Message Queue <b>관리자 설명서</b>에서
+설명한 것처럼 HTTP 터널 서블릿에 액세스하도록 구성되어야 합니다.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt>/</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>여러 브로커 인스턴스가 같은 터널
+서블릿을 사용하는 경우 임의로 선택되지 않은 특정 브로커 인스턴스에 연결하기 위한 구문은
+다음과 같습니다. <tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>https</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>httpsjms</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Message Queue 클라이언트 런타임은 지정된 Message Queue 터널 서블릿 URL로
+보안 HTTPS 연결을 만듭니다. 브로커는 Message Queue <b>관리자 설명서</b>에서 설명한 것처럼 HTTPS 터널
+서블릿에 액세스하도록 구성되어야 합니다.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt>/</tt><i>contextRoot</i><tt>/tunnel</tt></p>
+
+<p>여러 브로커 인스턴스가 같은 터널 서블릿을 사용하는 경우 임의로
+선택되지 않은 특정 브로커 인스턴스에 연결하기 위한 구문은 다음과 같습니다. <tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
+
+</td>
+</tr>
+</table>
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

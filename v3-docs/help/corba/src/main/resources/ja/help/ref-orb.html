@@ -1,0 +1,78 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-orb"></a><h4>ORB</h4>
+<a name="indexterm-8"></a><a name="indexterm-9"></a><p>Object Request Broker を設定するには、「ORB」ページを使用します。</p>
+
+<p>ORB は、オブジェクトの特定と検索、接続管理、およびデータと要求の配信に必要なインフラストラクチャーを提供します。エンタープライズ Bean (EJB モジュール) のリモートクライアントは、ORB を使用して GlassFish サーバー と通信します。</p>
+
+<p>「ORB」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+
+</dd>
+<dt>設定名</dt>
+<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+
+</dd>
+<dt>スレッドプール ID</dt>
+<dd><p>ORB が使用するスレッドプール。ORB はスレッドプールを使用して、エンタープライズ Bean のリモートクライアントおよび RMI-IIOP を使用して通信するほかのクライアントからの要求に応答します。ORB のデフォルトスレッドプールは <tt>thread-pool-1</tt> です。このスレッドプールは、RMI/IIOP 要求に適切なデフォルト設定を使用します。</p>
+
+</dd>
+<dt>最大メッセージフラグメントサイズ</dt>
+<dd><p>IIOP メッセージの最大フラグメントサイズ。このサイズより大きいメッセージは分割されます。デフォルト値は 1024 バイトです。</p>
+
+</dd>
+<dt>接続総数</dt>
+<dd><p>すべての IIOP リスナーの入力接続の最大数。デフォルト値は 1024 です。</p>
+
+</dd>
+<dt>IIOP クライアント認証</dt>
+<dd><p>「有効」チェックボックスを選択すると、サーバーは認証されていない要求を拒否し、クライアントに送信された IOR (Interoperable Object Reference) に認証要求のビットを挿入します。IIOP クライアント認証は有効または無効にできます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>追加プロパティー</dt>
+<dd><p>ORB の追加プロパティー。GlassFish サーバー は ORB の追加プロパティーを定義しません。</p>
+
+</dd>
+</dl>
+<h5>関連操作</h5>
+
+<ul><li><p><a href="task-orb.html">「ORB を設定する」</a></p>
+
+</li>
+<li><p><a href="task-iioplistenernew.html">「IIOP リスナーを作成する」</a></p>
+
+</li>
+<li><p><a href="task-iioplisteneredit.html">「IIOP リスナーを編集する」</a></p>
+
+</li>
+<li><p><a href="task-editiiopssl.html">「セキュリティー保護された IIOP リスナーの SSL 設定を編集する」</a></p>
+
+</li>
+<li><p><a href="task-iioplistenerdelete.html">「IIOP リスナーを削除する」</a></p>
+
+</li></ul>
+<h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-iiop-listener-1"><tt>create-iiop-listener</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-iiop-listeners-1"><tt>list-iiop-listeners</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-iiop-listener-1"><tt>delete-iiop-listener</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-ssl-1"><tt>create-ssl</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-ssl-1"><tt>delete-ssl</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

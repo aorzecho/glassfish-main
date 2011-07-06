@@ -1,0 +1,108 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-webcontaineravailability"></a><h4>Webcontainer-Verf&#252;gbarkeit</h4>
+<a name="indexterm-39"></a><a name="indexterm-40"></a><p>Auf der Seite "Webcontainer-Verf&#252;gbarkeit" k&#246;nnen Sie Verf&#252;gbarkeitseinstellungen f&#252;r den Webcontainer konfigurieren.</p>
+
+<p>Die Seite "Webcontainer-Verf&#252;gbarkeit" enth&#228;lt die folgenden Optionen.</p>
+
+<dl><dt>Standardeinstellungen laden</dt>
+<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r alle Einstellungen.</p>
+
+</dd>
+<dt>Konfigurationsname</dt>
+<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
+
+</dd>
+<dt>Verf&#252;gbarkeitsdienst</dt>
+<dd><p>Wenn das Kontrollk&#228;stchen "Aktiviert" aktiviert ist, wird die Verf&#252;gbarkeit f&#252;r den Webcontainer aktiviert.</p>
+
+</dd>
+<dt>Fortdauertyp</dt>
+<dd><p>Der verwendete Fortdauermechanismus.</p>
+
+
+<ul><li><p>Wenn "Aktiviert" f&#252;r den Verf&#252;gbarkeitsdienst <b>nicht</b> aktiviert ist, w&#228;hlen Sie eine der folgenden Optionen:</p>
+
+
+<ul><li><p><tt>memory</tt> f&#252;r keine Sitzungsfortdauer</p>
+
+</li>
+<li><p><tt>file</tt> f&#252;r Sitzungsfortdauer basierend auf dem Dateisystem, das nicht hochverf&#252;gbar ist</p>
+
+</li></ul>
+</li>
+<li><p>Wenn "Aktiviert" f&#252;r den Verf&#252;gbarkeitsdienst aktiviert ist, w&#228;hlen Sie <tt>replicated</tt> f&#252;r die Sitzungsfortdauer basierend auf einem Cluster-Failover, das hochverf&#252;gbar ist.</p>
+
+</li></ul>
+</dd>
+<dt>Fortdauerh&#228;ufigkeit</dt>
+<dd><p>Die H&#228;ufigkeit, mit der die HTTP-Sitzung gespeichert wird:</p>
+
+
+<ul><li><p><tt>web-method</tt> (Webmethode) &#8211; Der Sitzungsstatus wird am Ende jeder Webanforderung vor dem Senden einer Antwort an den Client gespeichert. Dieser Modus stellt am besten sicher, dass der Sitzungsstatus bei einem Ausfall vollst&#228;ndig aktualisiert wird. Dies ist die Standardeinstellung.</p>
+
+</li>
+<li><p><tt>time-based</tt> (zeitbasiert) &#8211; Der Sitzungsstatus wird im Hintergrund mit der H&#228;ufigkeit gespeichert, die durch das "Reap Interval" (Reap-Intervall) festgelegt ist. Weitere Informationen &#252;ber diese Einstellung finden Sie unter <a href="task-webcontainermanagerprops.html">So konfigurieren Sie die Manager-Eigenschaften des Webcontainers</a>.</p>
+
+<p>In diesem Modus ist weniger sichergestellt, dass der Sitzungsstatus vollst&#228;ndig aktualisiert wird. Dieser Modus kann die Leistung jedoch erheblich verbessern, da der Status nicht nach jeder Anforderung gespeichert wird.</p>
+
+</li></ul>
+</dd>
+<dt>Fortdauerbereich</dt>
+<dd><p>Der Umfang der erforderlichen HTTP-Sitzungs&#228;nderungen, damit eine Speicherung erfolgt:</p>
+
+
+<ul><li><p><tt>session</tt> (Sitzung) &#8211; Der Sitzungsstatus wird bei jedem Speichervorgang vollst&#228;ndig gespeichert. Dieser Modus bietet die beste M&#246;glichkeit, um sicherzustellen, dass die Sitzungsdaten f&#252;r verteilbare Webanwendungen ordnungsgem&#228;&#223; gespeichert werden.</p>
+
+</li>
+<li><p><tt>modified-session</tt> (modifizierte Sitzung) &#8211; Der Sitzungsstatus wird vollst&#228;ndig gespeichert, wenn er ge&#228;ndert wurde. Eine Sitzung gilt als ge&#228;ndert, wenn <tt>HttpSession.setAttribute()</tt> oder <tt>HttpSession.removeAttribute()</tt> aufgerufen wurde. Es muss sichergestellt werden, dass <tt>setAttribute()</tt> bei jeder Attribut&#228;nderung aufgerufen wird. Dies ist keine Anforderung der Java EE-Spezifikation, sondern f&#252;r die ordnungsgem&#228;&#223;e Funktionsweise dieses Modus erforderlich.</p>
+
+</li>
+<li><p><tt>modified-attribute</tt> (modifiziertes Attribut) &#8211; Lediglich ge&#228;nderte Sitzungsattribute werden gespeichert. F&#252;r die ordnungsgem&#228;&#223;e Funktionsweise dieses Modus m&#252;ssen folgende Richtlinien befolgt werden:</p>
+
+
+<ul><li><p>Rufen Sie <tt>setAttribute()</tt> bei jeder &#196;nderung des Sitzungsstatus auf.</p>
+
+</li>
+<li><p>Stellen Sie sicher, dass keine Querverweise zwischen Attributen vorhanden sind. Die Objektdiagramme unter den verschiedenen Attributschl&#252;sseln werden serialisiert und separat gespeichert. Wenn zwischen den Objekten unter den verschiedenen Schl&#252;sseln Querverweise vorhanden sind, ist keine ordnungsgem&#228;&#223;e Serialisierung und Aufhebung der Serialisierung m&#246;glich.</p>
+
+</li>
+<li><p>Verteilen Sie den Sitzungsstatus auf mehrere Attribute oder zumindest zwischen einem schreibgesch&#252;tzten und einem &#228;nderbaren Attribut.</p>
+
+</li></ul>
+</li></ul>
+</dd>
+<dt>Single Sign-On-Status</dt>
+<dd><p>Wenn das Kontrollk&#228;stchen "Aktiviert" aktiviert ist, ist der Single Sign-On-Status f&#252;r das Failover verf&#252;gbar.</p>
+
+</dd>
+<dt>Weitere Eigenschaften</dt>
+<dd><p>Weitere Eigenschaften f&#252;r die Webcontainer-Verf&#252;gbarkeit.</p>
+
+<p>Bei GlassFish-Server sind keine weiteren Eigenschaften f&#252;r die Webcontainer-Verf&#252;gbarkeit definiert.</p>
+
+</dd>
+</dl>
+<h5>Verwandte Aufgaben</h5>
+
+<ul><li><p><a href="task-webcontainergeneral.html">So konfigurieren Sie die allgemeinen Eigenschaften des Webcontainers</a></p>
+
+</li>
+<li><p><a href="task-webcontainersessiontimeout.html">So konfigurieren Sie die Sitzungseigenschaften des Webcontainers</a></p>
+
+</li>
+<li><p><a href="task-webcontainermanagerprops.html">So konfigurieren Sie die Manager-Eigenschaften des Webcontainers</a></p>
+
+</li>
+<li><p><a href="task-webcontainerstoreprops.html">So konfigurieren Sie die Speichereigenschaften des Webcontainers</a></p>
+
+</li>
+<li><p><a href="task-webcontaineravailability.html">So konfigurieren Sie Verf&#252;gbarkeitseinstellungen f&#252;r den Webcontainer</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

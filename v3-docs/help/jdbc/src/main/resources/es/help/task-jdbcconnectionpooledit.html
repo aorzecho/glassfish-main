@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jdbcconnectionpooledit"></a><h4>Para editar la configuraci&#243;n general del conjunto de conexiones JDBC</h4><a name="indexterm-10"></a><ol>
+<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Recursos.</b></li>
+<li><b>Bajo el nodo Recursos, ampl&#237;e el nodo JDBC.</b></li>
+<li><b>En el nodo JDBC, seleccione el nodo Conjuntos de conexiones.</b><p>Se abrir&#225; la p&#225;gina Conjuntos de conexiones.</p></li>
+<li><b>Haga clic en el nombre del conjunto de conexiones que desea verificar.</b><p>Se abrir&#225; la p&#225;gina Editar conjunto de conexiones.</p></li>
+<li><b>En la lista desplegable Tipo de recurso, seleccione un tipo de recurso.</b><p>Las opciones incluyen <tt>javax.sql.DataSource</tt> (s&#243;lo transacciones locales), <tt>javax.sql.XADataSource</tt> (transacciones globales) y <tt> java.sql.ConnectionPoolDataSource</tt>
+(transacciones locales, posibles mejoras de rendimiento).</p></li>
+<li><b>En el campo Nombre de clase de fuente de datos, introduzca el
+nombre de la clase espec&#237;fica del proveedor que implementa las API <tt>DataSource</tt>,
+<tt>ConnectionPoolDataSource</tt> o <tt>XADataSource </tt>.</b><p>Si seleccion&#243; uno de los tipos de recursos de fuente de datos
+("datasource"), este campo se suele rellenar autom&#225;ticamente con el nombre de clase asociado
+al tipo de recurso y al proveedor de bases de datos que
+hubiera seleccionado. Si seleccion&#243; el tipo de recurso <tt>java.sql.Driver</tt>, este campo est&#225;
+desactivado.</p></li>
+<li><b>En el campo Nombre de clase del controlador, escriba la clase espec&#237;fica
+del proveedor que implementa la API <tt>java.sql.Driver</tt>.</b><p>Si seleccion&#243; el tipo de de recurso   <tt>java.sql.Driver</tt>, este campo se
+suele  rellenar autom&#225;ticamente con el nombre de clase asociada al controlador y
+al proveedor de bases de datos que hubiera elegido. Si seleccion&#243; uno de
+los tipos de recursos de fuente de datos ("datasource"), este campo est&#225;
+desactivado.</p></li>
+<li><b>Seleccione la casilla de verificaci&#243;n Ping habilitado para hacer ping autom&#225;ticamente en
+el conjunto de conexiones durante la creaci&#243;n o reconfiguraci&#243;n del conjunto para identificar
+y avisarle de cualquier valor de atributo incorrecto.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>En el campo Descripci&#243;n, introduzca una breve descripci&#243;n del conjunto de conexiones.</b></li>
+<li><b>En el campo Tama&#241;o de conjunto inicial y m&#237;nimo, introduzca el n&#250;mero
+m&#237;nimo de conexiones de este conjunto.</b><p>Este valor tambi&#233;n determina el n&#250;mero de conexiones incluidas en el conjunto
+cuando se crea el conjunto por primera vez o cuando se inicia
+GlassFish Server. El valor predeterminado es 8.</p></li>
+<li><b>En el campo Tama&#241;o de conjunto m&#225;ximo, introduzca el n&#250;mero m&#225;ximo de
+conexiones de este conjunto.</b><p>El valor predeterminado es 32.</p></li>
+<li><b>En el campo Cantidad de cambio de tama&#241;o de conjunto, introduzca el
+n&#250;mero de conexiones por lote de cambio de tama&#241;o de conjunto.</b><p>Cuando el conjunto aumenta y disminuye hacia el tama&#241;o m&#225;ximo y m&#237;nimo
+respectivamente, se cambia el tama&#241;o en lotes. Este valor determina el n&#250;mero
+de conexiones en el lote. Si este valor es demasiado grande, se
+retrasar&#225; la creaci&#243;n y el reciclado de las conexiones y, si es
+demasiado peque&#241;o, el proceso perder&#225; eficacia. El valor predeterminado es 2.</p></li>
+<li><b>En el campo Tiempo de espera de inactividad, introduzca el tiempo m&#225;ximo,
+en segundos, que una conexi&#243;n puede permanecer inactiva en el conjunto.</b><p>Una vez vencido el tiempo, se elimina la conexi&#243;n del conjunto. El
+valor predeterminado es 300.</p></li>
+<li><b>En el campo Tiempo de espera m&#225;ximo, introduzca el tiempo m&#225;ximo, en
+mil&#233;simas de segundo, que la aplicaci&#243;n que solicita una conexi&#243;n esperar&#225; antes
+de que se agote el tiempo de espera de la conexi&#243;n.</b><p>El valor predeterminado es 60.000.</p></li>
+<li><b>Marque la casilla de verificaci&#243;n Conexiones no transaccionales habilitadas para devolver conexiones
+que no sean de transacci&#243;n.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
+<li><b>Seleccione el nivel de aislamiento de transacci&#243;n del conjunto de conexiones en
+la lista desplegable. </b><p>Si no se especifica nada, las conexiones funcionan con los niveles de
+aislamiento predeterminados que proporciona el controlador JDBC. Por defecto, no se especifica
+esta opci&#243;n.</p></li>
+<li><b>Marque la casilla de verificaci&#243;n Nivel garantizado si quiere que todas las
+conexiones tomadas del conjunto tengan el mismo nivel de aislamiento.</b><p>Por ejemplo, si el nivel de aislamiento para la conexi&#243;n se cambia
+de forma programada (con <tt> con.setTransactionIsolation</tt>) cuando se utiliza por &#250;ltima vez, este
+mecanismo devuelve el estado al nivel de aislamiento especificado.</p><p>Esta configuraci&#243;n s&#243;lo es aplicable si se ha especificado un nivel de
+aislamiento de transacci&#243;n.</p></li>
+<li><b>Haga clic en el bot&#243;n Ping para verificar la conexi&#243;n de la
+base de datos.</b><p>La Consola de administraci&#243;n intenta la conexi&#243;n a la base de datos.
+Si aparece un mensaje de error, compruebe si el servidor de la
+base de datos se ha reiniciado.</p></li>
+<li><b>Haga clic en el bot&#243;n Vaciar para restablecer la agrupaci&#243;n de conexiones
+a su estado inicial.</b><p>Las conexiones existentes se destruyen, lo que significa que las transacciones asociadas
+con estas conexiones se perder&#225;n. A continuaci&#243;n, el subcomando vuelve a crear
+las conexiones iniciales del conjunto y lo restaura a su tama&#241;o de
+conjunto estable. </p></li>
+<li><b>Haga clic en Guardar.</b>
+<hr><p><b>Consejo - </b>Para volver a los valores de configuraci&#243;n predeterminados, haga clic en el
+bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
+
+
+<hr>
+</li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<ul><li><p><a href="task-setdbaccess.html">Para configurar el acceso a la base de datos</a></p>
+
+</li>
+<li><p><a href="task-integratejdbcdriver.html">Para integrar un controlador JDBC</a>.</p>
+
+</li>
+<li><p><a href="task-jdbcresourcenew.html">Para crear un recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesedit.html">Para editar un recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcetargets.html">Para editar destinos de recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcresourcesdelete.html">Para eliminar un recurso JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolnew.html">Para crear un conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooladvance.html">Para editar atributos avanzados del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-verifyconnpoolsettings.html">Para verificar la configuraci&#243;n del conjunto de conexiones</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones JDBC</a></p>
+
+</li>
+<li><p><a href="task-jdbcconnectionpooldelete.html">Para eliminar un conjunto de conexiones JDBC</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

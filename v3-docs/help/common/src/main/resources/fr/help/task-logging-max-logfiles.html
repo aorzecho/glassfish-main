@@ -1,0 +1,51 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-logging-max-logfiles"></a><h4>Pour modifier la limite du nombre de fichiers journaux &#224; rotation</h4><a name="indexterm-70"></a><a name="indexterm-71"></a><a name="indexterm-72"></a><p>Lorsque GlassFish Server fait pivoter un fichier journal, il cr&#233;e un fichier
+vide nomm&#233; <tt>server.log</tt> et renomme l&#8217;ancien fichier <tt>server.log_ </tt><i>date</i>, o&#249; <i>date</i> indique la
+date et l'heure de rotation du fichier.</p>
+
+<p>Par d&#233;faut, GlassFish Server limite le nombre de fichiers journaux &#224; rotation
+&#224; 10. Lorsque cette limite est atteinte, le fichier journal le plus
+ancien est supprim&#233; la prochaine fois que GlassFish Server fait pivoter un
+fichier journal. </p>
+
+<p>Si n&#233;cessaire, vous pouvez modifier la limite du nombre de fichiers journaux
+&#224; rotation. Toute nouvelle limite d&#233;finie s'applique aux fichiers journaux &#224; rotation
+pour la journalisation des acc&#232;s et le journal du serveur. </p>
+
+<ul>
+<li><b>D&#233;finissez la propri&#233;t&#233; syst&#232;me <tt>com.sun.enterprise.server.logging.max_history_files </tt> sur le nombre maximum de fichiers journaux
+&#224; rotation &#224; conserver. </b><p>Pour plus d'informations sur la d&#233;finition d'une propri&#233;t&#233; syst&#232;me, reportez-vous &#224; <a href="task-systemproperties.html">Pour g&#233;rer les propri&#233;t&#233;s syst&#232;me</a>.</p><p>Le comportement de la propri&#233;t&#233; syst&#232;me <tt>com.sun.enterprise.server.logging.max_history_files </tt> est le suivant&#160;:</p>
+<ul><li><p>Si la propri&#233;t&#233; n'est pas d&#233;finie, GlassFish Server conserve jusqu'&#224; 10&#160;fichiers journaux &#224; rotation.</p>
+
+</li>
+<li><p>Si la propri&#233;t&#233; est d&#233;finie sur un nombre incorrect ou nul, GlassFish Server conserve jusqu'&#224; 10 fichiers journaux &#224; rotation.</p>
+
+</li>
+<li><p>Si la propri&#233;t&#233; est d&#233;finie sur 0, GlassFish Server ne conserve aucun fichier journal &#224; rotation.</p>
+
+</li></ul>
+</li></ul><h6>Voir aussi</h6>
+<ul><li><p><a href="task-eelogging.html">Configurer les param&#232;tres g&#233;n&#233;raux de journalisation</a></p>
+
+</li>
+<li><p><a href="task-eelogginglevels.html">Configurer les niveaux de journalisation</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">Afficher les journaux du DAS </a></p>
+
+</li>
+<li><p><a href="task-logging-collectlogfiles.html">Pour cr&#233;er une archive ZIP de tous les fichiers journaux </a></p>
+
+</li>
+<li><p><a href="task-systemproperties.html">Pour g&#233;rer les propri&#233;t&#233;s syst&#232;me</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

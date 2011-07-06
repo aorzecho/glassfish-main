@@ -1,0 +1,54 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-configtransrecovery"></a><h4>So konfigurieren Sie die Wiederherstellung von Transaktionen in GlassFish-Server</h4><a name="indexterm-2"></a><p>Der Absturz des Servers oder eines Ressourcenmanagers kann dazu f&#252;hren, dass Transaktionen
+nicht vollst&#228;ndig ausgef&#252;hrt werden. Es ist wichtig, diese unterbrochenen Transaktionen vollst&#228;ndig auszuf&#252;hren
+und wiederherzustellen. GlassFish-Server ist so konzipiert, dass Transaktionen beim Serverstart wiederhergestellt und
+vollst&#228;ndig ausgef&#252;hrt werden.</p>
+
+<p>Wenn einige Ressourcen bei der Wiederherstellung nicht verf&#252;gbar sind, wird der Serverneustart
+m&#246;glicherweise verz&#246;gert, da versucht wird, die Transaktionen wiederherzustellen.</p>
+
+<p>Wenn Transaktionen auf mehreren Servern ausgef&#252;hrt werden, kann der Server, auf dem
+die Transaktion gestartet wurde, eine Verbindung mit den anderen Servern herstellen, um
+das Ergebnis der Transaktionen abzurufen. Wenn keine Kommunikation mit den anderen Servern
+m&#246;glich ist, verwendet die Transaktion zum Ermitteln des Ergebnisses das Feld "Heuristische
+Entscheidung".</p>
+
+<ol>
+<li><b>Erweitern Sie in der Navigationsstruktur den Knoten "Konfiguration".</b></li>
+<li><b>W&#228;hlen Sie die zu konfigurierende Instanz:</b><ul>
+<li><b>Um eine bestimmte Instanz zu konfigurieren, w&#228;hlen Sie den Konfigurationsknoten der Instanz
+aus. F&#252;r die Standardinstanz <tt>server</tt> w&#228;hlen Sie z. B. den Knoten <tt>server-config</tt>.</b></li>
+<li><b>Um die Standardeinstellungen f&#252;r alle Instanzen zu konfigurieren, w&#228;hlen Sie den Knoten
+<tt>default-config</tt>.</b></li></ul></li>
+<li><b>W&#228;hlen Sie den Knoten "Transaktionsdienst".</b><p>Die Seite "Transaktionsdienst" wird ge&#246;ffnet.</p></li>
+<li><b>Markieren Sie auf der Seite "Transaktionsdienst" das Kontrollk&#228;stchen "Beim Neustart aktiviert", um
+die Wiederherstellung unvollst&#228;ndiger Transaktionen zu aktivieren. </b><p>Standardm&#228;&#223;ig ist das Kontrollk&#228;stchen "Aktiviert" nicht markiert.</p></li>
+<li><b>Geben Sie im Feld "Wiederholungszeit&#252;berschreitung" den Zeitraum (in Sekunden) ein, w&#228;hrend dessen
+GlassFish-Server versucht, eine Verbindung zu einem nicht erreichbaren Server herzustellen.</b><p>Der Standardwert betr&#228;gt 600 (10 Minuten).</p></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Heuristische Entscheidung" die Richtlinie daf&#252;r aus, wie
+bei Transaktionen mit nicht erreichbaren Servern verfahren wird.</b><p>Wenn es keinen wichtigen Grund daf&#252;r gibt, "Durchf&#252;hren" zu w&#228;hlen, behalten Sie
+die Einstellung "Zur&#252;cksetzen" (die Standardeinstellung) f&#252;r "Heuristische Entscheidung" bei. Das Durchf&#252;hren unbestimmter
+Transaktionen kann die Datenintegrit&#228;t Ihrer Anwendung gef&#228;hrden.</p></li>
+<li><b>Klicken Sie auf "Speichern".</b></li>
+<li><b>Starten Sie GlassFish-Server neu.</b></li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="task-configtransservice.html">So konfigurieren Sie den Transaktionsdienst</a></p>
+
+</li>
+<li><p><a href="task-settranstimeout.html">So legen Sie einen Zeit&#252;berschreitungswert f&#252;r Transaktionen fest</a></p>
+
+</li>
+<li><p><a href="task-settranslog.html">So legen Sie den Speicherort f&#252;r Transaktionsprotokolle fest</a></p>
+
+</li>
+<li><p><a href="task-setkeyptinterval.html">So legen Sie das Schl&#252;sselpunktintervall fest</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

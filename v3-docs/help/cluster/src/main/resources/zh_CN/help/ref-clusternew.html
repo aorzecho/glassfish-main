@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusternew"></a><h4>新建群集</h4>
+<a name="indexterm-162"></a><a name="indexterm-163"></a><p>使用&#8220;新建群集&#8221;页面可创建群集。</p>
+
+<p>&#8220;新建群集&#8221;页面包含以下选项。</p>
+
+<dl><dt>群集名称</dt>
+<dd><p>群集的名称。</p>
+
+<p>名称必须满足以下要求：</p>
+
+
+<ul><li><p>名称开头必须是字母、数字或下划线。</p>
+
+</li>
+<li><p>名称只能包含以下字符：</p>
+
+
+<ul><li><p>小写字母</p>
+
+</li>
+<li><p>大写字母</p>
+
+</li>
+<li><p>数字</p>
+
+</li>
+<li><p>连字符</p>
+
+</li>
+<li><p>句点</p>
+
+</li>
+<li><p>下划线</p>
+
+</li></ul>
+</li>
+<li><p>名称在域中必须是唯一的，而且不得是另一个群集、命名配置、GlassFish Server 实例或节点的名称。</p>
+
+</li>
+<li><p>名称不得是<tt>域</tt>、<tt>服务器</tt>或 GlassFish Server 保留的任何其他关键字。</p>
+
+</li></ul>
+</dd>
+<dt>配置</dt>
+<dd><p>群集可使用的现有命名配置的下拉式列表。群集需要一个命名配置，用于定义要添加到群集的所有实例的配置。必须从该列表中选择一个配置。群集在创建时将使用所选配置。</p>
+
+</dd>
+<dt>复制选定的配置</dt>
+<dd><p>如果选择此选项，则在创建群集时会复制所选配置。会为该配置的副本指定一个名称 <tt><i>cluster-name</i>-config</tt>，其中 <i>cluster-name</i> 是指在&#8220;群集名称&#8221;字段中键入的群集名称。</p>
+
+<p>如果从&#8220;配置&#8221;下拉式列表中选择了 <tt>default-config</tt>，则必须选择此选项。<tt>default-config</tt> 配置只能被复制而不能被引用。</p>
+
+</dd>
+<dt>引用选定的配置</dt>
+<dd><p>如果选择此选项，群集将使用指定的现有命名配置。</p>
+
+<p>如果从&#8220;配置&#8221;下拉式列表中选择了 <tt>default-config</tt>，则<b>不能</b>选择此选项。<tt>default-config</tt> 配置只能被复制而不能被引用。</p>
+
+</dd>
+<dt>要创建的服务器实例</dt>
+<dd><p>创建群集时要创建的 GlassFish Server 实例的列表。对于每个实例，将提供以下信息：</p>
+
+<dl><dt>实例名称</dt>
+<dd><p>实例的名称。</p>
+
+</dd>
+<dt>权重</dt>
+<dd><p>一个表示实例的负载平衡权重的整数。</p>
+
+<p>负载平衡权重确定在对群集的所有请求中，实例应处理的请求所占的比例。</p>
+
+<p>例如，在一个具有两个实例的群集中，您可能需要一个实例来处理四分之一的请求，另一实例处理四分之三的请求。在这种情况下，将处理四分之一请求的实例的权重设置为 1，将另一实例的权重设置为 3。如果您喜欢使用百分比，则分别将权重设置为 25 和 75。</p>
+
+<p>默认权重为 100。</p>
+
+</dd>
+<dt>节点</dt>
+<dd><p>实例可驻留的现有节点的下拉式列表。必须从列表中选择一个节点。创建群集时，实例将驻留在所选节点上。</p>
+
+</dd>
+</dl>
+<p>&#8220;要创建的服务器实例&#8221;表还包含以下选项。</p>
+
+<dl><dt>新建</dt>
+<dd><p>用于创建实例的按钮。单击此按钮可向&#8220;要创建的服务器实例&#8221;表中添加一行。</p>
+
+</dd>
+<dt>删除</dt>
+<dd><p>用于删除实例的按钮。</p>
+
+</dd>
+</dl>
+</dd>
+</dl>
+<h5>相关任务</h5>
+
+<ul><li><p><a href="task-create-cluster.html">创建群集</a></p>
+
+</li></ul>
+<h5>等效的 <tt>asadmin</tt> 子命令</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-cluster-1"><tt>create-cluster</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

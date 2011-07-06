@@ -1,0 +1,36 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-httpserviceprops"></a><h4>HTTP 服務特有的特性</h4>
+<a name="indexterm-57"></a><a name="indexterm-58"></a><p>以下其他特性適用於 HTTP 服務。如果您指定這些特性，它們會套用到所有<a href="ref-group-networklisteners.html">網路偵聽程式</a>。</p>
+
+<dl><dt><tt>ssl-cache-entriese</tt></dt>
+<dd><p>要快取的 SSL 階段作業數目。預設值為 10,000。</p>
+
+</dd>
+<dt><tt>ssl3-session-timeout</tt></dt>
+<dd><p>SSL3 階段作業快取的間隔。預設值為 86,400。</p>
+
+</dd>
+<dt><tt>ssl-session-timeout</tt></dt>
+<dd><p>SSL2 階段作業快取的間隔。預設值為 100。</p>
+
+</dd>
+<dt><tt>proxyHandler</tt></dt>
+<dd><p>完全合格的 <tt>com.sun.appserv.ProxyHandler</tt> 抽象類別自訂實作之類別名稱，能讓後端 GlassFish Server 實例擷取 SSL 終端代理伺服器 (例如負載平衡程式) 所截取的原始用戶端請求相關資訊。此抽象類別的實作會檢視自訂請求標頭的指定請求，而代理伺服器就是透過該自訂請求標頭，將原始用戶端請求的相關資訊傳送至企業伺服器實例，並將該資訊傳回至其呼叫者。</p>
+
+<p>預設實作會從名為 <tt>Proxy-ip</tt> 的 HTTP 請求標頭讀取用戶端 IP 位址、從名為 <tt>Proxy-keysize</tt> 的 HTTP 請求標頭讀取 SSL <tt>keysize</tt>，並從名為 <tt>Proxy-auth-cert</tt> 的 HTTP 請求標頭讀取 SSL 用戶端憑證鏈。<tt>Proxy-auth-cert</tt> 值必須包含 BASE-64 編碼的用戶端憑證鏈且無 <tt>BEGIN CERTIFICATE</tt> 和 <tt>END CERTIFICATE</tt> 邊界，並以 <tt>% d% a</tt> 取代 <tt>\n</tt>。</p>
+
+<p>此設定僅會在網路偵聽程式通訊協定之 HTTP 頁面的 [認證傳送] 核取方塊設定為 true 時使用。</p>
+
+</dd>
+<dt><tt>connectionTimeout</tt></dt>
+<dd><p>指定在接受連線之後，於提交請求 URI 行之前，網路偵聽程式要等待的秒數。預設值為 30。</p>
+
+</dd>
+</dl>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

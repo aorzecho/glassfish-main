@@ -1,0 +1,112 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-connectorconnectionpoolnew2"></a><h4>新しいコネクタ接続プール (手順 2/2)</h4>
+<a name="indexterm-41"></a><p>新しいコネクタ接続プールを作成するには、「新しいコネクタ接続プール (手順 2/2)」ページを使用します。</p>
+
+<p>「新しいコネクタ接続プール (手順 2/2)」ページには、次のオプションが含まれます。</p>
+
+<dl><dt>Ping</dt>
+<dd><p>このオプションが有効な場合、作成または再設定中の接続プールに対して ping が実行され、誤った属性の値が識別および警告されます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>説明</dt>
+<dd><p>コネクタ接続プールの説明。</p>
+
+</dd>
+<dt>初期および最小プールサイズ</dt>
+<dd><p>コネクタ接続プールに含まれる接続の最小数。デフォルト値は 8 です。</p>
+
+</dd>
+<dt>最大プールサイズ</dt>
+<dd><p>コネクタ接続プールに含まれる接続の最大数。デフォルト値は 32 です。</p>
+
+</dd>
+<dt>プールサイズ変更量</dt>
+<dd><p>プールのアイドルタイムアウトに達したときに削除される接続の数。デフォルト値は 2 です。</p>
+
+</dd>
+<dt>アイドルタイムアウト</dt>
+<dd><p>プールで接続がアイドル状態のままでいられる最長時間を指定します。デフォルト値は 300 です。</p>
+
+</dd>
+<dt>最大待ち時間</dt>
+<dd><p>接続を要求するアプリケーションが接続タイムアウトになるまでに待つ時間。デフォルト値は 60000 です。</p>
+
+</dd>
+<dt>接続検証</dt>
+<dd><p>「必須」チェックボックスを選択すると、アプリケーションに提供される前に接続が検証されます。リソースの検証に失敗した場合は、リソースが破棄され、新しいリソースが作成されて返されます。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>すべての障害で</dt>
+<dd><p>「すべての接続を閉じる」チェックボックスを選択した場合、1 つの接続で障害が発生したときに、GlassFish サーバー はプール内のすべての接続を閉じたあと、これらを再確立します。このオプションは、デフォルトでは無効になっています。</p>
+
+</dd>
+<dt>トランザクションサポート</dt>
+<dd><p>選択したトランザクションサポートは、接続プールに関連付けられたリソースアダプタのトランザクションサポートを上書きし、下位互換性を維持します。つまり、リソースアダプタに指定したレベルより低いトランザクションレベル、またはリソースアダプタに指定したレベルと同じトランザクションレベルはサポートできますが、それより高いレベルを指定することはできません。</p>
+
+<p>値は次のいずれかになります。</p>
+
+<dl><dt>XATransaction</dt>
+<dd><p>リソースアダプタは、LocalTransaction および XAResource インタフェースを実装して、リソースマネージャーのローカルおよび JTA トランザクションをサポートします。XA トランザクションは、リソースマネージャーの外部にあるトランザクションマネージャーで管理および調整されます。</p>
+
+</dd>
+<dt>LocalTransaction</dt>
+<dd><p>リソースアダプタは、LocalTransaction インタフェースを実装して、ローカルトランザクションをサポートします。ローカルトランザクションはリソースマネージャーの内部で管理され、外部トランザクションマネージャーを必要としません。</p>
+
+</dd>
+<dt>NoTransaction</dt>
+<dd><p>リソースアダプタは、リソースマネージャーのローカルまたは JTA トランザクションをサポートせず、XAResource または LocalTransaction インタフェースを実装しません。</p>
+
+</dd>
+</dl>
+</dd>
+<dt>追加プロパティー</dt>
+<dd><p>コネクタ接続プールの追加プロパティー。使用可能なプロパティーは、コネクタ接続プールのリソースアダプタによって異なります。この表で指定する名前と値のペアを使用して、リソースアダプタのベンダーが定義したプロパティーのデフォルト値を上書きすることができます。</p>
+
+<p>名前だけを指定してプロパティーの値を指定しない場合は、接続プールの作成が完了したときにプロパティーが表から削除されます。プロパティーの値をすぐに設定せず、あとで設定できるように表に維持する場合は、「値」フィールドに空の括弧を入力します。</p>
+
+<pre>()</pre></dd>
+</dl>
+<a name="gkomy"></a><h5>関連操作</h5>
+
+<ul><li><p><a href="task-connectorconnectionpoolnew.html">「コネクタ接続プールを作成する」</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooledit.html">「コネクタ接続プールを編集する」</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooladvance.html">「コネクタ接続プールの詳細属性を編集する」</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpoolproperty.html">「コネクタ接続プールのプロパティーを編集する」</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapnew.html">「コネクタ接続プールのセキュリティーマップを作成する」</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapedit.html">「コネクタ接続プールのセキュリティーマップを編集する」</a></p>
+
+</li>
+<li><p><a href="task-connectorsecuritymapdel.html">「コネクタ接続プールのセキュリティーマップを削除する」</a></p>
+
+</li>
+<li><p><a href="task-connectorconnectionpooldel.html">「コネクタ接続プールを削除する」</a></p>
+
+</li></ul>
+<a name="gkokt"></a><h5>関連する <tt>asadmin</tt> コマンド</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

@@ -1,0 +1,105 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-transportedit"></a><h4>Editar transporte</h4>
+<a name="indexterm-78"></a><p>Use a p&#225;gina Editar transporte para modificar as configura&#231;&#245;es de um transporte
+existente.</p>
+
+<p>A p&#225;gina Editar transporte cont&#233;m as seguintes op&#231;&#245;es.</p>
+
+<dl><dt>Carregar padr&#245;es</dt>
+<dd><p>Bot&#227;o para restaurar os valores padr&#227;o de todas as configura&#231;&#245;es.</p>
+
+</dd>
+<dt>Nome da configura&#231;&#227;o</dt>
+<dd><p>Nome da configura&#231;&#227;o ao qual as configura&#231;&#245;es desta p&#225;gina ser&#227;o enviadas. Este campo &#233; de somente leitura.</p>
+
+</dd>
+<dt>Nome</dt>
+<dd><p>O nome do transporte. O nome &#233; um campo de somente leitura. Voc&#234; pode apenas especificar um nome quando cria um novo transporte.</p>
+
+</dd>
+<dt>Nome da classe</dt>
+<dd><p>O nome da classe da implementa&#231;&#227;o do transporte. O valor padr&#227;o &#233; <tt>com.sun.grizzly.TCPSelectorHandler</tt>.</p>
+
+</dd>
+<dt>Manipulador de chave de sele&#231;&#227;o</dt>
+<dd><p>O nome da classe da implementa&#231;&#227;o do manipulador de chave de sele&#231;&#227;o. Um manipulador de chave de sele&#231;&#227;o &#233; uma classe abstrata que gerencia o ciclo de vida das chaves de sele&#231;&#227;o. Se voc&#234; n&#227;o especifica um valor, a implementa&#231;&#227;o padr&#227;o &#233; usada.</p>
+
+</dd>
+<dt>Tipo do buffer de bytes</dt>
+<dd><p>O tipo de <tt>ByteBuffer</tt> a ser usado. As escolhas dispon&#237;veis s&#227;o <tt>HEAP</tt> e <tt>DIRECT</tt>. O valor padr&#227;o &#233; <tt>HEAP</tt>.</p>
+
+</dd>
+<dt>Segmentos do aceitador</dt>
+<dd><p>O n&#250;mero de processadores na m&#225;quina. Um valor de &#8211;1 indica que o Grizzly ir&#225; calcular por si mesmo o n&#250;mero de segmentos do aceitador com base no n&#250;mero de processadores na m&#225;quina. O valor padr&#227;o &#233; 1. </p>
+
+<p>Para definir o n&#250;mero de segmentos de processamento da solicita&#231;&#227;o, defina o valor Tamanho m&#225;ximo do conjunto de segmentos usado por uma escuta de rede que usa este transporte.</p>
+
+</dd>
+<dt>Contagem m&#225;xima de conex&#245;es</dt>
+<dd><p>O n&#250;mero m&#225;ximo de conex&#245;es pendentes em uma escuta de rede que usa este transporte. O valor padr&#227;o &#233; 4096.</p>
+
+</dd>
+<dt>Tamanho do buffer</dt>
+<dd><p>O tamanho em bytes do buffer a ser fornecido para fluxos de entrada criados por uma escuta de rede que usa esse transporte. O valor padr&#227;o &#233; 8.192.</p>
+
+</dd>
+<dt>Tempo limite de chave ociosa</dt>
+<dd><p>O n&#250;mero de segundos ap&#243;s o qual uma chave ociosa ser&#225; cancelada e o canal ser&#225; fechado. O valor padr&#227;o &#233; 30.</p>
+
+</dd>
+<dt>Tempo limite de leitura</dt>
+<dd><p>O n&#250;mero em milissegundos que o Servidor GlassFish aguarda durante a an&#225;lise do cabe&#231;alho e corpo da opera&#231;&#227;o de leitura. O valor padr&#227;o &#233; 30.000.</p>
+
+</dd>
+<dt>Tempo limite do seletor do conjunto</dt>
+<dd><p>O n&#250;mero em milissegundos que um seletor NIO ser&#225; bloqueado enquanto aguarda por eventos (solicita&#231;&#245;es de usu&#225;rios). O valor padr&#227;o &#233; 1000.</p>
+
+</dd>
+<dt>Tempo limite de grava&#231;&#227;o</dt>
+<dd><p>O n&#250;mero de milissegundos que o &#38;ProductName. aguarda antes de considerar que o cliente remoto desconectou ao gravar a resposta. O valor padr&#227;o &#233; 30.000.</p>
+
+</dd>
+<dt>Exibir configura&#231;&#227;o</dt>
+<dd><p>Se essa op&#231;&#227;o &#233; selecionada, a configura&#231;&#227;o interna do Grizzly &#233; descarregada nos registros do servidor. Essa op&#231;&#227;o pode fornecer informa&#231;&#245;es &#250;teis para a depura&#231;&#227;o. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Snoop</dt>
+<dd><p>Se esta op&#231;&#227;o &#233; selecionada, as informa&#231;&#245;es solicitadas/respondidas s&#227;o descarregada nos registros do servidor. Essa op&#231;&#227;o pode fornecer informa&#231;&#245;es &#250;teis para a depura&#231;&#227;o, mas ir&#225; reduzir significativamente o desempenho. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Nenhum atraso TCP</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, TCP_NODELAY (tamb&#233;m denominado como algoritmo de Nagle) &#233; ativado. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p>
+
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-transportnew.html">Para criar um transporte</a></p>
+
+</li>
+<li><p><a href="task-transportedit.html">Para editar um transporte</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">Para excluir um transporte</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li>
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-transport-1"><tt>create-transport</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-transports-1"><tt>list-transports</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-transport-1"><tt>delete-transport</tt>(1)</a></p>
+
+</li></ul>
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

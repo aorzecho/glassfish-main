@@ -1,0 +1,477 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-uploaddev"></a><h4>Implantar Aplicativos ou M&#243;dulos</h4>
+<a name="indexterm-173"></a><a name="indexterm-174"></a><a name="indexterm-175"></a><a name="indexterm-176"></a><a name="indexterm-177"></a><a name="indexterm-178"></a><a name="indexterm-179"></a><a name="indexterm-180"></a><a name="indexterm-181"></a><a name="indexterm-182"></a><a name="indexterm-183"></a><a name="indexterm-184"></a><p>Use a p&#225;gina Implantar Aplicativos ou M&#243;dulos para implantar um aplicativo.</p>
+
+<p>A p&#225;gina Implantar Aplicativos ou M&#243;dulos cont&#233;m as seguintes op&#231;&#245;es para todos
+os aplicativos. Op&#231;&#245;es adicionais aparecem apenas ap&#243;s voc&#234; especificar o campo Local
+do aplicativo.</p>
+
+<dl><dt>Local</dt>
+<dd><p>O local do arquivo compactado do aplicativo que est&#225; sendo implantado.</p>
+
+<p>As seguintes op&#231;&#245;es especificam de onde o arquivo compactado &#233; acessado e se &#233; um arquivo ou um diret&#243;rio.</p>
+
+<dl><dt>Arquivo empacotado a ser carregado no servidor </dt>
+<dd><p>O arquivo compactado reside ou &#233; acessado no computador cliente.</p>
+
+<p>O computador cliente &#233; o host em que voc&#234; visualiza o Console de Administra&#231;&#227;o por meio de um navegador.</p>
+
+</dd>
+<dt>Arquivo ou diret&#243;rio empacotado local que &#233; acessado no Servidor GlassFish</dt>
+<dd><p>O arquivo &#233; um arquivo que reside no computador servidor ou &#233; um aplicativo n&#227;o empacotado, em um diret&#243;rio destacado.</p>
+
+<p>O computador servidor &#233; o host que executa o servidor de administra&#231;&#227;o de dom&#237;nio do Servidor GlassFish . </p>
+
+</dd>
+</dl>
+</dd>
+<dt>Tipo</dt>
+<dd><p>O tipo do aplicativo. As op&#231;&#245;es dispon&#237;veis s&#227;o: </p>
+
+
+<ul><li><p>Aplicativo Web</p>
+
+</li>
+<li><p>Aplicativo empresarial</p>
+
+</li>
+<li><p>Cliente aplicativo</p>
+
+</li>
+<li><p>M&#243;dulo do conector</p>
+
+</li>
+<li><p>EJB Jar</p>
+
+</li>
+<li><p>Outro</p>
+
+</li></ul>
+</dd>
+<dt>Destinos</dt>
+<dd><p>Clusters e inst&#226;ncias independentes aos quais implantar o aplicativo ou m&#243;dulo. Mova os destinos desejados para a coluna Destinos selecionados utilizando os bot&#245;es Adicionar e Adicionar tudo. Mova os destinos desnecess&#225;rios para a coluna Destinos dispon&#237;veis utilizando os bot&#245;es Remover e Remover tudo.</p>
+
+<p>Esta op&#231;&#227;o &#233; exibida somente se os clusters ou inst&#226;ncias independentes tiverem sido criados no dom&#237;nio.</p>
+
+</dd>
+</dl>
+<p>As op&#231;&#245;es adicionais dos diversos tipos de aplicativos est&#227;o descritas nas se&#231;&#245;es
+a seguir.</p>
+
+
+<ul><li><p><a href="#ref-webapp-options">Op&#231;&#245;es adicionais para um aplicativo Web</a></p>
+
+</li>
+<li><p><a href="#ref-entapp-options">Op&#231;&#245;es adicionais para um aplicativo empresarial</a></p>
+
+</li>
+<li><p><a href="#ref-appclient-options">Op&#231;&#245;es adicionais para um cliente aplicativo</a></p>
+
+</li>
+<li><p><a href="#ref-connmodule-options">Op&#231;&#245;es adicionais para um m&#243;dulo conector</a></p>
+
+</li>
+<li><p><a href="#ref-ejb-options">Op&#231;&#245;es adicionais para um EJB Jar.</a></p>
+
+</li></ul>
+<a name="ref-webapp-options"></a><h5>Op&#231;&#245;es adicionais para um aplicativo Web</h5>
+<p>Se o tipo do aplicativo for Aplicativo Web, as seguintes op&#231;&#245;es aparecer&#227;o.</p>
+
+<dl><dt>Raiz de Contexto</dt>
+<dd><p>O caminho do aplicativo. No URL do aplicativo Web, a raiz de contexto aparece imediatamente ap&#243;s o n&#250;mero da porta (<tt>http://<i>host</i>:<i>port</i>/<i> context-root</i>/...</tt>). A raiz de contexto deve iniciar com uma barra; por exemplo, <tt>/hello</tt>.</p>
+
+</dd>
+<dt>Nome do Aplicativo</dt>
+<dd><p>O nome do aplicativo.</p>
+
+<p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o nome e &#233; separado do nome por dois pontos (<tt>:</tt>). O identificador de vers&#227;o deve come&#231;ar com uma letra ou n&#250;mero. Cont&#233;m caracteres alfanum&#233;ricos e caracteres de tra&#231;o baixo (<tt>_</tt>), tra&#231;o (<tt>-</tt>) e ponto final (<tt>.</tt>). Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>Servidores Virtuais</dt>
+<dd><p>Os servidores virtuais associados ao aplicativo.</p>
+
+<p>A op&#231;&#227;o Servidores virtuais aparece somente se a inst&#226;ncia padr&#227;o do servidor, <tt> server</tt>, existir. Se os clusters ou outras inst&#226;ncias de servidores independentes existirem, &#233; poss&#237;vel selecionar os servidores virtuais depois da implanta&#231;&#227;o. V&#225; &#224; p&#225;gina Editar aplicativo, selecione a guia Destino e selecione Gerenciar servidores virtuais para o destino desejado.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, o aplicativo ser&#225; ativado. Por padr&#227;o, essa op&#231;&#227;o est&#225; selecionada.</p>
+
+</dd>
+<dt>Disponibilidade de </dt>
+<dd><p>Se a caixa de sele&#231;&#227;o Ativado estiver selecionada, a alta disponibilidade est&#225; ativada para sess&#245;es Web e para o ponto de verifica&#231;&#227;o e, potencialmente, a passiva&#231;&#227;o do bean da sess&#227;o com estado (SFSB). Se definido como falso (padr&#227;o), todo o salvamento da sess&#227;o Web e o ponto de verifica&#231;&#227;o SFSB ser&#227;o desativados para o aplicativo especificado, aplicativo Web ou m&#243;dulo EJB. Se definido como verdadeiro, o aplicativo ou m&#243;dulo especificado ser&#225; ativado para alta disponibilidade. Defina essa op&#231;&#227;o como verdadeira apenas se a alta disponibilidade estiver configurada e ativada em n&#237;veis mais altos, como os n&#237;veis do servidor e recipiente.</p>
+
+<p>Esta op&#231;&#227;o aparece se clusters ou inst&#226;ncias de servidores independentes, al&#233;m da inst&#226;ncia padr&#227;o do servidor (<tt>server</tt>), existirem.</p>
+
+</dd>
+<dt>Precompilar JSPs</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, os arquivos JavaServer Pages ( JSP) ser&#227;o pr&#233;-compilados. Se esta op&#231;&#227;o for desativada, os arquivos JSP ser&#227;o compilados no tempo de execu&#231;&#227;o, quando forem acessados pela primeira vez. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Executar verificador</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, os descritores de implanta&#231;&#227;o s&#227;o verificados antes da implanta&#231;&#227;o. Se a verifica&#231;&#227;o falhar, a implanta&#231;&#227;o n&#227;o ser&#225; realizada. O verificador examina a estrutura e o conte&#250;do dos descritores de implanta&#231;&#227;o. A verifica&#231;&#227;o de aplicativos grandes geralmente consome muito tempo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+<p>Os pacotes verificadores devem ser instalados a partir da Ferramenta de atualiza&#231;&#227;o, ou um aviso &#233; registrado e esta op&#231;&#227;o &#233; ignorada.</p>
+
+</dd>
+<dt>For&#231;ar reimplanta&#231;&#227;o</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o aplicativo ser&#225; reimplantado, caso j&#225; esteja implantado. Se essa op&#231;&#227;o n&#227;o for selecionada, a tentativa de reimplantar o aplicativo que j&#225; esteja implantado resultar&#225; em erro. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+</dd>
+<dt>Manter estado</dt>
+<dd><p>Essa op&#231;&#227;o controla se as sess&#245;es Web, as inst&#226;ncias SFSB e os temporizadores EJB criados persistentemente s&#227;o retidos entre as reimplementa&#231;&#245;es. </p>
+
+<p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada. Esta op&#231;&#227;o &#233; suportada somente na inst&#226;ncia padr&#227;o do servidor, denominada <tt>server</tt>. N&#227;o &#233; suportada e ignorada em nenhum outro destino.</p>
+
+<p>Algumas altera&#231;&#245;es em um aplicativo entre as reimplanta&#231;&#245;es impedem que este recurso funcione corretamente. Por exemplo, n&#227;o altere o conjunto de vari&#225;veis da inst&#226;ncia na classe do bean SFSB.</p>
+
+<p>Em aplicativos Web, este recurso se aplica somente se no arquivo <tt>glassfish-web-app.xml </tt> o atributo <tt>persistence-type</tt> do elemento <tt> session-manager</tt> for <tt>file</tt>.</p>
+
+<p>Em inst&#226;ncias do bean de sess&#227;o com estado, o tipo de persist&#234;ncia sem alta disponibilidade est&#225; definido no servidor (a op&#231;&#227;o Tipo de persist&#234;ncia SFSB) e deve estar definido como <tt>file</tt>, que &#233; o valor padr&#227;o e recomendado.</p>
+
+<p>Se qualquer sess&#227;o Web ativa, inst&#226;ncia SFSB ou temporizador EJB falhar em ser preservado ou restaurado, <b>nenhum</b> deles estar&#225; dispon&#237;vel quando a reimplementa&#231;&#227;o tiver sido conclu&#237;da. Entretanto, a reimplanta&#231;&#227;o continuar&#225; e um aviso ser&#225; registrado em log.</p>
+
+<p>Para preservar dados do estado ativo, o Servidor GlassFish serializa os dados e os salva na mem&#243;ria. Para restaurar os dados, o carregador de classe do aplicativo que acabou de ser reimplementado desserializa todos os dados anteriormente salvos.</p>
+
+</dd>
+<dt>Preservar recursos no escopo do aplicativo</dt>
+<dd><p>Se marcada, preserva quaisquer recursos no escopo do aplicativo e os restaura durante a reimplanta&#231;&#227;o. Por padr&#227;o, esta op&#231;&#227;o n&#227;o est&#225; marcada.</p>
+
+</dd>
+<dt>Bibliotecas</dt>
+<dd><p>Uma lista separada por v&#237;rgulas dos arquivos JAR da biblioteca, espec&#237;ficos deste m&#243;dulo ou aplicativo. Os caminhos podem ser absolutos ou relativos. Um caminho &#233; relativo a<tt></tt><i>domain-dir</i><tt>/lib/applibs </tt> Se o caminho for absoluto, o caminho deve ser acess&#237;vel ao servidor de administra&#231;&#227;o de dom&#237;nio (DAS), o que significa que ele deve estar sob<tt></tt><i>domain-dir</i><tt></tt> As bibliotecas s&#227;o disponibilizadas ao aplicativo na ordem em que elas s&#227;o especificadas.</p>
+
+</dd>
+<dt>Descri&#231;&#227;o</dt>
+<dd><p>Uma descri&#231;&#227;o do aplicativo.</p>
+
+</dd>
+</dl>
+<a name="ref-entapp-options"></a><h5>Op&#231;&#245;es adicionais para um aplicativo empresarial</h5>
+<p>Se o tipo do aplicativo for aplicativo empresarial, aparecem estas op&#231;&#245;es.</p>
+
+<dl><dt>Nome do Aplicativo</dt>
+<dd><p>O nome do aplicativo.</p>
+
+<p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o nome e &#233; separado do nome por dois pontos (<tt>:</tt>). O identificador de vers&#227;o deve come&#231;ar com uma letra ou n&#250;mero. Cont&#233;m caracteres alfanum&#233;ricos e caracteres de tra&#231;o baixo (<tt>_</tt>), tra&#231;o (<tt>-</tt>) e ponto final (<tt>.</tt>). Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>Servidores Virtuais</dt>
+<dd><p>Os servidores virtuais associados ao aplicativo.</p>
+
+<p>A op&#231;&#227;o Servidores virtuais aparece somente se a inst&#226;ncia padr&#227;o do servidor, <tt> server</tt>, existir. Se os clusters ou outras inst&#226;ncias de servidores independentes existirem, &#233; poss&#237;vel selecionar os servidores virtuais depois da implanta&#231;&#227;o. V&#225; &#224; p&#225;gina Editar aplicativo, selecione a guia Destino e selecione Gerenciar servidores virtuais para o destino desejado.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, o aplicativo ser&#225; ativado. Por padr&#227;o, essa op&#231;&#227;o est&#225; selecionada.</p>
+
+</dd>
+<dt>Disponibilidade de </dt>
+<dd><p>Se a caixa de sele&#231;&#227;o Ativado estiver selecionada, a alta disponibilidade est&#225; ativada para sess&#245;es Web e para o ponto de verifica&#231;&#227;o e, potencialmente, a passiva&#231;&#227;o do bean da sess&#227;o com estado (SFSB). Se definido como falso (padr&#227;o), todo o salvamento da sess&#227;o Web e o ponto de verifica&#231;&#227;o SFSB ser&#227;o desativados para o aplicativo especificado, aplicativo Web ou m&#243;dulo EJB. Se definido como verdadeiro, o aplicativo ou m&#243;dulo especificado ser&#225; ativado para alta disponibilidade. Defina essa op&#231;&#227;o como verdadeira apenas se a alta disponibilidade estiver configurada e ativada em n&#237;veis mais altos, como os n&#237;veis do servidor e recipiente.</p>
+
+<p>Esta op&#231;&#227;o aparece se clusters ou inst&#226;ncias de servidores independentes, al&#233;m da inst&#226;ncia padr&#227;o do servidor (<tt>server</tt>), existirem.</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o acesso ao Java Web Start ser&#225; permitido para um m&#243;dulo cliente aplicativo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+</dd>
+<dt>Precompilar JSPs</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, os arquivos JavaServer Pages ( JSP) ser&#227;o pr&#233;-compilados. Se esta op&#231;&#227;o for desativada, os arquivos JSP ser&#227;o compilados no tempo de execu&#231;&#227;o, quando forem acessados pela primeira vez. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Executar verificador</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, os descritores de implanta&#231;&#227;o s&#227;o verificados antes da implanta&#231;&#227;o. Se a verifica&#231;&#227;o falhar, a implanta&#231;&#227;o n&#227;o ser&#225; realizada. O verificador examina a estrutura e o conte&#250;do dos descritores de implanta&#231;&#227;o. A verifica&#231;&#227;o de aplicativos grandes geralmente consome muito tempo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+<p>Os pacotes verificadores devem ser instalados a partir da Ferramenta de atualiza&#231;&#227;o, ou um aviso &#233; registrado e esta op&#231;&#227;o &#233; ignorada.</p>
+
+</dd>
+<dt>Compatibilidade</dt>
+<dd><p>Se marcada, utiliza os requisitos de visibilidade JAR do Servidor GlassFish v2 para aplicativos em lugar dos estritos requisitos Java EE 6 implantados nas vers&#245;es do Servidor GlassFish v3, incluindo 3.1. Por padr&#227;o, esta op&#231;&#227;o n&#227;o est&#225; marcada.</p>
+
+<p>A especifica&#231;&#227;o da plataforma Java EE 6 imp&#245;e exig&#234;ncias mais estritas do que o Java EE 5, no qual os arquivos JAR podem estar vis&#237;veis a v&#225;rios m&#243;dulos em um arquivo EAR. Especificamente, os clientes do aplicativo n&#227;o devem ter acesso a arquivos JAR EJB ou outros arquivos JAR no arquivo EAR, a menos que as refer&#234;ncias utilizem os mecanismos EE Java padr&#227;o (extens&#245;es, por exemplo) ou o mecanismo biblioteca-diret&#243;rio Java EE. Se esta op&#231;&#227;o for marcada, estas restri&#231;&#245;es do Java EE 6 s&#227;o removidas.</p>
+
+</dd>
+<dt>For&#231;ar reimplanta&#231;&#227;o</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o aplicativo ser&#225; reimplantado, caso j&#225; esteja implantado. Se essa op&#231;&#227;o n&#227;o for selecionada, a tentativa de reimplantar o aplicativo que j&#225; esteja implantado resultar&#225; em erro. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+</dd>
+<dt>Manter estado</dt>
+<dd><p>Essa op&#231;&#227;o controla se as sess&#245;es Web, as inst&#226;ncias SFSB e os temporizadores EJB criados persistentemente s&#227;o retidos entre as reimplementa&#231;&#245;es. </p>
+
+<p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada. Esta op&#231;&#227;o &#233; suportada somente na inst&#226;ncia padr&#227;o do servidor, denominada <tt>server</tt>. N&#227;o &#233; suportada e ignorada em nenhum outro destino.</p>
+
+<p>Algumas altera&#231;&#245;es em um aplicativo entre as reimplanta&#231;&#245;es impedem que este recurso funcione corretamente. Por exemplo, n&#227;o altere o conjunto de vari&#225;veis da inst&#226;ncia na classe do bean SFSB.</p>
+
+<p>Em aplicativos Web, este recurso se aplica somente se no arquivo <tt>glassfish-web-app.xml </tt> o atributo <tt>persistence-type</tt> do elemento <tt> session-manager</tt> for <tt>file</tt>.</p>
+
+<p>Em inst&#226;ncias do bean de sess&#227;o com estado, o tipo de persist&#234;ncia sem alta disponibilidade est&#225; definido no servidor (a op&#231;&#227;o Tipo de persist&#234;ncia SFSB) e deve estar definido como <tt>file</tt>, que &#233; o valor padr&#227;o e recomendado.</p>
+
+<p>Se qualquer sess&#227;o Web ativa, inst&#226;ncia SFSB ou temporizador EJB falhar em ser preservado ou restaurado, <b>nenhum</b> deles estar&#225; dispon&#237;vel quando a reimplementa&#231;&#227;o tiver sido conclu&#237;da. Entretanto, a reimplanta&#231;&#227;o continuar&#225; e um aviso ser&#225; registrado em log.</p>
+
+<p>Para preservar dados do estado ativo, o Servidor GlassFish serializa os dados e os salva na mem&#243;ria. Para restaurar os dados, o carregador de classe do aplicativo que acabou de ser reimplementado desserializa todos os dados anteriormente salvos.</p>
+
+</dd>
+<dt>Preservar recursos no escopo do aplicativo</dt>
+<dd><p>Se marcada, preserva quaisquer recursos no escopo do aplicativo e os restaura durante a reimplanta&#231;&#227;o. Por padr&#227;o, esta op&#231;&#227;o n&#227;o est&#225; marcada.</p>
+
+</dd>
+<dt>Bibliotecas</dt>
+<dd><p>Uma lista, separada por v&#237;rgulas, de arquivos JAR da biblioteca espec&#237;ficos desse aplicativo. Especifica um caminho absoluto ou relativo. Um caminho relativo &#233; relativo ao<tt></tt><i>domain-dir</i><tt>/lib/applibs</tt> Se o caminho for absoluto, o caminho deve ser acess&#237;vel ao servidor de administra&#231;&#227;o de dom&#237;nio (DAS), o que significa que ele deve estar sob<tt></tt><i>domain-dir</i><tt></tt> As bibliotecas s&#227;o disponibilizadas ao aplicativo na ordem em que elas s&#227;o especificadas.</p>
+
+</dd>
+<dt>Descri&#231;&#227;o</dt>
+<dd><p>Uma descri&#231;&#227;o do aplicativo.</p>
+
+</dd>
+</dl>
+<a name="ref-appclient-options"></a><h5>Op&#231;&#245;es adicionais para um cliente aplicativo</h5>
+<p>Se o tipo do aplicativo for um cliente aplicativo, aparecer&#227;o estas op&#231;&#245;es.</p>
+
+<dl><dt>Nome do Aplicativo</dt>
+<dd><p>O nome do aplicativo.</p>
+
+<p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o nome e &#233; separado do nome por dois pontos (<tt>:</tt>). O identificador de vers&#227;o deve come&#231;ar com uma letra ou n&#250;mero. Cont&#233;m caracteres alfanum&#233;ricos e caracteres de tra&#231;o baixo (<tt>_</tt>), tra&#231;o (<tt>-</tt>) e ponto final (<tt>.</tt>). Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o acesso ao Java Web Start ser&#225; permitido para um m&#243;dulo cliente aplicativo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+</dd>
+<dt>Executar verificador</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, os descritores de implanta&#231;&#227;o s&#227;o verificados antes da implanta&#231;&#227;o. Se a verifica&#231;&#227;o falhar, a implanta&#231;&#227;o n&#227;o ser&#225; realizada. O verificador examina a estrutura e o conte&#250;do dos descritores de implanta&#231;&#227;o. A verifica&#231;&#227;o de aplicativos grandes geralmente consome muito tempo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+<p>Os pacotes verificadores devem ser instalados a partir da Ferramenta de atualiza&#231;&#227;o, ou um aviso &#233; registrado e esta op&#231;&#227;o &#233; ignorada.</p>
+
+</dd>
+<dt>For&#231;ar reimplanta&#231;&#227;o</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o aplicativo ser&#225; reimplantado, caso j&#225; esteja implantado. Se essa op&#231;&#227;o n&#227;o for selecionada, a tentativa de reimplantar o aplicativo que j&#225; esteja implantado resultar&#225; em erro. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Descri&#231;&#227;o</dt>
+<dd><p>Uma descri&#231;&#227;o do aplicativo.</p>
+
+</dd>
+</dl>
+<a name="ref-connmodule-options"></a><h5>Op&#231;&#245;es adicionais para um m&#243;dulo conector</h5>
+<p>Se o tipo do aplicativo for m&#243;dulo conector, aparecer&#227;o estas op&#231;&#245;es.</p>
+
+<dl><dt>Nome do Aplicativo</dt>
+<dd><p>O nome do aplicativo.</p>
+
+<p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o nome e &#233; separado do nome por dois pontos (<tt>:</tt>). O identificador de vers&#227;o deve come&#231;ar com uma letra ou n&#250;mero. Cont&#233;m caracteres alfanum&#233;ricos e caracteres de tra&#231;o baixo (<tt>_</tt>), tra&#231;o (<tt>-</tt>) e ponto final (<tt>.</tt>). Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, o aplicativo ser&#225; ativado. Por padr&#227;o, essa op&#231;&#227;o est&#225; selecionada.</p>
+
+</dd>
+<dt>Executar verificador</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, os descritores de implanta&#231;&#227;o s&#227;o verificados antes da implanta&#231;&#227;o. Se a verifica&#231;&#227;o falhar, a implanta&#231;&#227;o n&#227;o ser&#225; realizada. O verificador examina a estrutura e o conte&#250;do dos descritores de implanta&#231;&#227;o. A verifica&#231;&#227;o de aplicativos grandes geralmente consome muito tempo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+<p>Os pacotes verificadores devem ser instalados a partir da Ferramenta de atualiza&#231;&#227;o, ou um aviso &#233; registrado e esta op&#231;&#227;o &#233; ignorada.</p>
+
+</dd>
+<dt>For&#231;ar reimplanta&#231;&#227;o</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o aplicativo ser&#225; reimplantado, caso j&#225; esteja implantado. Se essa op&#231;&#227;o n&#227;o for selecionada, a tentativa de reimplantar o aplicativo que j&#225; esteja implantado resultar&#225; em erro. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+</dd>
+<dt>Preservar recursos no escopo do aplicativo</dt>
+<dd><p>Se marcada, preserva quaisquer recursos no escopo do aplicativo e os restaura durante a reimplanta&#231;&#227;o. Por padr&#227;o, esta op&#231;&#227;o n&#227;o est&#225; marcada.</p>
+
+</dd>
+<dt>Descri&#231;&#227;o</dt>
+<dd><p>Uma descri&#231;&#227;o do aplicativo.</p>
+
+</dd>
+</dl>
+<a name="ref-ejb-options"></a><h5>Op&#231;&#245;es adicionais para um EJB Jar.</h5>
+<p>Se o tipo do aplicativo for um EJB Jar, aparecer&#227;o estas op&#231;&#245;es.</p>
+
+<dl><dt>Nome do Aplicativo</dt>
+<dd><p>O nome do aplicativo.</p>
+
+<p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o nome e &#233; separado do nome por dois pontos (<tt>:</tt>). O identificador de vers&#227;o deve come&#231;ar com uma letra ou n&#250;mero. Cont&#233;m caracteres alfanum&#233;ricos e caracteres de tra&#231;o baixo (<tt>_</tt>), tra&#231;o (<tt>-</tt>) e ponto final (<tt>.</tt>). Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, o aplicativo ser&#225; ativado. Por padr&#227;o, essa op&#231;&#227;o est&#225; selecionada.</p>
+
+</dd>
+<dt>Disponibilidade de </dt>
+<dd><p>Se a caixa de sele&#231;&#227;o Ativado estiver selecionada, a alta disponibilidade est&#225; ativada para sess&#245;es Web e para o ponto de verifica&#231;&#227;o e, potencialmente, a passiva&#231;&#227;o do bean da sess&#227;o com estado (SFSB). Se definido como falso (padr&#227;o), todo o salvamento da sess&#227;o Web e o ponto de verifica&#231;&#227;o SFSB ser&#227;o desativados para o aplicativo especificado, aplicativo Web ou m&#243;dulo EJB. Se definido como verdadeiro, o aplicativo ou m&#243;dulo especificado ser&#225; ativado para alta disponibilidade. Defina essa op&#231;&#227;o como verdadeira apenas se a alta disponibilidade estiver configurada e ativada em n&#237;veis mais altos, como os n&#237;veis do servidor e recipiente.</p>
+
+<p>Esta op&#231;&#227;o aparece se clusters ou inst&#226;ncias de servidores independentes, al&#233;m da inst&#226;ncia padr&#227;o do servidor (<tt>server</tt>), existirem.</p>
+
+</dd>
+<dt>Executar verificador</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, os descritores de implanta&#231;&#227;o s&#227;o verificados antes da implanta&#231;&#227;o. Se a verifica&#231;&#227;o falhar, a implanta&#231;&#227;o n&#227;o ser&#225; realizada. O verificador examina a estrutura e o conte&#250;do dos descritores de implanta&#231;&#227;o. A verifica&#231;&#227;o de aplicativos grandes geralmente consome muito tempo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+<p>Os pacotes verificadores devem ser instalados a partir da Ferramenta de atualiza&#231;&#227;o, ou um aviso &#233; registrado e esta op&#231;&#227;o &#233; ignorada.</p>
+
+</dd>
+<dt>Compatibilidade</dt>
+<dd><p>Se marcada, utiliza os requisitos de visibilidade JAR do Servidor GlassFish v2 para aplicativos em lugar dos estritos requisitos Java EE 6 implantados nas vers&#245;es do Servidor GlassFish v3, incluindo 3.1. Por padr&#227;o, esta op&#231;&#227;o n&#227;o est&#225; marcada.</p>
+
+<p>A especifica&#231;&#227;o da plataforma Java EE 6 imp&#245;e exig&#234;ncias mais estritas do que o Java EE 5, no qual os arquivos JAR podem estar vis&#237;veis a v&#225;rios m&#243;dulos em um arquivo EAR. Especificamente, os clientes do aplicativo n&#227;o devem ter acesso a arquivos JAR EJB ou outros arquivos JAR no arquivo EAR, a menos que as refer&#234;ncias utilizem os mecanismos EE Java padr&#227;o (extens&#245;es, por exemplo) ou o mecanismo biblioteca-diret&#243;rio Java EE. Se esta op&#231;&#227;o for marcada, estas restri&#231;&#245;es do Java EE 6 s&#227;o removidas.</p>
+
+</dd>
+<dt>For&#231;ar reimplanta&#231;&#227;o</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o aplicativo ser&#225; reimplantado, caso j&#225; esteja implantado. Se essa op&#231;&#227;o n&#227;o for selecionada, a tentativa de reimplantar o aplicativo que j&#225; esteja implantado resultar&#225; em erro. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+</dd>
+<dt>Manter estado</dt>
+<dd><p>Essa op&#231;&#227;o controla se as sess&#245;es Web, as inst&#226;ncias SFSB e os temporizadores EJB criados persistentemente s&#227;o retidos entre as reimplementa&#231;&#245;es. </p>
+
+<p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada. Esta op&#231;&#227;o &#233; suportada somente na inst&#226;ncia padr&#227;o do servidor, denominada <tt>server</tt>. N&#227;o &#233; suportada e ignorada em nenhum outro destino.</p>
+
+<p>Algumas altera&#231;&#245;es em um aplicativo entre as reimplanta&#231;&#245;es impedem que este recurso funcione corretamente. Por exemplo, n&#227;o altere o conjunto de vari&#225;veis da inst&#226;ncia na classe do bean SFSB.</p>
+
+<p>Em aplicativos Web, este recurso se aplica somente se no arquivo <tt>glassfish-web-app.xml </tt> o atributo <tt>persistence-type</tt> do elemento <tt> session-manager</tt> for <tt>file</tt>.</p>
+
+<p>Em inst&#226;ncias do bean de sess&#227;o com estado, o tipo de persist&#234;ncia sem alta disponibilidade est&#225; definido no servidor (a op&#231;&#227;o Tipo de persist&#234;ncia SFSB) e deve estar definido como <tt>file</tt>, que &#233; o valor padr&#227;o e recomendado.</p>
+
+<p>Se qualquer sess&#227;o Web ativa, inst&#226;ncia SFSB ou temporizador EJB falhar em ser preservado ou restaurado, <b>nenhum</b> deles estar&#225; dispon&#237;vel quando a reimplementa&#231;&#227;o tiver sido conclu&#237;da. Entretanto, a reimplanta&#231;&#227;o continuar&#225; e um aviso ser&#225; registrado em log.</p>
+
+<p>Para preservar dados do estado ativo, o Servidor GlassFish serializa os dados e os salva na mem&#243;ria. Para restaurar os dados, o carregador de classe do aplicativo que acabou de ser reimplementado desserializa todos os dados anteriormente salvos.</p>
+
+</dd>
+<dt>Preservar recursos no escopo do aplicativo</dt>
+<dd><p>Se marcada, preserva quaisquer recursos no escopo do aplicativo e os restaura durante a reimplanta&#231;&#227;o. Por padr&#227;o, esta op&#231;&#227;o n&#227;o est&#225; marcada.</p>
+
+</dd>
+<dt>Bibliotecas</dt>
+<dd><p>Uma lista separada por v&#237;rgulas de arquivos JAR da biblioteca, espec&#237;ficos desse m&#243;dulo ou aplicativo. Especifica um caminho absoluto ou relativo. Um caminho relativo &#233; relativo ao<tt></tt><i>domain-dir</i><tt>/lib/applibs</tt> Se o caminho for absoluto, o caminho deve ser acess&#237;vel ao servidor de administra&#231;&#227;o de dom&#237;nio (DAS), o que significa que ele deve estar sob<tt></tt><i>domain-dir</i><tt></tt> As bibliotecas s&#227;o disponibilizadas ao aplicativo na ordem em que elas s&#227;o especificadas.</p>
+
+</dd>
+<dt>Descri&#231;&#227;o</dt>
+<dd><p>Uma descri&#231;&#227;o do aplicativo.</p>
+
+</dd>
+</dl>
+<h5>Op&#231;&#245;es adicionais para aplicativos do outro tipo</h5>
+<p>Se o tipo do aplicativo for Outro, aparecer&#227;o as seguintes op&#231;&#245;es.</p>
+
+<dl><dt>Nome do Aplicativo</dt>
+<dd><p>O nome do aplicativo.</p>
+
+<p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o nome e &#233; separado do nome por dois pontos (<tt>:</tt>). O identificador de vers&#227;o deve come&#231;ar com uma letra ou n&#250;mero. Cont&#233;m caracteres alfanum&#233;ricos e caracteres de tra&#231;o baixo (<tt>_</tt>), tra&#231;o (<tt>-</tt>) e ponto final (<tt>.</tt>). Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
+
+</dd>
+<dt>Servidores Virtuais</dt>
+<dd><p>Os servidores virtuais associados ao aplicativo.</p>
+
+<p>A op&#231;&#227;o Servidores virtuais aparece somente se a inst&#226;ncia padr&#227;o do servidor, <tt> server</tt>, existir. Se os clusters ou outras inst&#226;ncias de servidores independentes existirem, &#233; poss&#237;vel selecionar os servidores virtuais depois da implanta&#231;&#227;o. V&#225; &#224; p&#225;gina Editar aplicativo, selecione a guia Destino e selecione Gerenciar servidores virtuais para o destino desejado.</p>
+
+</dd>
+<dt>Status</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, o aplicativo ser&#225; ativado. Por padr&#227;o, essa op&#231;&#227;o est&#225; selecionada.</p>
+
+</dd>
+<dt>Disponibilidade de </dt>
+<dd><p>Se a caixa de sele&#231;&#227;o Ativado estiver selecionada, a alta disponibilidade est&#225; ativada para sess&#245;es Web e para o ponto de verifica&#231;&#227;o e, potencialmente, a passiva&#231;&#227;o do bean da sess&#227;o com estado (SFSB). Se definido como falso (padr&#227;o), todo o salvamento da sess&#227;o Web e o ponto de verifica&#231;&#227;o SFSB ser&#227;o desativados para o aplicativo especificado, aplicativo Web ou m&#243;dulo EJB. Se definido como verdadeiro, o aplicativo ou m&#243;dulo especificado ser&#225; ativado para alta disponibilidade. Defina essa op&#231;&#227;o como verdadeira apenas se a alta disponibilidade estiver configurada e ativada em n&#237;veis mais altos, como os n&#237;veis do servidor e recipiente.</p>
+
+<p>Esta op&#231;&#227;o aparece se clusters ou inst&#226;ncias de servidores independentes, al&#233;m da inst&#226;ncia padr&#227;o do servidor (<tt>server</tt>), existirem.</p>
+
+</dd>
+<dt>Tipo OSGI</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, um m&#243;dulo h&#237;brido OSGi/Java-EE &#233; especificado. Esta op&#231;&#227;o aparece somente se o tipo selecionado for Outro.</p>
+
+</dd>
+<dt>Precompilar JSPs</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, os arquivos JavaServer Pages ( JSP) ser&#227;o pr&#233;-compilados. Se esta op&#231;&#227;o for desativada, os arquivos JSP ser&#227;o compilados no tempo de execu&#231;&#227;o, quando forem acessados pela primeira vez. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+
+</dd>
+<dt>Executar verificador</dt>
+<dd><p>Se esta op&#231;&#227;o for selecionada, os descritores de implanta&#231;&#227;o s&#227;o verificados antes da implanta&#231;&#227;o. Se a verifica&#231;&#227;o falhar, a implanta&#231;&#227;o n&#227;o ser&#225; realizada. O verificador examina a estrutura e o conte&#250;do dos descritores de implanta&#231;&#227;o. A verifica&#231;&#227;o de aplicativos grandes geralmente consome muito tempo. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+<p>Os pacotes verificadores devem ser instalados a partir da Ferramenta de atualiza&#231;&#227;o, ou um aviso &#233; registrado e esta op&#231;&#227;o &#233; ignorada.</p>
+
+</dd>
+<dt>For&#231;ar reimplanta&#231;&#227;o</dt>
+<dd><p>Se essa op&#231;&#227;o for selecionada, o aplicativo ser&#225; reimplantado, caso j&#225; esteja implantado. Se essa op&#231;&#227;o n&#227;o for selecionada, a tentativa de reimplantar o aplicativo que j&#225; esteja implantado resultar&#225; em erro. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p>
+
+</dd>
+<dt>Manter estado</dt>
+<dd><p>Essa op&#231;&#227;o controla se as sess&#245;es Web, as inst&#226;ncias SFSB e os temporizadores EJB criados persistentemente s&#227;o retidos entre as reimplementa&#231;&#245;es. </p>
+
+<p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada. Esta op&#231;&#227;o &#233; suportada somente na inst&#226;ncia padr&#227;o do servidor, denominada <tt>server</tt>. N&#227;o &#233; suportada e ignorada em nenhum outro destino.</p>
+
+<p>Algumas altera&#231;&#245;es em um aplicativo entre as reimplanta&#231;&#245;es impedem que este recurso funcione corretamente. Por exemplo, n&#227;o altere o conjunto de vari&#225;veis da inst&#226;ncia na classe do bean SFSB.</p>
+
+<p>Em aplicativos Web, este recurso se aplica somente se no arquivo <tt>glassfish-web-app.xml </tt> o atributo <tt>persistence-type</tt> do elemento <tt> session-manager</tt> for <tt>file</tt>.</p>
+
+<p>Em inst&#226;ncias do bean de sess&#227;o com estado, o tipo de persist&#234;ncia sem alta disponibilidade est&#225; definido no servidor (a op&#231;&#227;o Tipo de persist&#234;ncia SFSB) e deve estar definido como <tt>file</tt>, que &#233; o valor padr&#227;o e recomendado.</p>
+
+<p>Se qualquer sess&#227;o Web ativa, inst&#226;ncia SFSB ou temporizador EJB falhar em ser preservado ou restaurado, <b>nenhum</b> deles estar&#225; dispon&#237;vel quando a reimplementa&#231;&#227;o tiver sido conclu&#237;da. Entretanto, a reimplanta&#231;&#227;o continuar&#225; e um aviso ser&#225; registrado em log.</p>
+
+<p>Para preservar dados do estado ativo, o Servidor GlassFish serializa os dados e os salva na mem&#243;ria. Para restaurar os dados, o carregador de classe do aplicativo que acabou de ser reimplementado desserializa todos os dados anteriormente salvos.</p>
+
+</dd>
+<dt>Bibliotecas</dt>
+<dd><p>Uma lista separada por v&#237;rgulas de arquivos JAR da biblioteca, espec&#237;ficos desse m&#243;dulo ou aplicativo. Especifica um caminho absoluto ou relativo. Um caminho relativo &#233; relativo ao<tt></tt><i>domain-dir</i><tt>/lib/applibs</tt> Se o caminho for absoluto, o caminho deve ser acess&#237;vel ao servidor de administra&#231;&#227;o de dom&#237;nio (DAS), o que significa que ele deve estar sob<tt></tt><i>domain-dir</i><tt></tt> As bibliotecas s&#227;o disponibilizadas ao aplicativo na ordem em que elas s&#227;o especificadas.</p>
+
+</dd>
+<dt>Descri&#231;&#227;o</dt>
+<dd><p>Uma descri&#231;&#227;o do aplicativo.</p>
+
+</dd>
+</dl>
+<h5>Tarefas relacionadas</h5>
+
+<ul><li><p><a href="task-applistdeployed.html">Para exibir uma lista de aplicativos implantados</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">Para implantar um aplicativo Web</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">Para implantar um Aplicativo Empresarial</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">Para implantar um cliente aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">Para implantar um m&#243;dulo conector</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">Para implantar um EJB Jar</a></p>
+
+</li>
+<li><p><a href="task-appedit.html">Para editar um aplicativo implantado</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">Para exibir os descritores de um aplicativo</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">Para visualizar as informa&#231;&#245;es do ponto final para um servi&#231;o Web</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">Para iniciar um aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">Para iniciar um cliente de aplicativo</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">Para reimplantar um aplicativo implantado</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">Para recarregar um aplicativo implantado</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=redeploy-1"><tt>redeploy</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

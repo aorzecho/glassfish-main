@@ -1,0 +1,164 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-accesslog"></a><h4>So konfigurieren Sie den HTTP-Dienst</h4><a name="indexterm-16"></a><a name="indexterm-17"></a><ol>
+<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
+<li><b>W&#228;hlen Sie unter dem Konfigurationsknoten den HTTP-Dienstknoten aus.</b><p>Die Seite "HTTP-Dienst" wird ge&#246;ffnet.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "SSO", um Single Sign-On standardm&#228;&#223;ig f&#252;r alle Webanwendungen
+auf allen virtuellen Servern auf diesem Server zu aktivieren, die f&#252;r den
+gleichen Bereich konfiguriert sind.</b><p>Sie k&#246;nnen diese Einstellung f&#252;r einen einzelnen virtuellen Server au&#223;er Kraft setzen.
+Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Zugriffsprotokollierung", um die Zugriffsprotokollierung f&#252;r alle Teilelemente eines
+virtuellen Servers, die diese Eigenschaft nicht angeben, zu erm&#246;glichen. </b><p>Wenn das Kontrollk&#228;stchen "Zugriffsprotokollierung" deaktiviert ist, wird die Zugriffsprotokollierung f&#252;r alle Teilelemente
+des virtuellen Servers deaktiviert, die diese Eigenschaft nicht angeben. Diese Option ist
+standardm&#228;&#223;ig deaktiviert.</p></li>
+<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Rotation", um die Protokolldateirotation zu erm&#246;glichen.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
+<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Rotationsrichtlinie" eine Rotationsrichtlinie aus.</b><p>Die einzige verf&#252;gbare Rotationsrichtlinie ist <tt>time</tt>.</p></li>
+<li><b>Geben Sie im Feld "Rotationsintervall" die Dauer (in Minuten) zwischen zwei Rotationen
+des Zugriffsprotokolls ein. </b><p>Dieses Feld ist nur g&#252;ltig, wenn als Rotationsrichtlinie <tt>time</tt> ausgew&#228;hlt wurde. Der
+Standardwert betr&#228;gt 1.440 Minuten (24 Stunden).</p></li>
+<li><b>Geben Sie im Feld "Rotationssuffix" den Zeichenkettenwert ein, der nach der Rotation
+dem Protokolldateinamen hinzugef&#252;gt werden soll.</b><p>Der Standardwert lautet <tt>JJJJ-MM-TT</tt>.</p><p>Stellen Sie sicher, dass das Rotationssuffix gen&#252;gend Werte zur Erstellung eines eindeutigen
+Suffixes f&#252;r jede Protokollrotation enth&#228;lt. Wenn das Zugriffsprotokoll zum Beispiel &#246;fter als
+einmal pro Tag rotiert wird, schlie&#223;en Sie die Uhrzeit des Tages in
+das Rotationssuffix ein.</p><p>Ein eindeutiges Suffix ist erforderlich, um sicherzustellen, dass die Zugriffsprotokolldatei bei jedem
+Ablauf des Rotationsintervalls rotiert wird. Sind das Rotationssuffix der neuen Zugriffsprotokolldatei und
+das Rotationssuffix der vorhandenen Zugriffsprotokolldatei identisch, wird die Datei nicht rotiert.</p></li>
+<li><b>Geben Sie im Feld "Maximale Dateizahl" die maximale Anzahl rotierter Zugriffsprotokolldateien an,
+die aufbewahrt werden sollen.</b><p>Ein negativer Wert gibt an, dass die Dateianzahl nicht begrenzt ist. Der
+Standardwert ist &#8211;1.</p></li>
+<li><b>Geben Sie im Feld "Puffergr&#246;&#223;e" die Gr&#246;&#223;e des Zugriffsprotokollpuffers in Byte an.</b><p>Ein Wert kleiner oder gleich null (0) deaktiviert die Zugriffsprotokollpufferung. Der Standardwert
+betr&#228;gt 32768.</p></li>
+<li><b>Geben Sie im Feld "Intervall f&#252;r Schreibvorg&#228;nge" die Anzahl Sekunden an, bevor
+das Protokoll auf die Festplatte geschrieben wird.</b><p>Das Zugriffsprotokoll wird geschrieben, wenn der Puffer voll ist oder das Intervall
+abl&#228;uft. Wenn der Wert kleiner oder gleich null (0) ist, werden die
+Pufferdaten immer geschrieben, auch wenn der Puffer nicht voll ist. Dies bedeutet,
+dass das Meldungsprotokoll bei jedem Zugriff auf den Server direkt in der
+Datei gespeichert wird. Der Standardwert betr&#228;gt 300.</p></li>
+<li><b>Geben Sie im Feld "Format" den Zeichenkettenwert ein, um die folgenden Eigenschaften
+des Zugriffsprotokolls anzugeben:</b>
+<ul><li><p>Die Informationen, die im Zugriffsprotokoll aufzuzeichnen sind</p>
+
+</li>
+<li><p>Die Reihenfolge, in der die Informationen aufgezeichnet werden</p>
+
+</li></ul>
+<p>Der Standardwert lautet:</p><pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>Die folgenden Werte k&#246;nnen f&#252;r die Formatzeichenfolge verwendet werden:</p><dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
+<dd><p>Protokolliert den Wert (durch Aufruf der Methode <tt>toString</tt>) des Anforderungsattributs mit dem angegebenen <i>name</i></p>
+
+</dd>
+<dt><tt>%auth-user-name%</tt></dt>
+<dd><p>Name des autorisierten Benutzers</p>
+
+</dd>
+<dt><tt>%client.name%</tt></dt>
+<dd><p>Client-Host-Name</p>
+
+</dd>
+<dt><tt>%client.dns%</tt></dt>
+<dd><p>Client-DNS</p>
+
+</dd>
+<dt><tt>%cookie.<i>name</i>%</tt></dt>
+<dd><p>Der Wert des Anforderungs-Cookies mit dem angegebenen <i>name</i></p>
+
+</dd>
+<dt><tt>%cookie.value%</tt></dt>
+<dd><p>Der Wert des ersten in der Anforderung gefundenen Cookies</p>
+
+</dd>
+<dt><tt>%datetime%</tt></dt>
+<dd><p>Systemdatum</p>
+
+</dd>
+<dt><tt>%request%</tt></dt>
+<dd><p>Vollst&#228;ndige HTTP-Anforderungszeile</p>
+
+</dd>
+<dt><tt>%status%</tt></dt>
+<dd><p>Status</p>
+
+</dd>
+<dt><tt>%response.length%</tt></dt>
+<dd><p>Inhaltsl&#228;nge der Antwort</p>
+
+</dd>
+<dt><tt>%header.referer%</tt></dt>
+<dd><p>Referenz-Header</p>
+
+</dd>
+<dt><tt>%header.user-agent%</tt></dt>
+<dd><p>Benutzeragent-Kopfzeile</p>
+
+</dd>
+<dt><tt>%http-method%</tt></dt>
+<dd><p>HTTP-Methode</p>
+
+</dd>
+<dt><tt>%http-uri%</tt></dt>
+<dd><p>HTTP-URI</p>
+
+</dd>
+<dt><tt>%query-str%</tt></dt>
+<dd><p>HTTP-Abfragezeichenfolge</p>
+
+</dd>
+<dt><tt>%http-version%</tt></dt>
+<dd><p>HTTP-Protokollversion</p>
+
+</dd>
+<dt><tt>%header.accept%</tt></dt>
+<dd><p>Annahme-Header</p>
+
+</dd>
+<dt><tt>%header.date%</tt></dt>
+<dd><p>Datums-Header</p>
+
+</dd>
+<dt><tt>%header.if-mod-since%</tt></dt>
+<dd><p>Falls-ge&#228;ndert-seit-Header</p>
+
+</dd>
+<dt><tt>%header.auth%</tt></dt>
+<dd><p>Autorisierungs-Header</p>
+
+</dd>
+<dt><tt>%header.<i>any</i>%</tt></dt>
+<dd><p>Jeder g&#252;ltige HTTP-Header, der in RFC 2616 definiert ist (<tt>any</tt> ist ebenfalls ein g&#252;ltiger Headerwert; dieser wird hier als Variable angegeben)</p>
+
+</dd>
+<dt><tt>%session.<i>name</i>%</tt></dt>
+<dd><p>Der Wert des Sitzungsattributs mit dem Namen <i>name</i> oder <tt>NULL-SESSION-ATTRIBUTE-<i>name</i></tt>, wenn das benannte Attribut in der Sitzung nicht vorhanden ist, oder <tt>NULL-SESSION</tt>, wenn keine Sitzung vorhanden ist</p>
+
+</dd>
+<dt><tt>%time-taken%</tt></dt>
+<dd><p>Dauer der Verarbeitung der einzelnen Anforderungen in Millisekunden</p>
+
+</dd>
+<dt><tt>%vs.id%</tt></dt>
+<dd><p>ID virtueller Server</p>
+
+</dd>
+</dl>
+</li>
+<li>(Optional) <b>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</b><p>Eine Beschreibung der verf&#252;gbaren Eigenschaften finden Sie unter <a href="ref-httpserviceprops.html">Spezifische Eigenschaften des HTTP-Diensts</a>.</p><ul>
+<li><b>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
+Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
+"Name" und den Eigenschaftswert in das Feld "Wert" ein.</b></li>
+<li><b>Um eine Eigenschaft zu &#228;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</b></li>
+<li><b>Um eine Eigenschaft zu l&#246;schen, aktivieren Sie das Kontrollk&#228;stchen links neben dem
+Feld "Name" der zu l&#246;schenden Eigenschaft und klicken Sie anschlie&#223;end auf die
+Schaltfl&#228;che "Eigenschaften l&#246;schen".</b></li></ul></li>
+<li><b>Klicken Sie auf "Speichern".</b>
+<hr><p><b>Tipp - </b>Um zu den Standardeinstellungen zur&#252;ckzukehren, klicken Sie auf die Schaltfl&#228;che "Standardwerte laden"
+und anschlie&#223;end auf "Speichern".</p>
+
+
+<hr>
+</li></ol>
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

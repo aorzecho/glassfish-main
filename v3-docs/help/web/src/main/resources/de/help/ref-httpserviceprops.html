@@ -1,0 +1,37 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-httpserviceprops"></a><h4>Spezifische Eigenschaften des HTTP-Diensts</h4>
+<a name="indexterm-57"></a><a name="indexterm-58"></a><p>Folgende weitere Eigenschaften stehen f&#252;r den HTTP-Dienst zur Verf&#252;gung. Wenn Sie diese
+Eigenschaften angeben, gelten sie f&#252;r alle <a href="ref-group-networklisteners.html">Netzwerk-Zielger&#228;te</a>.</p>
+
+<dl><dt><tt>ssl-cache-entriese</tt></dt>
+<dd><p>Die Anzahl der zwischenzuspeichernden SSL-Sitzungen. Der Standardwert betr&#228;gt 10.000.</p>
+
+</dd>
+<dt><tt>ssl3-session-timeout</tt></dt>
+<dd><p>Das Intervall, in dem SSL3-Sitzungen zwischengespeichert werden. Der Standardwert betr&#228;gt 86.400.</p>
+
+</dd>
+<dt><tt>ssl-session-timeout</tt></dt>
+<dd><p>Das Intervall, in dem SSL2-Sitzungen zwischengespeichert werden. Der Standardwert betr&#228;gt 100.</p>
+
+</dd>
+<dt><tt>proxyHandler</tt></dt>
+<dd><p>Der vollst&#228;ndig qualifizierte Klassenname einer benutzerdefinierten Implementierung der abstrakten Klasse <tt>com.sun.appserv.ProxyHandler</tt>, der es einer Backend-Instanz von GlassFish-Server erm&#246;glicht, Informationen &#252;ber die urspr&#252;ngliche Clientanforderung abzurufen, die von einem SSL-beendenden Proxyserver (z.&#160;B. einem Lastenausgleichssystem) abgefangen wurde. Eine Implementierung dieser abstrakten Klasse &#252;berpr&#252;ft eine bestimmte Anforderung auf die benutzerdefinierten Anforderungsheader, &#252;ber die der Proxyserver die Informationen &#252;ber die urspr&#252;ngliche Clientanforderung an die Enterprise Server-Instanz kommunziert, und gibt diese Informationen anschlie&#223;end an den Aufrufer zur&#252;ck.</p>
+
+<p>Die Standardimplementierung liest die IP-Adresse des Clients aus einem HTTP-Anforderungsheader namens <tt>Proxy-ip</tt>, die SSL <tt>keysize</tt> aus einem HTTP-Anforderungsheader namens <tt>Proxy-keysize</tt> und die SSL-Clientzertifikatskette aus einem HTTP-Anforderungsheader namens <tt>Proxy-auth-cert</tt>. Der Wert von <tt>Proxy-auth-cert</tt> muss die BASE-64-codierte Clientzertifikatskette ohne die Begrenzungen <tt>BEGIN CERTIFICATE</tt> und <tt>END CERTIFICATE</tt> enthalten; au&#223;erdem muss <tt>\n</tt> durch <tt>% d% a</tt> ersetzt werden.</p>
+
+<p>Diese Einstellung wird nur verwendet, wenn das Kontrollk&#228;stchen "Autorisierungs-Durchlauf" auf der Seite "HTTP" des Netzwerk-Zielger&#228;teprotokolls aktiviert ist.</p>
+
+</dd>
+<dt><tt>connectionTimeout</tt></dt>
+<dd><p>Gibt die Anzahl Sekunden an, die Netzwerk-Zielger&#228;te nach dem Akzeptieren einer Verbindung auf das Senden der Anforderungs-URI-Zeile warten. Der Standardwert ist 30.</p>
+
+</dd>
+</dl>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

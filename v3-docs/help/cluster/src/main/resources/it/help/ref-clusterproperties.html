@@ -1,0 +1,96 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterproperties"></a><h4>Cluster Properties</h4>
+<a name="indexterm-193"></a><a name="indexterm-194"></a><p>Nella pagina Cluster Properties viene visualizzato un elenco di propriet&#224; impostate per
+i cluster selezionati. Queste propriet&#224; aggiungono informazioni di configurazione opzionali sul cluster.</p>
+
+<p>Il campo Cluster Name &#232; un campo di sola lettura in cui
+viene visualizzato il nome del cluster selezionato.</p>
+
+<p>Per ogni propriet&#224; vengono visualizzate le seguenti informazioni:</p>
+
+<dl><dt>Name</dt>
+<dd><p>Nome della propriet&#224;.</p>
+
+</dd>
+<dt>Value</dt>
+<dd><p>Il valore della propriet&#224; &#232; impostato per l'istanza selezionata.</p>
+
+</dd>
+<dt>Description</dt>
+<dd><p>Descrizione testuale in cui sono riportate ulteriori informazioni sulla propriet&#224;.</p>
+
+</dd>
+</dl>
+<p>La tabella Additional Properties contiene inoltre le seguenti opzioni.</p>
+
+<dl><dt>Add Property</dt>
+<dd><p>Pulsante che consente di aggiungere una propriet&#224;. Se si fa clic su questo pulsante, viene aggiunta una riga alla tabella Additional Properties.</p>
+
+</dd>
+<dt>Delete Properties</dt>
+<dd><p>Pulsante che consente di eliminare una o pi&#249; propriet&#224; selezionate. Quando una propriet&#224; viene eliminata, viene ripristinato il rispettivo valore predefinito oppure, se non &#232; specificato il valore predefinito, il valore resta non definito.</p>
+
+</dd>
+</dl>
+<p>GlassFish Server definisce le seguenti propriet&#224; del cluster:</p>
+
+<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
+<dd><p>Numero della porta su cui il cluster resta in attesa di messaggi provenienti dal servizio GMS (Group Management Service). Il valore predefinito dovrebbe essere adatto nella maggior parte delle situazioni.</p>
+
+</dd>
+<dt><tt>GMS_LOOPBACK</tt></dt>
+<dd><p>Specifica se consentire a un'istanza di ricevere da se stessa messaggi a livello di applicazione trasmessi dall'istanza al cluster.</p>
+
+<p>I possibili valori sono i seguenti:</p>
+
+<dl><dt><tt>false</tt></dt>
+<dd><p>L'istanza <b>non</b> pu&#242; ricevere messaggi provenienti da se stessa (opzione predefinita).</p>
+
+</dd>
+<dt><tt>true</tt></dt>
+<dd><p>L'istanza pu&#242; ricevere messaggi da se stessa. Utilizzare questa impostazione per verificare un'istanza quando &#232; l'unica istanza in un cluster.</p>
+
+</dd>
+</dl>
+</dd>
+<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
+<dd><p>Numero massimo di ripetizioni o trasmissioni che possono verificarsi per i seguenti tipi di eventi prima che un messaggio multicast venga ignorato:</p>
+
+
+<ul><li><p>Individuazione gruppo</p>
+
+</li>
+<li><p>Heartbeat membro</p>
+
+</li>
+<li><p>Modifiche appartenenza</p>
+
+</li></ul>
+<p>Per soddisfare la configurazione della rete in cui vengono distribuite le istanze DAS e le istanze in cluster, impostare il minimo valore possibile. Per determinare il minimo valore possibile per il sistema in uso, utilizzare il comando secondario <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=validate-multicast-1"><tt>validate-multicast</tt>(1)</a>.</p>
+
+<p>Se si imposta un valore pari a 0, i messaggi multicast non lasciano mai l'host dal quale vengono trasmessi.</p>
+
+<p>Se si imposta un valore pari a 1, la trasmissione di messaggi tra host della stessa sottorete connessi tramite switch o router potrebbe non riuscire. </p>
+
+<p>Il valore predefinito &#232; 4 e assicura che i messaggi vengano trasmessi correttamente a tutti i membri del cluster delle reti in cui gli host sono collegati tramite switch o router.</p>
+
+</dd>
+</dl>
+<h5>Comandi secondari <tt>asadmin</tt> equivalenti</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=get-1"><tt>get</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-1"><tt>list</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

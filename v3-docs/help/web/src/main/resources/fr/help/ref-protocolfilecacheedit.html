@@ -1,0 +1,84 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-protocolfilecacheedit"></a><h4>Cache de fichiers</h4>
+<a name="indexterm-74"></a><a name="indexterm-75"></a><p>Utilisez la page Cache de fichiers pour modifier les param&#232;tres du cache
+de fichiers pour un protocole de r&#233;seau. </p>
+
+<p>La page Cache de fichiers contient les options suivantes.</p>
+
+<dl><dt>Charger les valeurs par d&#233;faut</dt>
+<dd><p>Bouton permettant de restaurer les valeurs par d&#233;faut de tous les param&#232;tres.</p>
+
+</dd>
+<dt>Nom de configuration</dt>
+<dd><p>Le nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
+
+</dd>
+<dt>Nom du protocole</dt>
+<dd><p>Nom du protocole. Le champ Nom du protocole est un champ en lecture seule. Vous pouvez </p>
+
+</dd>
+<dt>Statut</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, le statut du cache de fichiers est activ&#233;. Cette option est s&#233;lectionn&#233;e par d&#233;faut.</p>
+
+</dd>
+<dt>&#194;ge max.</dt>
+<dd><p>&#194;ge maximum, en secondes, d&#8217;une entr&#233;e de cache valide.</p>
+
+<p>Ce param&#232;tre d&#233;termine comment des informations en cache depuis un certain temps sont utilis&#233;es apr&#232;s la mise en cache d&#8217;un fichier. Une entr&#233;e ant&#233;rieure &#224; l&#8217;&#226;ge maximal est remplac&#233;e par une nouvelle entr&#233;e pour le m&#234;me fichier. Si le contenu change rarement, augmentez cette valeur pour am&#233;liorer les performances.</p>
+
+<p>L&#8217;&#226;ge maximal optimal d&#233;pend de la fr&#233;quence &#224; laquelle les fichiers existants sont modifi&#233;s. Par exemple, si les fichiers sont modifi&#233;s quatre fois par jour &#224;&#160;intervalles r&#233;guliers, vous pouvez d&#233;finir l&#8217;&#226;ge maximal sur 21600 secondes (6 heures). Sinon, pensez &#224; d&#233;finir l&#8217;&#226;ge maximal sur la p&#233;riode la plus longue durant laquelle vous acceptez d&#8217;utiliser la version pr&#233;c&#233;dente d&#8217;un fichier apr&#232;s sa modification.</p>
+
+<p>La valeur par d&#233;faut est 30.</p>
+
+</dd>
+<dt>Taille max. du cache</dt>
+<dd><p>Taille totale maximale (en octets) du cache de fichiers sur le disque. La valeur par d&#233;faut est 10485760.</p>
+
+</dd>
+<dt>Nombre max. de fichiers</dt>
+<dd><p>Nombre maximal de fichiers pouvant &#234;tre stock&#233;s dans le cache.</p>
+
+<p>Si la valeur est trop &#233;lev&#233;e, le serveur met en cache les fichiers peu utiles qui consomment de la m&#233;moire. Si elle est trop faible, vous perdez l&#8217;avantage de la mise en cache. Testez diff&#233;rentes valeurs de cet attribut pour rechercher la solution optimale pour des applications sp&#233;cifiques.</p>
+
+<p>La valeur par d&#233;faut est 1024.</p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-protocolnew.html">Cr&#233;ation d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Modification d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Modifier les param&#232;tres SSL d'un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Modifier les param&#232;tres HTTP pour un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Modifier les param&#232;tres de cache de fichiers pour un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Suppression d'un protocole</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

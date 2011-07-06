@@ -1,0 +1,67 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-messagesecurityconfigedit"></a><h4>Modificare una configurazione per la sicurezza dei messaggi</h4><a name="indexterm-108"></a><p>Per abilitare la sicurezza dei messaggi per gli endpoint dei servizi Web
+distribuiti in GlassFish Server, &#232; necessario specificare un provider da utilizzare per
+impostazione predefinita sul lato server. Se si abilita un provider predefinito per
+la sicurezza dei messaggi, &#232; necessario abilitare anche provider utilizzabili dai client
+dei servizi Web distribuiti in GlassFish Server. Per informazioni sull'abilitazione dei provider
+utilizzati dai client, vedere <a href="task-enablemesec4appclients.html">Abilitare la sicurezza dei messaggi per i client dell'applicazione</a>.</p>
+
+<p>Per abilitare la sicurezza dei messaggi per le chiamate di servizi Web
+originate dagli endpoint distribuiti, &#232; necessario specificare un provider client predefinito. Se
+&#232; stato abilitato un provider client predefinito per GlassFish Server, &#232; necessario
+assicurarsi di configurare tutti i servizi chiamati dagli endpoint distribuiti in GlassFish
+Server compatibilmente con la sicurezza del layer dei messaggi.</p>
+
+<ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
+<li><b>Espandere il nodo Security.</b></li>
+<li><b>Selezionare il nodo Message Security.</b><p>Viene visualizzata la pagina Message Security Configurations.</p></li>
+<li><b>Nella pagina Message Security Configurations fare clic sul nome Authentication Layer della
+configurazione da modificare.</b><p>Per impostazione predefinita l'unica configurazione della sicurezza dei messaggi impostata &#232; SOAP.</p><p>Viene visualizzata la pagina Edit Message Security Configuration.</p></li>
+<li><b>Nella pagina Edit Message Security Configuration, selezionare un provider del lato server
+dall'elenco a discesa Default Provider.</b><p>Il provider server predefinito, detto anche provider predefinito, identifica il provider server
+chiamato per un'applicazione che non identifica un provider server specifico. Le scelte
+disponibili sono <tt>ServerProvider</tt>, <tt>XWS_ServerProvider</tt> o nessun provider. Per impostazione predefinita non &#232;
+selezionato nessun provider; pertanto non vengono richiamati provider di sicurezza dei messaggi
+sul lato server. In genere &#232; consigliabile selezionare <tt> ServerProvider</tt> come provider predefinito.</p></li>
+<li><b>Nell'elenco a discesa Default Client Provider selezionare un provider client.</b><p>Il provider client predefinito identifica il provider client chiamato per un'applicazione che
+non identifica un provider client specifico. Le scelte disponibili sono <tt>ClientProvider</tt>, <tt>XWS_ClientProvider </tt>
+o nessun provider. Per impostazione predefinita non &#232; selezionato nessun provider; pertanto
+non vengono richiamati provider di sicurezza dei messaggi sul lato client. In
+genere &#232; consigliabile selezionare none come provider client predefinito. Selezionare <tt>ClientProvider</tt> per
+abilitare un provider e un criterio di protezione dei messaggi predefiniti da
+applicare alle chiamate di servizi Web provenienti da endpoint per servizi Web
+distribuiti in GlassFish Server.</p></li>
+<li><b>Fare clic su Save.</b></li>
+<li><b>Per istruzioni sulla modifica dei criteri di protezione dei messaggi dei provider
+client o server abilitati, vedere <a href="task-messagesecurityproviderconfigedit.html">Modificare una configurazione per il provider di sicurezza dei messaggi</a>.</b></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-configmsgsecproviders.html">Configurare le risorse di GlassFish Server utilizzate dai provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfignew.html">Creare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfigdelete.html">Eliminare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfignew.html">Creare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfigedit.html">Modificare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfigdelete.html">Eliminare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-enablemesec4appclients.html">Abilitare la sicurezza dei messaggi per i client dell'applicazione</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

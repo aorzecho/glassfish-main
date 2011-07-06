@@ -1,0 +1,96 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-transportedit"></a><h4>Modifier un transport</h4><a name="indexterm-34"></a><ol>
+<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
+<li><b>Sous le n&#339;ud Configuration, d&#233;veloppez le n&#339;ud Config r&#233;seau.</b></li>
+<li><b>Sous le n&#339;ud Configuration de r&#233;seau, s&#233;lectionnez le n&#339;ud Transports.</b><p>La page Transports s&#8217;ouvre.</p></li>
+<li><b>Sur la page Transports, cliquez sur le nom du transport que vous
+modifiez.</b><p>La page Modifiez le transport s&#8217;ouvre.</p></li>
+<li><b>Dans le champ Nom de classe, saisissez le nom de classe de
+l&#8217;impl&#233;mentation de transport. </b><p>La valeur par d&#233;faut est <tt>com.sun.grizzly.TCPSelectorHandler</tt>.</p></li>
+<li><b>Dans le champ Gestionnaires de cl&#233; de s&#233;lection, tapez le nom de
+classe du gestionnaire de cl&#233; de s&#233;lection. </b><p>Le nom de classe du gestionnaire cl&#233; de s&#233;lection. Le gestionnaire de
+cl&#233; de s&#233;lection est une classe abstraite qui g&#232;re le cycle de
+vie des touches de s&#233;lection. Si vous ne sp&#233;cifiez pas une valeur, une
+impl&#233;mentation par d&#233;faut est utilis&#233;e. </p></li>
+<li><b>Dans la liste d&#233;roulante Type de tampon de byte, s&#233;lectionnez le type
+de <tt>ByteBuffer</tt> &#224; utiliser. </b><p>Les choix disponibles sont <tt>HEAP</tt> et <tt>DIRECT</tt>. La valeur par d&#233;faut est <tt>HEAP</tt>.</p></li>
+<li><b>Dans le champ Threads accepteur, tapez le nombre de processeurs de la
+machine.</b><p>Une valeur de -1 indique que Grizzly &#233;valuera le nombre de threads
+accepteur lui-m&#234;me, en fonction du nombre de processeurs de la machine. La
+valeur par d&#233;faut est 1. </p><p>Pour d&#233;finir le nombre de threads de traitement des requ&#234;tes, d&#233;finissez la
+valeur Taille max. du pool de threads du pool de threads utilis&#233;
+par un auditeur de r&#233;seau qui utilise ce transport. </p></li>
+<li><b>Dans le champ Nombre max. de connexions, tapez le nombre maximum de connexions
+en attente sur un auditeur de r&#233;seau qui utilise ce transport. </b><p>La valeur par d&#233;faut est 4096.</p></li>
+<li><b>Dans le champ Taille du tampon, saisissez (en octets) la taille du
+tampon &#224; fournir pour les flux d&#8217;entr&#233;e cr&#233;&#233;s par un auditeur de
+r&#233;seau qui utilise ce transport.</b><p>La valeur par d&#233;faut est 8192.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;expiration de la cl&#233; d&#8217;inactivit&#233;, entrez le nombre
+de secondes au-del&#224; duquel la cl&#233; d&#8217;inactivit&#233; sera annul&#233;e et le canal ferm&#233;.
+</b><p>La valeur par d&#233;faut est 30.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;expiration de lecture, saisissez le nombre de millisecondes
+pendant lequel GlassFish Server patiente lors de la phase d&#8217;analyse de l&#8217;en-t&#234;te
+et du corps d&#8217;une op&#233;ration de lecture. </b><p>La valeur par d&#233;faut est 30000.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;expiration de l&#8217;interrogation du s&#233;lecteur, entrez le temps
+(en millisecondes) pendant lequel un s&#233;lecteur NIO bloque l&#8217;attente d&#8217;&#233;v&#233;nements (requ&#234;tes utilisateur).
+</b><p>La valeur par d&#233;faut est 1000.</p></li>
+<li><b>Dans le champ D&#233;lai d&#8217;expiration d&#8217;&#233;criture, saisissez le nombre de millisecondes que
+GlassFish Server patiente avant de consid&#233;rer le client distant d&#233;connect&#233; lors de
+l&#8217;&#233;criture de la r&#233;ponse. </b><p>La valeur par d&#233;faut est 30000.</p></li>
+<li><b>S&#233;lectionnez la case Activ&#233; de Configuration de l&#8217;affichage pour purger la configuration
+interne de Grizzly vers les journaux du serveur. </b><p>Cette option peut fournir des informations int&#233;ressantes pour le d&#233;bogage. Cette option
+est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>S&#233;lectionnez la case Activ&#233; de Snoop afin de vider les informations de
+requ&#234;te/r&#233;ponse vers le journal du serveur. </b><p>Cette option peut fournir des informations int&#233;ressantes pour le d&#233;bogage, mais peut
+r&#233;duire consid&#233;rablement les performances. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
+<li><b>S&#233;lectionnez la case Aucun d&#233;lai TCP pour activer TCP_NODELAY (&#233;galement appel&#233; l&#8217;algorithme
+de Nagle).</b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
+<li><b>Cliquez sur Enregistrer.</b>
+<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
+par d&#233;faut, puis sur Enregistrer.</p>
+
+
+<hr>
+</li></ol><h6>Voir aussi</h6>
+<ul><li><p><a href="task-networklistenernew.html">Cr&#233;ation d'un listener r&#233;seau</a></p>
+
+</li>
+<li><p><a href="task-networklisteneredit.html">Modification d'un listener r&#233;seau</a></p>
+
+</li>
+<li><p><a href="task-networklistenerdelete.html">Suppression d'un listener r&#233;seau</a></p>
+
+</li>
+<li><p><a href="task-protocolnew.html">Cr&#233;ation d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoledit.html">Modification d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocolssledit.html">Modifier les param&#232;tres SSL d'un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolhttpedit.html">Modifier les param&#232;tres HTTP pour un protocole </a></p>
+
+</li>
+<li><p><a href="task-protocolfilecacheedit.html">Modifier les param&#232;tres de cache de fichiers pour un protocole</a></p>
+
+</li>
+<li><p><a href="task-protocoldelete.html">Suppression d'un protocole</a></p>
+
+</li>
+<li><p><a href="task-transportnew.html">Cr&#233;er un transport</a></p>
+
+</li>
+<li><p><a href="task-transportdelete.html">Supprimer un transport</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

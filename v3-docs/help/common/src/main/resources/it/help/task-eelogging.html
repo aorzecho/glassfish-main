@@ -1,0 +1,69 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-eelogging"></a><h4>Configurare impostazioni generali per il log</h4><a name="indexterm-67"></a><ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configurations.</b></li>
+<li><b>Nel nodo Configurations, fare clic sulla configurazione dell'istanza server o del cluster
+per cui si desidera configurare le impostazioni del programma di log.</b><p>Viene visualizzata la pagina Configuration.</p></li>
+<li><b>Nella pagina Configuration, fare clic su Logger Settings.</b><p>Viene visualizzata la pagina Logger Settings per la destinazione della configurazione selezionata.</p></li>
+<li><b>Selezionare la casella di controllo Write to System Log Enabled per inviare
+l'output di log alla risorsa <tt>syslog</tt> in aggiunta al log del server.</b><p>Questa caratteristica &#232; disponibile soltanto nei sistemi Solaris e Linux. Questa opzione
+&#232; disabilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Log File digitare una posizione o un nome alternativo per
+il file di log del server.</b><p>La posizione predefinita &#232; <tt>${com.sun.aas.instanceRoot}/logs/server.log </tt>.</p></li>
+<li><b>Nel campo Log Handler digitare il nome classe assoluto di un gestore
+del log personalizzato.</b><p>Un gestore del log personalizzato consente di inviare log a una destinazione
+diversa da <tt>server.log</tt> o <tt>syslog</tt>. Tale gestore deve estendere la classe <tt>java.util.logging.ConsoleHandler </tt>
+(un'API conforme allo standard JSR 047). Inserire la classe handler nel classpath
+di GlassFish Server, in modo che l'handler venga installato durante l'avvio del
+server.</p></li>
+<li><b>Nel campo File Rotation Limit digitare la dimensione in byte che il
+file di log del server deve raggiungere per essere sottoposto a rotazione.</b><p>Quando il log del server raggiunge la dimensione specificata, in GlassFish Server
+viene creato un nuovo file vuoto denominato <tt>server.log</tt> e il file precedente
+viene rinominato <tt>server.log_</tt><i>date</i>, dove <i>date</i> corrisponde alla data e all'ora di rotazione
+del file. Il valore predefinito &#232; 2 MB. Il valore limite minimo
+&#232; 500 KB; se si specifica un valore inferiore, il file verr&#224;
+sottoposto a rotazione una volta raggiunti i 500 KB. Per disattivare la
+rotazione del file di log impostare il valore su 0.</p></li>
+<li><b>Nel campo File Rotation Time Limit, digitare il numero di minuti trascorso
+il quale si desidera eseguire la rotazione del log del server.</b><p>Il valore predefinito &#232; 0. Indica che il file viene sottoposto a
+rotazione quando raggiunge la dimensione specificata nel campo File Rotation Limit.</p>
+<hr><p><b>Nota - </b>Se si specificano uno o pi&#249; minuti, il limite di tempo ottiene
+la precedenza sul limite di dimensione specificato nel campo File Rotation Limit.</p>
+
+
+<hr>
+</li>
+<li><b>Nel campo Flush Frequency digitare il numero massimo di messaggi scrivibili contemporaneamente
+dalla coda al log del server.</b><p>Il valore predefinito &#232; 1.</p></li>
+<li><b>Fare clic su Save.</b>
+<hr><p><b>Nota - </b>A seconda della configurazione per cui &#232; stato abilitato il log, potrebbe
+essere necessario riavviare il server.</p>
+
+<p>Il riavvio del server potrebbe inoltre essere necessario in caso di cambiamento
+del nome del file di log rispetto all'impostazione predefinita. Se &#232; necessario
+riavviare il server, verr&#224; visualizzato un messaggio <tt>Restart required</tt> nell'angolo superiore destro di
+Administration Console.</p>
+
+
+<hr>
+</li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-eelogginglevels.html">Configurare i livelli di log</a></p>
+
+</li>
+<li><p><a href="task-logging-max-logfiles.html">Cambiare il numero limite dei file di log sottoposti a rotazione</a></p>
+
+</li>
+<li><p><a href="task-logviewer.html">Visualizzare i file di log per il DAS</a></p>
+
+</li>
+<li><p><a href="task-logging-collectlogfiles.html">Creare un archivio ZIP di tutti i file di log</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

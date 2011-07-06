@@ -1,0 +1,117 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-ejbgeneral"></a><h4>Enterprise Java Beans (EJB)</h4>
+<a name="indexterm-3"></a><a name="indexterm-4"></a><p>Utilice la p&#225;gina de Enterprise Java Beans (EJB) para configurar las opciones
+del contenedor  EJB.</p>
+
+<p>Aparte de la configuraci&#243;n general de Enterprise Beans, puede configurar las opciones
+de conjuntos y de cach&#233;.</p>
+
+
+<ul><li><p>La configuraci&#243;n del conjunto se aplica s&#243;lo a los beans de sesi&#243;n sin estado. De forma predeterminada, el contenedor mantiene un conjunto de Enterprise Beans para responder a solicitudes de clientes sin repercutir en el rendimiento debido al proceso de creaci&#243;n de beans. </p>
+
+<p>Si una aplicaci&#243;n que utiliza Enterprise Beans implementados tiene problemas de rendimiento, dicho rendimiento puede mejorarse creando un conjunto o aumentando la cantidad de beans mantenidos por un conjunto ya creado.</p>
+
+</li>
+<li><p>La configuraci&#243;n de la memoria cach&#233; se aplica &#250;nicamente a los beans de sesi&#243;n con estado. El contenedor mantiene una memoria cach&#233; de datos de Enterprise Bean para los Enterprise Beans m&#225;s utilizados. De este modo, el contenedor responde con m&#225;s rapidez a las solicitudes de otros m&#243;dulos de aplicaciones para datos desde los Enterprise Beans.</p>
+
+<p>Los Enterprise Beans almacenados en memoria cach&#233; tienen uno de los tres estados siguientes: activo, inactivo y pasivo. Si un Enterprise Bean est&#225; activo, significa que los clientes est&#225;n obteniendo acceso a &#233;l. Los datos de un Enterprise Bean inactivo est&#225;n en la memoria cach&#233;, pero no hay clientes que intenten obtener acceso al bean. Los datos de un Enterprise Bean pasivo se almacenan temporalmente y se vuelven a leer en la memoria cach&#233; si un cliente solicita el bean.</p>
+
+</li></ul>
+<p>La p&#225;gina de Enterprise Java Beans (EJB) contiene las opciones siguientes.</p>
+
+<dl><dt>Cargar valores predeterminados</dt>
+<dd><p>Bot&#243;n para restablecer los valores predeterminados de todos los par&#225;metros de configuraci&#243;n.</p>
+
+</dd>
+<dt>Nombre de configuraci&#243;n</dt>
+<dd><p>El nombre de configuraci&#243;n al que se aplican los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
+
+</dd>
+<dt>Ubicaci&#243;n del almacenamiento de sesi&#243;n</dt>
+<dd><p>El directorio en el que las sesiones de beans pasivos y las sesiones de HTTP que siguen activas se almacenan en el sistema de archivos. El valor predeterminado es <tt>${com.sun.aas.instanceRoot}/session-store</tt>.</p>
+
+<p>Los beans en estado pasivo son beans de sesi&#243;n cuyo estado se ha escrito en un archivo del sistema de archivos. En general, los beans pasivos han estado inactivos durante un periodo de tiempo y en la actualidad los clientes no tienen acceso a ellos. Asimismo, las sesiones de HTTP que contin&#250;an activas son sesiones web individuales cuyo estado se ha escrito en un archivo del sistema de archivos.</p>
+
+</dd>
+<dt>Opci&#243;n de confirmaci&#243;n</dt>
+<dd><p>Especifica el modo en que el contenedor almacena en cach&#233; instancias de beans pasivos entre transacciones. Si selecciona la Opci&#243;n B (valor predeterminado), el contenedor almacena en cach&#233; una instancia preparada entre transacciones. Si selecciona la Opci&#243;n C, el contenedor no almacena en cach&#233; una instancia preparada entre transacciones.</p>
+
+</dd>
+<dt>Tama&#241;o inicial y m&#237;nimo del conjunto</dt>
+<dd><p>El n&#250;mero m&#237;nimo de beans que se mantendr&#225;n en el conjunto. El valor predeterminado es 0.</p>
+
+</dd>
+<dt>Tama&#241;o m&#225;ximo del conjunto</dt>
+<dd><p>La cantidad m&#225;xima beans que el contenedor puede mantener en el conjunto de una vez. El valor predeterminado es 32.</p>
+
+</dd>
+<dt>Cantidad de cambio de tama&#241;o del conjunto</dt>
+<dd><p>El n&#250;mero de beans que se quitan del conjunto si est&#225;n inactivos m&#225;s tiempo que el especificado en el campo Tiempo de espera de inactividad de conjunto. El valor debe ser 0 como m&#237;nimo e inferior al valor de Tama&#241;o de conjunto m&#225;ximo. El valor predeterminado es 8.</p>
+
+</dd>
+<dt>Tiempo de espera de inactividad de conjunto</dt>
+<dd><p>El intervalo de tiempo, en segundos, que un bean del conjunto puede estar inactivo antes de que se quite del conjunto. Una vez transcurrido dicho intervalo de tiempo, el bean se destruye. Un valor de 0 significa que un bean puede permanecer inactivo indefinidamente. El valor predeterminado es 600.</p>
+
+</dd>
+<dt>Tama&#241;o de cach&#233; m&#225;ximo</dt>
+<dd><p>El n&#250;mero m&#225;ximo de beans que puede haber en la memoria cach&#233;. Incremente la cantidad m&#225;xima de beans que puede haber en la memoria cach&#233; para eliminar la carga indirecta de crear y destruir. Ahora bien, si la memoria cach&#233; se incrementa, el servidor consume m&#225;s memoria y recursos. Compruebe que el sistema operativo admita esa configuraci&#243;n de cach&#233;. El valor 0 indica una memoria cach&#233; ilimitada. El valor predeterminado es 512.</p>
+
+</dd>
+<dt>Cantidad de cambio de tama&#241;o de cach&#233;</dt>
+<dd><p>El n&#250;mero de beans que se deben colocar en estado pasivo cuando la memoria cach&#233; est&#225; llena. Si se llega al n&#250;mero m&#225;ximo de beans en cach&#233;, el contenedor quita del almac&#233;n de copia de seguridad una determinada cantidad de beans en estado pasivo. Este valor especifica tambi&#233;n el n&#250;mero de beans que se deben crear si llega una solicitud y en ese momento el conjunto no dispone de beans. El valor debe ser mayor que 1 y menor que el valor de Tama&#241;o de cach&#233; m&#225;ximo. El valor predeterminado es 32.</p>
+
+</dd>
+<dt>Tiempo de espera de eliminaci&#243;n</dt>
+<dd><p>El n&#250;mero de segundos despu&#233;s de los cuales un bean en estado pasivo se quita del almac&#233;n de la sesi&#243;n. Un valor de 0 significa que el contenedor no quita los beans inactivos autom&#225;ticamente. Si el valor de Tiempo de espera de eliminaci&#243;n es menor o igual al de Tiempo de espera de inactividad de cach&#233;, los beans se quitan inmediatamente sin ponerse en estado pasivo. El valor predeterminado es 5400.</p>
+
+</dd>
+<dt>Directiva de selecci&#243;n de eliminaci&#243;n</dt>
+<dd><p>Directiva que el contenedor aplica para quitar beans de sesi&#243;n con estado de la memoria cach&#233;. Las opciones son las siguientes:</p>
+
+<dl><dt>No utilizados recientemente</dt>
+<dd><p>Quita un bean que no se haya utilizado de forma reciente. &#201;ste es el valor predeterminado.</p>
+
+</dd>
+<dt>Primero en entrar, primero en salir</dt>
+<dd><p>Quita el bean m&#225;s antiguo de la memoria cach&#233;.</p>
+
+</dd>
+<dt>Menos utilizado recientemente</dt>
+<dd><p>Quita el bean que menos se haya utilizado recientemente.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>Tiempo de espera de inactividad de cach&#233;</dt>
+<dd><p>El n&#250;mero m&#225;ximo de segundos que un bean puede permanecer inactivo en la memoria cach&#233;. Una vez transcurrido ese tiempo, el contenedor puede colocar este bean en estado pasivo. Un valor de 0 especifica que los beans nunca se convierten en candidatos a tener el estado pasivo.  El valor predeterminado es 600.</p>
+
+</dd>
+<dt>Propiedades adicionales</dt>
+<dd><p>Propiedades adicionales del contenedor EJB. GlassFish Server no define ninguna propiedad adicional para el contenedor EJB.</p>
+
+</dd>
+</dl>
+<h5>Tareas relacionadas</h5>
+
+<ul><li><p><a href="task-ejbgeneral.html">Para configurar las opciones de EJB</a></p>
+
+</li>
+<li><p><a href="../../../ejb/es/help/task-ejbmdbpoolsettings.html">Para configurar las opciones de conjuntos MDB</a></p>
+
+</li>
+<li><p><a href="../../../ejb/es/help/task-ejbtimerservice.html">Para configurar el servicio de temporizador de EJB</a></p>
+
+</li>
+<li><p><a href="../../../ejb/es/help/task-ejbcontaineravailability.html">To Configure Availability Settings for the EJB Container</a></p>
+
+</li></ul>
+<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+<p>Ninguno.</p>
+
+
+
+<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

@@ -1,0 +1,81 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-jmsconnectionedit"></a><h4>Modificare una risorsa factory di connessione JMS</h4><a name="indexterm-3"></a><a name="indexterm-4"></a><ol>
+<li><b>Nella struttura ad albero, espandere il nodo Resources.</b></li>
+<li><b>Nel nodo Resources espandere il nodo JMS Resources.</b></li>
+<li><b>Nel nodo JMS Resources selezionare il nodo JMS Connection Factories.</b><p>Viene visualizzata la pagina JMS Connection Factories.</p></li>
+<li><b>Nella pagina JMS Connection Factories, fare clic sul nome della factory di
+connessione da modificare.</b><p>Viene visualizzata la pagina Edit JMS Connection Factory.</p></li>
+<li><b>Nel campo Description, digitare una descrizione della factory di connessione.</b></li>
+<li><b>Selezionare la casella di controllo Status Enabled per abilitare la risorsa in
+fase di runtime.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
+<li><b>Nel campo Initial and Minimum Pool Size, specificare il numero minimo di
+connessioni per il pool.</b><p>Il valore predefinito &#232; 8.</p></li>
+<li><b>Nel campo Maximum Pool Size, specificare il numero massimo di connessioni per
+il pool.</b><p>Il valore predefinito &#232; 32.</p></li>
+<li><b>Nel campo Pool Resize Quantity, specificare il numero di connessioni da rimuovere
+allo scadere del timeout di inattivit&#224; del pool.</b><p>Il valore predefinito &#232; 2.</p></li>
+<li><b>Nel campo Idle Timeout, specificare il numero massimo di secondi durante i
+quali una connessione pu&#242; rimanere inattiva nel pool.</b><p>Il valore predefinito &#232; 300.</p></li>
+<li><b>Nel campo Max Wait Time, specificare il tempo di attesa per la
+richiesta di connessione di un'applicazione, prima che si verifichi il timeout della
+connessione.</b><p>Il valore predefinito &#232; 60000.</p></li>
+<li><b>Se la casella di controllo On Any Failure Close All Connections &#232;
+selezionata, in GlassFish Server tutte le connessioni del pool vengono chiuse e
+quindi ristabilite in caso di errore di una singola connessione.</b><p>Se non si seleziona la casella di controllo, le singole connessioni vengono
+ristabilite solo quando vengono utilizzate.</p></li>
+<li><b>Per una risorsa factory di connessione JMS, specificare il valore Transaction Support
+come segue:</b><ul>
+<li><b>Specificare <tt>XATransaction</tt> (valore predefinito) per una risorsa utilizzabile in transazioni che implicano
+l'uso di pi&#249; risorse nell'ambito della transazione,</b><p>ad esempio la presente risorsa in abbinamento a una risorsa JDBC, a
+una risorsa del connettore o a un'altra risorsa della factory di connessione
+JMS. Questo valore offre la massima flessibilit&#224;. Una risorsa configurata come <tt>XATransaction</tt>
+verr&#224; utilizzata in operazioni di commit a due fasi.</p></li>
+<li><b>Specificare <tt>LocalTransaction</tt> per una risorsa utilizzabile in transazioni che prevedono l'uso di
+una sola risorsa o come ultimo agente in una transazione distribuita che
+prevede l'uso di pi&#249; risorse XA.</b><p>Il valore offre prestazioni decisamente migliori. Una risorsa configurata come <tt>LocalTransaction</tt> non
+verr&#224; utilizzata in operazioni di commit a due fasi.</p></li>
+<li><b>Specificare <tt>NoTransaction</tt> per una risorsa che non pu&#242; mai essere utilizzata in
+una transazione.</b><p>L'impostazione &#232; di uso limitato in applicazioni JMS.</p></li></ul></li>
+<li><b>Selezionare la casella di controllo Connection Validation per abilitare la convalida della
+connessione.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
+<li>(Opzionale) <b>Nella tabella Additional Properties, specificare le propriet&#224; aggiuntive per la factory di
+connessione.</b><p>Per informazioni sulle propriet&#224; disponibili, vedere <a href="ref-jmsconnectionproperties.html">Propriet&#224; specifiche delle factory di connessione JMS</a>.</p><ul>
+<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
+vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
+valore della propriet&#224; nel campo Value.</b></li>
+<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
+della propriet&#224;.</b></li>
+<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
+campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
+Delete Properties.</b></li></ul></li>
+<li><b>Fare clic su Save.</b>
+<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
+su Save.</p>
+
+
+<hr>
+</li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-jmsconnectionnew.html">Creare una risorsa factory di connessione JMS </a></p>
+
+</li>
+<li><p><a href="task-jmsconnectiondelete.html">Eliminare una risorsa factory di connessione JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationnew.html">Creare una risorsa di destinazione JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationedit.html">Modificare una risorsa di destinazione JMS</a></p>
+
+</li>
+<li><p><a href="task-jmsdestinationdelete.html">Eliminare una risorsa di destinazione JMS</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

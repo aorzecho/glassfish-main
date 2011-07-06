@@ -1,0 +1,100 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-clusterinstances"></a><h4>Instances de serveur clusteris&#233;es</h4>
+<a name="indexterm-173"></a><a name="indexterm-174"></a><p>La page Instances de serveur clusteris&#233;es permet de cr&#233;er et g&#233;rer les
+instances GlassFish Server dans le cluster actif.</p>
+
+<p>Le champ Nom du cluster est un champ en lecture seule qui
+affiche le nom du cluster actif.</p>
+
+<p>La page Instances de serveur clusteris&#233;es affiche une liste des instances appartenant
+au cluster actif. Pour chaque instance, les informations suivantes sont fournies.</p>
+
+<dl><dt>Nom</dt>
+<dd><p>Nom assign&#233; &#224; l'instance lors de sa cr&#233;ation. Le fait de cliquer sur le nom ouvre la page <a href="ref-clusterinstanceedit.html">General Information</a> de l'instance.</p>
+
+</dd>
+<dt>Pond&#233;ration LB</dt>
+<dd><p>Entier qui repr&#233;sente la pond&#233;ration de l'&#233;quilibrage de charge de l'instance.</p>
+
+<p>La pond&#233;ration de l'&#233;quilibrage de charge d&#233;termine la proportion de toutes les requ&#234;tes pour le cluster que l'instance doit traiter.</p>
+
+<p>Par exemple, dans un cluster comportant deux instances, vous pouvez exiger une instance pour le traitement de l'une des quatre requ&#234;tes, et une autre instance pour le traitement des trois requ&#234;tes restantes. Dans ce cas, d&#233;finissez la pond&#233;ration de l'instance qui doit traiter une requ&#234;te sur quatre sur 1 et celle de l'autre sur 3. Si vous pr&#233;f&#233;rez utiliser des pourcentages, d&#233;finissez la pond&#233;ration des instances sur 25 et 75, respectivement.</p>
+
+<p>La pond&#233;ration par d&#233;faut est de 100.</p>
+
+</dd>
+<dt>Configuration</dt>
+<dd><p>Configuration &#224; laquelle l'instance fait r&#233;f&#233;rence. Le fait de cliquer sur la configuration ouvre la page <a href="../../../common/fr/help/ref-configuration.html">Configurations</a> de l'instance.</p>
+
+</dd>
+<dt>N&#339;ud</dt>
+<dd><p>Nom du n&#339;ud sur lequel se trouve l'instance. Le fait de cliquer sur le nom ouvre la page <a href="ref-nodeedit.html">Modifier le n<IMG alt="oelig" SRC="ents/oelig.gif" border="0">ud</a> pour le n&#339;ud.</p>
+
+</dd>
+<dt>Statut</dt>
+<dd><p>Mention indiquant si l'instance est en cours d'ex&#233;cution, doit &#234;tre red&#233;marr&#233;e pour &#234;tre mise &#224; jour avec les modifications de la configuration ou n'est pas en cours d'ex&#233;cution. Ce champ est en lecture seule.</p>
+
+</dd>
+</dl>
+<p>Le tableau Instances serveur contient &#233;galement les options suivantes.</p>
+
+<dl><dt>Nouveau</dt>
+<dd><p>Bouton permettant d'ajouter une instance au cluster.</p>
+
+</dd>
+<dt>Supprimer</dt>
+<dd><p>Bouton permettant de supprimer une ou plusieurs instances s&#233;lectionn&#233;es du cluster.</p>
+
+
+<hr><p><b>Attention - </b>Si vous utilisez un cluster Java Message Service (JMS) avec un courtier principal, ne supprimez pas l'instance associ&#233;e au courtier principal. Si cette instance doit &#234;tre supprim&#233;e, utilisez la sous-commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=change-master-broker-1"><tt>change-master-broker</tt>(1)</a> pour affecter le courtier principal &#224; une autre instance. </p>
+
+
+<hr>
+</dd>
+<dt>D&#233;marrage</dt>
+<dd><p>Bouton permettant de d&#233;marrer une ou plusieurs instances s&#233;lectionn&#233;es dans le cluster.</p>
+
+</dd>
+<dt>Arr&#234;ter</dt>
+<dd><p>Bouton permettant d'arr&#234;ter une ou plusieurs instances s&#233;lectionn&#233;es dans le cluster.</p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-create-clustered-instance.html">Ajouter une instance de GlassFish Server &#224; un cluster</a></p>
+
+</li>
+<li><p><a href="task-delete-clustered-instances.html">Supprimer les instances de GlassFish Server clusteris&#233;es</a></p>
+
+</li>
+<li><p><a href="task-start-clustered-instances.html">D&#233;marrer les instances de GlassFish Server clusteris&#233;es</a></p>
+
+</li>
+<li><p><a href="task-stop-clustered-instances.html">Arr&#234;ter les instances de GlassFish Server clusteris&#233;es</a></p>
+
+</li></ul>
+<h5>Sous-commandes <tt>asadmin</tt> &#233;quivalentes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-instance-1"><tt>create-instance</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-instance-1"><tt>delete-instance</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-instances-1"><tt>list-instances</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-instance-1"><tt>start-instance</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-instance-1"><tt>stop-instance</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

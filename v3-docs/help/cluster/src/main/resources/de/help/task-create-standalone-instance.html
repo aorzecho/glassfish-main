@@ -1,0 +1,146 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-create-standalone-instance"></a><h4>So erstellen Sie eine eigenst&#228;ndige GlassFish-Server-Instanz</h4><a name="indexterm-83"></a><a name="indexterm-84"></a><a name="indexterm-85"></a><p>GlassFish-Server-Instanzen bilden die Basis einer Anwendungsbereitstellung. Eine eigenst&#228;ndige Instanz ist nicht in
+einem Cluster enthalten. Jede Instanz geh&#246;rt einer einzelnen Dom&#228;ne an und weist
+eine eigene Verzeichnisstruktur, Konfiguration sowie bereitgestellte Anwendungen auf. Jede Instanz enth&#228;lt au&#223;erdem
+die Java-Plattform, Webcontainer f&#252;r Enterprise Edition (Java EE) und Container f&#252;r Enterprise
+JavaBeans-Technologie (EJB-Technologie). Alle neuen Instanzen m&#252;ssen einen Verweis auf einen Knoten enthalten,
+der den Host definiert, auf dem sich die Instanz befinden soll.</p>
+
+
+<hr><p><b>Hinweis - </b>Um eine Instanz auf einem Knotentyp KONFIGURATION zu erstellen, der einen Remote-Host
+darstellt, m&#252;ssen Sie den Unterbefehl <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a> verwenden. Zu diesem Zweck k&#246;nnen Sie
+nicht die Administration Console verwenden.</p>
+
+
+<hr>
+<h6>Bevor Sie beginnen</h6><p>Stellen Sie sicher, dass der Knoten vorhanden ist, auf dem sich die
+Instanz befinden soll.<a href="task-createnode.html"></a></p>
+
+<ol>
+<li><b>W&#228;hlen Sie in der Navigationsstruktur den Knoten "Eigenst&#228;ndige Instanzen".</b><p>Die Seite "Eigenst&#228;ndige Serverinstanz" wird ge&#246;ffnet.</p></li>
+<li><b>Klicken Sie auf der Seite "Eigenst&#228;ndige Serverinstanzen" auf "Neu".</b><p>Die Seite "New Standalone Server Instance" (Neue eigenst&#228;ndige Serverinstanz) wird ge&#246;ffnet.</p></li>
+<li><b>Geben Sie im Feld "Name" einen Namen f&#252;r die Instanz ein.</b><p>Der Name muss den folgenden Anforderungen entsprechen:</p>
+<ul><li><p>Der Name muss mit einem Buchstaben, einer Ziffer oder einem Unterstrich beginnen.</p>
+
+</li>
+<li><p>Der Name darf nur die folgenden Zeichen enthalten:</p>
+
+
+<ul><li><p>Kleinbuchstaben</p>
+
+</li>
+<li><p>Gro&#223;buchstaben</p>
+
+</li>
+<li><p>Ziffern</p>
+
+</li>
+<li><p>Bindestriche</p>
+
+</li>
+<li><p>Punkte</p>
+
+</li>
+<li><p>Unterstriche</p>
+
+</li></ul>
+</li>
+<li><p>Der Name in der Dom&#228;ne muss eindeutig sein und darf nicht der Name einer anderen GlassFish-Server-Instanz, eines Clusters, einer benannten Konfiguration oder eines Knotens sein.</p>
+
+</li>
+<li><p>Bei dem Namen darf es sich nicht um <tt>domain</tt>, <tt>server</tt> oder ein anderes Schl&#252;sselwort handeln, das von GlassFish-Server reserviert ist.</p>
+
+</li></ul>
+</li>
+<li><b>W&#228;hlen Sie in der Dropdown-Liste "Knoten" den Knoten, auf dem die Instanz
+sich befinden soll.</b></li>
+<li><b>W&#228;hlen Sie in der Dropdown-Liste "Konfiguration" die benannte Konfiguration, die die Instanz
+verwenden soll.</b>
+<hr><p><b>Hinweis - </b>Wenn Sie <tt>default-config</tt> ausw&#228;hlen, m&#252;ssen Sie im n&#228;chsten Schritt angeben, dass die
+Konfiguration <b>nicht</b> gemeinsam genutzt ist. Die Konfiguration <tt>default-config</tt> kann nicht gemeinsam genutzt
+werden.</p>
+
+
+<hr>
+</li>
+<li><b>Geben Sie an, ob die Konfiguration, die die Instanz verwenden soll, gemeinsam
+genutzt ist.</b><ul>
+<li><b>Wenn die Konfiguration nicht gemeinsam genutzt werden soll, lassen Sie die Option
+"Kopie der ausgew&#228;hlten Konfiguration erstellen" aktiviert. </b><p>Die ausgew&#228;hlte Konfiguration wird kopiert, wenn die Instanz erstellt wird. Der Kopie
+der Konfiguration wird der Name <tt><i>instance-name</i>-config</tt> zugewiesen, wobei <i>instance-name</i> f&#252;r den Namen
+der zu erstellenden Instanz steht.</p></li>
+<li><b>Wenn die Konfiguration nicht gemeinsam genutzt ist, w&#228;hlen Sie die Option "Auf
+ausgew&#228;hlte Konfiguration verweisen".</b><p>Die Instanz verwendet die angegebene benannte Konfiguration.</p></li></ul></li>
+<li><b>Klicken Sie auf "OK".</b></li></ol><h6>Siehe auch</h6>
+<ul><li><p><a href="task-delete-standalone-instances.html">So l&#246;schen Sie eigenst&#228;ndige GlassFish-Server-Instanzen</a></p>
+
+</li>
+<li><p><a href="task-start-standalone-instances.html">So starten Sie eigenst&#228;ndige GlassFish-Server-Instanzen</a></p>
+
+</li>
+<li><p><a href="task-stop-standalone-instances.html">So halten Sie eigenst&#228;ndige GlassFish-Server-Instanzen an</a></p>
+
+</li>
+<li><p><a href="task-view-logs-standalone-instance.html">So zeigen Sie Protokolldateien f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li>
+<li><p><a href="task-recovertransactions-standalone-instance.html">So stellen Sie Vorg&#228;nge f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz wieder her</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-deploy.html">So stellen Sie eine Anwendung f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereit</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-list.html">So listen Sie die f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereitgestellten Anwendungen auf</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-undeploy.html">So heben Sie die Bereitstellung von Anwendungen f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz auf</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-remove.html">So entfernen Sie Anwendungen aus einer eigenst&#228;ndigen GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-edit.html">So bearbeiten Sie die f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereitgestellte Anwendung</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-enable-disable.html">So aktivieren oder deaktivieren Sie die f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereitgestellte Anwendung</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">So aktivieren oder deaktivieren Sie den Lastenausgleich der f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz bereitgestellten Anwendung</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-create.html">So erstellen Sie eine Ressource f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-display.html">So listen Sie Ressourcen f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz auf</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-enable-disable.html">So aktivieren oder deaktivieren Sie eine Ressource f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-standalone-instance-resource-edit.html">So bearbeiten Sie eine Ressource f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-change-standalone-instance-ports.html">So &#228;ndern Sie die Portnummern einer eigenst&#228;ndigen GlassFish-Server-Instanz</a></p>
+
+</li>
+<li><p><a href="task-set-props-standalone-instance.html">So geben Sie instanzenbezogene Eigenschaften f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li>
+<li><p><a href="task-mon-app-standalone-instance.html">So zeigen Sie &#220;berwachungsdaten der Anwendung f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li>
+<li><p><a href="task-mon-server-standalone-instance.html">So zeigen Sie &#220;berwachungsdaten des virtuellen Servers f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li>
+<li><p><a href="task-mon-resource-standalone-instance.html">So zeigen Sie &#220;berwachungsdaten der Ressource f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

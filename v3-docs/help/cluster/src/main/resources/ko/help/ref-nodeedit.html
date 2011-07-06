@@ -1,0 +1,160 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-nodeedit"></a><h4>노드 편집</h4>
+<a name="indexterm-198"></a><p>GlassFish 서버 노드의 구성 데이터를 업데이트하려면 노드 편집 페이지를 사용합니다. 또한 이
+페이지를 사용하여 노드 유형을 CONFIG에서 SSH로 변경하여 노드에 대해 SSH 통신을 활성화할
+수 있습니다.</p>
+
+<p>노드 유형을 CONFIG에서 SSH로 변경하는 경우 다음 필드를 비워 두면 기본값이 적용됩니다.</p>
+
+
+<ul><li><p>SSH 포트</p>
+
+</li>
+<li><p>사용자 이름</p>
+
+</li>
+<li><p>키 파일</p>
+
+</li></ul>
+<p>노드 편집 페이지에는 다음 옵션이 포함되어 있습니다.</p>
+
+<dl><dt>이름</dt>
+<dd><p>노드가 만들어질 때 노드에 지정된 이름입니다. 이 필드는 읽기 전용입니다.</p>
+
+</dd>
+<dt>유형</dt>
+<dd><p>다음 유형 중 하나인 노드 유형을 지정하는 드롭다운 목록입니다.</p>
+
+<dl><dt>SSH</dt>
+<dd><p>노드가 SSH(보안 쉘)를 통한 통신을 지원합니다.</p>
+
+</dd>
+<dt>CONFIG</dt>
+<dd><p>노드가 원격 통신을 지원하지 않습니다. CONFIG를 선택하면 SSH 구성에 대한 옵션이 표시되지 않습니다. 현재 노드 유형이 SSH인데 CONFIG를 선택하는 경우 변경 사항을 저장하면 노드의 구성에서 SSH 구성 데이터가 제거됩니다.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>노드 호스트</dt>
+<dd><p>노드가 업데이트된 후 노드가 나타내는 호스트의 이름입니다. 이 필드가 필수인지의 여부는 노드 유형에 따라 결정됩니다.</p>
+
+
+<ul><li><p>노드 유형이 CONFIG이면 호스트 이름을 생략할 수 있습니다. 호스트 이름은 노드에 있는 인스턴스를 만들 때 지정할 수 있습니다.</p>
+
+</li>
+<li><p>노드 유형이 SSH이면 호스트 이름을 지정해야 합니다. 그렇지 않으면 오류가 발생합니다.</p>
+
+</li></ul>
+</dd>
+<dt>노드 디렉토리</dt>
+<dd><p>노드에 만들어져 있는 GlassFish 서버 인스턴스를 포함할 디렉토리 경로입니다. 상대 경로를 지정한 경우 경로가 <i>as-install</i> 디렉토리를 기준으로 합니다. 여기서 <i>as-install</i>은(는) 호스트의 GlassFish 서버 소프트웨어의 기본 설치 디렉토리입니다.</p>
+
+</dd>
+<dt>설치 디렉토리</dt>
+<dd><p>호스트에 있는 GlassFish 서버 소프트웨어의 상위 기본 설치 디렉토리의 전체 경로입니다(예: <tt>/export/glassfish3/</tt>). </p>
+
+</dd>
+<dt>강제 적용</dt>
+<dd><p>사용 가능 옵션을 선택한 경우 노드의 매개 변수 검증이 실패하더라도 노드가 DAS(도메인 관리 서버) 구성에서 업데이트됩니다. 노드의 매개 변수를 검증하려면 DAS가 SSH를 통해 노드의 호스트에 액세스할 수 있어야 합니다. </p>
+
+</dd>
+<dt>SSH 포트</dt>
+<dd><p>이 노드의 호스트에 대한 SSH 연결에 사용할 포트입니다. </p>
+
+<p>노드 유형을 CONFIG에서 SSH로 변경하고 이 필드를 비워 두면 SSH 포트 옵션이 22로 설정됩니다.</p>
+
+<p>노드 호스트 옵션을 <tt>localhost-<i>domain</i></tt>으로 설정한 경우 SSH 포트 옵션이 무시됩니다.</p>
+
+</dd>
+<dt>SSH 사용자 이름</dt>
+<dd><p>SSH를 통해 호스트에 연결하기 위한 프로세스를 실행할 이 노드의 호스트 사용자입니다.</p>
+
+<p>노드 유형을 CONFIG에서 SSH로 변경하고 이 필드를 비워 두면 사용자 이름 옵션이 DAS 프로세스를 실행하고 있는 사용자로 설정됩니다.</p>
+
+<p>노드 호스트 옵션을 <tt>localhost-<i>domain</i></tt>으로 설정한 경우 SSH 사용자 옵션이 무시됩니다.</p>
+
+</dd>
+<dt>SSH 사용자 인증</dt>
+<dd><p>이 노드의 호스트에 로그인할 때 SSH 사용자가 인증되는 방식을 지정하는 드롭다운 목록입니다. 가능한 인증 방법은 다음과 같습니다.</p>
+
+<dl><dt>키 파일</dt>
+<dd><p>SSH 사용자가 SSH 개인 키 파일을 통해 인증됩니다. 이 옵션을 선택한 경우에는 키 파일 필드에 파일의 절대 경로를 지정합니다.</p>
+
+</dd>
+<dt>암호</dt>
+<dd><p>SSH 사용자가 DAS 구성에 저장된 암호를 통해 인증됩니다.</p>
+
+
+<hr><p><b>주의 - </b>이 암호는 DAS 구성에 일반 텍스트로 저장됩니다. 보안 강화를 위해 키 파일이나 암호 별칭을 사용합니다.</p>
+
+
+<hr>
+<p>이 옵션을 선택하면 암호를 입력할 수 있도록 SSH 암호 필드와 SSH 암호 확인 필드가 활성화됩니다.</p>
+
+</dd>
+<dt>암호 별칭</dt>
+<dd><p>SSH 사용자가 암호 별칭을 통해 인증됩니다. 이 옵션을 선택한 경우에는 암호 별칭 드롭다운 목록에서 암호 별칭을 선택합니다.</p>
+
+</dd>
+</dl>
+</dd>
+<dt>SSH 암호</dt>
+<dd><p>SSH 사용자가 이 노드의 호스트에 로그인할 때 사용하는 암호입니다.</p>
+
+</dd>
+<dt>SSH 암호 확인</dt>
+<dd><p>SSH 사용자가 이 노드의 호스트에 로그인할 때 사용하는 암호를 확인하는 것입니다. 이 필드의 내용은 SSH 암호 필드의 내용과 정확히 일치해야 합니다.</p>
+
+</dd>
+<dt>암호 별칭</dt>
+<dd><p>이 도메인에 대해 정의된 암호 별칭의 드롭다운 목록입니다.</p>
+
+</dd>
+<dt>키 파일</dt>
+<dd><p>사용자 이름 옵션에서 지정하는 사용자에 대한 SSH 개인 키 파일의 절대 경로입니다. 이 파일은 노드의 호스트에서 <tt>sshd</tt> 데몬에 대한 인증에 사용됩니다.</p>
+
+
+<hr><p><b>주 - </b>또한 GlassFish 서버는 암호 파일의 <tt>AS_ADMIN_SSHPASSWORD</tt> 항목을 통한 암호 인증을 지원합니다. 암호 파일은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> 유틸리티의 <tt>--paswordfile</tt> 옵션에 지정되어 있습니다.</p>
+
+
+<hr>
+<p>SSH 개인 키 파일이 암호로 보호되는 경우 암호 파일에 <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt> 항목이 포함되어야 합니다.</p>
+
+<p>키 파일 경로는 DAS에서 액세스할 수 있어야 하며 키 파일은 DAS에서 읽을 수 있어야 합니다. </p>
+
+<p>기본값은 노드 유형을 CONFIG에서 SSH로 변경하여 노드에 대해 SSH 통신을 활성화하는지에 따라 다릅니다.</p>
+
+<p>노드 유형을 CONFIG에서 SSH로 변경하고 이 필드를 비워 두면 키 파일 옵션이 사용자의 <tt>.ssh</tt> 디렉토리에 있는 키 파일로 설정됩니다. 키 파일이 여러 개 있을 경우 GlassFish 서버에서는 다음 순서로 기본 설정을 사용합니다.</p>
+
+
+<ol><li><p><tt>id_rsa</tt></p>
+
+</li>
+<li><p><tt>id_dsa</tt></p>
+
+</li>
+<li><p><tt>ID</tt></p>
+
+</li></ol>
+</dd>
+</dl>
+<h5>관련 작업</h5>
+
+<ul><li><p><a href="task-editnode.html">노드를 편집하는 방법</a></p>
+
+</li></ul>
+<h5>동일한 <tt>asadmin</tt> 하위 명령</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-config-1"><tt>update-node-config</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-ssh-1"><tt>update-node-ssh</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

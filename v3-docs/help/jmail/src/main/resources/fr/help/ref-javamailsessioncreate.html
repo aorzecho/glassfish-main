@@ -1,0 +1,115 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-javamailsessioncreate"></a><h4>Nouvelle session JavaMail</h4>
+<a name="indexterm-22"></a><p>Utilisez la page Nouvelle session JavaMail pour cr&#233;er une ressource de session
+JavaMail.</p>
+
+<p>La page Nouvelle session JavaMail contient les options suivantes&#160;:</p>
+
+<dl><dt>Nom JNDI</dt>
+<dd><p>Nom unique identifiant la session de courrier. Utilisez le pr&#233;fixe de d&#233;signation de sous-contexte <tt>mail/</tt> pour les ressources JavaMail. Par exemple : <tt> mail/MySession</tt>. Le nom ne peut contenir que des caract&#232;res alphanum&#233;riques, des caract&#232;res de soulignement, des tirets ou des points.</p>
+
+</dd>
+<dt>H&#244;te de messagerie</dt>
+<dd><p>Nom d&#8217;h&#244;te du serveur de messagerie par d&#233;faut. Les m&#233;thodes de connexion des objets Stockage et Transport utilisent cette valeur si aucune propri&#233;t&#233; d&#8217;h&#244;te sp&#233;cifique &#224; un protocole n&#8217;est fournie. Le nom doit refl&#233;ter un nom d&#8217;h&#244;te r&#233;el.</p>
+
+</dd>
+<dt>Utilisateur par d&#233;faut</dt>
+<dd><p>Nom d&#8217;utilisateur &#224; saisir lors de la connexion &#224; un serveur de messagerie. Les m&#233;thodes de connexion des objets Stockage et Transport utilisent cette valeur si aucune propri&#233;t&#233; de nom d&#8217;utilisateur sp&#233;cifique &#224; un protocole n&#8217;est fournie. Le nom d&#8217;utilisateur ne peut contenir que des caract&#232;res alphanum&#233;riques, des traits de soulignement, des tirets ou des points.</p>
+
+</dd>
+<dt>Adresse de l'exp&#233;diteur par d&#233;faut</dt>
+<dd><p>Adresse e-mail de l&#8217;utilisateur par d&#233;faut Le format est <i>nom d&#8217;utilisateur</i><tt>@</tt><i>h&#244;te</i>.<i>domaine</i>.</p>
+
+</dd>
+<dt>Description</dt>
+<dd><p>Description de cette session de messagerie.</p>
+
+</dd>
+<dt>Statut</dt>
+<dd><p>&#201;tat de la session de messagerie. La session de messagerie peut &#234;tre activ&#233;e ou d&#233;sactiv&#233;e. La valeur par d&#233;faut est Activ&#233;e.</p>
+
+</dd>
+<dt>Protocole de stockage</dt>
+<dd><p>Le service de protocole de stockage, qui se connecte &#224; un serveur de courrier, r&#233;cup&#232;re les messages puis les enregistre dans un ou plusieurs dossiers. Les valeurs autoris&#233;es sont  <tt>imap</tt>, <tt>pop3</tt>, <tt>imaps</tt>, et <tt>pop3s</tt>. La valeur par d&#233;faut est <tt>imap</tt>.</p>
+
+</dd>
+<dt>Classe de protocole de stockage</dt>
+<dd><p>Classe d&#8217;impl&#233;mentation du fournisseur de services de stockage. Les valeurs autoris&#233;es sont&#160;:</p>
+
+
+<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
+
+</li></ul>
+<p>La valeur par d&#233;faut est <tt>com.sun.mail.imap.IMAPStore</tt>.</p>
+
+</dd>
+<dt>Protocole de transport</dt>
+<dd><p>Protocole de transport, qui envoie des messages. Les valeurs autoris&#233;es sont  <tt>smtp</tt> et <tt>smtps</tt>. La valeur par d&#233;faut est <tt>smtp</tt>.</p>
+
+</dd>
+<dt>Classe de protocole de transport</dt>
+<dd><p>Classe d&#8217;impl&#233;mentation du fournisseur de services de transport. Les valeurs autoris&#233;es sont&#160;:</p>
+
+
+<ul><li><p><tt>com.sun.mail.smtp.SMTPTransport</tt></p>
+
+</li>
+<li><p><tt>com.sun.mail.smtp.SMTPSSLTransport</tt></p>
+
+</li></ul>
+<p>La valeur par d&#233;faut est <tt>com.sun.mail.smtp.SMTPTransport</tt>.</p>
+
+</dd>
+<dt>D&#233;bogage</dt>
+<dd><p>Si cette option est s&#233;lectionn&#233;e, le d&#233;bogage de cette ressource est activ&#233;. Si le niveau de journal JavaMail est d&#233;fini sur <tt>FIN</tt> ou plus fin, la sortie de d&#233;bogage est cr&#233;&#233;e et incluse dans le fichier journal du syst&#232;me. Pour plus d&#8217;informations sur la configuration du niveau de journal, reportez-vous &#224; la section <a href="../../../common/fr/help/task-eelogginglevels.html">Configurer les niveaux de journal</a>.</p>
+
+</dd>
+<dt>Autres propri&#233;t&#233;s</dt>
+<dd><p>Propri&#233;t&#233;s suppl&#233;mentaires de la session JavaMail. Pour une liste des propri&#233;t&#233;s disponibles, consultez la <a href="http://java.sun.com/products/javamail/javadocs/index.html">JavaMail API documentation</a>. Les propri&#233;t&#233;s suppl&#233;mentaires doivent commencer par <tt>mail-</tt> et des traits d&#8217;union doivent &#234;tre utilis&#233;s comme s&#233;parateurs &#224; la place de points. Par exemple, <tt>mail-debug</tt> est correct mais <tt>mail.debug</tt> ne l&#8217;est pas. L&#8217;arri&#232;re-plan de GlassFish Server convertit les traits d&#8217;union en points attendus par l&#8217;API JavaMail. </p>
+
+</dd>
+<dt>Cibles</dt>
+<dd><p>Clusters et instances autonomes de la session JavaMail. D&#233;placez les cibles voulues dans la colonne Cibles s&#233;lectionn&#233;es &#224; l'aide des boutons Ajouter et Tout Ajouter. D&#233;placez toutes les cibles inutiles dans la colonne Cibles disponibles &#224; l'aide des boutons Supprimer et Tout Supprimer. </p>
+
+<p>Cette option s'affiche uniquement si les clusters ou les instances autonomes ont &#233;t&#233; cr&#233;&#233;s dans le domaine. </p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-javamailsessioncreate.html">Pour cr&#233;er une session JavaMail</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsedit.html">Modification d'une session JavaMail</a></p>
+
+</li>
+<li><p><a href="task-javamailsessionsdelete.html">Suppression d'une session JavaMail</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-javamail-resource-1"><tt>create-javamail-resource</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-javamail-resources-1"><tt>list-javamail-resources</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-javamail-resource-1"><tt>delete-javamail-resource</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

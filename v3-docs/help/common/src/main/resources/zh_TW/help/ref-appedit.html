@@ -1,0 +1,104 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-appedit"></a><h4>編輯應用程式</h4>
+<a name="indexterm-162"></a><p>使用 [編輯應用程式] 頁面可修改現有的應用程式。</p>
+
+<p>視應用程式類型而定，[編輯應用程式] 頁面會包含下列部分或全部的選項。</p>
+
+<dl><dt>名稱</dt>
+<dd><p>顯示正在編輯中的應用程式名稱的唯讀欄位。</p>
+
+<p>名稱中可以包含一個選擇性的版本識別碼，後面接著名稱，兩者間用冒號 (<tt>:</tt>) 隔開。 如需有關模組與應用程式版本的更多資訊，請參閱<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv"><i>「Oracle GlassFish Server 3.1 Application Deployment Guide」</i>中的「Module and Application Versions」</a>。</p>
+
+</dd>
+<dt>狀態</dt>
+<dd><p>若選取 [已啟用] 核取方塊，則會啟用應用程式。此選項預設為選取。</p>
+
+</dd>
+<dt>環境根目錄</dt>
+<dd><p>若為 Web 應用程式，則指定應用程式的路徑。在 Web 應用程式的 URL 中，環境根目錄緊跟在連接埠號碼之後 (<tt>http://<i>host</i>:<i> port</i>/<i>context-root</i>/...</tt>)。環境根目錄的開頭必須是正斜線，例如 <tt>/hello</tt>。</p>
+
+</dd>
+<dt>可用性</dt>
+<dd><p>若選取 [已啟用] 核取方塊，則會對 Web 階段作業、有狀態的階段作業 Bean (SFSB) 檢查點及潛在的鈍化啟用高可用性。如果設定為 false (預設值)，將對指定的應用程式、Web 應用程式或 EJB 模組停用所有 Web 階段作業儲存及 SFSB 檢查點。如果設定為 true，將啟用指定的應用程式或模組以獲得高可用性。僅在較高層級 (例如伺服器和容器層級) 配置和啟用高可用性時才可將此選項設定為 true。</p>
+
+<p>如果存在預設伺服器實例 (<tt>server</tt>) 以外的叢集或獨立伺服器實例，便會顯示此選項。</p>
+
+</dd>
+<dt>虛擬伺服器</dt>
+<dd><p>與此應用程式相關的虛擬伺服器。</p>
+
+<p>僅存在預設伺服器實例 <tt>server</tt> 時，才會顯示 [虛擬伺服器] 選項。如果存在叢集或其他獨立伺服器實例，您可以在部署之後選取虛擬伺服器。請移至 [編輯應用程式] 頁面，選取 [目標] 標籤，然後選取所需目標的 [管理 VirtualServer]。</p>
+
+</dd>
+<dt>Java Web Start</dt>
+<dd><p>(針對部分應用程式類型) 若選取 [已啟用] 核取方塊，則應用程式會使用 Java Web Start 軟體。Java Web Start 能透過各種瀏覽器部署執行於專用 Java 虛擬機器上的 Java 應用程式。</p>
+
+</dd>
+<dt>說明</dt>
+<dd><p>應用程式的簡短說明。</p>
+
+</dd>
+<dt>位置</dt>
+<dd><p>所部署的應用程式的位置。此為唯讀欄位。</p>
+
+</dd>
+<dt>程式庫</dt>
+<dd><p>應用程式所需的程式庫 JAR 檔案。此為唯讀欄位。</p>
+
+</dd>
+<dt>模組和元件</dt>
+<dd><p>顯示應用程式模組名稱及其引擎的表格。對於 Web 服務端點，您可以選取 [檢視端點]，以顯示 [Web 服務端點資訊] 頁面。對於應用程式用戶端，您可以選取 [啟動]，以顯示 [應用程式用戶端啟動] 頁面。</p>
+
+</dd>
+</dl>
+<h5>相關作業</h5>
+
+<ul><li><p><a href="task-appedit.html">編輯已部署的應用程式</a></p>
+
+</li>
+<li><p><a href="task-applistdeployed.html">檢視已部署應用程式清單</a></p>
+
+</li>
+<li><p><a href="task-appdeployweb.html">部署 Web 應用程式</a></p>
+
+</li>
+<li><p><a href="task-deployentapp.html">部署企業應用程式</a></p>
+
+</li>
+<li><p><a href="task-appdeployclient.html">部署應用程式用戶端</a></p>
+
+</li>
+<li><p><a href="task-appdeployconn.html">部署連接器模組</a></p>
+
+</li>
+<li><p><a href="task-appdeployejb.html">部署 EJB Jar</a></p>
+
+</li>
+<li><p><a href="task-appviewdesc.html">檢視應用程式的描述元</a></p>
+
+</li>
+<li><p><a href="task-appviewtargets.html">檢視應用程式目標</a></p>
+
+</li>
+<li><p><a href="task-endpoint.html">檢視 Web 服務的端點資訊</a></p>
+
+</li>
+<li><p><a href="task-applaunch.html">啟動應用程式</a></p>
+
+</li>
+<li><p><a href="task-appclientlaunch.html">啟動應用程式用戶端</a></p>
+
+</li>
+<li><p><a href="task-appredeploy.html">重新部署已部署的應用程式</a></p>
+
+</li>
+<li><p><a href="task-apprestart.html">重新載入已部署的應用程式</a></p>
+
+</li></ul>
+
+
+<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

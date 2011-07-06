@@ -1,0 +1,101 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-threadpools"></a><h4>Pools de threads</h4>
+<a name="indexterm-79"></a><a name="indexterm-80"></a><p>La page Pools de threads vous permet de configurer des pools de
+threads.</p>
+
+<p>Utilisez des pools de threads pour limiter un service &#224; un nombre
+sp&#233;cifique de threads simultan&#233;s.</p>
+
+<p>Lorsque vous installez pour la premi&#232;re fois GlassFish Server, deux pools de
+thread existent par d&#233;faut . Le pool de thread nomm&#233; <tt>http-thread-pool</tt> est configur&#233;
+pour &#234;tre utilis&#233; par les auditeurs de r&#233;seau, tandis que <tt>thread-pool-1</tt> est configur&#233;
+pour &#234;tre utilis&#233; par l&#8217;ORB pour les requ&#234;tes RMI/IIOP. Il peut s&#8217;av&#233;rer
+n&#233;cessaire de cr&#233;er un pool de thread avec des param&#232;tres diff&#233;rents &#224;
+utiliser par certains types d&#8217;applications et pour certains syst&#232;mes mat&#233;riels, ou de
+r&#233;gler les pools de thread par d&#233;faut selon vos besoins.</p>
+
+<p>Java Virtual Machine (JVM) peut prendre en charge de nombreux threads d&#8217;ex&#233;cution
+&#224; la fois. Pour am&#233;liorer les performances, GlassFish Server tient &#224; jour
+un ou plusieurs pools de threads. Il est possible d&#8217;assigner des pools
+de threads sp&#233;cifiques &#224; des services sp&#233;cifiques.</p>
+
+<p>Un pool de threads peut rendre plusieurs services. Les threads de requ&#234;te
+g&#232;rent les requ&#234;tes des utilisateurs. Lorsque le serveur re&#231;oit une requ&#234;te, il
+attribue la requ&#234;te &#224; un thread disponible dans le pool de threads.
+Le thread ex&#233;cute les requ&#234;tes du client et renvoie le r&#233;sultat. Par
+exemple, si la requ&#234;te n&#233;cessite l&#8217;utilisation d&#8217;une ressource syst&#232;me actuellement occup&#233;e, le
+thread attendra jusqu&#8217;&#224; ce que cette ressource soit disponible avant d&#8217;autoriser la
+requ&#234;te &#224; utiliser cette ressource.</p>
+
+<p>Sp&#233;cifiez le nombre minimum et maximum de threads r&#233;serv&#233;s aux requ&#234;tes. Le
+pool de threads s&#8217;ajuste de mani&#232;re dynamique entre ces deux valeurs. Le
+nombre minimum sp&#233;cifi&#233; signale au serveur d&#8217;attribuer au moins ce nombre de
+threads aux requ&#234;tes. Ce nombre peut augmenter jusqu&#8217;au nombre maximum de threads
+sp&#233;cifi&#233;.</p>
+
+<p>L&#8217;augmentation du nombre de threads disponibles permet &#224; un processus de r&#233;pondre
+&#224; davantage de requ&#234;tes simultan&#233;ment.</p>
+
+<p>Pour chaque pool de thread, les informations suivantes sont fournies.</p>
+
+<dl><dt>ID de pool de threads</dt>
+<dd><p>Nom du pool de threads.</p>
+
+</dd>
+<dt>Taille max. du pool de threads</dt>
+<dd><p>Nombre maximum de threads dans le pool de threads.</p>
+
+</dd>
+<dt>Taille min. du pool de threads</dt>
+<dd><p>Nombre minimum de threads dans le pool de threads. Ces threads sont cr&#233;&#233;s lorsque le pool de thread est instanci&#233;.</p>
+
+</dd>
+<dt>Taille max. de la file d&#8217;attente</dt>
+<dd><p>Le nombre maximal de messages qui peuvent &#234;tre mis en attente jusqu&#8217;&#224; ce que des threads soient disponibles pour les traiter.</p>
+
+</dd>
+<dt>D&#233;lai d&#8217;expiration de thread inactif</dt>
+<dd><p>La dur&#233;e (en secondes) au-del&#224; de laquelle les threads inactifs sont supprim&#233;s du pool. </p>
+
+</dd>
+</dl>
+<p>Le tableau Pools de thread contient &#233;galement les options suivantes. </p>
+
+<dl><dt>Nouveau</dt>
+<dd><p>Bouton pour cr&#233;er un nouveau pool de thread. </p>
+
+</dd>
+<dt>Supprimer</dt>
+<dd><p>Bouton pour supprimer un ou plusieurs pools de thread s&#233;lectionn&#233;s. </p>
+
+</dd>
+</dl>
+<h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-threadpoolnew.html">Cr&#233;ation d'un pool de threads</a></p>
+
+</li>
+<li><p><a href="task-threadpooledit.html">Modification d'un pool de threads</a></p>
+
+</li>
+<li><p><a href="task-threadpooldelete.html">Suppression d'un pool de threads</a></p>
+
+</li></ul>
+<h5>Commandes <tt>asadmin</tt> connexes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-threadpool-1"><tt>create-threadpool</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-threadpools-1"><tt>list-threadpools</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-threadpool-1"><tt>delete-threadpool</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>

@@ -1,0 +1,83 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-messagesecurityconfignew"></a><h4>Creare una configurazione per la sicurezza dei messaggi</h4><a name="indexterm-107"></a><p>In genere non &#232; necessario creare una configurazione della sicurezza dei messaggi.
+GlassFish Server include una configurazione della sicurezza dei messaggi per il layer
+di autenticazione SOAP. I provider per questa configurazione non vengono attivati per
+impostazione predefinita, ma &#232; possibile attivarli modificando la configurazione della sicurezza dei
+messaggi SOAP. &#200; tuttavia possibile creare una configurazione per il layer di
+autenticazione HttpServlet e specificare una o pi&#249; configurazioni di provider per tale
+layer.</p>
+
+<ol>
+<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
+<li><b>Espandere il nodo Security.</b></li>
+<li><b>Selezionare il nodo Message Security.</b><p>Viene visualizzata la pagina Message Security Configurations.</p></li>
+<li><b>Nella pagina Message Security Configurations fare clic su New.</b><p>Viene visualizzata la pagina New Message Security Configuration.</p>
+<hr><p><b>Nota - </b>Non &#232; possibile creare o eliminare provider di sicurezza dei messaggi per
+la configurazione <tt>server-config</tt> predefinita. Gli unici provider di sicurezza dei messaggi supportati
+per la configurazione <tt>server-config</tt> predefinita sono SOAP e HttpServlet. Poich&#233; questi due
+provider vengono gi&#224; creati per impostazione predefinita al momento dell'installazione di GlassFish
+Server, il pulsante New non &#232; disponibile nella pagina Message Security Configurations
+per la configurazione <tt>server-config</tt> predefinita.</p>
+
+
+<hr>
+</li>
+<li><b>Nella pagina New Message Security Configuration, dall'elenco a discesa Authentication Layer selezionare
+il livello di messaggi per il quale creare una configurazione.</b><p>Poich&#233; &#232; disponibile per impostazione predefinita una configurazione SOAP, l'unica scelta &#232;
+<tt>HttpServlet</tt>.</p></li>
+<li><b>Nel campo Provider ID digitare l'identificatore univoco della configurazione provider per la
+configurazione di sicurezza messaggi corrente.</b></li>
+<li><b>Selezionare la casella di controllo Default Provider per impostare questa configurazione di
+provider come provider predefinito.</b></li>
+<li><b>Nell'elenco a discesa Provider Type selezionare il tipo del provider.</b><p>Sono disponibili le seguenti opzioni:</p><dl><dt><tt>client</tt></dt>
+<dd><p>Specifica che il provider &#232; il provider di autenticazione client.</p>
+
+</dd>
+<dt><tt>server</tt></dt>
+<dd><p>Specifica che il provider &#232; il provider di autenticazione server.</p>
+
+</dd>
+<dt><tt>client-server</tt></dt>
+<dd><p>Specifica che il provider &#232; un provider di autenticazione sia client sia server.</p>
+
+</dd>
+</dl>
+</li>
+<li><b>Nel campo Class Name digitare il nome della classe di implementazione Java
+del provider.</b><p>I provider di autenticazione client devono implementare l'interfaccia <tt>com.sun.enterprise.security.jauth.ClientAuthModule</tt> . I provider
+del lato server devono implementare l'interfaccia <tt>com.sun.enterprise.security.jauth.ServerAuthModule</tt> . I provider client/server devono
+implementare entrambe le interfacce.</p></li>
+<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
+vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
+valore della propriet&#224; nel campo Value.</p><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per le configurazioni
+di sicurezza dei messaggi.</p></li></ol><h6>Vedere anche</h6>
+<ul><li><p><a href="task-configmsgsecproviders.html">Configurare le risorse di GlassFish Server utilizzate dai provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfigedit.html">Modificare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityconfigdelete.html">Eliminare una configurazione per la sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfignew.html">Creare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfigedit.html">Modificare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-messagesecurityproviderconfigdelete.html">Eliminare una configurazione per il provider di sicurezza dei messaggi</a></p>
+
+</li>
+<li><p><a href="task-enablemesec4appclients.html">Abilitare la sicurezza dei messaggi per i client dell'applicazione</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>

@@ -1,0 +1,50 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+
+
+<a name="task-ejbtimerservice"></a><h4>Para configurar o servi&#231;o de temporizador EJB</h4><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>O servi&#231;o de temporizador &#233; um servi&#231;o de notifica&#231;&#227;o persistente e transacional
+que &#233; fornecido pelo recipiente do bean corporativo e utilizado para programar
+notifica&#231;&#245;es ou eventos utilizados por beans corporativos. Todos os beans corporativos, exceto
+os beans de sess&#227;o com estado, podem receber notifica&#231;&#245;es do servi&#231;o de
+temporizador. Os temporizadores persistentes definidos pelo servi&#231;o n&#227;o s&#227;o destru&#237;dos quando o
+servidor &#233; desligado ou reiniciado.</p>
+
+<ol>
+<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
+<li><b>Selecione o n&#243; Recipiente EJB.</b><p>A p&#225;gina Enterprise Java Beans (EJB) &#233; aberta.</p></li>
+<li><b>Clique na guia Servi&#231;o de temporizador EJB.</b><p>A p&#225;gina Servi&#231;o de temporizador EJB &#233; aberta.</p></li>
+<li><b>No campo Intervalo m&#237;nimo de entrega, digite o n&#250;mero m&#237;nimo de milissegundos
+permitidos antes que o pr&#243;xima vencimento do temporizador para um determinado temporizador
+possa ocorrer.</b><p>A defini&#231;&#227;o deste intervalo com um valor muito baixo pode causar a
+sobrecarga do servidor. O valor padr&#227;o &#233; 1000.</p></li>
+<li><b>No campo M&#225;ximo de reentregas, digite o n&#250;mero m&#225;ximo de tentativas feitas
+pelo servi&#231;o de temporizador para entregar um vencimento do temporizador devido &#224;
+exce&#231;&#227;o ou ao retorno.</b><p>O valor padr&#227;o &#233; 1. </p></li>
+<li><b>No campo Intervalo de reentrega, digite o intervalo, em segundos, entre a
+as tentativas de reentrega.</b><p>O valor padr&#227;o &#233; 5.000.</p></li>
+<li><b>No campo Origem dos dados do temporizador, digite o nome JNDI do
+recurso JDBC que ser&#225; utilizado como a origem dos dados do temporizador.</b><p>Se especificado, este valor sobrep&#245;e o valor padr&#227;o de <tt>jdbc/__TimerPool</tt> para o
+aplicativo do sistema do servi&#231;o de temporizador.</p></li>
+<li><b>Clique em Salvar.</b>
+<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar padr&#245;es e, em
+seguida, em Salvar. </p>
+
+
+<hr>
+</li>
+<li><b>Reinicie o Servidor GlassFish.</b></li></ol><h6>Consulte tamb&#233;m</h6>
+<ul><li><p><a href="../../../ejb-lite/pt_BR/help/task-ejbgeneral.html">Para configurar as defini&#231;&#245;es EJB</a></p>
+
+</li>
+<li><p><a href="task-ejbmdbpoolsettings.html">Para configurar as defini&#231;&#245;es do conjunto MDB</a></p>
+
+</li>
+<li><p><a href="task-ejbcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente EJB</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>

@@ -1,0 +1,78 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+ 
+Use is subject to License Terms  -->
+<a name="ref-jaccproviders"></a><h4>Fournisseurs JACC</h4>
+<a name="indexterm-223"></a><p>Utilisez la page Fournisseurs JACC pour configurer les fournisseurs JACC (Java Authorization
+Contract for Containers) pour le cluster ou l'instance GlassFish Server s&#233;lectionn&#233;.</p>
+
+<p>Les fournisseurs JACC peuvent &#234;tre utilis&#233;s par des modules d'autorisation tiers pour
+des applications s'ex&#233;cutant sur GlassFish Server. L'installation GlassFish Server par d&#233;faut inclut
+deux fournisseurs JACC nomm&#233;s <tt>default</tt> et <tt>simple </tt>. Ces fournisseurs par d&#233;faut mettent
+en &#339;uvre un moteur d'autorisation simple, bas&#233; sur des fichiers, et conforme
+&#224; la sp&#233;cification JACC. Vous pouvez &#233;galement cr&#233;er vos propres fournisseurs JACC
+personnalis&#233;s Reportez-vous &#224; la section <a href="task-jaccprovidernew.html">Pour cr&#233;er un fournisseur JACC</a>.</p>
+
+<p>Pour en savoir plus sur l&#8217;&#233;criture de classes d&#8217;impl&#233;mentation pour un fournisseur
+JACC, consultez la sp&#233;cification JACC sur <a href="http://jcp.org/en/jsr/detail?id=115">http://jcp.org/en/jsr/detail?id=115</a>.</p>
+
+<p>Pour chaque fournisseur JACC, les informations suivantes sont fournies.</p>
+
+<dl><dt>Nom</dt>
+<dd><p>Nom du fournisseur JACC. Ce nom est utilis&#233; pour r&#233;f&#233;rencer l'&#233;l&#233;ment <tt>jacc-provider</tt> dans <tt>domaine.xml</tt>. </p>
+
+</dd>
+<dt>Configuration de strat&#233;gies</dt>
+<dd><p>Nom complet du <tt>javax.security.jacc.PolicyConfigurationFactory.provider </tt> mettant en &#339;uvre le <tt>javax.security.jacc.PolicyConfigurationFactory </tt> sp&#233;cifique au fournisseur.</p>
+
+</dd>
+<dt>Fournisseur de strat&#233;gies</dt>
+<dd><p>Nom complet du <tt>javax.security.jacc.policy.provider</tt> mettant en &#339;uvre le <tt>java.security.Policy</tt>.</p>
+
+</dd>
+</dl>
+<p>Les fournisseurs JACC par d&#233;faut prennent &#233;galement en charge la propri&#233;t&#233; suivante.
+</p>
+
+<dl><dt>R&#233;f&#233;rentiel</dt>
+<dd><p>R&#233;pertoire contenant le fichier de strat&#233;gie JACC. Pour le fournisseur JACC GlassFish Server <tt>default </tt>, le r&#233;pertoire par d&#233;faut est <tt>${com.sun.aas.instanceRoot}/generated/policy</tt>. Cette propri&#233;t&#233; n'est pas d&#233;finie par d&#233;faut pour le fournisseur JACC GlassFish Server <tt>simple</tt>.</p>
+
+</dd>
+</dl>
+<p>Le tableau Fournisseurs JACC contient &#233;galement les options suivantes.</p>
+
+<dl><dt>Nouveau</dt>
+<dd><p>Bouton permettant de cr&#233;er un fournisseur JACC.</p>
+
+</dd>
+<dt>Supprimer</dt>
+<dd><p>Bouton permettant de supprimer un ou plusieurs fournisseurs JACC s&#233;lectionn&#233;s.</p>
+
+</dd>
+</dl>
+<a name="gkokq"></a><h5>T&#226;ches connexes</h5>
+
+<ul><li><p><a href="task-jaccprovidernew.html">Pour cr&#233;er un fournisseur JACC</a></p>
+
+</li>
+<li><p><a href="task-jaccprovideredit.html">Pour modifier un fournisseur JACC</a></p>
+
+</li>
+<li><p><a href="task-jaccproviderdelete.html">Pour supprimer un fournisseur JACC</a></p>
+
+</li></ul>
+<a name="gkomu"></a><h5>Commandes <tt>asadmin</tt> connexes</h5>
+
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
+
+</li>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+
+</li></ul>
+
+
+<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
