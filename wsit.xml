@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project name="WSIT source integration" default="build" basedir=".">
+
+    <import file="build.xml"/>
+    <import file="build-taskdefs.xml"/>
+    <property file="${external.dir}/jaxb/build.properties"/>
+
+    <target name="clean" depends="init">
+        <antcall target="dtd-parser.clean" />
+    </target>
+ 
+    <target name="build" depends="init, check-gf-dependencies">
+
+        <!-- checking out sources -->
+        <antcall target="ant.checkout"/>
+        <antcall target="wsit.checkout" />
+        <antcall target="jaxws.checkout" />
+        <antcall target="stax-ex.checkout" />
+        <antcall target="mimepull.checkout"/>
+        <antcall target="istack-commons.checkout"/>
+        <antcall target="fi1.checkout"/>
+        <antcall target="jaxrpc.checkout"/>
+        <antcall target="jaxr-api.checkout" />
+        <antcall target="jaxr-ri.checkout" />
+        
+        <property file="${external.dir}/wsit/build.properties"/>
+
+        <!-- building and publishing libraries -->
+        <antcall target="ant.build"/>
+        <antcall target="stax-ex.build"/>       
+        <antcall target="saaj-api.build"/>
+        <antcall target="mimepull.build"/>
+        <antcall target="jaxws-api.build" />
+        <antcall target="jaxws.build" />
+        <antcall target="istack-commons.build"/>
+        <antcall target="fi1.build" />
+        <antcall target="jaxrpc.build" />
+        <antcall target="wsit.build" />
+        
+        <antcall target="jaxr-api.build" />
+        <antcall target="jaxr-api.source.jar" />
+        <antcall target="jaxr-api.publish.local" />
+
+        <antcall target="jaxr-ri.build" />
+        <antcall target="jaxr-ri.source.jar" />
+        <antcall target="jaxr-ri.publish.local" />
+
+    </target>
+
+    <target name="check-gf-dependencies">
+        <available file="${maven.repo.local}/${auto-depends.mvn.path}" property="is-hk2-avail"/>
+        <fail unless="is-hk2-avail" message="${maven.repo.local}/${auto-depends.mvn.path} missing! It is a required dependency for wsit build."/>
+
+        <available file="${maven.repo.local}/${gmbal.mvn.path}" property="is-gmbal-avail"/>
+        <fail unless="is-gmbal-avail" message="${maven.repo.local}/${gmbal.mvn.path} missing! It is a required dependency for wsit build."/>
+
+        <available file="${maven.repo.local}/${gmbal-api.mvn.path}" property="is-gmbalapi-avail"/>
+        <fail unless="is-gmbalapi-avail" message="${maven.repo.local}/${gmbal-api.mvn.path} missing! It is a required dependency for wsit build."/>
+
+        <available file="${maven.repo.local}/${javax.servlet.mvn.path}" property="is-javaxsrevlet-avail"/>
+        <fail unless="is-javaxsrevlet-avail" message="${maven.repo.local}/${javax.servlet.mvn.path} missing! It is a required dependency for wsit build."/>
+
+        <available file="${maven.repo.local}/${jmac-api.mvn.path}" property="is-jmacapi-avail"/>
+        <fail unless="is-jmacapi-avail" message="${maven.repo.local}/${jmac-api.mvn.path} missing! It is a required dependency for wsit build."/>
+
+        <available file="${maven.repo.local}/${transaction-api.mvn.path}" property="is-txapi-avail"/>
+        <fail unless="is-txapi-avail" message="${maven.repo.local}/${transaction-api.mvn.path} missing! It is a required dependency for wsit build."/>
+
+        <available file="${maven.repo.local}/${connector-api.mvn.path}" property="is-connector-avail"/>
+        <fail unless="is-connector-avail" message="${maven.repo.local}/${connector-api.mvn.path} missing! It is a required dependency for wsit build."/>
+    </target>
+
+    <target name="wsit.checkout" unless="nocheckout">
+        <echo message="checkout wsit from ${wsit.svn.url}"/>
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${wsit.svn.url}" />
+            <arg line="wsit" />
+    	</exec>
+    </target>
+
+    <target name="jaxws.checkout" unless="nocheckout">
+        <echo message="checkout jaxws from ${jaxws.svn.url}"/>
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${jaxws.svn.url}" />
+            <arg line="jaxws" />
+    	</exec>
+    </target>
+
+    <target name="ant.checkout" unless="nocheckout">
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${antdep.svn.url}" />
+            <arg line="ant" />
+    	</exec>
+    </target>
+
+    <target name="stax-ex.checkout" unless="nocheckout">
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${stax-ex.svn.url}" />
+            <arg line="stax-ex-${stax-ex.version}" />
+    	</exec>
+    </target>
+
+    <target name="istack-commons.checkout" unless="nocheckout">
+        <echo message="checkout wsit from ${istack-commons.svn.url}"/>
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${istack-commons.svn.url}" />
+            <arg line="istack-commons" />
+    	</exec>
+    </target>
+
+    <target name="ant.build">
+        <delete>
+            <fileset dir="${external.dir}/ant" includes="**/*.jar"/>
+        </delete>
+        <subant buildpath="${external.dir}/ant" target="jars"/>
+        <mvn.publish.local jar="${external.dir}/ant/build/lib/ant.jar" mvngroup="org.apache.ant" mvnartid="ant" mvnversion="${antdep.version}"/>
+        <mvn.publish.local jar="${external.dir}/ant/build/lib/ant-trax.jar" mvngroup="org.apache.ant" mvnartid="ant-trax" mvnversion="${antdep.version}"/>
+        <mvn.publish.local jar="${external.dir}/ant/build/lib/ant-junit.jar" mvngroup="org.apache.ant" mvnartid="ant-junit" mvnversion="${antdep.version}"/>
+        <mvn.publish.local jar="${external.dir}/ant/build/lib/ant-launcher.jar" mvngroup="org.apache.ant" mvnartid="ant-launcher" mvnversion="${antdep.version}"/>
+        <mvn.publish.local jar="${external.dir}/ant/build/lib/ant-nodeps.jar" mvngroup="org.apache.ant" mvnartid="ant-nodeps" mvnversion="${antdep.version}"/>
+    </target>
+    
+    <target name="stax-ex.build">
+        <delete>
+            <fileset dir="${external.dir}/stax-ex-${stax-ex.version}/" includes="**/*.jar"/>
+        </delete>
+        <mvn.publish.local jar="${maven.repo.local}/${jsr173api.mvn.path}" mvngroup="javax.xml.stream" mvnartid="stax-api" mvnversion="${stax-api.version}"/>
+        <exec executable="mvn" failonerror="true" >
+            <arg line="-f ${external.dir}/stax-ex-${stax-ex.version}/pom.xml -Dmaven.repo.local=${maven.repo.local}" />
+            <arg line="clean install" />
+        </exec>
+    </target>
+
+    <target name="istack-commons.build">
+        <exec executable="mvn" failonerror="true" >
+            <arg line="-f ${external.dir}/istack-commons/pom.xml -Dmaven.repo.local=${maven.repo.local}" />
+            <arg line="clean install" />
+        </exec>
+        <mvn.publish.local jar="${maven.repo.local}/${istack-commons-runtime.mvn.path}" mvngroup="com.sun.istack" mvnartid="istack-commons-runtime" mvnversion="2.2.1"/>
+        <mvn.publish.local jar="${maven.repo.local}/${istack-commons-runtime.mvn.path}" mvngroup="com.sun.istack" mvnartid="istack-commons-runtime" mvnversion="2.2.1"/>
+        <mvn.publish.local jar="${maven.repo.local}/${istack-commons-tools.mvn.path}" mvngroup="com.sun.istack" mvnartid="istack-commons-tools" mvnversion="1.1-SNAPSHOT"/>
+        <mvn.publish.local jar="${maven.repo.local}/${istack-commons-tools.mvn.path}" mvngroup="com.sun.istack" mvnartid="istack-commons-tools" mvnversion="1.1-SNAPSHOT"/>
+    </target>
+
+    <target name="jaxws-api.build">
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws-api/jaxws-api.jar" unzipdir="${external.dir}/jaxws-api" srczip="${external.dir}/jaxws/lib/jaxws-api-src.zip"
+            cp="${maven.repo.local}/${jaxb-api-osgi.mvn.path}:${maven.repo.local}/${jaxb-osgi.mvn.path}:${maven.repo.local}/${saaj-api.mvn.path}:${maven.repo.local}/${jsr173api.mvn.path}"/>
+        <mvn.publish.local jar="${external.dir}/jaxws-api/jaxws-api.jar" mvngroup="javax.xml.ws" mvnartid="jaxws-api" mvnversion="${jaxws-api.version}"/>
+    </target>
+
+    <target name="jaxws.build">
+        <delete>
+            <fileset dir="${external.dir}/jaxws" includes="**/*.jar">
+                <exclude name="**/*src*.zip*"/>
+                <exclude name="**/jaxb1*.jar*"/>
+                <exclude name="**/bnd*.jar*"/>
+                <exclude name="**/gmbal*.jar*"/>
+                <exclude name="**/*grizzly*.jar*"/>
+                <exclude name="**/findbugs/**/*.jar"/>
+                <exclude name="lib/junit.jar"/>
+                <exclude name="tools/lib/*.jar"/>
+            </fileset>
+        </delete>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/management-api.jar" unzipdir="${external.dir}/management-api" srczip="${external.dir}/jaxws/lib/management-api-src.zip"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/management-api.jar" mvngroup="${management-api.groupid}" mvnartid="${management-api.artifactid}" mvnversion="${management-api.version}"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/FastInfoset.jar" unzipdir="${external.dir}/fastinfoset-jaxws" srczip="${external.dir}/jaxws/lib/FastInfoset.src.zip"/>
+
+        <copy file="${maven.repo.local}/${jsr173api.mvn.path}" tofile="${external.dir}/jaxws/lib/jsr173_api.jar"/>
+        <copy file="${maven.repo.local}/${antdep.mvn.path}" tofile="${external.dir}/jaxws/lib/ant.jar"/>
+        <copy file="${maven.repo.local}/${ant-trax.mvn.path}" tofile="${external.dir}/jaxws/lib/ant-trax.jar"/>
+        <copy file="${maven.repo.local}/${ant-junit.mvn.path}" tofile="${external.dir}/jaxws/lib/ant-junit.jar"/>
+        <copy file="${maven.repo.local}/${ant-nodeps.mvn.path}" tofile="${external.dir}/jaxws/lib/ant-nodeps.jar"/>
+        <copy file="${maven.repo.local}/${ant-launcher.mvn.path}" tofile="${external.dir}/jaxws/lib/ant-launcher.jar"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/jsr181-api.jar" unzipdir="${external.dir}/jsr181" srczip="${external.dir}/jaxws/lib/jsr181-api.src.zip"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/jsr181-api.jar" mvngroup="javax.jws" mvnartid="jsr181-api" mvnversion="${jsr181-api.version}"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/jsr250-api.jar" unzipdir="${external.dir}/jsr250" srczip="${external.dir}/jaxws/lib/jsr250-api.src.zip"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/jsr250-api.jar" mvngroup="javax.jws" mvnartid="jsr250-api" mvnversion="${jsr250-api.version}"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/jsr250-api.jar" mvngroup="javax.annotation" mvnartid="jsr250-api" mvnversion="${jsr250-api.version}"/>
+
+        <copy file="${external.dir}/jaxb/dist/lib/jaxb-xjc.jar" tofile="${external.dir}/jaxws/lib/jaxb-xjc.jar"/>
+        <copy file="${external.dir}/jaxb/dist/lib/jaxb-api.jar" tofile="${external.dir}/jaxws/lib/jaxb-api.jar"/>
+        <copy file="${external.dir}/jaxb/dist/lib/jaxb-impl.jar" tofile="${external.dir}/jaxws/lib/jaxb-impl.jar"/>
+        <copy file="${maven.repo.local}/${activation.mvn.path}" tofile="${external.dir}/jaxws/lib/activation.jar"/>
+        <copy file="${maven.repo.local}/${jaxws-api.mvn.path}" tofile="${external.dir}/jaxws/lib/jaxws-api.jar"/>
+        <copy file="${maven.repo.local}/${stax-ex.mvn.path}" tofile="${external.dir}/jaxws/lib/stax-ex.jar"/>
+        <copy file="${maven.repo.local}/${resolver-comsun.mvn.path}" tofile="${external.dir}/jaxws/lib/resolver.jar"/>
+        <copy file="${maven.repo.local}/${saaj-api.mvn.path}" tofile="${external.dir}/jaxws/lib/saaj-api.jar"/>
+        <copy file="${maven.repo.local}/${mimepull.mvn.path}" tofile="${external.dir}/jaxws/lib/mimepull.jar"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/streambuffer.jar" unzipdir="${external.dir}/streambuffer" srczip="${external.dir}/jaxws/lib/streambuffer.src.zip" cp="${maven.repo.local}/${stax-ex.mvn.path}"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/streambuffer.jar" mvngroup="com.sun.xml.stream.buffer" mvnartid="streambuffer" mvnversion="${streambuffer.version}"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/streambuffer.jar" mvngroup="com.sun.xml.stream.buffer" mvnartid="streambuffer" mvnversion="1.1"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/streambuffer.jar" mvngroup="com.sun.xml.stream.buffer" mvnartid="streambuffer" mvnversion="1.2"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/saaj-impl.jar" unzipdir="${external.dir}/saaj-impl" srczip="${external.dir}/jaxws/lib/saaj-impl.src.zip" cp="${maven.repo.local}/${mimepull.mvn.path}"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/saaj-impl.jar" mvngroup="com.sun.xml.messaging.saaj" mvnartid="saaj-impl" mvnversion="${saaj-impl.version}"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/jaxws-asm.jar" unzipdir="${external.dir}/asm" srczip="${external.dir}/jaxws/lib/jaxws-asm-src.zip"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/jaxws-asm.jar" mvngroup="asm" mvnartid="jaxws-asm" mvnversion="${jaxws-asm.version}"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/http.jar" unzipdir="${external.dir}/http" srczip="${external.dir}/jaxws/lib/httpsrc.zip"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/http.jar" mvngroup="http" mvnartid="http" mvnversion="${http.version}"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/policy.jar" unzipdir="${external.dir}/policy" srczip="${external.dir}/jaxws/lib/policy-src.zip" cp="${external.dir}/jaxb/dist/lib/jaxb-impl.jar"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/policy.jar" mvngroup="com.sun.xml.ws" mvnartid="policy" mvnversion="${policy.version}"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/lib/sjsxp.jar" unzipdir="${external.dir}/sjsxp" srczip="${external.dir}/jaxws/lib/sjsxp-src.zip"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/lib/sjsxp.jar" mvngroup="com.sun.xml.stream" mvnartid="sjsxp" mvnversion="${sjsxp.version}"/>
+
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxws/rt-ha/lib/ha-api.jar" unzipdir="${external.dir}/ha-api" srczip="${external.dir}/jaxws/rt-ha/lib/ha-api.src.zip" cp="${maven.repo.local}/${auto-depends.mvn.path}"/>
+        <mvn.publish.local jar="${external.dir}/jaxws/rt-ha/lib/ha-api.jar" mvngroup="org.glassfish.ha" mvnartid="ha-api" mvnversion="3.1.8"/>
+
+        <!-- I see these are already published by JavaEE api v3 build -->
+        <copy file="${maven.repo.local}/${javax.servlet.mvn.path}" tofile="${external.dir}/jaxws/servlet/lib/javax.servlet.jar"/>
+        <copy file="${maven.repo.local}/${javax.servlet.mvn.path}" tofile="${external.dir}/jaxws/httpspi-servlet/lib/servlet.jar"/>
+        <mvn.publish.local jar="${maven.repo.local}/${servlet.mvn.path}" mvngroup="org.apache.tomcat" mvnartid="servlet-api" mvnversion="6.0.16"/>
+
+        <!-- build woodstox -->
+        <property name="unzipdir" value="${external.dir}/woodstox"/>
+        <mkdir dir="${unzipdir}"/>
+        <unzip src="${external.dir}/jaxws/lib/woodstox-src.zip" dest="${unzipdir}"/>
+        <mkdir dir="${unzipdir}/src/samples"/>
+        
+        <exec executable="ant" dir="${external.dir}/woodstox" failonerror="true" newenvironment="false" >
+            <arg line="jar.wstx.asl" />
+    	    <arg line="-Dmaven.repo.local=${maven.repo.local} -Djavac.target=1.5 -Djavac.source=1.5" />
+            <arg line="-Dlib.junit=${maven.repo.local}/${junit.mvn.path}"/>
+            <env key="JAVA_HOME" value="${JDK_1.5}" />
+        </exec>
+        <mvn.publish.local jar="${external.dir}/woodstox/build/wstx-asl-${woodstox.version}.jar" mvngroup="org.codehaus.woodstox" mvnartid="wstx-asl" mvnversion="${woodstox.version}"/>
+        <copy file="${maven.repo.local}/${woodstox.mvn.path}" tofile="${external.dir}/jaxws/lib/woodstox.jar"/>
+
+        <exec executable="ant" dir="${external.dir}/jaxws" failonerror="true" newenvironment="false" >
+            <arg line="clean tools-build runtime-build" />
+            <arg line="-Dfrom.source=true"/>
+    	    <arg line="-Dmaven.repo.local=${maven.repo.local} -Djavac.target=1.5 -Djavac.source=1.5" />
+            <env key="JAVA_HOME" value="${JDK_1.5}" />
+        </exec>
+
+        <mvn.publish.local extra-args="-DpomFile=${external.dir}/jaxws/etc/poms/jaxws-rt.pom" jar="${external.dir}/jaxws/build/lib/jaxws-rt.jar" mvngroup="com.sun.xml.ws" mvnartid="jaxws-rt" mvnversion="2.2.3"/>
+        <mvn.publish.local extra-args="-DpomFile=${external.dir}/jaxws/etc/poms/jaxws-tools.pom" jar="${external.dir}/jaxws/build/lib/jaxws-tools.jar" mvngroup="com.sun.xml.ws" mvnartid="jaxws-tools" mvnversion="2.2.3"/>
+    
+    </target>
+    
+    <!-- streambuffer.jar -->
+    <target name="streambuffer.checkout" unless="nocheckout">
+        <echo message="checkout XML Streambuffer from ${streambuffer.svn.url}"/>
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${streambuffer.svn.url}" />
+            <arg line="streambuffer" />
+    	</exec>
+    </target>
+    <target name="streambuffer.build">
+        <delete>
+            <fileset dir="${external.dir}/streambuffer" includes="**/*.jar"/>
+        </delete>
+        <subant buildpath="${external.dir}/streambuffer" target="source-package">
+            <property name="jsr173_api.jar" value="${maven.repo.local}/${jsr173api.mvn.path}"/>
+            <property name="activation.jar" value="${maven.repo.local}/${activation.mvn.path}"/>
+            <property name="stax-ex.jar" value="${maven.repo.local}/${stax-ex.mvn.path}"/>
+        </subant>
+        <subant buildpath="${external.dir}/streambuffer" target="dist-package">
+            <property name="jsr173_api.jar" value="${maven.repo.local}/${jsr173api.mvn.path}"/>
+            <property name="activation.jar" value="${maven.repo.local}/${activation.mvn.path}"/>
+            <property name="stax-ex.jar" value="${maven.repo.local}/${stax-ex.mvn.path}"/>
+        </subant>
+    </target>
+    <target name="streambuffer.clean">
+        <subant buildpath="${external.dir}/streambuffer" target="clean"/>
+    </target>
+    <target name="streambuffer.publish">
+        <mvn.publish.local jar="${external.dir}/streambuffer/streambuffer/dist/streambuffer.jar" mvngroup="com.sun.xml.stream.buffer" mvnartid="streambuffer" mvnversion="${streambuffer.version}"/>
+    </target>
+    
+    <!--saaj-api.jar-->
+    <target name="saaj-api.build">
+        <property name="saajapi.dir" value="${external.dir}/saajapi"/>
+        <mkdir dir="${saajapi.dir}"/>
+
+        <unzip src="${external.dir}/jaxws/lib/saaj-api-src.zip" dest="${saajapi.dir}/src"/>
+        <!-- compile files -->
+        <mkdir dir="${saajapi.dir}/temp" />
+
+        <javac srcdir="${saajapi.dir}/src" debug="true" destdir="${saajapi.dir}/temp" source="1.4" target="1.4"
+                classpath="${maven.repo.local}/${activation.mvn.path}"/>
+
+        <!-- creates binary jar -->
+        <delete file="${saajapi.dir}/saaj-api.jar"/>
+
+        <jar jarfile="${saajapi.dir}/saaj-api.jar" compress="false">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="Specification-Title" value="SAAJ"/>
+                <attribute name="Specification-Version" value="${saaj-api.version}"/>
+                <attribute name="Class-Path" value="jaxp-api.jar jax-qname.jar activation.jar servlet.jar"/>
+            </manifest>
+            <fileset dir="${saajapi.dir}/temp" />
+            <fileset dir="${saajapi.dir}/src">
+                <patternset>
+                    <include name="**/*.properties" />
+                    <include name="**/*.rxm"/>
+                    <include name="**/*.dtd"/>
+                    <include name="**/*.rng"/>
+                    <include name="**/*.mod"/>
+                </patternset>
+            </fileset>
+        </jar>
+        <delete dir="${saajapi.dir}/temp" />
+        <mvn.publish.local jar="${external.dir}/saajapi/saaj-api.jar" mvngroup="javax.xml.soap" mvnartid="saaj-api" mvnversion="${saaj-api.version}"/>
+    </target>
+        
+    <target name="mimepull.checkout" unless="nocheckout">
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${mimepull.svn.url}" />
+            <arg line="mimepull" />
+    	</exec>
+    </target>
+    <target name="mimepull.build">
+        <exec executable="mvn" failonerror="true" >
+            <arg line="-f ${external.dir}/mimepull/pom.xml -Dmaven.test.skip=true -Dmaven.repo.local=${maven.repo.local}" />
+            <arg line="clean install" />
+        </exec>
+    </target>
+    
+    <target name="jaxrpc.checkout" unless="nocheckout">
+        <echo message="checkout jaxrpc-ri from ${jaxrpc.svn.url}."/>
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${jaxrpc.svn.url}" />
+            <arg line="jaxrpc" />
+    	</exec>
+    </target>
+    <target name="jaxrpc.build">
+        <delete>
+            <fileset dir="${external.dir}/jaxrpc" includes="**/*.jar">
+                <exclude name="tools/lib/*.jar"/>
+                <exclude name="maven/lib/*.jar"/>
+                <exclude name="lib/junit.jar"/>
+                <exclude name="lib/optional.jar"/>
+            </fileset>
+        </delete>
+
+        <copy file="${maven.repo.local}/${fi1.mvn.path}" tofile="${external.dir}/jaxrpc/lib/FastInfoset.jar"/>
+        <copy file="${maven.repo.local}/${activation.mvn.path}" tofile="${external.dir}/jaxrpc/lib/activation.jar"/>
+        <copy file="${maven.repo.local}/${jaxrpc-api.mvn.path}" tofile="${external.dir}/jaxrpc/lib/jaxrpc-api.jar"/>
+        <copy file="${maven.repo.local}/${jsr173api.mvn.path}" tofile="${external.dir}/jaxrpc/lib/jsr173_api.jar"/>
+        <copy file="${maven.repo.local}/${relaxng-datatype.mvn.path}" tofile="${external.dir}/jaxrpc/lib/relaxngDatatype.jar"/>
+        <copy file="${maven.repo.local}/${saaj-api.mvn.path}" tofile="${external.dir}/jaxrpc/lib/saaj-api.jar"/>
+        <copy file="${maven.repo.local}/${saaj-impl.mvn.path}" tofile="${external.dir}/jaxrpc/lib/saaj-impl.jar"/>
+        <copy file="${maven.repo.local}/${xsdlib.mvn.path}" tofile="${external.dir}/jaxrpc/lib/xsdlib.jar"/>
+
+        <!-- I see these are already published by JavaEE api v3 build -->
+        <copy file="${maven.repo.local}/${servlet.mvn.path}" tofile="${external.dir}/jaxrpc/lib/servlet.jar"/>
+        <copy file="${maven.repo.local}/${mail.mvn.path}" tofile="${external.dir}/jaxrpc/lib/mail.jar"/>
+
+        <exec executable="ant" dir="${external.dir}/jaxrpc" failonerror="true" newenvironment="false" >
+            <arg line="clean main" />
+            <arg line="-Dfrom.source=true"/>
+    	    <arg line="-Dmaven.repo.local=${maven.repo.local} -Djavac.target=1.5 -Djavac.source=1.5" />
+            <arg line="${cpath}"/>
+            <env key="JAVA_HOME" value="${JDK_1.6}" />
+        </exec>
+        <mvn.publish.local jar="${external.dir}/jaxrpc/build/lib/jaxrpc-impl.jar" mvngroup="com.sun.xml.rpc" mvnartid="jaxrpc-impl" mvnversion="${jaxrpc.version}"/>
+        <mvn.publish.local jar="${external.dir}/jaxrpc/build/lib/jaxrpc-spi.jar" mvngroup="com.sun.xml.rpc" mvnartid="jaxrpc-spi" mvnversion="${jaxrpc.version}"/>
+    </target>
+
+    <target name="fi.checkout" unless="nocheckout">
+        <echo message="checkout fi from ${fi.svn.url}."/>
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${fi.svn.url}" />
+            <arg line="fi/${fi.version}" />
+    	</exec>
+    </target>
+    <target name="fi.build">
+        <delete>
+            <fileset dir="${external.dir}/fi/${fi.version}" includes="**/*.jar"/>
+        </delete>
+        <copy file="${maven.repo.local}/${jsr173api.mvn.path}" tofile="${external.dir}/fi/${fi.version}/lib/jsr173_api.jar"/>
+        <exec executable="ant" dir="${external.dir}/fi/${fi.version}" failonerror="true" newenvironment="true" >
+            <arg line="-Djavac.target=1.5"/>
+            <arg line="-Djavac.source=1.5"/>
+            <arg line="jar"/>
+            <env key="JAVA_HOME" value="${JDK_1.5}" />
+        </exec>
+        <mvn.publish.local jar="${external.dir}/fi/${fi.version}/dist/FastInfoset.jar" mvngroup="com.sun.xml.fastinfoset" mvnartid="FastInfoset" mvnversion="${fi.version}"/>
+    </target>
+    
+    <target name="fi1.checkout" unless="nocheckout">
+        <echo message="checkout fi1 from ${fi1.svn.url}."/>
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${fi1.svn.url}" />
+            <arg line="fi/${fi1.version}" />
+    	</exec>
+    </target>
+    <target name="fi1.build">
+        <delete>
+            <fileset dir="${external.dir}/fi/${fi1.version}" includes="**/*.jar"/>
+        </delete>
+        <copy file="${maven.repo.local}/${jsr173api.mvn.path}" tofile="${external.dir}/fi/${fi1.version}/lib/jsr173_api.jar"/>
+        <exec executable="ant" dir="${external.dir}/fi/${fi1.version}" failonerror="true" newenvironment="true" >
+            <arg line="-Djavac.target=1.5"/>
+            <arg line="-Djavac.source=1.5"/>
+            <arg line="jar"/>
+            <env key="JAVA_HOME" value="${JDK_1.5}" />
+        </exec>
+        <mvn.publish.local jar="${external.dir}/fi/${fi1.version}/dist/FastInfoset.jar" mvngroup="com.sun.xml.fastinfoset" mvnartid="FastInfoset" mvnversion="${fi1.version}"/>
+    </target>
+    
+    <target name="wsit.build">
+        <mvn.publish.local jar="${maven.repo.local}/${transaction-api.mvn.path}" mvngroup="javax.transaction" mvnartid="transaction-api" mvnversion="1.1"/>
+        <mvn.publish.local jar="${maven.repo.local}/${resolver-comsun.mvn.path}" mvngroup="com.sun.org.apache.xml.internal" mvnartid="resolver" mvnversion="20050927"/>
+        <mvn.publish.local jar="${maven.repo.local}/${txw2.mvn.path}" mvngroup="com.sun.xml.txw2" mvnartid="txw2" mvnversion="20090102"/>
+        <mvn.publish.local jar="${maven.repo.local}/${jmac-api.mvn.path}" mvngroup="javax.security.auth.message" mvnartid="jmac" mvnversion="1.0-rev-1"/>
+        <mvn.publish.local jar="${maven.repo.local}/${connector-api.mvn.path}" mvngroup="javax.resource" mvnartid="connector-api" mvnversion="1.5"/>
+        <mvn.publish.local jar="${maven.repo.local}/${gmbal.mvn.path}" mvngroup="org.glassfish.gmbal" mvnartid="gmbal" mvnversion="3.0.0-b023"/>
+        <mvn.publish.local jar="${maven.repo.local}/${gmbal-api.mvn.path}" mvngroup="org.glassfish.gmbal" mvnartid="gmbal-api-only" mvnversion="3.0.0-b023"/>
+        <mvn.publish.local jar="${maven.repo.local}/${management-api.mvn.path}" mvngroup="org.glassfish.external" mvnartid="management-api" mvnversion="3.0.0-b012"/>
+
+        <get dest="${external.dir}/jaxb10-saml-src.zip" src="http://java.net/projects/wsit/sources/svn/content/trunk/_security-extras/saml-jaxb10-bindings/jaxb10-saml-src.zip?rev=6740"/>
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/jaxb10-saml.jar" unzipdir="${external.dir}/jaxb10-saml" srczip="${external.dir}/jaxb10-saml-src.zip" cp="${external.dir}/jaxb/tools/lib/rebundle/runtime/msv.jar:${external.dir}/jaxb/dist/lib/jaxb1-impl.jar:${external.dir}/jaxb/dist/lib/jaxb-impl.jar"/>
+        <mvn.publish.local jar="${external.dir}/jaxb10-saml.jar" mvngroup="com.sun.xml.security" mvnartid="saml-jaxb10-bindings" mvnversion="1.0"/>
+
+        <get dest="${external.dir}/keyidspi-impl.jar" src="http://java.net/projects/wsit/sources/svn/content/trunk/_security-extras/keyidspi-ibm-impl/keyidspi-ibm-impl.jar?rev=6740"/>
+        <!--build.jar.from.srczip srcdir="src" jar="${external.dir}/keyidspi-impl.jar" unzipdir="${external.dir}/keyidspi-impl" srczip="${external.dir}/keyidspi-impl-src.zip"/-->
+        <mvn.publish.local jar="${external.dir}/keyidspi-impl.jar" mvngroup="com.sun.xml.wss.core.reference" mvnartid="keyidspi-ibm-impl" mvnversion="1.0"/>
+
+        <get dest="${external.dir}/kerblibrary-src.zip" src="http://java.net/projects/wsit/sources/svn/content/trunk/_security-extras/kerb-lib/KerbLibrary-src.zip?rev=6740"/>
+        <build.jar.from.srczip srcdir="src" jar="${external.dir}/kerblibrary.jar" unzipdir="${external.dir}/kerblibrary" srczip="${external.dir}/kerblibrary-src.zip"/>
+        <mvn.publish.local jar="${external.dir}/kerblibrary.jar" mvngroup="com.sun.xml.ws.security.kerb" mvnartid="kerberos-wss-extension" mvnversion="1.0"/>
+
+        <get dest="${external.dir}/grizzly-framework-http.jar" src="http://download.java.net/maven/2/com/sun/grizzly/grizzly-framework-http/1.0.31/grizzly-framework-http-1.0.31.jar"/>
+        <!--build.jar.from.srczip srcdir="src" jar="${external.dir}/grizzly-framework-http.jar" unzipdir="${external.dir}/grizzly-framework-http" srczip="${external.dir}/grizzly-framework-http.zip" cp="${commons-logging.mvn.path}"/-->
+        <mvn.publish.local jar="${external.dir}/grizzly-framework-http.jar" mvngroup="com.sun.grizzly" mvnartid="grizzly-framework-http" mvnversion="1.0.31"/>
+        
+        <exec executable="mvn" dir="${external.dir}/wsit" failonerror="true" newenvironment="false" >
+            <arg line="install" />
+    	    <arg line="-Dmaven.repo.local=${maven.repo.local} -Dglassfish.version=3.1 -Dmaven.test.skip=true -Djavac.target=1.5 -Djavac.source=1.5" />
+            <env key="JAVA_HOME" value="${JDK_1.6}" />
+        </exec>
+        
+    </target>
+    
+    <!-- jaxr-api.jar -->
+    <target name="jaxr-api.checkout" unless="nocheckout">
+        <echo message="checkout jaxr-api from ${jaxr-api.svn.url}."/>
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${jaxr-api.svn.url}" />
+            <arg line="jaxr-api" />
+    	</exec>
+    </target>
+    <target name="jaxr-api.build">
+        <property name="jaxr-api.dir" value="${external.dir}/jaxr-api"/>
+        <mkdir dir="${jaxr-api.dir}/lib" />
+        <mkdir dir="${jaxr-api.dir}/misc/lib" />
+        
+        <exec executable="ant" dir="${jaxr-api.dir}" failonerror="true" newenvironment="false" >
+            <arg line="clean package" />
+    	    <arg line="-Dmaven.repo.local=${maven.repo.local} -Djavac.target=1.5 -Djavac.source=1.5" />
+            <env key="JAVA_HOME" value="${JDK_1.6}" />
+        </exec>
+    </target>
+    <target name="jaxr-api.source.jar">
+        <property name="jaxr-api.dir" value="${external.dir}/jaxr-api"/>
+        <jar destfile="${jaxr-api.dir}/build/lib/jaxr-api-src.jar"
+             basedir="${jaxr-api.dir}/src"
+             excludes="**/CVS/**"
+       />
+    </target>
+    <target name="jaxr-api.publish.local">
+        <mvn.publish.local jar="${external.dir}/jaxr-api/build/lib/jaxr-api.jar" mvngroup="javax.xml" mvnartid="jaxr-api" mvnversion="${jaxr-api.version}"/>
+        <mvn.publish.local jar="${external.dir}/jaxr-api/build/lib/jaxr-api-src.jar" mvngroup="javax.xml" mvnartid="jaxr-api" mvnclassifier="sources" mvnversion="${jaxr-api.version}"/>
+    </target>
+    <target name="jaxr-api.publish.remote">
+        <mvn.publish.remote jar="${external.dir}/jaxr-api/build/lib/jaxr-api.jar" mvngroup="javax.xml" mvnartid="jaxr-api" mvnversion="${jaxr-api.version}"/>
+        <mvn.publish.remote jar="${external.dir}/jaxr-api/build/lib/jaxr-api-src.jar" mvngroup="javax.xml" mvnartid="jaxr-api" mvnclassifier="sources" mvnversion="${jaxr-api.version}"/>
+    </target>
+
+    <!-- jaxr-ri.jar -->
+    <target name="jaxr-ri.checkout" unless="nocheckout">
+        <echo message="checkout jaxr-ri from ${jaxr-ri.svn.url}."/>
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+	    <arg line="checkout" />
+            <arg line="${jaxr-ri.svn.url}" />
+            <arg line="jaxr-ri" />
+    	</exec>
+    </target>
+    <target name="jaxr-ri.build">
+        <property name="jaxr-ri.dir" value="${external.dir}/jaxr-ri"/>
+        <mkdir dir="${jaxr-ri.dir}/lib" />
+
+        <copy file="${maven.repo.local}/${jaxr-api.mvn.path}" tofile="${jaxr-ri.dir}/lib/jaxr-api.jar"/>
+
+        <exec executable="ant" dir="${jaxr-ri.dir}" failonerror="true" newenvironment="false" >
+            <arg line="clean main" />
+    	    <arg line="-Dmaven.repo.local=${maven.repo.local} -Djavac.target=1.5 -Djavac.source=1.5" />
+            <env key="JAVA_HOME" value="${JDK_1.6}" />
+        </exec>
+    </target>
+    <target name="jaxr-ri.source.jar">
+        <property name="jaxr-ri.dir" value="${external.dir}/jaxr-ri"/>
+        <jar destfile="${jaxr-ri.dir}/build/lib/jaxr-impl-src.jar"
+             basedir="${jaxr-ri.dir}/src"
+             excludes="**/CVS/**"
+       />
+    </target>
+    <target name="jaxr-ri.publish.local">
+        <mvn.publish.local jar="${external.dir}/jaxr-ri/build/lib/jaxr-impl.jar" mvngroup="com.sun.xml.registry" mvnartid="jaxr-impl" mvnversion="${jaxr-ri.version}"/>
+        <mvn.publish.local jar="${external.dir}/jaxr-ri/build/lib/jaxr-impl-src.jar" mvngroup="com.sun.xml.registry" mvnartid="jaxr-impl" mvnclassifier="sources" mvnversion="${jaxr-ri.version}"/>
+    </target>
+    <target name="jaxr-ri.publish.remote">
+        <mvn.publish.remote jar="${external.dir}/jaxr-ri/build/lib/jaxr-impl.jar" mvngroup="com.sun.xml.registry" mvnartid="jaxr-impl" mvnversion="${jaxr-ri.version}"/>
+        <mvn.publish.remote jar="${external.dir}/jaxr-ri/build/lib/jaxr-impl-src.jar" mvngroup="com.sun.xml.registry" mvnartid="jaxr-impl" mvnclassifier="sources" mvnversion="${jaxr-ri.version}"/>
+    </target>
+
+
+</project>

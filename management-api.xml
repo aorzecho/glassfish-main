@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project name="management-api source integration" default="build" basedir=".">
+    <property file="${basedir}/build.properties"/>
+    <echo message="management-api.version=${management-api.version}"/>
+    <import file="build.xml"/>
+    <import file="build-taskdefs.xml"/>
+
+    <target name="checkout">
+        <hg.clone tag="VERSION-${management-api.version}" repo="${management-api.hg.url}" dest="${management-api.dir}"/>
+    </target>
+
+    <target name="build" depends="checkout">
+        <property name="local.maven.ant.tasks.jar" value="../../${maven.ant.tasks.jar}"/>
+        <ant antfile="build.xml" dir="${external.dir}/${management-api.dir}">
+            <target name="default"/>
+            <target name="make-bundles"/>
+            <target name="release-local"/>
+            <property name="maven.local.repository" value="file://${maven.repo.local}" />
+        </ant>
+    </target>
+</project>
+

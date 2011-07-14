@@ -1,0 +1,89 @@
+<project name="servlet-2.5" default="make_jar" basedir=".">
+
+  <!-- import build.xml for init target and inherited properties -->
+  <import file="build.xml"/>
+  <import file="build-taskdefs.xml"/>
+ 
+  <target name="init">
+     <property name="project_name"   value="servlet-2.5"/>
+     <property name="release.version"   value="2.5"/>
+     <property name="work.dir"  value="${external.dir}/${project_name}"/>
+     <property name="src.dir" value="${work.dir}"/>
+     <property name="servlet-jarfile"            value="${work.dir}/dist/${project_name}.jar"/>
+     <mkdir dir="${work.dir}"/>
+     <mkdir dir="${work.dir}/classes"/>
+     <mkdir dir="${work.dir}/dist"/>
+  </target>
+
+  <!-- CLEAN TARGET -->
+  <target name="clean" depends="init">
+    <delete dir="${work.dir}/classes"/>
+    <delete dir="${work.dir}/manifest"/>
+    <delete dir="${work.dir}/dist"/>
+  </target>
+
+  <!-- CHECKOUT TARGET -->
+  <target name="checkout" depends="init">
+      <exec executable="svn" dir="${external.dir}" failonerror="true" >
+          <arg line="checkout" />
+          <arg line="${servlet.svn.url}" />
+          <arg line="${project_name}" />
+      </exec>
+  </target>
+
+  <!-- COMPILE TARGET -->
+  <target name="compile" depends="init, checkout">
+    <javac destdir="${work.dir}/classes" source="1.4" target="1.4">
+        <src path="${src.dir}/src/share"/>
+      <include name="**/*.java"/>
+    </javac>
+
+    <!-- Add Associated property files -->
+    <copy todir="${work.dir}/classes">
+        <fileset dir="${src.dir}/src/share">
+          <include name="**/*.properties"/>
+        </fileset>
+    </copy>
+
+    <!-- Add Servlet resources -->
+    <copy todir="${work.dir}/classes/javax/servlet/resources">
+        <fileset dir="${src.dir}/src/share/dtd" includes="*.dtd,*.xsd">
+          <exclude name="jsp*.dtd"/>
+          <exclude name="web-jsp*.dtd"/>
+        </fileset>
+    </copy>
+
+  </target>
+
+  <!-- Prepare manifest files for jars -->
+  <target name="cook-manifest"
+          description="Generate MANIFEST.MF files">
+      <copy todir="${work.dir}/manifest">
+          <fileset dir="${src.dir}" includes="*.mf" />
+          <filterset>
+              <filter token="VERSION" value="${release.version}"/>
+          </filterset>
+      </copy>
+  </target>
+
+  <!-- MAKE JAR TARGET -->
+  <target name="make_jar" depends="compile, cook-manifest">
+    <jar basedir="${work.dir}/classes" 
+         jarfile="${servlet-jarfile}" 
+         manifest="${work.dir}/manifest/servlet-api.mf"
+         includes="**/*.*"/>
+    <antcall target="servlet-2.5.publish" />
+  </target>
+
+
+  <target name="servlet-2.5.publish" >
+      <echo message="Publishing servlet-2.5"/>
+      <mvn.publish.local
+             jar="${servlet-jarfile}"
+             mvngroup="javax.servlet"
+             mvnartid="servlet-api"
+             mvnversion="${servlet-api.version}"/>
+  </target>
+
+</project>
+

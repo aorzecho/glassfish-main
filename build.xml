@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project name="GFv3 source integration" default="build.all" basedir="." xmlns:artifact="urn:maven-artifact-ant" >
+
+    <!-- default build.properties file -->
+    <property name="build.properties.file" value="${basedir}/build.properties" />
+    <property file="${build.properties.file}"/>
+    <property name="external.dir" value="${basedir}/external" />
+    <!-- default maven home directory -->
+    <property name="maven.repo.local" value="${user.home}/.m2/repository" />
+
+    <target name="init">
+        <mkdir dir="${external.dir}"/>
+    </target>
+
+    <target name="build.all" depends="init">
+        <echo message="external directory: ${external.dir}"/>
+        <echo message="maven.repo.local: ${maven.repo.local}"/>
+	<ant antfile="trilead-ssh2.xml" target="build" />
+	<ant antfile="commons-codec.xml" target="build" />
+	<ant antfile="felix-build.xml" target="build" />
+        <ant antfile="servlet-2.5-build.xml" />
+        <ant antfile="schema2beans.xml" />
+        <antcall target="jaxb.project" />
+        <antcall target="management-api.project"/>
+        <antcall target="gmbal.project"/>
+        <antcall target="gfcorba.project"/>
+	<ant antfile="tiger-types.xml" target="build" />
+	<ant antfile="metainf-services.xml" target="build" />
+	<ant antfile="bcel.xml" target="build" />
+	<ant antfile="jakarta-regexp.xml" target="build" />
+        <ant antfile="bean-validator.xml" target="build" />
+        <ant antfile="ha-api.xml" target="build" />
+	<ant antfile="hk2.xml" target="build" />
+	<ant antfile="grizzly.xml" target="build" />
+	<!--
+	<ant antfile="mojarra.xml" target="build" />
+	<ant antfile="weld.xml" target="build" />
+	-->
+      	<ant antfile="shoal.xml" target="build" />
+	<ant antfile="jsr311-api.xml" target="build" /> 
+        <ant antfile="mq.xml" target="build" /> 
+        <ant antfile="javax-jms.xml" target="build" /> 
+	<ant antfile="woodstock.xml" target="build" /> 
+	<ant antfile="jsftemplating.xml" target="build" /> 
+	<ant antfile="ldapbp.xml" target="build" /> 
+<!--
+comment out for now since solarisrealm contains native code.
+
+	<ant antfile="solarisrealm.xml" target="build" /> 
+-->
+	<ant antfile="jaxr-ra.xml" target="build" /> 
+	<ant antfile="slf4j.xml" target="build" /> 
+        <ant antfile="mail.xml" target="build" />
+        <echo message="v3.dir: ${v3.dir}"/>
+        <antcall target="v3.modules" />
+	<antcall target="eclipselink.project" />
+        <antcall target="wsit.project" />
+    
+        <!-- scripting(jruby) integrates in to glassfish v3 as binary. It depends on different v3 apis 
+             as well as grizzly. Also nothing in v3 depends on it so this MUST be last one to build.
+        -->
+<!-- 
+script.xml requires native build 
+        <ant antfile="scripting.xml" target="build" />
+-->
+
+	<ant antfile="jersey.xml" target="build" /> 
+        <ant antfile="opendmk.xml" target="build" />
+        <ant antfile="btrace.xml" target="build" />
+	<ant antfile="uel.xml" target="build" />
+	<ant antfile="jsp.xml" target="build" />
+	<ant antfile="jstl.xml" target="build" />
+
+        <!-- Must come after jsp and wsit -->
+        <ant antfile="javahelp.xml" target="build" />
+		
+	<!-- external modules used by cmp -->
+	<ant antfile="dbschema.xml" target="build" />
+	<ant antfile="antlr.xml" target="build" />
+
+    </target>
+
+
+    <!-- build some v3 modules since the external modules have dependencies on them -->
+    <target name="v3.modules" if="v3.dir" >
+        <exec executable="ant" failonerror="true" newenvironment="false" >
+            <arg line="-f v3-build.xml" />
+            <arg line="build" />
+            <arg line="-Dmaven.repo.local=${maven.repo.local}" />
+            <arg line="-Dv3.dir=${v3.dir}" />
+        </exec>
+    </target>
+    
+     <target name="management-api.project" >
+       <exec executable="ant" failonerror="true" newenvironment="false" >
+            <arg line="-f management-api.xml" />
+            <arg line="build" />
+            <arg line="-Dmaven.repo.local=${maven.repo.local}" />
+      </exec>
+    </target>
+
+     <target name="gmbal.project" >
+       <exec executable="ant" failonerror="true" newenvironment="false" >
+            <arg line="-f gmbal.xml" />
+            <arg line="build" />
+            <arg line="-Dmaven.repo.local=${maven.repo.local}" />
+      </exec>
+    </target>
+
+    <!-- requires hg (mercurial) installed and in the path -->
+    <target name="gfcorba.project" depends="management-api.project,gmbal.project" >
+       <exec executable="ant" failonerror="true" newenvironment="false" >
+            <arg line="-f glassfish-corba.xml" />
+            <arg line="build" />
+            <arg line="-Dmaven.repo.local=${maven.repo.local}" />
+      </exec>
+    </target>
+
+    <target name="jaxb.project">
+        <exec executable="ant" failonerror="true" newenvironment="false" >
+            <arg line="-f jaxb.xml" />
+            <arg line="build" />
+            <arg line="-Dmaven.repo.local=${maven.repo.local} -Djavac.target=1.5 -Djavac.source=1.5
+                       -DJDK_1.4=${JDK_1.4} -DJDK_1.5=${JDK_1.5} -DJDK_1.6=${JDK_1.6}" />
+            <!--<arg line="-Dnocheckout=true" /> -->
+            <env key="JAVA_HOME" value="${JDK_1.5}" />
+        </exec>
+    </target>
+
+    <target name="jersey.project">
+        <exec executable="ant" failonerror="true" newenvironment="false" >
+            <arg line="-f jersey.xml" />
+            <arg line="build" />
+            <arg line="-Dmaven.repo.local=${maven.repo.local}" />
+        </exec>
+    </target>
+
+    <target name="slf4j.project">
+        <exec executable="ant" failonerror="true" newenvironment="false" >
+            <arg line="-f slf4j.xml" />
+            <arg line="build" />
+            <arg line="-Dmaven.repo.local=${maven.repo.local}" />
+        </exec>
+    </target>
+
+
+    <target name="wsit.project" >
+        <exec executable="ant" failonerror="true" newenvironment="false" >
+            <arg line="-f wsit.xml" />
+            <arg line="build" />
+            <arg line="-Dmaven.repo.local=${maven.repo.local} -Djavac.target=1.5 -Djavac.source=1.5 -DJDK_1.4=${JDK_1.4} -DJDK_1.5=${JDK_1.5} -DJDK_1.6=${JDK_1.6} -Dv3.dir=${v3.dir}" />
+            <env key="JAVA_HOME" value="${JDK_1.6}" />
+        </exec>
+    </target>
+
+    <target name = "checkout.eclipselink" unless="skip.eclipselink.checkout">
+        <echo message="Inside EL checkout"/>
+        <!-- Checkout Eclipselink from svn  repo -->
+        <exec executable="svn" dir="${external.dir}" failonerror="true" >
+            <arg line="checkout" />
+            <arg line="${eclipselink.svn.url}" />
+            <arg line="eclipselink" />
+        </exec>
+    </target>
+    <target name="eclipselink.project" depends="checkout.eclipselink">
+        <ant antfile="build-taskdefs.xml" target="bnd.download" />
+	<!-- 
+            TODO check with Jane why following does not work. ant translates it to ${${bnd.groupid}:${bnd.artifactid}:jar} Interestingly the first $ sign inside ${} is always interpreted as literal. 
+            <echo message="bnd path = ${${bnd.groupid}:${bnd.artifactid}:jar}" />
+	-->
+
+        <property name="eclipselink.dir" value ="${external.dir}/eclipselink"/>
+        <property name="plugins.dir" value ="${eclipselink.dir}/plugins"/>
+			
+        <!--** Delete sources not used by GFv3 **-->
+        <!-- They are checked into source build repo just in case they are needed later on-->
+        <delete dir="${eclipselink.dir}/dbws"/>
+        <delete dir="${eclipselink.dir}/documentation"/>
+        <delete dir="${eclipselink.dir}/project-admin"/>
+        <delete dir="${eclipselink.dir}/examples"/>
+        <delete dir="${eclipselink.dir}/moxy"/>
+        <delete dir="${eclipselink.dir}/sdo"/>
+        <delete dir="${eclipselink.dir}/utils"/>
+        
+        <!--**- Delete binaries not used by GFv3 **-->
+        <delete includeemptydirs = "true">
+            <fileset dir="${plugins.dir}" excludes="org.eclipse.persistence.antlr/**/*, org.eclipse.persistence.asm/**/*"/>
+        </delete>
+
+
+	<!--** Copy binaries built from source build to EclipseLink workspace to compile against **-->
+	<!-- It would have been nice to pass reference to these binaries to EclipseLink. Unfortunately EclipseLink build scripts have the names hard coded
+	     for example see eclipselink/build.properties#eclipselink.core.depend
+        -->
+	<property name = "javax.jms.jar.name" value = "javax.jms_1.1.0.jar"/>
+	<property name = "javax.mail.jar.name" value = "javax.mail_1.4.0.v201005080615.jar"/>
+	<property name = "javax.resource.jar.name" value = "javax.resource_1.5.0.jar"/>
+	<property name = "javax.transaction.jar.name" value = "javax.transaction_1.1.0.v201002051055.jar"/>
+	<property name = "osgi.cmpn.jar.name" value = "osgi.cmpn_4.1.0.jar"/>
+	<property name = "osgi.core.jar.name" value = "osgi.core.zip"/>
+
+	<copy file="${maven.repo.local}/${jms-api.mvn.path}" tofile="${plugins.dir}/${javax.jms.jar.name}" />
+	<copy file="${maven.repo.local}/${mail.mvn.path}" 		   tofile="${plugins.dir}/${javax.mail.jar.name}" />
+	<copy file="${maven.repo.local}/${connector-api.mvn.path}" tofile="${plugins.dir}/${javax.resource.jar.name}" />
+	<copy file="${maven.repo.local}/${transaction-api.mvn.path}" tofile="${plugins.dir}/${javax.transaction.jar.name}" />
+	<copy file="${maven.repo.local}/${felix.mvn.path}" tofile="${plugins.dir}/${osgi.core.jar.name}" />
+	<copy file="${maven.repo.local}/${osgi-cmpn.mvn.path}" tofile="${plugins.dir}/${osgi.cmpn.jar.name}" />
+		
+	<!--** Call into EclipseLink build scripts to compile and upload to mave **-->
+	<!-- EclipseLink build scripts expect the build to be run with base 
+	     dir set to where eclipselink is checked out. Convert path to 
+		 dependencies to full path before passing them to Eclipseink scripts
+	-->
+	<property name="maven.ant.tasks.jar.fullpath" location="${maven.ant.tasks.jar}"/>
+	<exec executable="ant" failonerror="true" newenvironment="false" >
+            <!-- <arg line="-verbose" /> -->
+            <arg line="-f eclipselink.xml" />
+            <!-- parameters required to drive eclipselink build -->     
+            <arg line="-Dbasedir=${eclipselink.dir}" />
+            <arg line="-Dproject.maven.repo=file://${maven.repo.local}" />
+            <arg line="-Dmaven.ant.tasks.jar=${maven.ant.tasks.jar.fullpath}" />
+            <arg line="-Dbnd.path=${maven.repo.local}/${bnd.mvn.path}" />
+            <arg line="-Declipselink.release.version=${eclipselink.release.version}" />
+            <arg line="-Declipselink.version.qualifier=${eclipselink.version.qualifier}" />
+			<arg line="-Dnobnd=true" /> <!-- temp workaround for eclipselink scripts not using bnd.path as required -->
+            <arg line="build-and-upload-to-maven" />
+            <!-- <arg line=" build" />  -->
+        </exec>
+    </target>
+
+    <target name="delete.files" >
+        <delete includeemptydirs="true">    
+            <fileset dir="${stage}" includes="**/.svn/**,**/.hg*/**" defaultexcludes="false"/>
+        </delete>
+    </target>
+
+    <!-- asm  macro
+         It assumes the asm repo is located at:
+
+         https://glassfish-svn.dev.java.net/svn/glassfish-svn/trunk/external/modules/asm/@{version}
+
+         To use, simply use the following ant task:
+
+         <asm.build version="..."/>
+
+         Currently there is only 3.1 version added to glassfish-svn. For other asm version you need to add the version
+         there.
+    -->
+
+    <macrodef  name="asm.build" description="Checksout asm and build at ${external.dir}, then install it local maven repo">
+        <attribute name="version" default="3.1"/>
+        <sequential>
+            <svnco url="https://glassfish-svn.dev.java.net/svn/glassfish-svn/trunk/external/modules/asm/@{version}"
+                   name="asm-@{version}"/>
+            <echo message="Building asm @{version}..."/>
+            <ant dir="${external.dir}/asm-@{version}" target="jar"/>
+
+            <echo message="Installing asm @{version} to local maven repo..."/>
+            <mvn-local-install artifactId="asm-parent" groupId="asm" version="@{version}" pomFile="asm-parent-@{version}.pom"
+                               dir="${external.dir}/asm-@{version}/output/dist/lib" file="asm-parent-@{version}.pom" package="pom"/>
+
+            <mvn-local-install artifactid="asm" groupid="asm" version="@{version}" pomfile="asm-@{version}.pom"
+                               dir="${external.dir}/asm-@{version}/output/dist/lib" file="asm-@{version}.jar"/>
+            <mvn-local-install artifactid="asm-analysis" groupid="asm" version="@{version}" pomfile="asm-analysis-@{version}.pom"
+                               dir="${external.dir}/asm-@{version}/output/dist/lib" file="asm-analysis-@{version}.jar"/>
+            <mvn-local-install artifactid="asm-commons" groupid="asm" version="@{version}" pomfile="asm-commons-@{version}.pom"
+                               dir="${external.dir}/asm-@{version}/output/dist/lib" file="asm-commons-@{version}.jar"/>
+            <mvn-local-install artifactid="asm-tree" groupid="asm" version="@{version}" pomfile="asm-tree-@{version}.pom"
+                               dir="${external.dir}/asm-@{version}/output/dist/lib" file="asm-tree-@{version}.jar"/>
+            <mvn-local-install artifactid="asm-util" groupid="asm" version="@{version}" pomfile="asm-util-@{version}.pom"
+                               dir="${external.dir}/asm-@{version}/output/dist/lib" file="asm-util-@{version}.jar"/>
+            <mvn-local-install artifactid="asm-xml" groupid="asm" version="@{version}" pomfile="asm-xml-@{version}.pom"
+                               dir="${external.dir}/asm-@{version}/output/dist/lib" file="asm-xml-@{version}.jar"/>
+
+        </sequential>
+    </macrodef>
+
+    <macrodef name="mvn-local-install" description="Install local jar in to maven">
+        <attribute name="dir"/>
+        <attribute name="file"/>
+        <attribute name="artifactId"/>
+        <attribute name="groupId"/>
+        <attribute name="pomFile"/>
+        <attribute name="version"/>
+        <attribute name="package" default="jar"/>
+        <sequential>
+            <echo message="Installing @{file} at ${maven.repo.local}"/>
+            <echo message="mvn install:install -Dfile=@{file} -DpomFile=@{pomFile} -DgroupId=@{groupId} -DartifactId=@{artifactId} -Dversion=@{version}"/>
+            <exec executable="mvn" dir="@{dir}" failonerror="true">
+                <arg line="install:install-file"/>
+                <arg line="-Dfile=@{file}"/>
+                <arg line="-DpomFile=@{pomFile}"/>
+                <arg line="-DgroupId=@{groupId}"/>
+                <arg line="-DartifactId=@{artifactId}"/>
+                <arg line="-Dversion=@{version}"/>
+                <arg line="-Dmaven.repo.local=${maven.repo.local}"/>
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="svnco">
+        <attribute name="url"/>
+        <attribute name="name"/>
+        <sequential>
+            <echo message="checkout @{name} from @{url}."/>
+            <exec executable="svn" dir="${external.dir}" failonerror="true">
+                <arg line="checkout"/>
+                <arg line="@{url} @{name}"/>
+            </exec>
+        </sequential>
+    </macrodef>
+
+
+
+
+</project>
+
