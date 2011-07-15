@@ -108,6 +108,7 @@ import org.jvnet.hk2.component.PreDestroy;
 import org.jvnet.hk2.component.Singleton;
 import org.jvnet.hk2.config.ConfigSupport;
 import org.jvnet.hk2.config.ObservableBean;
+import org.jvnet.hk2.config.Transactions;
 import org.jvnet.hk2.config.types.Property;
 import org.xml.sax.EntityResolver;
 
@@ -193,8 +194,8 @@ public class WebContainer implements org.glassfish.api.container.Container, Post
     @Inject(name = ServerEnvironment.DEFAULT_INSTANCE_NAME)
     private Config serverConfig;
 
-    @Inject(name = ServerEnvironment.DEFAULT_INSTANCE_NAME)
-    private Server server;
+    @Inject
+    private Transactions transactions;
 
     @Inject(optional = true)
     private DasConfig dasConfig;
@@ -525,12 +526,9 @@ public class WebContainer implements org.glassfish.api.container.Container, Post
             bean.addListener(configListener);
         }
 
-        bean = (ObservableBean) ConfigSupport.getImpl(server);
-        bean.addListener(configListener);
+        transactions.addListenerForType(SystemProperty.class, configListener);
 
-        String instanceConfig = server.getConfigRef();
-        Config config = configs.getConfigByName(instanceConfig);
-        configListener.setNetworkConfig(config.getNetworkConfig());
+        configListener.setNetworkConfig(serverConfig.getNetworkConfig());
 
         // embedded mode does not have manager-propertie in domain.xml
         if (configListener.managerProperties != null) {
@@ -3028,7 +3026,7 @@ public class WebContainer implements org.glassfish.api.container.Container, Post
 
     private boolean isSsoFailoverEnabled() {
         boolean webContainerAvailabilityEnabled =
-            serverConfigLookup.getWebContainerAvailabilityEnabledFromConfig();
+            serverConfigLookup.calculateWebAvailabilityEnabledFromConfig();
         boolean isSsoFailoverEnabled =
             serverConfigLookup.isSsoFailoverEnabledFromConfig();
         return isSsoFailoverEnabled && webContainerAvailabilityEnabled;
@@ -3398,7 +3396,7 @@ public class WebContainer implements org.glassfish.api.container.Container, Post
      */
     private WebContainerFeatureFactory getWebContainerFeatureFactory() {
         String featureFactoryName =
-                    (serverConfigLookup.getWebContainerAvailabilityEnabledFromConfig() ? "ha" : "pe");
+                    (serverConfigLookup.calculateWebAvailabilityEnabledFromConfig() ? "ha" : "pe");
         return webContainerFeatureFactory = habitat.getComponent(
                     WebContainerFeatureFactory.class, featureFactoryName);
     }

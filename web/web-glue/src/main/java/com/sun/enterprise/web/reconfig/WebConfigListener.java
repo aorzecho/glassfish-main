@@ -39,8 +39,9 @@
  */
 
 package com.sun.enterprise.web.reconfig;
-                                                    
+
 import com.sun.enterprise.config.serverbeans.AccessLog;
+import com.sun.enterprise.config.serverbeans.AvailabilityService;
 import com.sun.enterprise.config.serverbeans.HttpService;
 import com.sun.enterprise.config.serverbeans.ManagerProperties;
 import com.sun.enterprise.config.serverbeans.SystemProperty;
@@ -119,14 +120,16 @@ public class WebConfigListener implements ConfigListener, MapperUpdateListener {
      */
     @Override
     public UnprocessedChangeEvents changed(PropertyChangeEvent[] events) {
-        return ConfigSupport.sortAndDispatch(events, new Changed() {         
+        return ConfigSupport.sortAndDispatch(events, new Changed() {
             @Override
             public <T extends ConfigBeanProxy> NotProcessed changed(TYPE type, Class<T> tClass, T t) {
                 if (logger.isLoggable(Level.FINE)) {
                     logger.fine("Web container config changed "+type+" "+tClass+" "+t);
                 }
                 try {
-                    if (tClass == NetworkListener.class) {
+                    if (tClass == HttpService.class) {
+                        container.updateHttpService((HttpService) t);
+                    } else if (tClass == NetworkListener.class) {
                         if (type==TYPE.ADD) {
                             container.addConnector((NetworkListener) t, httpService, true);
                         } else if (type==TYPE.REMOVE) {
@@ -147,7 +150,8 @@ public class WebConfigListener implements ConfigListener, MapperUpdateListener {
                         container.updateAccessLog(httpService);
                     } else if (tClass == ManagerProperties.class) {
                         return new NotProcessed("ManagerProperties requires restart");
-                    } else if (tClass == WebContainerAvailability.class) {
+                    } else if (tClass == WebContainerAvailability.class ||
+                            tClass == AvailabilityService.class) {
                         // container.updateHttpService handles SingleSignOn valve configuration
                         container.updateHttpService(httpService);
                     } else if (tClass == NetworkListeners.class) {
