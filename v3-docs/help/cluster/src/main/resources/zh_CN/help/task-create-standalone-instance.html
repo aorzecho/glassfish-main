@@ -1,11 +1,11 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-create-standalone-instance"></a><h4>创建独立 GlassFish Server 实例</h4><a name="indexterm-83"></a><a name="indexterm-84"></a><a name="indexterm-85"></a><p>GlassFish Server 实例构成了应用程序部署的基础。独立实例不是群集的成员。每个实例均属于一个域，并有自己的目录结构、配置和已部署的应用程序。每个实例也都包括 Java Platform, Enterprise Edition (Java EE) Web 容器和 Enterprise
+<a name="task-create-standalone-instance"></a><h3>创建独立 GlassFish Server 实例</h3><a name="indexterm-83"></a><a name="indexterm-84"></a><a name="indexterm-85"></a><p>GlassFish Server 实例构成了应用程序部署的基础。独立实例不是群集的成员。每个实例均属于一个域，并有自己的目录结构、配置和已部署的应用程序。每个实例也都包括 Java Platform, Enterprise Edition (Java EE) Web 容器和 Enterprise
 JavaBeans 技术（EJB 技术）容器。每个新实例必须包含对节点（该节点定义实例将驻留的主机）的引用。</p>
 
 
@@ -13,13 +13,16 @@ JavaBeans 技术（EJB 技术）容器。每个新实例必须包含对节点（
 
 
 <hr>
-<h6>开始之前</h6><p>确保<a href="task-createnode.html">实例要驻留的节点</a>存在。</p>
+<p><b>开始之前</b></p><p>确保<a href="task-createnode.html">实例要驻留的节点</a>存在。</p>
 
 <ol>
 <li><b>在导航树中，选择&#8220;独立实例&#8221;节点。</b><p>将打开&#8220;独立服务器实例&#8221;页面。</p></li>
 <li><b>在&#8220;独立服务器实例&#8221;页面上，单击&#8220;新建&#8221;。</b><p>此时将打开&#8220;新建独立服务器实例&#8221;页面。</p></li>
 <li><b>在&#8220;名称&#8221;字段中，键入实例的名称。</b><p>名称必须满足以下要求：</p>
-<ul><li><p>名称开头必须是字母、数字或下划线。</p>
+<ul><li><p>名称仅可以包含 ASCII 字符。 </p>
+
+</li>
+<li><p>名称开头必须是字母、数字或下划线。</p>
 
 </li>
 <li><p>名称只能包含以下字符：</p>
@@ -61,7 +64,7 @@ JavaBeans 技术（EJB 技术）容器。每个新实例必须包含对节点（
 <li><b>指定是否共享实例将使用的配置。</b><ul>
 <li><b>如果不共享配置，请保留&#8220;复制选定的配置&#8221;选项的选中状态。 </b><p>创建实例时会复制选定的配置。会为该配置的副本指定一个名称 <tt><i>instance-name</i>-config</tt>，其中 <i>instance-name</i> 是要创建的实例的名称。</p></li>
 <li><b>如果共享配置，请选择&#8220;引用选定的配置&#8221;选项。</b><p>该实例将使用指定的现有命名配置。</p></li></ul></li>
-<li><b>单击&#8220;确定&#8221;。</b></li></ol><h6>另请参见</h6>
+<li><b>单击&#8220;确定&#8221;。</b></li></ol><p></b>另请参见</b></p>
 <ul><li><p><a href="task-delete-standalone-instances.html">删除独立 GlassFish Server 实例</a></p>
 
 </li>
@@ -127,4 +130,4 @@ JavaBeans 技术（EJB 技术）容器。每个新实例必须包含对节点（
 </li></ul>
 
 
-<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

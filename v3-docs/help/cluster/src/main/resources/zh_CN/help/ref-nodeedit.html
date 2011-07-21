@@ -1,6 +1,6 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-nodeedit"></a><h4>编辑节点</h4>
@@ -51,10 +51,28 @@ Use is subject to License Terms  -->
 <dt>节点目录</dt>
 <dd><p>用于包含节点上创建的 GlassFish Server 实例的目录路径。如果指定相对路径，则该路径相对于 <i>as-install</i> 目录，其中 <i>as-install</i> 是主机上 GlassFish Server 软件的基本安装目录。</p>
 
+<p>如果该字段留空，则按如下所示更新节点的配置：</p>
+
+
+<ul><li><p>如果节点类型为 CONFIG，则在域管理服务器 (domain administration server, DAS) 配置中不会为节点指定任何实例目录。可在创建驻留在节点上的实例时确定节点目录。</p>
+
+</li>
+<li><p>如果节点类型为 SSH，则节点目录为 <tt></tt><i>as-install</i><tt>/nodes</tt>，其中 <i>as-install</i> 是主机上 GlassFish Server 软件的基本安装目录。</p>
+
+</li></ul>
 </dd>
 <dt>安装目录</dt>
 <dd><p>主机上 GlassFish Server 软件的基本安装目录的父目录的完整路径，例如，<tt>/export/glassfish3/</tt>。 </p>
 
+<p>如果该字段留空，则按如下所示更新节点的配置：</p>
+
+
+<ul><li><p>如果节点类型为 CONFIG，则在 DAS 配置中不会为节点指定任何安装目录。可在创建驻留在节点上的实例时确定安装目录。</p>
+
+</li>
+<li><p>如果节点类型为 SSH，则安装目录是 DAS 中 GlassFish Server 软件的默认基本安装目录的父目录。仅当 GlassFish Server 安装在所有主机上的同一个位置时，此设置才有用。</p>
+
+</li></ul>
 </dd>
 <dt>强制</dt>
 <dd><p>如果选择&#8220;已启用&#8221;选项，则即使节点参数验证失败，也会在域管理服务器 (domain administration server, DAS) 配置中更新节点。要验证节点的参数，DAS 必须能通过 SSH 联系节点的主机。</p>
@@ -155,4 +173,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
