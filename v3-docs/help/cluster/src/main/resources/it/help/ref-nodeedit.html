@@ -1,7 +1,7 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-nodeedit"></a><h4>Edit Node</h4>
 <a name="indexterm-198"></a><p>Nella pagina Edit Node &#232; possibile aggiornare i dati di configurazione di
@@ -56,10 +56,28 @@ valori predefiniti.</p>
 <dt>Node Directory</dt>
 <dd><p>Percorso della directory destinata a contenere le istanze di GlassFish Server create nel nodo. Se viene specificato un percorso relativo, il percorso si riferisce alla directory <i>as-install</i>, dove <i>as-install</i> &#232; la directory base di installazione del software GlassFish Server nell'host.</p>
 
+<p>Se il campo viene lasciato vuoto, la configurazione del nodo viene aggiornata come indicato di seguito:</p>
+
+
+<ul><li><p>Se il nodo &#232; di tipo CONFIG, per il nodo non viene specificata alcuna directory per le istanze nella configurazione del server di amministrazione del dominio (DAS, Domain Administration Server). La directory del nodo potr&#224; essere determinata al momento della creazione delle istanze che risiedono nel nodo.</p>
+
+</li>
+<li><p>Se il nodo &#232; di tipo SSH, la relativa directory sar&#224; <tt></tt><i>as-install</i><tt>/nodes</tt>, in cui <i>as-install</i> rappresenta la directory base di installazione del software GlassFish Server nell'host.</p>
+
+</li></ul>
 </dd>
 <dt>Installation Directory</dt>
 <dd><p>Percorso completo del livello superiore della directory base di installazione del software GlassFish Server nell'host, ad esempio <tt>/export/glassfish3/</tt>. </p>
 
+<p>Se il campo viene lasciato vuoto, la configurazione del nodo viene aggiornata come indicato di seguito:</p>
+
+
+<ul><li><p>Se il nodo &#232; di tipo CONFIG, per il nodo non viene specificata alcuna directory di installazione nella configurazione del DAS. La directory di installazione potr&#224; essere determinata al momento della creazione delle istanze che risiedono nel nodo.</p>
+
+</li>
+<li><p>Se il nodo &#232; di tipo SSH, la directory di installazione &#232; il livello superiore della directory base di installazione predefinita del software GlassFish Server per il DAS. Questa impostazione &#232; utile solo se GlassFish Server &#232; installato nello stesso percorso in tutti gli host.</p>
+
+</li></ul>
 </dd>
 <dt>Force</dt>
 <dd><p>Se viene selezionata l'opzione Enabled, il nodo viene aggiornato nella configurazione del server di amministrazione del dominio (DAS, Domain Administration Server) anche se la convalida dei parametri del nodo non riesce. Per convalidare i parametri di un nodo, il DAS deve poter contattare l'host del nodo tramite SSH. </p>
@@ -160,4 +178,4 @@ valori predefiniti.</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
