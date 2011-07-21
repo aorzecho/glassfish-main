@@ -1,7 +1,7 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-nodeedit"></a><h4>Knoten bearbeiten</h4>
 <a name="indexterm-198"></a><p>Auf der Seite "Knoten bearbeiten" k&#246;nnen Sie die Konfigurationsdaten eines GlassFish-Server-Knotens aktualisieren.
@@ -54,10 +54,28 @@ angewendet, wenn eines der folgenden Felder leer ist:</p>
 <dt>Knotenverzeichnis</dt>
 <dd><p>Der Pfad zu dem Verzeichnis, das die GlassFish-Server-Instanzen enthalten soll, die auf dem Knoten erstellt werden. Wenn ein relativer Pfad angegeben ist, ist der Pfad relativ zum Verzeichnis <i>as-install</i>. Dabei steht <i>as-install</i> f&#252;r das Basisinstallationsverzeichnis der GlassFish-Server-Software auf dem Host.</p>
 
+<p>Wird dieses Feld leer gelassen, wird die Konfiguration des Knotens wie folgt aktualisiert:</p>
+
+
+<ul><li><p>Wenn der Knotentyp KONFIGURATION ist, wird f&#252;r den Knoten in der Dom&#228;nenadministrationsserver (DAS)-Konfiguration kein Verzeichnis f&#252;r Instanzen angegeben. Das Knotenverzeichnis kann festgelegt werden, wenn die Instanzen erstellt werden, die sich auf dem Knoten befinden. </p>
+
+</li>
+<li><p>Beim Knotentyp SSH lautet das Knotenverzeichnis <tt></tt><i>as-install</i><tt>/nodes</tt>, wobei <i>as-install</i> das Basisinstallationsverzeichnis der GlassFish-Server-Software auf dem Host ist.</p>
+
+</li></ul>
 </dd>
 <dt>Installationsverzeichnis</dt>
 <dd><p>Der vollst&#228;ndige Pfad zum &#252;bergeordneten Verzeichnis des Basisinstallationsverzeichnis der GlassFish-Server-Software auf dem Host, zum Beispiel <tt>/export/glassfish3/</tt>. </p>
 
+<p>Wird dieses Feld leer gelassen, wird die Konfiguration des Knotens wie folgt aktualisiert:</p>
+
+
+<ul><li><p>Wenn der Knotentyp KONFIGURATION ist, wird f&#252;r den Knoten in der DAS-Konfiguration kein Installationsverzeichnis angegeben. Das Installationsverzeichnis kann festgelegt werden, wenn die Instanzen erstellt werden, die sich auf dem Knoten befinden. </p>
+
+</li>
+<li><p>Beim Knotentyp SSH ist das Installationsverzeichnis das &#252;bergeordnete Verzeichnis des Basisinstallationsverzeichnisses der GlassFish-Server-Software f&#252;r den DAS. Diese Einstellung ist nur dann von Nutzen, wenn GlassFish-Server auf allen Hosts am gleichen Speicherort installiert ist.</p>
+
+</li></ul>
 </dd>
 <dt>Erzwingen</dt>
 <dd><p>Wenn die Option "Aktiviert" ausgew&#228;hlt ist, wird der Knoten in der Konfiguration des Dom&#228;nenadministrationsservers (DAS, Domain Administration Server) aktualisiert, auch wenn die Validierung der Knotenparameter fehlschl&#228;gt. Um die Parameter eines Knotens zu validieren, muss der DAS f&#228;hig sein, den Host des Knotens &#252;ber SSH zu kontaktieren. </p>
@@ -158,4 +176,4 @@ angewendet, wenn eines der folgenden Felder leer ist:</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
