@@ -1,11 +1,11 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 
 
-<a name="task-jdbcconnectionpooladvance"></a><h4>Para editar atributos avanzados del conjunto de conexiones JDBC</h4><a name="indexterm-11"></a><ol>
+<a name="task-jdbcconnectionpooladvance"></a><h3>Para editar atributos avanzados del conjunto de conexiones JDBC</h3><a name="indexterm-11"></a><ol>
 <li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Recursos.</b></li>
 <li><b>En el nodo Recursos, seleccione el nodo JDBC.</b></li>
 <li><b>En el nodo JDBC, seleccione el nodo Conjuntos de conexiones.</b><p>Se abrir&#225; la p&#225;gina Conjuntos de conexiones.</p></li>
@@ -14,7 +14,7 @@ conjunto que desea editar.</b><p>Se abrir&#225; la p&#225;gina Editar conjunto d
 <li><b>En la p&#225;gina Editar conjunto de conexiones, haga clic en la ficha
 Avanzado.</b><p>Se abrir&#225; la p&#225;gina Editar atributos avanzados del conjunto de conexiones.</p></li>
 <li><b>En el campo Tiempo de espera de instrucci&#243;n, introduzca el periodo de
-tiempo, en segundos, tras el que finalizar&#225;n las consultas que duren demasiado.</b><p>GlassFish Server establecer&#225; <tt>QueryTimeout</tt> en las instrucciones creadas. Establezca el valor en
+tiempo, en segundos, tras el que finalizar&#225;n las consultas que duren demasiado.</b><p>Servidor GlassFish establecer&#225; <tt>QueryTimeout</tt> en las instrucciones creadas. Establezca el valor en
 -1 para deshabilitar esta opci&#243;n. El valor predeterminado es -1.</p></li>
 <li><b>En el campo Tama&#241;o de la cach&#233; de instrucci&#243;n, escriba el n&#250;mero
 de las instrucciones que almacenar en la memoria cach&#233; utilizando el mecanismo
@@ -85,9 +85,9 @@ es 0.</p></li>
 <li><b>Marque la casilla de verificaci&#243;n Validaci&#243;n de conexi&#243;n necesaria para habilitar la
 validaci&#243;n de la conexi&#243;n.</b><p>La validaci&#243;n de conexi&#243;n permite al servidor volver a conectarse en caso
 de error.</p></li>
-<li><b>En la lista desplegable M&#233;todo de validaci&#243;n, seleccione un m&#233;todo de validaci&#243;n.</b><p>GlassFish Server puede validar las conexiones de la base de datos de
+<li><b>En la lista desplegable M&#233;todo de validaci&#243;n, seleccione un m&#233;todo de validaci&#243;n.</b><p>Servidor GlassFish puede validar las conexiones de la base de datos de
 las siguientes maneras.</p><dl><dt><tt>auto-commit</tt> y <tt>metadata</tt></dt>
-<dd><p>GlassFish Server valida una conexi&#243;n llamando a los m&#233;todos <tt> con.getAutoCommit()</tt> y <tt>con.getMetaData()</tt>. </p>
+<dd><p>Servidor GlassFish valida una conexi&#243;n llamando a los m&#233;todos <tt> con.getAutoCommit()</tt> y <tt>con.getMetaData()</tt>. </p>
 
 
 <hr><p><b>Nota - </b>Muchos controladores JDBC guardan en la memoria cach&#233; los resultados de estas llamadas. Como resultado, al utilizar estas llamadas es posible que no siempre se obtengan validaciones fiables. Compruebe con el proveedor del controlador para determinar si estas llamadas est&#225;n guardadas en la memoria cach&#233; o no.</p>
@@ -96,7 +96,7 @@ las siguientes maneras.</p><dl><dt><tt>auto-commit</tt> y <tt>metadata</tt></dt>
 <hr>
 </dd>
 <dt><tt>custom-validation</tt></dt>
-<dd><p>GlassFish Server utiliza un mecanismo de validaci&#243;n definido por el usuario especificado en la clase de implementaci&#243;n personalizada, dentro del campo Nombre de clase de validaci&#243;n.</p>
+<dd><p>Servidor GlassFish utiliza un mecanismo de validaci&#243;n definido por el usuario especificado en la clase de implementaci&#243;n personalizada, dentro del campo Nombre de clase de validaci&#243;n.</p>
 
 </dd>
 <dt><tt>table</tt></dt>
@@ -109,7 +109,7 @@ las siguientes maneras.</p><dl><dt><tt>auto-commit</tt> y <tt>metadata</tt></dt>
 nombre de la tabla de base de datos en la lista desplegable
 Nombre de tabla.</b></li>
 <li><b>Si seleccion&#243; <tt>custom-validation</tt> en la lista desplegable M&#233;todo de validaci&#243;n, introduzca el
-nombre de clase de implementaci&#243;n de la validaci&#243;n personalizada.</b><p>El nombre de clase proporcionado debe ser accesible para GlassFish Server. La clase
+nombre de clase de implementaci&#243;n de la validaci&#243;n personalizada.</b><p>El nombre de clase proporcionado debe ser accesible para Servidor GlassFish. La clase
 especificada debe implementar la interfaz <tt>org.glassfish.api.jdbc.ConnectionValidation.</tt>  </p></li>
 <li><b>Marque la casilla de verificaci&#243;n Cerrar todas las conexiones ante cualquier fallo
 para cerrar el servidor y volver a establecer todas las conexiones en
@@ -130,11 +130,11 @@ bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
 
 
 <hr>
-</li></ol><h6>V&#233;ase tambi&#233;n</h6>
+</li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
 <ul><li><p><a href="task-setdbaccess.html">Para configurar el acceso a la base de datos</a></p>
 
 </li>
-<li><p><a href="task-integratejdbcdriver.html">Para integrar un controlador JDBC</a>.</p>
+<li><p><a href="task-integratejdbcdriver.html">Para integrar un controlador JDBC</a></p>
 
 </li>
 <li><p><a href="task-jdbcresourcenew.html">Para crear un recurso JDBC</a></p>
@@ -166,4 +166,4 @@ bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

@@ -1,7 +1,7 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-jdbcconnpooladvanceattrtab"></a><h4>Editar atributos avanzados del conjunto de conexiones</h4>
 <a name="indexterm-24"></a><p>Utilice la p&#225;gina Editar atributos avanzados del conjunto de conexiones para especificar
@@ -12,7 +12,7 @@ y facilitan el uso.</p>
 las siguientes opciones.</p>
 
 <dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer los valores predeterminados de toda la configuraci&#243;n.</p>
+<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
 
 </dd>
 <dt>Nombre de conjunto</dt>
@@ -20,7 +20,7 @@ las siguientes opciones.</p>
 
 </dd>
 <dt>Tiempo de espera de instrucci&#243;n</dt>
-<dd><p>La duraci&#243;n de tiempo, en segundos, tras los que se terminar&#225;n las consultas que se ejecuten anormalmente durante mucho tiempo. GlassFish Server establecer&#225; <tt>QueryTimeout</tt> en las instrucciones creadas. Un valor de -1 significa que la opci&#243;n est&#225; deshabilitada. El valor predeterminado es -1.</p>
+<dd><p>La duraci&#243;n de tiempo, en segundos, tras los que se terminar&#225;n las consultas que se ejecuten anormalmente durante mucho tiempo. Servidor GlassFish establecer&#225; <tt>QueryTimeout</tt> en las instrucciones creadas. Un valor de -1 significa que la opci&#243;n est&#225; deshabilitada. El valor predeterminado es -1.</p>
 
 </dd>
 <dt>Tama&#241;o de la cach&#233; de instrucci&#243;n</dt>
@@ -90,10 +90,10 @@ las siguientes opciones.</p>
 
 </dd>
 <dt>M&#233;todo de validaci&#243;n</dt>
-<dd><p>GlassFish Server puede validar las conexiones de la base de datos de las siguientes maneras.</p>
+<dd><p>Servidor GlassFish puede validar las conexiones de la base de datos de las siguientes maneras.</p>
 
 <dl><dt><tt>auto-commit</tt> y <tt>metadata</tt></dt>
-<dd><p>GlassFish Server valida una conexi&#243;n invocando los m&#233;todos <tt>con.getAutoCommit</tt> o <tt>con.getMetaData</tt>. </p>
+<dd><p>Servidor GlassFish valida una conexi&#243;n invocando los m&#233;todos <tt>con.getAutoCommit</tt> o <tt>con.getMetaData</tt>. </p>
 
 
 <hr><p><b>Nota - </b>Muchos controladores JDBC guardan en la memoria cach&#233; los resultados de estas llamadas. Como resultado, al utilizar estas llamadas es posible que no siempre se obtengan validaciones fiables. Compruebe con el proveedor del controlador para determinar si estas llamadas est&#225;n guardadas en la memoria cach&#233; o no.</p>
@@ -102,7 +102,7 @@ las siguientes opciones.</p>
 <hr>
 </dd>
 <dt><tt>custom-validation</tt></dt>
-<dd><p>GlassFish Server utiliza un mecanismo de validaci&#243;n definido por el usuario especificado en la clase de implementaci&#243;n personalizada, dentro del campo Nombre de clase de validaci&#243;n.</p>
+<dd><p>Servidor GlassFish utiliza un mecanismo de validaci&#243;n definido por el usuario especificado en la clase de implementaci&#243;n personalizada, dentro del campo Nombre de clase de validaci&#243;n.</p>
 
 </dd>
 <dt><tt>table</tt></dt>
@@ -116,11 +116,11 @@ las siguientes opciones.</p>
 
 </dd>
 <dt>Nombre de clase de validaci&#243;n</dt>
-<dd><p>El nombre de clase de implementaci&#243;n de la validaci&#243;n personalizada. Este campo es aplicable s&#243;lo si el m&#233;todo de validaci&#243;n se defini&#243; como <tt>custom-validation</tt>. El nombre de clase proporcionado debe ser accesible para GlassFish Server. La clase especificada debe implementar la interfaz <tt>org.glassfish.api.jdbc.ConnectionValidation.</tt> </p>
+<dd><p>El nombre de clase de implementaci&#243;n de la validaci&#243;n personalizada. Este campo es aplicable s&#243;lo si el m&#233;todo de validaci&#243;n se defini&#243; como <tt>custom-validation</tt>. El nombre de clase proporcionado debe ser accesible para Servidor GlassFish. La clase especificada debe implementar la interfaz <tt>org.glassfish.api.jdbc.ConnectionValidation.</tt> </p>
 
 </dd>
 <dt>Con cualquier fallo</dt>
-<dd><p>Si esta opci&#243;n est&#225; habilitada, GlassFish Server cierra todas las conexiones del conjunto y las restablece cuando falla cualquier conexi&#243;n. Si esta opci&#243;n est&#225; deshabilitada, las conexiones individuales s&#243;lo se restablecer&#225;n cuando se utilicen. Esta opci&#243;n se deshabilita por defecto.</p>
+<dd><p>Si esta opci&#243;n est&#225; habilitada, Servidor GlassFish cierra todas las conexiones del conjunto y las restablece cuando falla cualquier conexi&#243;n. Si esta opci&#243;n est&#225; deshabilitada, las conexiones individuales s&#243;lo se restablecer&#225;n cuando se utilicen. Esta opci&#243;n se deshabilita por defecto.</p>
 
 </dd>
 <dt>Permitir llamadores que no sean de componentes</dt>
@@ -179,4 +179,4 @@ las siguientes opciones.</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
