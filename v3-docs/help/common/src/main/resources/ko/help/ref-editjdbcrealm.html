@@ -1,12 +1,12 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-editjdbcrealm"></a><h4><tt>JDBCRealm</tt> 클래스와 관련된 등록 정보</h4>
-<a name="indexterm-206"></a><a name="indexterm-207"></a><p>웹 페이지 또는 웹 응용 프로그램을 보호하려면 등록된 사용자만 액세스할 수 있도록
+<a name="indexterm-207"></a><a name="indexterm-208"></a><p>웹 페이지 또는 웹 응용 프로그램을 보호하려면 등록된 사용자만 액세스할 수 있도록
 보안을 설정할 수 있습니다. 이 기능을 인증 기능이라고 합니다. 이 영역 유형은
-데이터베이스에 사용자 자격 증명을 저장하는 것과 관련됩니다. GlassFish 서버는 구성 파일에서 데이터베이스
+데이터베이스에 사용자 자격 증명을 저장하는 것과 관련됩니다. GlassFish Server는 구성 파일에서 데이터베이스
 정보 및 활성화된 JDBC 영역 옵션을 사용합니다.</p>
 
 <p>JDBC 영역의 경우 다음 등록 정보가 필요합니다.</p>
@@ -58,11 +58,11 @@ Use is subject to License Terms  -->
 <dd><p>(선택 사항) 다이제스트 알고리즘을 지정합니다. 기본값은 <tt>SHA-256</tt>입니다. JDK에서 지원되는 알고리즘이나 none을 사용할 수 있습니다.</p>
 
 
-<hr><p><b>주 - </b>GlassFish 서버 3.1 이전 버전에서 기본 알고리즘은 <tt>MD5</tt>입니다. <tt>MD5</tt> 알고리즘을 사용하는 응용 프로그램이 있을 경우 <tt>asadmin set</tt> 하위 명령을 사용하여 기본 <tt>SHA-25</tt> 알고리즘을 대체할 수 있습니다.</p>
+<hr><p><b>주 - </b>GlassFish Server 3.1 이전 버전에서 기본 알고리즘은 <tt>MD5</tt>입니다. <tt>MD5</tt> 알고리즘을 사용하는 응용 프로그램이 있을 경우 <tt>asadmin set</tt> 하위 명령을 사용하여 기본 <tt>SHA-25</tt> 알고리즘을 대체할 수 있습니다.</p>
 
 <pre>asadmin> <tt><b>set server.security-service.property.default-digest-algorithm=MD5</b></tt></pre><p><tt>asadmin get</tt> 하위 명령을 사용하여 현재 사용 중인 알고리즘을 확인할 수 있습니다.</p>
 
-<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>또한, 역호환성을 유지하기 위해 GlassFish 서버 v2.<i>x</i>나 v3.0.<i> x</i>에서 GlassFish 서버 3.1로 업그레이드를 수행하면 다이제스트 알고리즘이 기존 GlassFish 서버 버전에서 명시적으로 설정되지 않은 경우 기본 알고리즘은 자동으로 <tt>MD5</tt>로 설정됩니다.</p>
+<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>또한, 역호환성을 유지하기 위해 GlassFish Server v2.<i>x</i>나 v3.0.<i> x</i>에서 GlassFish Server 3.1로 업그레이드를 수행하면 다이제스트 알고리즘이 기존 GlassFish Server 버전에서 명시적으로 설정되지 않은 경우 기본 알고리즘은 자동으로 <tt>MD5</tt>로 설정됩니다.</p>
 
 
 <hr>
@@ -78,4 +78,4 @@ Use is subject to License Terms  -->
 </dl>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
