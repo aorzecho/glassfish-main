@@ -1,33 +1,60 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-jmsavailability"></a><h4>Disponibilidade de JMS</h4>
-<a name="indexterm-27"></a><a name="indexterm-28"></a><p>Utilize a p&#225;gina Disponibilidade de JMS para definir as configura&#231;&#245;es de disponibilidade
+<a name="indexterm-41"></a><a name="indexterm-42"></a><p>Utilize a p&#225;gina Disponibilidade de JMS para definir as configura&#231;&#245;es de disponibilidade
 do Java Message Service (JMS).</p>
 
 <p>A p&#225;gina Disponibilidade de JMS cont&#233;m as op&#231;&#245;es a seguir.</p>
 
 <dl><dt>Carregar padr&#245;es</dt>
-<dd><p>Bot&#227;o para restaurar os valores padr&#227;o de todas as configura&#231;&#245;es.</p>
+<dd><p>Bot&#227;o para restaurar com os valores padr&#227;o as configura&#231;&#245;es que apresentam valores padr&#227;o. As configura&#231;&#245;es que n&#227;o apresentam valores padr&#227;o n&#227;o s&#227;o alteradas.</p>
 
 </dd>
-<dt>Nome da configura&#231;&#227;o</dt>
-<dd><p>Nome da configura&#231;&#227;o ao qual as configura&#231;&#245;es desta p&#225;gina ser&#227;o enviadas. Este campo &#233; de somente leitura.</p>
+<dt>Configuration Name</dt>
+<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
 
 </dd>
 <dt>Servi&#231;o de disponibilidade</dt>
-<dd><p>Se a caixa de sele&#231;&#227;o Ativo estiver marcada, a disponibilidade est&#225; ativada para o JMS.</p>
+<dd><p>Tipo de cluster da Fila de mensagens utilizado para fornecer servi&#231;os JMS a um cluster GlassFish. Se a caixa de sele&#231;&#227;o Habilitado estiver marcada, &#233; utilizado um cluster Message Queue aprimorado. Do contr&#225;rio, &#233; utilizado um cluster Message Queue convencional.</p>
+
+<p>Se a caixa de sele&#231;&#227;o Habilitado estiver marcada, as op&#231;&#245;es Tipo de armazenamento da configura&#231;&#227;o e Tipo de armazenamento da mensagem s&#227;o ignoradas.</p>
 
 </dd>
-<dt>Nome do grupo de armazenamento de MQ</dt>
-<dd><p>Nome JNDI do recurso JDBC que o cluster do broker de Fila de mensagens do GlassFish deve utilizar ao salvar mensagens JMS persistentes e outras informa&#231;&#245;es de configura&#231;&#227;o do broker.</p>
+<dt>Tipo de armazenamento da configura&#231;&#227;o</dt>
+<dd><p>O tipo de armazenador de dados para os dados de configura&#231;&#227;o em um cluster Message Queue convencional. O valor <tt>masterbroker</tt> especifica o uso de um broker master para armazenar e gerenciar os dados da configura&#231;&#227;o. O valor <tt>shareddb </tt> especifica o uso de um banco de dados compartilhado para armazenar os dados de configura&#231;&#227;o.</p>
 
-<p>O nome do conjunto pode conter somente, n&#250;meros ou os caracteres sublinhado (_), h&#237;fen (-) ou ponto (.).</p>
+<p>Esta op&#231;&#227;o &#233; ignorada se o Servi&#231;o de disponibilidade estiver habilitado.</p>
 
 </dd>
-<dt>Propriedades adicionais</dt>
+<dt>Tipo de armazenamento da mensagem</dt>
+<dd><p>O tipo de armazenador de dados para os dados de mensagens em um cluster convencional. O valor <tt>file</tt> especifica um armazenador de arquivos. O valor <tt> jdbc</tt> especifica um armazenador JDBC.</p>
+
+<p>Esta op&#231;&#227;o &#233; ignorada se o Servi&#231;o de disponibilidade estiver habilitado.</p>
+
+</dd>
+<dt>Fornecedor do banco de dados</dt>
+<dt>Nome de usu&#225;rio do banco de dados</dt>
+<dt>Senha do banco de dados</dt>
+<dt>URL de acesso do banco de dados</dt>
+<dd><p>O fornecedor do banco de dados, o usu&#225;rio, a senha e o URL de acesso do banco de dados JDBC a ser usado em qualquer uma dessas situa&#231;&#245;es:</p>
+
+
+<ul><li><p>Quando o Servi&#231;o de disponibilidade estiver habilitado</p>
+
+</li>
+<li><p>Quando o Tipo de armazenamento da configura&#231;&#227;o estiver definido como <tt>shareddb</tt></p>
+
+</li>
+<li><p>Quando o Tipo de armazenamento da mensagem estiver definido como <tt>jdbc</tt></p>
+
+</li></ul>
+<p>Para obter informa&#231;&#245;es sobre os fornecedores suportados e os formatos de URL de acesso para cada fornecedor, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=gheaz">JDBC-Based Persistence no <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide </i></a>.</p>
+
+</dd>
+<dt>Propriedades Adicionais</dt>
 <dd><p>Propriedades adicionais da disponibilidade do JMS.</p>
 
 <p>O Servidor GlassFish n&#227;o define propriedades adicionais da disponibilidade do JMS.</p>
@@ -41,4 +68,4 @@ do Java Message Service (JMS).</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
