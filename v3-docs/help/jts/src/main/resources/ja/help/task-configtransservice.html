@@ -1,11 +1,11 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-configtransservice"></a><h4>トランザクションサービスを設定する</h4><a name="indexterm-1"></a><ol>
+<a name="task-configtransservice"></a><h3>トランザクションサービスを設定する</h3><a name="indexterm-1"></a><ol>
 <li><b>ナビゲーションツリーで、「設定」ノードを展開します。</b></li>
 <li><b>設定するインスタンスを選択します。</b><ul>
 <li><b>特定のインスタンスを設定するには、そのインスタンスの設定ノードを選択します。たとえば、デフォルトインスタンス <tt>server</tt> の場合は、<tt>server-config</tt> ノードを選択します。</b></li>
@@ -13,8 +13,8 @@ Use is subject to License Terms  -->
 <li><b>「トランザクションサービス」ノードを選択します。</b><p>「トランザクションサービス」ページが開きます。</p></li>
 <li><b>「トランザクションサービス」ページの「再起動時」の「有効」チェックボックスをオンにして、サーバーの再起動時に未完了のトランザクションを回復できるようにします。 </b><p>このオプションは、デフォルトでは無効になっています。</p></li>
 <li><b>「トランザクションタイムアウト」フィールドで、完了していないトランザクションをロールバックするまでにサーバーが待機する秒数を入力してください。</b><p>値として 0 を入力すると、トランザクションのタイムアウトが無効になります。デフォルト値は 0 です。これは、サーバーがトランザクションが完了するまで無期限に待機するという意味です。</p></li>
-<li><b>「再試行タイムアウト」フィールドに、GlassFish サーバー が到達不可能なサーバーへの接続を試行する秒数を入力します。</b><p>デフォルト値は 600 (10 分) です。</p></li>
-<li><b>「トランザクションログの位置」フィールドで、サーバーのログを保持するディレクトリを入力してください。</b><p>トランザクションログは、このフィールドで指定したディレクトリの <tt>tx</tt> サブディレクトリに保存されます。デフォルト値は「ドメイン属性」ページの「ログルート」フィールドで指定されたディレクトリです。このページは GlassFish サーバー ノードの「詳細」タブの下にあります。</p></li>
+<li><b>「再試行タイムアウト」フィールドに、GlassFish Server が到達不可能なサーバーへの接続を試行する秒数を入力します。</b><p>デフォルト値は 600 (10 分) です。</p></li>
+<li><b>「トランザクションログの位置」フィールドで、サーバーのログを保持するディレクトリを入力してください。</b><p>トランザクションログは、このフィールドで指定したディレクトリの <tt>tx</tt> サブディレクトリに保存されます。デフォルト値は「ドメイン属性」ページの「ログルート」フィールドで指定されたディレクトリです。このページは GlassFish Server ノードの「詳細」タブの下にあります。</p></li>
 <li><b>「特殊な結果判別」のドロップダウンリストから、ほかの参加者が到達可能でないために分散トランザクションの結果を決定できない場合は、従うべきポリシーを選択してください。</b><p>「コミット」を選択する正当な理由がない限り、「特殊な結果判別」は「ロールバック」のままにしてください (デフォルト)。未確定なトランザクションのコミットは、アプリケーションのデータの整合性を損なう可能性があります。</p></li>
 <li><b>「キーポイント間隔」フィールドに、キーポイント操作間のトランザクション数を入力します。</b><p>キーポイント操作によってトランザクションログファイルが圧縮されます。デフォルト値は 65,536 です。</p></li>
 <li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>利用可能なプロパティーの説明は、<a href="ref-transactionsvcproperties.html">「トランザクションサービスに固有のプロパティー」</a>を参照してください。</p><ul>
@@ -27,8 +27,8 @@ Use is subject to License Terms  -->
 
 <hr>
 </li>
-<li><b>GlassFish サーバー を再起動します。</b></li></ol><h6>参照</h6>
-<ul><li><p><a href="task-configtransrecovery.html">「GlassFish サーバー によるトランザクションの復元方法を設定する」</a></p>
+<li><b>GlassFish Server を再起動します。</b></li></ol><p></b>参照</b></p>
+<ul><li><p><a href="task-configtransrecovery.html">「GlassFish Server によるトランザクションの復元方法を設定する」</a></p>
 
 </li>
 <li><p><a href="task-settranstimeout.html">「トランザクションタイムアウト値を設定する」</a></p>
@@ -42,4 +42,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
