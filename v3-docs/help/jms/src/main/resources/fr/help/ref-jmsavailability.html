@@ -1,30 +1,57 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-jmsavailability"></a><h4>Disponibilit&#233; JMS</h4>
-<a name="indexterm-27"></a><a name="indexterm-28"></a><p>Utilisez la page Disponibilit&#233; JMS pour configurer les param&#232;tres de disponibilit&#233; du
+<a name="indexterm-41"></a><a name="indexterm-42"></a><p>Utilisez la page Disponibilit&#233; JMS pour configurer les param&#232;tres de disponibilit&#233; du
 service JMS (Java Message Service).  </p>
 
 <p>La page Disponibilit&#233; JMS contient les options suivantes.</p>
 
 <dl><dt>Restaurer les valeurs par d&#233;faut</dt>
-<dd><p>Bouton permettant de restaurer les valeurs par d&#233;faut de tous les param&#232;tres.</p>
+<dd><p>Bouton de restauration des valeurs par d&#233;faut des param&#232;tres qui ont des valeurs par d&#233;faut. Les param&#232;tres qui n'ont pas de valeurs par d&#233;faut ne sont pas modifi&#233;s.</p>
 
 </dd>
-<dt>Nom de configuration</dt>
-<dd><p>Le nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
+<dt>Nom de la configuration</dt>
+<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
 
 </dd>
 <dt>Service de disponibilit&#233;</dt>
-<dd><p>Si la case Activ&#233; est coch&#233;e, la disponibilit&#233; est activ&#233;e pour JMS.</p>
+<dd><p>Type de cluster Message Queue fournissant des services JMS &#224; un cluster GlassFish. Si la case Activ&#233; est coch&#233;e, un cluster Message Queue am&#233;lior&#233; est utilis&#233;. Dans le cas contraire, un cluster Message Queue conventionnel est utilis&#233;. </p>
+
+<p>Si la case Activ&#233; est coch&#233;e, les options Type de magasin de configurations et Type de m&#233;moire de messages ne sont pas prises en compte. </p>
 
 </dd>
-<dt>Nom du pool de stockage MQ</dt>
-<dd><p>Nom JNDI de la ressource JDBC que le cluster du courtier GlassFish Message Queue doit utiliser lors de l'enregistrement des messages JMS persistants et d'autres informations de configuration du courtier.</p>
+<dt>Type de magasin de configurations</dt>
+<dd><p>Type de magasin de donn&#233;es pour les donn&#233;es de configuration dans un cluster Message Queue conventionnel. La valeur <tt>masterbroker</tt> indique l'utilisation d'un courtier principal permettant de stocker et de g&#233;rer les donn&#233;es de configuration. La valeur <tt>shareddb </tt> indique l'utilisation d'une base de donn&#233;es partag&#233;e permettant de stocker les donn&#233;es de configuration. </p>
 
-<p>Le nom du pool ne peut contenir que des lettres, des chiffres, des traits de soulignement (_), des tirets (-) ou des points (.).</p>
+<p>Cette option est ignor&#233;e si Service de disponibilit&#233; est activ&#233;.</p>
+
+</dd>
+<dt>Type de m&#233;moire de messages</dt>
+<dd><p>Type de magasin de donn&#233;es pour des donn&#233;es de message de courtiers d'un cluster conventionnel. La valeur <tt>file</tt> indique un magasin de fichiers. La valeur <tt> jdbc</tt> indique un magasin JDBC. </p>
+
+<p>Cette option est ignor&#233;e si Service de disponibilit&#233; est activ&#233;.</p>
+
+</dd>
+<dt>Fournisseur de bases de donn&#233;es</dt>
+<dt>Nom d'utilisateur de base de donn&#233;es</dt>
+<dt>Mot de passe de la base de donn&#233;es</dt>
+<dt>URL d'acc&#232;s de base de donn&#233;es</dt>
+<dd><p>Le fournisseur, l'utilisateur, le mot de passe et l'URL d'acc&#232;s de la base de donn&#233;es JDBC &#224; utiliser dans les situations suivantes&#160;:</p>
+
+
+<ul><li><p>Lorsque le service de disponibilit&#233; est activ&#233;. </p>
+
+</li>
+<li><p>Lorsque Type de magasin de configurations est d&#233;fini sur <tt>shareddb</tt>.</p>
+
+</li>
+<li><p>Lorsque Type de m&#233;moire de messages est d&#233;fini sur <tt>jdbc</tt>.</p>
+
+</li></ul>
+<p>Pour de plus amples informations sur les fournisseurs pris en charge et sur les formats des URL d'acc&#232;s de chaque fournisseur, reportez-vous &#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=gheaz">JDBC-Based Persistence du <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide</i></a>.</p>
 
 </dd>
 <dt>Autres propri&#233;t&#233;s</dt>
@@ -41,4 +68,4 @@ service JMS (Java Message Service).  </p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
