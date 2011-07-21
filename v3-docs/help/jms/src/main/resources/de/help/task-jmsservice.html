@@ -1,17 +1,17 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 
 
-<a name="task-jmsservice"></a><h4>So konfigurieren Sie den JMS-Dienst</h4><a name="indexterm-13"></a><p>Auf der Seite "JMS-Dienst" k&#246;nnen Sie Einstellungen konfigurieren, die von allen JMS-Verbindungen
+<a name="task-jmsservice"></a><h3>So konfigurieren Sie den JMS-Dienst</h3><a name="indexterm-13"></a><p>Auf der Seite "JMS-Dienst" k&#246;nnen Sie Einstellungen konfigurieren, die von allen JMS-Verbindungen
 verwendet werden sollen.</p>
 
-<p>Weitere Informationen zum Konfigurieren des JMS-Dienstes finden Sie in <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob">Kapitel 17, Using the Java Message Service in <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p>
+<p>Weitere Informationen zum Konfigurieren des JMS-Dienstes finden Sie in <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob">Kapitel 16, Using the Java Message Service in <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p>
 
 <ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
+<li><b>Erweitern Sie in der Navigationsstruktur den Knoten "Konfiguration".</b></li>
 <li><b>W&#228;hlen Sie unter dem Konfigurationsknoten den Knoten "Java Message Service" aus.</b><p>Die Seite "JMS-Dienst" wird ge&#246;ffnet.</p></li>
 <li><b>In der Dropdown-Liste "Typ":</b><ul>
 <li><b>W&#228;hlen Sie EMBEDDED, um auf den JMS-Dienst auf dem lokalen Host zuzugreifen.</b><p>Der JMS-Dienst wird in derselben JVM gestartet wie GlassFish-Server. Bei tr&#228;ger Initialisierung
@@ -21,7 +21,7 @@ Zugriff auf JMS-Dienste gestartet. Dies ist der standardm&#228;&#223;ige JMS-Die
 <li><b>W&#228;hlen Sie REMOTE, um auf den JMS-Dienst auf einem anderen System zuzugreifen.</b><p>Bei Auswahl von REMOTE wird der JMS-Dienst beim n&#228;chsten Serverstart nicht durch
 GlassFish-Server gestartet. Stattdessen wird der JMS-Dienst &#252;ber Message Queue gestartet und verwaltet,
 sodass der Message Queue-Broker separat gestartet werden muss. Weitere Informationen zum Starten
-des Brokers finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby">Starting Brokers in <i>Oracle GlassFish Message Queue 4.5 Administration Guide</i></a>. Wenn Sie diesen Wert w&#228;hlen und
+des Brokers finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby">Starting Brokers in <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide</i></a>. Wenn Sie diesen Wert w&#228;hlen und
 einen Remotehost verwenden, befolgen Sie die Anweisungen unter <a href="task-jmshostedit.html">So bearbeiten Sie einen JMS-Host</a>, um den Namen
 des Remotehosts anzugeben.</p></li></ul></li>
 <li><b>Geben Sie im Feld "Zeit&#252;berschreitung beim Starten" die Anzahl Sekunden ein, die
@@ -76,14 +76,14 @@ und anschlie&#223;end auf "Speichern".</p>
 
 
 <hr>
-</li></ol><h6>Weitere Informationen:<br>Zugreifen auf Remoteserver</h6><p>Wenn Sie Provider und Host in ein Remotesystem &#228;ndern, werden alle JMS-Anwendungen
+</li></ol><p><b>Weitere Informationen:<br>Zugreifen auf Remoteserver</b></p><p>Wenn Sie Provider und Host in ein Remotesystem &#228;ndern, werden alle JMS-Anwendungen
 auf dem Remoteserver ausgef&#252;hrt. Um sowohl den lokalen Server als auch einen
 oder mehrere Remoteserver zu verwenden, erstellen Sie eine Verbindungsfactory-Ressource mit der Eigenschaft
 <tt>AddressList</tt> zum Herstellen von Verbindungen f&#252;r den Zugriff auf Remoteserver. Siehe <a href="task-jmsconnectionnew.html">So erstellen Sie eine JMS-Verbindungsfactory-Ressource</a>.</p>
 
-&#196;quivalenter asadmin-Befehl:</h6><p><tt>jms-ping</tt></p>
+&#196;quivalenter asadmin-Befehl:</b></p><p><tt>jms-ping</tt></p>
 
-<h6>Siehe auch</h6>
+<p></b>Siehe auch</b></p>
 <ul><li><p><a href="task-jmshostnew.html">So erstellen Sie einen JMS-Host</a></p>
 
 </li>
@@ -110,4 +110,4 @@ oder mehrere Remoteserver zu verwenden, erstellen Sie eine Verbindungsfactory-Re
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>

@@ -1,30 +1,57 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-jmsavailability"></a><h4>JMS-Verf&#252;gbarkeit</h4>
-<a name="indexterm-27"></a><a name="indexterm-28"></a><p>Auf der Seite "JMS-Verf&#252;gbarkeit" k&#246;nnen Sie Verf&#252;gbarkeitseinstellungen f&#252;r den Java Message Service
+<a name="indexterm-41"></a><a name="indexterm-42"></a><p>Auf der Seite "JMS-Verf&#252;gbarkeit" k&#246;nnen Sie Verf&#252;gbarkeitseinstellungen f&#252;r den Java Message Service
 (JMS) konfigurieren.</p>
 
 <p>Die Seite "JMS-Verf&#252;gbarkeit" enth&#228;lt die folgenden Optionen.</p>
 
 <dl><dt>Standardeinstellungen laden</dt>
-<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r alle Einstellungen.</p>
+<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r Einstellungen, f&#252;r die es Standardwerte gibt. Einstellungen, die nicht &#252;ber Standardwerte verf&#252;gen, k&#246;nnen nicht ge&#228;ndert werden.</p>
 
 </dd>
-<dt>Konfigurationsname</dt>
+<dt>Name der Konfiguration</dt>
 <dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
 
 </dd>
 <dt>Verf&#252;gbarkeitsdienst</dt>
-<dd><p>Wenn das Kontrollk&#228;stchen "Aktiviert" aktiviert ist, wird die Verf&#252;gbarkeit f&#252;r den JMS-Dienst aktiviert.</p>
+<dd><p>Der Typ von Nachrichtenwarteschlangen-Cluster, der zur Bereitstellung von JMS-Diensten f&#252;r einen GlassFish-Cluster verwendet wird. Ist das Kontrollk&#228;stchen der Option "Aktiviert" aktiviert, wird ein erweiterter Message Queue-Cluster verwendet. Anderenfalls wird ein konventioneller Message Queue-Cluster verwendet.</p>
+
+<p>Ist das Kontrollk&#228;stchen der Option "Aktiviert" aktiviert, werden die Optionen "Konfigurationsspeichertyp" und "Nachrichtenspeichertyp" ignoriert.</p>
 
 </dd>
-<dt>MQ-Speicherpoolname</dt>
-<dd><p>Der JNDI-Name der JDBC-Ressource, die vom MQ-Broker-Cluster beim Speichern von persistenten JMS-Meldungen und anderen Informationen zur Broker-Konfiguration verwendet wird.</p>
+<dt>Konfigurationsspeichertyp</dt>
+<dd><p>Der Datenspeichertyp f&#252;r Konfigurationsdaten in einem konventionellen Message Queue-Cluster. Der Wert <tt>masterbroker</tt> gibt die Verwendung eines Master-Brokers f&#252;r die Speicherung und Verwaltung der Konfigurationsdaten an. Der Wert <tt>shareddb</tt> gibt die Verwendung einer gemeinsamen Datenbank f&#252;r die Speicherung der Konfigurationsdaten an.</p>
 
-<p>Der Poolname darf nur Buchstaben, Ziffern oder Unterstriche (_), Bindestriche (-) oder Punkte (.) enthalten .</p>
+<p>Diese Option wird ignoriert, wenn der Verf&#252;gbarkeitsdienst aktiviert ist.</p>
+
+</dd>
+<dt>Nachrichtenspeichertyp</dt>
+<dd><p>Der Datenspeichertyp f&#252;r Nachrichtendaten in Brokern eines konventionellen Clusters. Der Wert <tt>file</tt> gibt einen Datenspeicher an. Der Wert <tt>jdbc</tt> gibt einen JDBC-Speicher an.</p>
+
+<p>Diese Option wird ignoriert, wenn der Verf&#252;gbarkeitsdienst aktiviert ist.</p>
+
+</dd>
+<dt>Datenbankhersteller</dt>
+<dt>Datenbankbenutzername</dt>
+<dt>Datenbankpasswort</dt>
+<dt>Datenbankzugriffs-URL</dt>
+<dd><p>Hersteller, Benutzer, Passwort und Zugriffs-URL der JDBC-Datenbank f&#252;r die Verwendung in folgenden F&#228;llen:</p>
+
+
+<ul><li><p>Wenn der Verf&#252;gbarkeitsdienst aktiviert ist</p>
+
+</li>
+<li><p>Wenn der Konfigurationsspeichertyp auf <tt>shareddb</tt> eingestellt ist</p>
+
+</li>
+<li><p>Wenn der Nachrichtenspeichertyp auf <tt>jdbc</tt> eingestellt ist</p>
+
+</li></ul>
+<p>Weitere Informationen zu unterst&#252;tzten Herstellern und den Zugriffs-URL-Formaten der jeweiligen Hersteller finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=gheaz">JDBC-Based Persistence in <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide</i></a>.</p>
 
 </dd>
 <dt>Weitere Eigenschaften</dt>
@@ -41,4 +68,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
