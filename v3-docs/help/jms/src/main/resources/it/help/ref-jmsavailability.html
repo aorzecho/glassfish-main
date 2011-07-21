@@ -1,30 +1,57 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-jmsavailability"></a><h4>Disponibilit&#224; JMS</h4>
-<a name="indexterm-27"></a><a name="indexterm-28"></a><p>Nella pagina JMS Availability &#232; possibile configurare le impostazioni di disponibilit&#224; per
+<a name="indexterm-41"></a><a name="indexterm-42"></a><p>Nella pagina JMS Availability &#232; possibile configurare le impostazioni di disponibilit&#224; per
 il servizio JMS (Java Message Service).</p>
 
 <p>La pagina JMS Availability contiene le seguenti opzioni.</p>
 
 <dl><dt>Load Defaults</dt>
-<dd><p>Pulsante che consente di ripristinare i valori predefiniti di tutte le impostazioni.</p>
+<dd><p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
 
 </dd>
 <dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui si applicano le impostazioni visualizzate nella pagina. Campo di sola lettura.</p>
+<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
 
 </dd>
 <dt>Availability Service</dt>
-<dd><p>Se &#232; selezionata la casella di controllo Enabled, la disponibilit&#224; &#232; abilitata per JMS.</p>
+<dd><p>Tipo di cluster Message Queue utilizzato per fornire servizi JMS a un cluster GlassFish. Se &#232; selezionata la casella di controllo Enabled, viene utilizzato un cluster Message Queue ottimizzato. In caso contrario, viene utilizzato un cluster Message Queue tradizionale.</p>
+
+<p>Se &#232; selezionata la casella di controllo Enabled, le opzioni Configuration Store Type e Message Store Type vengono ignorate.</p>
 
 </dd>
-<dt>MQ Store Pool Name</dt>
-<dd><p>Nome JNDI della risorsa JDBC che il cluster del broker GlassFish Message Queue deve utilizzare per il salvataggio di messaggi JMS persistenti e di altre informazioni sulla configurazione del broker.</p>
+<dt>Configuration Store Type</dt>
+<dd><p>Tipo di archivio dati per i dati di configurazione in un cluster Message Queue tradizionale. Il valore <tt>masterbroker</tt> specifica l'utilizzo di un broker principale per archiviare e gestire i dati di configurazione. Il valore <tt>shareddb </tt> specifica l'utilizzo di un database condiviso per archiviare i dati di configurazione.</p>
 
-<p>Il nome del pool pu&#242; contenere solo lettere, numeri, caratteri di sottolineatura (_), trattini (-) e punti (.) .</p>
+<p>Se il servizio di disponibilit&#224; &#232; abilitato, l'opzione viene ignorata.</p>
+
+</dd>
+<dt>Message Store Type</dt>
+<dd><p>Tipo di archivio dati per i dati del messaggio nei broker in un cluster tradizionale. Il valore <tt>file</tt> specifica un archivio file. Il valore <tt> jdbc</tt> specifica un archivio JDBC.</p>
+
+<p>Se il servizio di disponibilit&#224; &#232; abilitato, l'opzione viene ignorata.</p>
+
+</dd>
+<dt>Database Vendor</dt>
+<dt>Database User Name</dt>
+<dt>Database Password</dt>
+<dt>Database Access URL</dt>
+<dd><p>Produttore, utente, password e URL di accesso del database JDBC da utilizzare in ognuna delle situazioni seguenti:</p>
+
+
+<ul><li><p>Quando il servizio di disponibilit&#224; &#232; abilitato</p>
+
+</li>
+<li><p>Quando Configuration Store Type &#232; impostato su <tt>shareddb</tt></p>
+
+</li>
+<li><p>Quando Message Store Type &#232; impostato su <tt>jdbc</tt></p>
+
+</li></ul>
+<p>Per informazioni sui produttori supportati e sui formati degli URL di accesso per ciascun produttore, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=gheaz">JDBC-Based Persistence in <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide</i></a>.</p>
 
 </dd>
 <dt>Additional Properties</dt>
@@ -41,4 +68,4 @@ il servizio JMS (Java Message Service).</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
