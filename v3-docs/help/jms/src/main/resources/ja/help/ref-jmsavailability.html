@@ -1,35 +1,62 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-jmsavailability"></a><h4>JMS の可用性</h4>
-<a name="indexterm-27"></a><a name="indexterm-28"></a><p>「JMS の可用性」ページを使用し、JMS (Java メッセージサービス) の可用性を設定します。</p>
+<a name="indexterm-41"></a><a name="indexterm-42"></a><p>「JMS の可用性」ページを使用し、JMS (Java メッセージサービス) の可用性を設定します。</p>
 
 <p>「JMS の可用性」ページには、次のオプションが含まれます。</p>
 
 <dl><dt>デフォルトを読込み</dt>
-<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+<dd><p>デフォルト値を持つ設定をデフォルト値に戻すボタン。デフォルト値を持たない設定は変更されません。</p>
 
 </dd>
 <dt>設定名</dt>
-<dd><p>このページの設定が適用される設定の名前。このフィールドは読み取り専用です。</p>
+<dd><p>このページの設定を適用する設定の名前。 このフィールドは読み取り専用です。</p>
 
 </dd>
 <dt>可用性サービス</dt>
-<dd><p>「有効」チェックボックスを選択すると、JMS で可用性が有効になります。</p>
+<dd><p>GlassFish クラスタに JMS サービスを提供するために使用される、メッセージキュークラスタの種類。「有効」チェックボックスを選択すると、拡張 Message Queue クラスタが使用されます。それ以外の場合、従来の Message Queue クラスタが使用されます。</p>
+
+<p>「有効」チェックボックスを選択すると、設定のストアタイプおよびメッセージのストアタイプは無視されます。</p>
 
 </dd>
-<dt>MQ ストアプール名</dt>
-<dd><p>持続 JMS メッセージとそのほかのブローカの設定情報の保存時に、GlassFish メッセージキュー ブローカクラスタで使用される JDBC リソースの JNDI 名。</p>
+<dt>設定のストアタイプ</dt>
+<dd><p>従来の Message Queue クラスタで使用する、設定データ用データストアの種類。値 <tt>masterbroker</tt> を指定すると、設定データの格納と管理にマスターブローカが使用されます。値 <tt>shareddb</tt> を指定すると、設定データの格納に共有データベースが使用されます。</p>
 
-<p>プール名に使用できるのは、文字、数字、下線 (_)、ダッシュ (-)、ピリオド (.) だけです。</p>
+<p>可用性サービスが有効になっている場合、このオプションは無視されます。</p>
+
+</dd>
+<dt>メッセージのストアタイプ</dt>
+<dd><p>従来のクラスタで使用する、ブローカ内のメッセージデータ用データストアの種類。値 <tt>file</tt> はファイルストアを表します。値 <tt>jdbc</tt> は JDBC ストアを表します。</p>
+
+<p>可用性サービスが有効になっている場合、このオプションは無視されます。</p>
+
+</dd>
+<dt>データベースベンダー</dt>
+<dt>データベースユーザー名</dt>
+<dt>データベースパスワード</dt>
+<dt>データベースアクセス URL</dt>
+<dd><p>次の場合に使用する JDBC データベースのベンダー、ユーザー、パスワード、およびアクセス URL。</p>
+
+
+<ul><li><p>可用性サービスが有効の場合</p>
+
+</li>
+<li><p>設定のストアタイプが <tt>shareddb</tt> に設定されている場合</p>
+
+</li>
+<li><p>メッセージのストアタイプが <tt>jdbc</tt> に設定されている場合</p>
+
+</li></ul>
+<p>サポートされているベンダーと、各ベンダーのアクセス URL の形式については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=gheaz"><i>『Oracle GlassFish Server Message Queue 4.5 Administration Guide』</i>の「JDBC-Based Persistence」</a>を参照してください。</p>
 
 </dd>
 <dt>追加プロパティー</dt>
 <dd><p>JMS の可用性の追加プロパティー。</p>
 
-<p>GlassFish サーバー では、JMS の可用性の追加プロパティーは事前定義されません。</p>
+<p>GlassFish Server では、JMS の可用性の追加プロパティーは事前定義されません。</p>
 
 </dd>
 </dl>
@@ -40,4 +67,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

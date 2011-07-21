@@ -1,11 +1,11 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-jmsconnectionedit"></a><h4>JMS 接続ファクトリリソースを編集する</h4><a name="indexterm-3"></a><a name="indexterm-4"></a><ol>
+<a name="task-jmsconnectionedit"></a><h3>JMS 接続ファクトリリソースを編集する</h3><a name="indexterm-3"></a><a name="indexterm-4"></a><ol>
 <li><b>ナビゲーションツリーで、「リソース」ノードを展開します。</b></li>
 <li><b>「リソース」ノードで、「JMS リソース」ノードを展開します。</b></li>
 <li><b>「JMS リソース」ノードで、「JMS 接続ファクトリ」ノードを選択します。</b><p>「JMS 接続ファクトリ」ページが開きます。</p></li>
@@ -17,7 +17,7 @@ Use is subject to License Terms  -->
 <li><b>「プールサイズ変更量」フィールドに、プールのアイドルタイムアウトに達したときに削除する接続の数を指定します。</b><p>デフォルト値は 2 です。</p></li>
 <li><b>「アイドルタイムアウト」フィールドに、接続がプール内でアイドル状態を維持できる最大時間を秒単位で指定します。</b><p>デフォルト値は 300 です。</p></li>
 <li><b>「最大待ち時間」フィールドに、接続を要求しているアプリケーションが接続タイムアウトになるまでの最大時間を指定します。</b><p>デフォルト値は 60000 です。</p></li>
-<li><b>「すべての障害で」の「すべての接続を閉じる」チェックボックスを選択して、1 つの接続で障害が発生したときに、GlassFish サーバー がプール内のすべての接続を閉じたあと、これらを再確立するようにします。</b><p>チェックボックスを選択しない場合は、使用されるときにだけ個々の接続が再確立されます。</p></li>
+<li><b>「すべての障害で」の「すべての接続を閉じる」チェックボックスを選択して、1 つの接続で障害が発生したときに、GlassFish Server がプール内のすべての接続を閉じたあと、これらを再確立するようにします。</b><p>チェックボックスを選択しない場合は、使用されるときにだけ個々の接続が再確立されます。</p></li>
 <li><b>JMS 接続ファクトリリソースの「トランザクションサポート」の値を、次のように指定します。</b><ul>
 <li><b>トランザクションスコープ内で複数のリソースの使用が必要となるトランザクションとして使用可能なリソースに <tt>XATransaction</tt> (デフォルト値) を指定します。</b><p>たとえば、このリソースには、JDBC リソース、コネクタリソース、またはその他の JMS 接続ファクトリリソースも含まれます。この値により、最高の柔軟性が提供されます。<tt>XATransaction</tt> として設定されるリソースは、2 フェーズコミットオペレーションに関与します。</p></li>
 <li><b>トランザクションスコープ内のリソースが 1 つだけ必要となるトランザクションに対して使用可能なリソース、または複数の XA リソースが必要となる分散トランザクションの直前のエージェントとして使用可能なリソースに <tt>LocalTransaction</tt> を指定します。</b><p>この値により、大幅なパフォーマンスの向上が得られます。<tt>LocalTransaction</tt> として設定されるリソースは、2 フェーズコミットオペレーションに関与しません。</p></li>
@@ -32,7 +32,7 @@ Use is subject to License Terms  -->
 
 
 <hr>
-</li></ol><h6>参照</h6>
+</li></ol><p></b>参照</b></p>
 <ul><li><p><a href="task-jmsconnectionnew.html">「JMS 接続ファクトリリソースを作成する」</a></p>
 
 </li>
@@ -50,4 +50,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

@@ -1,22 +1,22 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-jmsservice"></a><h4>JMS サービスを設定する</h4><a name="indexterm-13"></a><p>すべての JMS 接続で使用する設定を変更するには、「JMS サービス」ページを使用します。</p>
+<a name="task-jmsservice"></a><h3>JMS サービスを設定する</h3><a name="indexterm-13"></a><p>すべての JMS 接続で使用する設定を変更するには、「JMS サービス」ページを使用します。</p>
 
-<p>JMS サービスの設定については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob"><i>『Oracle GlassFish Server 3.1 Application Development Guide』</i>の第 17 章「Using the Java Message Service」</a>を参照してください。</p>
+<p>JMS サービスの設定については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob"><i>『Oracle GlassFish Server 3.1 Application Development Guide』</i>の第 16 章「Using the Java Message Service」</a>を参照してください。</p>
 
 <ol>
 <li><b>ナビゲーションツリーで、「設定」ノードを展開します。</b></li>
 <li><b>「設定」ノードで、「Java メッセージサービス」ノードを選択します。</b><p>「JMS サービス」ページが開きます。</p></li>
 <li><b>「タイプ」ドロップダウンリストから、次のとおり選択します。</b><ul>
-<li><b>ローカルホストの JMS サービスにアクセスする場合は、「EMBEDDED」を選択します。</b><p>JMS サービスは GlassFish サーバー と同じ JVM マシンで起動されます。遅延初期化によって、GlassFish サーバー の起動時ではなく、JMS サービスに最初にアクセスしたときにデフォルトの埋め込みブローカを起動します。JMS サービスのデフォルトのタイプです。</p></li>
-<li><b>ローカルホストの JMS サービスにアクセスする場合は、「LOCAL」を選択します。</b><p>JMS サービスは GlassFish サーバー とともに起動されます。</p></li>
-<li><b>別のシステムの JMS サービスにアクセスする場合は、「REMOTE」を選択します。</b><p>REMOTE を選択すると、JMS サービスは次のサーバーの起動時に GlassFish サーバー によって起動されません。JMS サービスは Message Queue によって起動および管理されるため、Message Queue ブローカを別に起動する必要があります。ブローカの起動については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby"><i>『Oracle GlassFish Message Queue 4.5 Administration Guide』</i>の「Starting Brokers」</a>を参照してください。この値を選択し、かつリモートホストを使用している場合は、<a href="task-jmshostedit.html">「JMS ホストを編集する」</a>で説明する手順に従って、リモートホストの名前を指定します。</p></li></ul></li>
-<li><b>「起動タイムアウト」フィールドに、起動が中止されるまでに、GlassFish サーバー が JMS サービスの起動を待機する時間を秒単位で入力します。</b><p>処理速度の遅いシステムやオーバーロードしたシステムでは、デフォルト値よりも大きくします。デフォルト値は 60 です。</p></li>
+<li><b>ローカルホストの JMS サービスにアクセスする場合は、「EMBEDDED」を選択します。</b><p>JMS サービスは GlassFish Server と同じ JVM マシンで起動されます。遅延初期化によって、GlassFish Server の起動時ではなく、JMS サービスに最初にアクセスしたときにデフォルトの埋め込みブローカを起動します。JMS サービスのデフォルトのタイプです。</p></li>
+<li><b>ローカルホストの JMS サービスにアクセスする場合は、「LOCAL」を選択します。</b><p>JMS サービスは GlassFish Server とともに起動されます。</p></li>
+<li><b>別のシステムの JMS サービスにアクセスする場合は、「REMOTE」を選択します。</b><p>REMOTE を選択すると、JMS サービスは次のサーバーの起動時に GlassFish Server によって起動されません。JMS サービスは Message Queue によって起動および管理されるため、Message Queue ブローカを別に起動する必要があります。ブローカの起動については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby"><i>『Oracle GlassFish Server Message Queue 4.5 Administration Guide』</i>の「Starting Brokers」</a>を参照してください。この値を選択し、かつリモートホストを使用している場合は、<a href="task-jmshostedit.html">「JMS ホストを編集する」</a>で説明する手順に従って、リモートホストの名前を指定します。</p></li></ul></li>
+<li><b>「起動タイムアウト」フィールドに、起動が中止されるまでに、GlassFish Server が JMS サービスの起動を待機する時間を秒単位で入力します。</b><p>処理速度の遅いシステムやオーバーロードしたシステムでは、デフォルト値よりも大きくします。デフォルト値は 60 です。</p></li>
 <li><b>「起動引数」フィールドに、JMS サービスの起動をカスタマイズする引数を入力します。</b><p><tt><i>as-install-parent</i>/mq/bin/imqbrokerd</tt> コマンドで使用できる引数を使用します。</p></li>
 <li><b>「再接続」の「有効」チェックボックスを選択して、接続が失われたときに JMS サービスがメッセージサーバーまたは AddressList で指定したアドレスのリストに再接続を試みるようにします。</b><p>このオプションはデフォルトで有効になっています。</p></li>
 <li><b>「再接続の間隔」フィールドに、再接続を試行する間隔を秒数で入力します。</b><p>この間隔は、AddressList で指定した各アドレスおよびリストの次のアドレスへの試行に適用されます。間隔が短すぎると、ブローカにリカバリする時間が与えられません。間隔が長すぎると、再接続が許容できない遅延を示す場合があります。デフォルト値は 5 秒です。</p></li>
@@ -37,11 +37,11 @@ Use is subject to License Terms  -->
 
 
 <hr>
-</li></ol><h6>参考<br>リモートサーバーへのアクセス</h6><p>プロバイダとホストをリモートシステムに変更すると、すべての JMS アプリケーションがリモートサーバーで実行するようになります。ローカルサーバーと 1 つまたは複数のリモートサーバーを使用するには、リモートサーバーにアクセスする接続を作成する <tt>AddressList</tt> プロパティーを使用して、接続ファクトリリソースを作成します。<a href="task-jmsconnectionnew.html">「JMS 接続ファクトリリソースを作成する」</a>を参照してください。</p>
+</li></ol><p><b>参考<br>リモートサーバーへのアクセス</b></p><p>プロバイダとホストをリモートシステムに変更すると、すべての JMS アプリケーションがリモートサーバーで実行するようになります。ローカルサーバーと 1 つまたは複数のリモートサーバーを使用するには、リモートサーバーにアクセスする接続を作成する <tt>AddressList</tt> プロパティーを使用して、接続ファクトリリソースを作成します。<a href="task-jmsconnectionnew.html">「JMS 接続ファクトリリソースを作成する」</a>を参照してください。</p>
 
-同機能を持つ asadmin コマンド</h6><p><tt>jms-ping</tt></p>
+同機能を持つ asadmin コマンド</b></p><p><tt>jms-ping</tt></p>
 
-<h6>参照</h6>
+<p></b>参照</b></p>
 <ul><li><p><a href="task-jmshostnew.html">「JMS ホストを作成する」</a></p>
 
 </li>
@@ -68,4 +68,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
