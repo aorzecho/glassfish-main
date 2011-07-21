@@ -1,10 +1,10 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-configreq-respolicy"></a><h4>請求策略和回應策略的配置</h4>
-<a name="indexterm-236"></a><p>如果認證來源為 <tt>sender</tt>，則訊息包含 <tt>wsse:Security</tt> 標頭，該標頭包含 <tt>wsse:UsernameToken</tt> (帶有密碼)。如果認證來源為 content，則會對 SOAP 訊息內文的內容進行簽署，該訊息包含 <tt>wsse:Security</tt> 標頭，並且訊息內文簽名顯示為 <tt>ds</tt>:
+<a name="indexterm-237"></a><p>如果認證來源為 <tt>sender</tt>，則訊息包含 <tt>wsse:Security</tt> 標頭，該標頭包含 <tt>wsse:UsernameToken</tt> (帶有密碼)。如果認證來源為 content，則會對 SOAP 訊息內文的內容進行簽署，該訊息包含 <tt>wsse:Security</tt> 標頭，並且訊息內文簽名顯示為 <tt>ds</tt>:
 <tt>Signature</tt>。</p>
 
 <p>如果認證接收者為 <tt>before-content</tt> 或 <tt>after-content</tt>，則會對 SOAP 訊息內文的內容進行加密，並使用產生的 <tt>xend:EncryptedData</tt> 替代該內容。此訊息包含 <tt>wsse:Security</tt> 標頭，此標頭包含 <tt> xenc:EncryptedKey</tt>。<tt>xenc:EncryptedKey</tt> 包含用於加密
@@ -44,4 +44,4 @@ SOAP 訊息內文的金鑰。此金鑰在接收者的公開金鑰中加密。</p
 </tr>
 </table>
 
-<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>
+<small>版權所有 &#169; 2005, 2011, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>
