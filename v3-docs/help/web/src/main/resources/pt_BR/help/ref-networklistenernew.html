@@ -1,7 +1,7 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-networklistenernew"></a><h4>Nova escuta de rede</h4>
 <a name="indexterm-65"></a><p>Utilize a p&#225;gina Nova escuta de rede para criar uma nova escuta.</p>
@@ -13,8 +13,8 @@ mas isso n&#227;o &#233; necess&#225;rio.</p>
 
 <p>A p&#225;gina Nova escuta de rede cont&#233;m estas op&#231;&#245;es.</p>
 
-<dl><dt>Nome da configura&#231;&#227;o</dt>
-<dd><p>Nome da configura&#231;&#227;o ao qual as configura&#231;&#245;es desta p&#225;gina ser&#227;o enviadas. Este campo &#233; de somente leitura.</p>
+<dl><dt>Configuration Name</dt>
+<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
 
 </dd>
 <dt>Nome</dt>
@@ -40,7 +40,7 @@ mas isso n&#227;o &#233; necess&#225;rio.</p>
 </dl>
 </dd>
 <dt>Status</dt>
-<dd><p>O status da escuta de rede. A escuta pode ser ativada ou desativada. Por padr&#227;o, a op&#231;&#227;o est&#225; ativa. Se o interpretador estiver desativado, qualquer tentativa de se conectar &#224; escuta resulta em uma exce&#231;&#227;o de soquete (<tt>java.net.ConnectException</tt>).</p>
+<dd><p>O status da escuta de rede. A escuta pode ser ativada ou desativada. Por padr&#227;o, a op&#231;&#227;o est&#225; ativa. Se a escuta estiver desativada, qualquer tentativa de se conectar &#224; escuta resulta em uma exce&#231;&#227;o de soquete (<tt>java.net.ConnectException</tt>).</p>
 
 <p>Nas vers&#245;es do Servidor GlassFish anteriores a 9.1, uma escuta cujo atributo ativo estava definido como falso retornava um c&#243;digo de resposta 404, para quaisquer solicita&#231;&#245;es enviadas ao mesmo. Para obter esse comportamento na vers&#227;o atual do Servidor GlassFish, defina o status da escuta como ativo e cada estado de servidor virtual associado como DESATIVADO. Um servidor virtual lista suas escutas associadas na sua lista suspensa Escutas de rede.</p>
 
@@ -49,8 +49,8 @@ mas isso n&#227;o &#233; necess&#225;rio.</p>
 <dd><p>Se essa op&#231;&#227;o for selecionada, a seguran&#231;a ser&#225; ativada para o protocolo utilizado pela escuta de rede. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
 
 </dd>
-<dt>Escuta JK</dt>
-<dd><p>Se essa op&#231;&#227;o estiver selecionada, a escuta suporta o protocolo <tt> mod-jk</tt> do Apache. O protocolo <tt>mod-jk</tt> &#233; um protocolo propriet&#225;rio de comunica&#231;&#227;o/rede entre o <tt>httpd</tt> (servidor da Web) da Apache e uma inst&#226;ncia back-end do Servidor GlassFish. Se a escuta oferece suporte a esse protocolo, o <tt>httpd</tt> deveria manipular todo o conte&#250;do est&#225;tico, enquanto quaisquer solicita&#231;&#245;es por recursos din&#226;micos (ou seja, Servlets e JSPs) s&#227;o roteadas para a escuta <tt>mod-jk</tt> ativado para a rede do Servidor GlassFish, utilizando o protocolo <tt>mod-jk</tt>. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
+<dt>Interpretador JK</dt>
+<dd><p>Se essa op&#231;&#227;o estiver selecionada, a escuta suporta o protocolo <tt> mod-jk</tt> do Apache. O protocolo <tt>mod-jk</tt> &#233; um protocolo propriet&#225;rio de comunica&#231;&#227;o/rede entre o <tt>httpd</tt> (servidor da Web) da Apache e uma inst&#226;ncia back-end do Servidor GlassFish. Se a escuta oferece suporte a esse protocolo, o <tt>httpd</tt> deveria manusear todo o conte&#250;do est&#225;tico, enquanto quaisquer solicita&#231;&#245;es por recursos din&#226;micos (ou seja, Servlets e JSPs) s&#227;o roteadas para o interpretador <tt>mod-jk</tt> ativado para a rede do Servidor GlassFish, utilizando o protocolo <tt>mod-jk</tt>. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
 
 </dd>
 <dt>Porta</dt>
@@ -115,4 +115,4 @@ mas isso n&#227;o &#233; necess&#225;rio.</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
