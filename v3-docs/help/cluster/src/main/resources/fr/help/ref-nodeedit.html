@@ -1,7 +1,7 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-nodeedit"></a><h4>Modifier le n&#339;ud</h4>
 <a name="indexterm-198"></a><p>La page Modifier le n&#339;ud permet de mettre &#224; jour les donn&#233;es
@@ -56,10 +56,28 @@ renseign&#233; &#160;:</p>
 <dt>R&#233;pertoire du n&#339;ud</dt>
 <dd><p>Chemin d'acc&#232;s complet au r&#233;pertoire devant contenir les instances de GlassFish Server cr&#233;&#233;es sur le n&#339;ud. Si un chemin d'acc&#232;s relatif est sp&#233;cifi&#233;, il est relatif au r&#233;pertoire <i>as-install</i>, <i>as-install</i> correspondant au r&#233;pertoire d'installation de base du logiciel GlassFish Server sur l'h&#244;te.</p>
 
+<p>Si ce champ est vide, la configuration du n&#339;ud est mise &#224; jour comme suit&#160;: </p>
+
+
+<ul><li><p>Si le type du n&#339;ud est CONFIG, aucun r&#233;pertoire d'instances n'est sp&#233;cifi&#233; pour le n&#339;ud dans la configuration du serveur d'administration de domaine (DAS). Le r&#233;pertoire du n&#339;ud peut &#234;tre d&#233;termin&#233; lors de la cr&#233;ation d'instances r&#233;sidant sur le n&#339;ud. </p>
+
+</li>
+<li><p>Si le type du n&#339;ud est SSH, le r&#233;pertoire du n&#339;ud est <tt></tt><i>as-install</i><tt>/nodes</tt>, o&#249; <i>as-install</i> correspond au r&#233;pertoire d'installation de base du logiciel GlassFish Server sur l'h&#244;te. </p>
+
+</li></ul>
 </dd>
 <dt>R&#233;pertoire d&#8217;installation</dt>
 <dd><p>Chemin d'acc&#232;s complet au parent du r&#233;pertoire d'installation de base du logiciel GlassFish Server sur l'h&#244;te, par exemple, <tt>/export/glassfish3/</tt>. </p>
 
+<p>Si ce champ est vide, la configuration du n&#339;ud est mise &#224; jour comme suit&#160;: </p>
+
+
+<ul><li><p>Si le type du n&#339;ud est CONFIG, aucun r&#233;pertoire d'installation n'est sp&#233;cifi&#233; pour le n&#339;ud dans la configuration DAS. Le r&#233;pertoire d'installation peut &#234;tre d&#233;termin&#233; lors de la cr&#233;ation d'instances r&#233;sidant sur le n&#339;ud. </p>
+
+</li>
+<li><p>Si le type du n&#339;ud est SSH, le r&#233;pertoire d'installation est le parent du r&#233;pertoire d'installation de base par d&#233;faut du logiciel GlassFish Server pour le serveur d'administration de domaine (DAS). Cette configuration n'est utile que si vous installez GlassFish Server dans le m&#234;me emplacement sur tous les h&#244;tes. </p>
+
+</li></ul>
 </dd>
 <dt>Force</dt>
 <dd><p>Si l'option Activ&#233; est s&#233;lectionn&#233;e, le n&#339;ud est mis &#224; jour dans la configuration du serveur d'administration de domaine (DAS) m&#234;me si la validation des param&#232;tres du n&#339;ud &#233;choue. Pour valider les param&#232;tres d'un noeud, le serveur DAS doit &#234;tre capable de contacter l'h&#244;te du noeud via SSH. </p>
@@ -160,4 +178,4 @@ renseign&#233; &#160;:</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
