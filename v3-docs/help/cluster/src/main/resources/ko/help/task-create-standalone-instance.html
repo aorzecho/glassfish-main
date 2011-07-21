@@ -1,11 +1,11 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-create-standalone-instance"></a><h4>독립 실행형 GlassFish 서버 인스턴스를 만들려면</h4><a name="indexterm-83"></a><a name="indexterm-84"></a><a name="indexterm-85"></a><p>GlassFish 서버 인스턴스는 응용 프로그램 배포의 기본을 구성합니다. 독립 실행형 인스턴스는 클러스터의
+<a name="task-create-standalone-instance"></a><h3>독립 실행형 GlassFish Server 인스턴스를 만들려면</h3><a name="indexterm-83"></a><a name="indexterm-84"></a><a name="indexterm-85"></a><p>GlassFish Server 인스턴스는 응용 프로그램 배포의 기본을 구성합니다. 독립 실행형 인스턴스는 클러스터의
 구성원이 아닙니다. 각 인스턴스는 단일 도메인에 속하며 자체 디렉토리 구조, 구성 및
 배포된 응용 프로그램을 가집니다. 또한 각 인스턴스에는 Java EE(Java Platform, Enterprise Edition)
 웹 컨테이너 및 EJB(Enterprise JavaBeans) 기술 컨테이너가 포함됩니다. 모든 새 인스턴스에는 인스턴스가
@@ -17,13 +17,16 @@ Use is subject to License Terms  -->
 
 
 <hr>
-<h6>시작하기 전에</h6><p><a href="task-createnode.html">인스턴스가 상주하게 될 노드</a>가 있는지 확인합니다.</p>
+<p><b>시작하기 전에</b></p><p><a href="task-createnode.html">인스턴스가 상주하게 될 노드</a>가 있는지 확인합니다.</p>
 
 <ol>
 <li><b>탐색 트리에서 독립 실행형 인스턴스 노드를 선택합니다.</b><p>독립 실행형 서버 인스턴스 페이지가 열립니다.</p></li>
 <li><b>독립 실행형 서버 인스턴스 페이지에서 새로 만들기를 누릅니다.</b><p>새 독립 실행형 서버 인스턴스 페이지가 열립니다.</p></li>
 <li><b>이름 필드에 인스턴스의 이름을 입력합니다.</b><p>이름은 다음 요구 사항을 충족해야 합니다.</p>
-<ul><li><p>이름은 문자, 숫자 또는 밑줄로 시작해야 합니다.</p>
+<ul><li><p>이름에는 ASCII 문자만 포함될 수 있습니다</p>
+
+</li>
+<li><p>이름은 문자, 숫자 또는 밑줄로 시작해야 합니다.</p>
 
 </li>
 <li><p>이름에는 다음 문자만 포함할 수 있습니다.</p>
@@ -48,10 +51,10 @@ Use is subject to License Terms  -->
 
 </li></ul>
 </li>
-<li><p>이름은 도메인에서 고유해야 하며 다른 GlassFish 서버 인스턴스, 클러스터, 명명된 구성 또는 노드의 이름이어서는 안 됩니다.</p>
+<li><p>이름은 도메인에서 고유해야 하며 다른 GlassFish Server 인스턴스, 클러스터, 명명된 구성 또는 노드의 이름이어서는 안 됩니다.</p>
 
 </li>
-<li><p>이름은 <tt>domain</tt>, <tt>server</tt> 또는 GlassFish 서버에서 예약된 다른 모든 키워드여서는 안 됩니다.</p>
+<li><p>이름은 <tt>domain</tt>, <tt>server</tt> 또는 GlassFish Server에서 예약된 다른 모든 키워드여서는 안 됩니다.</p>
 
 </li></ul>
 </li>
@@ -68,70 +71,70 @@ Use is subject to License Terms  -->
 </b><p>인스턴스를 만들 때 선택한 구성이 복사됩니다. 구성의 복사본에는 <tt><i>instance-name</i>-config</tt>라는 이름이 지정됩니다. 여기서
 <i>instance-name</i>은 만들려는 인스턴스의 이름입니다.</p></li>
 <li><b>구성이 공유되는 경우 선택한 구성을 참조합니다. 옵션을 선택합니다.</b><p>인스턴스가 지정된 기존 명명된 구성을 사용합니다.</p></li></ul></li>
-<li><b>확인을 누릅니다.</b></li></ol><h6>참조 </h6>
-<ul><li><p><a href="task-delete-standalone-instances.html">독립 실행형 GlassFish 서버 인스턴스를 삭제하려면</a></p>
+<li><b>확인을 누릅니다.</b></li></ol><p></b>참조 </b></p>
+<ul><li><p><a href="task-delete-standalone-instances.html">독립 실행형 GlassFish Server 인스턴스를 삭제하려면</a></p>
 
 </li>
-<li><p><a href="task-start-standalone-instances.html">독립 실행형 GlassFish 서버 인스턴스를 시작하려면</a></p>
+<li><p><a href="task-start-standalone-instances.html">독립 실행형 GlassFish Server 인스턴스를 시작하려면</a></p>
 
 </li>
-<li><p><a href="task-stop-standalone-instances.html">독립 실행형 GlassFish 서버 인스턴스를 중지하려면</a></p>
+<li><p><a href="task-stop-standalone-instances.html">독립 실행형 GlassFish Server 인스턴스를 중지하려면</a></p>
 
 </li>
-<li><p><a href="task-view-logs-standalone-instance.html">독립 실행형 GlassFish 서버 인스턴스에 대한 로그 파일을 보려면</a></p>
+<li><p><a href="task-view-logs-standalone-instance.html">독립 실행형 GlassFish Server 인스턴스에 대한 로그 파일을 보려면</a></p>
 
 </li>
-<li><p><a href="task-recovertransactions-standalone-instance.html">독립 실행형 GlassFish 서버 인스턴스에 대한 트랜잭션을 복구하는 방법</a></p>
+<li><p><a href="task-recovertransactions-standalone-instance.html">독립 실행형 GlassFish Server 인스턴스에 대한 트랜잭션을 복구하는 방법</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-app-deploy.html">독립 실행형 GlassFish 서버 인스턴스에 응용 프로그램을 배포하려면</a></p>
+<li><p><a href="task-standalone-instance-app-deploy.html">독립 실행형 GlassFish Server 인스턴스에 응용 프로그램을 배포하려면</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-app-list.html">독립 실행형 GlassFish 서버 인스턴스에 배포된 응용 프로그램을 나열하려면</a></p>
+<li><p><a href="task-standalone-instance-app-list.html">독립 실행형 GlassFish Server 인스턴스에 배포된 응용 프로그램을 나열하려면</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-app-undeploy.html">독립 실행형 GlassFish 서버 인스턴스에서 응용 프로그램 배포를 해제하는 방법</a></p>
+<li><p><a href="task-standalone-instance-app-undeploy.html">독립 실행형 GlassFish Server 인스턴스에서 응용 프로그램 배포를 해제하는 방법</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-app-remove.html">독립 실행형 GlassFish 서버 인스턴스에서 응용 프로그램을 제거하는 방법</a></p>
+<li><p><a href="task-standalone-instance-app-remove.html">독립 실행형 GlassFish Server 인스턴스에서 응용 프로그램을 제거하는 방법</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-app-edit.html">독립 실행형 GlassFish 서버 인스턴스에 배포된 응용 프로그램을 편집하려면</a></p>
+<li><p><a href="task-standalone-instance-app-edit.html">독립 실행형 GlassFish Server 인스턴스에 배포된 응용 프로그램을 편집하려면</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-app-enable-disable.html">독립 실행형 GlassFish 서버 인스턴스에 배포된 응용 프로그램을 활성화 또는 비활성화하려면</a></p>
+<li><p><a href="task-standalone-instance-app-enable-disable.html">독립 실행형 GlassFish Server 인스턴스에 배포된 응용 프로그램을 활성화 또는 비활성화하려면</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">독립 실행형 GlassFish 서버 인스턴스에 배포된 응용 프로그램에 대해 로드 균형 조정을 활성화 또는 비활성화하려면</a></p>
+<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">독립 실행형 GlassFish Server 인스턴스에 배포된 응용 프로그램에 대해 로드 균형 조정을 활성화 또는 비활성화하려면</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-resource-create.html">독립 실행형 GlassFish 서버 인스턴스에 대한 자원을 만들려면</a></p>
+<li><p><a href="task-standalone-instance-resource-create.html">독립 실행형 GlassFish Server 인스턴스에 대한 자원을 만들려면</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-resource-display.html">독립 실행형 GlassFish 서버 인스턴스에 대한 자원을 나열하려면</a></p>
+<li><p><a href="task-standalone-instance-resource-display.html">독립 실행형 GlassFish Server 인스턴스에 대한 자원을 나열하려면</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-resource-enable-disable.html">독립 실행형 GlassFish 서버 인스턴스에 대한 자원을 활성화 또는 비활성화하려면</a></p>
+<li><p><a href="task-standalone-instance-resource-enable-disable.html">독립 실행형 GlassFish Server 인스턴스에 대한 자원을 활성화 또는 비활성화하려면</a></p>
 
 </li>
-<li><p><a href="task-standalone-instance-resource-edit.html">독립 실행형 GlassFish 서버 인스턴스에 대한 자원을 편집하려면</a></p>
+<li><p><a href="task-standalone-instance-resource-edit.html">독립 실행형 GlassFish Server 인스턴스에 대한 자원을 편집하려면</a></p>
 
 </li>
-<li><p><a href="task-change-standalone-instance-ports.html">독립 실행형 GlassFish 서버 인스턴스의 포트 번호를 수정하려면</a></p>
+<li><p><a href="task-change-standalone-instance-ports.html">독립 실행형 GlassFish Server 인스턴스의 포트 번호를 수정하려면</a></p>
 
 </li>
-<li><p><a href="task-set-props-standalone-instance.html">독립 실행형 GlassFish 서버 인스턴스에 대한 인스턴스 전용 등록 정보를 설정하려면</a></p>
+<li><p><a href="task-set-props-standalone-instance.html">독립 실행형 GlassFish Server 인스턴스에 대한 인스턴스 전용 등록 정보를 설정하려면</a></p>
 
 </li>
-<li><p><a href="task-mon-app-standalone-instance.html">독립 실행형 GlassFish 서버 인스턴스에 대한 응용 프로그램 모니터링 데이터를 보려면</a></p>
+<li><p><a href="task-mon-app-standalone-instance.html">독립 실행형 GlassFish Server 인스턴스에 대한 응용 프로그램 모니터링 데이터를 보려면</a></p>
 
 </li>
-<li><p><a href="task-mon-server-standalone-instance.html">독립 실행형 GlassFish 서버 인스턴스에 대한 가상 서버 모니터링 데이터를 보려면</a></p>
+<li><p><a href="task-mon-server-standalone-instance.html">독립 실행형 GlassFish Server 인스턴스에 대한 가상 서버 모니터링 데이터를 보려면</a></p>
 
 </li>
-<li><p><a href="task-mon-resource-standalone-instance.html">독립 실행형 GlassFish 서버 인스턴스에 대한 자원 모니터링 데이터를 보려면</a></p>
+<li><p><a href="task-mon-resource-standalone-instance.html">독립 실행형 GlassFish Server 인스턴스에 대한 자원 모니터링 데이터를 보려면</a></p>
 
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

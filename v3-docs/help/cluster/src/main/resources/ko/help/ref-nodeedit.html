@@ -1,10 +1,10 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-nodeedit"></a><h4>노드 편집</h4>
-<a name="indexterm-198"></a><p>GlassFish 서버 노드의 구성 데이터를 업데이트하려면 노드 편집 페이지를 사용합니다. 또한 이
+<a name="indexterm-198"></a><p>GlassFish Server 노드의 구성 데이터를 업데이트하려면 노드 편집 페이지를 사용합니다. 또한 이
 페이지를 사용하여 노드 유형을 CONFIG에서 SSH로 변경하여 노드에 대해 SSH 통신을 활성화할
 수 있습니다.</p>
 
@@ -51,12 +51,30 @@ Use is subject to License Terms  -->
 </li></ul>
 </dd>
 <dt>노드 디렉토리</dt>
-<dd><p>노드에 만들어져 있는 GlassFish 서버 인스턴스를 포함할 디렉토리 경로입니다. 상대 경로를 지정한 경우 경로가 <i>as-install</i> 디렉토리를 기준으로 합니다. 여기서 <i>as-install</i>은(는) 호스트의 GlassFish 서버 소프트웨어의 기본 설치 디렉토리입니다.</p>
+<dd><p>노드에 만들어져 있는 GlassFish Server 인스턴스를 포함할 디렉토리 경로입니다. 상대 경로를 지정한 경우 경로가 <i>as-install</i> 디렉토리를 기준으로 합니다. 여기서 <i>as-install</i>은(는) 호스트의 GlassFish Server 소프트웨어의 기본 설치 디렉토리입니다.</p>
 
+<p>이 필드가 비어 있으면 노드의 구성이 다음과 같이 업데이트됩니다.</p>
+
+
+<ul><li><p>노드 유형이 CONFIG이면 DAS(도메인 관리 서버) 구성에 노드에 대한 인스턴스의 디렉토리가 지정되지 않습니다. 노드 디렉토리는 노드에 있는 인스턴스를 만들 때 지정할 수 있습니다.</p>
+
+</li>
+<li><p>노드 유형이 SSH이면 노드 디렉토리는 <tt></tt><i>as-install</i><tt>/nodes</tt>입니다. 여기서 <i>as-install</i>은 호스트에 있는 GlassFish Server 소프트웨어의 기본 설치 디렉토리입니다.</p>
+
+</li></ul>
 </dd>
 <dt>설치 디렉토리</dt>
-<dd><p>호스트에 있는 GlassFish 서버 소프트웨어의 상위 기본 설치 디렉토리의 전체 경로입니다(예: <tt>/export/glassfish3/</tt>). </p>
+<dd><p>호스트에 있는 GlassFish Server 소프트웨어의 상위 기본 설치 디렉토리의 전체 경로입니다(예: <tt>/export/glassfish3/</tt>). </p>
 
+<p>이 필드가 비어 있으면 노드의 구성이 다음과 같이 업데이트됩니다.</p>
+
+
+<ul><li><p>노드 유형이 CONFIG이면 DAS 구성에 노드에 대한 설치 디렉토리가 지정되지 않습니다. 설치 디렉토리는 노드에 있는 인스턴스를 만들 때 지정할 수 있습니다.</p>
+
+</li>
+<li><p>노드 유형이 SSH이면 설치 디렉토리는 DAS에 대한 GlassFish Server 소프트웨어의 기본값 기본 설치 디렉토리의 상위 디렉토리입니다. 이 설정은 GlassFish Server가 모든 호스트에서 동일한 위치에 설치되어 있는 경우에만 유용합니다.</p>
+
+</li></ul>
 </dd>
 <dt>강제 적용</dt>
 <dd><p>사용 가능 옵션을 선택한 경우 노드의 매개 변수 검증이 실패하더라도 노드가 DAS(도메인 관리 서버) 구성에서 업데이트됩니다. 노드의 매개 변수를 검증하려면 DAS가 SSH를 통해 노드의 호스트에 액세스할 수 있어야 합니다. </p>
@@ -118,7 +136,7 @@ Use is subject to License Terms  -->
 <dd><p>사용자 이름 옵션에서 지정하는 사용자에 대한 SSH 개인 키 파일의 절대 경로입니다. 이 파일은 노드의 호스트에서 <tt>sshd</tt> 데몬에 대한 인증에 사용됩니다.</p>
 
 
-<hr><p><b>주 - </b>또한 GlassFish 서버는 암호 파일의 <tt>AS_ADMIN_SSHPASSWORD</tt> 항목을 통한 암호 인증을 지원합니다. 암호 파일은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> 유틸리티의 <tt>--paswordfile</tt> 옵션에 지정되어 있습니다.</p>
+<hr><p><b>주 - </b>또한 GlassFish Server는 암호 파일의 <tt>AS_ADMIN_SSHPASSWORD</tt> 항목을 통한 암호 인증을 지원합니다. 암호 파일은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> 유틸리티의 <tt>--paswordfile</tt> 옵션에 지정되어 있습니다.</p>
 
 
 <hr>
@@ -128,7 +146,7 @@ Use is subject to License Terms  -->
 
 <p>기본값은 노드 유형을 CONFIG에서 SSH로 변경하여 노드에 대해 SSH 통신을 활성화하는지에 따라 다릅니다.</p>
 
-<p>노드 유형을 CONFIG에서 SSH로 변경하고 이 필드를 비워 두면 키 파일 옵션이 사용자의 <tt>.ssh</tt> 디렉토리에 있는 키 파일로 설정됩니다. 키 파일이 여러 개 있을 경우 GlassFish 서버에서는 다음 순서로 기본 설정을 사용합니다.</p>
+<p>노드 유형을 CONFIG에서 SSH로 변경하고 이 필드를 비워 두면 키 파일 옵션이 사용자의 <tt>.ssh</tt> 디렉토리에 있는 키 파일로 설정됩니다. 키 파일이 여러 개 있을 경우 GlassFish Server에서는 다음 순서로 기본 설정을 사용합니다.</p>
 
 
 <ol><li><p><tt>id_rsa</tt></p>
@@ -157,4 +175,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
