@@ -1,10 +1,10 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-uploaddev"></a><h4>Implementar aplicaciones o m&#243;dulos</h4>
-<a name="indexterm-173"></a><a name="indexterm-174"></a><a name="indexterm-175"></a><a name="indexterm-176"></a><a name="indexterm-177"></a><a name="indexterm-178"></a><a name="indexterm-179"></a><a name="indexterm-180"></a><a name="indexterm-181"></a><a name="indexterm-182"></a><a name="indexterm-183"></a><a name="indexterm-184"></a><p>Utilice la p&#225;gina Implementar aplicaciones o m&#243;dulos para implementar una aplicaci&#243;n.</p>
+<a name="indexterm-174"></a><a name="indexterm-175"></a><a name="indexterm-176"></a><a name="indexterm-177"></a><a name="indexterm-178"></a><a name="indexterm-179"></a><a name="indexterm-180"></a><a name="indexterm-181"></a><a name="indexterm-182"></a><a name="indexterm-183"></a><a name="indexterm-184"></a><a name="indexterm-185"></a><p>Utilice la p&#225;gina Implementar aplicaciones o m&#243;dulos para implementar una aplicaci&#243;n.</p>
 
 <p>La p&#225;gina Implementar aplicaciones o m&#243;dulos contiene las opciones siguientes para todas
 las aplicaciones. &#218;nicamente aparecen m&#225;s opciones en caso de que especifique el
@@ -21,10 +21,10 @@ campo Ubicaci&#243;n para la aplicaci&#243;n.</p>
 <p>La m&#225;quina cliente es el host en el que est&#225; viendo la Consola de administraci&#243;n por medio de un navegador.</p>
 
 </dd>
-<dt>Directorio o archivo empaquetado local al que se puede acceder desde GlassFish Server</dt>
+<dt>Directorio o archivo empaquetado local al que se puede acceder desde Servidor GlassFish</dt>
 <dd><p>El archivo de almacenamiento es un archivo que reside en la m&#225;quina servidor o es una aplicaci&#243;n desempaquetada en un directorio de despliegue.</p>
 
-<p>El equipo servidor es el sistema anfitri&#243;n que est&#225; ejecutando el servidor de administraci&#243;n del dominio de GlassFish Server. </p>
+<p>El equipo servidor es el sistema anfitri&#243;n que est&#225; ejecutando el servidor de administraci&#243;n del dominio de Servidor GlassFish. </p>
 
 </dd>
 </dl>
@@ -135,7 +135,7 @@ siguientes opciones.</p>
 
 <p>Si una sesi&#243;n web, instancia SFSB o temporizador EJB activo no se conserva o restablece, <b>ninguno</b> de ellos estar&#225; disponible cuando se haya completado la reimplementaci&#243;n. Sin embargo, la reimplementaci&#243;n proseguir&#225; y se registrar&#225; una advertencia.</p>
 
-<p>Para conservar datos de estado activo, GlassFish Server serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
+<p>Para conservar datos de estado activo, Servidor GlassFish serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
 
 </dd>
 <dt>Conservaci&#243;n de recursos de &#225;mbito de aplicaci&#243;n</dt>
@@ -143,7 +143,7 @@ siguientes opciones.</p>
 
 </dd>
 <dt>Bibliotecas</dt>
-<dd><p>Lista de archivos JAR de la biblioteca separados por comas espec&#237;ficos de este m&#243;dulo o aplicaci&#243;n. Las rutas pueden ser absolutas o relativas. Una ruta relativa es relativa a <tt></tt><i>domain-dir</i><tt>/lib/applibs</tt>. Si la ruta es absoluta, la ruta debe ser accesible para el servidor de administraci&#243;n del dominio (DAS), lo que implica que debe estar en <tt></tt><i>domain-dir</i><tt></tt>. Las bibliotecas est&#225;n disponibles para la aplicaci&#243;n en el orden en que est&#225;n especificadas.</p>
+<dd><p>Lista de archivos JAR de la biblioteca separados por comas espec&#237;ficos de este m&#243;dulo o aplicaci&#243;n. Las rutas pueden ser absolutas o relativas. Una ruta relativa es relativa a <tt></tt><i>dir_dominio</i><tt>/lib/applibs</tt>. Si la ruta es absoluta, la ruta debe ser accesible para el servidor de administraci&#243;n del dominio (DAS), lo que implica que debe estar en <tt></tt><i>dir_dominio</i><tt></tt>. Las bibliotecas est&#225;n disponibles para la aplicaci&#243;n en el orden en que est&#225;n especificadas.</p>
 
 </dd>
 <dt>Descripci&#243;n</dt>
@@ -192,7 +192,7 @@ siguientes opciones.</p>
 
 </dd>
 <dt>Compatibilidad</dt>
-<dd><p>Si la opci&#243;n est&#225; seleccionada, utiliza los requisitos de visibilidad de JAR de GlassFish Server v2 para las aplicaciones, en lugar de los m&#225;s estrictos requisitos de Java EE 6 implementados en las versiones v3 de GlassFish Server, incluida 3.1. Esta opci&#243;n no est&#225; activada de forma predeterminada.</p>
+<dd><p>Si la opci&#243;n est&#225; seleccionada, utiliza los requisitos de visibilidad de JAR de Servidor GlassFish v2 para las aplicaciones, en lugar de los m&#225;s estrictos requisitos de Java EE 6 implementados en las versiones v3 de Servidor GlassFish, incluida 3.1. Esta opci&#243;n no est&#225; activada de forma predeterminada.</p>
 
 <p>La especificaci&#243;n de la plataforma Java EE 6 impone requisitos m&#225;s estrictos que Java EE 5 sobre qu&#233; archivos JAR pueden ser visibles para varios m&#243;dulos dentro de un archivo EAR. En concreto, los clientes de aplicaci&#243;n no deben tener acceso a los archivos JAR EJB o a otros archivos JAR del archivo EAR a menos que las referencias utilicen los mecanismos Java SE est&#225;ndar (extensiones, por ejemplo) o el mecanismo biblioteca-directorio de Java EE. Al activar esta casilla se eliminan estas restricciones de Java EE 6.</p>
 
@@ -208,13 +208,13 @@ siguientes opciones.</p>
 
 <p>Algunos cambios efectuados en una aplicaci&#243;n entre reimplementaciones impiden que esta opci&#243;n funcione correctamente. Por ejemplo, no cambie el conjunto de variables de instancia en la clase de bean SFSB.</p>
 
-<p>Para las aplicaciones web, esta opci&#243;n solo es aplicable si, en el archivo <tt>glassfish-web-app.xml </tt>, el atributo <tt>persistence-type</tt> del elemento <tt>session-manager</tt> es <tt>file</tt>.</p>
+<p>Para las aplicaciones web, esta opci&#243;n solo es aplicable si, en el archivo <tt>glassfish-web-app.xml</tt>, el atributo <tt>persistence-type</tt> del elemento <tt>session-manager</tt> es <tt>file</tt>.</p>
 
 <p>Para instancias de bean de sesi&#243;n con estado, el tipo de persistencia sin alta disponibilidad se establece en el servidor (con la opci&#243;n Tipo de persistencia SFSB) y se debe configurar como <tt>file</tt>, que es el valor predeterminado y recomendado.</p>
 
 <p>Si una sesi&#243;n web, instancia SFSB o temporizador EJB activo no se conserva o restablece, <b>ninguno</b> de ellos estar&#225; disponible cuando se haya completado la reimplementaci&#243;n. Sin embargo, la reimplementaci&#243;n proseguir&#225; y se registrar&#225; una advertencia.</p>
 
-<p>Para conservar datos de estado activo, GlassFish Server serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
+<p>Para conservar datos de estado activo, Servidor GlassFish serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
 
 </dd>
 <dt>Conservaci&#243;n de recursos de &#225;mbito de aplicaci&#243;n</dt>
@@ -222,7 +222,7 @@ siguientes opciones.</p>
 
 </dd>
 <dt>Bibliotecas</dt>
-<dd><p>Lista de archivos JAR de la biblioteca separados por comas espec&#237;ficos de esta aplicaci&#243;n. Especifica una ruta de acceso absoluta o relativa. Una ruta relativa es relativa a <tt></tt><i>domain-dir</i><tt>/lib/applibs</tt>. Si la ruta es absoluta, la ruta debe ser accesible para el servidor de administraci&#243;n del dominio (DAS), lo que implica que debe estar en <tt></tt><i>domain-dir</i><tt></tt>. Las bibliotecas est&#225;n disponibles para la aplicaci&#243;n en el orden en que est&#225;n especificadas.</p>
+<dd><p>Lista de archivos JAR de la biblioteca separados por comas espec&#237;ficos de esta aplicaci&#243;n. Especifica una ruta de acceso absoluta o relativa. Una ruta relativa es relativa a <tt></tt><i>dir_dominio</i><tt>/lib/applibs</tt>. Si la ruta es absoluta, la ruta debe ser accesible para el servidor de administraci&#243;n del dominio (DAS), lo que implica que debe estar en <tt></tt><i>dir_dominio</i><tt></tt>. Las bibliotecas est&#225;n disponibles para la aplicaci&#243;n en el orden en que est&#225;n especificadas.</p>
 
 </dd>
 <dt>Descripci&#243;n</dt>
@@ -319,7 +319,7 @@ siguientes opciones.</p>
 
 </dd>
 <dt>Compatibilidad</dt>
-<dd><p>Si la opci&#243;n est&#225; seleccionada, utiliza los requisitos de visibilidad de JAR de GlassFish Server v2 para las aplicaciones, en lugar de los m&#225;s estrictos requisitos de Java EE 6 implementados en las versiones v3 de GlassFish Server, incluida 3.1. Esta opci&#243;n no est&#225; activada de forma predeterminada.</p>
+<dd><p>Si la opci&#243;n est&#225; seleccionada, utiliza los requisitos de visibilidad de JAR de Servidor GlassFish v2 para las aplicaciones, en lugar de los m&#225;s estrictos requisitos de Java EE 6 implementados en las versiones v3 de Servidor GlassFish, incluida 3.1. Esta opci&#243;n no est&#225; activada de forma predeterminada.</p>
 
 <p>La especificaci&#243;n de la plataforma Java EE 6 impone requisitos m&#225;s estrictos que Java EE 5 sobre qu&#233; archivos JAR pueden ser visibles para varios m&#243;dulos dentro de un archivo EAR. En concreto, los clientes de aplicaci&#243;n no deben tener acceso a los archivos JAR EJB o a otros archivos JAR del archivo EAR a menos que las referencias utilicen los mecanismos Java SE est&#225;ndar (extensiones, por ejemplo) o el mecanismo biblioteca-directorio de Java EE. Al activar esta casilla se eliminan estas restricciones de Java EE 6.</p>
 
@@ -335,13 +335,13 @@ siguientes opciones.</p>
 
 <p>Algunos cambios efectuados en una aplicaci&#243;n entre reimplementaciones impiden que esta opci&#243;n funcione correctamente. Por ejemplo, no cambie el conjunto de variables de instancia en la clase de bean SFSB.</p>
 
-<p>Para las aplicaciones web, esta opci&#243;n solo es aplicable si, en el archivo <tt>glassfish-web-app.xml </tt>, el atributo <tt>persistence-type</tt> del elemento <tt>session-manager</tt> es <tt>file</tt>.</p>
+<p>Para las aplicaciones web, esta opci&#243;n solo es aplicable si, en el archivo <tt>glassfish-web-app.xml</tt>, el atributo <tt>persistence-type</tt> del elemento <tt>session-manager</tt> es <tt>file</tt>.</p>
 
 <p>Para instancias de bean de sesi&#243;n con estado, el tipo de persistencia sin alta disponibilidad se establece en el servidor (con la opci&#243;n Tipo de persistencia SFSB) y se debe configurar como <tt>file</tt>, que es el valor predeterminado y recomendado.</p>
 
 <p>Si una sesi&#243;n web, instancia SFSB o temporizador EJB activo no se conserva o restablece, <b>ninguno</b> de ellos estar&#225; disponible cuando se haya completado la reimplementaci&#243;n. Sin embargo, la reimplementaci&#243;n proseguir&#225; y se registrar&#225; una advertencia.</p>
 
-<p>Para conservar datos de estado activo, GlassFish Server serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
+<p>Para conservar datos de estado activo, Servidor GlassFish serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
 
 </dd>
 <dt>Conservaci&#243;n de recursos de &#225;mbito de aplicaci&#243;n</dt>
@@ -349,7 +349,7 @@ siguientes opciones.</p>
 
 </dd>
 <dt>Bibliotecas</dt>
-<dd><p>Lista de archivos JAR de la biblioteca separados por comas espec&#237;ficos para este m&#243;dulo o aplicaci&#243;n. Especifica una ruta de acceso absoluta o relativa. Una ruta relativa es relativa a <tt></tt><i>domain-dir</i><tt>/lib/applibs</tt>. Si la ruta es absoluta, la ruta debe ser accesible para el servidor de administraci&#243;n del dominio (DAS), lo que implica que debe estar en <tt></tt><i>domain-dir</i><tt></tt>. Las bibliotecas est&#225;n disponibles para la aplicaci&#243;n en el orden en que est&#225;n especificadas.</p>
+<dd><p>Lista de archivos JAR de la biblioteca separados por comas espec&#237;ficos para este m&#243;dulo o aplicaci&#243;n. Especifica una ruta de acceso absoluta o relativa. Una ruta relativa es relativa a <tt></tt><i>dir_dominio</i><tt>/lib/applibs</tt>. Si la ruta es absoluta, la ruta debe ser accesible para el servidor de administraci&#243;n del dominio (DAS), lo que implica que debe estar en <tt></tt><i>dir_dominio</i><tt></tt>. Las bibliotecas est&#225;n disponibles para la aplicaci&#243;n en el orden en que est&#225;n especificadas.</p>
 
 </dd>
 <dt>Descripci&#243;n</dt>
@@ -407,17 +407,17 @@ siguientes opciones.</p>
 
 <p>Algunos cambios efectuados en una aplicaci&#243;n entre reimplementaciones impiden que esta opci&#243;n funcione correctamente. Por ejemplo, no cambie el conjunto de variables de instancia en la clase de bean SFSB.</p>
 
-<p>Para las aplicaciones web, esta opci&#243;n solo es aplicable si, en el archivo <tt>glassfish-web-app.xml </tt>, el atributo <tt>persistence-type</tt> del elemento <tt>session-manager</tt> es <tt>file</tt>.</p>
+<p>Para las aplicaciones web, esta opci&#243;n solo es aplicable si, en el archivo <tt>glassfish-web-app.xml</tt>, el atributo <tt>persistence-type</tt> del elemento <tt>session-manager</tt> es <tt>file</tt>.</p>
 
 <p>Para instancias de bean de sesi&#243;n con estado, el tipo de persistencia sin alta disponibilidad se establece en el servidor (con la opci&#243;n Tipo de persistencia SFSB) y se debe configurar como <tt>file</tt>, que es el valor predeterminado y recomendado.</p>
 
 <p>Si una sesi&#243;n web, instancia SFSB o temporizador EJB activo no se conserva o restablece, <b>ninguno</b> de ellos estar&#225; disponible cuando se haya completado la reimplementaci&#243;n. Sin embargo, la reimplementaci&#243;n proseguir&#225; y se registrar&#225; una advertencia.</p>
 
-<p>Para conservar datos de estado activo, GlassFish Server serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
+<p>Para conservar datos de estado activo, Servidor GlassFish serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
 
 </dd>
 <dt>Bibliotecas</dt>
-<dd><p>Lista de archivos JAR de la biblioteca separados por comas espec&#237;ficos para este m&#243;dulo o aplicaci&#243;n. Especifica una ruta de acceso absoluta o relativa. Una ruta relativa es relativa a <tt></tt><i>domain-dir</i><tt>/lib/applibs</tt>. Si la ruta es absoluta, la ruta debe ser accesible para el servidor de administraci&#243;n del dominio (DAS), lo que implica que debe estar en <tt></tt><i>domain-dir</i><tt></tt>. Las bibliotecas est&#225;n disponibles para la aplicaci&#243;n en el orden en que est&#225;n especificadas.</p>
+<dd><p>Lista de archivos JAR de la biblioteca separados por comas espec&#237;ficos para este m&#243;dulo o aplicaci&#243;n. Especifica una ruta de acceso absoluta o relativa. Una ruta relativa es relativa a <tt></tt><i>dir_dominio</i><tt>/lib/applibs</tt>. Si la ruta es absoluta, la ruta debe ser accesible para el servidor de administraci&#243;n del dominio (DAS), lo que implica que debe estar en <tt></tt><i>dir_dominio</i><tt></tt>. Las bibliotecas est&#225;n disponibles para la aplicaci&#243;n en el orden en que est&#225;n especificadas.</p>
 
 </dd>
 <dt>Descripci&#243;n</dt>
@@ -479,4 +479,4 @@ siguientes opciones.</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

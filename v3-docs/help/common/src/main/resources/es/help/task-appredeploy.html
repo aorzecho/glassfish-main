@@ -1,15 +1,15 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 
 
-<a name="task-appredeploy"></a><h4>C&#243;mo volver a implementar una aplicaci&#243;n implementada</h4><a name="indexterm-54"></a><a name="indexterm-55"></a><p>Al volver a implementar una aplicaci&#243;n se implementa una versi&#243;n nueva de
+<a name="task-appredeploy"></a><h3>C&#243;mo volver a implementar una aplicaci&#243;n implementada</h3><a name="indexterm-54"></a><a name="indexterm-55"></a><p>Al volver a implementar una aplicaci&#243;n se implementa una versi&#243;n nueva de
 la aplicaci&#243;n y al mismo tiempo se preserva la configuraci&#243;n y otras
 opciones propias de la aplicaci&#243;n cuando se implement&#243; inicialmente.</p>
 
-<h6>Antes de empezar</h6><p>Aseg&#250;rese de que la aplicaci&#243;n que est&#225; volviendo a implementar ya est&#225;
+<p><b>Antes de empezar</b></p><p>Aseg&#250;rese de que la aplicaci&#243;n que est&#225; volviendo a implementar ya est&#225;
 implementada.</p>
 
 <ol>
@@ -27,8 +27,8 @@ de administraci&#243;n mediante un navegador.</p><p>Haga clic en Examinar para b
 ruta completa hasta el archivo.</p></li>
 <li><b>Si la aplicaci&#243;n es un archivo que reside en el equipo servidor
 o es una aplicaci&#243;n descomprimida desde un directorio desplegado, seleccione la opci&#243;n
-Archivo comprimido local o Directorio accesible desde GlassFish Server. </b><p>El equipo servidor es el host que se est&#225; ejecutando en el
-servidor de administraci&#243;n del dominio (DAS). </p><p>Haz clic en Examinar archivos para buscar un archivo, o en Examinar
+Archivo comprimido local o Directorio accesible desde Servidor GlassFish. </b><p>El equipo servidor es el host que se est&#225; ejecutando en el
+servidor de administraci&#243;n del dominio (DAS). </p><p>Haz clic en Examinar archivos para buscar un archivo o en Examinar
 carpetas para buscar un directorio. Como opci&#243;n alternativa, escriba el nombre de
 la ruta completa del archivo o directorio. Implementar desde un directorio desplegado
 es para desarrolladores avanzados y no es recomendable para entornos de producci&#243;n.</p></li></ul></li>
@@ -48,7 +48,7 @@ esta opci&#243;n.</p></li>
 a Java Web Start para un m&#243;dulo de cliente de aplicaciones.</b><p>Esta opci&#243;n est&#225; habilitada o inhabilitada de manera predeterminada en funci&#243;n de
 su configuraci&#243;n en la implementaci&#243;n original.</p></li>
 <li><b>Seleccione la opci&#243;n Mantener estado para mantener sesiones web, instancias de SFSB
-y temporizadores EJB creados con persistencia entre reimplementaciones.</b><p>Esta opci&#243;n se deshabilita por defecto. Esta opci&#243;n solo se admite en
+y temporizadores EJB creados con persistencia entre reimplementaciones.</b><p>Esta opci&#243;n se deshabilita por defecto. Esta opci&#243;n s&#243;lo se admite en
 la instancia de servidor predeterminada, denominada <tt>server</tt>. No se admite para ning&#250;n
 otro destino, y se hace caso omiso de ella.</p><p>Algunos cambios efectuados en una aplicaci&#243;n entre reimplementaciones impiden que esta opci&#243;n
 funcione correctamente. Por ejemplo, no cambie el conjunto de variables de instancia
@@ -58,14 +58,14 @@ sin alta disponibilidad se establece en el servidor (con la opci&#243;n Tipo
 de persistencia SFSB) y se debe configurar como <tt>file</tt>, que es el
 valor predeterminado y recomendado.</p><p>Si una sesi&#243;n web, instancia SFSB o temporizador EJB activo no se
 conserva o restablece, <b>ninguno</b> de ellos estar&#225; disponible cuando se haya completado
-la reimplementaci&#243;n. Sin embargo, la reimplementaci&#243;n proseguir&#225; y se registrar&#225; una advertencia.</p><p>Para conservar datos de estado activo, GlassFish Server serializa los datos y
+la reimplementaci&#243;n. Sin embargo, la reimplementaci&#243;n proseguir&#225; y se registrar&#225; una advertencia.</p><p>Para conservar datos de estado activo, Servidor GlassFish serializa los datos y
 los guarda en la memoria. Para restaurar los datos, el cargador de
 clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa
 los datos guardados anteriormente.</p></li>
 <li><b>Seleccione la casilla de verificaci&#243;n Conservaci&#243;n de recursos de &#225;mbito de aplicaci&#243;n
 para conservar recursos restringidos al &#225;mbito de aplicaci&#243;n y restaurarlos durante la
 reimplementaci&#243;n.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Haga clic en Aceptar.</b></li></ol><h6>V&#233;ase tambi&#233;n</h6>
+<li><b>Haga clic en Aceptar.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
 <ul><li><p><a href="task-applistdeployed.html">Ver una lista de aplicaciones implementadas</a></p>
 
 </li>
@@ -105,9 +105,9 @@ reimplementaci&#243;n.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></l
 <li><p><a href="task-apprestart.html">C&#243;mo recargar una aplicaci&#243;n implementada</a></p>
 
 </li>
-<li><p><a href="../../../ejb/es/help/task-ejbcontaineravailability.html">C&#243;mo configurar la disponibilidad del contenedor EJB</a></p>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2954&id=task-ejbcontaineravailability">C&#243;mo configurar la disponibilidad del contenedor EJB</a></p>
 
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

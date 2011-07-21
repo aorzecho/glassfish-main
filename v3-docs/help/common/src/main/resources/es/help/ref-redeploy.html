@@ -1,10 +1,10 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-redeploy"></a><h4>Volver a implementar aplicaciones o m&#243;dulos</h4>
-<a name="indexterm-185"></a><a name="indexterm-186"></a><p>Utilice la p&#225;gina Volver a implementar aplicaciones o m&#243;dulos para implementar de
+<a name="indexterm-186"></a><a name="indexterm-187"></a><p>Utilice la p&#225;gina Volver a implementar aplicaciones o m&#243;dulos para implementar de
 nuevo una aplicaci&#243;n previamente implementada.</p>
 
 <p>La p&#225;gina Volver a implementar aplicaciones o m&#243;dulos contiene las siguientes opciones.</p>
@@ -20,10 +20,10 @@ nuevo una aplicaci&#243;n previamente implementada.</p>
 <p>La m&#225;quina cliente es el host en el que est&#225; viendo la Consola de administraci&#243;n por medio de un navegador.</p>
 
 </dd>
-<dt>Directorio o archivo empaquetado local al que se puede acceder desde GlassFish Server</dt>
+<dt>Directorio o archivo empaquetado local al que se puede acceder desde Servidor GlassFish</dt>
 <dd><p>El archivo de almacenamiento es un archivo que reside en la m&#225;quina servidor o es una aplicaci&#243;n desempaquetada en un directorio de despliegue.</p>
 
-<p>El equipo servidor es el sistema anfitri&#243;n que est&#225; ejecutando el servidor de administraci&#243;n del dominio de GlassFish Server. </p>
+<p>El equipo servidor es el sistema anfitri&#243;n que est&#225; ejecutando el servidor de administraci&#243;n del dominio de Servidor GlassFish. </p>
 
 </dd>
 </dl>
@@ -55,13 +55,13 @@ nuevo una aplicaci&#243;n previamente implementada.</p>
 
 <p>Algunos cambios efectuados en una aplicaci&#243;n entre reimplementaciones impiden que esta opci&#243;n funcione correctamente. Por ejemplo, no cambie el conjunto de variables de instancia en la clase de bean SFSB.</p>
 
-<p>Para las aplicaciones web, esta opci&#243;n solo es aplicable si, en el archivo <tt>glassfish-web-app.xml </tt>, el atributo <tt>persistence-type</tt> del elemento <tt>session-manager</tt> es <tt>file</tt>.</p>
+<p>Para las aplicaciones web, esta opci&#243;n solo es aplicable si, en el archivo <tt>glassfish-web-app.xml</tt>, el atributo <tt>persistence-type</tt> del elemento <tt>session-manager</tt> es <tt>file</tt>.</p>
 
 <p>Para instancias de bean de sesi&#243;n con estado, el tipo de persistencia sin alta disponibilidad se establece en el servidor (con la opci&#243;n Tipo de persistencia SFSB) y se debe configurar como <tt>file</tt>, que es el valor predeterminado y recomendado.</p>
 
 <p>Si una sesi&#243;n web, instancia SFSB o temporizador EJB activo no se conserva o restablece, <b>ninguno</b> de ellos estar&#225; disponible cuando se haya completado la reimplementaci&#243;n. Sin embargo, la reimplementaci&#243;n proseguir&#225; y se registrar&#225; una advertencia.</p>
 
-<p>Para conservar datos de estado activo, GlassFish Server serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
+<p>Para conservar datos de estado activo, Servidor GlassFish serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa los datos guardados anteriormente.</p>
 
 </dd>
 <dt>Conservaci&#243;n de recursos de &#225;mbito de aplicaci&#243;n</dt>
@@ -110,7 +110,7 @@ nuevo una aplicaci&#243;n previamente implementada.</p>
 <li><p><a href="task-apprestart.html">C&#243;mo recargar una aplicaci&#243;n implementada</a></p>
 
 </li>
-<li><p><a href="../../../ejb/es/help/task-ejbcontaineravailability.html">C&#243;mo habilitar la disponibilidad del contenedor EJB</a></p>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2954&id=task-ejbcontaineravailability">C&#243;mo habilitar la disponibilidad del contenedor EJB</a></p>
 
 </li></ul>
 <h5>Comandos <tt>asadmin</tt> relacionados</h5>
@@ -129,4 +129,4 @@ nuevo una aplicaci&#243;n previamente implementada.</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

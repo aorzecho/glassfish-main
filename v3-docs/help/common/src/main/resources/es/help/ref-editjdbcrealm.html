@@ -1,13 +1,13 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-editjdbcrealm"></a><h4><tt>Propiedades espec&#237;ficas de la clase JDBCRealm</tt></h4>
-<a name="indexterm-206"></a><a name="indexterm-207"></a><p>Para proteger sus p&#225;ginas y aplicaciones web, puede configurar la seguridad para
+<a name="indexterm-207"></a><a name="indexterm-208"></a><p>Para proteger sus p&#225;ginas y aplicaciones web, puede configurar la seguridad para
 que s&#243;lo puedan acceder a ellas los usuarios registrados. Esto se conoce
 como recurso de autenticaci&#243;n. Este tipo de dominio se encarga de guardar
-las credenciales de los usuarios en una base de datos. GlassFish Server
+las credenciales de los usuarios en una base de datos. Servidor GlassFish
 utiliza la informaci&#243;n de la base de datos y la opci&#243;n de
 dominio JDBC activada dentro del archivos de configuraci&#243;n.</p>
 
@@ -60,11 +60,11 @@ dominio JDBC activada dentro del archivos de configuraci&#243;n.</p>
 <dd><p>(Opcional) Especifica el algoritmo de recopilaci&#243;n. El valor predeterminado es <tt> SHA-256</tt>. Puede utilizar cualquier algoritmo admitido en el JDK, o ninguno.</p>
 
 
-<hr><p><b>Nota - </b>En versiones de GlassFish Server anteriores a la 3.1, el algoritmo predeterminado era <tt>MD5</tt>. Si tiene aplicaciones que dependan del algoritmo <tt>MD5</tt>, puede reemplazar el algoritmo predeterminado <tt>SHA-25</tt> mediante el subcomando <tt>asadmin set</tt>:</p>
+<hr><p><b>Nota - </b>En versiones de Servidor GlassFish anteriores a la 3.1, el algoritmo predeterminado era <tt>MD5</tt>. Si tiene aplicaciones que dependan del algoritmo <tt>MD5</tt>, puede reemplazar el algoritmo predeterminado <tt>SHA-25</tt> mediante el subcomando <tt>asadmin set</tt>:</p>
 
 <pre>asadmin> <tt><b>set server.security-service.property.default-digest-algorithm=MD5</b></tt></pre><p>Puede utilizar el subcomando <tt>asadmin get</tt> para determinar qu&#233; algoritmo se est&#225; utilizando actualmente:</p>
 
-<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>Tenga tambi&#233;n en cuenta que, para mantener la compatibilidad con versiones anteriores, si efect&#250;a una actualizaci&#243;n de GlassFish Server v2.<i>x</i> o v3.0.<i> x</i> a GlassFish Server 3.1, el algoritmo predeterminado se establece autom&#225;ticamente en <tt>MD5</tt> en los casos en que el algoritmo de recopilaci&#243;n no se haya configurado de forma expl&#237;cita en la versi&#243;n anterior de GlassFish Server.</p>
+<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>Tenga tambi&#233;n en cuenta que, para mantener la compatibilidad con versiones anteriores, si efect&#250;a una actualizaci&#243;n de Servidor GlassFish v2.<i>x</i> o v3.0.<i> x</i> a Servidor GlassFish 3.1, el algoritmo predeterminado se establece autom&#225;ticamente en <tt>MD5</tt> en los casos en que el algoritmo de recopilaci&#243;n no se haya configurado de forma expl&#237;cita en la versi&#243;n anterior de Servidor GlassFish.</p>
 
 
 <hr>
@@ -80,4 +80,4 @@ dominio JDBC activada dentro del archivos de configuraci&#243;n.</p>
 </dl>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
