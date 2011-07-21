@@ -1,13 +1,13 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-appredeploy"></a><h4>重新部署已部署的应用程序</h4><a name="indexterm-54"></a><a name="indexterm-55"></a><p>重新部署应用程序会在保留应用程序最初部署时的设置和其他选项的同时部署应用程序的新版本。</p>
+<a name="task-appredeploy"></a><h3>重新部署已部署的应用程序</h3><a name="indexterm-54"></a><a name="indexterm-55"></a><p>重新部署应用程序会在保留应用程序最初部署时的设置和其他选项的同时部署应用程序的新版本。</p>
 
-<h6>开始之前</h6><p>确保要重新部署的应用程序已经部署。</p>
+<p><b>开始之前</b></p><p>确保要重新部署的应用程序已经部署。</p>
 
 <ol>
 <li><b>在导航树中，选择&#8220;应用程序&#8221;节点。</b><p>此时将打开&#8220;应用程序&#8221;页面。</p></li>
@@ -20,7 +20,7 @@ Use is subject to License Terms  -->
 <li><b>选中 "Java Web Start" 复选框，为应用程序客户机模块启用 Java Web Start 访问。</b><p>默认情况下，根据最初部署时的设置禁用或启用该选项。</p></li>
 <li><b>选中&#8220;保持状态&#8221;复选框将在两次重新部署期间保留 Web 会话、SFSB 实例以及创建的持久性 EJB 计时器。</b><p>默认情况下禁用此选项。只有名为 <tt>server</tt> 的默认服务器实支持此选项。任何其他目标都不支持此选项并将其忽略。</p><p>在两次重新部署期间对应用程序所做的某些更改会阻碍此功能正常工作。例如，不要更改 SFSB Bean 类中的实例变量集。</p><p>对于 Web 应用程序，仅当 <tt>glassfish-web-app.xml </tt>文件中 <tt>session-manager</tt> 元素的 <tt>persistence-type</tt> 属性是 <tt>file</tt> 时，此功能才可用。</p><p>对于有状态会话 Bean 实例，在服务器中设置不支持高可用性的持久性类型（&#8220;SFSB 持久性类型&#8221;选项）且必须将其设置为 <tt>file</tt>，这是默认值，建议使用该值。</p><p>如果无法保留或恢复任何活动 Web 会话、SFSB 实例或 EJB 计时器，则在重新部署完成时这些资源将<b>无</b>一可用。但是，重新部署将继续，并且记录一个警告。</p><p>为了保留活动状态数据，GlassFish Server 将对数据进行序列化，并将其保存在内存中。为了恢复这些数据，新近重新部署的应用程序的类加载器将对先前保存的数据进行反序列化。</p></li>
 <li><b>选中&#8220;保留以应用程序为作用域的资源&#8221;复选框将保留任何以应用程序为作用域的资源，并在重新部署过程中恢复这些资源。</b><p>默认情况下禁用此选项。</p></li>
-<li><b>单击&#8220;确定&#8221;。</b></li></ol><h6>另请参见</h6>
+<li><b>单击&#8220;确定&#8221;。</b></li></ol><p></b>另请参见</b></p>
 <ul><li><p><a href="task-applistdeployed.html">查看已部署应用程序列表</a></p>
 
 </li>
@@ -60,9 +60,9 @@ Use is subject to License Terms  -->
 <li><p><a href="task-apprestart.html">重新装入已部署的应用程序</a></p>
 
 </li>
-<li><p><a href="../../../ejb/zh_CN/help/task-ejbcontaineravailability.html">为 EJB 容器配置可用性设置</a></p>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2960&id=task-ejbcontaineravailability">为 EJB 容器配置可用性设置</a></p>
 
 </li></ul>
 
 
-<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

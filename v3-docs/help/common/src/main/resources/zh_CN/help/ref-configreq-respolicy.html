@@ -1,10 +1,10 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-configreq-respolicy"></a><h4>请求策略配置和响应策略配置</h4>
-<a name="indexterm-236"></a><p>如果验证源为 <tt>sender</tt>，则消息中包括 <tt>wsse:Security</tt> 标头，此标头包含 <tt>wsse:UsernameToken</tt>（带有密码）。如果验证源为 content，则对 SOAP 消息体的内容进行签名，并且消息包含 <tt>wsse:Security</tt> 标头，消息体签名表示为 <tt>ds</tt>: <tt>Signature</tt>
+<a name="indexterm-237"></a><p>如果验证源为 <tt>sender</tt>，则消息中包括 <tt>wsse:Security</tt> 标头，此标头包含 <tt>wsse:UsernameToken</tt>（带有密码）。如果验证源为 content，则对 SOAP 消息体的内容进行签名，并且消息包含 <tt>wsse:Security</tt> 标头，消息体签名表示为 <tt>ds</tt>: <tt>Signature</tt>
 的消息体签名。</p>
 
 <p>如果验证收件人为 <tt>before-content</tt> 或 <tt>after-content</tt>，则 SOAP 消息体的内容会被加密并用生成的 <tt>xend:EncryptedData</tt> 替换。此消息包含 <tt>wsse:Security</tt> 标头，此标头包含 <tt>xenc:EncryptedKey</tt>。<tt>xenc:EncryptedKey</tt> 包含用于对
@@ -44,4 +44,4 @@ SOAP 消息体进行加密的密钥。此密钥在收件人的公钥中加密。
 </tr>
 </table>
 
-<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>

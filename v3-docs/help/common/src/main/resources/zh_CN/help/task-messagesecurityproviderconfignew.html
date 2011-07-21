@@ -1,13 +1,13 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-messagesecurityproviderconfignew"></a><h4>创建消息安全性提供者配置</h4><a name="indexterm-110"></a><p>要创建新的消息安全性提供者配置，请按照以下步骤操作：</p>
+<a name="task-messagesecurityproviderconfignew"></a><h3>创建消息安全性提供者配置</h3><a name="indexterm-110"></a><p>要创建新的消息安全性提供者配置，请按照以下步骤操作：</p>
 
-<h6>开始之前</h6><p>无法创建或删除默认 <tt>server-config</tt> 配置的消息安全性提供者。只有 SOAP 和 HttpServlet 这两个消息安全性提供者支持默认的 <tt>server-config</tt>。因为默认情况下安装 GlassFish Server 时已经创建了这两个消息提供者，所以默认 <tt>server-config</tt>
+<p><b>开始之前</b></p><p>无法创建或删除默认 <tt>server-config</tt> 配置的消息安全性提供者。只有 SOAP 和 HttpServlet 这两个消息安全性提供者支持默认的 <tt>server-config</tt>。因为默认情况下安装 GlassFish Server 时已经创建了这两个消息提供者，所以默认 <tt>server-config</tt>
 的&#8220;消息安全性配置&#8221;页面上的&#8220;新建&#8221;按钮显示为灰色。</p>
 
 <ol>
@@ -39,7 +39,7 @@ Use is subject to License Terms  -->
 <li><b>在&#8220;响应策略&#8221;区域中，从&#8220;验证源&#8221;下拉式列表，选择响应策略所需验证的类型。</b><p>响应策略用于确定验证提供者执行的响应处理。响应策略字段是可选的，但如果不指定这些字段，则不验证响应消息。</p><p>选择 <tt>sender</tt> 以指定响应消息的消息层发送者验证（例如，用户名和密码）。选择 <tt>content</tt> 来指定响应消息的内容验证（例如，数字签名）。将此字段留空，不验证响应源。默认情况下，不选择任何验证类型。</p><p>有关由 SOAP 消息安全性提供者执行的操作的说明，请参见<a href="ref-configreq-respolicy.html">请求策略配置和响应策略配置</a>。</p></li>
 <li><b>从&#8220;验证收件人&#8221;下拉式列表中，选择在响应策略的内容验证之前还是之后进行收件人验证。</b><p>选择 <tt>before-content</tt> 或 <tt>after-content</tt> 以要求对其发送者进行响应消息的收件人的消息层验证（通过 XML 加密）。如果未指定值，则默认值为 <tt>after-content</tt>。这些策略是按消息发送者的顺序表达的，因此 <tt>after-content</tt> 表示消息收件人将在验证签名之前对消息进行解密。</p></li>
 <li>（可选的）<b>在&#8220;其他属性&#8221;部分中，指定其他属性。</b><p>要添加属性，请单击&#8220;添加属性&#8221;按钮。在显示的空白行中，在&#8220;名称&#8221;字段中键入属性名称，在&#8220;值&#8221;字段中键入属性值。</p><p>有关可用于提供者配置的其他属性的说明，请参见<a href="ref-messagesecurityproviderconfigprops.html">特定于消息安全性提供者配置的属性</a>。</p></li>
-<li><b>单击&#8220;确定&#8221;。</b></li></ol><h6>另请参见</h6>
+<li><b>单击&#8220;确定&#8221;。</b></li></ol><p></b>另请参见</b></p>
 <ul><li><p><a href="task-configmsgsecproviders.html">配置 GlassFish Server 工具以供消息安全性提供者使用</a></p>
 
 </li>
@@ -63,4 +63,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>版权所有 &#169; 2010, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
