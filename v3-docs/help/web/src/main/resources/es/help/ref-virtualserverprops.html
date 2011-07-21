@@ -1,7 +1,7 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-virtualserverprops"></a><h4>Propiedades espec&#237;ficas de los servidores virtuales</h4>
 <a name="indexterm-61"></a><a name="indexterm-62"></a><p>Las siguientes propiedades adicionales est&#225;n disponibles para un servidor virtual.</p>
@@ -64,11 +64,11 @@ Use is subject to License Terms  -->
 <dt><tt>denyRemoteHost</tt></dt>
 <dd><p>Especifica una lista de patrones de expresi&#243;n regular separados por comas que el nombre del sistema del cliente remoto (devuelto por <tt>[java.net.]Socket.getInetAddress().getHostName() </tt>) con el que se compara. Si se especifica esta propiedad, el nombre del host remoto <b>no</b> debe coincidir para que se acepte esta solicitud. Si no se especifica esta propiedad, la aceptaci&#243;n de la solicitud se regula s&#243;lo por medio de la propiedad <tt> allowRemoteHost</tt>.</p>
 
-<p>La configuraci&#243;n de esta propiedad no tiene ning&#250;n efecto si se accede al dominio de GlassFish Server a trav&#233;s de la escucha de red que tiene habilitada la opci&#243;n Escucha JK. </p>
+<p>La configuraci&#243;n de esta propiedad no tiene ning&#250;n efecto si se accede al dominio de Servidor GlassFish a trav&#233;s de la escucha de red que tiene habilitada la opci&#243;n Escucha JK. </p>
 
 </dd>
 <dt><tt>authRealm</tt></dt>
-<dd><p>Especifica el nombre de un dominio de autenticaci&#243;n que anula el dominio predeterminado de la instancia del servidor para las aplicaciones web independientes implementadas en este servidor virtual. Un dominio definido en el archivo <tt> web.xml</tt> de una aplicaci&#243;n web independiente reemplaza al dominio del servidor virtual. Para obtener m&#225;s informaci&#243;n, consulte <a href="../../../common/es/help/ref-realms.html">Dominios</a>.</p>
+<dd><p>Especifica el nombre de un dominio de autenticaci&#243;n que anula el dominio predeterminado de la instancia del servidor para las aplicaciones web independientes implementadas en este servidor virtual. Un dominio definido en el archivo <tt> web.xml</tt> de una aplicaci&#243;n web independiente reemplaza al dominio del servidor virtual. Para obtener m&#225;s informaci&#243;n, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3028&id=ref-realms">Dominios</a>.</p>
 
 </dd>
 <dt><tt>securePagesWithPragma</tt></dt>
@@ -107,7 +107,7 @@ Use is subject to License Terms  -->
 
 </dd>
 <dt><tt>contextXmlDefault</tt></dt>
-<dd><p>Especifica la ubicaci&#243;n, relativa a <i>domain-dir</i>, del archivo <tt> context.xml</tt> de este servidor virtual, si se utiliza uno. Para obtener m&#225;s informaci&#243;n sobre el archivo<tt>context.xml</tt>, consulte <a href="http://tomcat.apache.org/tomcat-5.5-doc/config/context.html">Contenedor de contexto</a>.</p>
+<dd><p>Especifica la ubicaci&#243;n, relativa a <i>dir_dominio</i>, del archivo <tt> context.xml</tt> de este servidor virtual, si se utiliza uno. Para obtener m&#225;s informaci&#243;n sobre el archivo<tt>context.xml</tt>, consulte <a href="http://tomcat.apache.org/tomcat-5.5-doc/config/context.html">Contenedor de contexto</a>.</p>
 
 </dd>
 <dt><tt>allowLinking</tt></dt>
@@ -133,7 +133,7 @@ Use is subject to License Terms  -->
 <ul><li><p>El primer componente, <tt>code</tt>, especifica el c&#243;digo de estado de la respuesta HTTP de tres d&#237;gitos para el que la p&#225;gina de errores personalizados deber&#237;a devolverse como respuesta.</p>
 
 </li>
-<li><p>El segundo componente <tt>path</tt>, especifica la ruta absoluta o relativa del sistema de archivos de la p&#225;gina de errores personalizados. Una ruta del sistema de archivos relativa se interpreta como relativa al directorio <tt></tt><i>domain-dir</i><tt>/config</tt>.</p>
+<li><p>El segundo componente <tt>path</tt>, especifica la ruta absoluta o relativa del sistema de archivos de la p&#225;gina de errores personalizados. Una ruta del sistema de archivos relativa se interpreta como relativa al directorio <tt></tt><i>dir_dominio</i><tt>/config</tt>.</p>
 
 </li>
 <li><p>El tercer componente, <tt>reason</tt>, es opcional y especifica el texto de la cadena raz&#243;n (como por ejemplo <tt>Unauthorized</tt> o <tt> Forbidden</tt>) que se debe devolver.</p>
@@ -160,7 +160,7 @@ Use is subject to License Terms  -->
 <pre>&#60;property name="redirect_1" 
   value="from=/dummy url-prefix=http://etude"/></pre></dd>
 <dt><tt>valve_<i>n</i></tt></dt>
-<dd><p>Especifica un nombre de clase completo de una v&#225;lvula personalizada, donde <i>n</i> es un n&#250;mero entero positivo que permite especificaci&#243;n de m&#225;s de uno. La clase de v&#225;lvula debe implementar la interfaz <tt>org.apache.catalina.Valve</tt> de Tomcat o versiones anteriores de GlassFish Server, o bien la interfaz <tt>org.glassfish.web.valve.GlassFishValve</tt> de la versi&#243;n actual de GlassFish Server. Por ejemplo:</p>
+<dd><p>Especifica un nombre de clase completo de una v&#225;lvula personalizada, donde <i>n</i> es un n&#250;mero entero positivo que permite especificaci&#243;n de m&#225;s de uno. La clase de v&#225;lvula debe implementar la interfaz <tt>org.apache.catalina.Valve</tt> de Tomcat o versiones anteriores de Servidor GlassFish, o bien la interfaz <tt>org.glassfish.web.valve.GlassFishValve</tt> de la versi&#243;n actual de Servidor GlassFish. Por ejemplo:</p>
 
 <pre>&#60;property name="valve_1"
 value="org.glassfish.extension.Valve"/></pre><p>Puede configurar esta propiedad para una determinada aplicaci&#243;n web. Para obtener m&#225;s informaci&#243;n, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app de <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
@@ -180,4 +180,4 @@ value="org.glassfish.extension.MyLifecycleListener"/></pre><p>Puede configurar e
 </dl>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

@@ -1,7 +1,7 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-networklisteneredit"></a><h4>Editar escucha de red</h4>
 <a name="indexterm-66"></a><p>Utilice la p&#225;gina Editar escucha de red para modificar una escucha de
@@ -14,11 +14,11 @@ posible editarlas. </p>
 <p>La p&#225;gina Editar escucha de red contiene las siguientes opciones.</p>
 
 <dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer los valores predeterminados de todos los par&#225;metros de configuraci&#243;n.</p>
+<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
 
 </dd>
-<dt>Nombre de la configuraci&#243;n</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que se aplican los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
+<dt>Configuration Name</dt>
+<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
 
 </dd>
 <dt>Nombre</dt>
@@ -32,7 +32,7 @@ posible editarlas. </p>
 <dt>Estado</dt>
 <dd><p>El estado de la escucha de red. La escucha puede habilitarse o deshabilitarse. Esta opci&#243;n se habilita por defecto. Si la escucha se encuentra deshabilitada, cualquier intento de establecer una conexi&#243;n con ella tiene como resultado una excepci&#243;n de socket (<tt>java.net.ConnectException</tt>). </p>
 
-<p>En las versiones anteriores a la 9.1 de GlassFish Server, una escucha cuyo atributo habilitado se hubiera definido como false devolv&#237;a un c&#243;digo de respuesta 404 para cualquier solicitud que se le enviaba. Para lograr este comportamiento en la versi&#243;n actual de GlassFish Server, establezca el estado de la escucha en habilitado y defina cada estado de servidor virtual asociado como desactivado. Un servidor virtual incluye sus escuchas asociadas en la lista desplegable Escuchas de red. </p>
+<p>En las versiones anteriores a la 9.1 de Servidor GlassFish, una escucha cuyo atributo habilitado se hubiera definido como false devolv&#237;a un c&#243;digo de respuesta 404 para cualquier solicitud que se le enviaba. Para lograr este comportamiento en la versi&#243;n actual de Servidor GlassFish, establezca el estado de la escucha en habilitado y defina cada estado de servidor virtual asociado como desactivado. Un servidor virtual incluye sus escuchas asociadas en la lista desplegable Escuchas de red. </p>
 
 </dd>
 <dt>Security</dt>
@@ -40,7 +40,7 @@ posible editarlas. </p>
 
 </dd>
 <dt>Escucha JK</dt>
-<dd><p>Si se encuentra seleccionada esta opci&#243;n, la escucha admite el protocolo <tt>mod-jk</tt> de Apache. El protocolo <tt>mod-jk</tt> es un protocolo de red/comunicaci&#243;n de propiedad entre <tt>httpd</tt> de Apache (servidor web) y una instancia back-end de GlassFish Server. Si la escucha admite este protocolo, se supone que <tt>httpd</tt> maneja todo el contenido est&#225;tico, mientras que cualquier solicitud de recursos din&#225;micos (es decir, servlets y JSP) se direccionan a la escucha de red con el protocolo <tt>mod jk</tt> habilitado de GlassFish Server a trav&#233;s del protocolo  <tt>mod-jk</tt>. Esta opci&#243;n se deshabilita por defecto.</p>
+<dd><p>Si se encuentra seleccionada esta opci&#243;n, la escucha admite el protocolo <tt>mod-jk</tt> de Apache. El protocolo <tt>mod-jk</tt> es un protocolo de red/comunicaci&#243;n de propiedad entre <tt>httpd</tt> de Apache (servidor web) y una instancia back-end de Servidor GlassFish. Si la escucha admite este protocolo, se supone que <tt>httpd</tt> maneja todo el contenido est&#225;tico, mientras que cualquier solicitud de recursos din&#225;micos (es decir, servlets y JSP) se direccionan a la escucha de red con el protocolo <tt>mod jk</tt> habilitado de Servidor GlassFish a trav&#233;s del protocolo  <tt>mod-jk</tt>. Esta opci&#243;n se deshabilita por defecto.</p>
 
 </dd>
 <dt>Puerto</dt>
@@ -102,4 +102,4 @@ posible editarlas. </p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

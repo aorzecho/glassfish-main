@@ -1,11 +1,11 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 
 
-<a name="task-protocolnew"></a><h4>C&#243;mo crear un protocolo</h4><a name="indexterm-24"></a><ol>
+<a name="task-protocolnew"></a><h3>C&#243;mo crear un protocolo</h3><a name="indexterm-24"></a><ol>
 <li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraci&#243;n.</b></li>
 <li><b>En el nodo Configuraci&#243;n, expanda el nodo Configuraci&#243;n de red.</b></li>
 <li><b>En el nodo Configuraci&#243;n de red, seleccione el nodo Protocolos. </b><p>Se abrir&#225; la p&#225;gina Protocolos.</p></li>
@@ -49,7 +49,7 @@ puerto se usar&#225; en las URL que el servidor env&#237;a al cliente.
 <li><b>En la lista desplegable Servidor virtual predeterminado, seleccione el servidor virtual asociado
 a este protocolo.</b><p>Utilice la p&#225;gina Servidores virtuales para definir los servidores virtuales.</p></li>
 <li><b>En el campo Redireccionar puerto, introduzca el valor del puerto que se
-utilizar&#225; para redireccionar una solicitud a otro puerto. </b><p>GlassFish Server redirige autom&#225;ticamente la solicitud si se dan estas dos condiciones:</p>
+utilizar&#225; para redireccionar una solicitud a otro puerto. </b><p>Servidor GlassFish redirige autom&#225;ticamente la solicitud si se dan estas dos condiciones:</p>
 
 
 <ul><li><p>La escucha de red que hace referencia a este protocolo admite otras solicitudes que no son SSL. </p>
@@ -58,7 +58,7 @@ utilizar&#225; para redireccionar una solicitud a otro puerto. </b><p>GlassFish 
 <li><p>Se recibe una solicitud para la que una restricci&#243;n de seguridad coincidente requiere transporte SSL.</p>
 
 </li></ul>
-<p>Si no se especifica un puerto de redirecci&#243;n, GlassFish Server utiliza el
+<p>Si no se especifica un puerto de redirecci&#243;n, Servidor GlassFish utiliza el
 n&#250;mero de puerto especificado en la solicitud original. De forma predeterminada, no
 se especifica ning&#250;n puerto. </p></li>
 <li><b>En el campo N&#250;mero m&#225;ximo de conexiones, escriba el n&#250;mero m&#225;ximo de
@@ -137,7 +137,7 @@ recursos est&#225;tico. </b><p>El valor predeterminado es <tt>com.sun.grizzly.tc
 compatibilidad de Comet para la escucha de red que hace referencia a
 este protocolo. </b><p>De forma predeterminada, esta opci&#243;n se encuentra deshabilitada. Si el servlet o
 la p&#225;gina JSP utiliza tecnolog&#237;a Comet, aseg&#250;rese de que se ha inicializado cuando
-se inicia GlassFish Server al a&#241;adir el elemento <tt>load-on-startup</tt> al archivo <tt>web.xml</tt>.
+se inicia Servidor GlassFish al a&#241;adir el elemento <tt>load-on-startup</tt> al archivo <tt>web.xml</tt>.
 Por ejemplo:</p><pre>&#60;servlet>
 &#60;servlet-name>CheckIn&#60;/servlet-name>
 &#60;servlet-class>CheckInServlet&#60;/servlet-class>
@@ -148,7 +148,7 @@ habilitar la b&#250;squeda DNS. </b><p>Esta opci&#243;n se deshabilita por defec
 <li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de la compatibilidad RCM para
 habilitar la administraci&#243;n de configuraci&#243;n de recursos (RCM). </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
 <li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de seguimiento para habilitar la
-operaci&#243;n TRACE. </b><p>Si esta opci&#243;n se encuentra deshabilitada, GlassFish Server es menos susceptible de
+operaci&#243;n TRACE. </b><p>Si esta opci&#243;n se encuentra deshabilitada, Servidor GlassFish es menos susceptible de
 sufrir ataques de secuencias de comandos entre sitios. Esta opci&#243;n se habilita
 por defecto.</p></li>
 <li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n del pase de autenticaci&#243;n para
@@ -156,12 +156,12 @@ indicar que la escucha de red que utiliza este protocolo recibe tr&#225;fico
  desde un servidor proxy con terminaci&#243;n SSL.  </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
 <li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de la fragmentaci&#243;n para habilitar
 la fragmentaci&#243;n de la respuesta HTTP. </b><p>Esta opci&#243;n se habilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n XPowered By habilitado para indicar a GlassFish
-Server que utilice los encabezados de <tt>X-Powered-By</tt> conforme a las especificaciones de
-Java Servlet 3.0 y Java Server Pages 2.0.</b><p>Esta opci&#243;n se habilita por defecto.</p></li></ol><h6>Pasos siguientes</h6><p>Despu&#233;s de crear un protocolo, puede crear una escucha de red que utilice
+<li><b>Seleccione la casilla de verificaci&#243;n XPowered By habilitado para indicar a Servidor
+GlassFish que utilice los encabezados de <tt>X-Powered-By</tt> conforme a las especificaciones de
+Java Servlet 3.0 y Java Server Pages 2.0.</b><p>Esta opci&#243;n se habilita por defecto.</p></li></ol><p></b>Pasos siguientes</b></p><p>Despu&#233;s de crear un protocolo, puede crear una escucha de red que utilice
 el protocolo. </p>
 
-<h6>V&#233;ase tambi&#233;n</h6>
+<p></b>V&#233;ase tambi&#233;n</b></p>
 <ul><li><p><a href="task-networklistenernew.html">C&#243;mo crear una escucha de red</a></p>
 
 </li>
@@ -197,4 +197,4 @@ el protocolo. </p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
