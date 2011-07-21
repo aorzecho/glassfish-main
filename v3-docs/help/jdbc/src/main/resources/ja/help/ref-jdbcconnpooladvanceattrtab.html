@@ -1,6 +1,6 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-jdbcconnpooladvanceattrtab"></a><h4>接続プールの詳細属性を編集</h4>
@@ -8,8 +8,8 @@ Use is subject to License Terms  -->
 
 <p>「接続プールの詳細属性を編集」ページには、次のオプションが含まれます。</p>
 
-<dl><dt>デフォルトを読み込み</dt>
-<dd><p>すべての設定の値をデフォルトに戻すボタン。</p>
+<dl><dt>デフォルトを読込み</dt>
+<dd><p>デフォルト値を持つ設定をデフォルト値に戻すボタン。デフォルト値を持たない設定は変更されません。</p>
 
 </dd>
 <dt>プール名</dt>
@@ -17,7 +17,7 @@ Use is subject to License Terms  -->
 
 </dd>
 <dt>文のタイムアウト</dt>
-<dd><p>異常に長い時間実行されているクエリーを終了させるまでの時間の長さ (秒数)。GlassFish サーバー は、作成される文に <tt>QueryTimeout</tt> を設定します。値の &#8211;1 は、オプションが無効であることを示しています。デフォルト値は &#8211;1 です。</p>
+<dd><p>異常に長い時間実行されているクエリーを終了させるまでの時間の長さ (秒数)。GlassFish Server は、作成される文に <tt>QueryTimeout</tt> を設定します。値の &#8211;1 は、オプションが無効であることを示しています。デフォルト値は &#8211;1 です。</p>
 
 </dd>
 <dt>文のキャッシュサイズ</dt>
@@ -87,10 +87,10 @@ Use is subject to License Terms  -->
 
 </dd>
 <dt>検証方法</dt>
-<dd><p>GlassFish サーバー は、データベース接続を次の方法で検証できます。</p>
+<dd><p>GlassFish Server は、データベース接続を次の方法で検証できます。</p>
 
 <dl><dt><tt>auto-commit</tt> および <tt>metadata</tt></dt>
-<dd><p>GlassFish サーバー は、<tt>con.getAutoCommit</tt> または <tt>con.getMetaData</tt> メソッドを呼び出して接続を検証します。 </p>
+<dd><p>GlassFish Server は、<tt>con.getAutoCommit</tt> または <tt>con.getMetaData</tt> メソッドを呼び出して接続を検証します。 </p>
 
 
 <hr><p><b>注 - </b>多数の JDBC ドライバが、これらの呼び出しの結果をキャッシュします。その結果、これらの呼び出しを使用すると、信頼できる検証が行われない場合もあります。呼び出しがキャッシュされるかどうかについて、ドライバベンダーに問い合わせる必要があります。</p>
@@ -99,7 +99,7 @@ Use is subject to License Terms  -->
 <hr>
 </dd>
 <dt><tt>custom-validation</tt></dt>
-<dd><p>GlassFish サーバー は、カスタム実装クラスで「検証クラス名」フィールドに指定した、ユーザー定義の検証メカニズムを使用します。</p>
+<dd><p>GlassFish Server は、カスタム実装クラスで「検証クラス名」フィールドに指定した、ユーザー定義の検証メカニズムを使用します。</p>
 
 </dd>
 <dt><tt>table</tt></dt>
@@ -113,11 +113,11 @@ Use is subject to License Terms  -->
 
 </dd>
 <dt>検証クラス名</dt>
-<dd><p>カスタム検証の実装クラス名。このフィールドは、「検証方法」が <tt>custom-validation</tt> に設定された場合にのみ適用されます。指定したクラス名は、GlassFish サーバー からアクセス可能である必要があります。指定したクラスは、 <tt>org.glassfish.api.jdbc.ConnectionValidation</tt> インタフェースを実装する必要があります。</p>
+<dd><p>カスタム検証の実装クラス名。このフィールドは、「検証方法」が <tt>custom-validation</tt> に設定された場合にのみ適用されます。指定したクラス名は、GlassFish Server からアクセス可能である必要があります。指定したクラスは、 <tt>org.glassfish.api.jdbc.ConnectionValidation</tt> インタフェースを実装する必要があります。</p>
 
 </dd>
 <dt>すべての障害で</dt>
-<dd><p>このオプションが有効な場合、いずれかの接続で障害が発生すると、GlassFish サーバー はプール内のすべての接続を閉じ、それらを再度確立します。このオプションが無効な場合、個々の接続はそれぞれの使用時のみ再度確立されます。このオプションは、デフォルトでは無効になっています。</p>
+<dd><p>このオプションが有効な場合、いずれかの接続で障害が発生すると、GlassFish Server はプール内のすべての接続を閉じ、それらを再度確立します。このオプションが無効な場合、個々の接続はそれぞれの使用時のみ再度確立されます。このオプションは、デフォルトでは無効になっています。</p>
 
 </dd>
 <dt>コンポーネント以外の呼び出し元を許可</dt>
@@ -176,4 +176,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
