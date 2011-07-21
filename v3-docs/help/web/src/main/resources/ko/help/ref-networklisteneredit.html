@@ -1,6 +1,6 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-networklisteneredit"></a><h4>네트워크 수신기 편집</h4>
@@ -12,11 +12,11 @@ Use is subject to License Terms  -->
 <p>네트워크 수신기 편집 페이지에는 다음 옵션이 포함되어 있습니다.</p>
 
 <dl><dt>기본값 로드</dt>
-<dd><p>모든 설정의 기본값을 복원하는 데 사용하는 버튼입니다.</p>
+<dd><p>기본값이 있는 설정을 해당 기본값으로 복원하는 버튼입니다. 기본값이 없는 설정은 변경되지 않습니다.</p>
 
 </dd>
 <dt>구성 이름</dt>
-<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+<dd><p>이 페이지의 설정을 적용할 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
 
 </dd>
 <dt>이름</dt>
@@ -30,7 +30,7 @@ Use is subject to License Terms  -->
 <dt>상태</dt>
 <dd><p>네트워크 수신기의 상태입니다. 수신기는 사용 가능하거나 사용 가능하지 않을 수 있습니다. 이 옵션은 기본적으로 활성화됩니다. 수신기가 비활성화된 상태에서 수신기에 연결하려고 하면 소켓 예외(<tt>java.net.ConnectException</tt>)가 발생합니다.</p>
 
-<p>GlassFish 서버 9.1 이전 버전에서는 활성화된 속성이 false로 설정된 수신기는 해당 수신기로 전송된 모든 요청에 대해 404 응답 코드를 반환했습니다. 현재 GlassFish 서버 버전에서 이 동작을 수행하려면 수신기의 상태를 사용 가능으로 설정하고 연결된 모든 가상 서버의 상태를 OFF로 설정합니다. 가상 서버의 네트워크 수신기 드롭다운 목록에는 해당 가상 서버와 연결된 수신기가 나열됩니다.</p>
+<p>GlassFish Server 9.1 이전 버전에서는 활성화된 속성이 false로 설정된 수신기는 해당 수신기로 전송된 모든 요청에 대해 404 응답 코드를 반환했습니다. 현재 GlassFish Server 버전에서 이 동작을 수행하려면 수신기의 상태를 사용 가능으로 설정하고 연결된 모든 가상 서버의 상태를 OFF로 설정합니다. 가상 서버의 네트워크 수신기 드롭다운 목록에는 해당 가상 서버와 연결된 수신기가 나열됩니다.</p>
 
 </dd>
 <dt>Security</dt>
@@ -38,7 +38,7 @@ Use is subject to License Terms  -->
 
 </dd>
 <dt>JK 수신기</dt>
-<dd><p>이 옵션을 선택하면 수신기에서 Apache의 <tt>mod-jk</tt> 프로토콜을 지원합니다. <tt>mod-jk</tt> 프로토콜은 Apache의 <tt>httpd</tt>(웹 서버)와 GlassFish 서버 백엔드 인스턴스 사이의 소유 통신/네트워크 프로토콜입니다. 수신기에서 이 프로토콜을 지원하는 경우 <tt>httpd</tt>에서 모든 정적 내용을 처리하는 것으로 간주되지만, 동적 자원(즉, 서블릿 및 JSP)에 대한 요청은 <tt>mod-jk</tt> 프로토콜을 통해 GlassFish 서버의 <tt>mod-jk</tt> 사용 네트워크 수신기에 라우팅됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
+<dd><p>이 옵션을 선택하면 수신기에서 Apache의 <tt>mod-jk</tt> 프로토콜을 지원합니다. <tt>mod-jk</tt> 프로토콜은 Apache의 <tt>httpd</tt>(웹 서버)와 GlassFish Server 백엔드 인스턴스 사이의 소유 통신/네트워크 프로토콜입니다. 수신기에서 이 프로토콜을 지원하는 경우 <tt>httpd</tt>에서 모든 정적 내용을 처리하는 것으로 간주되지만, 동적 자원(즉, 서블릿 및 JSP)에 대한 요청은 <tt>mod-jk</tt> 프로토콜을 통해 GlassFish Server의 <tt>mod-jk</tt> 사용 네트워크 수신기에 라우팅됩니다. 이 옵션은 기본적으로 비활성화됩니다.</p>
 
 </dd>
 <dt>포트</dt>
@@ -100,4 +100,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

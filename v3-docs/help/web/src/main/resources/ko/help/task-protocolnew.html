@@ -1,11 +1,11 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-protocolnew"></a><h4>프로토콜을 만드는 방법</h4><a name="indexterm-24"></a><ol>
+<a name="task-protocolnew"></a><h3>프로토콜을 만드는 방법</h3><a name="indexterm-24"></a><ol>
 <li><b>탐색 트리에서 구성 노드를 선택합니다.</b></li>
 <li><b>구성 노드에서 네트워크 구성 노드를 확장합니다.</b></li>
 <li><b>네트워크 구성 노드에서 프로토콜 노드를 선택합니다.</b><p>프로토콜 페이지가 열립니다.</p></li>
@@ -33,7 +33,7 @@ Use is subject to License Terms  -->
 사용됩니다.</p></li>
 <li><b>기본 가상 서버 드롭다운 목록에서 이 프로토콜과 연결할 가상 서버를 선택합니다.</b><p>가상 서버 페이지에서는 가상 서버를 정의할 수 있습니다.</p></li>
 <li><b>요청을 다른 포트로 리디렉션할 때 사용할 포트 값을 포트 리디렉션 필드에 입력합니다.
-</b><p>다음 두 조건이 존재하면 GlassFish 서버는 자동으로 요청을 리디렉션합니다.</p>
+</b><p>다음 두 조건이 존재하면 GlassFish Server는 자동으로 요청을 리디렉션합니다.</p>
 
 
 <ul><li><p>이 프로토콜을 참조하는 네트워크 수신기는 비 SSL 요청을 지원합니다.</p>
@@ -42,7 +42,7 @@ Use is subject to License Terms  -->
 <li><p>SSL 전송이 필요한 일치하는 보안 제약 조건에 대한 요청이 수신된 경우</p>
 
 </li></ul>
-<p>리디렉션 포트가 지정되지 않은 경우에는 GlassFish 서버에서 원래 요청에 지정된 포트 번호를
+<p>리디렉션 포트가 지정되지 않은 경우에는 GlassFish Server에서 원래 요청에 지정된 포트 번호를
 사용합니다. 기본적으로 포트가 지정되지 않습니다.</p></li>
 <li><b>최대 연결 수 필드에 서버에서 연결을 닫을 때까지 파이프라인될 수 있는 최대
 요청 수를 입력합니다.</b><p>연결 유지 하위 시스템은 정기적으로 유휴 연결을 폴링합니다. 기본값은 256입니다.</p><p>이 등록 정보를 1로 설정하면 HTTP/1.0 연결 유지(keep-alive)와 HTTP/1.1 연결 유지(keep-alive) 및
@@ -92,7 +92,7 @@ Use is subject to License Terms  -->
 <li><b>어댑터 필드에 정적 자원 어댑터의 클래스 이름을 입력합니다.</b><p>기본값은 <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>입니다.</p></li>
 <li><b>Comet 지원 사용 가능 확인란을 선택하여 이 프로토콜을 참조하는 네트워크 수신기에 대해
 Comet 지원을 활성화할 수 있습니다.</b><p>기본적으로 이 옵션은 비활성화됩니다. 서블릿 또는 JSP 페이지에서 Comet 기술을 사용하는 경우
-<tt>web.xml</tt> 파일에 <tt>load-on-startup</tt> 요소를 추가하여 GlassFish 서버가 시작될 때 Comet 기술이 초기화되도록
+<tt>web.xml</tt> 파일에 <tt>load-on-startup</tt> 요소를 추가하여 GlassFish Server가 시작될 때 Comet 기술이 초기화되도록
 합니다. 예를 들면 다음과 같습니다.</p><pre>&#60;servlet>
 &#60;servlet-name>CheckIn&#60;/servlet-name>
 &#60;servlet-class>CheckInServlet&#60;/servlet-class>
@@ -100,15 +100,15 @@ Comet 지원을 활성화할 수 있습니다.</b><p>기본적으로 이 옵션�
 &#60;/servlet></pre></li>
 <li><b>DNS 조회 사용 확인란을 선택하여 DNS 조회를 활성화합니다.</b><p>이 옵션은 기본적으로 비활성화됩니다.</p></li>
 <li><b>RCM 지원 사용 확인란을 선택하여 RCM(Resource Configuration Management)을 활성화합니다.</b><p>이 옵션은 기본적으로 비활성화됩니다.</p></li>
-<li><b>추적 사용 확인란을 선택하여 TRACE 작업을 활성화합니다.</b><p>이 옵션을 비활성화하면 GlassFish 서버에서 크로스 사이트 스크립팅 공격을 받을 가능성이 낮아집니다.
+<li><b>추적 사용 확인란을 선택하여 TRACE 작업을 활성화합니다.</b><p>이 옵션을 비활성화하면 GlassFish Server에서 크로스 사이트 스크립팅 공격을 받을 가능성이 낮아집니다.
 이 옵션은 기본적으로 활성화됩니다.</p></li>
 <li><b>인증 통과 사용 확인란을 선택하여 이 프로토콜을 사용하는 네트워크 수신기가 SSL 종료
 프록시 서버에서 트래픽을 수신하도록 지정합니다.</b><p>이 옵션은 기본적으로 비활성화됩니다.</p></li>
 <li><b>청크 사용 확인란을 선택하여 HTTP 응답 청크를 활성화합니다.</b><p>이 옵션은 기본적으로 활성화됩니다.</p></li>
-<li><b>XPowered By 사용 확인란을 선택하여 GlassFish 서버에서 Java Servlet 3.0 및 Java
-Server Pages 2.0 사양에 따라 <tt>X-Powered-By</tt> 헤더를 사용하도록 지정합니다.</b><p>이 옵션은 기본적으로 활성화됩니다.</p></li></ol><h6>다음 순서</h6><p>프로토콜을 만든 후 해당 프로토콜을 사용하는 네트워크 수신기를 만들 수 있습니다.</p>
+<li><b>XPowered By 사용 확인란을 선택하여 GlassFish Server에서 Java Servlet 3.0 및 Java
+Server Pages 2.0 사양에 따라 <tt>X-Powered-By</tt> 헤더를 사용하도록 지정합니다.</b><p>이 옵션은 기본적으로 활성화됩니다.</p></li></ol><p></b>다음 순서</b></p><p>프로토콜을 만든 후 해당 프로토콜을 사용하는 네트워크 수신기를 만들 수 있습니다.</p>
 
-<h6>참조 </h6>
+<p></b>참조 </b></p>
 <ul><li><p><a href="task-networklistenernew.html">네트워크 수신기를 만드는 방법</a></p>
 
 </li>
@@ -144,4 +144,4 @@ Server Pages 2.0 사양에 따라 <tt>X-Powered-By</tt> 헤더를 사용하도�
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>

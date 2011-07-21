@@ -1,6 +1,6 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-virtualserverprops"></a><h4>가상 서버와 관련된 등록 정보</h4>
@@ -64,11 +64,11 @@ Use is subject to License Terms  -->
 <dt><tt>denyRemoteHost</tt></dt>
 <dd><p><tt>[java.net.]Socket.getInetAddress().getHostName()</tt>에서 반환되는 원격 클라이언트의 호스트 이름을 비교하는 쉼표로 구분된 정규 표현식 패턴 목록을 지정합니다. 이 등록 정보가 지정된 경우 요청이 승인되려면 원격 호스트 이름이 이 요청과 일치하지 <b>않아야</b> 합니다. 등록 정보가 지정되지 않은 경우에는 <tt>allowRemoteHost</tt> 등록 정보에 따라서만 요청 승인 여부가 결정됩니다.</p>
 
-<p>JK 수신기 옵션을 사용하는 네트워크 수신기를 통해 GlassFish 서버 도메인에 액세스하는 경우에는 이 등록 정보를 설정해도 효과가 없습니다.</p>
+<p>JK 수신기 옵션을 사용하는 네트워크 수신기를 통해 GlassFish Server 도메인에 액세스하는 경우에는 이 등록 정보를 설정해도 효과가 없습니다.</p>
 
 </dd>
 <dt><tt>authRealm</tt></dt>
-<dd><p>이 가상 서버에 배포된 독립 실행형 웹 응용 프로그램의 서버 인스턴스 기본 영역을 대체하는 인증 영역의 이름을 지정합니다. 독립 실행형 웹 응용 프로그램의 <tt>web.xml</tt> 파일에 정의된 영역은 가상 서버의 영역을 대체합니다. 자세한 내용은 <a href="../../../common/ko/help/ref-realms.html">영역</a>을 참조하십시오.</p>
+<dd><p>이 가상 서버에 배포된 독립 실행형 웹 응용 프로그램의 서버 인스턴스 기본 영역을 대체하는 인증 영역의 이름을 지정합니다. 독립 실행형 웹 응용 프로그램의 <tt>web.xml</tt> 파일에 정의된 영역은 가상 서버의 영역을 대체합니다. 자세한 내용은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3033&id=ref-realms">영역</a>을 참조하십시오.</p>
 
 </dd>
 <dt><tt>securePagesWithPragma</tt></dt>
@@ -160,7 +160,7 @@ Use is subject to License Terms  -->
 <pre>&#60;property name="redirect_1" 
   value="from=/dummy url-prefix=http://etude"/></pre></dd>
 <dt><tt>valve_<i>n</i></tt></dt>
-<dd><p>사용자 정의 밸브의 정규화된 클래스 이름을 지정합니다. 여기서 <i>n</i>은 둘 이상의 사양을 허용하는 양의 정수입니다. 밸브 클래스는 <tt>org.apache.catalina.Valve </tt> 인터페이스(Tomcat 또는 이전 GlassFish 서버 버전) 또는 <tt>org.glassfish.web.valve.GlassFishValve </tt> 인터페이스(현재 GlassFish 서버 버전)를 구현해야 합니다. 예를 들면 다음과 같습니다.</p>
+<dd><p>사용자 정의 밸브의 정규화된 클래스 이름을 지정합니다. 여기서 <i>n</i>은 둘 이상의 사양을 허용하는 양의 정수입니다. 밸브 클래스는 <tt>org.apache.catalina.Valve </tt> 인터페이스(Tomcat 또는 이전 GlassFish Server 버전) 또는 <tt>org.glassfish.web.valve.GlassFishValve </tt> 인터페이스(현재 GlassFish Server 버전)를 구현해야 합니다. 예를 들면 다음과 같습니다.</p>
 
 <pre>&#60;property name="valve_1"
 value="org.glassfish.extension.Valve"/></pre><p>특정 웹 응용 프로그램에 대해 이 등록 정보를 설정할 수 있습니다. 자세한 내용은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb"><i>Oracle GlassFish Server 3.1 Application Deployment Guide</i>의 glassfish-web-app</a>를 참조하십시오.</p>
@@ -180,4 +180,4 @@ value="org.glassfish.extension.MyLifecycleListener"/></pre><p>특정 웹 응용 
 </dl>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
