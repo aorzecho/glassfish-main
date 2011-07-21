@@ -1,6 +1,6 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-nodeedit"></a><h4>編輯節點</h4>
@@ -51,10 +51,28 @@ Use is subject to License Terms  -->
 <dt>節點目錄</dt>
 <dd><p>要包含在節點上所建立的 GlassFish Server 實例之目錄的路徑。如果指定相對路徑，則該路徑會相對於 <i>as-install</i> 目錄，其中 <i>as-install</i> 是主機上 GlassFish Server 軟體的基底安裝目錄。</p>
 
+<p>如果將此欄位保留爲空，將按照如下方式更新節點的配置：</p>
+
+
+<ul><li><p>如果節點類型為 CONFIG，則不會為 Domain Administration Server (DAS) 配置中的節點指定任何實例目錄。可在建立位於節點上的實例時決定節點目錄。</p>
+
+</li>
+<li><p>如果節點類型為 SSH，則節點目錄為 <tt></tt><i>as-install</i><tt>/nodes</tt>，其中 <i>as-install</i> 是主機上 GlassFish Server 軟體的基底安裝目錄。</p>
+
+</li></ul>
 </dd>
 <dt>安裝目錄</dt>
 <dd><p>主機上 GlassFish Server 軟體的基底安裝目錄之父系目錄的完整路徑，例如 <tt>/export/glassfish3/</tt>。 </p>
 
+<p>如果將此欄位保留爲空，將按照如下方式更新節點的配置：</p>
+
+
+<ul><li><p>如果節點類型為 CONFIG，則不會為 DAS 配置中的節點指定任何安裝目錄。可在建立位於節點上的實例時決定安裝目錄。</p>
+
+</li>
+<li><p>如果節點類型為 SSH，則對於 DAS，安裝目錄為 GlassFish Server 軟體預設基底安裝目錄的父系目錄。只有當 GlassFish Server 安裝在所有主機上的相同位置中時，此設定才有用。</p>
+
+</li></ul>
 </dd>
 <dt>強制</dt>
 <dd><p>如果選取 [已啟用] 選項，則即使驗證節點參數失敗，也會在 Domain Administration Server (DAS) 配置中更新節點。 若要驗證節點的參數，DAS 必須能夠透過 SSH 連絡節點的主機。</p>
@@ -155,4 +173,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>
+<small>版權所有 &#169; 2005, 2011, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>

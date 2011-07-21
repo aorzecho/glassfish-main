@@ -1,23 +1,26 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-create-cluster"></a><h4>建立叢集</h4><a name="indexterm-1"></a><p><b>叢集</b>是共用相同應用程式、資源和配置資訊的已命名 GlassFish Server 實例集合。</p>
+<a name="task-create-cluster"></a><h3>建立叢集</h3><a name="indexterm-1"></a><p><b>叢集</b>是共用相同應用程式、資源和配置資訊的已命名 GlassFish Server 實例集合。</p>
 
 <p>叢集可透過延展性、負載平衡和故障保護來提供高可用性。叢集中的實例或主機故障時，GlassFish Server 會偵測到該故障，並將請求從故障實例重新導向至叢集中的其他實例，然後回復使用者階段作業狀態。因為相同應用程式和資源均位於叢集中的所有實例上，因此實例可以容錯移轉至叢集中的任何其他實例。</p>
 
 <p>無論實例是位於同一主機還是不同主機，GlassFish Server 都能讓您從單一主機以單一單元的方式管理叢集中的所有實例。</p>
 
-<h6>開始之前</h6><p>如果您打算將 GlassFish Server 實例增加至您要建立的叢集，請確認實例要位於的節點已經存在。</p>
+<p><b>開始之前</b></p><p>如果您打算將 GlassFish Server 實例增加至您要建立的叢集，請確認實例要位於的節點已經存在。</p>
 
 <ol>
 <li><b>在瀏覽樹狀結構中，選取 [叢集] 節點。</b><p>此時將開啟 [叢集] 頁面。</p></li>
 <li><b>在 [叢集] 頁面上，按一下 [新增]。 </b><p>此時將開啟 [新建叢集] 頁面。</p></li>
 <li><b>在 [叢集名稱] 欄位中，鍵入叢集的名稱。</b><p>名稱必須符合下列需求：</p>
-<ul><li><p>名稱必須以字母、數字或底線為開頭。</p>
+<ul><li><p>名稱只能包含 ASCII 字元。</p>
+
+</li>
+<li><p>名稱必須以字母、數字或底線為開頭。</p>
 
 </li>
 <li><p>名稱只能包含下列字元：</p>
@@ -68,7 +71,7 @@ Use is subject to License Terms  -->
 <li><b>在 [實例名稱] 欄位中，鍵入實例的名稱。</b></li>
 <li><b>在 [權數] 欄位中，鍵入表示實例負載平衡權數的整數。</b><p>負載平衡權數可決定送至叢集供實例處理之所有請求的比例。</p><p>例如，在有兩個實例的叢集中，您可能需要讓其中一個實例處理每四個請求中的一個請求，而讓另一個實例處理每四個請求中的三個請求。在這種情況下，可將處理每四個請求中之一個請求的實例權數設定為 1，將另一個實例權數設定為 3。如果您要使用百分比，請將這兩個實例的權數分別設定為 25 與 75。</p><p>預設權數為 100。</p></li>
 <li><b>從 [節點] 下拉式清單中，選取實例要位於的節點。</b></li></ol></li>
-<li><b>按一下 [確定]。</b><p>您會回到 [叢集] 頁面。叢集會增加至該頁面的叢集表。</p></li></ol><h6>另請參閱</h6>
+<li><b>按一下 [確定]。</b><p>您會回到 [叢集] 頁面。叢集會增加至該頁面的叢集表。</p></li></ol><p></b>另請參閱</b></p>
 <ul><li><p><a href="task-delete-cluster.html">刪除叢集</a></p>
 
 </li>
@@ -122,4 +125,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>版權所有 &#169; 2010, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>
+<small>版權所有 &#169; 2005, 2011, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>
