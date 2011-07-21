@@ -1,6 +1,6 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-virtualserverprops"></a><h4>仮想サーバーに固有のプロパティー</h4>
@@ -64,11 +64,11 @@ Use is subject to License Terms  -->
 <dt><tt>denyRemoteHost</tt></dt>
 <dd><p>リモートクライアントのホスト名 (<tt>[java.net.]Socket.getInetAddress().getHostName() </tt> によって返される) を比較する正規表現パターンのコンマ区切りのリストを指定します。このプロパティーが指定されている場合、要求を受け入れるためにはリモートホスト名が「一致していない」必要があります。<b></b>このプロパティーが指定されていない場合、要求の受け入れは <tt>allowRemoteHost</tt> プロパティーのみで制御されます。</p>
 
-<p>GlassFish サーバー ドメインが、「JK リスナー」オプションが有効なネットワークリスナーを通してアクセスされる場合、このプロパティーを設定しても影響はありません。</p>
+<p>GlassFish Server ドメインが、「JK リスナー」オプションが有効なネットワークリスナーを通してアクセスされる場合、このプロパティーを設定しても影響はありません。</p>
 
 </dd>
 <dt><tt>authRealm</tt></dt>
-<dd><p>認証レルムの名前を指定します。この値は、この仮想サーバーに配備されているスタンドアロン Web アプリケーションの、サーバーインスタンスのデフォルトレルムをオーバーライドします。スタンドアロンの Web アプリケーションの <tt>web.xml</tt> ファイルに定義されているレルムは、仮想サーバーのレルムをオーバーライドします。詳細については、<a href="../../../common/ja/help/ref-realms.html">レルム</a>を参照してください。</p>
+<dd><p>認証レルムの名前を指定します。この値は、この仮想サーバーに配備されているスタンドアロン Web アプリケーションの、サーバーインスタンスのデフォルトレルムをオーバーライドします。スタンドアロンの Web アプリケーションの <tt>web.xml</tt> ファイルに定義されているレルムは、仮想サーバーのレルムをオーバーライドします。詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3032&id=ref-realms">レルム</a>を参照してください。</p>
 
 </dd>
 <dt><tt>securePagesWithPragma</tt></dt>
@@ -160,7 +160,7 @@ Use is subject to License Terms  -->
 <pre>&#60;property name="redirect_1" 
   value="from=/dummy url-prefix=http://etude"/></pre></dd>
 <dt><tt>valve_<i>n</i></tt></dt>
-<dd><p>カスタム値の完全修飾クラス名を指定します。<i>n</i> は正の整数で、複数の指定が可能です。値クラスは、Tomcat または GlassFish サーバー の以前のリリースの <tt>org.apache.catalina.Valve</tt> インタフェースを実装するか、GlassFish サーバー の現在のリリースの <tt>org.glassfish.web.valve.GlassFishValve</tt> インタフェースを実装する必要があります。次に例を示します。</p>
+<dd><p>カスタム値の完全修飾クラス名を指定します。<i>n</i> は正の整数で、複数の指定が可能です。値クラスは、Tomcat または GlassFish Server の以前のリリースの <tt>org.apache.catalina.Valve</tt> インタフェースを実装するか、GlassFish Server の現在のリリースの <tt>org.glassfish.web.valve.GlassFishValve</tt> インタフェースを実装する必要があります。次に例を示します。</p>
 
 <pre>&#60;property name="valve_1"
 value="org.glassfish.extension.Valve"/></pre><p>このプロパティーは、特定の Web アプリケーションに対して設定できます。詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb"><i>『Oracle GlassFish Server 3.1 Application Deployment Guide』</i>の「glassfish-web-app」</a>を参照してください。</p>
@@ -180,4 +180,4 @@ value="org.glassfish.extension.MyLifecycleListener"/></pre><p>このプロパテ
 </dl>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

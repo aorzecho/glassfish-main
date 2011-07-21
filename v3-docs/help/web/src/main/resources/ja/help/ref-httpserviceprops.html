@@ -1,6 +1,6 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-httpserviceprops"></a><h4>HTTP サービスに固有のプロパティー</h4>
@@ -19,7 +19,7 @@ Use is subject to License Terms  -->
 
 </dd>
 <dt><tt>proxyHandler</tt></dt>
-<dd><p><tt>com.sun.appserv.ProxyHandler</tt> 抽象クラスのカスタム実装の完全修飾クラス名。バックエンドの GlassFish サーバー インスタンスで、SSL の終端プロキシサーバー (たとえばロードバランサ) で遮断された元のクライアント要求に関する情報を取得できます。この抽象クラスの実装は、Enterprise Server インスタンスへの元のクライアント要求に関する情報を伝達するためにプロキシサーバーが使用するカスタム要求ヘッダーに対して行われる特定の要求を調べ、その情報を呼び出し元に返します。</p>
+<dd><p><tt>com.sun.appserv.ProxyHandler</tt> 抽象クラスのカスタム実装の完全修飾クラス名。バックエンドの GlassFish Server インスタンスで、SSL の終端プロキシサーバー (たとえばロードバランサ) で遮断された元のクライアント要求に関する情報を取得できます。この抽象クラスの実装は、Enterprise Server インスタンスへの元のクライアント要求に関する情報を伝達するためにプロキシサーバーが使用するカスタム要求ヘッダーに対して行われる特定の要求を調べ、その情報を呼び出し元に返します。</p>
 
 <p>デフォルトの実装では、<tt>Proxy-ip</tt> という名前の HTTP 要求ヘッダーからクライアント IP アドレスを、<tt>Proxy-keysize</tt> という名前の HTTP 要求ヘッダーから SSL キーサイズを、<tt>Proxy-auth-cert</tt> という名前の HTTP 要求ヘッダーから SSL クライアント証明書チェーンを読み取ります。<tt></tt><tt>Proxy-auth-cert</tt> 値には、<tt>BEGIN CERTIFICATE</tt> および <tt>END CERTIFICATE</tt> の境界がなく、<tt>\n</tt> が <tt>% d% a</tt> によって置き換えられた BASE-64 で符号化されたクライアント証明書チェーンを含む必要があります。</p>
 
@@ -33,4 +33,4 @@ Use is subject to License Terms  -->
 </dl>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

@@ -1,6 +1,6 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-threadpools"></a><h4>スレッドプール</h4>
@@ -8,9 +8,9 @@ Use is subject to License Terms  -->
 
 <p>スレッドプールを使用して、サービスを特定の数の並行スレッドに制限します。</p>
 
-<p>GlassFish サーバー をはじめてインストールする場合は、デフォルトで 2 つのスレッドプールが存在しています。<tt>http-thread-pool</tt> という名前のスレッドプールがネットワークリスナー用に設定され、<tt>thread-pool-1</tt> は ORB で RMI/IIOP 要求に使用するように設定されます。スレッドプールを特定の種類のアプリケーションや特定のハードウェアシステムで使用する場合は、別の設定でスレッドプールを作成するか、デフォルトのスレッドプールを要求に応じて調整する必要があります。</p>
+<p>GlassFish Server をはじめてインストールする場合は、デフォルトで 2 つのスレッドプールが存在しています。<tt>http-thread-pool</tt> という名前のスレッドプールがネットワークリスナー用に設定され、<tt>thread-pool-1</tt> は ORB で RMI/IIOP 要求に使用するように設定されます。スレッドプールを特定の種類のアプリケーションや特定のハードウェアシステムで使用する場合は、別の設定でスレッドプールを作成するか、デフォルトのスレッドプールを要求に応じて調整する必要があります。</p>
 
-<p>Java 仮想マシン (JVM) は、1 回の実行で多数のスレッドをサポートできます。パフォーマンスに役立つように、GlassFish サーバー は 1 つまたは複数のスレッドプールを維持します。特定のスレッドプールを特定のサービスに割り当てることができます。</p>
+<p>Java 仮想マシン (JVM) は、1 回の実行で多数のスレッドをサポートできます。パフォーマンスに役立つように、GlassFish Server は 1 つまたは複数のスレッドプールを維持します。特定のスレッドプールを特定のサービスに割り当てることができます。</p>
 
 <p>1 つのスレッドプールで複数のサービスに対応できます。要求スレッドはユーザーの要求を処理します。サーバーは要求を受け取ると、スレッドプールから使用可能なスレッドにその要求を割り当てます。スレッドはクライアントの要求を実行し、結果を返します。たとえば、現在ビジー状態のシステムリソースが必要な場合、スレッドはリソースが解放されるのを待ってから、リソースの使用を要求に許可します。</p>
 
@@ -76,4 +76,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

@@ -1,11 +1,11 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-webcontainermanagerprops"></a><h4>Web コンテナのマネージャープロパティーを設定する</h4><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>セッションマネージャーを使用して、セッションを作成および破棄する方法、セッション状態を格納する場所、および使用可能なセッションの最大数を設定できます。</p>
+<a name="task-webcontainermanagerprops"></a><h3>Web コンテナのマネージャープロパティーを設定する</h3><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>セッションマネージャーを使用して、セッションを作成および破棄する方法、セッション状態を格納する場所、および使用可能なセッションの最大数を設定できます。</p>
 
 <ol>
 <li><b>ナビゲーションツリーで、「設定」ノードを展開します。</b></li>
@@ -15,7 +15,7 @@ Use is subject to License Terms  -->
 <li><b>「取得間隔」フィールドに、非アクティブセッションデータがストアから削除されるまでの時間を秒単位で入力します。</b><p>デフォルト値は 60 です。</p><p>この値は、セッションデータが変更される頻度より小さい値に設定してください。たとえば、アクセス頻度の高い Web サイトのアクセスカウンタサーブレットでは、この値をできるだけ小さい値 (1 秒) にしてください。値が大きい場合、サーバーを再起動するごとに、最後の数回のアクセスを取得できない場合があります。</p></li>
 <li><b>「最大セッション数」フィールドに、キャッシュに維持できるセッションの最大数を入力します。</b><p>-1 を指定すると、セッションの数は制限されません。デフォルト値は &#8211;1 です。</p><p>制限に達したあとに新しいセッションを作成しようとすると、<tt>IllegalStateException</tt> がスローされます。</p></li>
 <li><b>セッション状態の保存が可能な場合は、「Session Filename」フィールドに、アプリケーションの再起動間でセッション状態を保存するディレクトリを絶対パスまたは相対パスで入力します。</b><p>このパスが設定されていない場合、セッション状態は保存されません。デフォルトでは、このパスは設定されていません。</p><p>相対パスは、この Web アプリケーションの一時ディレクトリからの相対で指定します。</p><p>この設定は、「持続性のタイプ」が「<tt>memory</tt>」の場合にのみ適用されます。「持続性のタイプ」の設定方法については、<a href="task-webcontaineravailability.html">「Web コンテナの可用性を設定する」</a>を参照してください。</p></li>
-<li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>GlassFish サーバー はセッションマネージャーの追加プロパティーを定義しません。</p><ul>
+<li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>GlassFish Server はセッションマネージャーの追加プロパティーを定義しません。</p><ul>
 <li><b>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</b></li>
 <li><b>プロパティーを変更するには、そのプロパティーの「値」フィールドを編集します。</b></li>
 <li><b>プロパティーを削除するには、削除するプロパティーの「名前」フィールドの左側にあるチェックボックスを選択し、「プロパティを削除」ボタンをクリックします。</b></li></ul></li>
@@ -24,7 +24,7 @@ Use is subject to License Terms  -->
 
 
 <hr>
-</li></ol><h6>参照</h6>
+</li></ol><p></b>参照</b></p>
 <ul><li><p><a href="task-webcontainergeneral.html">「Web コンテナの一般プロパティーを設定する」</a></p>
 
 </li>
@@ -39,4 +39,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
