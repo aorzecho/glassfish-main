@@ -1,17 +1,17 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-jmsservice"></a><h4>JMS 서비스</h4>
 <a name="indexterm-43"></a><p>JMS 서비스 페이지에서는 모든 JMS 연결에서 사용할 설정을 구성할 수 있습니다.</p>
 
-<p>JMS 서비스 구성에 대한 자세한 내용은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob"><i>Oracle GlassFish Server 3.1 Application Development Guide</i>의 17 장, Using the Java Message Service</a>를 참조하십시오.</p>
+<p>JMS 서비스 구성에 대한 자세한 내용은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob"><i>Oracle GlassFish Server 3.1 Application Development Guide</i>의 16 장, Using the Java Message Service</a>.</p>
 
 <p>JMS 서비스 페이지에는 다음 옵션이 포함되어 있습니다.</p>
 
 <dl><dt>기본값 로드</dt>
-<dd><p>모든 설정의 기본값을 복원하는 버튼입니다.</p>
+<dd><p>기본값이 있는 설정을 해당 기본값으로 복원하는 버튼입니다. 기본값이 없는 설정은 변경되지 않습니다.</p>
 
 </dd>
 <dt>Ping</dt>
@@ -19,28 +19,28 @@ Use is subject to License Terms  -->
 
 </dd>
 <dt>구성 이름</dt>
-<dd><p>이 페이지의 설정이 적용되는 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
+<dd><p>이 페이지의 설정을 적용할 구성의 이름입니다. 이 필드는 읽기 전용입니다.</p>
 
 </dd>
 <dt>유형</dt>
 <dd><p>JMS 서비스에 대한 액세스 유형입니다. 사용 가능한 선택 항목은 다음과 같습니다.</p>
 
 <dl><dt>EMBEDDED</dt>
-<dd><p>로컬 호스트의 JMS 서비스에 액세스합니다. JMS 서비스는 GlassFish 서버와 동일한 JVM 시스템에서 시작됩니다. 초기화 지연은 GlassFish 서버가 시작될 때가 아닌 JMS 서비스에 처음에 액세스할 때 기본 포함된 브로커를 시작합니다. JMS 서비스의 기본 유형입니다.</p>
+<dd><p>로컬 호스트의 JMS 서비스에 액세스합니다. JMS 서비스는 GlassFish Server와 동일한 JVM 시스템에서 시작됩니다. 초기화 지연은 GlassFish Server가 시작될 때가 아닌 JMS 서비스에 처음에 액세스할 때 기본 포함된 브로커를 시작합니다. JMS 서비스의 기본 유형입니다.</p>
 
 </dd>
 <dt>LOCAL</dt>
-<dd><p>로컬 호스트의 JMS 서비스에 액세스합니다. JMS 공급자는 GlassFish 서버와 함께 시작됩니다.</p>
+<dd><p>로컬 호스트의 JMS 서비스에 액세스합니다. JMS 공급자는 GlassFish Server와 함께 시작됩니다.</p>
 
 </dd>
 <dt>REMOTE</dt>
-<dd><p>다른 시스템의 JMS 서비스에 액세스합니다. REMOTE를 선택하면 다음에 서버가 시작될 때 JMS 서비스가 GlassFish 서버에 의해 시작되지 않습니다. 대신 JMS 서비스는 Message Queue에 의해 시작 및 관리되므로 Message Queue 브로커를 별도로 시작해야 합니다. 브로커 시작에 대한 자세한 내용은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby"><i>Oracle GlassFish Message Queue 4.5 Administration Guide</i>의 Starting Brokers</a>를 참조하십시오. 이 값을 선택하고 원격 호스트를 사용 중인 경우에는 <a href="task-jmshostedit.html">JMS 호스트를 편집하는 방법</a>의 지침에 따라 원격 호스트의 이름을 지정합니다.</p>
+<dd><p>다른 시스템의 JMS 서비스에 액세스합니다. REMOTE를 선택하면 다음에 서버가 시작될 때 JMS 서비스가 GlassFish Server에 의해 시작되지 않습니다. 대신 JMS 서비스는 Message Queue에 의해 시작 및 관리되므로 Message Queue 브로커를 별도로 시작해야 합니다. 브로커 시작에 대한 자세한 내용은 <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby"><i>Oracle GlassFish Server Message Queue 4.5 Administration Guide </i>의 Starting Brokers</a>를 참조하십시오. 이 값을 선택하고 원격 호스트를 사용 중인 경우에는 <a href="task-jmshostedit.html">JMS 호스트를 편집하는 방법</a>의 지침에 따라 원격 호스트의 이름을 지정합니다.</p>
 
 </dd>
 </dl>
 </dd>
 <dt>시작 시간 초과</dt>
-<dd><p>GlassFish 서버가 시작을 중지하기 전에 JMS 서비스가 시작되기를 기다리는 시간(초)입니다. 느리거나 부하가 많은 시스템에서는 값을 기본값보다 크게 늘리십시오. 기본값은 60입니다.</p>
+<dd><p>GlassFish Server가 시작을 중지하기 전에 JMS 서비스가 시작되기를 기다리는 시간(초)입니다. 느리거나 부하가 많은 시스템에서는 값을 기본값보다 크게 늘리십시오. 기본값은 60입니다.</p>
 
 </dd>
 <dt>시작 인수</dt>
@@ -112,4 +112,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
