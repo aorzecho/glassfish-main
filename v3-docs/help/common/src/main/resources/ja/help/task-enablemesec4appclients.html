@@ -1,13 +1,13 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-enablemesec4appclients"></a><h4>アプリケーションクライアントのメッセージセキュリティーを有効にする</h4><a name="indexterm-113"></a><p>クライアントプロバイダには、対話先のサーバー側プロバイダと同じメッセージ保護ポリシーを設定する必要があります。GlassFish サーバー のインストール時に設定され、まだ有効になっていないプロバイダでは、すでにそのように設定されています。</p>
+<a name="task-enablemesec4appclients"></a><h3>アプリケーションクライアントのメッセージセキュリティーを有効にする</h3><a name="indexterm-113"></a><p>クライアントプロバイダには、対話先のサーバー側プロバイダと同じメッセージ保護ポリシーを設定する必要があります。GlassFish Server のインストール時に設定され、まだ有効になっていないプロバイダでは、すでにそのように設定されています。</p>
 
-<p>アプリケーションクライアントのメッセージセキュリティーを有効にするには、アプリケーションクライアントコンテナの GlassFish サーバー 固有の設定を変更します。</p>
+<p>アプリケーションクライアントのメッセージセキュリティーを有効にするには、アプリケーションクライアントコンテナの GlassFish Server 固有の設定を変更します。</p>
 
 <ol>
 <li><b>クライアントコンテナ記述子に依存するすべてのクライアントアプリケーションを停止します。</b></li>
@@ -27,8 +27,8 @@ Use is subject to License Terms  -->
           value="C:/Sun/AppServer/lib/appclient/wss-client-config.xml"/>
     &#60;/provider-config>
   &#60;/message-security-config>
-&#60;/client-container></pre><p>クライアントコンテナで設定されたメッセージセキュリティープロバイダは、非公開鍵および信頼された証明書へのアクセスを許可されている必要があります。アクセスを許可するには、アプリケーションクライアントの起動スクリプトで次のシステムプロパティーの値を設定します。</p><pre>-Djavax.net.ssl.keyStore</pre><pre>-Djavax.net.ssl.trustStore</pre></li></ol><h6>参照</h6>
-<ul><li><p><a href="task-configmsgsecproviders.html">「メッセージセキュリティープロバイダが使用する GlassFish サーバー の機能を設定する」</a></p>
+&#60;/client-container></pre><p>クライアントコンテナで設定されたメッセージセキュリティープロバイダは、非公開鍵および信頼された証明書へのアクセスを許可されている必要があります。アクセスを許可するには、アプリケーションクライアントの起動スクリプトで次のシステムプロパティーの値を設定します。</p><pre>-Djavax.net.ssl.keyStore</pre><pre>-Djavax.net.ssl.trustStore</pre></li></ol><p></b>参照</b></p>
+<ul><li><p><a href="task-configmsgsecproviders.html">「メッセージセキュリティープロバイダが使用する GlassFish Server の機能を設定する」</a></p>
 
 </li>
 <li><p><a href="task-messagesecurityconfignew.html">「メッセージセキュリティー設定を作成する」</a></p>
@@ -51,4 +51,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

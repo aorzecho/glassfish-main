@@ -1,13 +1,13 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-jvmsettings"></a><h4>JVM 一般設定を行う</h4><a name="indexterm-61"></a><a name="indexterm-62"></a><p>Java 仮想マシン (JVM) は、物理マシン上で Java バイトコードを実行できるようにします。JVM 設定を調整することで、パフォーマンスの改善や記憶域割り当てエラーの回避を行うことができます。</p>
+<a name="task-jvmsettings"></a><h3>JVM 一般設定を行う</h3><a name="indexterm-61"></a><a name="indexterm-62"></a><p>Java 仮想マシン (JVM) は、物理マシン上で Java バイトコードを実行できるようにします。JVM 設定を調整することで、パフォーマンスの改善や記憶域割り当てエラーの回避を行うことができます。</p>
 
-<p>GlassFish サーバー で必要とされる Java 仮想マシンは、Java プラットフォームの Standard Edition (Java SE プラットフォーム) に含まれています。JVM
+<p>GlassFish Server で必要とされる Java 仮想マシンは、Java プラットフォームの Standard Edition (Java SE プラットフォーム) に含まれています。JVM
 の設定に誤りがあるとサーバーが稼働しなくなるため、この設定を変更するときは注意してください。</p>
 
 
@@ -18,21 +18,21 @@ Use is subject to License Terms  -->
 <ol>
 <li><b>ナビゲーションツリーで、「設定」ノードを選択します。</b></li>
 <li><b>「設定」ノードの下で、「JVM 設定」ノードを選択します。</b><p>「JVM 一般設定」ページが開きます。</p></li>
-<li><b>「JVM 一般設定」ページの「Java ホーム」フィールドに、Java SE ソフトウェアのインストールディレクトリの名前を入力します。</b><p>GlassFish サーバー は Java SE プラットフォームに依存します。指定する Java SE ソフトウェアのバージョンがこのリリースでサポートされていることを確認するには、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2434&id=sjsaseern"><i>『Oracle GlassFish Server 3.1 Release Notes』</i></a>を参照してください。存在しないディレクトリ名を入力したり、サポートされていないバージョンの Java SE ソフトウェアのディレクトリを指定したりした場合、GlassFish
-サーバー は起動しません。</p></li>
-<li><b>「Javac オプション」フィールドに、Java プログラミング言語コンパイラのコマンド行オプションを入力します。</b><p>GlassFish サーバー は、Enterprise JavaBeans (EJB) コンポーネントの配備時に、このコンパイラを実行します。</p></li>
+<li><b>「JVM 一般設定」ページの「Java ホーム」フィールドに、Java SE ソフトウェアのインストールディレクトリの名前を入力します。</b><p>GlassFish Server は Java SE プラットフォームに依存します。指定する Java SE ソフトウェアのバージョンがこのリリースでサポートされていることを確認するには、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2434&id=sjsaseern"><i>『Oracle GlassFish Server 3.1-3.1.1 Release Notes』</i></a>を参照してください。存在しないディレクトリ名を入力したり、サポートされていないバージョンの Java SE ソフトウェアのディレクトリを指定したりした場合、GlassFish
+Server は起動しません。</p></li>
+<li><b>「Javac オプション」フィールドに、Java プログラミング言語コンパイラのコマンド行オプションを入力します。</b><p>GlassFish Server は、Enterprise JavaBeans (EJB) コンポーネントの配備時に、このコンパイラを実行します。</p></li>
 <li><b>「デバッグ」の「有効」チェックボックスを選択して、JPDA (Java Platform Debugger Architecture) を使用するデバッグを有効にします。</b><p>JPDA はアプリケーション開発者によって使用されます。詳細は、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=sjsaseedg"><i>『Oracle GlassFish Server 3.1 Application Development Guide』</i></a>を参照してください。</p></li>
 <li><b>「デバッグオプション」フィールドに、JVM に受け渡す JPDA オプションを入力します。</b><p>このフィールドは、前述の手順でデバッグを有効とした場合のみ適用されます。</p></li>
-<li><b>「RMI コンパイルオプション」フィールドに、<tt>rmic</tt> コンパイラのコマンド行オプションを入力します。</b><p>EJB コンポーネントの配備時に GlassFish サーバー は <tt>rmic</tt> コンパイラを実行します。</p></li>
+<li><b>「RMI コンパイルオプション」フィールドに、<tt>rmic</tt> コンパイラのコマンド行オプションを入力します。</b><p>EJB コンポーネントの配備時に GlassFish Server は <tt>rmic</tt> コンパイラを実行します。</p></li>
 <li><b>「バイトコードプリプロセッサ」フィールドに、クラス名のリストを入力します。</b><p>複数のクラス名を区切るには、コンマを使用します。各クラスは、com.sun.appserv.BytecodePreprocessor インタフェースを実装する必要があります。クラスは指定の順序で呼び出されます。</p></li>
-<li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</p><p>GlassFish サーバー は JVM の追加プロパティーを定義しません。</p></li>
+<li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</p><p>GlassFish Server は JVM の追加プロパティーを定義しません。</p></li>
 <li><b>「保存」をクリックします。</b>
 <hr><p><b>ヒント - </b>デフォルト設定に戻すには、「デフォルトを読込み」ボタンをクリックし、「保存」を保存します。</p>
 
 
 <hr>
 </li>
-<li><b>サーバーを再起動します。</b></li></ol><h6>参照</h6>
+<li><b>サーバーを再起動します。</b></li></ol><p></b>参照</b></p>
 <ul><li><p><a href="task-jvmpathsettings.html">「JVM パスの設定を行う」</a></p>
 
 </li>
@@ -47,4 +47,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

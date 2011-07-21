@@ -1,10 +1,10 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-editjdbcrealm"></a><h4><tt>JDBCRealm</tt> クラスに固有のプロパティー</h4>
-<a name="indexterm-206"></a><a name="indexterm-207"></a><p>Web ページや Web アプリケーションを保護するために、登録ユーザーのみがそれらにアクセスできるようにセキュリティーを設定できます。これは認証機能として知られています。この種類のレルムでは、データベース内にユーザーの証明書を格納します。GlassFish サーバー は、データベース情報および設定ファイル内の有効化された JDBC レルムオプションを使用します。</p>
+<a name="indexterm-207"></a><a name="indexterm-208"></a><p>Web ページや Web アプリケーションを保護するために、登録ユーザーのみがそれらにアクセスできるようにセキュリティーを設定できます。これは認証機能として知られています。この種類のレルムでは、データベース内にユーザーの証明書を格納します。GlassFish Server は、データベース情報および設定ファイル内の有効化された JDBC レルムオプションを使用します。</p>
 
 <p>JDBC レルムに必要なプロパティーは次のとおりです。</p>
 
@@ -55,11 +55,11 @@ Use is subject to License Terms  -->
 <dd><p>(省略可能) ダイジェストアルゴリズムを指定します。デフォルトは <tt>SHA-256</tt> です。JDK でサポートされているアルゴリズム、または none を使用できます。</p>
 
 
-<hr><p><b>注 - </b>3.1 よりも前の GlassFish サーバー バージョンでは、デフォルトアルゴリズムは <tt>MD5</tt> でした。<tt>MD5</tt> アルゴリズムに依存するアプリケーションが存在する場合は、<tt>asadmin set</tt> サブコマンドを使用してデフォルトの <tt>SHA-25</tt> アルゴリズムをオーバーライドすることができます。</p>
+<hr><p><b>注 - </b>3.1 よりも前の GlassFish Server バージョンでは、デフォルトアルゴリズムは <tt>MD5</tt> でした。<tt>MD5</tt> アルゴリズムに依存するアプリケーションが存在する場合は、<tt>asadmin set</tt> サブコマンドを使用してデフォルトの <tt>SHA-25</tt> アルゴリズムをオーバーライドすることができます。</p>
 
 <pre>asadmin> <tt><b>set server.security-service.property.default-digest-algorithm=MD5</b></tt></pre><p><tt>asadmin get</tt> サブコマンドを使用して、どのアルゴリズムが現在使用されているか確認できます。</p>
 
-<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>GlassFish サーバー v2.<i>x</i> または v3.0.<i> x</i> から GlassFish サーバー 3.1 にアップグレードする場合は、古い GlassFish サーバー バージョンでダイジェストアルゴリズムが明示的に設定されていないかぎり、下位互換性を保つ処置としてデフォルトアルゴリズムが自動的に <tt>MD5</tt> に設定されます。</p>
+<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>GlassFish Server v2.<i>x</i> または v3.0.<i> x</i> から GlassFish Server 3.1 にアップグレードする場合は、古い GlassFish Server バージョンでダイジェストアルゴリズムが明示的に設定されていないかぎり、下位互換性を保つ処置としてデフォルトアルゴリズムが自動的に <tt>MD5</tt> に設定されます。</p>
 
 
 <hr>
@@ -75,4 +75,4 @@ Use is subject to License Terms  -->
 </dl>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

@@ -1,20 +1,20 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-jaccprovidernew"></a><h4>JACC プロバイダを作成する</h4><a name="indexterm-101"></a><a name="indexterm-102"></a><a name="indexterm-103"></a><p>「新しい JACC プロバイダ」ページを使用し、GlassFish サーバー を実行しているアプリケーションのサードパーティ製認証モジュールで使用できる JSR-115/196 準拠の新しい JACC (Java Authorization Contract for
+<a name="task-jaccprovidernew"></a><h3>JACC プロバイダを作成する</h3><a name="indexterm-101"></a><a name="indexterm-102"></a><a name="indexterm-103"></a><p>「新しい JACC プロバイダ」ページを使用し、GlassFish Server を実行しているアプリケーションのサードパーティ製認証モジュールで使用できる JSR-115/196 準拠の新しい JACC (Java Authorization Contract for
 Containers) プロバイダを作成します。JACC プロバイダは、ドメインの <tt>domain.xml</tt> ファイルに含まれる <tt>security-service</tt> 要素内の <tt>jacc-provider</tt> 要素として作成されます。</p>
 
-<p>デフォルトの GlassFish サーバー インストールには、2 つの JACC プロバイダ、<tt>default</tt> と <tt>simple</tt> が含まれます。ユーザーが作成する新しい JACC プロバイダはすべて、これら
-2 つのデフォルトプロバイダに対する追加となります。default GlassFish サーバー JACC プロバイダは、JACC 仕様に準拠した簡単なファイルベース認証エンジンを実装します。</p>
+<p>デフォルトの GlassFish Server インストールには、2 つの JACC プロバイダ、<tt>default</tt> と <tt>simple</tt> が含まれます。ユーザーが作成する新しい JACC プロバイダはすべて、これら
+2 つのデフォルトプロバイダに対する追加となります。default GlassFish Server JACC プロバイダは、JACC 仕様に準拠した簡単なファイルベース認証エンジンを実装します。</p>
 
 <p>JACC プロバイダの実装クラスの記述方法については、<a href="http://jcp.org/en/jsr/detail?id=115">http://jcp.org/en/jsr/detail?id=115</a> の JACC 仕様を参照してください。</p>
 
 <ol>
-<li><b>ナビゲーションツリーの「設定」ノードの下で、JACC プロバイダを作成する GlassFish サーバー インスタンスまたはクラスタを展開します。</b><p>すべてのインスタンスおよびクラスタで使用できるプロバイダを作成するには、<tt>default-config</tt> ノードを選択します。</p></li>
+<li><b>ナビゲーションツリーの「設定」ノードの下で、JACC プロバイダを作成する GlassFish Server インスタンスまたはクラスタを展開します。</b><p>すべてのインスタンスおよびクラスタで使用できるプロバイダを作成するには、<tt>default-config</tt> ノードを選択します。</p></li>
 <li><b>展開されたインスタンスまたはクラスタの「設定」ノードの下で、「セキュリティー」ノードを展開します。</b></li>
 <li><b>「セキュリティー」ノードの下で、「JACC プロバイダ」ノードを選択します。</b><p>「JACC プロバイダ」ページが開きます。</p></li>
 <li><b>「JACC プロバイダ」ページで、「新規」をクリックします。</b><p>「New JACC Provider」ページが開きます。</p></li>
@@ -22,7 +22,7 @@ Containers) プロバイダを作成します。JACC プロバイダは、ドメ
 <li><b>「ポリシーの設定」フィールドに、ポリシー設定ファクトリを実装するクラスの名前を入力します。</b><p><tt>default</tt> プロバイダは、<tt>com.sun.enterprise.security.provider.PolicyConfigurationFactoryImpl</tt> を使用します。<tt>simple</tt> プロバイダは、<tt>com.sun.enterprise.security.jacc.provider.SimplePolicyConfigurationFactory</tt> を使用します。</p></li>
 <li><b>「ポリシープロバイダ」フィールドに、ポリシーファクトリを実装するクラスの名前を入力します。</b><p><tt>default</tt> プロバイダは、<tt>com.sun.enterprise.security.provider.PolicyWrapper</tt> を使用します。<tt>simple</tt> プロバイダは、<tt>com.sun.enterprise.security.jacc.provider.SimplePolicyProvider</tt> を使用します。</p></li>
 <li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</p><p>JACC プロバイダで使用できる追加プロパティーについては、<a href="ref-jaccproviderprop.html">「JACC プロバイダに固有のプロパティー」</a>を参照してください。</p></li>
-<li><b>「了解 (OK)」をクリックします。</b></li></ol><h6>参照</h6>
+<li><b>「了解 (OK)」をクリックします。</b></li></ol><p></b>参照</b></p>
 <ul><li><p><a href="task-jaccprovideredit.html">「JACC プロバイダを編集する」</a></p>
 
 </li>
@@ -31,4 +31,4 @@ Containers) プロバイダを作成します。JACC プロバイダは、ドメ
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

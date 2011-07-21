@@ -1,13 +1,13 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-messagesecurityproviderconfignew"></a><h4>メッセージセキュリティープロバイダ設定を作成する</h4><a name="indexterm-110"></a><p>新しいメッセージセキュリティープロバイダ設定を作成するには、次の手順に従います。</p>
+<a name="task-messagesecurityproviderconfignew"></a><h3>メッセージセキュリティープロバイダ設定を作成する</h3><a name="indexterm-110"></a><p>新しいメッセージセキュリティープロバイダ設定を作成するには、次の手順に従います。</p>
 
-<h6>始める前に</h6><p>デフォルトの <tt>server-config</tt> 設定のメッセージセキュリティープロバイダの作成と削除は行えません。デフォルトの <tt>server-config</tt> でサポートされるメッセージセキュリティープロバイダは、SOAP と HttpServlet だけです。これらの 2 つのメッセージプロバイダは GlassFish サーバー
+<p><b>始める前に</b></p><p>デフォルトの <tt>server-config</tt> 設定のメッセージセキュリティープロバイダの作成と削除は行えません。デフォルトの <tt>server-config</tt> でサポートされるメッセージセキュリティープロバイダは、SOAP と HttpServlet だけです。これらの 2 つのメッセージプロバイダは GlassFish Server
 のインストール時にデフォルトですでに作成されているため、デフォルトの <tt>server-config</tt> の「メッセージセキュリティー設定」ページで「新規」ボタンが淡色表示 (無効状態) で表示されます。</p>
 
 <ol>
@@ -39,8 +39,8 @@ Use is subject to License Terms  -->
 <li><b>「応答ポリシー」領域の「認証元」ドロップダウンリストから、応答ポリシーで必要な認証のタイプを選択します。</b><p>応答ポリシーによって、認証プロバイダが実行する応答処理が決まります。応答ポリシーのフィールドはオプションですが、これらを指定しない場合は、応答メッセージに認証が適用されません。</p><p>応答メッセージのメッセージ層送信者認証 (ユーザー名やパスワードなど) を指定するには、<tt>sender</tt> を選択します。応答メッセージのコンテンツ認証 (デジタル署名など) を指定するには、<tt>content</tt> を選択します。応答の送信元を認証しない場合は、フィールドを空のままにします。デフォルトでは、認証タイプは選択されていません。</p><p>SOAP メッセージセキュリティープロバイダが実行する処理については、<a href="ref-configreq-respolicy.html">「要求および応答のポリシー設定」</a>を参照してください。</p></li>
 <li><b>「認証先」ドロップダウンリストから、認証先の認証が応答ポリシーのコンテンツ認証の前またはあとのどちらで発生するかを選択します。</b><p><tt>before-content</tt> または <tt>after-content</tt> を選択して、送信者に対する応答メッセージの受信者のメッセージ層認証要件を定義します (XML 暗号化を使用)。値を指定しない場合は、<tt>after-content</tt> がデフォルトで使用されます。ポリシーはメッセージの送信者に指定された順序によるため、<tt>after-content</tt> ではメッセージ受信者は署名の検証前にメッセージを復号化することを意味します。</p></li>
 <li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</p><p>プロバイダ設定で使用できる追加のプロパティーについては、<a href="ref-messagesecurityproviderconfigprops.html">「メッセージセキュリティープロバイダ設定に固有のプロパティー」</a>を参照してください。</p></li>
-<li><b>「了解」をクリックします。</b></li></ol><h6>参照</h6>
-<ul><li><p><a href="task-configmsgsecproviders.html">「メッセージセキュリティープロバイダが使用する GlassFish サーバー の機能を設定する」</a></p>
+<li><b>「了解」をクリックします。</b></li></ol><p></b>参照</b></p>
+<ul><li><p><a href="task-configmsgsecproviders.html">「メッセージセキュリティープロバイダが使用する GlassFish Server の機能を設定する」</a></p>
 
 </li>
 <li><p><a href="task-messagesecurityconfignew.html">「メッセージセキュリティー設定を作成する」</a></p>
@@ -63,4 +63,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
