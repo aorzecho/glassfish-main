@@ -1,11 +1,11 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-javamailsessioncreate"></a><h4>JavaMail セッションを作成する</h4><a name="indexterm-1"></a><ol>
+<a name="task-javamailsessioncreate"></a><h3>JavaMail セッションを作成する</h3><a name="indexterm-1"></a><ol>
 <li><b>ナビゲーションツリーで、「リソース」ノードを展開します。</b></li>
 <li><b>「リソース」ノードで、「JavaMail セッション」を選択します。</b><p>「JavaMail セッション」ページが開きます。</p></li>
 <li><b>「セッション」の表で、「新規」をクリックします。</b><p>「新しい JavaMail セッション」ページが開きます。</p></li>
@@ -34,10 +34,10 @@ Use is subject to License Terms  -->
 <p>デフォルト値は <tt>com.sun.mail.imap.IMAPStore</tt> です。</p></li>
 <li><b>「トランスポートプロトコル」フィールドに、トランスポートの通信方法を指定します。</b><p>トランスポートプロトコルサービスはメッセージを送信します。指定できる値は、<tt>smtp</tt> と <tt>smtps</tt> です。デフォルトでは、トランスポートプロトコルは <tt>smtp</tt> です。</p></li>
 <li><b>「トランスポートクラス」フィールドに、トランスポートのサービスプロバイダ実装クラスを指定します。</b><p>デフォルト値は <tt>com.sun.mail.smtp.SMTPTransport</tt> です。</p></li>
-<li><b>「デバッグ」チェックボックスを選択して、このメールセッションでプロトコルのトレースなどの追加デバッグ出力を有効にします。</b><p>JavaMail のログレベルを <tt>FINE</tt> またはそれ以上に設定した場合、デバッグ出力が生成され、システムのログファイルに含まれます。ログレベルの設定の詳細については、<a href="../../../common/ja/help/task-eelogginglevels.html">ログレベルを設定する</a>を参照してください。このオプションは、デフォルトでは無効になっています。</p></li>
-<li>(省略可能) <b>「追加プロパティー」の表に、プロトコル固有のホストまたはユーザー名のプロパティーなど、アプリケーションで必要な追加プロパティーを指定します。</b><p>利用可能なプロパティーの一覧については、<a href="http://java.sun.com/products/javamail/javadocs/index.html">JavaMail API マニュアル</a> を参照してください。追加プロパティーの名前は <tt>mail-</tt> で始まり、区切り文字として (ピリオドではなく) ハイフンを使用する必要があります。たとえば、<tt>mail-debug</tt> は正しい名前ですが、<tt>mail.debug</tt> は正しくありません。GlassFish サーバー バックエンドが、JavaMail API に応じてハイフンをピリオドに変換します。</p><p>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</p></li>
+<li><b>「デバッグ」チェックボックスを選択して、このメールセッションでプロトコルのトレースなどの追加デバッグ出力を有効にします。</b><p>JavaMail のログレベルを <tt>FINE</tt> またはそれ以上に設定した場合、デバッグ出力が生成され、システムのログファイルに含まれます。ログレベルの設定の詳細については、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3032&id=task-eelogginglevels">ログレベルを設定する</a>を参照してください。このオプションは、デフォルトでは無効になっています。</p></li>
+<li>(省略可能) <b>「追加プロパティー」の表に、プロトコル固有のホストまたはユーザー名のプロパティーなど、アプリケーションで必要な追加プロパティーを指定します。</b><p>利用可能なプロパティーの一覧については、<a href="http://java.sun.com/products/javamail/javadocs/index.html">JavaMail API マニュアル</a> を参照してください。追加プロパティーの名前は <tt>mail-</tt> で始まり、区切り文字として (ピリオドではなく) ハイフンを使用する必要があります。たとえば、<tt>mail-debug</tt> は正しい名前ですが、<tt>mail.debug</tt> は正しくありません。GlassFish Server バックエンドが、JavaMail API に応じてハイフンをピリオドに変換します。</p><p>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</p></li>
 <li><b>利用可能なターゲットの一覧から、メールセッションを設定するターゲット (複数可) を選択し、「追加」をクリックします。</b><p>ターゲットには、クラスタまたはスタンドアロンサーバーインスタンスを選択できます。ターゲットを選択しない場合、セッションはデフォルトのサーバーインスタンス <tt>server</tt> に設定されます。</p></li>
-<li><b>「了解」をクリックします。</b></li></ol><h6>参照</h6>
+<li><b>「了解」をクリックします。</b></li></ol><p></b>参照</b></p>
 <ul><li><p><a href="task-javamailsessionsedit.html">「JavaMail セッションを編集する」</a></p>
 
 </li>
@@ -46,4 +46,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
