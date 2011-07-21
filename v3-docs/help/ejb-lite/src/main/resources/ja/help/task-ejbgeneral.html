@@ -1,14 +1,14 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-ejbgeneral"></a><h4>EJB を設定する</h4><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
+<a name="task-ejbgeneral"></a><h3>EJB を設定する</h3><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
 <li><b>ナビゲーションツリーで、「設定」ノードを選択します。</b></li>
 <li><b>「EJB コンテナ」ノードを選択します。</b><p>「EJB (Enterprise Java Beans)」ページが開きます。</p></li>
-<li><b>「セッション格納位置」フィールドに、セッション格納位置の新しい値を入力します。</b><p>このフィールドは、非活性化されたステートフルセッション Bean と持続 SFSB チェックポイント状態が格納される、ファイルシステム上のディレクトリを指定します。デフォルト値は <tt>${com.sun.aas.instanceRoot}/session-store</tt> です。</p><p>非活性化された Bean は、状態がファイルシステム上のファイルに書き込まれているステートフルセッション Bean です。非活性化された Beans は、通常特定の時間内のアイドル状態にあり、現在クライアントによってアクセスされていません。同様に、持続的な SFSB チェックポイント状態はファイルシステム上のファイルに状態を書き込まれた個別の SFSB です。</p><p>この設定は、EJB コンテナの可用性が無効になっている場合にのみ、SFSB チェックポイント状態に適用されます。可用性を無効にする方法については、「<a href="../../../ejb/ja/help/task-ejbcontaineravailability.html">EJB コンテナの可用性を設定する</a>」を参照してください。</p></li>
+<li><b>「セッション格納位置」フィールドに、セッション格納位置の新しい値を入力します。</b><p>このフィールドは、非活性化されたステートフルセッション Bean と持続 SFSB チェックポイント状態が格納される、ファイルシステム上のディレクトリを指定します。デフォルト値は <tt>${com.sun.aas.instanceRoot}/session-store</tt> です。</p><p>非活性化された Bean は、状態がファイルシステム上のファイルに書き込まれているステートフルセッション Bean です。非活性化された Beans は、通常特定の時間内のアイドル状態にあり、現在クライアントによってアクセスされていません。同様に、持続的な SFSB チェックポイント状態はファイルシステム上のファイルに状態を書き込まれた個別の SFSB です。</p><p>この設定は、EJB コンテナの可用性が無効になっている場合にのみ、SFSB チェックポイント状態に適用されます。可用性を無効にする方法については、「<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2958&id=task-ejbcontaineravailability">EJB コンテナの可用性を設定する</a>」を参照してください。</p></li>
 <li><b>「オプション B」または「オプション C」のラジオボタンを選択して、「コミットオプション」を設定します。</b><p>「コミットオプション」では、コンテナがトランザクション間で非活性化された Bean インスタンスをキャッシュする方法を指定します。</p><ul>
 <li><b>「オプション B」 (デフォルト) を選択すると、コンテナはトランザクション間で準備完了状態のインスタンスをキャッシュします。</b></li>
 <li><b>「オプション C」を選択すると、コンテナはトランザクション間で準備完了状態のインスタンスをキャッシュしません。</b></li></ul></li>
@@ -35,7 +35,7 @@ Use is subject to License Terms  -->
 </dl>
 </li>
 <li><b>「キャッシュアイドルタイムアウト」フィールドに、Bean をキャッシュに保持できる最大時間を秒単位で入力します。</b><p>この時間が経過すると、コンテナは Bean を非活性化できます。0 を指定すると、Bean は非活性化の候補になりません。デフォルト値は 600 です。</p></li>
-<li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>GlassFish サーバー は EJB コンテナの追加プロパティーを定義しません。</p><ul>
+<li>(省略可能) <b>「追加プロパティー」セクションで、追加プロパティーを指定します。</b><p>GlassFish Server は EJB コンテナの追加プロパティーを定義しません。</p><ul>
 <li><b>プロパティーを追加するには、「プロパティーを追加」ボタンをクリックします。表示される空白行で、「名前」フィールドにプロパティー名を入力し、「値」フィールドにプロパティー値を入力します。</b></li>
 <li><b>プロパティーを変更するには、そのプロパティーの「値」フィールドを編集します。</b></li>
 <li><b>プロパティーを削除するには、削除するプロパティーの「名前」フィールドの左側にあるチェックボックスを選択し、「プロパティを削除」ボタンをクリックします。</b></li></ul></li>
@@ -45,16 +45,16 @@ Use is subject to License Terms  -->
 
 <hr>
 </li>
-<li><b>GlassFish サーバー を再起動します。</b></li></ol><h6>参照</h6>
-<ul><li><p><a href="../../../ejb/ja/help/task-ejbmdbpoolsettings.html">MDB プールを設定する</a></p>
+<li><b>GlassFish Server を再起動します。</b></li></ol><p></b>参照</b></p>
+<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2958&id=task-ejbmdbpoolsettings">MDB プールを設定する</a></p>
 
 </li>
-<li><p><a href="../../../ejb/ja/help/task-ejbtimerservice.html">EJB タイマーサービスを設定する</a></p>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2958&id=task-ejbtimerservice">EJB タイマーサービスを設定する</a></p>
 
 </li>
-<li><p><a href="../../../ejb/ja/help/task-ejbcontaineravailability.html">EJB コンテナの可用性を設定する</a></p>
+<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2958&id=task-ejbcontaineravailability">EJB コンテナの可用性を設定する</a></p>
 
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
