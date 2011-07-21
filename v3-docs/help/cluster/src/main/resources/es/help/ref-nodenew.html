@@ -1,13 +1,13 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-nodenew"></a><h4>Nuevo nodo</h4>
-<a name="indexterm-197"></a><p>Utilice la p&#225;gina Nuevo nodo para crear un nodo de GlassFish Server.
+<a name="indexterm-197"></a><p>Utilice la p&#225;gina Nuevo nodo para crear un nodo de Servidor GlassFish.
 Un nodo representa un host en el que est&#225; instalado el software
-GlassFish Server. Debe existir un nodo en cada host en el que
-residan instancias de GlassFish Server. </p>
+Servidor GlassFish. Debe existir un nodo en cada host en el que
+residan instancias de Servidor GlassFish. </p>
 
 <p>La p&#225;gina Nuevo nodo contiene las opciones siguientes:</p>
 
@@ -17,7 +17,10 @@ residan instancias de GlassFish Server. </p>
 <p>El nombre debe cumplir los siguientes requisitos:</p>
 
 
-<ul><li><p>El nombre debe empezar por una letra, un n&#250;mero o un car&#225;cter de subrayado.</p>
+<ul><li><p>El nombre s&#243;lo puede contener caracteres ASCII. </p>
+
+</li>
+<li><p>El nombre debe empezar por una letra, un n&#250;mero o un car&#225;cter de subrayado.</p>
 
 </li>
 <li><p>El nombre s&#243;lo puede contener los siguientes caracteres:</p>
@@ -42,10 +45,10 @@ residan instancias de GlassFish Server. </p>
 
 </li></ul>
 </li>
-<li><p>El nombre debe ser exclusivo en el dominio y no debe ser el nombre de otro nodo, un cl&#250;ster, una configuraci&#243;n con nombre ni una instancia de GlassFish Server.</p>
+<li><p>El nombre debe ser exclusivo en el dominio y no debe ser el nombre de otro nodo, un cl&#250;ster, una configuraci&#243;n con nombre ni una instancia de Servidor GlassFish.</p>
 
 </li>
-<li><p>El nombre non debe ser <tt>domain</tt>, <tt>server</tt> ni otra palabra clave reservada para GlassFish Server.</p>
+<li><p>El nombre non debe ser <tt>domain</tt>, <tt>server</tt> ni otra palabra clave reservada para Servidor GlassFish.</p>
 
 </li></ul>
 </dd>
@@ -66,7 +69,7 @@ residan instancias de GlassFish Server. </p>
 <dd><p>El nombre del host que el nodo representa. Este campo es obligatorio o no en funci&#243;n del tipo de nodo:</p>
 
 
-<ul><li><p>Si el tipo de nodo es CONFIG., el nombre del host puede omitirse. El nombre del host se puede determinar cuando se crean las instancias que residen en el nodo.</p>
+<ul><li><p>Si el tipo de nodo es CONFIG., el nombre del host puede omitirse. El nombre del host se puede determinar al crear las instancias que residen en el nodo.</p>
 
 </li>
 <li><p>Si el tipo de nodo es SSH, se debe especificar el nombre del host. De lo contrario, se produce un error.</p>
@@ -74,7 +77,7 @@ residan instancias de GlassFish Server. </p>
 </li></ul>
 </dd>
 <dt>Directorio de nodos</dt>
-<dd><p>Ruta al directorio que va a contener las instancias de GlassFish Server que se crean en el nodo. Si se especifica una ruta relativa, la ruta es relativa al directorio <i>as-install</i>.</p>
+<dd><p>Ruta al directorio que va a contener las instancias de Servidor GlassFish que se crean en el nodo. Si se especifica una ruta relativa, la ruta es relativa al directorio <i>instalaci&#243;n_as</i>.</p>
 
 <p>El valor predeterminado depende del tipo de nodo:</p>
 
@@ -82,12 +85,12 @@ residan instancias de GlassFish Server. </p>
 <ul><li><p>Si el tipo de nodo es CONFIG, no se especifica directorio de instancias para el nodo en la configuraci&#243;n del servidor de administraci&#243;n de dominios (DAS). El directorio del nodo se puede determinar cuando se crean las instancias que residen en el nodo.</p>
 
 </li>
-<li><p>Si el tipo de nodo es SSH, el valor predeterminado es <tt></tt><i>as-install</i><tt>/nodes</tt>, donde <i>as-install</i> es el directorio base de instalaci&#243;n del software GlassFish Server en el host.</p>
+<li><p>Si el tipo de nodo es SSH, el valor predeterminado es <tt></tt><i>instalaci&#243;n_as</i><tt>/nodes</tt>, donde <i>instalaci&#243;n_as</i> es el directorio base de instalaci&#243;n del software Servidor GlassFish en el host.</p>
 
 </li></ul>
 </dd>
 <dt>Directorio de instalaci&#243;n</dt>
-<dd><p>La ruta completa al directorio superior del directorio base de instalaci&#243;n del software GlassFish Server en el host, por ejemplo <tt>/export/glassfish3</tt>.</p>
+<dd><p>La ruta completa al directorio superior del directorio base de instalaci&#243;n del software Servidor GlassFish en el host, por ejemplo <tt>/export/glassfish3</tt>.</p>
 
 <p>El valor predeterminado depende del tipo de nodo:</p>
 
@@ -95,7 +98,7 @@ residan instancias de GlassFish Server. </p>
 <ul><li><p>Si el tipo de nodo es CONFIG., no se especifica directorio de instalaci&#243;n para el nodo en la configuraci&#243;n del DAS. El directorio de instalaci&#243;n se puede determinar al crear las instancias que residen en el nodo.</p>
 
 </li>
-<li><p>Si el tipo de nodo es SSH, el valor predeterminado es el directorio superior del directorio de instalaci&#243;n predeterminado del software GlassFish Server para el DAS. Este valor predeterminado s&#243;lo es &#250;til si se ha instalado GlassFish Server en la misma ubicaci&#243;n en todos los hosts. </p>
+<li><p>Si el tipo de nodo es SSH, el valor predeterminado es el directorio superior del directorio de instalaci&#243;n predeterminado del software Servidor GlassFish para el DAS. Este valor predeterminado s&#243;lo es &#250;til si se ha instalado Servidor GlassFish en la misma ubicaci&#243;n en todos los hosts. </p>
 
 </li></ul>
 </dd>
@@ -115,7 +118,7 @@ residan instancias de GlassFish Server. </p>
 <dd><p>Lista desplegable para especificar c&#243;mo se autentica el usuario de SSH al iniciar sesi&#243;n en el host de este nodo. Los m&#233;todos de autenticaci&#243;n posibles son los siguientes:</p>
 
 <dl><dt>Archivo clave</dt>
-<dd><p>El usuario de SSH se autentica a trav&#233;s de un archivo de claves privadas SSH. Si selecciona esta opci&#243;n, especifique la ruta de acceso absoluta al archivo en el campo Archivo de claves.</p>
+<dd><p>El usuario de SSH se autentica a trav&#233;s de un SSH archivo de claves privadas. Si selecciona esta opci&#243;n, especifique la ruta de acceso absoluta al archivo en el campo Archivo de claves.</p>
 
 </dd>
 <dt>Contrase&#241;a</dt>
@@ -144,14 +147,14 @@ residan instancias de GlassFish Server. </p>
 
 </dd>
 <dt>Alias de contrase&#241;a</dt>
-<dd><p>Lista desplegable de alias de contrase&#241;a definidos para este dominio.</p>
+<dd><p>Lista desplegable de alias de contrase&#241;a definidos para este dominio. </p>
 
 </dd>
 <dt>Archivo clave</dt>
 <dd><p>Ruta absoluta al archivo de claves privadas SSH para el usuario que especifique la opci&#243;n Nombre de usuario. Este archivo se utiliza para la autenticaci&#243;n en el daemon <tt> sshd</tt> en el host del nodo.</p>
 
 
-<hr><p><b>Nota - </b>GlassFish Server tambi&#233;n admite la autenticaci&#243;n con contrase&#241;a a trav&#233;s de la entrada <tt>AS_ADMIN_SSHPASSWORD</tt> en el archivo de contrase&#241;as. El archivo de contrase&#241;as se configura en la opci&#243;n <tt>--paswordfile</tt> de la utilidad <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
+<hr><p><b>Nota - </b>Servidor GlassFish tambi&#233;n admite la autenticaci&#243;n con contrase&#241;a a trav&#233;s de la entrada <tt>AS_ADMIN_SSHPASSWORD</tt> en el archivo de contrase&#241;as. El archivo de contrase&#241;as se configura en la opci&#243;n <tt>--paswordfile</tt> de la utilidad <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
 
 
 <hr>
@@ -159,7 +162,7 @@ residan instancias de GlassFish Server. </p>
 
 <p>La ruta al archivo de claves debe ser accesible al DAS y el archivo de claves debe ser legible para el DAS. </p>
 
-<p>El valor predeterminado es un archivo de claves en el directorio <tt>.ssh</tt> del usuario. Si se encuentran varios archivos de claves, GlassFish Server utiliza el siguiente orden de preferencia:</p>
+<p>El valor predeterminado es un archivo de claves en el directorio <tt>.ssh</tt> del usuario. Si se encuentran varios archivos de claves, Servidor GlassFish utiliza el siguiente orden de preferencia:</p>
 
 
 <ol><li><p><tt>id_rsa</tt></p>
@@ -188,4 +191,4 @@ residan instancias de GlassFish Server. </p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>

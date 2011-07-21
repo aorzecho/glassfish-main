@@ -1,11 +1,11 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-nodeedit"></a><h4>Editar nodo</h4>
 <a name="indexterm-198"></a><p>Utilice la p&#225;gina Editar nodo para actualizar los datos de configuraci&#243;n de
-un nodo de GlassFish Server. Tambi&#233;n puede utilizar esta p&#225;gina para cambiar
+un nodo de Servidor GlassFish. Tambi&#233;n puede utilizar esta p&#225;gina para cambiar
 el tipo de un nodo de CONFIG a SSH para habilitar la
 comunicaci&#243;n SSH para dicho nodo.</p>
 
@@ -54,12 +54,30 @@ siguientes:</p>
 </li></ul>
 </dd>
 <dt>Directorio de nodos</dt>
-<dd><p>Ruta al directorio que va a contener las instancias de GlassFish Server que se crean en el nodo. Si se especifica una ruta relativa, la ruta es relativa al directorio <i>as-install</i>, donde <i>as-install</i> es el directorio base de instalaci&#243;n del software GlassFish Server en el host.</p>
+<dd><p>Ruta al directorio que va a contener las instancias de Servidor GlassFish que se crean en el nodo. Si se especifica una ruta relativa, la ruta es relativa al directorio <i>instalaci&#243;n_as</i>, donde <i>instalaci&#243;n_as</i> es el directorio base de instalaci&#243;n del software Servidor GlassFish en el host.</p>
 
+<p>Si este campo se deja vac&#237;o, la configuraci&#243;n del nodo se actualiza de la forma siguiente:</p>
+
+
+<ul><li><p>Si el tipo de nodo es CONFIG, no se especifica directorio de instancias para el nodo en la configuraci&#243;n del servidor de administraci&#243;n de dominios (DAS). El directorio del nodo se puede determinar al crear las instancias que residen en el nodo.</p>
+
+</li>
+<li><p>Si el tipo del nodo es SSH, el directorio del nodo ser&#225; <tt></tt><i>instalaci&#243;n_as</i><tt>/nodes</tt>, donde <i>instalaci&#243;n_as</i> es el directorio de instalaci&#243;n base del software Servidor GlassFish en el host.</p>
+
+</li></ul>
 </dd>
 <dt>Directorio de instalaci&#243;n</dt>
-<dd><p>Ruta completa al directorio principal del directorio base de instalaci&#243;n del software GlassFish Server en el host, por ejemplo <tt>/export/glassfish3/</tt>. </p>
+<dd><p>Ruta completa al directorio principal del directorio base de instalaci&#243;n del software Servidor GlassFish en el host, por ejemplo <tt>/export/glassfish3/</tt>. </p>
 
+<p>Si este campo se deja vac&#237;o, la configuraci&#243;n del nodo se actualiza de la forma siguiente:</p>
+
+
+<ul><li><p>Si el tipo de nodo es CONFIG., no se especifica directorio de instalaci&#243;n para el nodo en la configuraci&#243;n del DAS. El directorio de instalaci&#243;n se puede determinar al crear las instancias que residen en el nodo.</p>
+
+</li>
+<li><p>Si el tipo del nodo es SSH, el directorio de instalaci&#243;n es el directorio principal del directorio de instalaci&#243;n base predeterminado del software Servidor GlassFish para el DAS. Esta opci&#243;n s&#243;lo es &#250;til si Servidor GlassFish est&#225; instalado en la misma ubicaci&#243;n en todos los hosts.</p>
+
+</li></ul>
 </dd>
 <dt>Forzar</dt>
 <dd><p>Si se selecciona la opci&#243;n Habilitado, se actualiza el nodo en la configuraci&#243;n del servidor de administraci&#243;n de dominios (DAS) aunque falle la validaci&#243;n de los par&#225;metros del nodo. Para validar los par&#225;metros de un nodo, el DAS debe poder establecer contacto con el host del nodo a trav&#233;s de SSH. </p>
@@ -121,7 +139,7 @@ siguientes:</p>
 <dd><p>Ruta absoluta al archivo de claves privadas SSH para el usuario que especifique la opci&#243;n Nombre de usuario. Este archivo se utiliza para la autenticaci&#243;n en el daemon <tt> sshd</tt> en el host del nodo.</p>
 
 
-<hr><p><b>Nota - </b>GlassFish Server tambi&#233;n admite la autenticaci&#243;n con contrase&#241;a a trav&#233;s de la entrada <tt>AS_ADMIN_SSHPASSWORD</tt> en el archivo de contrase&#241;as. El archivo de contrase&#241;as se configura en la opci&#243;n <tt>--paswordfile</tt> de la utilidad <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
+<hr><p><b>Nota - </b>Servidor GlassFish tambi&#233;n admite la autenticaci&#243;n con contrase&#241;a a trav&#233;s de la entrada <tt>AS_ADMIN_SSHPASSWORD</tt> en el archivo de contrase&#241;as. El archivo de contrase&#241;as se configura en la opci&#243;n <tt>--paswordfile</tt> de la utilidad <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
 
 
 <hr>
@@ -131,7 +149,7 @@ siguientes:</p>
 
 <p>El valor predeterminado depende de si cambia el tipo de nodo de CONFIG a SSH para habilitar la comunicaci&#243;n SSH para el nodo:</p>
 
-<p>Si cambia el tipo de nodo de CONFIG a SSH y deja este campo vac&#237;o, la opci&#243;n Archivo de claves se configura a un archivo de claves situado en el directorio <tt>.ssh</tt> del usuario. Si se encuentran varios archivos de claves, GlassFish Server utiliza el siguiente orden de preferencia:</p>
+<p>Si cambia el tipo de nodo de CONFIG a SSH y deja este campo vac&#237;o, la opci&#243;n Archivo de claves se configura a un archivo de claves situado en el directorio <tt>.ssh</tt> del usuario. Si se encuentran varios archivos de claves, Servidor GlassFish utiliza el siguiente orden de preferencia:</p>
 
 
 <ol><li><p><tt>id_rsa</tt></p>
@@ -160,4 +178,4 @@ siguientes:</p>
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
