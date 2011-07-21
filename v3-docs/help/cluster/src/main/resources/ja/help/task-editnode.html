@@ -1,11 +1,11 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 
 
-<a name="task-editnode"></a><h4>ノードを編集する</h4><a name="indexterm-157"></a><p>ノードを編集すると、GlassFish サーバー ノードの設定データが更新されます。ノードを編集して、ノードのタイプを CONFIG から SSH に変更してノードに対して SSH 通信を有効にすることもできます。</p>
+<a name="task-editnode"></a><h3>ノードを編集する</h3><a name="indexterm-157"></a><p>ノードを編集すると、GlassFish Server ノードの設定データが更新されます。ノードを編集して、ノードのタイプを CONFIG から SSH に変更してノードに対して SSH 通信を有効にすることもできます。</p>
 
 <p>ノードのタイプを CONFIG から SSH に変更し、次のいずれかのフィールドを空のままにした場合、デフォルト値が適用されます。</p>
 
@@ -33,8 +33,8 @@ Use is subject to License Terms  -->
 
 </li></ul>
 </li>
-<li><b>「ノードディレクトリ」フィールドに、ノード上で作成された GlassFish サーバー インスタンスを含めるディレクトリのパスを入力します。</b><p>相対パスを入力すると、パスは <i>as-install</i> ディレクトリに相対的になります。<i>as-install</i> はホスト上の GlassFish サーバー ソフトウェアのベースインストールディレクトリです。</p></li>
-<li><b>「インストールディレクトリ」フィールドに、ホスト上の GlassFish サーバー ソフトウェアのベースインストールディレクトリの親のフルパス (例: <tt>/export/glassfish3/</tt>) を入力します。</b></li>
+<li><b>「ノードディレクトリ」フィールドに、ノード上で作成された GlassFish Server インスタンスを含めるディレクトリのパスを入力します。</b><p>相対パスを入力すると、パスは <i>as-install</i> ディレクトリに相対的になります。<i>as-install</i> はホスト上の GlassFish Server ソフトウェアのベースインストールディレクトリです。</p></li>
+<li><b>「インストールディレクトリ」フィールドに、ホスト上の GlassFish Server ソフトウェアのベースインストールディレクトリの親のフルパス (例: <tt>/export/glassfish3/</tt>) を入力します。</b></li>
 <li><b>ノードのパラメータの検証に失敗した場合にドメイン管理サーバー (Domain Administration Server、DAS) の設定でノードが強制的に作成されるようにするには、「強制」オプションを有効にします。</b></li>
 <li><b>「SSH ポート」フィールドに、このノードのホストに対する SSH 接続に使用するポートを入力します。</b><p>ノードのタイプを CONFIG から SSH に変更し、このフィールドを空のままにした場合、「SSH ポート」オプションは 22 に設定されます。</p></li>
 <li><b>「SSH ユーザー名」フィールドに、ホストに SSH 経由で接続するためのプロセスを実行する、このノードのホストのユーザーの名前を入力します。</b><p>ノードのタイプを CONFIG から SSH に変更し、このフィールドを空のままにした場合、「SSH ユーザー名」オプションは DAS プロセスを実行しているユーザーに設定されます。</p></li>
@@ -42,11 +42,11 @@ Use is subject to License Terms  -->
 <li><b>SSH 非公開鍵ファイルによる認証を指定するには、次の手順を実行します。</b><ol style="list-style-type: lower-alpha">
 <li><b>「SSH ユーザー認証」ドロップダウンリストから「キーファイル」を選択します。</b></li>
 <li><b>「キーファイル」フィールドに、「SSH ユーザー名」オプションで指定するユーザーの SSH 非公開鍵ファイルの絶対パスを入力します。 </b>
-<hr><p><b>注 - </b>GlassFish サーバー では、パスワードファイルの <tt>AS_ADMIN_SSHPASSWORD</tt> エントリを使用したパスワード認証もサポートされます。パスワードファイルは、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> ユーティリティーの <tt>--paswordfile</tt> オプションで指定します。</p>
+<hr><p><b>注 - </b>GlassFish Server では、パスワードファイルの <tt>AS_ADMIN_SSHPASSWORD</tt> エントリを使用したパスワード認証もサポートされます。パスワードファイルは、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> ユーティリティーの <tt>--paswordfile</tt> オプションで指定します。</p>
 
 
 <hr>
-<p>ノードのタイプを CONFIG から SSH に変更し、このフィールドを空のままにした場合、「キーファイル」オプションはユーザーの <tt>.ssh</tt> ディレクトリにあるキーファイルに設定されます。複数のキーファイルが検出された場合は、GlassFish サーバー が次の優先順位に従います。</p>
+<p>ノードのタイプを CONFIG から SSH に変更し、このフィールドを空のままにした場合、「キーファイル」オプションはユーザーの <tt>.ssh</tt> ディレクトリにあるキーファイルに設定されます。複数のキーファイルが検出された場合は、GlassFish Server が次の優先順位に従います。</p>
 <ul><li><p><tt>id_rsa</tt></p>
 
 </li>
@@ -69,7 +69,7 @@ Use is subject to License Terms  -->
 <li><b>パスワードエイリアスによる認証を指定するには、次の手順を実行します。</b><ol style="list-style-type: lower-alpha">
 <li><b>「SSH ユーザー認証」ドロップダウンリストから「パスワードエイリアス」を選択します。</b></li>
 <li><b>「パスワードエイリアス」ドロップダウンリストから既存のエイリアスを選択します。</b></li></ol></li></ul></li>
-<li><b>「保存」をクリックします。</b></li></ol><h6>参照</h6>
+<li><b>「保存」をクリックします。</b></li></ol><p></b>参照</b></p>
 <ul><li><p><a href="task-createnode.html">「ノードを作成する」</a></p>
 
 </li>
@@ -81,4 +81,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

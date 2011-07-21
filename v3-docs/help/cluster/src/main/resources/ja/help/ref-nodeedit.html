@@ -1,10 +1,10 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-nodeedit"></a><h4>ノードの編集</h4>
-<a name="indexterm-198"></a><p>「ノードの編集」ページを使用して、GlassFish サーバー ノードの設定データを更新します。このページを使用して、ノードのタイプを CONFIG から SSH に変更してノードの SSH 通信を有効にすることもできます。</p>
+<a name="indexterm-198"></a><p>「ノードの編集」ページを使用して、GlassFish Server ノードの設定データを更新します。このページを使用して、ノードのタイプを CONFIG から SSH に変更してノードの SSH 通信を有効にすることもできます。</p>
 
 <p>ノードのタイプを CONFIG から SSH に変更し、次のいずれかのフィールドを空のままにした場合、デフォルト値が適用されます。</p>
 
@@ -49,12 +49,30 @@ Use is subject to License Terms  -->
 </li></ul>
 </dd>
 <dt>ノードディレクトリ</dt>
-<dd><p>ノード上で作成された GlassFish サーバー インスタンスを含めるディレクトリのパス。相対パスを指定する場合、パスは <i>as-install</i> ディレクトリに相対的になります。<i>as-install</i> はホスト上の GlassFish サーバー ソフトウェアのベースインストールディレクトリです。</p>
+<dd><p>ノード上で作成された GlassFish Server インスタンスを含めるディレクトリのパス。相対パスを指定する場合、パスは <i>as-install</i> ディレクトリに相対的になります。<i>as-install</i> はホスト上の GlassFish Server ソフトウェアのベースインストールディレクトリです。</p>
 
+<p>このフィールドを空のままにした場合、ノードの設定は次のように更新されます。</p>
+
+
+<ul><li><p>ノードのタイプが CONFIG の場合、ドメイン管理サーバー (Domain Administration Server、DAS) 設定では、ノードにインスタンスのディレクトリは指定されません。ノードディレクトリは、ノード上に存在するインスタンスが作成される際に特定されます。</p>
+
+</li>
+<li><p>ノードのタイプが SSH の場合、ノードディレクトリは <tt></tt><i>as-install</i><tt>/nodes</tt> です。<i>as-install</i> は、ホスト上の GlassFish Server ソフトウェアのベースインストールディレクトリです。</p>
+
+</li></ul>
 </dd>
 <dt>インストールディレクトリ</dt>
-<dd><p>ホスト上の GlassFish サーバー ソフトウェアのベースインストールディレクトリの親のフルパス (例: <tt>/export/glassfish3/</tt>)。 </p>
+<dd><p>ホスト上の GlassFish Server ソフトウェアのベースインストールディレクトリの親のフルパス (例: <tt>/export/glassfish3/</tt>)。 </p>
 
+<p>このフィールドを空のままにした場合、ノードの設定は次のように更新されます。</p>
+
+
+<ul><li><p>ノードのタイプが CONFIG の場合、DAS 設定では、ノードにインストールディレクトリは指定されません。インストールディレクトリは、ノード上に存在するインスタンスが作成される際に特定されます。</p>
+
+</li>
+<li><p>ノードのタイプが SSH の場合、インストールディレクトリは、DAS の GlassFish Server ソフトウェアのデフォルトベースインストールディレクトリの親です。この設定を使用できるのは、GlassFish Server がすべてのホストで同じ場所にインストールされる場合だけです。</p>
+
+</li></ul>
 </dd>
 <dt>強制</dt>
 <dd><p>「有効」オプションをオンにすると、ノードのパラメータの検証に失敗した場合でも、ドメイン管理サーバー (Domain Administration Server、DAS) 設定でノードが更新されます。ノードのパラメータを検証するには、DAS が SSH 経由でノードのホストにアクセスできる必要があります。</p>
@@ -116,7 +134,7 @@ Use is subject to License Terms  -->
 <dd><p>「ユーザー名」オプションで指定するユーザーの SSH 非公開鍵ファイルの絶対パス。このファイルはノードのホスト上の <tt>sshd</tt> デーモンに対する認証に使用されます。</p>
 
 
-<hr><p><b>注 - </b>GlassFish サーバー では、パスワードファイルの <tt>AS_ADMIN_SSHPASSWORD</tt> エントリを使用したパスワード認証もサポートされます。パスワードファイルは、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> ユーティリティーの <tt>--paswordfile</tt> オプションで指定します。</p>
+<hr><p><b>注 - </b>GlassFish Server では、パスワードファイルの <tt>AS_ADMIN_SSHPASSWORD</tt> エントリを使用したパスワード認証もサポートされます。パスワードファイルは、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> ユーティリティーの <tt>--paswordfile</tt> オプションで指定します。</p>
 
 
 <hr>
@@ -126,7 +144,7 @@ Use is subject to License Terms  -->
 
 <p>デフォルトは、ノードのタイプを CONFIG から SSH に変更してノードの SSH 通信を有効にしているかどうかによって異なります。</p>
 
-<p>ノードのタイプを CONFIG から SSH に変更し、このフィールドを空のままにした場合、「キーファイル」オプションはユーザーの <tt>.ssh</tt> ディレクトリにあるキーファイルに設定されます。複数のキーファイルが検出された場合は、GlassFish サーバー が次の優先順位に従います。</p>
+<p>ノードのタイプを CONFIG から SSH に変更し、このフィールドを空のままにした場合、「キーファイル」オプションはユーザーの <tt>.ssh</tt> ディレクトリにあるキーファイルに設定されます。複数のキーファイルが検出された場合は、GlassFish Server が次の優先順位に従います。</p>
 
 
 <ol><li><p><tt>id_rsa</tt></p>
@@ -155,4 +173,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>

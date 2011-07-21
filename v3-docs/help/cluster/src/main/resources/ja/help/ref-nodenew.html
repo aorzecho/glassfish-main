@@ -1,10 +1,10 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
  
 Use is subject to License Terms  -->
 <a name="ref-nodenew"></a><h4>新しいノード</h4>
-<a name="indexterm-197"></a><p>「新しいノード」ページを使用して、GlassFish サーバー ノードを作成します。ノードは GlassFish サーバー ソフトウェアがインストールされたホストを表します。GlassFish サーバー インスタンスが存在するすべてのホストについてノードを作成する必要があります。 </p>
+<a name="indexterm-197"></a><p>「新しいノード」ページを使用して、GlassFish Server ノードを作成します。ノードは GlassFish Server ソフトウェアがインストールされたホストを表します。GlassFish Server インスタンスが存在するすべてのホストについてノードを作成する必要があります。 </p>
 
 <p>「新しいノード」ページには、次のオプションが含まれます。</p>
 
@@ -14,7 +14,10 @@ Use is subject to License Terms  -->
 <p>名前は次の要件を満たしてください。</p>
 
 
-<ul><li><p>名前は英数字または下線で始めます。</p>
+<ul><li><p>ASCII 文字のみ使用します。</p>
+
+</li>
+<li><p>名前は英数字または下線で始めます。</p>
 
 </li>
 <li><p>名前に含めることができるのは次の文字だけです。</p>
@@ -39,10 +42,10 @@ Use is subject to License Terms  -->
 
 </li></ul>
 </li>
-<li><p>名前はドメイン内で一意にします。また、別のノード、クラスタ、名前付き設定、または GlassFish サーバー インスタンスの名前にすることはできません。</p>
+<li><p>名前はドメイン内で一意にします。また、別のノード、クラスタ、名前付き設定、または GlassFish Server インスタンスの名前にすることはできません。</p>
 
 </li>
-<li><p><tt>ドメイン</tt>、<tt>サーバー</tt>、または GlassFish サーバー で予約されているほかのキーワードを名前に使用してはいけません。</p>
+<li><p><tt>ドメイン</tt>、<tt>サーバー</tt>、または GlassFish Server で予約されているほかのキーワードを名前に使用してはいけません。</p>
 
 </li></ul>
 </dd>
@@ -71,7 +74,7 @@ Use is subject to License Terms  -->
 </li></ul>
 </dd>
 <dt>ノードディレクトリ</dt>
-<dd><p>ノード上で作成された GlassFish サーバー インスタンスを含めるディレクトリのパス。相対パスを指定する場合、パスは <i>as-install</i> ディレクトリに相対的になります。</p>
+<dd><p>ノード上で作成された GlassFish Server インスタンスを含めるディレクトリのパス。相対パスを指定する場合、パスは <i>as-install</i> ディレクトリに相対的になります。</p>
 
 <p>デフォルトは、ノードのタイプによって異なります。</p>
 
@@ -79,12 +82,12 @@ Use is subject to License Terms  -->
 <ul><li><p>ノードのタイプが CONFIG の場合、ドメイン管理サーバー (Domain Administration Server、DAS) 設定では、ノードにインスタンスのディレクトリは指定されません。ノードディレクトリは、ノード上に存在するインスタンスが作成される際に特定されます。</p>
 
 </li>
-<li><p>ノードのタイプが SSH の場合、デフォルトは <tt></tt><i>as-install</i><tt>/nodes</tt> です。<i>as-install</i> は、ホスト上の GlassFish サーバー ソフトウェアのベースインストールディレクトリです。</p>
+<li><p>ノードのタイプが SSH の場合、デフォルトは <tt></tt><i>as-install</i><tt>/nodes</tt> です。<i>as-install</i> は、ホスト上の GlassFish Server ソフトウェアのベースインストールディレクトリです。</p>
 
 </li></ul>
 </dd>
 <dt>インストールディレクトリ</dt>
-<dd><p>ホスト上の GlassFish サーバー ソフトウェアのベースインストールディレクトリの親のフルパス (例: <tt>/export/glassfish3</tt>)。</p>
+<dd><p>ホスト上の GlassFish Server ソフトウェアのベースインストールディレクトリの親のフルパス (例: <tt>/export/glassfish3</tt>)。</p>
 
 <p>デフォルトは、ノードのタイプによって異なります。</p>
 
@@ -92,7 +95,7 @@ Use is subject to License Terms  -->
 <ul><li><p>ノードのタイプが CONFIG の場合、DAS 設定では、ノードにインストールディレクトリは指定されません。インストールディレクトリは、ノード上に存在するインスタンスが作成される際に特定されます。</p>
 
 </li>
-<li><p>ノードのタイプが SSH の場合、デフォルトは、DAS の GlassFish サーバー ソフトウェアのデフォルトベースインストールディレクトリの親です。このデフォルトを使用できるのは、GlassFish サーバー がすべてのホストで同じ場所にインストールされた場合だけです。</p>
+<li><p>ノードのタイプが SSH の場合、デフォルトは、DAS の GlassFish Server ソフトウェアのデフォルトベースインストールディレクトリの親です。このデフォルトを使用できるのは、GlassFish Server がすべてのホストで同じ場所にインストールされた場合だけです。</p>
 
 </li></ul>
 </dd>
@@ -148,7 +151,7 @@ Use is subject to License Terms  -->
 <dd><p>「ユーザー名」オプションで指定するユーザーの SSH 非公開鍵ファイルの絶対パス。このファイルはノードのホスト上の <tt>sshd</tt> デーモンに対する認証に使用されます。</p>
 
 
-<hr><p><b>注 - </b>GlassFish サーバー では、パスワードファイルの <tt>AS_ADMIN_SSHPASSWORD</tt> エントリを使用したパスワード認証もサポートされます。パスワードファイルは、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> ユーティリティーの <tt>--paswordfile</tt> オプションで指定します。</p>
+<hr><p><b>注 - </b>GlassFish Server では、パスワードファイルの <tt>AS_ADMIN_SSHPASSWORD</tt> エントリを使用したパスワード認証もサポートされます。パスワードファイルは、<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> ユーティリティーの <tt>--paswordfile</tt> オプションで指定します。</p>
 
 
 <hr>
@@ -156,7 +159,7 @@ Use is subject to License Terms  -->
 
 <p>キーファイルは、DAS から到達可能なパスにあり、DAS が読み取り可能である必要があります。</p>
 
-<p>デフォルトは、ユーザーの <tt>.ssh</tt> ディレクトリにあるキーファイルです。複数のキーファイルが検出された場合は、GlassFish サーバー が次の優先順位に従います。</p>
+<p>デフォルトは、ユーザーの <tt>.ssh</tt> ディレクトリにあるキーファイルです。複数のキーファイルが検出された場合は、GlassFish Server が次の優先順位に従います。</p>
 
 
 <ol><li><p><tt>id_rsa</tt></p>
@@ -185,4 +188,4 @@ Use is subject to License Terms  -->
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">著作権について</a></small>
