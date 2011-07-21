@@ -1,7 +1,7 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2009, 2010 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
+ 
 Use is subject to License Terms  -->
 <a name="ref-nodeedit"></a><h4>Editar n&#243;</h4>
 <a name="indexterm-198"></a><p>Utilize a p&#225;gina Editar n&#243; para atualizar os dados de configura&#231;&#227;o de
@@ -56,10 +56,28 @@ deixados em branco:</p>
 <dt>Diret&#243;rio do n&#243;</dt>
 <dd><p>O caminho para o diret&#243;rio que cont&#233;m as inst&#226;ncias Servidor GlassFish que s&#227;o criadas no n&#243;. Se um caminho relativo for especificado, o caminho &#233; relativo ao diret&#243;rio <i>as-install</i>, no qual <i>as-install</i> corresponde ao diret&#243;rio de instala&#231;&#227;o de base do software Servidor GlassFish no host.</p>
 
+<p>Se este campo for deixado em branco, a configura&#231;&#227;o do n&#243; &#233; atualizada da seguinte forma:</p>
+
+
+<ul><li><p>Se o tipo do n&#243; for CONFIG, nenhum diret&#243;rio das inst&#226;ncias &#233; especificado para o n&#243; na configura&#231;&#227;o do servidor de administra&#231;&#227;o do dom&#237;nio (DAS). O diret&#243;rio do n&#243; pode ser determinado quando as inst&#226;ncias que residem no n&#243; forem criadas.</p>
+
+</li>
+<li><p>Se o tipo do n&#243; for SSH, o diret&#243;rio do n&#243; &#233; <tt></tt><i>as-install</i><tt>/nodes </tt>, onde <i>as-install</i> &#233; o diret&#243;rio de instala&#231;&#227;o de base do software Servidor GlassFish na m&#225;quina.</p>
+
+</li></ul>
 </dd>
 <dt>Diret&#243;rio de instala&#231;&#227;o</dt>
 <dd><p>O caminho inteiro para o pai do diret&#243;rio de instala&#231;&#227;o de base do software Servidor GlassFish no host, por exemplo, <tt>/export/glassfish3/</tt>. </p>
 
+<p>Se este campo for deixado em branco, a configura&#231;&#227;o do n&#243; &#233; atualizada da seguinte forma:</p>
+
+
+<ul><li><p>Se o tipo do n&#243; for CONFIG, nenhum diret&#243;rio de instala&#231;&#227;o &#233; especificado para o n&#243; na configura&#231;&#227;o do DAS. O diret&#243;rio de instala&#231;&#227;o pode ser determinado quando as inst&#226;ncias que residem no n&#243; forem criadas.</p>
+
+</li>
+<li><p>Se o tipo do n&#243; for SSH, o diret&#243;rio do n&#243; &#233; o diret&#243;rio principal do diret&#243;rio de instala&#231;&#227;o de base do software Servidor GlassFish para o DAS. Essa configura&#231;&#227;o &#233; &#250;til apenas se o Servidor GlassFish estiver instalado no mesmo local em todos as m&#225;quinas.</p>
+
+</li></ul>
 </dd>
 <dt>For&#231;ar</dt>
 <dd><p>Se a op&#231;&#227;o Ativo estiver selecionada, o n&#243; &#233; atualizado na configura&#231;&#227;o do servidor de administra&#231;&#227;o do dom&#237;nio (DAS) mesmo se a valida&#231;&#227;o dos par&#226;metros do n&#243; falhar. Para validar os par&#226;metros de um n&#243;, o DAS deve ser capaz de contactar o host do n&#243; por meio de SSH. </p>
@@ -121,7 +139,7 @@ deixados em branco:</p>
 <dd><p>Caminho absoluto para o arquivo da chave privada de SSH para o usu&#225;rio que a op&#231;&#227;o Nome de usu&#225;rio especifica. Este arquivo &#233; utilizado para autentica&#231;&#227;o do daemon <tt> sshd</tt> no host do n&#243;.</p>
 
 
-<hr><p><b>Observa&#231;&#227;o - </b>O Servidor GlassFish tamb&#233;m oferece suporte &#224; autentica&#231;&#227;o com senha atrav&#233;s da entrada <tt>AS_ADMIN_SSHPASSWORD</tt> no arquivo de senha. O arquivo de senha &#233; especificado na op&#231;&#227;o <tt>--paswordfile</tt> do utilit&#225;rio <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
+<hr><p><b>Observa&#231;&#227;o - </b>O Servidor GlassFish tamb&#233;m oferece suporte &#224; autentica&#231;&#227;o com senha atrav&#233;s da entrada <tt>AS_ADMIN_SSHPASSWORD</tt> no arquivo de senha. O arquivo de senha &#233; especificado na op&#231;&#227;o <tt>--paswordfile</tt> do utilit&#225;rio <tt>asadmin</tt>(1M).</p>
 
 
 <hr>
@@ -152,12 +170,12 @@ deixados em branco:</p>
 </li></ul>
 <h5>Subcomandos <tt>asadmin</tt> equivalentes</h5>
 
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-config-1"><tt>update-node-config</tt>(1)</a></p>
+<ul><li><p><tt>update-node-config</tt>(1)</p>
 
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-ssh-1"><tt>update-node-ssh</tt>(1)</a></p>
+<li><p><tt>update-node-ssh</tt>(1)</p>
 
 </li></ul>
 
 
-<small>Copyright &#169; 2010, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
