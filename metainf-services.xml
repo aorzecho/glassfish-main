@@ -15,13 +15,15 @@
     -->
     <target name="metainf-services.checkout" >
         <echo message="checkout metainf-services from ${metainf-services.svn.url}."/>
-        <exec executable="svn" dir="${external.dir}" failonerror="true" >
-	    <arg line="checkout" />
-            <arg line="${metainf-services.svn.url}" />
-            <arg line="--username" />
-            <arg line="guest" />
-            <arg line="metainf-services" />
-	</exec>
+        <exec executable="git" dir="${external.dir}" failonerror="true">
+            <arg line="clone"/>
+            <arg line="${metainf-services.git.url}"/>
+            <arg line="metainf-services"/>
+        </exec>
+        <exec executable="git" dir="${external.dir}/metainf-services" failonerror="true">
+            <arg line="checkout"/>
+            <arg line="${metainf-services.git.tag}"/>
+        </exec>
     </target>
     <target name="metainf-services.build" depends="metainf-services.checkout" >
         <!-- build metainf-services -->
