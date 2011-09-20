@@ -41,8 +41,7 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.glassfish</groupId>
@@ -53,11 +52,11 @@
     <groupId>org.glassfish</groupId>
     <artifactId>glassfish-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.1.2-SNAPSHOT</version>
+    <version>3.1.2</version>
     <name>GlassFish Parent Project</name>
     <scm>
-        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/v3</connection>
-        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/v3</developerConnection>
+        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/tags/3.1.2-b04</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/tags/3.1.2-b04</developerConnection>
     </scm>
     <issueManagement>
         <system>IssueTracker</system>
@@ -115,11 +114,11 @@
         <trilead-ssh2.version>build212-hudson-6</trilead-ssh2.version>
         <product.name>GlassFish Server Open Source Edition</product.name>
         <abbrev_product_name>glassfish</abbrev_product_name>
-        <version_prefix></version_prefix>
+        <version_prefix />
         <major_version>3</major_version>
         <minor_version>1</minor_version>
         <update_version>2</update_version>
-        <version_suffix></version_suffix>
+        <version_suffix />
         <build.id>${user.name}-private</build.id><!-- on Hudson and RE, this gets replaced by real build ID -->
         <stax-api.version>1.0-2</stax-api.version>
         <jsftemplating.version>2.1.0</jsftemplating.version>
@@ -157,7 +156,7 @@
         <mimepull.version>1.6</mimepull.version>
         <findbugs.skip>false</findbugs.skip>
         <findbugs.threshold>High</findbugs.threshold>
-        <findbugs.exclude></findbugs.exclude>
+        <findbugs.exclude />
         <findbugs.version>2.3.2</findbugs.version>
         <btrace.version>1.0.5</btrace.version>
         <opendmk.version>1.0-b01-ea</opendmk.version>
@@ -707,7 +706,7 @@
                 <configuration>
                     <!-- By default, we don't export anything.
                     -->
-                    <Export-Package></Export-Package>
+                    <Export-Package />
                     <!-- Since, we are in a top level pom and
                          we we don't want it to be active for plain jar type artifacts,
                          enable the plugin for hk2-jar and bundle packaging type only,
