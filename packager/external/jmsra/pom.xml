@@ -45,7 +45,7 @@
     <parent>
         <groupId>org.glassfish.external</groupId>
         <artifactId>external</artifactId>
-        <version>3.1.2</version>
+        <version>3.1.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -63,15 +63,17 @@
                         <phase>process-classes</phase>
                         <configuration>
                             <tasks>
-                                <resolveArtifact artifactId="mq-distribution" property="mq-distribution.zip" />
-				<mkdir dir="target/tmp" />
-				<mkdir dir="target/classes/glassfish/lib/install/applications/jmsra" />
-				<unzip src="${mq-distribution.zip}" dest="target/tmp">
+                                <resolveArtifact artifactId="mq-distribution" property="mq-distribution.zip"/>
+				<mkdir dir="target/tmp"/>
+				<mkdir dir="target/classes/glassfish/lib/install/applications/jmsra"/>
+				<unzip src="${mq-distribution.zip}"
+					dest="target/tmp">
                                     <patternset>
-					    <include name="mq/lib/imqjmsra.rar" />
+					    <include name="mq/lib/imqjmsra.rar"/>
 				    </patternset>
 			        </unzip>
-				<unzip src="target/tmp/mq/lib/imqjmsra.rar" dest="target/classes/glassfish/lib/install/applications/jmsra">
+				<unzip src="target/tmp/mq/lib/imqjmsra.rar"
+					dest="target/classes/glassfish/lib/install/applications/jmsra">
                                 </unzip>
                             </tasks>
                         </configuration>
