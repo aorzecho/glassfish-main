@@ -52,7 +52,7 @@
     <groupId>org.glassfish.main</groupId>
     <artifactId>glassfish-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.1.2</version>
+    <version>3.1.2-b07</version>
     <name>GlassFish Parent Project</name>
     <scm>
         <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/tags/3.1.2-b07</connection>
@@ -272,6 +272,15 @@
                                 </configuration>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <configuration>
+                            <mavenExecutorId>forked-path</mavenExecutorId>
+                            <useReleaseProfile>false</useReleaseProfile>
+                            <arguments>${release.arguments}</arguments>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
