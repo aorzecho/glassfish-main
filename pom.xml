@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-    Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+    Copyright (c) 2011 Oracle and/or its affiliates. All rights reserved.
 
     The contents of this file are subject to the terms of either the GNU
     General Public License Version 2 only ("GPL") or the Common Development
@@ -46,18 +46,17 @@
         <groupId>net.java</groupId>
         <artifactId>jvnet-parent</artifactId>
         <version>1</version>
-    </parent>
-
+    </parent>    
     <groupId>org.glassfish.docs</groupId>
-    <artifactId>parent-pom</artifactId>
-    <version>4.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>V3 Docs</name>
+    <artifactId>docs-assembly-descriptor</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>Docs sharing assembly descriptor for creating zip artifacts.</name>
 
     <scm>
-        <connection>scm:svn:svn+ssh://janey@svn.java.net/glassfish~svn/trunk/v3-docs</connection>
-        <developerConnection>scm:svn:svn+ssh://janey@svn.java.net/glassfish~svn/trunk/v3-docs</developerConnection>
-        <url>https://svn.java.net/svn/glassfish~svn/trunk/v3-docs</url>
+        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/tags/docs-assembly-descriptor-1.0</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/tags/docs-assembly-descriptor-1.0</developerConnection>
+        <url>https://svn.java.net/svn/glassfish~svn/tags/docs-assembly-descriptor-1.0</url>
     </scm>
 
     <developers>
@@ -110,133 +109,8 @@
         </mailingList>
     </mailingLists>
 
-    <profiles>
-        <!--profile-->
-            <!-- this profile built the plugin that generated JavaHelp but is no longer needed. -->
-            <!--id plugin id-->
-            <!-- modules-->
-      	        <!--module javahelp-plugin-->
-            <!-- /modules-->
-        <!--/profile-->
-        <profile>
-            <!-- this profile build and bundles docs-->
-            <id>default</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <modules>
-     	        <module>basedocs</module>
-     	        <module>man</module>
-      	        <module>help</module>
-            </modules>
-        </profile>
-        <profile>
-            <!-- this profile build and bundles docs-->
-            <id>assembly</id>
-            <modules>
-     	        <module>docs-assembly</module>
-            </modules>
-        </profile>
-    </profiles>
-    <repositories>
-        <repository>
-            <id>glassfish-repo-archive</id>
-            <name>Nexus repository collection for Glassfish</name>
-            <url>http://maven.glassfish.org/content/groups/glassfish</url>
-            <snapshots>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-	<pluginRepository>
-	    <id>glassfish-repo-archive</id>
-	    <name>Nexus repository collection for Glassfish</name>
-	    <url>http://maven.glassfish.org/content/groups/glassfish</url>
-	    <snapshots>
-		<updatePolicy>never</updatePolicy>
-	    </snapshots>
-	</pluginRepository>
-    </pluginRepositories>
-
-    <properties>
-	<hk2.plugin.version>0.3.89</hk2.plugin.version>
-    </properties>
-
     <build>
-	<defaultGoal>install</defaultGoal>
-	<sourceDirectory>src/main/java</sourceDirectory>
-	<!-- make the target/*.jar names match the name as found in  installed modules/ -->
-	<finalName>${project.artifactId}</finalName>
-
-	<pluginManagement>
-	    <plugins>
-		<plugin>
-		    <groupId>com.sun.enterprise</groupId>
-		    <artifactId>hk2-maven-plugin</artifactId>
-		    <version>${hk2.plugin.version}</version>
-		</plugin>
-                <plugin>
-                   <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.0-beta-9</version>
-                </plugin>
-	    </plugins>
-	</pluginManagement>
-
 	<plugins>
-	    <plugin>
-		<groupId>com.sun.enterprise</groupId>
-		<artifactId>hk2-maven-plugin</artifactId>
-		<extensions>true</extensions>
-		<configuration>
-		    <archive>
-			<!-- Use the manifest.mf produced by maven-bundle-plugin:manifest -->
-			<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-		    </archive>
-		</configuration>
-	    </plugin>
-
-	    <!-- Configure maven-bundle-plugin to generate OSGi manifest.
-		 Please note: we use the manifest goal only and not the bundle goal.
-		 The bundle goal can lead to very surprising results if the
-		 package names are not correctly specified. So,
-		 we use the jar plugin to generate the jar.-->
-	    <plugin>
-		<groupId>org.apache.felix</groupId>
-		<artifactId>maven-bundle-plugin</artifactId>
-		<configuration>
-		    <!-- By default, we don't export anything.  -->
-		    <Export-Package />
-
-		    <!--
-			Since, we are in a top level pom and
-			we we don't want it to be active for plain jar type artifacts,
-			enable the plugin for hk2-jar and bundle packaging type only,
-		    -->
-		    <supportedProjectTypes>
-			<supportedProjectType>hk2-jar</supportedProjectType>
-			<supportedProjectType>bundle</supportedProjectType>
-		    </supportedProjectTypes>
-		    <instructions>
-			<!--
-			    Read all the configuration from osgi.bundle file, if it exists.
-			    See Felix-699 to find out why we use ${basedir}.
-			-->
-			<_include>-${basedir}/osgi.bundle</_include>
-		    </instructions>
-		</configuration>
-		<executions>
-		    <execution>
-			<id>bundle-manifest</id>
-			<phase>process-classes</phase>
-			<goals>
-			    <goal>manifest</goal>
-			</goals>
-		    </execution>
-		</executions>
-	    </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
@@ -248,5 +122,4 @@
             </plugin>
 	</plugins>
     </build>
-
 </project>
