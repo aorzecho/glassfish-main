@@ -78,10 +78,9 @@
          }
     }
 
-    function showSshPswdSection(type, ps1Id, ps2Id, pswdAId){
+    function showSshPswdSection(type, ps1Id, pswdAId){
         if (type == '1'){
             hide(ps1Id);
-            hide(ps2Id);
             hide(pswdAId);
             show('#{pageSession.setupSshPropId}');
             show('#{pageSession.keyfilePropId}');
@@ -90,7 +89,6 @@
         }
         if (type == '2'){
             show(ps1Id);
-            show(ps2Id);
             hide(pswdAId);
             hide('#{pageSession.setupSshPropId}');
             hide('#{pageSession.keyfilePropId}');
@@ -101,7 +99,6 @@
         }
         if (type == '3'){
             hide(ps1Id);
-            hide(ps2Id);
             show(pswdAId);
             hide('#{pageSession.setupSshPropId}');
             hide('#{pageSession.keyfilePropId}');
@@ -112,22 +109,19 @@
         }
     }
 
-    function showPswdSection(type, ps1Id, ps2Id, pswdAId){
+    function showPswdSection(type, ps1Id, pswdAId){
         if (type == '1'){
             hide(ps1Id);
-            hide(ps2Id);
             hide(pswdAId);
             return;
         }
         if (type == '2'){
             show(ps1Id);
-            show(ps2Id);
             hide(pswdAId);
             return;
         }
         if (type == '3'){
             hide(ps1Id);
-            hide(ps2Id);
             show(pswdAId);
             return;
         }
@@ -146,32 +140,79 @@
         }
 
     }
-    function checkSSHPswd(typeId, nodeHostId, psSelectId, ps1Id, ps2Id, winPsSelectId, winPs1Id, winPs2Id, notMatchMsg, emptyMsg, nodeHostRequiredMsg){
-	if (! guiValidate('#{reqMsg}','#{reqInt}','#{reqPort}')){
+    function checkSSHPswd(typeId, nodeHostId, psSelectId, ps1Id, setupSshId, setupPswdId, winPsSelectId, winPs1Id){
+        if (! guiValidate('#{reqMsg}','#{reqInt}','#{reqPort}')){
 	    return false;
 	}
         var atype=document.getElementById(typeId).value;
         if ( atype == 'CONFIG'){
             return true;
         }
-        var comp = document.getElementById(nodeHostId);
-        if (comp.value=='') {
-            comp.select();
-            comp.focus();
-            return showAlert(nodeHostRequiredMsg);
+
+        if (!checkRequired(nodeHostId, '#{reqMsg}')){
+            return false;
         }
         if (atype == 'SSH'){
             if ( document.getElementById(psSelectId).value == '2'){
-                return checkPSW( ps1Id, ps2Id, notMatchMsg, emptyMsg);
+                if (!checkRequired(ps1Id, '#{reqMsg}')){
+                    return false;
+                }else{
+                    //ensure don't call setup-ssh'
+                    document.getElementById(setupSshId).checked=false;
+                    return true;
+                }
             }
+            if ( document.getElementById(psSelectId).value == '3'){
+                //must have pswd alias specified
+                var alcomp = document.getElementById('#{pageSession.pswdAliasId}');
+                if (alcomp.value=='') {
+                    return showAlert('$resource{i18ncs.msg.JS.noPasswordAlias}');
+                }else{
+                    //ensure don't call setup-ssh'
+                    document.getElementById(setupSshId).checked=false;
+                    return true;
+                }
+            }
+            if ( (document.getElementById(psSelectId).value == '1') &&
+                 (document.getElementById(setupSshId).checked ) &&
+                 (document.getElementById(setupPswdId).value == '' ) ){
+                    return checkRequired(setupPswdId, '#{reqMsg}');
+                 }
+            return true;
         }
+
         if (atype == 'DCOM'){
             if ( document.getElementById(winPsSelectId).value == '2'){
-                return checkPSW( winPs1Id, winPs2Id, notMatchMsg, emptyMsg);
+                //empty password is not allowed.
+                return checkRequired(winPs1Id, '#{reqMsg}');
+            }
+
+            if ( document.getElementById(winPsSelectId).value == '3'){
+                //must have pswd alias specified
+                var aliascomp = document.getElementById('#{pageSession.winPswdAliasId}');
+                if (aliascomp.value=='') {
+                    return showAlert('$resource{i18ncs.msg.JS.noPasswordAlias}');
+                }
             }
         }
         return true;
     }
+
+
+function confirmEmptyPswd(ps1Id, emptyMsg) {
+    var psComp = document.getElementById(ps1Id);
+    var pswd = psComp.value;
+    if (pswd == null || pswd == ''){
+        psComp.select();
+        psComp.focus();
+        if ( getConfirm(this, emptyMsg) ){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    return true;
+}
 
     
     function disableTextComponent(textId) {

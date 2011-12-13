@@ -53,6 +53,7 @@ import java.util.logging.Logger;
 import org.glassfish.api.admin.CommandValidationException;
 import static com.sun.enterprise.util.StringUtils.ok;
 import com.sun.enterprise.util.cluster.windows.io.WindowsRemoteFile;
+import com.sun.enterprise.util.net.NetUtils;
 import java.net.InetAddress;
 import org.glassfish.api.ActionReport;
 import org.glassfish.api.Param;
@@ -78,7 +79,7 @@ import org.glassfish.cluster.ssh.util.DcomUtils;
 public class ValidateDcom implements AdminCommand {
     @Param(name = "windowsuser", shortName = "w", optional = true, defaultValue = "${user.name}")
     private String user;
-    @Param(name = "windowspassword", optional = false, password = true)
+    @Param(name = "windowspassword", optional = true, password = true)
     private String password;
     @Param(name = "host", optional = false, primary = true)
     private String host;
@@ -101,11 +102,16 @@ public class ValidateDcom implements AdminCommand {
 
     @Override
     public final void execute(AdminCommandContext context) {
-        init(context);
 
         try {
             // try/finally is least messy way of making sure partial success news
             // is delivered back to caller
+            if (!init(context))
+                return;
+
+            if (!testNotLocal())
+                return;
+
             if (!testDcomPort())
                 return;
 
@@ -120,18 +126,27 @@ public class ValidateDcom implements AdminCommand {
 
             if (!testRemoteScript())
                 return;
+
+            if (!testJdkAvailable())
+                return;
         }
         finally {
             report.setMessage(out.toString());
         }
     }
 
-    private void init(AdminCommandContext context) {
+    private boolean init(AdminCommandContext context) {
         report = context.getActionReport();
         report.setActionExitCode(ActionReport.ExitCode.SUCCESS);
         logger = context.getLogger();
         user = resolver.resolve(user);
         password = DcomUtils.resolvePassword(resolver.resolve(password));
+
+        if (!ok(password)) {
+            setError(Strings.get("dcom.nopassword"));
+            return false;
+        }
+
         // backslash does not actually matter but it's neater
         testdir = resolver.resolve(testdir).replace('/', '\\');
         if (testdir.endsWith("\\"))
@@ -143,6 +158,7 @@ public class ValidateDcom implements AdminCommand {
         creds = new WindowsCredentials(host, windowsdomain, user, password);
         wrfs = new WindowsRemoteFileSystem(creds);
         scriptFullPath = testdir + "\\" + SCRIPT_NAME;
+        return true;
     }
 
     /**
@@ -254,11 +270,12 @@ public class ValidateDcom implements AdminCommand {
     private void setError(Exception e, String msg) {
         //report.setFailureCause(e);
         setError(msg + " : " + e.getMessage());
-        if(verbose) {
+        if (verbose) {
             Throwable t = e;
             do {
                 dumpStack(t);
-            } while((t = t.getCause()) != null);
+            }
+            while ((t = t.getCause()) != null);
         }
     }
 
@@ -275,7 +292,7 @@ public class ValidateDcom implements AdminCommand {
 
         // numlines or fewer lines
         for (int i = 0; i < numlines && i < ss.length; i++) {
-            sb.append(ss[i]).append('\n');
+            sb.append("    ").append(ss[i]).append('\n');
         }
 
         return sb.toString();
@@ -302,5 +319,36 @@ public class ValidateDcom implements AdminCommand {
             setError(e, Strings.get("validate.dcom.no.connect", description, port, host));
             return false;
         }
+    }
+
+    private boolean testJdkAvailable() {
+        try {
+            script = new WindowsRemoteFile(wrf, SCRIPT_NAME);
+            script.copyFrom("javac -version \r\n");
+            WindowsRemoteScripter scripter = new WindowsRemoteScripter(creds);
+
+            // javac and jar write to stderr NOT stdout
+            scripter.wantStdErr();
+
+            String scriptOut = scripter.run(scriptFullPath);
+            script.delete();
+            out.append(Strings.get("dcom.yes.jdk", host, scriptOut));
+            out.append('\n');
+            return true;
+        }
+        catch (WindowsException ex) {
+            setError(ex, Strings.get("dcom.no.jdk", host));
+            return false;
+        }
+    }
+
+    private boolean testNotLocal() {
+        if (NetUtils.isThisHostLocal(host)) {
+            setError(Strings.get("dcom.yes.local", host));
+            return false;
+        }
+        out.append(Strings.get("dcom.no.local", host));
+        out.append('\n');
+        return true;
     }
 }

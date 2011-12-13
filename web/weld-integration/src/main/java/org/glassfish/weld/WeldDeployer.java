@@ -95,6 +95,7 @@ import com.sun.enterprise.deployment.EjbBundleDescriptor;
 import com.sun.enterprise.deployment.EjbDescriptor;
 import com.sun.enterprise.deployment.WebBundleDescriptor;
 import com.sun.logging.LogDomains;
+import org.jboss.weld.resources.spi.ResourceLoader;
 
 @Service
 public class WeldDeployer extends SimpleDeployer<WeldContainer, WeldApplicationContainer> 
@@ -155,8 +156,16 @@ public class WeldDeployer extends SimpleDeployer<WeldContainer, WeldApplicationC
             WeldBootstrap bootstrap = (WeldBootstrap)appInfo.getTransientAppMetaData(WELD_BOOTSTRAP, 
                 WeldBootstrap.class);
             if( bootstrap != null ) {
-                DeploymentImpl deploymentImpl = (DeploymentImpl)appInfo.getTransientAppMetaData(
-                    WELD_DEPLOYMENT, DeploymentImpl.class);
+                DeploymentImpl deploymentImpl = (DeploymentImpl) appInfo.getTransientAppMetaData(
+                        WELD_DEPLOYMENT, DeploymentImpl.class);
+                
+                List<BeanDeploymentArchive> archives = deploymentImpl.getBeanDeploymentArchives();
+                for (BeanDeploymentArchive archive : archives) {
+                    ResourceLoaderImpl loader = new ResourceLoaderImpl(
+                            ((BeanDeploymentArchiveImpl) archive).getModuleClassLoaderForBDA());
+                    archive.getServices().add(ResourceLoader.class, loader);
+                }
+
                 deploymentImpl.buildDeploymentGraph();
                 if (_logger.isLoggable(Level.FINE)) {
                     _logger.fine(deploymentImpl.toString());
@@ -290,6 +299,11 @@ public class WeldDeployer extends SimpleDeployer<WeldContainer, WeldApplicationC
 
     private void firePITEvent(WeldBootstrap bootstrap,
             BeanDeploymentArchive bda, Class<?> bdaClazz) {
+        //Fix for issue GLASSFISH-17464
+        //The PIT event should not be fired for interfaces
+        if(bdaClazz.isInterface()){
+            return;
+        }
         AnnotatedType at = bootstrap.getManager(bda).createAnnotatedType(bdaClazz);
         InjectionTarget<?> it = bootstrap.getManager(bda).fireProcessInjectionTarget(at);
         ((BeanDeploymentArchiveImpl)bda).putInjectionTarget(at, it);
@@ -381,7 +395,7 @@ public class WeldDeployer extends SimpleDeployer<WeldContainer, WeldApplicationC
             SecurityServices securityServices = new SecurityServicesImpl();
             deploymentImpl.getServices().add(SecurityServices.class, securityServices);
            
-            ProxyServices proxyServices = new ProxyServicesImpl();
+            ProxyServices proxyServices = new ProxyServicesImpl(habitat);
             deploymentImpl.getServices().add(ProxyServices.class, proxyServices);
 
         } else {

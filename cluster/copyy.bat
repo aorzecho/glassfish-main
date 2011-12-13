@@ -2,7 +2,10 @@
 call setfiles.bat
 
 copy %br%\%a% %tr%\%a%
-copy %br%\%b% %tr%\%b%
+pause
+pause
+pause
+viw %br%\%b% %tr%\%b%
 copy %br%\%c% %tr%\%c%
 copy %br%\%d% %tr%\%d%
 copy %br%\%e% %tr%\%e%
