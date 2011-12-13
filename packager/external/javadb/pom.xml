@@ -45,7 +45,7 @@
     <parent>
         <groupId>org.glassfish.main.external</groupId>
         <artifactId>external</artifactId>
-        <version>3.1.2-SNAPSHOT</version>
+        <version>3.1.2-b14</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -66,15 +66,14 @@
                         <phase>process-classes</phase>
                         <configuration>
                             <tasks>
-                                <resolveArtifact artifactId="javadb" property="javadb.zip"/>
+                                <resolveArtifact artifactId="javadb" property="javadb.zip" />
 
-                                <mkdir dir="target/classes/glassfish/javadb"/>
-				<unzip src="${javadb.zip}"
-				        dest="target/classes/glassfish/javadb">
+                                <mkdir dir="target/classes/glassfish/javadb" />
+				<unzip src="${javadb.zip}" dest="target/classes/glassfish/javadb">
                                     <patternset>
-                                        <exclude name="demo/**"/>
-                                        <exclude name="docs/**"/>
-                                        <exclude name="javadoc/**"/>
+                                        <exclude name="demo/**" />
+                                        <exclude name="docs/**" />
+                                        <exclude name="javadoc/**" />
                                     </patternset>
                                 </unzip>
                             </tasks>
