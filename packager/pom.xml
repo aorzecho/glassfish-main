@@ -50,7 +50,7 @@
     <parent>
      <groupId>org.glassfish.l10n</groupId>
      <artifactId>l10n</artifactId>
-     <version>3.1.2-SNAPSHOT</version>
+     <version>3.1.2-b14</version>
     </parent>
 
     <packaging>pom</packaging>
@@ -63,22 +63,26 @@
     </properties>
 
     <modules>
-      <module>glassfish-gui-l10n</module>
-       <module>glassfish-nucleus-l10n</module>
-       <module>glassfish-ejb-l10n</module>
-       <module>glassfish-ejb-lite-l10n</module>
-       <module>glassfish-common-full-l10n</module>
-       <module>glassfish-jts-l10n</module>
-       <module>glassfish-jca-l10n</module>
-       <module>glassfish-jms-l10n</module>
-       <module>glassfish-web-l10n</module>
-       <module>glassfish-jdbc-l10n</module>
-       <module>glassfish-common-l10n</module>
-       <module>glassfish-upgrade-l10n</module>
-       <module>glassfish-cluster-l10n</module>
-       <module>glassfish-cmp-l10n</module>
-       <module>glassfish-verifier-l10n</module>
-       <module>ips-repo-l10n</module>
+<!--
+<module>glassfish-appclient-l10n</module>
+<module>glassfish-cluster-l10n</module>
+<module>glassfish-cmp-l10n</module>
+<module>glassfish-common-full-l10n</module>
+<module>glassfish-common-l10n</module>
+<module>glassfish-ejb-l10n</module>
+<module>glassfish-ejb-lite-l10n</module>
+<module>glassfish-gui-l10n</module>
+<module>glassfish-jca-l10n</module>
+<module>glassfish-jdbc-l10n</module>
+<module>glassfish-jms-l10n</module>
+<module>glassfish-jpa-l10n</module>
+<module>glassfish-jta-l10n</module>
+<module>glassfish-jts-l10n</module>
+<module>glassfish-nucleus-l10n</module>
+<module>glassfish-upgrade-l10n</module>
+<module>glassfish-verifier-l10n</module>
+<module>glassfish-web-l10n</module>
+-->
     </modules>
 
     <build>
@@ -99,7 +103,8 @@
             <extension>
                 <groupId>org.glassfish.build</groupId>
                 <artifactId>maven-glassfishbuild-extension</artifactId>
-                <version>${project.version}</version>
+                <!-- <version>${project.version}</version> -->
+                <version>${glassfishbuild.version}</version>
             </extension>
         </extensions>
     </build>
