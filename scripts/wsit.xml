@@ -474,7 +474,7 @@
             <arg line="-Dfrom.source=true"/>
     	    <arg line="-Dmaven.repo.local=${maven.repo.local} -Djavac.target=1.5 -Djavac.source=1.5" />
             <arg line="${cpath}"/>
-            <env key="JAVA_HOME" value="${JDK_1.6}" />
+           <!-- <env key="JAVA_HOME" value="${JDK_1.6}" /> -->
         </exec>
         <mvn.publish.local file="${wsit.dir}/jaxrpc/build/lib/jaxrpc-impl.jar"
             groupId="com.sun.xml.rpc"
@@ -624,7 +624,7 @@
         <exec executable="ant" dir="${jaxr-api.dir}" failonerror="true" newenvironment="false" >
             <arg line="clean package" />
     	    <arg line="-Dmaven.repo.local=${maven.repo.local} -Djavac.target=1.5 -Djavac.source=1.5" />
-            <env key="JAVA_HOME" value="${JDK_1.6}" />
+           <!-- <env key="JAVA_HOME" value="${JDK_1.6}" /> -->
         </exec>
     </target>
     <target name="jaxr-api.source.jar">
