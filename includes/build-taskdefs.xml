@@ -293,6 +293,8 @@
             -->
             <delete dir="${glassfish.external.dir}/@{dest}" failonerror="false"/>
             <echo message="git clone @{repo} - @{tag}"/>
+	    <!-- prevent git failure if permissions of the private key are wrong -->
+	    <chmod file="${ssh.user.home}/id_rsa" perm="600"/>
             <exec executable="git" dir="${glassfish.external.dir}">
                 <arg line="clone"/>
                 <arg line="@{repo}"/>
