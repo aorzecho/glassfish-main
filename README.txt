@@ -40,7 +40,6 @@ Overridable properties:
         - glassfish.external.dir (default: ${basedir}/external)
         - logs.dir (default: ${basedir}/logs)
         - proxy.test.url (default: http://dlc.sun.com.edgesuite.net)
-	- java.net.user (default: glassfish_sourcebuild)
 
 Commons use cases:
     - re-build from scratch:
