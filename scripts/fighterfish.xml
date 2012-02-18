@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project name="FighterFish source integration" default="build" basedir="..">
+
+    <!-- import build.xml for init target and inherited properties -->
+    <import file="${basedir}/build.xml"/>
+
+    <property name="fighterfish.dir" value="${glassfish.external.dir}/fighterfish"/>
+    
+    <target name="checkout" depends="init,check.svn" unless="skipCheckout">
+        <svn.checkout repo="${fighterfish-osgi-javaee-base.svn.url}" dest="fighterfish/osgi-javaee-base"/>
+        <svn.checkout repo="${fighterfish-osgi-web-container.svn.url}" dest="fighterfish/osgi-web-container"/>
+        <svn.checkout repo="${fighterfish-osgi-ejb-container.svn.url}" dest="fighterfish/osgi-ejb-container"/>
+        <svn.checkout repo="${fighterfish-osgi-jpa.svn.url}" dest="fighterfish/osgi-jpa"/>
+        <svn.checkout repo="${fighterfish-osgi-jpa-extension.svn.url}" dest="fighterfish/osgi-jpa-extension"/>
+        <svn.checkout repo="${fighterfish-osgi-http.svn.url}" dest="fighterfish/osgi-http"/>
+        <svn.checkout repo="${fighterfish-osgi-cdi.svn.url}" dest="fighterfish/osgi-cdi"/>
+        <svn.checkout repo="${fighterfish-osgi-jta.svn.url}" dest="fighterfish/osgi-jta"/>
+        <svn.checkout repo="${fighterfish-osgi-jdbc.svn.url}" dest="fighterfish/osgi-jdbc"/>
+        <svn.checkout repo="${fighterfish-osgi-ee-resources.svn.url}" dest="fighterfish/osgi-ee-resources"/>
+    </target>
+
+    <target name="build" depends="checkout" >
+        <!-- build jsp -->
+        <mvn.install dir="${fighterfish.dir}/osgi-javaee-base"/>
+        <mvn.install dir="${fighterfish.dir}/osgi-web-container"/>
+        <mvn.install dir="${fighterfish.dir}/osgi-ejb-container"/>
+        <mvn.install dir="${fighterfish.dir}/osgi-jpa"/>
+        <mvn.install dir="${fighterfish.dir}/osgi-jpa-extension"/>
+        <mvn.install dir="${fighterfish.dir}/osgi-http"/>
+        <mvn.install dir="${fighterfish.dir}/osgi-cdi"/>
+        <mvn.install dir="${fighterfish.dir}/osgi-jta"/>
+        <mvn.install dir="${fighterfish.dir}/osgi-ee-resources"/>
+    </target>
+
+</project>
