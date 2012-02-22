@@ -8,22 +8,12 @@
     <property name="jsp.dir" value="${glassfish.external.dir}/jsp"/>
     
     <target name="checkout" depends="init,check.svn" unless="skipCheckout">
-        <svn.checkout repo="${jsp-pom.svn.url}" dest="jsp/pom"/>
-        <!-- since the jsp-pom tag contains all the files/directories, -->
-        <!-- we want to move those files before checkout out rest of -->
-        <!-- api and impl directories. -->
-        <delete dir="${jsp.dir}/pom/api"/>
-        <delete dir="${jsp.dir}/pom/impl"/>
-        <delete dir="${jsp.dir}/pom/repo"/>
-        <delete dir="${jsp.dir}/pom/www"/>
-
         <svn.checkout repo="${jsp-api.svn.url}" dest="jsp/api"/>
         <svn.checkout repo="${jsp-impl.svn.url}" dest="jsp/impl"/>
     </target>
 
     <target name="build" depends="checkout" >
         <!-- build jsp -->
-        <mvn.install dir="${jsp.dir}/pom"/>
         <mvn.install dir="${jsp.dir}/api"/>
         <mvn.install dir="${jsp.dir}/impl"/>
     </target>
