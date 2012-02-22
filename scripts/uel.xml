@@ -10,14 +10,12 @@
         Need to be built before jps since jps has a dependency on this project.
     -->
     <target name="checkout" depends="init,check.svn" unless="skipCheckout">
-        <svn.checkout repo="${uel-pom.svn.url}" dest="uel/parent-pom"/>
         <svn.checkout repo="${uel-api.svn.url}" dest="uel/api"/>
         <svn.checkout repo="${uel-impl.svn.url}" dest="uel/impl"/>
     </target>
     
     <target name="build" depends="checkout" >
         <!-- build uel -->
-        <mvn.install dir="${glassfish.external.dir}/uel/parent-pom"/>
         <mvn.install dir="${glassfish.external.dir}/uel/api"/>
         <mvn.install dir="${glassfish.external.dir}/uel/impl"/>
     </target>
