@@ -92,6 +92,7 @@
 	<build-module antfile="commons-codec.xml" />
 	<build-module antfile="dbschema.xml" />
         <build-module target="eclipselink" />
+	<build-module target="fighterfish" />
 	<build-module target="felix" />
         <build-module target="glassfish-corba"/>
         <build-module target="gmbal"/>
@@ -134,6 +135,10 @@
     -->
    <target name="eclipselink" depends="felix,javax-jms,v3-build,mail">
         <build-module antfile="eclipselink.xml" />
+    </target>
+
+    <target name="fighterfish">
+	<build-module antfile="fighterfish.xml" />
     </target>
 
     <target name="felix">
