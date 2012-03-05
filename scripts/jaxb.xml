@@ -26,7 +26,6 @@
         <antcall target="activation.build"/>
         <antcall target="jsr173-api.build"/>
         <antcall target="stax-ex.build"/>
-        <antcall target="sjsxp.build"/>
         <antcall target="relaxng-datatype.build"/>
         <antcall target="resolver.build"/>
         <antcall target="javacc.build"/>
@@ -64,6 +63,7 @@
                replace="jaxb-\1.mvn.path=\2\{jaxb-\3.version\}\4\{jaxb-\5.version\}\6"
                byline="true"
         />
+        <loadproperties srcFile="${jaxb.dir}/jaxb/build.properties" />
         <loadproperties srcFile="${jaxb.dir}/sourcebuild.properties"/>
         <delete file="${jaxb.dir}/sourcebuild.properties" />
 
@@ -177,16 +177,6 @@
     <target name="stax-ex.build" depends="init.jaxb">
         <mvn.install.from.srczip destdir="stax-ex"
             srczip="util/stax-ex-src.zip" />
-    </target>
-
-    <target name="sjsxp.build" depends="init.jaxb">
-        <publish.simplejar.from.srczip
-            srczip="src/sjsxp-src.zip"
-            srcdir="sjsxp/${jaxb-sjsxp.version}"
-            classpath="${maven.repo.local}/${jaxb-jsr173api.mvn.path}"
-            groupId="com.sun.xml.stream"
-            artifactId="sjsxp"
-            version="${jaxb-sjsxp.version}"/>
     </target>
 
     <target name="relaxng-datatype.build" depends="init.jaxb">
@@ -401,7 +391,7 @@
             classpath="${maven.repo.local}/${jaxb-activation.mvn.path}:${maven.repo.local}/${jaxb-jsr173api.mvn.path}"
             groupId="javax.xml.bind"
             artifactId="jaxb-api"
-            version="${jaxb-jaxb-api.version}"/>
+            version="${jaxb-release.spec.version}"/>
     </target>
 
     <target name="jaxb-impl.build" depends="init.jaxb">
@@ -429,8 +419,6 @@
               tofile="${jaxb.root}/tools/lib/util/FastInfoset.jar"/>
         <copy file="${maven.repo.local}/${jaxb-stax-ex.mvn.path}"
               tofile="${jaxb.root}/tools/lib/util/stax-ex.jar"/>
-        <copy file="${maven.repo.local}/${jaxb-sjsxp.mvn.path}"
-              tofile="${jaxb.root}/tools/lib/util/sjsxp.jar"/>
         <copy file="${maven.repo.local}/${jaxb-activation.mvn.path}"
               tofile="${jaxb.dir}/tools/lib/redist/activation.jar"/>
         <copy file="${maven.repo.local}/${jaxb-jsr173api.mvn.path}"
@@ -449,6 +437,7 @@
               tofile="${jaxb.root}/tools/lib/rebundle/runtime/msv.jar"/>
 
         <ant dir="${jaxb.root}" target="dist">
+            <property name="jaxb.docs" value="${jaxb.root}/docs"/>
             <property name="from.source" value="true"/>
             <property name="javac.target" value="1.5"/>
             <property name="javac.source" value="1.5"/>
