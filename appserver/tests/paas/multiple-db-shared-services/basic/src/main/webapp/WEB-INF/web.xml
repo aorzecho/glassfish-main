@@ -39,16 +39,29 @@
   ~ holder.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.glassfish.tests.paas</groupId>
-    <artifactId>multiple-db-shared-services</artifactId>
-    <version>4.0-SNAPSHOT</version>
-    <name>Multiple DB Shared Services</name>
-    <packaging>pom</packaging>
-    <modules>
-        <module>basic</module>
-        <module>advanced</module>
-    </modules>
-</project>
+<web-app version="2.5" 
+  xmlns="http://java.sun.com/xml/ns/javaee" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <servlet-class>org.glassfish.tests.paas.multipleshareddbservicetest.EmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <url-pattern>/EmployeeServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <resource-ref>
+        <res-ref-name>java:app/jdbc/HrRes</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+    </resource-ref>
+    <resource-ref>
+        <res-ref-name>java:app/jdbc/SalaryRes</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+    </resource-ref>
+ </web-app>
