@@ -38,18 +38,18 @@
  * holder.
  */
 
-
 package org.glassfish.admin.restconnector;
 
 /**
  * @author Sanjeeb.Sahoo@Sun.COM
  */
 public final class Constants {
-
     private Constants(){}
 
+    public static final String REST_ADMIN_ADAPTER      = "RestAdminAdapter";
     public static final String REST_MANAGEMENT_ADAPTER = "RestManagementAdapter";
     public static final String REST_MONITORING_ADAPTER = "RestMonitoringAdapter";
+    public static final String REST_ADMIN_CONTEXT_ROOT = "/admin";
     public static final String REST_MANAGEMENT_CONTEXT_ROOT = "/management";
     public static final String REST_MONITORING_CONTEXT_ROOT = "/monitoring";
 }

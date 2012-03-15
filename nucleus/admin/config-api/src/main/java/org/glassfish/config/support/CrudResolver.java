@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2009-2010 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2009-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -40,12 +40,14 @@
 
 package org.glassfish.config.support;
 
+import org.jvnet.hk2.annotations.Optional;
 import org.jvnet.hk2.annotations.Contract;
-import org.jvnet.hk2.annotations.Inject;
 import org.jvnet.hk2.annotations.Service;
 import org.jvnet.hk2.config.ConfigBeanProxy;
 import org.glassfish.api.admin.AdminCommandContext;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.lang.annotation.Annotation;
 
 /**
@@ -72,7 +74,9 @@ public interface CrudResolver {
     @Service
     public static final class DefaultResolver implements CrudResolver {
         
-        @Inject(name="type", optional=true)
+        @Inject
+        @Named("type")
+        @Optional
         CrudResolver defaultResolver=null;
 
         @Override

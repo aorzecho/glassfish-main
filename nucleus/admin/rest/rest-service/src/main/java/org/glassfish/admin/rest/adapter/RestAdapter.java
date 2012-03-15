@@ -44,6 +44,12 @@ import com.sun.enterprise.config.serverbeans.Config;
 import com.sun.enterprise.module.common_impl.LogHelper;
 import com.sun.enterprise.util.LocalStringManagerImpl;
 import com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider;
+import com.sun.jersey.api.container.ContainerFactory;
+import com.sun.jersey.api.container.filter.CsrfProtectionFilter;
+import com.sun.jersey.api.container.filter.LoggingFilter;
+import com.sun.jersey.api.core.DefaultResourceConfig;
+import com.sun.jersey.api.core.ResourceConfig;
+import com.sun.jersey.spi.inject.SingletonTypeInjectableProvider;
 import com.sun.logging.LogDomains;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -54,16 +60,22 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.security.auth.login.LoginException;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import org.glassfish.admin.rest.Constants;
-import org.glassfish.admin.rest.LazyJerseyInterface;
-import org.glassfish.admin.rest.ResourceUtil;
+import org.glassfish.admin.rest.RestConfig;
+import org.glassfish.admin.rest.RestConfigChangeListener;
+import org.glassfish.admin.rest.utils.ResourceUtil;
 import org.glassfish.admin.rest.RestService;
 import org.glassfish.admin.rest.SessionManager;
 import org.glassfish.admin.rest.provider.ActionReportResultHtmlProvider;
 import org.glassfish.admin.rest.provider.ActionReportResultJsonProvider;
 import org.glassfish.admin.rest.provider.ActionReportResultXmlProvider;
 import org.glassfish.admin.rest.provider.BaseProvider;
+import org.glassfish.admin.rest.resources.ReloadResource;
 import org.glassfish.admin.rest.results.ActionReportResult;
 import org.glassfish.admin.rest.utils.xml.RestActionReporter;
 import org.glassfish.admin.restconnector.ProxiedRestAdapter;
@@ -77,7 +89,6 @@ import org.glassfish.grizzly.http.server.Request;
 import org.glassfish.grizzly.http.server.Response;
 import org.glassfish.internal.api.AdminAccessController;
 import org.glassfish.internal.api.ServerContext;
-import org.jvnet.hk2.annotations.Inject;
 import org.jvnet.hk2.component.Habitat;
 import org.jvnet.hk2.component.PostConstruct;
 
@@ -98,7 +109,8 @@ public abstract class RestAdapter extends HttpHandler implements ProxiedRestAdap
     @Inject
     protected Habitat habitat;
 
-    @Inject(name=ServerEnvironment.DEFAULT_INSTANCE_NAME)
+    @Inject
+    @Named(ServerEnvironment.DEFAULT_INSTANCE_NAME)
     private Config config;
 
     private CountDownLatch latch = new CountDownLatch(1);
@@ -112,8 +124,6 @@ public abstract class RestAdapter extends HttpHandler implements ProxiedRestAdap
     @Inject
     private SessionManager sessionManager;
 
-    protected abstract Set<Class<?>> getResourcesConfig();
-    private volatile LazyJerseyInterface lazyJerseyInterface =null;
     private static final Logger logger = LogDomains.getLogger(RestAdapter.class, LogDomains.ADMIN_LOGGER);
     private volatile HttpHandler adapter = null;
     private boolean isRegistered = false;
@@ -130,6 +140,7 @@ public abstract class RestAdapter extends HttpHandler implements ProxiedRestAdap
     }
 
     protected abstract String getContextRoot();
+    protected abstract Set<Class<?>> getResourceClasses();
 
     @Override
     public HttpHandler getHttpService() {
@@ -138,8 +149,7 @@ public abstract class RestAdapter extends HttpHandler implements ProxiedRestAdap
 
     @Override
     public void service(Request req, Response res) {
-        LogHelper.getDefaultLogger().finer("Rest adapter !");
-        LogHelper.getDefaultLogger().log(Level.FINER, "Received resource request: {0}", req.getRequestURI());
+        logger.log(Level.FINER, "Received resource request: {0}", req.getRequestURI());
 
         try {
             res.setCharacterEncoding(Constants.ENCODING);
@@ -155,7 +165,12 @@ public abstract class RestAdapter extends HttpHandler implements ProxiedRestAdap
 
                 AdminAccessController.Access access = authenticate(req);
                 if (access == AdminAccessController.Access.FULL) {
-                    exposeContext();
+                    String context = getContextRoot();
+                    logger.log(Level.FINE, "Exposing rest resource context root: {0}", context);
+                    if ((context != null) && (!"".equals(context)) && (adapter == null)) {
+                        adapter = exposeContext(getResourceClasses(), sc, habitat);
+                        logger.log(Level.INFO, "rest.rest_interface_initialized", context);
+                    }
                     //delegate to adapter managed by Jersey.
                     adapter.service(req, res);
                 } else { // Access != FULL
@@ -194,7 +209,7 @@ public abstract class RestAdapter extends HttpHandler implements ProxiedRestAdap
             String msg = localStrings.getLocalString("rest.adapter.server.exception",
                     "An error occurred while processing the request. Please see the server logs for details.");
             reportError(req, res, HttpURLConnection.HTTP_UNAVAILABLE, msg); //service unavailable
-            LogHelper.getDefaultLogger().log(Level.INFO, msg, e);
+            logger.log(Level.INFO, msg, e);
         }
     }
     
@@ -297,39 +312,57 @@ public abstract class RestAdapter extends HttpHandler implements ProxiedRestAdap
      * so that Jersey is not loaded when the RestAdapter is loaded at boot time
      * gain a few 100millis at GlassFish startyp time
      */
-    protected LazyJerseyInterface getLazyJersey() {
-        if (lazyJerseyInterface != null) {
-            return lazyJerseyInterface;
-        }
-        synchronized (HttpHandler.class) {
-            if (lazyJerseyInterface == null) {
-               try {
-                    Class<?> lazyInitClass = Class.forName("org.glassfish.admin.rest.LazyJerseyInit");
-                    lazyJerseyInterface = (LazyJerseyInterface) lazyInitClass.newInstance();
-                } catch (Exception ex) {
-                    logger.log(Level.SEVERE,
-                            "Error trying to call org.glassfish.admin.rest.LazyJerseyInit via instrospection: ", ex);
-                }
+    public HttpHandler exposeContext(Set<Class<?>> classes, ServerContext sc, Habitat habitat) throws EndpointRegistrationException {
+
+        HttpHandler httpHandler = null;
+        Reloader r = new Reloader();
+
+        ResourceConfig rc = new DefaultResourceConfig(classes);
+        rc.getMediaTypeMappings().put("xml", MediaType.APPLICATION_XML_TYPE);
+        rc.getMediaTypeMappings().put("json", MediaType.APPLICATION_JSON_TYPE);
+        rc.getMediaTypeMappings().put("html", MediaType.TEXT_HTML_TYPE);
+        rc.getMediaTypeMappings().put("js", new MediaType("application", "x-javascript"));
+        
+        rc.getContainerRequestFilters().add(CsrfProtectionFilter.class);
+
+        RestConfig restConf = ResourceUtil.getRestConfig(habitat);
+        if (restConf != null) {
+            if (restConf.getLogOutput().equalsIgnoreCase("true")) { //enable output logging
+                rc.getContainerResponseFilters().add(LoggingFilter.class);
+            }
+            if (restConf.getLogInput().equalsIgnoreCase("true")) { //enable input logging
+                rc.getContainerRequestFilters().add(LoggingFilter.class);
+            }
+            if (restConf.getWadlGeneration().equalsIgnoreCase("false")) { //disable WADL
+                rc.getFeatures().put(ResourceConfig.FEATURE_DISABLE_WADL, Boolean.TRUE);
             }
         }
-        return lazyJerseyInterface;
-
-    }
-
-    private void exposeContext() throws EndpointRegistrationException {
-        //Use double checked locking to lazily initialize adapter
-        if (adapter == null) {
-            synchronized (HttpHandler.class) {
-                if (adapter == null) {
-                    String context = getContextRoot();
-                    logger.log(Level.FINE, "Exposing rest resource context root: {0}", context);
-                    if ((context != null) && (!"".equals(context))) {
-                        adapter = getLazyJersey().exposeContext(getResourcesConfig(), sc, habitat);
-                        logger.log(Level.INFO, "rest.rest_interface_initialized", context);
-                    }
-                }
-            }
+        else {
+                 rc.getFeatures().put(ResourceConfig.FEATURE_DISABLE_WADL, Boolean.TRUE);          
         }
+
+        rc.getProperties().put(ResourceConfig.PROPERTY_CONTAINER_NOTIFIER, r);
+        rc.getClasses().add(ReloadResource.class);
+
+        //We can only inject these 4 extra classes in Jersey resources...
+        rc.getSingletons().add(new SingletonTypeInjectableProvider<Context, Reloader>(Reloader.class, r) {});
+        rc.getSingletons().add(new SingletonTypeInjectableProvider<Context, ServerContext>(ServerContext.class, sc) {});
+        rc.getSingletons().add(new SingletonTypeInjectableProvider<Context, Habitat>(Habitat.class, habitat) {});
+        rc.getSingletons().add(new SingletonTypeInjectableProvider<Context, SessionManager>(SessionManager.class, habitat.getComponent(SessionManager.class)) {});
+
+        //Use common classloader. Jersey artifacts are not visible through
+        //module classloader
+        ClassLoader originalContextClassLoader = Thread.currentThread().getContextClassLoader();
+        try {
+            ClassLoader apiClassLoader = sc.getCommonClassLoader();
+            Thread.currentThread().setContextClassLoader(apiClassLoader);
+            httpHandler = ContainerFactory.createContainer(HttpHandler.class, rc);
+        } finally {
+            Thread.currentThread().setContextClassLoader(originalContextClassLoader);
+        }
+        //add a rest config listener for possible reload of Jersey
+        new RestConfigChangeListener(habitat, r, rc, sc);
+        return httpHandler;
     }
 
     private void reportError(Request req, Response res, int statusCode, String msg) {

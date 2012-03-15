@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2011-2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -37,30 +37,46 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package org.glassfish.admin.rest;
+package org.glassfish.admin.restconnector;
 
-import java.util.Set;
-import org.glassfish.api.container.EndpointRegistrationException;
-import org.glassfish.grizzly.http.server.HttpHandler;
-import org.glassfish.grizzly.http.server.Request;
-import org.glassfish.grizzly.http.server.Response;
-import org.glassfish.internal.api.ServerContext;
-import org.jvnet.hk2.component.Habitat;
+import com.sun.enterprise.config.serverbeans.Config;
+import org.glassfish.api.admin.ServerEnvironment;
+import org.glassfish.api.container.Adapter;
+import org.glassfish.hk2.Services;
+import org.jvnet.hk2.annotations.Inject;
+import org.jvnet.hk2.annotations.Service;
 
 /**
  *
- * @author ludo
+ * @author jdlee
  */
-public interface LazyJerseyInterface {
-    /**
-     * Called via introspection in the RestAdapter service() method only when the GrizzlyAdapter is not initialized
-     * @param classes set of Jersey Resources classes
-     * @param sc the current ServerContext, needed to find the correct ClassPath
-     * @return the correct GrizzlyAdapter
-     * @throws EndpointRegistrationException
-     */
-    HttpHandler exposeContext(Set<Class<?>> classes, ServerContext sc, Habitat habitat)
-            throws EndpointRegistrationException;
+@Service
+public class ProxyRestAdminAdapter extends AbstractProxyRestAdapter implements Adapter {
 
-    void reportError(Request req, Response res, int statusCode, String msg);
+    @Inject
+    Services services;
+
+    @Inject(name = ServerEnvironment.DEFAULT_INSTANCE_NAME)
+    Config config;
+
+
+    @Override
+    protected Services getServices() {
+        return services;
+    }
+
+    @Override
+    protected Config getConfig() {
+        return config;
+    }
+
+    @Override
+    protected String getName() {
+        return Constants.REST_ADMIN_ADAPTER;
+    }
+
+    @Override
+    public String getContextRoot() {
+        return Constants.REST_ADMIN_CONTEXT_ROOT;
+    }
 }

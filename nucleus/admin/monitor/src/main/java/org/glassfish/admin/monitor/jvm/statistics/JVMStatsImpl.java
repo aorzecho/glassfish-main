@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -41,10 +41,10 @@
 package org.glassfish.admin.monitor.jvm.statistics;
 
 import java.util.*;
+import org.jvnet.hk2.annotations.Optional;
 import org.jvnet.hk2.annotations.Service;
 import org.jvnet.hk2.annotations.Scoped;
 import org.jvnet.hk2.component.PerLookup;
-import org.jvnet.hk2.annotations.Inject;
 import org.glassfish.api.ActionReport;
 import org.glassfish.api.monitoring.ContainerMonitoring;
 import org.glassfish.api.ActionReport.ExitCode;
@@ -60,6 +60,9 @@ import com.sun.enterprise.config.serverbeans.MonitoringService;
 import org.glassfish.api.admin.ServerEnvironment;
 import org.glassfish.external.statistics.Statistic;
 import org.glassfish.external.statistics.CountStatistic;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 /** 
  *
@@ -79,7 +82,9 @@ public class JVMStatsImpl implements MonitorContract {
     @Inject
     Logger logger;
 
-    @Inject(name=ServerEnvironment.DEFAULT_INSTANCE_NAME, optional=true)
+    @Inject
+    @Named(ServerEnvironment.DEFAULT_INSTANCE_NAME)
+    @Optional
     MonitoringService monitoringService = null;
 
     private final LocalStringManagerImpl localStrings =

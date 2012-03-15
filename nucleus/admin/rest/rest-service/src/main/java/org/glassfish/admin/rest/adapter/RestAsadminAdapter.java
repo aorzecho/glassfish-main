@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -37,52 +37,37 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
+package org.glassfish.admin.rest.adapter;
 
-package org.glassfish.admin.rest.cli;
-
-import com.sun.enterprise.config.serverbeans.Domain;
-import org.glassfish.api.ActionReport;
-import org.glassfish.api.ActionReport.ExitCode;
-import org.glassfish.api.admin.AdminCommand;
-import org.glassfish.api.admin.AdminCommandContext;
-import org.glassfish.api.admin.CommandLock;
-import org.jvnet.hk2.annotations.Scoped;
+import java.util.HashSet;
+import java.util.Set;
+import org.glassfish.admin.rest.resources.admin.AdminResource;
+import org.glassfish.admin.rest.provider.ActionReportResultJsonProvider;
+import org.glassfish.admin.rest.readers.ParameterMapFormReader;
+import org.glassfish.admin.restconnector.Constants;
 import org.jvnet.hk2.annotations.Service;
-import org.jvnet.hk2.component.PerLookup;
-import org.glassfish.api.admin.*;
-
-import javax.inject.Inject;
 
 /**
- * returns the list of targets
  *
- * @author ludovic Champenois
+ * @author jdlee
  */
-@Service(name = "__list-predefined-authrealm-classnames")
-@Scoped(PerLookup.class)
-@CommandLock(CommandLock.LockType.NONE)
-@RestEndpoints({
-    @RestEndpoint(configBean=Domain.class,
-        path="list-predefined-authrealm-classnames", 
-        description="List Auth Realm Class Names")
-})
-public class PredefinedAuthRealmClassNamesCommand implements AdminCommand {
-
-    @Inject
-    Domain domain;
+@Service(name=Constants.REST_ADMIN_ADAPTER)
+public class RestAsadminAdapter extends RestAdapter {
+    public static final String CONTEXT = Constants.REST_ADMIN_CONTEXT_ROOT;
     
     @Override
-    public void execute(AdminCommandContext context) {
-        SecurityUtil su = new SecurityUtil(domain);
-        String[] list = su.getPredefinedAuthRealmClassNames();
-        ActionReport report = context.getActionReport();
-        report.setActionExitCode(ExitCode.SUCCESS);
-        ActionReport.MessagePart part = report.getTopMessagePart();
-
-        for (String s : list) {
-
-            ActionReport.MessagePart childPart = part.addChild();
-            childPart.setMessage(s);
-        }
+    protected Set<Class<?>> getResourceClasses() {
+        final Set<Class<?>> r = new HashSet<Class<?>>();
+        r.add(AdminResource.class);
+        r.add(ParameterMapFormReader.class);
+        r.add(ActionReportResultJsonProvider.class);
+        
+        return r;
     }
+
+    @Override
+    protected String getContextRoot() {
+        return CONTEXT;
+    }
+    
 }

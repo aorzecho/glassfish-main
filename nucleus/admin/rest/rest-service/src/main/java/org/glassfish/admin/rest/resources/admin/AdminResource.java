@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2011-2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -37,59 +37,67 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package org.glassfish.admin.rest;
+package org.glassfish.admin.rest.resources.admin;
 
-import com.sun.jersey.core.header.InBoundHeaders;
-import com.sun.jersey.server.impl.application.WebApplicationContext;
-import com.sun.jersey.server.impl.application.WebApplicationImpl;
-import com.sun.jersey.spi.container.ContainerRequest;
-import com.sun.jersey.spi.container.WebApplication;
-import java.io.InputStream;
-import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
+import java.net.HttpURLConnection;
+import javax.inject.Inject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import org.glassfish.admin.rest.results.ActionReportResult;
 import org.glassfish.admin.rest.utils.ResourceUtil;
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+import org.glassfish.admin.rest.utils.xml.RestActionReporter;
+import org.glassfish.api.ActionReport;
+import org.glassfish.api.admin.ParameterMap;
+import org.jvnet.hk2.component.Habitat;
 
 /**
  *
  * @author jdlee
  */
-public class UtilityTest {
+@Path("/")
+@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_FORM_URLENCODED})
+public class AdminResource {
 
-    @Test
-    public void parameterResolutionTest() {
-        WebApplicationImpl wai = new WebApplicationImpl();
-        ContainerRequest r = new TestHttpRequestContext(wai,
-                "GET",
-                null,
-                "/management/domain/one/two/three/four/five/six/seven/eight/nine/ten/endpoint",
-                "/management/domain/");
-        UriInfo ui = new WebApplicationContext(wai, r, null);
-        Map<String, String> commandParams = new HashMap<String, String>() {{
-           put("foo", "$parent");
-           put("bar", "$grandparent3");
-           put("baz", "$grandparent5");
-        }};
-        
-        ResourceUtil.resolveParamValues(commandParams, ui);
-        assertEquals("ten", commandParams.get("foo"));
-        assertEquals("seven", commandParams.get("bar"));
-        assertEquals("five", commandParams.get("baz"));
+    @Context
+    UriInfo uriInfo;
+    
+    @Context
+    Habitat habitat;
+
+    @GET
+    public String dummy() {
+        return "test";
     }
 
-    private class TestHttpRequestContext extends ContainerRequest {
-
-        public TestHttpRequestContext(
-                WebApplication wa,
-                String method,
-                InputStream entity,
-                String completeUri,
-                String baseUri) {
-
-            super(wa, method, URI.create(baseUri), URI.create(completeUri), new InBoundHeaders(), entity);
+    @POST
+    @Path("/{command}")
+    public Response executeCommand(@PathParam("command") String command, ParameterMap parameters) {
+        if (parameters == null) {
+            parameters = new ParameterMap();
         }
+        
+        RestActionReporter actionReport = ResourceUtil.runCommand(command, parameters, habitat, MediaType.APPLICATION_JSON);
+        ActionReport.ExitCode exitCode = actionReport.getActionExitCode();
+        
+        ActionReportResult results = new ActionReportResult(command, actionReport);
+        
+        results.setCommandDisplayName(command);
+        int status = HttpURLConnection.HTTP_OK; /*200 - ok*/
+        
+        if (exitCode == ActionReport.ExitCode.FAILURE) {
+            status = HttpURLConnection.HTTP_INTERNAL_ERROR;
+            results.setErrorMessage(actionReport.getCombinedMessage());
+        }
+        
+        return Response.status(status).entity(results).build();
     }
 }
