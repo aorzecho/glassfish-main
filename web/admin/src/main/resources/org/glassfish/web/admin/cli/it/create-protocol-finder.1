@@ -1,0 +1,70 @@
+CREATE-PROTOCOL-FI(1)                                    CREATE-PROTOCOL-FI(1)
+
+NOME
+       create-protocol-finder - aggiunge un nuovo strumento di ricerca di
+       protocollo
+
+SINTASSI
+           create-protocol-finder [--help]
+           --protocol protocol-name
+           --targetprotocol target-protocol-name
+           --classname class-name
+           [--target server]
+           protocol-finder-name
+
+DESCRIZIONE
+       Il comando secondario create-protocol-filter crea uno strumento di
+       ricerca per un protocollo. Questo comando secondario è supportato solo
+       in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --protocol
+           Nome del protocollo associato.
+
+       --targetprotocol
+           Nome del protocollo di destinazione.
+
+       --classname
+           Nome completo della classe Java che implementa lo strumento di
+           ricerca di protocollo.
+
+       --target
+           Crea lo strumento di ricerca di protocollo solo nella destinazione
+           specificata. I valori validi sono i seguenti:
+
+           server
+               Crea lo strumento di ricerca di protocollo nell'istanza server
+               predefinita. Questo è il valore predefinito.
+
+           configuration-name
+               Crea lo strumento di ricerca di protocollo nella configurazione
+               specificata.
+
+           cluster-name
+               Crea lo strumento di ricerca di protocollo su tutte le istanze
+               server nel cluster specificato.
+
+           standalone-instance-name
+               Crea lo strumento di ricerca di protocollo nell'istanza server
+               standalone specificata.
+
+OPERANDI
+       protocol-finder-name
+           Nome dello strumento di ricerca di protocollo.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       delete-protocol-finder(1), list-protocol-finders(1)
+
+       asadmin(1M)
+
+                               24 novembre 2010          CREATE-PROTOCOL-FI(1)

@@ -1,0 +1,119 @@
+UNSET-WEB-ENV-ENT(1)                                      UNSET-WEB-ENV-ENT(1)
+
+NOME
+       unset-web-env-entry - annulla l'impostazione di una voce di ambiente
+       per un'applicazione Web o un modulo distribuito
+
+SINTASSI
+           unset-web-env-entry [--help] --name=env-entry-name application-name[/module]
+
+DESCRIZIONE
+       Il comando secondario unset-web-env-entry annulla l'impostazione di una
+       voce di ambiente per uno dei seguenti elementi:
+
+       ·   Un'applicazione Web distribuita
+
+       ·   Un modulo Web in un'applicazione Java Platform, Enterprise Edition
+           (Java EE) distribuita
+
+       Quando si annulla l'impostazione di una voce, viene ripristinato
+       l'eventuale valore impostato nel descrittore di distribuzione
+       dell'applicazione.
+
+       L'applicazione deve essere già distribuita. Altrimenti si verifica un
+       errore.
+
+       La voce deve essere stata precedentemente impostata utilizzando il
+       comando secondario set-web-env-entry(1). Altrimenti si verifica un
+       errore.
+
+           Nota
+           ┌───────────────────────────────────────┐
+           │Nota                                   │
+           │                                       │
+           │           Non utilizzare il comando   │
+           │           secondario                  │
+           │           unset-web-env-entry per     │
+           │           modificare il valore di una │
+           │           voce di ambiente impostata  │
+           │           nel descrittore di          │
+           │           distribuzione di            │
+           │           un'applicazione. A tale     │
+           │           scopo, utilizzare invece il │
+           │           comando secondario          │
+           │           set-web-env-entry.          │
+           └───────────────────────────────────────┘
+
+       Questo comando secondario consente di modificare la configurazione di
+       un'applicazione distribuita senza dover modificare i descrittori di
+       distribuzione dell'applicazione né creare un nuovo package e
+       ridistribuire l'applicazione.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --name
+           Nome della voce di ambiente di cui annullare l'impostazione. Il
+           nome è un nome JNDI relativamente al contesto java:comp/env.
+           All'interno di un componente della distribuzione, il nome deve
+           essere univoco. Tale voce deve essere stata precedentemente
+           impostata utilizzando il comando secondario set-web-env-entry.
+           Altrimenti si verifica un errore.
+
+OPERANDI
+       application-name
+           Nome dell'applicazione. Il nome può essere ottenuto da
+           Administration Console o utilizzando il comando secondario
+           list-applications(1).
+
+           L'applicazione deve essere già distribuita. Altrimenti si verifica
+           un errore.
+
+       module
+           Percorso relativo del modulo all'interno del file EAR
+           dell'applicazione. Il percorso del modulo è specificato
+           nell'elemento module del file application.xml dell'applicazione.
+
+           module è necessario solo se la voce di ambiente si applica a un
+           modulo Web di un'applicazione Java EE. Se specificata, module deve
+           seguire application-name, separato da una barra (/).
+
+           Ad esempio, il file application.xml per l'applicazione myApp
+           potrebbe specificare il seguente modulo Web:
+
+               <module>
+                   <web>
+                       <web-uri>myWebModule.war</web-uri>
+                   </web>
+               </module>
+           Il modulo sarebbe specificato come operando di questo comando:
+           myApp/myWebModule.war.
+
+ESEMPI
+       Esempio 1, Annullamento dell'impostazione di una voce di ambiente per
+       un'applicazione Web
+           In questo esempio viene annullata l'impostazione della voce di
+           ambiente Hello User dell'applicazione Web hello. Per la voce viene
+           ripristinato l'eventuale valore definito nel descrittore di
+           distribuzione dell'applicazione.
+
+               asadmin> unset-web-env-entry --name="Hello User" hello
+
+               Command unset-web-env-entry executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       list-applications(1), list-web-env-entry(1), set-web-env-entry(1)
+
+       asadmin(1M)
+
+                                30 ottobre 2009           UNSET-WEB-ENV-ENT(1)

@@ -1,0 +1,55 @@
+DELETE-HTTP-REDIRE(1)                                    DELETE-HTTP-REDIRE(1)
+
+NOM
+       delete-http-redirect - enlève une redirection HTTP
+
+SYNOPSIS
+           delete-http-redirect [--help]
+           [--target target]
+           protocol-name
+
+DESCRIPTION
+       La sous-commande delete-http-redirect enlève la redirection HTTP
+       spécifiée. Cette sous-commande est prise en charge en mode distant
+       uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Supprime la redirection HTTP uniquement de la cible spécifiée. Les
+           valeurs valides sont les suivantes :
+
+           server
+               Supprime la redirection HTTP de l'instance de serveur par
+               défaut. Ceci est la valeur par défaut.
+
+           configuration-name
+               Supprime la redirection HTTP de la configuration spécifiée.
+
+           cluster-name
+               Supprime la redirection HTTP de toutes les instances de serveur
+               dans le cluster spécifié.
+
+           standalone-instance-name
+               Supprime la redirection HTTP de l'instance de serveur autonome
+               spécifiée.
+
+OPÉRANDES
+       protocol-name
+           Nom du protocole associé.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-http-redirect(1)
+
+       asadmin(1M)
+
+                                  8 oct. 2010            DELETE-HTTP-REDIRE(1)

@@ -1,0 +1,54 @@
+DELETE-PROTOCOL-FI(1)                                    DELETE-PROTOCOL-FI(1)
+
+參考名
+       delete-protocol-finder - 移除通訊協定尋檔程式
+
+概要
+           delete-protocol-finder [--help]
+           --protocol protocol-name
+           [--target server]
+           protocol-finder-name
+
+說明
+       delete-protocol-finder
+       子命令會移除指定的通訊協定尋檔程式。只有遠端模式支援這個子命令。
+
+選項
+       --help, -?
+           顯示子命令的說明文字。
+
+       --protocol-name
+           關聯協定的名稱。
+
+       --target
+           僅從指定目標中刪除通訊協定尋檔程式。有效的值如下：
+
+           server
+               從預設伺服器實例中刪除通訊協定尋檔程式。此為預設值。
+
+           configuration-name
+               從指定組態中刪除通訊協定尋檔程式。
+
+           cluster-name
+               從指定叢集內的所有伺服器實例中刪除通訊協定尋檔程式。
+
+           standalone-instance-name
+               從指定的獨立伺服器實例中刪除通訊協定尋檔程式。
+
+運算元
+       protocol-finder-name
+           要刪除的通訊協定尋檔程式名稱。
+
+結束狀態
+       0
+           命令執行成功
+
+       1
+           執行命令時發生錯誤
+
+另請參閱
+       create-protocol-finder(1), list-protocol-finders(1)
+
+       asadmin(1M)
+
+                              2010 年 10 月 11 日        DELETE-PROTOCOL-FI(1)

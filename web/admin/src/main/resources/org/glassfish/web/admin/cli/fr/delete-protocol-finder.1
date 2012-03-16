@@ -1,0 +1,60 @@
+DELETE-PROTOCOL-FI(1)                                    DELETE-PROTOCOL-FI(1)
+
+NOM
+       delete-protocol-finder - enlève un sélecteur de protocole
+
+SYNOPSIS
+           delete-protocol-finder [--help]
+           --protocol protocol-name
+           [--target server]
+           protocol-finder-name
+
+DESCRIPTION
+       La sous-commande delete-protocol-finder enlève le sélecteur de
+       protocole spécifié. Cette sous-commande est prise en charge en mode
+       distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --protocol-name
+           Nom du protocole associé.
+
+       --target
+           Supprime le sélecteur de protocole uniquement de la cible
+           spécifiée. Les valeurs valides sont les suivantes :
+
+           server
+               Supprime le sélecteur de protocole de l'instance de serveur par
+               défaut. Ceci est la valeur par défaut.
+
+           configuration-name
+               Supprime le sélecteur de protocole de la configuration
+               spécifiée.
+
+           cluster-name
+               Supprime le sélecteur de protocole de toutes les instances de
+               serveur dans le cluster spécifié.
+
+           standalone-instance-name
+               Supprime le sélecteur de protocole de l'instance de serveur
+               autonome spécifiée.
+
+OPÉRANDES
+       protocol-finder-name
+           Nom du sélecteur de protocole à supprimer.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-protocol-finder(1), list-protocol-finders(1)
+
+       asadmin(1M)
+
+                                 11 oct. 2010            DELETE-PROTOCOL-FI(1)

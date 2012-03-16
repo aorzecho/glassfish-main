@@ -1,0 +1,61 @@
+LIST-NETWORK-LISTE(1)                                    LIST-NETWORK-LISTE(1)
+
+NOME
+       list-network-listeners - lista os listeners de rede existentes
+
+SINOPSE
+           list-network-listeners [--help]
+           [target]
+
+DESCRIçãO
+       O subcomando list-network-listeners lista os listeners de rede
+       existentes. Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+OPERANDOS
+       target
+           Restringe a listagem os listeners de rede para um destino
+           especificado. Os valores válidos são:
+
+           servidor
+               Lista os listeners de rede para a instância de servidor
+               default. Este é o valor default.
+
+           configuration-name
+               Lista os listeners de rede para a configuração especificada.
+
+           cluster-name
+               Lista os listeners de rede para todas as instâncias de servidor
+               no cluster especificado.
+
+           instance-name
+               Lista os listeners de rede para a instância do servidor
+               especificada.
+
+EXEMPLOS
+       Exemplo 1, Listando os listeners de rede
+           O comando a seguir lista todos os listeners de rede para a
+           instância de servidor:
+
+               asadmin> list-network-listeners
+               admin-listener
+               http-listener-1
+               https-listener-2
+               Command list-network-listeners executed successfully.
+
+STATUS DE SAíDA
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       create-network-listener(1), delete-network-listener(1)
+
+       asadmin(1M)
+
+                             08 de outubro de 2010       LIST-NETWORK-LISTE(1)

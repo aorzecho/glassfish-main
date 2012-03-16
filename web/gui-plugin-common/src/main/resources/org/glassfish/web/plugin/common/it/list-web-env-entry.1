@@ -1,0 +1,110 @@
+LIST-WEB-ENV-ENTR(1)                                      LIST-WEB-ENV-ENTR(1)
+
+NOME
+       list-web-env-entry - elenca le voci di ambiente per un'applicazione Web
+       o un modulo distribuito
+
+SINTASSI
+           list-web-env-entry [--help] [--name=env-entry-name] application-name[/module]
+
+DESCRIZIONE
+       Il comando secondario list-web-env-entry elenca le voci di ambiente per
+       uno dei seguenti elementi:
+
+       ·   Un'applicazione Web distribuita
+
+       ·   Un modulo Web in un'applicazione Java Platform, Enterprise Edition
+           (Java EE) distribuita
+
+       L'applicazione deve essere già distribuita. Altrimenti si verifica un
+       errore.
+
+       Il comando secondario list-web-env-entry elenca solo le voci
+       precedentemente impostate utilizzando il comando secondario
+       set-web-env-entry(1).  Non elenca le voci di ambiente impostate
+       esclusivamente nel descrittore di distribuzione dell'applicazione.
+
+       Per ogni voce, vengono visualizzate le seguenti informazioni:
+
+       ·   Nome della voce
+
+       ·   Tipo Java della voce
+
+       ·   Valore su cui è impostata la voce
+
+       ·   Valore dell'opzione --ignoreDescriptorItem del comando secondario
+           set-web-env-entry specificato durante l'impostazione della voce
+
+       ·   Descrizione della voce oppure null se non è stata specificata
+           alcuna descrizione durante l'impostazione della voce
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --name
+           Nome della voce di ambiente da elencare. Il nome è un nome JNDI
+           relativamente al contesto java:comp/env. All'interno di un
+           componente della distribuzione, il nome deve essere univoco. Se si
+           omette questa opzione, vengono elencate tutte le voci di ambiente
+           precedentemente impostate per l'applicazione.
+
+OPERANDI
+       application-name
+           Nome dell'applicazione. Il nome può essere ottenuto da
+           Administration Console o utilizzando il comando secondario
+           list-applications(1).
+
+           L'applicazione deve essere già distribuita. Altrimenti si verifica
+           un errore.
+
+       module
+           Percorso relativo del modulo all'interno del file EAR
+           dell'applicazione. Il percorso del modulo è specificato
+           nell'elemento module del file application.xml dell'applicazione.
+
+           module è necessario solo se la voce di ambiente si applica a un
+           modulo Web di un'applicazione Java EE. Se specificata, module deve
+           seguire application-name, separato da una barra (/).
+
+           Ad esempio, il file application.xml per l'applicazione myApp
+           potrebbe specificare il seguente modulo Web:
+
+               <module>
+                   <web>
+                       <web-uri>myWebModule.war</web-uri>
+                   </web>
+               </module>
+           Il modulo sarebbe specificato come operando di questo comando:
+           myApp/myWebModule.war.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco delle voci di ambiente per
+       un'applicazione Web
+           In questo esempio vengono elencate tutte le voci di ambiente
+           impostate per l'applicazione Web hello utilizzando il comando
+           secondario set-web-env-entry. Poiché durante l'impostazione della
+           voce di ambiente Hello Port non è stata specificata alcuna
+           descrizione, viene visualizzato il valore null anziché una
+           descrizione di tale voce.
+
+               asadmin> list-web-env-entry hello
+               Hello User (java.lang.String) = techscribe ignoreDescriptorItem=false
+                //User authentication for Hello appplication
+               Hello Port (java.lang.Integer) = null ignoreDescriptorItem=true //null
+
+               Command list-web-env-entry executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       list-applications(1), set-web-env-entry(1), unset-web-env-entry(1)
+
+       asadmin(1M)
+
+                                30 ottobre 2009           LIST-WEB-ENV-ENTR(1)

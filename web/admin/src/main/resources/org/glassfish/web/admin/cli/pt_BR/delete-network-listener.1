@@ -1,0 +1,62 @@
+DELETE-NETWORK-LIS(1)                                    DELETE-NETWORK-LIS(1)
+
+NOME
+       delete-network-listener - remove o listener de uma rede
+
+SINOPSE
+           delete-network-listener [--help]
+           [--target target]
+           listener-name
+
+DESCRIçãO
+       O subcomando delete-network-listener remove o listener de rede
+       especificado. Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Deleta o listener de rede somente do destino especificado. Os
+           valores válidos são:
+
+           servidor
+               Deleta o listener de rede da instância do servidor default.
+               Este é o valor default.
+
+           configuration-name
+               Deleta o listener de rede da configuração especificada.
+
+           cluster-name
+               Deleta o listener de rede de todas as instâncias do servidor do
+               cluster especificado.
+
+           standalone-instance-name
+               Deleta o listener de rede da instância do servidor standalone
+               especificado.
+
+OPERANDOS
+       listener-name
+           O nome do listener de rede a ser deletado.
+
+EXEMPLOS
+       Exemplo 1, Deletando um listener de rede
+           O comando seguinte deleta o listener de rede denominado
+           sampleListener :
+
+               asadmin> delete-network-listener sampleListener
+               Command delete-network-listener executed successfully.
+
+STATUS DE SAíDA
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       create-network-listener(1), list-network-listeners(1)
+
+       asadmin(1M)
+
+                             08 de outubro de 2010       DELETE-NETWORK-LIS(1)

@@ -1,0 +1,56 @@
+LIST-PROTOCOL-FIND(1)                                    LIST-PROTOCOL-FIND(1)
+
+NOME
+       list-protocol-finders - lista os localizadores de protocolo existentes
+
+SINOPSE
+           list-protocol-finders [--help]
+           [--target server]
+           protocol-name
+
+DESCRIçãO
+       O subcomando list-protocol-finders lista os localizadores de protocolo
+       existentes. Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       target
+           Restringe a listagem aos localizadores de protocolo para um destino
+           especificado. Os valores válidos são:
+
+           servidor
+               Lista os localizadores de protocolo para a instância de
+               servidor default. Este é o valor default.
+
+           configuration-name
+               Lista os localizadores de protocolo para a configuração
+               especificada.
+
+           cluster-name
+               Lista os localizadores de protocolo para todas as instâncias de
+               servidor no cluster especificado.
+
+           instance-name
+               Lista os localizadores de protocolo para a instância do
+               servidor especificada.
+
+OPERANDOS
+       protocol-name
+           O nome do protocolo para o qual listar os localizadores de
+           protocolo.
+
+STATUS DE SAíDA
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       create-protocol-finder(1), delete-protocol-finder(1)
+
+       asadmin(1M)
+
+                             11 de outubro de 2010       LIST-PROTOCOL-FIND(1)

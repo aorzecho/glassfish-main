@@ -1,0 +1,58 @@
+LIST-PROTOCOL-FILT(1)                                    LIST-PROTOCOL-FILT(1)
+
+名前
+       list-protocol-filters - 既存のプロトコル・フィルタを一覧表示します
+
+概要
+           list-protocol-filters [--help]
+           [--target server]
+           protocol-name
+
+説明
+       list-protocol-filtersサブコマンドは、既存のプロトコル・フィルタを一覧表示します。このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       target
+           一覧表示する内容を、指定したターゲットのプロトコル・フィルタに制限します。有効な値は次のとおりです:
+
+           server
+               デフォルトのサーバー・インスタンスのプロトコル・フィルタを一覧表示します。この値がデフォルト値です。
+
+           configuration-name
+               指定した構成のプロトコル・フィルタを一覧表示します。
+
+           cluster-name
+               指定したクラスタ内のすべてのサーバー・インスタンスのプロトコル・フィルタを一覧表示します。
+
+           instance-name
+               指定したサーバー・インスタンスのプロトコル・フィルタを一覧表示します。
+
+オペランド
+       protocol-name
+           プロトコル・フィルタを一覧表示するプロトコルの名前。
+
+例
+       例 1, プロトコル・フィルタの一覧表示
+           次のコマンドは、サーバー・インスタンスのすべてのプロトコル・フィルタを一覧表示します。
+
+               asadmin> list-protocol-filters http1
+               http1-filter
+               https1-filter
+               Command list-protocol-filters executed successfully.
+
+終了ステータス
+       0
+           コマンドは正常に実行されました
+
+       1
+           コマンドの実行時にエラーが発生しました
+
+関連項目
+       create-protocol-filter(1), delete-protocol-filter(1)
+
+       asadmin(1M)
+
+                                2010年10月11日           LIST-PROTOCOL-FILT(1)

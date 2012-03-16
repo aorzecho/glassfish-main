@@ -1,0 +1,136 @@
+CREATE-NETWORK-LIS(1)                                    CREATE-NETWORK-LIS(1)
+
+NOME
+       create-network-listener - aggiunge un nuovo socket del listener di rete
+
+SINTASSI
+           create-network-listener [--help]
+           [--address address]
+           --listenerport listener-port
+           [--threadpool thread-pool]
+           --protocol protocol
+           [--transport transport]
+           [--enabled={true|false}]
+           [--jkenabled={false|true}]
+           [--target target]
+           listener-name
+
+DESCRIZIONE
+       Il comando secondario create-network-listener crea un listener di rete.
+       Questo comando secondario è supportato solo in modalità remota.
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           Se si modifica lo speciale   │
+           │           listener di rete denominato  │
+           │           admin-listener, è necessario │
+           │           riavviare il server perché   │
+           │           le modifiche abbiano         │
+           │           effetto. Administration      │
+           │           Console in questo caso non   │
+           │           segnala che è necessario     │
+           │           effettuare un riavvio.       │
+           └────────────────────────────────────────┘
+
+           Nota
+           ┌───────────────────────────────────────┐
+           │Nota                                   │
+           │                                       │
+           │           È possibile eseguire il     │
+           │           comando secondario          │
+           │           create-http-listener per    │
+           │           creare un listener di rete  │
+           │           che utilizzi il protocollo  │
+           │           HTTP senza dovere prima     │
+           │           creare un protocollo, un    │
+           │           trasporto o una             │
+           │           configurazione HTTP. Questo │
+           │           comando secondario è molto  │
+           │           pratico, ma consente solo   │
+           │           l'utilizzo di un numero     │
+           │           limitato di opzioni.        │
+           └───────────────────────────────────────┘
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --address
+           Indirizzo IP o nome host (risolvibile dal DNS).
+
+       --listenerport
+           Numero della porta su cui creare il socket di ascolto. Sono
+           consentiti valori compresi tra 1 e 65535. In ambiente UNIX, la
+           creazione di socket che rimangono in ascolto sulle porte 1-1024
+           richiede privilegi di utente privilegiato. La configurazione di un
+           socket di ascolto SSL perché resti in ascolto sulla porta 443 è
+           standard.
+
+       --threadpool
+           Nome del pool di thread per il listener. Specificare un pool di
+           thread è facoltativo. Il valore predefinito è http-thread-pool.
+
+       --protocol
+           Nome del protocollo per il listener.
+
+       --transport
+           Nome del trasporto per il listener. Specificare un trasporto è
+           facoltativo. Il valore predefinito è tcp.
+
+       --enabled
+           Se l'impostazione è true (valore predefinito), il listener è
+           abilitato in fase di esecuzione.
+
+       --jkenabled
+           Se l'impostazione è true, mod_jk è abilitato per questo listener.
+           Il valore predefinito è false.
+
+       --target
+           Crea il listener di rete solo nella destinazione specificata. I
+           valori validi sono i seguenti:
+
+           server
+               Crea il listener di rete nell'istanza server predefinita.
+               Questo è il valore predefinito.
+
+           configuration-name
+               Crea il listener di rete nella configurazione specificata.
+
+           cluster-name
+               Crea il listener di rete in tutte le istanze server nel cluster
+               specificato.
+
+           standalone-instance-name
+               Crea il listener di rete nell'istanza server standalone
+               specificata.
+
+OPERANDI
+       listener-name
+           Nome del listener di rete.
+
+ESEMPI
+       Esempio 1, Creazione di un listener di rete.
+           Il seguente comando crea un listener di rete denominato
+           sampleListener che non è abilitato in fase di esecuzione:
+
+               asadmin> create-network-listener --listenerport 7272 protocol http-1
+               --enabled=false sampleListener
+               Command create-network-listener executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       delete-network-listener(1), list-network-listeners(1),
+       create-transport(1), create-protocol(1), create-threadpool(1),
+       create-http-listener(1)
+
+       asadmin(1M)
+
+                                08 ottobre 2010          CREATE-NETWORK-LIS(1)

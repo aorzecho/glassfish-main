@@ -1,0 +1,86 @@
+LIST-WEB-ENV-ENTR(1)                                      LIST-WEB-ENV-ENTR(1)
+
+名前
+       list-web-env-entry -
+       デプロイされたWebアプリケーションまたはモジュールの環境エントリを一覧表示します
+
+概要
+           list-web-env-entry [--help] [--name=env-entry-name] application-name[/module]
+
+説明
+       list-web-env-entryサブコマンドは、次の項目のいずれかについて環境エントリを一覧表示します。
+
+       ·   デプロイされたWebアプリケーション
+
+       ·   デプロイされたJavaプラットフォーム、Enterprise Edition(Java
+           EE)アプリケーションのWebモジュール
+
+       アプリケーションはデプロイ済である必要があります。それ以外の場合はエラーが発生します。
+
+       list-web-env-entryサブコマンドは、set-web-env-entry(1)サブコマンドを使用して事前に設定されたエントリのみを一覧表示します。アプリケーションのデプロイメント記述子のみで設定された環境エントリは、このサブコマンドでは一覧表示さ
+
+       各エントリについて、次の情報が表示されます。
+
+       ·   エントリの名前
+
+       ·   エントリのJavaタイプ
+
+       ·   エントリに設定される値
+
+       ·   エントリの設定時に指定されたset-web-env-entryサブコマンドの--ignoreDescriptorItemオプションの値
+
+       ·   エントリの説明、またはエントリの設定時に説明が指定されていない場合はnull
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --name
+           一覧表示する環境エントリの名前。名前はjava:comp/envコンテキストに相対的なJNDI名です。名前はデプロイメント・コンポーネント内で一意である必要があります。このオプションを省略した場合、アプリケーションについて事前に設定されたすべての環境エントリが一覧表示されます。
+
+オペランド
+       application-name
+           アプリケーションの名前。この名前は、管理コンソールから、またはlist-applications(1)サブコマンドを使用して取得できます。
+
+           アプリケーションはデプロイ済である必要があります。それ以外の場合はエラーが発生します。
+
+       module
+           アプリケーションのエンタープライズ・アーカイブ(EAR)ファイル内のモジュールへの相対パス。モジュールへのパスは、アプリケーションのapplication.xmlファイルのmodule要素に指定されます。
+
+           moduleは、環境エントリがJava
+           EEアプリケーションのWebモジュールに適用される場合にのみ必要となります。指定する場合、moduleはapplication-nameの後にスラッシュ(/)で区切って指定する必要があります。
+
+           たとえば、myAppアプリケーションのapplication.xmlファイルには、次のWebモジュールが指定されます。
+
+               <module>
+                   <web>
+                       <web-uri>myWebModule.war</web-uri>
+                   </web>
+               </module>
+           モジュールは、このコマンドのオペランドとして指定され、myApp/myWebModule.warとなります。
+
+例
+       例 1, Webアプリケーションの環境エントリの一覧表示
+           この例では、set-web-env-entryサブコマンドを使用してWebアプリケーションhelloに設定されたすべての環境エントリを一覧表示します。Hello
+           Port環境エントリの設定時に説明が指定されていないため、このエントリの説明のかわりにnullが表示されます。
+
+               asadmin> list-web-env-entry hello
+               Hello User (java.lang.String) = techscribe ignoreDescriptorItem=false
+                //User authentication for Hello appplication
+               Hello Port (java.lang.Integer) = null ignoreDescriptorItem=true //null
+
+               Command list-web-env-entry executed successfully.
+
+終了ステータス
+       0
+           コマンドは正常に実行されました
+
+       1
+           コマンドの実行時にエラーが発生しました
+
+関連項目
+       list-applications(1), set-web-env-entry(1), unset-web-env-entry(1)
+
+       asadmin(1M)
+
+                                2009年10月30日            LIST-WEB-ENV-ENTR(1)

@@ -1,0 +1,65 @@
+DELETE-HTTP(1)                                                  DELETE-HTTP(1)
+
+NOM
+       delete-http - enlève les paramètres HTTP d'un protocole
+
+SYNOPSIS
+           delete-http [--help]
+           [--target target]
+           protocol-name
+
+DESCRIPTION
+       La sous-commande delete-http enlève l'ensemble de paramètres
+       HTTP spécifié d'un protocole. Cette sous-commande est prise en charge
+       en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Supprime l'ensemble de paramètres HTTP uniquement de la cible
+           spécifiée. Les valeurs valides sont les suivantes :
+
+           server
+               Supprime l'ensemble de paramètres HTTP de l'instance de serveur
+               par défaut. Ceci est la valeur par défaut.
+
+           configuration-name
+               Supprime l'ensemble de paramètres HTTP de la configuration
+               spécifiée.
+
+           cluster-name
+               Supprime l'ensemble de paramètres HTTP de toutes les instances
+               de serveur dans le cluster spécifié.
+
+           standalone-instance-name
+               Supprime l'ensemble de paramètres HTTP de l'instance de serveur
+               autonome spécifiée.
+
+OPÉRANDES
+       protocol-name
+           Nom du protocole duquel l'ensemble de paramètres HTTP doit être
+           supprimé.
+
+EXEMPLES
+       Exemple 1, Suppression d'un ensemble de paramètres HTTP
+           La commande suivante supprime l'ensemble de paramètres HTTP d'un
+           protocole nommé http-1 :
+
+               asadmin> delete-http http-1
+               Command delete-http executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-http(1)
+
+       asadmin(1M)
+
+                                  8 oct. 2010                   DELETE-HTTP(1)

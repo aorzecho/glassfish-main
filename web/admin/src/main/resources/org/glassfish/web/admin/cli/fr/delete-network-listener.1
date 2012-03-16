@@ -1,0 +1,64 @@
+DELETE-NETWORK-LIS(1)                                    DELETE-NETWORK-LIS(1)
+
+NOM
+       delete-network-listener - enlève un processus d'écoute réseau
+
+SYNOPSIS
+           delete-network-listener [--help]
+           [--target target]
+           listener-name
+
+DESCRIPTION
+       La sous-commande delete-network-listener enlève le processus d'écoute
+       réseau spécifié. Cette sous-commande est prise en charge en mode
+       distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Supprime le processus d'écoute réseau uniquement de la cible
+           spécifiée. Les valeurs valides sont les suivantes :
+
+           server
+               Supprime le processus d'écoute réseau de l'instance de serveur
+               par défaut. Ceci est la valeur par défaut.
+
+           configuration-name
+               Supprime le processus d'écoute réseau de la configuration
+               spécifiée.
+
+           cluster-name
+               Supprime le processus d'écoute réseau de toutes les instances
+               de serveur dans le cluster spécifié.
+
+           standalone-instance-name
+               Supprime le processus d'écoute réseau de l'instance de serveur
+               autonome spécifiée.
+
+OPÉRANDES
+       listener-name
+           Nom du processus d'écoute réseau à supprimer.
+
+EXEMPLES
+       Exemple 1, Suppression d'un processus d'écoute réseau
+           La commande suivante supprime le processus d'écoute réseau nommé
+           sampleListener :
+
+               asadmin> delete-network-listener sampleListener
+               Command delete-network-listener executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-network-listener(1), list-network-listeners(1)
+
+       asadmin(1M)
+
+                                  8 oct. 2010            DELETE-NETWORK-LIS(1)

@@ -1,0 +1,175 @@
+SET-WEB-ENV-ENTRY(1)                                      SET-WEB-ENV-ENTRY(1)
+
+NAME
+       set-web-env-entry - Legt einen Umgebungseintrag für eine
+       bereitgestellte Webanwendung oder ein bereitgestelltes Modul fest
+
+ZUSAMMENFASSUNG
+           set-web-env-entry [--help]
+           --name=env-entry-name --type=env-entry-type
+           {--value=value|--ignoredescriptoritem={true|false}}
+           [--description=description] application-name[/module]
+
+BESCHREIBUNG
+       Der Unterbefehl set-web-env-entry legt einen Umgebungseintrag für eines
+       der folgenden Elemente fest:
+
+       ·   bereitgestellte Webanwendung
+
+       ·   Webmodul in einer bereitgestellten Java Platform, Enterprise
+           Edition-(Java EE-)Anwendung
+
+       Die Anwendung muss bereits bereitgestellt sein. Andernfalls tritt ein
+       Fehler auf.
+
+       Eine Anwendung verwendet die Werte der Umgebungseinträge, um ihr
+       Behavior oder ihre Darstellung anzupassen.
+
+       Mit diesem Unterbefehl können Sie die Konfiguration einer
+       bereitgestellten Anwendung ändern, ohne die Deployment-Deskriptoren der
+       Anwendung zu ändern und die Anwendung neu zu verpacken und erneut
+       bereitzustellen.
+
+       Dieser Unterbefehl wird nur im Remote-Modus unterstützt.
+
+OPTIONEN
+       --help, -?
+           Zeigt den Hilfetext für den Unterbefehl an.
+
+       --name
+           Der Name des Umgebungseintrags, der festgelegt werden soll. Der
+           Name ist ein JNDI-Name, der auf den java:comp/env-Kontext bezogen
+           ist. Der Name muss innerhalb einer Deployment-Komponente eindeutig
+           sein.
+
+       --type
+           Der vollständig angegebene Java-Typ des Umgebungseintragswerts, der
+           vom Code der Anwendung erwartet wird. Dieser Typ muss einer der
+           folgenden Java-Typen sein:
+
+           ·   java.lang.Boolean
+
+           ·   java.lang.Byte
+
+           ·   java.lang.Character
+
+           ·   java.lang.Double
+
+           ·   java.lang.Float
+
+           ·   java.lang.Integer
+
+           ·   java.lang.Long
+
+           ·   java.lang.Short
+
+           ·   java.lang.String
+
+       --value
+           Der Wert, auf den der Umgebungseintrag gesetzt werden soll. Wenn
+           der --type java.lang.Character ist, muss der Wert ein einzelnes
+           Zeichen sein. Andernfalls muss der Wert eine Zeichenfolge sein, die
+           für den Konstruktor des angegebenen Typs gültig ist.
+
+           Legen Sie entweder die Option --value oder die Option
+           --ignoredescriptoritem fest.
+
+       --ignoredescriptoritem
+           Gibt an, ob der Umgebungseintrag ignoriert wird, wenn er im
+           Deployment-Deskriptor der Anwendung festgelegt ist. Wenn ein
+           Umgebungseintrag ignoriert wird, verhält sich die Anwendung so, als
+           wenn der Eintrag nicht im Deployment-Deskriptor der Anwendung
+           festgelegt wäre. Das Behavior einer Anwendung in diesem Fall hängt
+           von der Anwendung ab.
+
+           Mögliche Werte:
+
+           false
+               Der Wert wird nicht ignoriert (Standard).
+
+           true
+               Der Wert wird ignoriert.
+
+           Legen Sie entweder die Option --value oder die Option
+           --ignoredescriptoritem fest.
+
+               Anmerkung
+               ┌─────────────────────────────────────┐
+               │Hinweis Verwenden Sie die Option     │
+               │--ignoredescriptoritem nicht, um die │
+               │Festlegung eines Umgebungseintrags   │
+               │aufzuheben, der zuvor mit dem        │
+               │Unterbefehl set-web-env-entry        │
+               │festgelegt wurde. Verwenden Sie zu   │
+               │diesem Zweck stattdessen den         │
+               │Unterbefehl unset-web-env-entry(1).  │
+               └─────────────────────────────────────┘
+
+       --description
+           Eine optionale Textbeschreibung des festgelegten Umgebungseintrags.
+
+OPERANDEN
+       application-name
+           Der Name der Anwendung. Dieser Name kann aus der
+           Administrationskonsole oder mit dem Unterbefehl
+           list-applications(1) abgerufen werden.
+
+           Die Anwendung muss bereits bereitgestellt sein. Andernfalls tritt
+           ein Fehler auf.
+
+       module
+           Der relative Pfad zum Modul innerhalb der Enterprise
+           Archive-(EAR-)Datei der Anwendung. Der Pfad zum Modul wird im
+           Element module der Datei application.xml der Anwendung angegeben.
+
+           module ist nur dann erforderlich, wenn der Umgebungseintrag auf ein
+           Webmodul einer Java EE-Anwendung bezogen ist. Wenn dies angegeben
+           wird, muss module auf den application-name folgen und durch einen
+           umgekehrten Schrägstrich (/) getrennt sein.
+
+           Beispiel: Die Datei application.xml für die Anwendung myApp kann
+           das folgende Webmodul angeben:
+
+               <module>
+                   <web>
+                       <web-uri>myWebModule.war</web-uri>
+                   </web>
+               </module>
+           Das Modul würde als Operand dieses Befehls als
+           myApp/myWebModule.war angegeben werden.
+
+BEISPIELE
+       Beispiel 1, Umgebungseintrag für eine Webanwendung festlegen
+           In diesem Beispiel wird der Umgebungseintrag Hello User der
+           Anwendung "hello" auf techscribe gesetzt. Der Java-Typ dieses
+           Eintrags ist java.lang.String.
+
+               asadmin> set-web-env-entry --name="Hello User"
+               --type=java.lang.String --value=techscribe
+               --description="User authentication for Hello appplication" hello
+
+               Command set-web-env-entry executed successfully.
+
+       Beispiel 2, Umgebungseintrag ignorieren, der in einem
+       Deployment-Deskriptor definiert ist
+           In diesem Beispiel wird der Umgebungseintrag Hello Port der
+           Webanwendung hello ignoriert.
+
+               asadmin> set-web-env-entry --name="Hello Port"
+               --type=java.lang.Integer --ignoredescriptoritem=true hello
+
+               Command set-web-env-entry executed successfully.
+
+BEENDIGUNGSSTATUS
+       0
+           Befehl erfolgreich ausgeführt
+
+       1
+           Fehler beim Ausführen des Befehls
+
+SIEHE AUCH
+       list-applications(1), list-web-env-entry(1), unset-web-env-entry(1)
+
+       asadmin(1M)
+
+                                 15. Juni 2011            SET-WEB-ENV-ENTRY(1)

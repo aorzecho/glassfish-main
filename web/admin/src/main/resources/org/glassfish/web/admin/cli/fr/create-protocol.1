@@ -1,0 +1,69 @@
+CREATE-PROTOCOL(1)                                          CREATE-PROTOCOL(1)
+
+NOM
+       create-protocol - ajoute un nouveau protocole
+
+SYNOPSIS
+           create-protocol [--help]
+           [--securityenabled={false|true}]
+           [--target target]
+           protocol-name
+
+DESCRIPTION
+       La sous-commande create-protocol crée un protocole. Cette sous-commande
+       est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --securityenabled
+           Si la valeur est true, le protocole exécute SSL. Vous pouvez
+           activer ou désactiver SSL2 ou SSL3 et définir des cryptages à
+           l'aide d'un élément ssl. Le paramètre de sécurité active ou
+           désactive globalement SSL en rendant les certificats disponibles
+           pour l'instance de serveur. La valeur par défaut est false.
+
+       --target
+           Crée le protocole uniquement sur la cible indiquée. Les valeurs
+           valides sont les suivantes :
+
+           server
+               Crée le protocole sur l'instance de serveur par défaut. Ceci
+               est la valeur par défaut.
+
+           configuration-name
+               Crée le protocole dans la configuration indiquée.
+
+           cluster-name
+               Crée le protocole sur toutes les instances de serveur dans le
+               cluster indiqué.
+
+           standalone-instance-name
+               Crée le protocole sur l'instance de serveur autonome indiquée.
+
+OPÉRANDES
+       protocol-name
+           Nom du protocole.
+
+EXEMPLES
+       Exemple 1, Création d'un protocole
+           La commande suivante crée un protocole nommé http-1 avec la
+           sécurité activée :
+
+               asadmin> create-protocol --securityenabled=true http-1
+               Command create-protocol executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       delete-protocol(1), list-protocols(1), create-network-listener(1)
+
+       asadmin(1M)
+
+                                 11 fév. 2011               CREATE-PROTOCOL(1)

@@ -1,0 +1,110 @@
+LIST-WEB-ENV-ENTR(1)                                      LIST-WEB-ENV-ENTR(1)
+
+NOM
+       list-web-env-entry - répertorie les entrées d'environnement d'une
+       application Web ou d'un module Web déployé
+
+SYNOPSIS
+           list-web-env-entry [--help] [--name=env-entry-name] application-name[/module]
+
+DESCRIPTION
+       La sous-commande list-web-env-entry répertorie les entrées
+       d'environnement pour l'un des éléments suivants :
+
+       ·   Une application Web déployée
+
+       ·   Un module Web dans une application Java Platform,
+           Enterprise Edition (Java EE) déployée
+
+       L'application doit déjà être déployée. Sinon, une erreur se produit.
+
+       La sous-commande list-web-env-entry répertorie uniquement les entrées
+       précédemment définies à l'aide de la sous-commande
+       set-web-env-entry(1). La sous-commande ne répertorie pas les entrées
+       d'environnement qui sont définies uniquement dans le descripteur de
+       déploiement de l'application.
+
+       Pour chaque entrée, les informations suivantes sont affichées :
+
+       ·   Le nom de l'entrée
+
+       ·   Le type Java de l'entrée
+
+       ·   La valeur attribuée à l'entrée
+
+       ·   La valeur de l'option --ignoreDescriptorItem de la sous-commande
+           set-web-env-entry qui a été spécifiée lorsque l'entrée a été
+           définie
+
+       ·   La description de l'entrée ou null si aucune description n'a été
+           précisée lorsque l'entrée a été définie
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --name
+           Nom de l'entrée d'environnement qui doit être répertoriée. Le nom
+           est un nom JNDI relatif au contexte java:comp/env. Il doit être
+           unique au sein d'un composant de déploiement. Si cette option est
+           omise, toutes les entrées d'environnement qui ont déjà été
+           configurées pour l'application sont répertoriées.
+
+OPÉRANDES
+       application-name
+           Nom de l'application. Ce nom peut être obtenu à partir de la
+           Console d'administration ou à l'aide de la sous-commande
+           list-applications(1).
+
+           L'application doit déjà être déployée. Sinon, une erreur se
+           produit.
+
+       module
+           Chemin relatif du module dans le fichier EAR. Le chemin d'accès au
+           module est spécifié dans l'élément module du fichier
+           application.xml de l'application.
+
+           L'option module ne doit être exécutée que si l'entrée
+           d'environnement s'applique à un module Web d'une application
+           Java EE. S'il est spécifié, module doit suivre application-name,
+           séparés par une barre oblique (/).
+
+           Par exemple, le fichier application.xml pour l'application myApp
+           peut spécifier le module Web suivant :
+
+               <module>
+                   <web>
+                       <web-uri>myWebModule.war</web-uri>
+                   </web>
+               </module>
+           Le module doit être spécifié en tant qu'opérande de cette commande
+           comme myApp/myWebModule.war.
+
+EXEMPLES
+       Exemple 1, Liste des entrées d'environnement pour une application Web
+           Cet exemple répertorie toutes les entrées d'environnement qui ont
+           été définies pour l'application Web hello à l'aide de la
+           sous-commande set-web-env-entry. Comme aucune description n'a été
+           spécifiée lorsque l'entrée d'environnement Hello Port a été
+           définie, null s'affiche à la place de la description.
+
+               asadmin> list-web-env-entry hello
+               Hello User (java.lang.String) = techscribe ignoreDescriptorItem=false
+                //User authentication for Hello appplication
+               Hello Port (java.lang.Integer) = null ignoreDescriptorItem=true //null
+
+               Command list-web-env-entry executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       list-applications(1), set-web-env-entry(1), unset-web-env-entry(1)
+
+       asadmin(1M)
+
+                                 30 oct. 2009             LIST-WEB-ENV-ENTR(1)

@@ -1,0 +1,62 @@
+LIST-HTTP-LISTENER(1)                                    LIST-HTTP-LISTENER(1)
+
+NOME
+       list-http-listeners - elenca i listener di rete esistenti
+
+SINTASSI
+           list-http-listeners [--help]
+           [target]
+
+DESCRIZIONE
+       Il comando secondario list-http-listeners elenca i listener di rete
+       esistenti.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+OPERANDI
+       target
+           Limita l'elenco ai listener di rete per una destinazione
+           specificata. I valori validi sono i seguenti:
+
+           server
+               Elenca i listener di rete per l'istanza server predefinita.
+               Questo è il valore predefinito.
+
+           configuration-name
+               Elenca i listener di rete per la configurazione specificata.
+
+           cluster-name
+               Elenca i listener di rete per tutte le istanze server del
+               cluster specificato.
+
+           instance-name
+               Elenca i listener di rete per l'istanza server specificata.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco dei listener di rete
+           Il seguente comando elenca tutti i listener di rete per l'istanza
+           server:
+
+               asadmin> list-http-listeners
+               http-listener-1
+               http-listener-2
+               admin-listener
+               Command list-http-listeners executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-http-listener(1), delete-http-listener(1)
+
+       asadmin(1M)
+
+                               11 febbraio 2011          LIST-HTTP-LISTENER(1)

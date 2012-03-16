@@ -1,0 +1,61 @@
+DELETE-TRANSPORT(1)                                        DELETE-TRANSPORT(1)
+
+NOME
+       delete-transport - remove um transporte
+
+SINOPSE
+           delete-transport [--help]
+           [--target target]
+           transport-name
+
+DESCRIçãO
+       O subcomando delete-transport remove o transporte especificado. Esse
+       subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Deleta o transporte somente do destino especificado. Os valores
+           válidos são:
+
+           servidor
+               Deleta o transporte a partir da instância do servidor default.
+               Este é o valor default.
+
+           configuration-name
+               Deleta o transporte a partir da configuração especificada.
+
+           cluster-name
+               Deleta o transporte de todas as instâncias do servidor do
+               cluster especificado.
+
+           standalone-instance-name
+               Deleta o transporte da instância do servidor standalone
+               especificada.
+
+OPERANDOS
+       transport-name
+           O nome do transporte a ser deletado.
+
+EXEMPLOS
+       Exemplo 1, Deletando um transporte
+           O comando a seguir deleta o transporte denominado http1-trans :
+
+               asadmin> delete-transport http1-trans
+               Command delete-transport executed successfully.
+
+STATUS DE SAíDA
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       create-transport(1), list-transports(1)
+
+       asadmin(1M)
+
+                             08 de outubro de 2010         DELETE-TRANSPORT(1)

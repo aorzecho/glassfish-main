@@ -1,0 +1,64 @@
+LIST-PROTOCOL-FILT(1)                                    LIST-PROTOCOL-FILT(1)
+
+NOME
+       list-protocol-filters - lista os filtros de protocolo existentes
+
+SINOPSE
+           list-protocol-filters [--help]
+           [--target server]
+           protocol-name
+
+DESCRIçãO
+       O subcomando list-protocol-filters lista os filtros de protocolos
+       existentes. Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       target
+           Restringe a listagem aos filtros de protocolo para um destino
+           especificado. Os valores válidos são:
+
+           servidor
+               Lista os filtros de protocolo para a instância de servidor
+               default. Este é o valor default.
+
+           configuration-name
+               Lista os filtros de protocolo para a configuração especificada.
+
+           cluster-name
+               Lista os filtros de protocolo para todas as instâncias de
+               servidor no cluster especificado.
+
+           instance-name
+               Lista os filtros de protocolo para a instância do servidor
+               especificada.
+
+OPERANDOS
+       protocol-name
+           O nome do protocolo para o qual listar os filtros de protocolo.
+
+EXEMPLOS
+       Exemplo 1, Listando filtros de protocolo
+           O comando a seguir lista todos os filtros de protocolo para a
+           instância do servidor:
+
+               asadmin> list-protocol-filters http1
+               http1-filter
+               https1-filter
+               Command list-protocol-filters executed successfully.
+
+STATUS DE SAíDA
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       create-protocol-filter(1), delete-protocol-filter(1)
+
+       asadmin(1M)
+
+                             11 de outubro de 2010       LIST-PROTOCOL-FILT(1)

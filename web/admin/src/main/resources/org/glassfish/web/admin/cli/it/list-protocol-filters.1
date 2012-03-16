@@ -1,0 +1,64 @@
+LIST-PROTOCOL-FILT(1)                                    LIST-PROTOCOL-FILT(1)
+
+NOME
+       list-protocol-filters - elenca i filtri di protocollo esistenti
+
+SINTASSI
+           list-protocol-filters [--help]
+           [--target server]
+           protocol-name
+
+DESCRIZIONE
+       Il comando secondario list-protocol-filters elenca i filtri protocollo
+       esistenti. Questo comando secondario è supportato solo in modalità
+       remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       target
+           Limita l'elenco dei filtri protocollo per una destinazione
+           specifica. I valori validi sono i seguenti:
+
+           server
+               Elenca i filtri protocollo per l'istanza server predefinita.
+               Questo è il valore predefinito.
+
+           configuration-name
+               Elenca i filtri protocollo per la configurazione specificata.
+
+           cluster-name
+               Elenca i filtri protocollo per tutte le istanze server nel
+               cluster specificato.
+
+           instance-name
+               Elenca i filtri protocollo per l'istanza server specificata.
+
+OPERANDI
+       protocol-name
+           Nome del protocollo per cui elencare i filtri protocollo.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco dei filtri protocollo
+           Il seguente comando elenca tutti i filtri protocollo per l'istanza
+           server:
+
+               asadmin> list-protocol-filters http1
+               http1-filter
+               https1-filter
+               Command list-protocol-filters executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-protocol-filter(1), delete-protocol-filter(1)
+
+       asadmin(1M)
+
+                                11 ottobre 2010          LIST-PROTOCOL-FILT(1)

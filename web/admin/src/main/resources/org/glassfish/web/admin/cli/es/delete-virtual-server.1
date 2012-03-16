@@ -1,0 +1,61 @@
+DELETE-VIRTUAL-SER(1)                                    DELETE-VIRTUAL-SER(1)
+
+NOMBRE DE REFERENCIA
+       delete-virtual-server - elimina un servidor virtual.
+
+SINOPSIS
+           delete-virtual-server [--help]
+           [--target target] virtual-server-id
+
+DESCRIPCIÓN
+       El subcomando delete-virtual-server elimina el servidor virtual con el
+       ID especificado. Este subcomando sólo está soportado en modo remoto.
+
+OPCIONES
+       --help, -?
+           Muestra el texto de ayuda para el subcomando.
+
+       --target
+           Suprime el servidor virtual únicamente del destino especificado.
+           Los valores válidos son los siguientes:
+
+           server
+               Suprime el servidor virtual de la instancia de servidor por
+               defecto. Éste es el valor por defecto.
+
+           configuration-name
+               Suprime el servidor virtual de la configuración especificada.
+
+           cluster-name
+               Suprime el servidor virtual de todas las instancias de servidor
+               del cluster especificado.
+
+           standalone-instance-name
+               Suprime el servidor virtual de la instancia de servidor
+               independiente especificada.
+
+OPERANDOS
+       virtual-server-id
+           Identificador único del servidor virtual que se va a suprimir.
+
+EJEMPLOS
+       Ejemplo 1, Supresión de un Servidor Virtual
+           El siguiente comando suprime el servidor virtual denominado
+           sample_vs1:
+
+               asadmin> delete-virtual-server sample_vs1
+               Command delete-virtual-server executed successfully.
+
+ESTADO DE SALIDA
+       0
+           Comando ejecutado correctamente
+
+       1
+           Error al ejecutar el comando
+
+CONSULTE TAMBIÉN
+       create-virtual-server(1), list-virtual-servers(1)
+
+       Utilidad asadmin(1M)
+
+                                  08 Oct 2010            DELETE-VIRTUAL-SER(1)

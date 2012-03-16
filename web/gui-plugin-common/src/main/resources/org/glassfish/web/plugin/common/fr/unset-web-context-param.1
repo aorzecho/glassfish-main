@@ -1,0 +1,123 @@
+UNSET-WEB-CONTEXT()                                        UNSET-WEB-CONTEXT()
+
+NOM
+       unset-web-context-param - annule la définition d'un paramètre
+       d'initialisation de contexte de servlet d'une application Web ou d'un
+       module Web déployé
+
+SYNOPSIS
+           unset-web-context-param [--help]
+           --name=context-param-name application-name[/module]
+
+DESCRIPTION
+       La sous-commande unset-web-context-param annule la définition d'un
+       paramètre d'initialisation de contexte de servlet de l'un des éléments
+       suivants :
+
+       ·   Une application Web déployée
+
+       ·   Un module Web dans une application Java Platform,
+           Enterprise Edition (Java EE) déployée
+
+       Lorsque la définition d'un paramètre est annulée, la valeur qui est
+       définie dans le descripteur de déploiement de l'application est
+       rétablie, le cas échéant.
+
+       L'application doit déjà être déployée. Sinon, une erreur se produit.
+
+       Le paramètre doit avoir été préalablement défini à l'aide de la
+       sous-commande set-web-context-param. Sinon, une erreur se produit.
+
+           Note
+           ┌────────────────────────────────────────┐
+           │Remarque                                │
+           │                                        │
+           │           N'utilisez pas la            │
+           │           sous-commande                │
+           │           unset-web-context-param pour │
+           │           modifier la valeur d'un      │
+           │           paramètre d'initialisation   │
+           │           de contexte de servlet, qui  │
+           │           est définie dans le          │
+           │           descripteur de déploiement   │
+           │           d'une application. Utilisez  │
+           │           plutôt la sous-commande      │
+           │           set-web-context-param(1) à   │
+           │           cette fin.                   │
+           └────────────────────────────────────────┘
+
+       Cette sous-commande permet de modifier la configuration d'une
+       application déployée, sans qu'il soit nécessaire de modifier les
+       descripteurs de déploiement de l'application ni de repackager et
+       redéployer l'application.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --name
+           Nom du paramètre d'initialisation de contexte de servlet dont la
+           définition doit être annulée. Ce paramètre doit avoir été
+           préalablement défini à l'aide de la sous-commande
+           set-web-context-param. Sinon, une erreur se produit.
+
+OPÉRANDES
+       application-name
+           Nom de l'application. Ce nom peut être obtenu à partir de la
+           Console d'administration ou à l'aide de la sous-commande
+           list-applications(1).
+
+           L'application doit déjà être déployée. Sinon, une erreur se
+           produit.
+
+       module
+           Chemin relatif du module dans le fichier EAR. Le chemin d'accès au
+           module est spécifié dans l'élément module du fichier
+           application.xml de l'application.
+
+           module est requis uniquement si le paramètre d'initialisation de
+           contexte de servlet s'applique à un module Web d'une application
+           Java EE. S'il est spécifié, module doit suivre application-name,
+           séparés par une barre oblique (/).
+
+           Par exemple, le fichier application.xml pour l'application myApp
+           peut spécifier le module Web suivant :
+
+               <module>
+                   <web>
+                       <web-uri>myWebModule.war</web-uri>
+                   </web>
+               </module>
+           Le module doit être spécifié en tant qu'opérande de cette commande
+           comme myApp/myWebModule.war.
+
+EXEMPLES
+       Exemple 1, Annulation de la définition du paramètre d'initialisation de
+       contexte de servlet pour une application Web
+           Cet exemple annule la définition du paramètre d'initialisation de
+           contexte de servlet javax.faces.STATE_SAVING_METHOD de
+           l'application Web basic-ezcomp. La valeur du paramètre qui est
+           définie dans le descripteur de déploiement de l'application est
+           rétablie, le cas échéant.
+
+               asadmin> unset-web-context-param
+               --name=javax.faces.STATE_SAVING_METHOD basic-ezcomp
+
+               Command unset-web-context-param executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       list-applications(1), list-web-context-param(1),
+       set-web-context-param(1)
+
+       asadmin(1M)
+
+                                                           UNSET-WEB-CONTEXT()

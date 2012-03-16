@@ -1,0 +1,68 @@
+DELETE-PROTOCOL-FI(1)                                    DELETE-PROTOCOL-FI(1)
+
+NOME
+       delete-protocol-filter - rimuove un filtro di protocollo
+
+SINTASSI
+           delete-protocol-filter [--help]
+           --protocol protocol-name
+           [--target server]
+           protocol-filter-name
+
+DESCRIZIONE
+       Il comando secondario delete-protocol-filter rimuove il filtro di
+       protocollo specificato. Questo comando secondario è supportato solo in
+       modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --protocol-name
+           Nome del protocollo associato.
+
+       --target
+           Elimina il filtro di protocollo solo dalla destinazione
+           specificata. I valori validi sono i seguenti:
+
+           server
+               Elimina il filtro di protocollo dall'istanza server
+               predefinita. Questo è il valore predefinito.
+
+           configuration-name
+               Elimina il filtro di protocollo dalla configurazione
+               specificata.
+
+           cluster-name
+               Elimina il filtro di protocollo da tutte le istanze server nel
+               cluster specificato.
+
+           standalone-instance-name
+               Elimina il filtro di protocollo dall'istanza server standalone
+               specificata.
+
+OPERANDI
+       protocol-filter-name
+           Nome del filtro di protocollo da eliminare.
+
+ESEMPI
+       Esempio 1, Eliminazione di un filtro di protocollo
+           Il seguente comando elimina il filtro di protocollo denominato
+           http1-filter:
+
+               asadmin> delete-protocol-filter --protocol http1 http1-filter
+               Command delete-protocol-filter executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-protocol-filter(1), list-protocol-filters(1)
+
+       asadmin(1M)
+
+                                11 ottobre 2010          DELETE-PROTOCOL-FI(1)
