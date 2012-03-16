@@ -1,0 +1,41 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
+Use is subject to License Terms  -->
+<p><a id="ref-ejbgeneralproperties" name="ref-ejbgeneralproperties"></a></p>
+
+<h4>Propriet&agrave; specifiche del contenitore EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Le propriet&agrave; riportate di seguito sono disponibili per la configurazione del contenitore EJB. Per ulteriori informazioni, vedere <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ThreadPoolExecutor.html"><code>http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ThreadPoolExecutor.html</code></a>.</p>
+<dl>
+<dt><code>thread-core-pool-size</code></dt>
+<dd>
+<p>Specifica il numero di thread principali nel pool di thread comune del contenitore EJB. Il valore predefinito &egrave; <code>16</code>.</p>
+</dd>
+<dt><code>thread-max-pool-size</code></dt>
+<dd>
+<p>Specifica il numero massimo di thread nel pool di thread comune del contenitore EJB. Il valore predefinito &egrave; <code>32</code>.</p>
+</dd>
+<dt><code>thread-queue-capacity</code></dt>
+<dd>
+<p>Specifica la dimensione della coda del pool di thread, in cui vengono memorizzate le nuove richieste se pi&ugrave; thread <code>thread-core-pool-size</code> sono in esecuzione. Il valore predefinito &egrave; <code>Integer.MAX_VALUE</code>.</p>
+</dd>
+<dt><code>thread-keep-alive-seconds</code></dt>
+<dd>
+<p>Specifica il periodo di tempo, espresso in secondi, trascorso il quale i thread in eccesso in <code>thread-core-pool-size</code> vengono interrotti. Il valore predefinito &egrave; <code>60</code>.</p>
+</dd>
+<dt><code>allow-core-thread-timeout</code></dt>
+<dd>
+<p>Se l'impostazione &egrave; <code>true</code>, tutti i thread, anche i thread principali, sono soggetti ad interruzione trascorsi i secondi specificati in <code>thread-keep-alive-seconds</code>. Il valore predefinito &egrave; <code>false</code>.</p>
+</dd>
+<dt><code>prestart-all-core-threads</code></dt>
+<dd>
+<p>Se l'impostazione &egrave; <code>true</code>, vengono avviati tutti i thread principali inclusi nel pool di thread comune del contenitore EJB. Essi rimarranno inattivi in attesa di richieste. Se l'impostazione &egrave; <code>false</code>, i thread non vengono avviati finch&eacute; non arriva una nuova richiesta. Il valore predefinito &egrave; <code>false</code>.</p>
+</dd>
+</dl>
+
+
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

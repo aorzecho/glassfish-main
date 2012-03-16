@@ -1,0 +1,93 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
+Use is subject to License Terms  -->
+<p><a id="task-httplistenerssl" name="task-httplistenerssl"></a></p>
+
+<h4><a id="sthref31" name="sthref31"></a><a id="sthref32" name="sthref32"></a>Modificare le impostazioni SSL per un listener HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a><a id="sthref33" name="sthref33"></a>
+<h5>Prima di iniziare</h5>
+<p>Questo task risulta fondamentale solo se per il protocollo &egrave; stata abilitata la sicurezza.</p>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione, espandere il nodo Servizio HTTP.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione di rete, selezionare il nodo Listener HTTP.</p>
+<p>Viene visualizzata la pagina Listener HTTP.</p>
+</li>
+<li>
+<p>Nella pagina Listener HTTP, fare clic sul nome del listener da modificare.</p>
+<p>Viene visualizzata la pagina Modifica listener HTTP.</p>
+</li>
+<li>
+<p>Nella pagina Modifica listener HTTP, fare clic sulla scheda SSL.</p>
+<p>Viene visualizzata la pagina SSL.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo SSL3 abilitato per abilitare SSL3.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo TLS abilitato per abilitare TLS (Transport Layer Security).</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Autenticazione client abilitata per richiedere l'identificazione dei client a ogni richiesta del server.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Pseudonimo certificato, immettere lo pseudonimo del certificato del server nel database dei certificati o nel token PKCS#11.</p>
+<p>Nel certificato, il formato del nome &egrave; <i>tokenname</i><code>:</code><i>nickname</i>. L'inclusione della porzione <i>tokenname</i><code>:</code> del nome in questo attributo &egrave; facoltativa.</p>
+</li>
+<li>
+<p>Nel campo Keystore, immettere il nome del file keystore (ad esempio <code>keystore.jks</code>).</p>
+</li>
+<li>
+<p>Nel campo Algoritmo di protezione, immettere il nome dell'algoritmo di gestione attendibile (ad esempio PKIX) da utilizzare per la convalida del percorso di certificazione.</p>
+</li>
+<li>
+<p>Nel campo Lunghezza massima certificato, immettere il numero massimo di certificati intermedi non autoemessi che possono essere presenti in un percorso di certificazione.</p>
+<p>Il campo viene utilizzato solo se il campo Algoritmo di protezione &egrave; impostato su PKIX. Il valore 0 indica che il percorso pu&ograve; contenere un solo certificato. Il valore -1 indica che la lunghezza del percorso non &egrave; vincolata (non esiste un valore massimo). Se si imposta un valore inferiore a -1, viene generata un'eccezione.</p>
+</li>
+<li>
+<p>Nel campo Truststore immettere il nome del file (ad esempio <code>cacerts.jks</code>).</p>
+</li>
+<li>
+<p>Nell'area Suite di cifratura specificare i pacchetti di crittografia da utilizzare.</p>
+<p>Se non si aggiunge alcun pacchetto di crittografia, verranno utilizzati tutti quelli disponibili.</p>
+</li>
+<li>
+<p>Fare clic su OK.</p>
+</li>
+</ol>
+<a id="sthref34" name="sthref34"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-httplistenernew.html">Creare un listener HTTP</a></p>
+</li>
+<li>
+<p><a href="task-httplisteneredit.html">Modificare un listener HTTP</a></p>
+</li>
+<li>
+<p><a href="task-httplistenerdelete.html">Eliminare un listener HTTP</a></p>
+</li>
+<li>
+<p><a href="task-virtualservercreate.html">Creare un server virtuale</a></p>
+</li>
+<li>
+<p><a href="task-networklistenernew.html">Creare un listener di rete</a></p>
+</li>
+<li>
+<p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP per un protocollo</a></p>
+</li>
+</ul>
+
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

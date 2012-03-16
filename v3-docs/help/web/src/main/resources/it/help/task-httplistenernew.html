@@ -1,0 +1,95 @@
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
+Use is subject to License Terms  -->
+<p><a id="task-httplistenernew" name="task-httplistenernew"></a></p>
+
+<h4><a id="sthref23" name="sthref23"></a>Creare un listener HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione, espandere il nodo Servizio HTTP.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione di rete, selezionare il nodo Listener HTTP.</p>
+<p>Viene visualizzata la pagina Listener HTTP.</p>
+</li>
+<li>
+<p>Nella pagina Listener HTTP, fare clic su Nuovo.</p>
+<p>Viene visualizzata la pagina Nuovo listener HTTP.</p>
+</li>
+<li>
+<p>Nel campo Nome, digitare un nome per il listener HTTP.</p>
+<p>Un nome di listener HTTP non pu&ograve; iniziare con un numero.</p>
+</li>
+<li>
+<p>Nel campo Porta digitare il numero della porta di ascolto desiderato per il listener HTTP.</p>
+<p>Sono consentiti valori compresi tra 1 e 65535. In un sistema UNIX, per creare socket in ascolto sulle porte comprese tra 1 e 1024 sono necessari i privilegi di utente privilegiato.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Stato abilitato per abilitare il listener HTTP.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita. Se il listener &egrave; disabilitato, ogni tentativo di connessione al listener genera un'eccezione nel socket (<code>java.net.ConnectException</code>).</p>
+<p>Nelle versioni di GlassFish Server anteriori alla 9.1, in caso di listener con attributo Abilitato impostato su False, veniva restituito un codice di risposta 404 per ogni richiesta inviata. Per ottenere questo funzionamento nella versione corrente di GlassFish Server, impostare lo stato del listener su Abilitato e lo stato di ciascun server virtuale associato su OFF. Un server virtuale elenca i listener ad esso associati nel relativo elenco a discesa Listener di rete (un listener HTTP &egrave; un tipo di listener di rete).</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Sicurezza abilitata per abilitare la sicurezza per il listener HTTP.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Listener JK abilitato per impostare nel listener il supporto del protocollo <code>mod-jk</code> di Apache.</p>
+<p>Il protocollo <code>mod-jk</code> &egrave; un protocollo di comunicazione/rete proprietario tra <code>httpd</code> (server Web) di Apache e un'istanza backend di &amp;ProductName. Se il listener supporta il protocollo, tutto il contenuto statico dovrebbe essere gestito mediante <code>httpd</code>, mentre le richieste di risorse dinamiche (ad esempio servlet e pagine JSP) vengono reindirizzate al listener HTTP abilitato <code>mod-jk</code> di GlassFish Server tramite il protocollo <code>mod-jk</code>. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Indirizzo, digitare l'indirizzo IP di ascolto desiderato per il listener HTTP.</p>
+<p>L'indirizzo pu&ograve; essere specificato utilizzando la notazione per indirizzi IPv6 o dotted-pair. &Egrave; possibile specificare <code>any</code> (per <code>INADDR_ANY</code>) per impostare tutti gli indirizzi IP per l'ascolto. Pu&ograve; essere costituito da un nome host.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Server virtuale predefinito, selezionare il server virtuale da associare a questo listener HTTP.</p>
+<p>Nella pagina Server virtuali &egrave; possibile definire server virtuali.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Pool di thread, selezionare il pool di thread da associare al listener HTTP.</p>
+<p>In genere si seleziona uno dei due pool di thread configurati durante l'installazione di GlassFish Server.</p>
+</li>
+<li>
+<p>Nel campo Nome server, digitare il nome host da utilizzare negli URL che il server invia al client.</p>
+<p>Se il server utilizza un alias, questo nome corrisponde al nome alias. Se il server non utilizza un alias, lasciare vuoto questo campo.</p>
+<p>Questo valore ha effetto sugli URL generati automaticamente dal server ma non sugli URL relativi a directory e file memorizzati nel server. Se il server utilizza un alias, il nome del server deve corrispondere al nome alias. Se vengono aggiunti i due punti e il numero della porta, tale porta viene utilizzata negli URL che il server invia al client.</p>
+</li>
+<li>
+<p>Fare clic su OK.</p>
+</li>
+</ol>
+<a id="sthref24" name="sthref24"></a>
+<h5>Passi successivi</h5>
+<p>Se per il listener HTTP &egrave; stata abilitata la sicurezza &egrave; possibile utilizzare la scheda SSL per modificare le impostazioni SSL del listener HTTP.</p>
+<p>Un listener HTTP &egrave; un tipo di listener di rete. Per accedere alle funzioni avanzate, &egrave; possibile modificare un listener HTTP utilizzando le pagine Listener di rete.</p>
+<a id="sthref25" name="sthref25"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-httplisteneredit.html">Modificare un listener HTTP</a></p>
+</li>
+<li>
+<p><a href="task-httplistenerdelete.html">Eliminare un listener HTTP</a></p>
+</li>
+<li>
+<p><a href="task-httplistenerssl.html">Modificare le impostazioni SSL per un listener HTTP</a></p>
+</li>
+<li>
+<p><a href="task-virtualservercreate.html">Creare un server virtuale</a></p>
+</li>
+<li>
+<p><a href="task-networklistenernew.html">Creare un listener di rete</a></p>
+</li>
+<li>
+<p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP per un protocollo</a></p>
+</li>
+</ul>
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
