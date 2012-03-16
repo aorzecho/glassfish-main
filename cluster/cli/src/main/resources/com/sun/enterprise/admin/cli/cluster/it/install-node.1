@@ -1,0 +1,223 @@
+INSTALL-NODE(1)                                                INSTALL-NODE(1)
+
+NOME
+       install-node - installa il software di GlassFish Server sugli host
+       abilitati a SSH specificati
+
+SINTASSI
+           install-node [--help]
+           [--archive archive]
+           [--create={false|true}] [--save[={false|true}]
+           [--installdir as-install-parent]
+           [--sshport ssh-port] [--sshuser ssh-user]
+           [--sshkeyfile ssh-keyfile]
+           [--force={false|true}]
+           host-list
+
+DESCRIZIONE
+       Il comando secondario install-node installa il software di GlassFish
+       Server sugli host specificati come operandi del comando secondario.
+       Tale comando secondario richiede la configurazione di SSH (Secure
+       Shell) nell'host in cui è in esecuzione il comando secondario e in
+       ciascun host in cui è stato installato il software di GlassFish Server.
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           È equivalente al comando     │
+           │           secondario                   │
+           │           install-node-ssh(1). Per     │
+           │           installare il software di    │
+           │           GlassFish Server su host che │
+           │           utilizzano il protocollo     │
+           │           remoto DCOM (Distributed     │
+           │           Component Object Model),     │
+           │           utilizzare il comando        │
+           │           secondario                   │
+           │           install-node-dcom(1).        │
+           └────────────────────────────────────────┘
+
+       Se necessario, il comando secondario crea un archivio ZIP del software
+       di GlassFish Server dall'installazione in cui è eseguito il comando
+       secondario. L'archivio non contiene la directory domains o la directory
+       nodes. Tali directory sono sincronizzate dal server di amministrazione
+       del dominio (DAS) quando le istanze sui nodi che rappresentano gli host
+       vengono create e avviate. Il comando secondario non elimina l'archivio
+       dopo l'installazione del software di GlassFish Server dall'archivio
+       negli host specificati.
+
+       Se vengono specificati più host, la configurazione dei seguenti
+       elementi è la stessa in tutti gli host:
+
+       ·   Directory di installazione base
+
+       ·   Porta SSH
+
+       ·   Utente SSH
+
+       ·   File di chiave SSH
+
+       Se il file di chiave SSH non esiste su un host in cui è necessario
+       installare il software di GlassFish Server, il comando secondario viene
+       eseguito in maniera interattiva e richiede una password. Per abilitare
+       l'esecuzione del comando secondario in maniera non interattiva, è
+       necessario soddisfare le seguenti condizioni:
+
+       ·   L'opzione --interactive della utility asadmin(1M) deve essere
+           false.
+
+       ·   L'opzione --passwordfile della utility asadmin deve specificare un
+           password file.
+
+       ·   Il password file deve contenere la voce AS_ADMIN_SSHPASSWORD.
+
+       Il comando secondario non modifica la configurazione del DAS.
+
+       Questo comando secondario è supportato solo in modalità locale.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --archive
+           Il percorso assoluto al file dell'archivio del software GlassFish
+           Server da installare. Se non viene specificato alcun file di
+           archivio, il comando secondario crea un archivio dall'installazione
+           del software di GlassFish Server dal quale è in esecuzione il
+           comando secondario. L'archivio è creato nella directory iniziale
+           dell'utente che sta eseguendo il comando.
+
+       --create
+           Specifica se il comando secondario dovrebbe creare un file di
+           archivio del software di GlassFish Server da installare.
+
+           false
+               Nessun file di archivio creato. Il comando secondario installa
+               il software dal file di archivio esistente specificato
+               dall'opzione --archive (predefinita).
+
+           true
+               Il comando secondario crea un file di archivio
+               dall'installazione del software di GlassFish Server dal quale è
+               in esecuzione il comando secondario.
+
+       --save
+           Specifica se il file di archivio dal quale è installato il software
+           viene salvato dopo l'installazione.
+
+           false
+               Il file di archivio non è salvato. Il comando secondario
+               elimina il file dopo l'installazione del software (opzione
+               predefinita).
+
+           true
+               Il file di archivio è salvato.
+
+       --installdir
+           Percorso assoluto del livello superiore della directory base di
+           installazione in cui è necessario installare il software di
+           GlassFish Server su ciascun host, ad esempio /export/glassfish3/.
+           Se la directory non esiste, essa verrà creata automaticamente dal
+           comando secondario.
+
+           L'utente che esegue questo comando secondario deve possedere un
+           accesso in scrittura alla directory specificata. Altrimenti si
+           verifica un errore.
+
+           Per sovrascrivere un'installazione esistente del software di
+           GlassFish Server, impostare l'opzione --force su true. Se la
+           directory contiene già un'installazione e l'opzione --force è
+           false, si verifica un errore.
+
+           Il valore predefinito è il livello superiore della directory base
+           di installazione del software GlassFish Server nell'host in cui è
+           in esecuzione tale comando secondario.
+
+       --sshport
+           La porta da utilizzare per le connessioni SSH nell'host in cui è
+           necessario installare il software di GlassFish Server. Il valore
+           predefinito è 22.
+
+       --sshuser
+           L'utente nell'host in cui è necessario installare il software di
+           GlassFish Server che esegue il processo per la connessione
+           attraverso SSH all'host. Il valore predefinito è l'utente che
+           esegue tale comando secondario. Per garantire che il DAS possa
+           leggere il file della chiave privata SSH di questo utente,
+           specificare l'utente che esegue il processo DAS.
+
+       --sshkeyfile
+           Percorso assoluto del file della chiave privata SSH per l'utente
+           specificato dall'opzione --sshuser. Il file viene usato per
+           l'autenticazione al daemon sshd nell'host.
+
+           L'utente che esegue questo comando secondario deve poter utilizzare
+           il percorso relativo al file della chiave e leggere tale file.
+
+           Il valore predefinito è un file della chiave nella directory .ssh
+           dell'utente. Se vengono rilevati più file della chiave, il comando
+           secondario utilizza il seguente ordine di preferenza:
+
+            1. id_rsa
+
+            2. id_dsa
+
+            3. identity
+
+       --force
+           Specifica se il comando secondario sovrascrive un'installazione
+           esistente del software di GlassFish Server nella directory
+           specificata dall'opzione --installdir. I possibili valori sono i
+           seguenti:
+
+           false
+               L'installazione esistente non è sovrascritta (opzione
+               predefinita).
+
+           true
+               L'installazione esistente è sovrascritta.
+
+OPERANDI
+       host-list
+           Una lista separata da spazi dei nomi degli host in cui è necessario
+           installare il software di GlassFish Server.
+
+ESEMPI
+       Esempio 1, Installazione del software di GlassFish Server nella
+       posizione predefinita
+           Tale esempio installa il software di GlassFish Server negli host
+           sj03.example.com e sj04.example.com nella posizione predefinita.
+
+               asadmin> install-node sj03.example.com sj04.example.com
+               Created installation zip /home/gfuser/glassfish2339538623689073993.zip
+               Successfully connected to gfuser@sj03.example.com using keyfile /home/gfuser
+               /.ssh/id_rsa
+               Copying /home/gfuser/glassfish2339538623689073993.zip (81395008 bytes) to
+               sj03.example.com:/export/glassfish3
+               Installing glassfish2339538623689073993.zip into sj03.example.com:/export/glassfish3
+               Removing sj03.example.com:/export/glassfish3/glassfish2339538623689073993.zip
+               Fixing file permissions of all files under sj03.example.com:/export/glassfish3/bin
+               Successfully connected to gfuser@sj04.example.com using keyfile /home/gfuser
+               /.ssh/id_rsa
+               Copying /home/gfuser/glassfish2339538623689073993.zip (81395008 bytes) to
+               sj04.example.com:/export/glassfish3
+               Installing glassfish2339538623689073993.zip into sj04.example.com:/export/glassfish3
+               Removing sj04.example.com:/export/glassfish3/glassfish2339538623689073993.zip
+               Fixing file permissions of all files under sj04.example.com:/export/glassfish3/bin
+               Command install-node executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       install-node-dcom(1), install-node-ssh(1), uninstall-node(1),
+       uninstall-node-dcom(1), uninstall-node-ssh(1)
+
+       asadmin(1M)
+
+                                8 dicembre 2011                INSTALL-NODE(1)

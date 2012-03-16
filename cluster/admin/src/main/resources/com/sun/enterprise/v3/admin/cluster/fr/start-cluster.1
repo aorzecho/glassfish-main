@@ -1,0 +1,104 @@
+START-CLUSTER(1)                                              START-CLUSTER(1)
+
+NOM
+       start-cluster - démarre un cluster
+
+SYNOPSIS
+           start-cluster [--help] [--autohadboverride={true|false}]
+           [--verbose={false|true}] cluster-name
+
+DESCRIPTION
+       La sous-commande start-cluster démarre un cluster en démarrant toutes
+       les instances GlassFish Server du cluster qui ne sont pas déjà en cours
+       d'exécution. Cette sous-commande exige la configuration du protocole
+       SSH (Secure Shell) ou du protocole distant DCOM (Distributed Component
+       Object Model) sur l'hôte où le serveur d'administration de domaine
+       (DAS) est exécuté et sur tous les hôtes sur lesquels le cluster réside.
+
+           Note
+           ┌────────────────────────────────────────┐
+           │Remarque                                │
+           │                                        │
+           │           Si toutes les instances      │
+           │           résident sur le même hôte    │
+           │           que le serveur DAS, le       │
+           │           protocole DCOM ou SSH n'est  │
+           │           pas obligatoire. Il est      │
+           │           possible que vous deviez     │
+           │           démarrer un cluster dans     │
+           │           lequel les instances         │
+           │           résident sur des hôtes où le │
+           │           protocole DCOM ou SSH n'est  │
+           │           pas configuré et qui sont    │
+           │           distantes du serveur DAS.    │
+           │           Dans cette situation,        │
+           │           exécutez la sous-commande    │
+           │           start-local-instance(1) pour │
+           │           chaque instance à partir de  │
+           │           l'hôte sur lequel l'instance │
+           │           réside.                      │
+           └────────────────────────────────────────┘
+
+       Vous pouvez exécuter cette sous-commande à partir de n'importe quel
+       hôte pouvant contacter le serveur DAS.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --autohadboverride
+           N'indiquez pas cette option. Elle est conservée à des fins de
+           compatibilité avec les versions antérieures. Si vous indiquez cette
+           option, au lieu de générer une erreur de syntaxe, la sous-commande
+           s'exécute correctement et affiche un message d'avertissement selon
+           lequel l'option est ignorée.
+
+       --verbose
+           Spécifie si des informations de statut supplémentaires s'affichent
+           lorsque le cluster est démarré.
+
+           Les valeurs valides sont les suivantes :
+
+           true
+               Affiche la commande pour démarrer chaque instance du cluster et
+               savoir si la tentative de démarrage de chaque instance a
+               abouti.
+
+           false
+               N'affiche aucune information de statut supplémentaire (par
+               défaut).
+
+OPÉRANDES
+       cluster-name
+           Nom du cluster à démarrer.
+
+EXEMPLES
+       Exemple 1, Démarrage d'un cluster
+           Cet exemple démarre le cluster ymlcluster. Des informations de
+           statut supplémentaires s'affichent lorsque le cluster est démarré.
+
+               asadmin> start-cluster --verbose ymlcluster
+               start-instance yml-i-sr1-usca-02
+               start-instance yml-i-sr1-usca-01
+
+               The command start-instance executed successfully for:
+               yml-i-sr1-usca-02 yml-i-sr1-usca-01
+
+               Command start-cluster executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-cluster(1), delete-cluster(1), list-clusters(1), setup-ssh(1),
+       start-local-instance(1), stop-cluster(1), validate-dcom(1)
+
+       asadmin(1M)
+
+                                  8 déc. 2011                 START-CLUSTER(1)

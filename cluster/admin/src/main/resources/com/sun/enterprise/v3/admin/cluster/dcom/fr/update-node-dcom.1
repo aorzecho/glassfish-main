@@ -1,0 +1,150 @@
+UPDATE-NODE-DCOM(1)                                        UPDATE-NODE-DCOM(1)
+
+NOM
+       update-node-dcom - met à jour les données de configuration d'un noeud
+
+SYNOPSIS
+           update-node-dcom [--help]
+           [--nodehost node-host]
+           [--installdir as-install-parent] [--nodedir node-dir]
+           [--windowsuser windows-user] [--windowsdomain windows-domain]
+           [--force={false|true}]
+           node-name
+
+DESCRIPTION
+       La sous-commande update-node-dcom met à jour les données de
+       configuration d'un noeud. Cette sous-commande exige la configuration du
+       protocole distant DCOM (Distributed Component Object Model) sur l'hôte
+       sur lequel le serveur d'administration de domaine (DAS) est exécuté et
+       sur l'hôte sur lequel le noeud réside. Le protocole DCOM est disponible
+       uniquement sous Windows. Vous pouvez exécuter cette sous-commande à
+       partir de n'importe quel hôte pouvant communiquer avec le serveur DAS.
+
+       Cette sous-commande peut mettre à jour n'importe quel noeud, sans tenir
+       compte du fait qu'il est activé ou non pour la communication à
+       distance. Si le noeud n'est pas activé pour la communication à
+       distance, la sous-commande active la communication DCOM du noeud et met
+       à jour toutes les autres données de configuration spécifiées.
+
+       Les options de cette sous-commande indiquent les nouvelles valeurs des
+       données de configuration du noeud. Par défaut, la valeur existante de
+       la plupart de ces options n'est pas modifiée. Toutefois, si cette
+       sous-commande est exécutée pour activer la communication DCOM pour un
+       noeud, les valeurs par défaut sont appliquées si l'une des options
+       ci-après est omise :
+
+       ·   --windowsuser
+
+       ·   --windowsdomain
+
+       Par défaut, la sous-commande échoue et le noeud n'est pas mis à jour si
+       le serveur DAS ne peut pas contacter l'hôte du noeud via DCOM. Pour
+       forcer la mise à jour du noeud même si l'hôte ne peut pas être contacté
+       via DCOM, définissez l'option --force sur true.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --nodehost
+           Nom de l'hôte sur lequel le noeud sera représenté après sa mise à
+           jour.
+
+       --installdir
+           Chemin complet vers le parent du répertoire d'installation de base
+           du logiciel GlassFish Server sur l'hôte, par exemple,
+           /export/glassfish3/.
+
+       --nodedir
+           Chemin du répertoire devant contenir les instances GlassFish Server
+           créées sur le noeud. Si un chemin d'accès relatif est spécifié, il
+           est relatif au répertoire as-install, as-install correspondant au
+           répertoire d'installation de base du logiciel GlassFish Server sur
+           l'hôte.
+
+       --windowsuser, -w
+           Utilisateur sur l'hôte de ce noeud qui va exécuter le processus de
+           connexion à l'hôte via DCOM. La valeur par défaut varie selon que
+           cette sous-commande est exécutée pour activer la communication DCOM
+           du noeud :
+
+           ·   Si le noeud est déjà activé pour la communication via DCOM, par
+               défaut l'utilisateur n'est pas modifié.
+
+           ·   Si cette sous-commande est exécutée pour activer la
+               communication DCOM du noeud, la valeur par défaut est
+               l'utilisateur qui exécute le processus du serveur DAS.
+
+           Si l'option --nodehost a la valeur localhost, l'option
+           --windowsuser est ignorée.
+
+       --windowsdomain, -d
+           Nom du domaine Windows contenant l'utilisateur que l'option
+           --windowsuser spécifie. La valeur par défaut varie selon que cette
+           sous-commande est exécutée pour activer la communication DCOM du
+           noeud :
+
+           ·   Si le noeud est déjà activé pour la communication via DCOM, par
+               défaut le domaine n'est pas modifié.
+
+           ·   Si cette sous-commande est exécutée pour activer la
+               communication DCOM du noeud, la valeur par défaut est le nom de
+               l'hôte sur lequel la sous-commande est exécutée.
+
+       --force
+           Indique si le noeud est mis à jour même en cas d'échec de la
+           validation de ses paramètres. Pour valider les paramètres d'un
+           noeud, le serveur DAS doit pouvoir contacter l'hôte du noeud
+           via DCOM. Les valeurs possibles sont les suivantes :
+
+           false
+               Le noeud n'est pas mis à jour si la validation de ses
+               paramètres échoue (par défaut).
+
+           true
+               Le noeud est mis à jour, même si la validation de ses
+               paramètres échoue.
+
+OPÉRANDES
+       node-name
+           Nom du noeud à mettre à jour. Le noeud doit exister. Sinon, une
+           erreur se produit.
+
+EXEMPLES
+       Exemple 1, Mise à jour de l'hôte représentée par un noeud
+           Cet exemple met à jour l'hôte que le noeud wpmdl1 représente en lui
+           attribuant la valeur wj01.
+
+               asadmin> update-node-dcom --nodehost wj01 wpmdl1
+               Command update-node-dcom executed successfully.
+
+       Exemple 2, Mise à jour forcée d'un noeud
+           Cet exemple force la mise à jour du noeud xkyd afin de permettre au
+           noeud de communiquer via DCOM.
+
+               asadmin> update-node-dcom --force xkyd
+               Warning: some parameters appear to be invalid.
+               Could not find a remote Glassfish installation on host: xkyd.example.com at
+               C:\glassfish3\glassfish
+               Continuing with node update due to use of --force.
+               Command update-node-dcom executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-node-config(1), create-node-dcom(1), create-node-ssh(1),
+       delete-node-config(1), delete-node-dcom(1), delete-node-ssh(1),
+       install-node(1), install-node-dcom(1), install-node-ssh(1),
+       list-nodes(1), uninstall-node(1), uninstall-node-dcom(1),
+       uninstall-node-ssh(1), update-node-config(1), update-node-ssh(1)
+
+       asadmin(1M)
+
+                                 29 nov. 2011              UPDATE-NODE-DCOM(1)

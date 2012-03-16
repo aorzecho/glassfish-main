@@ -1,0 +1,93 @@
+STOP-CLUSTER(1)                                                STOP-CLUSTER(1)
+
+NOM
+       stop-cluster - arrête un cluster GlassFish Server
+
+SYNOPSIS
+           stop-cluster [--help]
+           [--verbose={false|true}]
+           [--kill={false|true}]
+           [--autohadboverride={true|false}]
+           cluster-name
+
+DESCRIPTION
+       La sous-commande stop-cluster arrête un cluster GlassFish Server en
+       arrêtant toutes les instances GlassFish Server du cluster.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --verbose
+           Indique si d'autres messages de progression concernant le statut
+           des instances dans le cluster s'affichent pendant que le cluster
+           est en cours d'arrêt.
+
+           Les valeurs possibles sont les suivantes :
+
+           true
+               D'autres messages de progression concernant le statut des
+               instances dans le cluster s'affichent.
+
+           false
+               Aucun message de progression concernant le statut des instances
+               dans le cluster ne s'affiche.
+
+       --kill
+           Indique si chaque instance du cluster est arrêtée en utilisant la
+           fonctionnalité du système d'exploitation pour mettre fin au
+           processus de l'instance.
+
+           Les valeurs possibles sont les suivantes :
+
+           false
+               Aucune instance n'est arrêtée. La sous-commande utilise la
+               fonctionnalité de la plate-forme Java pour mettre fin à chaque
+               processus de l'instance (par défaut).
+
+           true
+               Chaque instance est arrêtée. La sous-commande utilise la
+               fonctionnalité du système d'exploitation pour mettre fin à
+               chaque processus de l'instance.
+
+       --autohadboverride
+           N'indiquez pas cette option. Elle est conservée à des fins de
+           compatibilité avec les versions antérieures. Si vous indiquez cette
+           option, au lieu de générer une erreur de syntaxe, la sous-commande
+           s'exécute correctement et affiche un message d'avertissement selon
+           lequel l'option est ignorée.
+
+OPÉRANDES
+       cluster-name
+           Nom du cluster à arrêter.
+
+EXEMPLES
+       Exemple 1, Arrêt d'un cluster
+           Cet exemple arrête le cluster pmdcluster. D'autres messages de
+           progression sur le statut des instances dans le cluster s'affichent
+           pendant que le cluster est en cours d'arrêt.
+
+               asadmin> stop-cluster --verbose pmdcluster
+               stop-instance pmd-i-sj01
+               stop-instance pmd-i-sj02
+
+               The command stop-instance executed successfully for: pmd-i-sj01 pmd-i-sj02
+
+               Command stop-cluster executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-cluster(1), delete-cluster(1), list-clusters(1),
+       start-cluster(1)
+
+       asadmin(1M)
+
+                                 16 déc. 2010                  STOP-CLUSTER(1)

@@ -1,0 +1,219 @@
+CREATE-NODE-SSH(1)                                          CREATE-NODE-SSH(1)
+
+NOME
+       create-node-ssh - crea un nodo abilitato per la comunicazione su SSH
+
+SINTASSI
+           create-node-ssh [--help]
+           --nodehost node-host
+           [--installdir as-install-parent] [--nodedir node-dir]
+           [--sshport ssh-port] [--sshuser ssh-user]
+           [--sshkeyfile ssh-keyfile]
+           [--force={false|true}]
+           [--install={false|true}] [--archive archive]
+           node-name
+
+DESCRIZIONE
+       Il comando secondario create-node-ssh consente di creare un nodo
+       abilitato alla comunicazione su SSH (Secure Shell).
+
+       Un nodo rappresenta un host in cui è installato il software GlassFish
+       Server. È necessario un nodo per ogni host in cui risiedono istanze di
+       GlassFish Server.
+
+       Il server di amministrazione del dominio (DAS) contatta l'host di un
+       nodo SSH tramite il connettore SSH per gestire le istanze di GlassFish
+       Server che risiedono nel nodo. Tuttavia, il DAS non utilizza il
+       connettore SSH per contattare l'host in cui è in esecuzione il DAS,
+       perché il DAS può eseguire localmente tutti i comandi secondari di
+       asadmin.
+
+       Per impostazione predefinita, il comando secondario non riesce e il
+       nodo non viene creato se il DAS non è in grado di contattare l'host del
+       nodo tramite SSH. Per forzare la creazione del nodo nella
+       configurazione del server DAS anche se l'host non può essere contattato
+       tramite SSH, impostare l'opzione --force su true.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --nodehost
+           Nome dell'host che il nodo rappresenta. Il nome dell'host deve
+           essere specificato. Altrimenti si verifica un errore.
+
+       --installdir
+           Percorso completo dell'elemento padre della directory di
+           installazione di base del software di GlassFish Server nell'host,
+           ad esempio /export/glassfish3/. Il valore predefinito è la
+           directory base di installazione predefinita del software GlassFish
+           Server per il DAS. Questo valore predefinito è utile solo se
+           GlassFish Server è installato nello stesso percorso in tutti gli
+           host.
+
+       --nodedir
+           Percorso della directory destinata a contenere le istanze di
+           GlassFish Server create nel nodo. Il valore predefinito è
+           as-install/nodes, dove as-install è la directory base di
+           installazione del software GlassFish Server nell'host. Se viene
+           specificato un percorso relativo, il percorso si riferisce alla
+           directory as-install.
+
+       --sshport
+           Porta da utilizzare per le connessione SSH all'host del nodo. Il
+           valore predefinito è 22. Se l'opzione --nodehost è impostata su
+           localhost-dominio, l'opzione --sshport viene ignorata.
+
+       --sshuser
+           Utente nell'host del nodo che deve eseguire il processo per la
+           connessione all'host tramite SSH. Il valore predefinito è l'utente
+           che esegue il processo DAS. Per garantire che il DAS possa leggere
+           il file della chiave privata SSH di questo utente, specificare
+           l'utente che esegue il processo DAS. Se l'opzione --nodehost è
+           impostata su localhost-dominio, l'opzione --sshuser viene ignorata.
+
+       --sshkeyfile
+           Il percorso assoluto del file della chiave privata SSH per l'utente
+           specificato dall'opzione --sshuser. Questo file viene usato per
+           l'autenticazione al daemon sshd nell'host del nodo.
+
+               Nota
+               ┌────────────────────────────────────────┐
+               │Nota GlassFish Server supporta anche    │
+               │l'autenticazione della password tramite │
+               │la voce AS_ADMIN_SSHPASSWORD del        │
+               │password file. Il password file è       │
+               │specificato nell'opzione --paswordfile  │
+               │della utility asadmin(1M).              │
+               └────────────────────────────────────────┘
+           Se il file della chiave privata SSH è protetto da una passphrase,
+           il password file deve contenere la voce AS_ADMIN_SSHKEYPASSPHRASE.
+
+           Il percorso del file della chiave deve essere raggiungibile dal DAS
+           e il file stesso deve essere leggibile per il DAS.
+
+           Il valore predefinito è un file della chiave contenuto nella
+           directory .ssh dell'utente. Se vengono rilevati più file della
+           chiave, il comando secondario utilizza il seguente ordine di
+           preferenza:
+
+            1. id_rsa
+
+            2. id_dsa
+
+            3. identity
+
+       --force
+           Specifica se il nodo viene creato nella configurazione del DAS
+           anche se la convalida dei relativi parametri non riesce. Per
+           convalidare i parametri di un nodo, il DAS deve poter contattare
+           l'host del nodo tramite SSH. I possibili valori sono i seguenti:
+
+           false
+               Se la convalida dei relativi parametri non riesce, il nodo non
+               viene creato (impostazione predefinita).
+
+           true
+               Il nodo deve essere creato anche se la convalida dei relativi
+               parametri non riesce.
+
+       --install
+           Specifica se il comando secondario deve installare il software
+           GlassFish Server sull'host rappresentato dal nodo.
+
+           I possibili valori sono i seguenti:
+
+           false
+               Il comando secondario non deve installare il software GlassFish
+               Server sull'host (impostazione predefinita).
+
+           true
+               Il comando secondario installa il software GlassFish Server
+               sull'host.
+
+       --archive
+           Il percorso assoluto al file dell'archivio del software GlassFish
+           Server da installare. Se questa opzione viene omessa e l'opzione
+           --install è impostata su true, il comando secondario crea un
+           archivio ZIP del software di GlassFish Server dall'installazione in
+           cui viene eseguito il comando secondario. L'archivio non contiene
+           la directory domains o la directory nodes.
+
+OPERANDI
+       node-name
+           Nome del nodo.
+
+           Il nome deve soddisfare i seguenti requisiti:
+
+           ·   Il nome può contenere solo caratteri ASCII.
+
+           ·   Il nome deve iniziare con una lettera, un numero o un carattere
+               di sottolineatura.
+
+           ·   Il nome può contenere solo i seguenti caratteri:
+
+               ·   Lettere minuscole
+
+               ·   Lettere maiuscole
+
+               ·   Numeri
+
+               ·   Trattino
+
+               ·   Punto
+
+               ·   Carattere di sottolineatura
+
+           ·   Il nome deve essere univoco nel dominio e non deve essere il
+               nome di un altro cluster, di una configurazione denominata, di
+               un'istanza di GlassFish Server o di un nodo.
+
+           ·   Il nome non deve essere domain, server né nessun'altra parola
+               chiave riservata per GlassFish Server.
+
+ESEMPI
+       Esempio 1, Creazione di un nodo
+           In questo esempio viene creato il nodo adc per l'host
+           adc.example.com. Per impostazione predefinita, l'elemento padre
+           della directory di installazione di base del software di GlassFish
+           Server è /export/glassfish3.
+
+               asadmin> create-node-ssh
+               --nodehost adc.example.com
+               --installdir /export/glassfish3 adc
+
+               Command create-node-ssh executed successfully.
+
+       Esempio 2, Forzatura della creazione di un nodo
+           In questo esempio viene forzata la creazione del nodo eg1 per
+           l'host eghost.example.com. Il nodo viene creato nonostante il DAS
+           non sia riuscito a contattare l'host eghost.example.com per
+           convalidare i parametri del nodo.
+
+               asadmin> create-node-ssh --force --nodehost eghost.example.com eg1
+               Warning: some parameters appear to be invalid.
+               Could not connect to host eghost.example.com using SSH.
+               There was a problem while connecting to eghost.example.com:22
+               eghost.example.com
+               Continuing with node creation due to use of --force.
+
+               Command create-node-ssh executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-node-config(1), create-node-dcom(1), delete-node-ssh(1),
+       install-node(1), install-node-ssh(1), list-nodes(1), ping-node-ssh(1),
+       setup-ssh(1), uninstall-node(1), uninstall-node-ssh(1),
+       update-node-ssh(1)
+
+       asadmin(1M)
+
+                                5 gennaio 2012              CREATE-NODE-SSH(1)

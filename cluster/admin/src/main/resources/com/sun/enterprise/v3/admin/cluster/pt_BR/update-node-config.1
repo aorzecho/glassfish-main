@@ -1,0 +1,79 @@
+UPDATE-NODE-CONFIG(1)                                    UPDATE-NODE-CONFIG(1)
+
+NOME
+       update-node-config - atualiza os dados de configuração de um nó
+
+SINOPSE
+           update-node-config [--help]
+           [--nodehost node-host]
+           [--installdir as-install-parent] [--nodedir node-dir]
+           node-name
+
+DESCRIçãO
+       O subcomando update-node-config atualiza os dados de configuração de um
+       nó.
+
+       Este subcomando pode atualizar qualquer nó, a despeito se o nó está
+       ativado para a comunicação remota. Se um nó ativado para comunicação
+       remota for atualizado, tal nó não estará ativado para comunicação
+       remota depois da atualização.
+
+       As opções deste subcomando especificam os novos valores dos dados da
+       configuração do nó. O default para a maioria das opções é o de deixar o
+       valor existente inalterado.
+
+       Este subcomando não requer que o protocolo remoto DCOM (Distributed
+       Component Object Model) ou o SSH (Secure Shell) seja configurado para
+       atualizar o nó. É possível executar esse subcomando a partir de
+       qualquer host que possa entrar em contato com o DAS.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --nodehost
+           Nome do host que o nó representará depois que o nó for atualizado.
+
+       --installdir
+           The full path to the parent of the base installation directory of
+           the GlassFish Server software on the host, for example,
+           /export/glassfish3.
+
+       --nodedir
+           O caminho para o diretório que contém as instâncias GlassFish
+           Server que são criadas no nó. Se for especificado um caminho
+           relativo, o caminho será relativo para o diretório as-install, onde
+           as-install corresponde ao diretório de instalação base do software
+           do GlassFish Server no host.
+
+OPERANDOS
+       node-name
+           Nome do nó a ser atualizado. O nó já deve existir. Caso contrário,
+           ocorre um erro.
+
+EXEMPLOS
+       Exemplo 1, Atualizando o host que um nó representa
+           Este exemplo atualiza o host que o nó sj04 representa para hsj04.
+
+               asadmin> update-node-config --nodehost hsj04 sj04
+               Command update-node-config executed successfully.
+
+STATUS DE SAíDA
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       create-node-config(1), create-node-dcom(1), create-node-ssh(1),
+       delete-node-config(1), delete-node-dcom(1), delete-node-ssh(1),
+       install-node(1), install-node-dcom(1), install-node-ssh(1),
+       list-nodes(1), uninstall-node(1), uninstall-node-dcom(1),
+       uninstall-node-ssh(1), update-node-dcom(1), update-node-ssh(1)
+
+       asadmin(1M)
+
+                             8 de dezembro de 2011       UPDATE-NODE-CONFIG(1)

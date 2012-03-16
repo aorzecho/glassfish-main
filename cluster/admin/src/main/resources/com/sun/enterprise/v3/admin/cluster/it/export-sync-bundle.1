@@ -1,0 +1,142 @@
+EXPORT-SYNC-BUNDLE(1)                                    EXPORT-SYNC-BUNDLE(1)
+
+NOME
+       export-sync-bundle - esporta i dati di configurazione di un cluster o
+       di un'istanza standalone in un file di archivio
+
+SINTASSI
+           export-sync-bundle [--help]
+           --target target
+           [--retrieve={false|true}]
+           [file-name]
+
+DESCRIZIONE
+       Il comando secondario export-sync-bundle consente di esportare i dati
+       di configurazione di un cluster o di un'istanza standalone in un file
+       di archivio. Il file di archivio può quindi essere utilizzato con il
+       comando secondario import-sync-bundle(1) per ripristinare i dati di
+       configurazione.
+
+       L'importazione di dati di configurazione di un'istanza consente di
+       trasferire i dati in un host per un'istanza senza la necessità che
+       questa sia in grado di comunicare con il server di amministrazione del
+       dominio (DAS). L'importazione di dati di configurazione di un'istanza è
+       solitamente richiesta per i seguenti motivi:
+
+       ·   Per ristabilire l'istanza dopo un aggiornamento
+
+       ·   per sincronizzare manualmente l'istanza con il DAS quando l'istanza
+           non può contattare il DAS
+
+       Il comando secondario consente di creare un archivio che contiene,
+       nella directory di dominio corrente, i file e le directory riportate di
+       seguito.
+
+       ·   Tutti i file nelle seguenti directory:
+
+           ·   config
+
+           ·   docroot
+
+       ·   L'intero contenuto delle seguenti directory e delle relative
+           sottodirectory:
+
+           ·   applications
+
+           ·   config/target, dove target rappresenta il cluster o l'istanza
+               standalone per la quale i dati di configurazione vengono
+               esportati
+
+           ·   generated
+
+           ·   lib
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Il cluster o l'istanza standalone per cui i dati di configurazione
+           vengono esportati. L'opzione --target è obbligatoria.
+
+           Questa opzione non deve specificare un'istanza in cluster GlassFish
+           Server. Se tale opzione specifica un'istanza in cluster, si
+           verifica un errore. Per esportare dati di configurazione per
+           un'istanza in cluster, specificare il nome del cluster a cui tale
+           istanza appartiene, non l'istanza stessa.
+
+       --retrieve
+           Specifica se il file di archivio viene scaricato dall'host DAS
+           all'host in cui è eseguito il comando secondario.
+
+           I possibili valori sono i seguenti:
+
+           true
+               Il file di archivio viene scaricato dall'host in cui è eseguito
+               il comando secondario.
+
+           false
+               Il file di archivio non viene scaricato e rimane sull'host DAS
+               (predefinito).
+
+OPERANDI
+       file-name
+           Il nome del file e la posizione del file di archivio verso cui
+           esportare i dati.
+
+           Il valore predefinito dipende dall'impostazione dell'opzione
+           --retrieve:
+
+           ·   Se l'opzione --retrieve è impostata su false, il valore
+               predefinito è sync/target-sync-bundle.zip nella directory di
+               dominio corrente.
+
+           ·   Se l'opzione --retrieve è impostata su true, il valore
+               predefinito è target-sync-bundle.zip nella directory di lavoro
+               corrente.
+
+           L'elemento target rappresenta il cluster o l'istanza standalone
+           specificati dall'opzione --target.
+
+           Se viene specificato un percorso relativo, la directory a cui il
+           percorso viene aggiunto dipende dall'impostazione dell'opzione
+           --retrieve:
+
+           ·   Se l'opzione --retrieve è impostata su false, il percorso viene
+               aggiunto alla sottodirectory config della directory di dominio
+               corrente.
+
+           ·   Se l'opzione --retrieve è impostata su true, il percorso viene
+               aggiunto alla directory di lavoro corrente.
+
+           Se una directory esistente viene specificata senza un nome file, il
+           nome file del file di archivio è target-sync-bundle.zip, dove
+           target rappresenta il cluster o l'istanza standalone che l'opzione
+           --target specifica.
+
+ESEMPI
+       Esempio 1, Esportazione dei dati di configurazione di un cluster
+           Questo esempio esporta i dati di configurazione del cluster
+           pmdcluster.
+
+               asadmin> export-sync-bundle --target=pmdcluster
+               Sync bundle: /export/glassfish3/glassfish/domains/domain1/sync/
+               pmdcluster-sync-bundle.zip
+
+               Command export-sync-bundle executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       import-sync-bundle(1)
+
+       asadmin(1M)
+
+                                7 dicembre 2010          EXPORT-SYNC-BUNDLE(1)

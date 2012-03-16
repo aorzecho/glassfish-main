@@ -1,0 +1,77 @@
+LIST-CLUSTERS(1)                                              LIST-CLUSTERS(1)
+
+名前
+       list-clusters - ドメイン内の既存のクラスタを一覧表示します
+
+概要
+           list-clusters [--help] [target]
+
+説明
+       list-clustersサブコマンドは、ドメイン内の既存のクラスタを一覧表示します。リストは、クラスタ、インスタンス、ノード、または構成でフィルタできます。表示された各クラスタに対して、サブコマンドによってクラスタが実行中かどうかを一覧表示できます。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+オペランド
+       target
+           クラスタを一覧表示するターゲットを指定することで、クラスタのリストをフィルタします。有効な値は次のとおりです:
+
+           domain
+               ドメイン内のすべてのクラスタを一覧表示します(デフォルト)。
+
+           cluster-name
+               指定したクラスタのみを一覧表示します。
+
+           instance-name
+               指定したインスタンスが所属するクラスタを一覧表示します。
+
+           node-name
+               指定したノードに存在するインスタンスを含むクラスタを一覧表示します。たとえば、クラスタ
+               pmdc内のインスタンスpmdi1と、クラスタymlc内のインスタンスymli1がノードn1に存在する場合は、pmdcと
+               ymlcが一覧表示されます。
+
+           configuration-name
+               名前付き構成によって構成が定義されたインスタンスを含むすべてのクラスタを一覧表示します。
+
+例
+       例 1, ドメイン内のすべてのクラスタの一覧表示
+           この例では、現在のドメイン内のすべてのクラスタを一覧表示します。
+
+               asadmin> list-clusters
+               pmdclust not running
+               ymlclust not running
+
+               Command list-clusters executed successfully.
+
+       例 2, クラスタのステータスの表示
+           この例では、クラスタymlclustのステータスを表示します。このクラスタは実行されていません。
+
+               asadmin> list-clusters ymlclust
+               ymlclust not running
+
+               Command list-clusters executed successfully.
+
+       例 3, ノードに関連付けられたすべてのクラスタの一覧表示
+           この例では、ノードsj02上にあるインスタンスを含むクラスタを一覧表示します。
+
+               asadmin> list-clusters sj02
+               ymlclust not running
+
+               Command list-clusters executed successfully.
+
+終了ステータス
+       0
+           コマンドは正常に実行されました
+
+       1
+           コマンドの実行時にエラーが発生しました
+
+関連項目
+       create-cluster(1), delete-cluster(1), start-cluster(1), stop-cluster(1)
+
+       asadmin(1M)
+
+                                 2010年9月9日                 LIST-CLUSTERS(1)

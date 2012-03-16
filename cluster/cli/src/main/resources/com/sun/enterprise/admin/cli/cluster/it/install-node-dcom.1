@@ -1,0 +1,208 @@
+INSTALL-NODE-DCOM(1)                                      INSTALL-NODE-DCOM(1)
+
+NOME
+       install-node-dcom - installa il software di GlassFish Server sugli host
+       abilitati a DCOM specificati
+
+SINTASSI
+           install-node-dcom [--help]
+           [--archive archive]
+           [--create={false|true}] [--save[={false|true}]
+           [--installdir as-install-parent]
+           [--windowsuser windows-user] [--windowsdomain windows-domain]
+           [--force={false|true}]
+           host-list
+
+DESCRIZIONE
+       Il comando secondario install-node-dcom installa il software di
+       GlassFish Server sugli host specificati come operandi del comando
+       secondario. Tale comando secondario richiede la configurazione del
+       protocollo remoto DCOM (Distributed Component Object Model) nell'host
+       in cui è in esecuzione il comando secondario e in ciascun host in cui è
+       stato installato il software di GlassFish Server. Il protocollo DCOM è
+       disponibile solo su sistemi Windows.
+
+           Nota
+           ┌──────────────────────────────────────┐
+           │Nota                                  │
+           │                                      │
+           │           Per installare il software │
+           │           di GlassFish Server sugli  │
+           │           host che utilizzano SSH    │
+           │           (Secure Shell), utilizzare │
+           │           il comando secondario      │
+           │           install-node-ssh(1).       │
+           └──────────────────────────────────────┘
+
+       Se necessario, il comando secondario crea un archivio ZIP del software
+       di GlassFish Server dall'installazione in cui è eseguito il comando
+       secondario. L'archivio non contiene la directory domains o la directory
+       nodes. Tali directory sono sincronizzate dal server di amministrazione
+       del dominio (DAS) quando le istanze sui nodi che rappresentano gli host
+       vengono create e avviate. Il comando secondario non elimina l'archivio
+       dopo l'installazione del software di GlassFish Server dall'archivio
+       negli host specificati.
+
+       Se vengono specificati più host, la configurazione dei seguenti
+       elementi è la stessa in tutti gli host:
+
+       ·   Directory di installazione base
+
+       ·   Utente Windows
+
+       ·   Dominio Windows
+
+       Per impostazione predefinita, il comando secondario viene eseguito in
+       modo interattivo e richiede di immettere una password per autenticare
+       l'utente Windows su ogni host in cui è stato installato il software di
+       GlassFish Server. Per abilitare l'esecuzione del comando secondario in
+       maniera non interattiva, è necessario soddisfare le seguenti
+       condizioni:
+
+       ·   L'opzione --interactive della utility asadmin(1M) deve essere
+           false.
+
+       ·   L'opzione --passwordfile della utility asadmin deve specificare un
+           password file.
+
+       ·   Il password file deve contenere la voce AS_ADMIN_WINDOWSPASSWORD.
+
+       Il comando secondario non modifica la configurazione del DAS.
+
+       Questo comando secondario è supportato solo in modalità locale.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --archive
+           Il percorso assoluto al file dell'archivio del software GlassFish
+           Server da installare. Se non viene specificato alcun file di
+           archivio, il comando secondario crea un archivio dall'installazione
+           del software di GlassFish Server dal quale è in esecuzione il
+           comando secondario. L'archivio è creato nella directory iniziale
+           dell'utente che sta eseguendo il comando.
+
+       --create
+           Specifica se il comando secondario dovrebbe creare un file di
+           archivio del software di GlassFish Server da installare.
+
+           false
+               Nessun file di archivio creato. Il comando secondario installa
+               il software dal file di archivio esistente specificato
+               dall'opzione --archive (predefinita).
+
+           true
+               Il comando secondario crea un file di archivio
+               dall'installazione del software di GlassFish Server dal quale è
+               in esecuzione il comando secondario.
+
+       --save
+           Specifica se il file di archivio dal quale è installato il software
+           viene salvato dopo l'installazione.
+
+           false
+               Il file di archivio non è salvato. Il comando secondario
+               elimina il file dopo l'installazione del software (opzione
+               predefinita).
+
+           true
+               Il file di archivio è salvato.
+
+       --installdir
+           Percorso assoluto del livello superiore della directory base di
+           installazione in cui è necessario installare il software di
+           GlassFish Server su ciascun host, ad esempio, C:\glassfish3. Se la
+           directory non esiste, essa verrà creata automaticamente dal comando
+           secondario.
+
+           L'utente che esegue questo comando secondario deve possedere un
+           accesso in scrittura alla directory specificata. Altrimenti si
+           verifica un errore.
+
+           Per sovrascrivere un'installazione esistente del software di
+           GlassFish Server, impostare l'opzione --force su true. Se la
+           directory contiene già un'installazione e l'opzione --force è
+           false, si verifica un errore.
+
+           Il valore predefinito è il livello superiore della directory base
+           di installazione del software GlassFish Server nell'host in cui è
+           in esecuzione tale comando secondario.
+
+       --windowsuser, -w
+           L'utente nell'host in cui è necessario installare il software di
+           GlassFish Server che esegue il processo per la connessione
+           attraverso DCOM all'host. Il valore predefinito è l'utente che
+           esegue tale comando secondario.
+
+       --windowsdomain, -d
+           Il nome del dominio Windows che contiene l'utente specificato
+           dall'opzione --windowsuser. Il valore predefinito è il nome
+           dell'host in cui viene eseguito il comando secondario.
+
+       --force
+           Specifica se il comando secondario sovrascrive un'installazione
+           esistente del software di GlassFish Server nella directory
+           specificata dall'opzione --installdir. I possibili valori sono i
+           seguenti:
+
+           false
+               L'installazione esistente non è sovrascritta (opzione
+               predefinita).
+
+           true
+               L'installazione esistente è sovrascritta.
+
+OPERANDI
+       host-list
+           Una lista separata da spazi dei nomi degli host in cui è necessario
+           installare il software di GlassFish Server.
+
+ESEMPI
+       Esempio 1, Installazione del software di GlassFish Server nella
+       posizione predefinita
+           Tale esempio installa il software di GlassFish Server negli host
+           wpmdl1.example.com e wpmdl2.example.com nella posizione
+           predefinita.
+
+           Alcune righe di output sono omesse dall'esempio per favorire la
+           leggibilità.
+
+               asadmin> install-node-dcom wpmdl1.example.com wpmdl2.example.com
+               Created installation zip C:\glassfish8107276692860773166.zip
+               Copying 85760199 bytes..........................................................
+               ....................................
+               WROTE FILE TO REMOTE SYSTEM: C:/glassfish3/glassfish_install.zip and C:/glassfish3/unpack.bat
+               Output from Windows Unpacker:
+
+               C:\Windows\system32>C:
+
+               C:\Windows\system32>cd "C:\glassfish3"
+
+               C:\glassfish3>jar xvf glassfish_install.zip
+                inflated: bin/asadmin
+                inflated: bin/asadmin.bat
+                inflated: glassfish/bin/appclient
+                inflated: glassfish/bin/appclient.bat
+                inflated: glassfish/bin/appclient.js
+                inflated: glassfish/bin/asadmin
+                inflated: glassfish/bin/asadmin.bat
+               ...
+                inflated: mq/lib/props/broker/default.properties
+                inflated: mq/lib/props/broker/install.properties
+
+               Command install-node-dcom executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       install-node-ssh(1), uninstall-node-dcom(1)
+
+       asadmin(1M)
+
+                                6 dicembre 2011           INSTALL-NODE-DCOM(1)

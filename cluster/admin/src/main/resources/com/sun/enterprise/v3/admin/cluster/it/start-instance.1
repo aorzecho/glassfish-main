@@ -1,0 +1,161 @@
+START-INSTANCE(1)                                            START-INSTANCE(1)
+
+NOME
+       start-instance - avvia un'istanza di GlassFish Server
+
+SINTASSI
+           start-instance [--help]
+           [--debug={false|true}] [--sync={normal|full|none}]
+           instance-name
+
+DESCRIZIONE
+       Il comando secondario start-instance avvia un'istanza GlassFish Server.
+       Questo comando secondario richiede che il protocollo remoto DCOM
+       (Distributed Component Object Model) o SSH (Secure Shell) sia
+       configurato nel computer in cui è in esecuzione il server di
+       amministrazione del dominio (DAS) e nel computer dove risiede
+       l'istanza.
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           Se l'istanza risiede in un   │
+           │           nodo di tipo CONFIG che      │
+           │           rappresenta l'host locale, i │
+           │           protocolli DCOM e SSH        │
+           │           (Secure Shell) non sono      │
+           │           richiesti. Un nodo di        │
+           │           tipoCONFIG non è abilitato   │
+           │           alla comunicazione remota su │
+           │           DCOM o SSH.                  │
+           └────────────────────────────────────────┘
+
+       È possibile eseguire il comando secondario da qualsiasi computer in
+       grado di contattare il DAS.
+
+       Il comando secondario consente di avviare qualsiasi istanza di
+       GlassFish Server, indipendentemente da come è stata creata. Ad esempio,
+       con questo comando secondario è possibile avviare un'istanza creata
+       mediante il comando secondario create-local-instance(1).
+
+       Questo comando è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --debug
+           Specifica se l'istanza viene avviata abilitando il debugger di JPDA
+           (Java Platform Debugger Architecture)
+
+           .
+
+           I possibili valori sono i seguenti:
+
+           true
+               L'istanza è avviata con l'abilitazione di debug JPDA e il
+               numero di porta per il debug JPDA visualizzato.
+
+           false
+               L'istanza viene avviata con la disabilitazione di debug JPDA
+               (valore predefinito).
+
+       --sync
+           Il tipo di sincronizzazione tra il DAS e i file dell'istanza quando
+           l'istanza viene avviata.
+
+           I possibili valori sono i seguenti:
+
+           none
+               Il DAS non sincronizza i file dell'istanza con alcuna modifica.
+               Tale tipo di sincronizzazione riduce il tempo necessario
+               all'avvio dell'istanza.
+
+           normal
+               Il DAS sincronizza l'istanza con le modifiche eseguite
+               dall'ultima sincronizzazione, come segue:
+
+               ·   Per la directory config, il DAS sincronizza l'istanza con
+                   tutte le modifiche.
+
+               ·   Per le directory applications e docroot, solo una modifica
+                   alla sottodirectory di primo livello comporta la
+                   sincronizzazione di tutti i file nella sottodirectory
+                   indicata da parte del DAS.
+
+                   Se un file inferiore alla directory di primo livello viene
+                   modificato senza che venga eseguita la modifica a un file
+                   nella sottodirectory indicata, è necessario eseguire una
+                   sincronizzazione completa. Nelle operazioni classiche, i
+                   file inferiori alle sottodirectory di primo livello di tali
+                   directory non vengono modificati. Se un'applicazione viene
+                   distribuita e non distribuita, non è necessario eseguire
+                   una sincronizzazione completa per aggiornare l'istanza con
+                   la modifica.
+
+               Questo è il valore predefinito.
+
+           full
+               Il DAS sincronizza l'istanza con tutti i file dell'istanza,
+               indipendentemente dalle modifiche eseguite ai file dall'ultima
+               sincronizzazione. Il tipo di sincronizzazione potrebbe
+               provocare il ritardo nell'avvio dell'istanza mentre il DAS
+               aggiorna tutti i file nelle directory dell'istanza.
+
+OPERANDI
+       instance-name
+           Nome dell'istanza GlassFish Server da avviare.
+
+ESEMPI
+       Esempio 1, Eliminazione di un'istanza di GlassFish Server
+           In questo esempio viene avviata l'istanza di GlassFish Server
+           pmdsa1.
+
+               asadmin> start-instance pmdsa1
+               Waiting for the server to start ..............................
+               Successfully started the instance: pmdsa1
+               instance Location: /export/glassfish3/glassfish/nodes/localhost/pmdsa1
+               Log File: /export/glassfish3/glassfish/nodes/localhost/pmdsa1/logs/server.log
+               Admin Port: 24848
+               Command start-local-instance executed successfully.
+               The instance, pmdsa1, was started on host localhost
+
+               Command start-instance executed successfully.
+
+       Esempio 2, Avvio di un'istanza di GlassFish Server con il debug di JPDA
+       abilitato
+           Questo esempio avvia l'istanza del prodotto GlassFish Server ymlsa1
+           con il debug JPDA abilitato.
+
+               asadmin> start-instance --debug=true ymlsa1
+               Waiting for the server to start ...............................
+               Successfully started the instance: ymlsa1
+               instance Location: /export/glassfish3/glassfish/nodes/localhost/ymlsa1
+               Log File: /export/glassfish3/glassfish/nodes/localhost/ymlsa1/logs/server.log
+               Admin Port: 24849
+               Debugging is enabled. The debugging port is: 29010
+               Command start-local-instance executed successfully.
+               The instance, ymlsa1, was started on host localhost
+
+               Command start-instance executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-instance(1), create-local-instance(1), delete-instance(1),
+       delete-local-instance(1), setup-ssh(1), start-domain(1),
+       start-local-instance(1), stop-domain(1), stop-instance(1),
+       stop-local-instance(1), validate-dcom(1)
+
+       asadmin(1M)
+
+       Java Platform Debugger Architecture (JPDA)
+       (http://java.sun.com/javase/technologies/core/toolsapis/jpda/)
+
+                                8 dicembre 2011              START-INSTANCE(1)

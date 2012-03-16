@@ -1,0 +1,49 @@
+GET-HEALTH(1)                                                    GET-HEALTH(1)
+
+NOM
+       get-health - fournit des informations sur l'état du cluster
+
+SYNOPSIS
+           get-health [--help] cluster_name
+
+DESCRIPTION
+       La sous-commande get-health rassemble les informations concernant
+       l'état du cluster. Si le GMS (service de gestion des groupes) n'est pas
+       activé, les informations de base concernant l'exécution ou la
+       non-exécution des instances de serveur dans ce cluster ne sont pas
+       renvoyées. Pour chaque instance de serveur, l'un des états suivants est
+       signalé : not started, started, stopped, rejoined ou failed. Cette
+       sous-commande est disponible en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+OPÉRANDES
+       cluster_name
+           Nom du cluster pour lequel vous voulez les informations d'état.
+           Cette sous-commande vous invite à indiquer le nom de cluster si
+           vous le l'avez pas spécifié.
+
+EXEMPLES
+       Exemple 1, Vérification de l'état des instances de serveur dans un
+       cluster
+
+               asadmin> get-health cluster1
+               instance1 started since Wed Sep 29 16:32:46 EDT 2010
+               instance2 started since Wed Sep 29 16:32:45 EDT 2010
+               Command get-health executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       validate-multicast(1)
+
+       asadmin(1M)
+
+                                 18 nov. 2010                    GET-HEALTH(1)

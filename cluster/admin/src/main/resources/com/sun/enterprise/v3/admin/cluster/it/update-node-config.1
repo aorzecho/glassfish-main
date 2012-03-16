@@ -1,0 +1,83 @@
+UPDATE-NODE-CONFIG(1)                                    UPDATE-NODE-CONFIG(1)
+
+NOME
+       update-node-config - aggiorna i dati di configurazione di un nodo
+
+SINTASSI
+           update-node-config [--help]
+           [--nodehost node-host]
+           [--installdir as-install-parent] [--nodedir node-dir]
+           node-name
+
+DESCRIZIONE
+       Il comando secondario update-node-config aggiorna i dati di
+       configurazione di un nodo.
+
+       Con questo comando secondario è possibile aggiornare qualunque nodo,
+       indipendentemente dall'abilitazione del nodo alla comunicazione remota.
+       Se un nodo abilitato per la comunicazione remota viene aggiornato, dopo
+       l'aggiornamento il nodo non è più abilitato per la comunicazione
+       remota.
+
+       Le opzioni di tale comando secondario specificano i nuovi valori dei
+       dati di configurazione del nodo. Per tali opzioni l'operazione
+       predefinita è quella di non modificare il valore esistente.
+
+       Questo comando secondario non richiede la configurazione di un
+       protocollo remoto DCOM (Distributed Component Object Model) o di SSH
+       (Secure Shell) per aggiornare il nodo. È possibile eseguire il comando
+       secondario da qualunque host in grado di contattare il DAS.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --nodehost
+           Nome dell'host che il nodo deve rappresentare dopo l'aggiornamento.
+
+       --installdir
+           Percorso completo del livello superiore della directory base di
+           installazione del software GlassFish Server nell'host, ad esempio
+           /export/glassfish3.
+
+       --nodedir
+           Percorso della directory destinata a contenere le istanze di
+           GlassFish Server create nel nodo. Se viene specificato un percorso
+           relativo, il percorso si riferisce alla directory as-install, dove
+           as-install
+
+           è la directory base di installazione del software GlassFish Server
+           nell'host.
+
+OPERANDI
+       node-name
+           Il nome del nodo da aggiornare. Il nodo deve essere presente.
+           Altrimenti si verifica un errore.
+
+ESEMPI
+       Esempio 1, Aggiornamento dell'host che un nodo rappresenta
+           Tale esempio mostra l'aggiornamento dell'host che il nodo sj04
+           rappresenta in hsj04.
+
+               asadmin> update-node-config --nodehost hsj04 sj04
+               Command update-node-config executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-node-config(1), create-node-dcom(1), create-node-ssh(1),
+       delete-node-config(1), delete-node-dcom(1), delete-node-ssh(1),
+       install-node(1), install-node-dcom(1), install-node-ssh(1),
+       list-nodes(1), uninstall-node(1), uninstall-node-dcom(1),
+       uninstall-node-ssh(1), update-node-dcom(1), update-node-ssh(1)
+
+       asadmin(1M)
+
+                                8 dicembre 2011          UPDATE-NODE-CONFIG(1)

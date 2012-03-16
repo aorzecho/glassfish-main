@@ -1,0 +1,102 @@
+DELETE-LOCAL-INSTA(1)                                    DELETE-LOCAL-INSTA(1)
+
+NAME
+       delete-local-instance - löscht eine GlassFish Server-Instanz von dem
+       Rechner, auf dem der Unterbefehl ausgeführt wird
+
+ÜBERSICHT
+           delete-local-instance [--help]
+           [--nodedir node-dir] [--node node-name]
+           [instance-name]
+
+BESCHREIBUNG
+       Der Unterbefehl delete-local-instance löscht eine GlassFish
+       Server-Instanz von dem Rechner, auf dem der Unterbefehl ausgeführt
+       wird. Dieser Unterbefehl erfordert nicht, dass das DCOM-(Distributed
+       Component Object Model-) oder das SSH-(Secure Shell-)Remote-Protokoll
+       konfiguriert wird. Sie müssen diesen Befehl auf dem Rechner ausführen,
+       auf dem sich die Instanz befindet.
+
+       Der Unterbefehl kann jede GlassFish Server-Instanz löschen, unabhängig
+       davon, wie sie erstellt wurde. Dieser Unterbefehl kann beispielsweise
+       eine Instanz löschen, die mithilfe des Unterbefehls create-instance(1)
+       erstellt wurde.
+
+       Die Instanz, die gelöscht wird, darf nicht ausgeführt werden.
+       Anderenfalls tritt ein Fehler auf.
+
+       Der Unterbefehl löscht eine Instanz, indem folgende Aktionen ausgeführt
+       werden:
+
+       ·   Entfernen der Instanz aus der Konfiguration des DAS (Domain
+           Administration Server)
+
+       ·   Löschen der Dateien der Instanz aus dem System
+
+       Wenn die Instanz, die gelöscht wird, die einzige Instanz ist, die das
+       Knotenverzeichnis verwendet, wird das Verzeichnis ebenfalls entfernt.
+
+       Wenn eine Standalone-Instanz gelöscht wird, wird die
+       Standalone-Konfiguration der Instanz ebenfalls gelöscht. Eine
+       Standalone-Instanz bezieht sich auf eine Konfiguration namens
+       instance-name-config, auf die sich keine anderen Cluster oder nicht
+       geclusterte Instanzen beziehen.
+
+       Der Unterbefehl delete-local-instance kontaktiert nicht den DAS, um den
+       Knoten zu ermitteln, auf dem sich die Instanz befindet. Um den Knoten
+       zu ermitteln, auf dem sich die Instanz befindet, durchsucht der
+       Unterbefehl das Verzeichnis, in dem sich die Knotenverzeichnisse
+       befinden. Wenn mehrere Knotenverzeichnisse vorhanden sind, muss der
+       Knoten als Option des Unterbefehls angegeben werden.
+
+       Ist kein Operand angegeben und befindet sich nur eine Instanz auf dem
+       angegebenen Knoten, löscht der Unterbefehl die Instanz. Ist kein
+       Operand angegeben und befinden sich mehrere Instanzen auf dem Knoten,
+       tritt ein Fehler auf.
+
+       Dieser Unterbefehl wird nur im Remote-Modus unterstützt.
+
+OPTIONEN
+       --help, -?
+           Zeigt den Hilfetext für den Unterbefehl an.
+
+       --nodedir
+           Gibt das Verzeichnis an, das das Knotenverzeichnis der Instanz
+           enthält. Die Dateien der Instanz werden im Knotenverzeichnis der
+           Instanz gespeichert. Der Standard ist as-install/nodes.
+
+       --node
+           Gibt den Knoten an, auf dem sich die Instanz befindet. Diese Option
+           kann nur ausgelassen werden, wenn das Verzeichnis, das die Option
+           --nodedir angibt, nur ein Knotenverzeichnis enthält. Anderenfalls
+           ist diese Option erforderlich.
+
+OPERANDEN
+       instance-name
+           Der Name der Instanz, die gelöscht werden soll. Dieser Operand kann
+           ausgelassen werden, wenn sich nur eine Instanz auf dem angegebenen
+           Knoten befindet. Anderenfalls ist dieser Operand erforderlich.
+
+BEISPIELE
+       Beispiel 1, Löschen einer Instanz
+           In diesem Beispiel wird die Instanz pmdsainst gelöscht.
+
+               asadmin> delete-local-instance pmdsainst
+
+               Command delete-local-instance executed successfully.
+
+BEENDIGUNGSSTATUS
+       0
+           Befehl erfolgreich ausgeführt
+
+       1
+           Fehler beim Ausführen des Befehls
+
+SIEHE AUCH
+       create-instance(1), create-local-instance(1), delete-instance(1),
+       start-instance(1), start-local-instance(1), stop-instance(1),
+       stop-local-instance(1)
+
+       asadmin(1M)
+
+                                 8. Dez. 2011            DELETE-LOCAL-INSTA(1)

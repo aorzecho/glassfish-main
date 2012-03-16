@@ -1,0 +1,112 @@
+LIST-NODES-SSH(1)                                            LIST-NODES-SSH(1)
+
+NOME
+       list-nodes-ssh - elenca tutti i nodi GlassFish Server che supportano la
+       comunicazione su SSH in un dominio
+
+SINTASSI
+           list-nodes-ssh [--help] [--long={false|true}]
+
+DESCRIZIONE
+       Il comando secondario list-nodes-ssh consente di elencare tutti i nodi
+       GlassFish Server che supportano la comunicazione su SSH (Secure Shell)
+       in un dominio.
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           Per elencare tutti i nodi in │
+           │           un dominio,                  │
+           │           indipendentemente dal tipo   │
+           │           di nodo, eseguire il comando │
+           │           secondario list-nodes(1).    │
+           └────────────────────────────────────────┘
+
+       Per impostazione predefinita, il comando secondario mostra le
+       informazioni seguenti per ciascun nodo elencato:
+
+       ·   Nome del nodo
+
+       ·   Tipo del nodo, ovvero SSH
+
+       ·   Nome dell'host che il nodo rappresenta
+
+       L'opzione --long del comando secondario specifica se i nodi sono
+       elencati in un formato esteso. In formato esteso vengono visualizzate
+       le seguenti informazioni aggiuntive relative a ciascun nodo:
+
+       ·   Percorso del livello superiore della directory base di
+           installazione di GlassFish Server nell'host rappresentato dal nodo
+
+       ·   L'elenco separato da virgole dei nomi delle istanze di GlassFish
+           Server che risiedono nel nodo
+
+       Se l'opzione --terse della utilità asadmin(1M) è true e l'opzione
+       --long del comando secondario è false, il comando secondario elenca
+       solo il nome di ogni nodo.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --long, -l
+           Specifica se i nodi sono elencati in un formato esteso.
+
+           I possibili valori sono i seguenti:
+
+           true
+               I nodi sono elencati in un formato esteso.
+
+           false
+               I nodi sono elencati in un formato corto (opzione predefinita).
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco dei nodi GlassFish Server
+           Questo esempio mostra il nome, il tipo e l'host per tutti i nodi
+           GlassFish Server che supportano la comunicazione su SSH in un
+           dominio.
+
+               asadmin> list-nodes-ssh
+               sj02  SSH  sj02.example.com
+               sj01  SSH  sj01.example.com
+               Command list-nodes-ssh executed successfully.
+
+       Esempio 2, Visualizzazione dell'elenco solo dei nomi dei nodi GlassFish
+       Server
+           Questo esempio utilizza l'opzione --terse della utility asadmin per
+           elencare solo i nomi dei nodi GlassFish Server che supportano la
+           comunicazione su SSH in un dominio.
+
+               asadmin> list-nodes-ssh --terse=true
+               sj02
+               sj01
+
+       Esempio 3, Visualizzazione dell'elenco di nodi GlassFish Server in
+       formato esteso
+           Questo esempio elenca i nodi GlassFish Server che supportano la
+           comunicazione su SSH in un dominio in formato esteso.
+
+               asadmin> list-nodes-ssh --long=true
+               NODE NAME   TYPE   NODE HOST          INSTALL DIRECTORY    REFERENCED BY
+               sj02        SSH    sj02.example.com   /export/glassfish3   pmd-i-sj02, yml-i-sj02
+               sj01        SSH    sj01.example.com   /export/glassfish3   pmd-i-sj01, yml-i-sj01
+               Command list-nodes-ssh executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-node-dcom(1), create-node-config(1), create-node-ssh(1),
+       delete-node-config(1), delete-node-dcom(1), delete-node-ssh(1),
+       list-nodes(1), list-nodes-config(1), list-nodes-dcom(1)
+
+       asadmin(1M)
+
+                                8 dicembre 2011              LIST-NODES-SSH(1)

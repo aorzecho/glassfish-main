@@ -1,0 +1,100 @@
+DELETE-LOCAL-INSTA(1)                                    DELETE-LOCAL-INSTA(1)
+
+NOME
+       delete-local-instance - elimina un'istanza di GlassFish Server dal
+       computer sul quale viene eseguito il comando
+
+SINTASSI
+           delete-local-instance [--help]
+           [--nodedir node-dir] [--node node-name]
+           [instance-name]
+
+DESCRIZIONE
+       Il comando secondario delete-local-instance consente di eliminare
+       un'istanza di GlassFish Server dal computer in cui viene eseguito.
+       Questo comando secondario non richiede la configurazione di un
+       protocollo remoto DCOM (Distributed Component Object Model) o di SSH
+       (Secure Shell). Il comando deve essere eseguito nel computer in cui
+       risiede l'istanza.
+
+       Il comando secondario consente di eliminare qualsiasi istanza di
+       GlassFish Server, indipendentemente da come è stata creata. Ad esempio,
+       con questo comando secondario è possibile eliminare un'istanza creata
+       mediante il comando secondario create-instance(1).
+
+       L'istanza da eliminare non deve essere in esecuzione. Altrimenti si
+       verifica un errore.
+
+       Il comando secondario elimina un'istanza mediante le azioni seguenti:
+
+       ·   Rimozione dell'istanza dalla configurazione del server di
+           amministrazione del dominio (DAS)
+
+       ·   Eliminazione dei file dell'istanza dal file system
+
+       Se l'istanza da eliminare è l'unica istanza a usare la directory del
+       nodo, viene rimossa anche la directory.
+
+       Se si elimina un'istanza standalone, viene eliminata anche la relativa
+       configurazione standalone. Un'istanza standalone si riferisce a una
+       configurazione denominata instance-name-config a cui non fanno
+       riferimento altri cluster o istanze non in cluster.
+
+       Il comando secondario delete-local-instance non contatta il DAS per
+       determinare il nodo in cui risiede l'istanza. Per determinare in quale
+       nodo risiede l'istanza, il comando secondario esegue una ricerca nella
+       directory che contiene le directory dei nodi. Se sono presenti più
+       directory dei nodi, è necessario specificare il nodo come opzione del
+       comando secondario.
+
+       Se non è specificato alcun operando e solo un'istanza risiede nel nodo
+       specificato, il comando secondario elimina l'istanza. Se non è
+       specificato alcun operando e più istanze risiedono nel nodo, si
+       verifica un errore.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --nodedir
+           Specifica la directory che contiene la directory del nodo
+           dell'istanza. I file dell'istanza sono memorizzati nella directory
+           del nodo dell'istanza. Il valore predefinito è as-install/nodes.
+
+       --node
+           Specifica il nodo in cui risiede l'istanza. Questa opzione può
+           essere omessa solo se la directory specificata dall'opzione
+           --nodedir contiene solo una directory di nodo. Altrimenti,
+           l'opzione è necessaria.
+
+OPERANDI
+       instance-name
+           Nome dell'istanza da eliminare. Tale operando può essere omesso se
+           una sola istanza risiede nel nodo specificato. Altrimenti, è
+           necessario l'operando.
+
+ESEMPI
+       Esempio 1, Eliminazione di istanze
+           In questo esempio viene eliminata l'istanza pmdsainst.
+
+               asadmin> delete-local-instance pmdsainst
+
+               Command delete-local-instance executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-instance(1), create-local-instance(1), delete-instance(1),
+       start-instance(1), start-local-instance(1), stop-instance(1),
+       stop-local-instance(1)
+
+       asadmin(1M)
+
+                                8 dicembre 2011          DELETE-LOCAL-INSTA(1)

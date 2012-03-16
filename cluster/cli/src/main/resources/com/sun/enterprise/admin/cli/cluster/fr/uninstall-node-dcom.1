@@ -1,0 +1,154 @@
+UNINSTALL-NODE-DCO(1)                                    UNINSTALL-NODE-DCO(1)
+
+NOM
+       uninstall-node-dcom - désinstalle le logiciel GlassFish Server sur les
+       hôtes compatibles DCOM indiqués
+
+SYNOPSIS
+           uninstall-node-dcom [--help]
+           [--installdir as-install-parent]
+           [--windowsuser windows-user] [--windowsdomain windows-domain]
+           [--force={false|true}]
+           host-list
+
+DESCRIPTION
+       La sous-commande uninstall-node-dcom désinstalle le logiciel GlassFish
+       Server sur les hôtes qui sont spécifiés en tant qu'opérande de la
+       sous-commande. Cette sous-commande exige la configuration du protocole
+       distant DCOM (Distributed Component Object Model) sur l'hôte où la
+       sous-commande est exécutée et sur chaque hôte où le logiciel GlassFish
+       Server est en cours de désinstallation.
+
+           Note
+           ┌───────────────────────────────────────┐
+           │Remarque                               │
+           │                                       │
+           │           Pour désinstaller le        │
+           │           logiciel GlassFish Server   │
+           │           sur les hôtes qui utilisent │
+           │           le protocole SSH (Secure    │
+           │           Shell), utilisez la         │
+           │           sous-commande               │
+           │           uninstall-node-ssh(1).      │
+           └───────────────────────────────────────┘
+
+       Par défaut, si l'un des noeuds, à l'exception du noeud prédéfini
+       localhost-domain, réside sur un hôte à partir duquel le logiciel
+       GlassFish Server est en cours de désinstallation, la sous-commande
+       échoue. Pour désinstaller le logiciel GlassFish Server à partir d'un
+       hôte sur lequel résident des noeuds définis par l'utilisateur,
+       définissez l'option --force sur true. Si l'option --force a la valeur
+       true, la sous-commande enlève l'intégralité du contenu du parent du
+       répertoire d'installation de base.
+
+       Si un fichier sous le parent du répertoire d'installation de base est
+       ouvert, la sous-commande échoue.
+
+       Si plusieurs hôtes sont spécifiés, la configuration des éléments
+       suivants doit être la même sur tous les hôtes :
+
+       ·   Le parent du répertoire d'installation de base pour le logiciel
+           GlassFish Server
+
+       ·   Utilisateur Windows
+
+       ·   Domaine Windows
+
+       La sous-commande ne modifie pas la configuration du serveur
+       d'administration de domaine (DAS).
+
+       Cette sous-commande est prise en charge en mode local uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --installdir
+           Chemin d'accès absolu au parent du répertoire d'installation de
+           base où le logiciel GlassFish Server est installé sur chaque hôte,
+           comme par exemple, C:\glassfish3.
+
+           L'utilisateur qui exécute cette sous-commande doit disposer d'un
+           accès en écriture au répertoire spécifié. Sinon, une erreur se
+           produit.
+
+           Le répertoire spécifié doit contenir l'installation du logiciel
+           GlassFish Server sur l'hôte. Sinon, une erreur se produit.
+
+           La valeur par défaut est le parent du répertoire d'installation de
+           base du logiciel GlassFish Server sur l'hôte où cette sous-commande
+           est exécutée.
+
+       --windowsuser, -w
+           Utilisateur sur l'hôte de ce noeud qui va exécuter le processus de
+           connexion à l'hôte via DCOM. La valeur par défaut est l'utilisateur
+           qui exécute le processus DAS.
+
+       --windowsdomain, -d
+           Nom du domaine Windows contenant l'utilisateur que l'option
+           --windowsuser spécifie. La valeur par défaut est le nom de l'hôte
+           sur lequel la sous-commande est exécutée.
+
+       --force
+           Indique si la sous-commande désinstalle le logiciel GlassFish
+           Server d'un hôte, même si un noeud défini par l'utilisateur réside
+           sur l'hôte. Les valeurs possibles sont les suivantes :
+
+           false
+               Si un noeud défini par l'utilisateur réside sur un hôte, le
+               logiciel n'est pas désinstallé et la sous-commande échoue (par
+               défaut).
+
+               Si l'option --force a la valeur false, la sous-commande enlève
+               uniquement les fichiers du logiciel GlassFish Server. Tout
+               autre type de contenu du parent du répertoire d'installation de
+               base, comme les fichiers de configuration, n'est pas enlevé.
+
+           true
+               La sous-commande désinstalle le logiciel GlassFish Server de
+               l'hôte, même si un noeud défini par l'utilisateur réside sur
+               l'hôte.
+
+               Si l'option --force a la valeur true, la sous-commande enlève
+               l'intégralité du contenu du parent du répertoire d'installation
+               de base.
+
+OPÉRANDES
+       host-list
+           Liste, séparée par des espaces, des noms des hôtes sur lesquels le
+           logiciel GlassFish Server doit être désinstallé.
+
+EXEMPLES
+       Exemple 1, Désinstallation du logiciel GlassFish Server de
+       l'emplacement par défaut
+           Cet exemple désinstalle le logiciel GlassFish Server sur les hôtes
+           wpmdl1.example.com et wpmdl2.example.com à l'emplacement par
+           défaut.
+
+               asadmin> uninstall-node-dcom wpmdl1 wpmdl2
+               Command uninstall-node-dcom executed successfully.
+
+       Exemple 2, Désinstallation forcée du logiciel GlassFish Server
+           Cet exemple désinstalle le logiciel GlassFish Server sur l'hôte
+           xkyd.example.com.
+
+           Le logiciel est désinstallé, même si un noeud défini par
+           l'utilisateur réside sur l'hôte. L'intégralité du contenu du
+           répertoire C:\glassfish3 est enlevé.
+
+               asadmin> uninstall-node-dcom --force --installdir C:\glassfish3 xkyd.example.com
+               Command uninstall-node-dcom executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       install-node-dcom(1), uninstall-node-ssh(1)
+
+       asadmin(1M)
+
+                                  5 jan. 2012            UNINSTALL-NODE-DCO(1)

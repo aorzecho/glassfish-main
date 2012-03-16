@@ -1,0 +1,87 @@
+LIST-CLUSTERS(1)                                              LIST-CLUSTERS(1)
+
+NOM
+       list-clusters - répertorie les clusters existants dans un domaine
+
+SYNOPSIS
+           list-clusters [--help] [target]
+
+DESCRIPTION
+       La sous-commande list-clusters répertorie les clusters existants dans
+       un domaine. La liste peut être filtrée par cluster, instance, noeud ou
+       configuration. Pour chaque cluster répertorié, la sous-commande indique
+       si le cluster est en cours d'exécution.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+OPÉRANDES
+       target
+           Filtre la liste des clusters en spécifiant la cible pour laquelle
+           les clusters doivent être répertoriés. Les valeurs valides sont les
+           suivantes :
+
+           domain
+               Répertorie tous les clusters du domaine (par défaut).
+
+           cluster-name
+               Répertorie uniquement le cluster spécifié.
+
+           instance-name
+               Répertorie le cluster dont l'instance spécifiée est membre.
+
+           node-name
+               Répertorie les clusters contenant une instance qui réside sur
+               le noeud spécifié. Par exemple, si l'instance pmdi1 du cluster
+                pmdc et l'instance ymli1 du cluster ymlc résident sur le noeud
+               n1, pmdc et
+                ymlc sont répertoriés.
+
+           configuration-name
+               Répertorie tous les clusters qui contiennent des instances dont
+               la configuration est définie par la configuration nommée.
+
+EXEMPLES
+       Exemple 1, Liste de tous les clusters d'un domaine
+           Cet exemple répertorie tous les clusters du domaine en cours.
+
+               asadmin> list-clusters
+               pmdclust not running
+               ymlclust not running
+
+               Command list-clusters executed successfully.
+
+       Exemple 2, Affichage du statut d'un cluster
+           Cet exemple affiche le statut du cluster ymlclust, qui n'est pas en
+           cours d'exécution.
+
+               asadmin> list-clusters ymlclust
+               ymlclust not running
+
+               Command list-clusters executed successfully.
+
+       Exemple 3, Liste de tous les clusters associés à un noeud
+           Cet exemple répertorie les clusters contenant une instance qui
+           réside sur le noeud sj02.
+
+               asadmin> list-clusters sj02
+               ymlclust not running
+
+               Command list-clusters executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-cluster(1), delete-cluster(1), start-cluster(1), stop-cluster(1)
+
+       asadmin(1M)
+
+                                 9 sept. 2010                 LIST-CLUSTERS(1)

@@ -1,0 +1,202 @@
+LIST-INSTANCES(1)                                            LIST-INSTANCES(1)
+
+NOM
+       list-instances - répertorie les instances GlassFish Server dans un
+       domaine
+
+SYNOPSIS
+           list-instances [--help] [--timeoutmsec timeout]
+           [--long={false|true} | --nostatus={false|true}]
+           [--standaloneonly={false|true} | target]
+
+DESCRIPTION
+       La sous-commande list-instances répertorie les instances GlassFish
+       Server dans un domaine. La liste peut être filtrée par cluster,
+       instance, noeud ou configuration.
+
+       La sous-commande affiche chaque instance GlassFish Server dans la cible
+       spécifiée, quelle que soit la manière dont chaque instance a été créée.
+       Par exemple, cette sous-commande répertorie les instances créées à
+       l'aide de la sous-commande create-instance(1) et de la sous-commande
+       create-local-instance(1).
+
+       Par défaut, la sous-commande indique si chaque instance répertoriée est
+       en cours d'exécution. Les options de cette sous-commande contrôlent les
+       informations affichées pour chaque instance.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --timeoutmsec
+           Limite de temps en millisecondes pour déterminer le statut des
+           instances. La valeur par défaut est 2 000, ce qui équivaut à
+           2 secondes.
+
+       --long, -l
+           Spécifie si des informations détaillées sont affichées pour chaque
+           instance répertoriée.
+
+           Les options --long et --nostatus sont mutuellement exclusives. Si
+           les deux options sont spécifiées dans la même commande, une erreur
+           se produit.
+
+           Les valeurs valides sont les suivantes :
+
+           true
+               Les informations suivantes sont affichées pour chaque instance
+               répertoriée :
+
+               ·   Le nom de l'instance
+
+               ·   Le nom de l'hôte sur lequel le noeud de l'instance réside
+
+               ·   Le port HTTP sur lequel l'instance écoute les demandes
+                   d'administration
+
+               ·   L'identificateur de processus (PID) de l'instance, ou –1 si
+                   l'instance n'est pas en cours d'exécution
+
+               ·   Le nom du cluster dont l'instance est membre, le cas
+                   échéant
+
+               ·   L'état de l'instance, qui est running ou not running
+
+                   Lorsqu'une instance est répertoriée, certaines
+                   modifications de configuration dans le serveur
+                   d'administration de domaine (DAS) de l'instance peuvent ne
+                   pas être appliquées à l'instance elle-même. Dans cette
+                   situation, les commandes nécessaires à l'application des
+                   modifications sont indiquées en regard de l'état de
+                   l'instance. Le nombre maximal de commandes répertoriées
+                   pour une instance est 10.
+
+           false
+               Seuls le nom de l'instance et une indication que l'instance est
+               en cours d'exécution ou non s'affichent (valeur par défaut). La
+               durée pendant laquelle l'instance a été exécutée n'est pas
+               affichée.
+
+       --nostatus
+           Spécifie si des informations sur le fait que des instances sont en
+           cours d'exécution sont supprimées.
+
+           Les options --long et --nostatus sont mutuellement exclusives. Si
+           les deux options sont spécifiées dans la même commande, une erreur
+           se produit.
+
+           Les valeurs valides sont les suivantes :
+
+           true
+               Les informations sur le fait que des instances sont en cours
+               d'exécution sont supprimées. Seul le nom de chaque instance est
+               affiché.
+
+           false
+               Les informations sur le fait que des instances sont en cours
+               d'exécution sont affichées (par défaut).
+
+       --standaloneonly
+           Indique si seules les instances autonomes sont répertoriées.
+
+           L'option --standaloneonly et l'opérande target sont mutuellement
+           exclusifs. Si l'option --standaloneonly et l'opérande target ne
+           sont pas spécifiés dans la même commande, une erreur se produit.
+
+           Les valeurs valides sont les suivantes :
+
+           true
+               Seules les instances autonomes sont répertoriées.
+
+           false
+               Toutes les instances de la cible spécifiée sont répertoriées
+               (par défaut).
+
+OPÉRANDES
+       target
+           Filtre la liste des instances GlassFish Server en spécifiant la
+           cible pour laquelle les instances sont répertoriées.
+
+           L'opérande target et l'option --standaloneonly sont mutuellement
+           exclusifs. Si l'opérande target et l'option --standaloneonly sont
+           spécifiés dans la même commande, une erreur se produit.
+
+           Les valeurs valides sont les suivantes :
+
+           domain
+               Répertorie toutes les instances dans le domaine (par défaut).
+
+           cluster-name
+               Répertorie les instances membres du cluster spécifié.
+
+           instance-name
+               Répertorie uniquement l'instance spécifiée.
+
+           node-name
+               Répertorie les instances qui résident sur le noeud spécifié.
+
+           configuration-name
+               Répertorie toutes les instances dont la configuration est
+               définie par la configuration nommée spécifiée.
+
+EXEMPLES
+       Exemple 1, Liste des informations de base relatives à toutes les
+       instances GlassFish Server dans un domaine
+           Cet exemple répertorie le nom et le statut de toutes les instances
+           GlassFish Server dans le domaine en cours.
+
+               asadmin> list-instances
+               pmd-i-sj02 running
+               yml-i-sj02 running
+               pmd-i-sj01 running
+               yml-i-sj01 running
+               pmdsa1 not running
+
+               Command list-instances executed successfully.
+
+       Exemple 2, Liste des informations détaillées relatives à toutes les
+       instances GlassFish Server dans un domaine
+           Cet exemple répertorie les informations détaillées sur toutes les
+           instances GlassFish Server dans le domaine en cours.
+
+               asadmin> list-instances --long=true
+               NAME        HOST       PORT   PID    CLUSTER     STATE
+               pmd-i-sj01  sj01       24848  31310  pmdcluster   running
+               yml-i-sj01  sj01       24849  25355  ymlcluster   running
+               pmdsa1      localhost  24848  -1     ---          not running
+               pmd-i-sj02  sj02       24848  22498  pmdcluster   running
+               yml-i-sj02  sj02       24849  20476  ymlcluster   running
+               ymlsa1      localhost  24849  -1     ---          not running
+               Command list-instances executed successfully.
+
+       Exemple 3, Affichage du statut d'une instance
+           Cet exemple affiche le statut de l'instance pmd-i-sj01, qui est en
+           cours d'exécution.
+
+               asadmin> list-instances pmd-i-sj01
+               pmd-i-sj01 running
+               Command list-instances executed successfully.
+
+       Exemple 4, Liste des instances autonomes dans un domaine uniquement
+           Cet exemple répertorie uniquement les instances autonomes dans le
+           domaine en cours.
+
+               asadmin> list-instances --standaloneonly=true
+               pmdsa1 not running
+               Command list-instances executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-instance(1), create-local-instance(1)
+
+       asadmin(1M)
+
+                                 10 déc. 2010                LIST-INSTANCES(1)

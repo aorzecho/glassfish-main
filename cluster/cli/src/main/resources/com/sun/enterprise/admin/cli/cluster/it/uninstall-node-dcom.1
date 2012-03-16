@@ -1,0 +1,156 @@
+UNINSTALL-NODE-DCO(1)                                    UNINSTALL-NODE-DCO(1)
+
+NOME
+       uninstall-node-dcom - disinstalla il software di GlassFish Server dagli
+       host abilitati a DCOM specificati
+
+SINTASSI
+           uninstall-node-dcom [--help]
+           [--installdir as-install-parent]
+           [--windowsuser windows-user] [--windowsdomain windows-domain]
+           [--force={false|true}]
+           host-list
+
+DESCRIZIONE
+       Il comando secondario uninstall-node-dcom disinstalla il software
+       GlassFish Server dagli host specificati come operandi del comando
+       secondario. Tale comando secondario richiede la configurazione del
+       protocollo remoto DCOM (Distributed Component Object Model) nell'host
+       in cui viene eseguito il comando secondario e in ciascun host in cui è
+       stato installato il software di GlassFish Server.
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           Per disinstallare il         │
+           │           software di GlassFish Server │
+           │           sugli host che utilizzano    │
+           │           SSH (Secure Shell),          │
+           │           utilizzare il comando        │
+           │           secondario                   │
+           │           uninstall-node-ssh(1).       │
+           └────────────────────────────────────────┘
+
+       Per impostazione predefinita, se qualsiasi nodo eccetto il dominio del
+       nodo predefinito localhost- risiede su qualsiasi nodo dal quale il
+       software GlassFish Server è stato disinstallato, il comando secondario
+       non viene eseguito correttamente. Per disinstallare il software
+       GlassFish Server da un host sul quale risiedono nodi definiti
+       dall'utente, impostare l'opzione --force su true. Se l'opzione --force
+       è impostata su true, il comando secondario rimuove l'intero contenuto
+       del livello superiore della directory base di installazione.
+
+       Se viene aperto un file nel percorso padre della directory di
+       installazione di base, il comando secondario lo archivia.
+
+       Se vengono specificati host multipli, la configurazione dei seguenti
+       elementi deve corrispondere a quella di tutti gli host:
+
+       ·   Elemento di livello superiore della directory di installazione base
+           del software GlassFish Server.
+
+       ·   Utente Windows
+
+       ·   Dominio Windows
+
+       Il comando secondario non modifica la configurazione del server di
+       amministrazione del dominio (DAS).
+
+       Questo comando secondario è supportato solo in modalità locale.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --installdir
+           Percorso assoluto del livello superiore della directory base di
+           installazione in cui è necessario installare il software di
+           GlassFish Server su ciascun host, ad esempio, C:\glassfish3.
+
+           L'utente che esegue questo comando secondario deve possedere un
+           accesso in scrittura alla directory specificata. In caso contrario
+           si verifica un errore.
+
+           La directory specificata deve contenere l'installazione del
+           software GlassFish Server nell'host. In caso contrario si verifica
+           un errore.
+
+           Il valore predefinito è il livello superiore della directory base
+           di installazione del software GlassFish Server nell'host in cui il
+           comando secondario è in esecuzione.
+
+       --windowsuser, -w
+           Utente nell'host del nodo che deve eseguire il processo per la
+           connessione all'host tramite DCOM. Il valore predefinito è l'utente
+           che esegue il processo DAS.
+
+       --windowsdomain, -d
+           Il nome del dominio Windows che contiene l'utente specificato
+           dall'opzione --windowsuser. Il valore predefinito è il nome
+           dell'host in cui viene eseguito il comando secondario.
+
+       --force
+           Specifica se il comando secondario disinstalla il software
+           GlassFish Server da un host anche se un nodo definito dall'utente
+           si trova su tale host. I possibili valori sono i seguenti:
+
+           false
+               Se un nodo definito dall'utente si trova su un host, il
+               software non è disinstallato e il comando secondario non viene
+               eseguito correttamente (predefinito).
+
+               Se l'opzione --force è impostata su false, il comando
+               secondario rimuove soltanto i file del software GlassFish
+               Server. Non vengono rimossi altri contenuti se rappresentano
+               l'elemento di livello superiore della directory di
+               installazione base, come ad esempio file di configurazione.
+
+           true
+               Il comando secondario disinstalla il software GlassFish Server
+               dall'host anche se un nodo definito dall'utente si trova su
+               tale host.
+
+               Se l'opzione --force è impostata su true, il comando secondario
+               rimuove l'intero contenuto del livello superiore della
+               directory base di installazione.
+
+OPERANDI
+       host-list
+           Elenco separato da spazi dei nomi degli host dai quali è necessario
+           disinstallare il software GlassFish Server.
+
+ESEMPI
+       Esempio 1, Disinstallazione del software GlassFish Server da una
+       posizione predefinita
+           Tale esempio disinstalla il software di GlassFish Server negli host
+           wpmdl1.example.com e wpmdl2.example.com nella posizione
+           predefinita.
+
+               asadmin> uninstall-node-dcom wpmdl1 wpmdl2
+               Command uninstall-node-dcom executed successfully.
+
+       Esempio 2, Disinstallazione forzata del software GlassFish Server
+           In tale esempio viene disinstallato il software GlassFish Server
+           nell'host xkyd.example.com.
+
+           Il software viene disinstallato anche se un nodo definito
+           dall'utente si trova su tale host. L'intero contenuto della
+           directory C:\glassfish3 viene rimosso.
+
+               asadmin> uninstall-node-dcom --force --installdir C:\glassfish3 xkyd.example.com
+               Command uninstall-node-dcom executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       install-node-dcom(1), uninstall-node-ssh(1)
+
+       asadmin(1M)
+
+                                5 gennaio 2012           UNINSTALL-NODE-DCO(1)

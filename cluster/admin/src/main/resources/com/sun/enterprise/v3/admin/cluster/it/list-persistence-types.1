@@ -1,0 +1,81 @@
+LIST-PERSISTENCE-T(1)                                    LIST-PERSISTENCE-T(1)
+
+NOME
+       list-persistence-types - elenca i tipi di persistenza registrati per le
+       sessioni HTTP e le istanze SFSB
+
+SINTASSI
+           list-persistence-types [--help] --type={web|ejb}
+
+DESCRIZIONE
+       Il comando secondario list-persistence-types elenca i tipi di
+       persistenza registrati per le sessioni HTTP e le istanze del bean di
+       sessione con conservazione dello stato (SFSB). I tipi di persistenza
+       integrati sono memory , file e replicated. Il tipo memory non si
+       applica alle istanze SFSB.
+
+       È possibile aggiungere altri tipi di persistenza utilizzando la classe
+       StrategyBuilder. Per ulteriori informazioni, vedere il manuale Oracle
+       GlassFish Server Add-On Component Development Guide.
+
+       Per impostare il tipo di persistenza per le sessioni HTTP, utilizzare
+       il comando secondario set per impostare l'attributo persistence-type.
+       Ad esempio:
+
+           asadmin> set c1-config.availability-service.web-container-availability.persistence-type=file
+
+       Per impostare il tipo di persistenza per le istanze SFSB senza
+       abilitare la disponibilità, utilizzare il comando secondario set per
+       impostare l'attributo sfsb-persistence-type. Ad esempio:
+
+           asadmin> set c1-config.availability-service.ejb-container-availability.sfsb-persistence-type=file
+
+       Per impostare il tipo di persistenza per le istanze SFSB abilitando la
+       disponibilità, utilizzare il comando secondario set per impostare
+       l'attributo sfsb-ha-persistence-type. Ad esempio:
+
+           asadmin> set
+           c1-config.availability-service.ejb-container-availability.sfsb-ha-persistence-type=replicated
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --type
+           Specifica il tipo di sessioni per le quali sono elencati i tipi di
+           persistenza. Di seguito sono riportati i valori validi:
+
+           ·   web — Elenca i tipi di persistenza per le sessioni HTTP.
+
+           ·   ejb — Elenca i tipi di persistenza per le istanze SFSB.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco dei tipi di persistenza per le
+       sessioni HTTP
+           In tale esempio vengono elencati i tipi di persistenza per le
+           sessioni HTTP.
+
+               asadmin> list-persistence-types --type=web
+               memory
+               file
+               replicated
+
+               Command list-persistence-types executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       get(1), set(1), list(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server Add-On Component Development Guide
+
+                               15 dicembre 2010          LIST-PERSISTENCE-T(1)

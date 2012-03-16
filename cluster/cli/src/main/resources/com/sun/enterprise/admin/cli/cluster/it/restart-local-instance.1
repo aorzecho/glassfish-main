@@ -1,0 +1,162 @@
+RESTART-LOCAL-INST(1)                                    RESTART-LOCAL-INST(1)
+
+NOME
+       restart-local-instance - riavvia un'istanza di GlassFish Server in
+       esecuzione sull'host in cui viene eseguito il comando secondario
+
+SINTASSI
+           restart-local-instance [--help]
+           [--nodedir nodedir] [--node node]
+           [--debug={false|true}]
+           [--force={true|false}] [--kill={false|true}]
+           [instance-name]
+
+DESCRIZIONE
+       Il comando secondario restart-local-instance riavvia un'istanza di
+       GlassFish Server sull'host in cui viene eseguito il comando secondario.
+       Questo comando secondario non richiede la configurazione di Secure
+       Shell (SSH). È necessario eseguire tale comando dall'host in cui
+       risiede l'istanza.
+
+       Il comando secondario consente di riavviare qualsiasi istanza di
+       GlassFish Server, indipendentemente da come è stata creata. Ad esempio,
+       con questo comando secondario è possibile riavviare un'istanza creata
+       utilizzando il comando secondario create-instance(1).
+
+       Il comando secondario restart-local-instance non contatta il server di
+       amministrazione del dominio (DAS) per determinare il nodo in cui
+       risiede l'istanza. Per determinare in quale nodo risiede l'istanza, il
+       comando secondario esegue una ricerca nella directory che contiene le
+       directory dei nodi. Se sono presenti più directory dei nodi, è
+       necessario specificare il nodo come opzione del comando secondario.
+
+       Quando tale comando secondario riavvia un'istanza, il DAS sincronizza
+       l'istanza con le modifiche poiché l'ultima sincronizzazione appare come
+       segue:
+
+       ·   Per la directory config, il DAS sincronizza l'istanza con tutte le
+           modifiche.
+
+       ·   Per le directory applications e docroot, solo una modifica alla
+           sottodirectory di primo livello comporta la sincronizzazione di
+           tutti i file nella sottodirectory indicata da parte del DAS.
+
+           Se un file inferiore alla directory di primo livello viene
+           modificato senza che venga eseguita la modifica a un file nella
+           sottodirectory indicata, è necessario eseguire una sincronizzazione
+           completa. Nelle operazioni classiche, i file inferiori alle
+           sottodirectory di primo livello di tali directory non vengono
+           modificati. Se un'applicazione viene distribuita e non distribuita,
+           non è necessario eseguire una sincronizzazione completa per
+           aggiornare l'istanza con la modifica.
+
+       Se è richiesto un diverso comportamento di sincronizzazione, è
+       necessario arrestare e riavviare l'istanza tramite la seguente sequenza
+       di comandi secondari:
+
+        1. stop-local-instance(1)
+
+        2. start-local-instance(1)
+
+       Questo comando secondario è supportato in modalità locale. Tuttavia,
+       per la sincronizzazione dell'istanza con il DAS, è necessario eseguire
+       il comando in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --nodedir
+           Specifica la directory che contiene la directory del nodo
+           dell'istanza. I file dell'istanza sono memorizzati nella directory
+           del nodo dell'istanza. Il valore predefinito è as-install/nodes.
+
+       --node
+           Specifica il nodo in cui risiede l'istanza. Questa opzione può
+           essere omessa solo se la directory specificata dall'opzione
+           --nodedir contiene solo una directory di nodo. Altrimenti,
+           l'opzione è necessaria.
+
+       --debug
+           Specifica se l'istanza viene riavviata abilitando il debugger di
+           JPDA (Java Platform Debugger Architecture)
+
+           .
+
+           I possibili valori sono i seguenti:
+
+           true
+               L'istanza viene riavviata con la funzione di debug JPDA
+               abilitata e viene visualizzato il numero di porta per il debug
+               JPDA.
+
+           false
+               L'istanza viene riavviata con il debug JPDA disattivato
+               (opzione predefinita).
+
+           L'opzione predefinita è quella attualmente impostata nell'opzione
+           per l'istanza in corso di riavvio.
+
+       --force
+           Specifica se l'istanza viene interrotta in modo forzato subito
+           prima del riavvio.
+
+           I possibili valori sono i seguenti:
+
+           true
+               L'istanza viene interrotta in modo forzato subito (impostazione
+               predefinita).
+
+           false
+               Il comando secondario attende che tutti i thread associati con
+               un'istanza siano usciti prima di arrestare l'istanza.
+
+       --kill
+           Specifica se l'istanza viene interrotta prima del riavvio
+           utilizzando la funzionalità del sistema operativo che consente di
+           terminare il processo dell'istanza.
+
+           I possibili valori sono i seguenti:
+
+           false
+               L'istanza non viene interrotta. Il comando secondario utilizza
+               funzionalità della piattaforma Java per terminare il processo
+               dell'istanza (opzione predefinita).
+
+           true
+               L'istanza è interrotta. Il comando secondario utilizza
+               funzionalità del sistema operativo per terminare il processo
+               dell'istanza.
+
+OPERANDI
+       instance-name
+           Nome dell'istanza di GlassFish Server da riavviare. Se l'istanza
+           non è in esecuzione, il comando secondario mostra un messaggio di
+           avvertenza e tenta di avviare l'istanza.
+
+ESEMPI
+       Esempio 1, Riavvio di un'istanza a livello locale
+           L'esempio mostra il riavvio dell'istanza ymlsa1 nel dominio domain1
+           sull'host in cui viene eseguito il comando secondario.
+
+               asadmin> restart-local-instance --node localhost-domain1 ymlsa1
+               Command restart-local-instance executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-instance(1), create-local-instance(1), delete-instance(1),
+       delete-local-instance(1), restart-instance(1), start-instance(1),
+       start-local-instance(1), stop-instance(1), stop-local-instance(1)
+
+       asadmin(1M)
+
+       Java Platform Debugger Architecture (JPDA)
+       (http://java.sun.com/javase/technologies/core/toolsapis/jpda/)
+
+                               11 febbraio 2011          RESTART-LOCAL-INST(1)

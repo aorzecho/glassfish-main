@@ -1,0 +1,199 @@
+UNINSTALL-NODE(1)                                            UNINSTALL-NODE(1)
+
+NOME
+       uninstall-node - disinstalla il software di GlassFish Server dagli host
+       specificati
+
+SINTASSI
+           uninstall-node [--help]
+           [--installdir as-install-parent]
+           [--sshport ssh-port] [--sshuser ssh-user]
+           [--sshkeyfile ssh-keyfile]
+           [--force={false|true}]
+           host-list
+
+DESCRIZIONE
+       Il comando secondario uninstall-node disinstalla il software GlassFish
+       Server dagli host specificati come operandi del comando secondario.
+       Questo comando secondario richiede che Secure Shell (SSH) sia
+       configurato nell'host in cui è in esecuzione il comando secondario e su
+       ciascun host in cui il software GlassFish Server viene disinstallato.
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           È equivalente al comando     │
+           │           secondario                   │
+           │           uninstall-node-ssh(1). Per   │
+           │           disinstallare il software di │
+           │           GlassFish Server su host che │
+           │           utilizzano il protocollo     │
+           │           remoto DCOM (Distributed     │
+           │           Component Object Model),     │
+           │           utilizzare il comando        │
+           │           secondario                   │
+           │           uninstall-node-dcom(1).      │
+           └────────────────────────────────────────┘
+
+       Per impostazione predefinita, se qualsiasi nodo eccetto il dominio del
+       nodo predefinito localhost- risiede su qualsiasi nodo dal quale il
+       software GlassFish Server è stato disinstallato, il comando secondario
+       non viene eseguito correttamente. Per disinstallare il software
+       GlassFish Server da un host sul quale risiedono nodi definiti
+       dall'utente, impostare l'opzione --force su true. Se l'opzione --force
+       è impostata su true, il comando secondario rimuove l'intero contenuto
+       del livello superiore della directory base di installazione.
+
+       Se viene aperto un file nel percorso padre della directory di
+       installazione di base, il comando secondario lo archivia.
+
+       Se vengono specificati host multipli, la configurazione dei seguenti
+       elementi deve corrispondere a quella di tutti gli host:
+
+       ·   Elemento di livello superiore della directory di installazione base
+           del software GlassFish Server.
+
+       ·   Porta SSH
+
+       ·   Utente SSH
+
+       ·   File di chiave SSH
+
+       Il comando secondario non modifica la configurazione del server di
+       amministrazione del dominio (DAS).
+
+       Questo comando secondario è supportato solo in modalità locale.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --installdir
+           Percorso assoluto del livello superiore della directory base di
+           installazione in cui è necessario installare il software di
+           GlassFish Server su ciascun host, ad esempio /export/glassfish3/.
+
+           L'utente che esegue questo comando secondario deve possedere un
+           accesso in scrittura alla directory specificata. In caso contrario
+           si verifica un errore.
+
+           La directory specificata deve contenere l'installazione del
+           software GlassFish Server nell'host. In caso contrario si verifica
+           un errore.
+
+           Il valore predefinito è il livello superiore della directory base
+           di installazione del software GlassFish Server nell'host in cui il
+           comando secondario è in esecuzione.
+
+       --sshport
+           Porta da utilizzare per le connessione SSH all'host in cui si
+           desidera disinstallare il software GlassFish Server. Il valore
+           predefinito è 22.
+
+       --sshuser
+           L'utente nell'host in cui si desidera disinstallare il software
+           GlassFish Server che deve eseguire il processo di connessione
+           all'host tramite SSH. Il valore predefinito è l'utente che esegue
+           tale comando secondario. Per garantire che il DAS possa leggere il
+           file della chiave privata SSH di questo utente, specificare
+           l'utente che esegue il processo DAS.
+
+       --sshkeyfile
+           Percorso assoluto del file della chiave privata SSH per l'utente
+           specificato dall'opzione --sshuser. Il file viene usato per
+           l'autenticazione al daemon sshd nell'host.
+
+           L'utente che esegue questo comando secondario deve poter utilizzare
+           il percorso relativo al file della chiave e leggere tale file.
+
+           Il valore predefinito è un file della chiave nella directory .ssh
+           dell'utente. Se vengono rilevati più file della chiave, il comando
+           secondario utilizza il seguente ordine di preferenza:
+
+            1. id_rsa
+
+            2. id_dsa
+
+            3. identity
+
+       --force
+           Specifica se il comando secondario disinstalla il software
+           GlassFish Server da un host anche se un nodo definito dall'utente
+           si trova su tale host. I possibili valori sono i seguenti:
+
+           false
+               Se un nodo definito dall'utente si trova su un host, il
+               software non è disinstallato e il comando secondario non viene
+               eseguito correttamente (predefinito).
+
+               Se l'opzione --force è impostata su false, il comando
+               secondario rimuove soltanto i file del software GlassFish
+               Server. Non vengono rimossi altri contenuti se rappresentano
+               l'elemento di livello superiore della directory di
+               installazione base, come ad esempio file di configurazione.
+
+           true
+               Il comando secondario disinstalla il software GlassFish Server
+               dall'host anche se un nodo definito dall'utente si trova su
+               tale host.
+
+               Se l'opzione --force è impostata su true, il comando secondario
+               rimuove l'intero contenuto del livello superiore della
+               directory base di installazione.
+
+OPERANDI
+       host-list
+           Elenco separato da spazi dei nomi degli host dai quali è necessario
+           disinstallare il software GlassFish Server.
+
+ESEMPI
+       Esempio 1, Disinstallazione del software GlassFish Server da una
+       posizione predefinita
+           In tale esempio viene disinstallato il software GlassFish Server
+           negli host sj03.example.com e sj04.example.com dalla posizione
+           predefinita.
+
+               asadmin> uninstall-node sj03 sj04
+               Successfully connected to gfuser@sj03.example.com using keyfile /home/gfuser
+               /.ssh/id_rsa
+               Successfully connected to gfuser@sj04.example.com using keyfile /home/gfuser
+               /.ssh/id_rsa
+               Command uninstall-node executed successfully.
+
+       Esempio 2, Disinstallazione forzata del software GlassFish Server
+           In tale esempio viene disinstallato il software GlassFish Server
+           nell'host sj02.example.com.
+
+           Il software viene disinstallato anche se un nodo definito
+           dall'utente si trova su tale host. L'intero contenuto della
+           directory /export/glassfish3 viene rimosso.
+
+           Alcune righe di output sono omesse dall'esempio per favorire la
+           leggibilità.
+
+               asadmin> uninstall-node --force --installdir /export/glassfish3 sj02.example.com
+               Successfully connected to gfuser@sj02.example.com using keyfile /home/gfuser
+               /.ssh/id_rsa
+               Force removing file /export/glassfish3/mq/lib/help/en/add_overrides.htm
+               Force removing file /export/glassfish3/mq/lib/help/en/add_connfact.htm
+               ...
+               Force removing directory /export/glassfish3/glassfish/lib/appclient
+               Force removing directory /export/glassfish3/glassfish/lib
+               Force removing directory /export/glassfish3/glassfish
+               Command uninstall-node executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       install-node(1), install-node-dcom(1), install-node-ssh(1),
+       uninstall-node-dcom(1), uninstall-node-ssh(1)
+
+       asadmin(1M)
+
+                                5 gennaio 2012               UNINSTALL-NODE(1)

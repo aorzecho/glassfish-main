@@ -1,0 +1,81 @@
+START-CLUSTER(1)                                              START-CLUSTER(1)
+
+名称
+       start-cluster - 启动集群
+
+提要
+           start-cluster [--help] [--autohadboverride={true|false}]
+           [--verbose={false|true}] cluster-name
+
+说明
+       start-cluster 子命令通过启动某个集群中尚未运行的所有 GlassFish Server
+       实例来启动该集群。该子命令要求在运行域管理服务器 (DAS)
+       的主机上以及集群中实例所在的所有主机上配置分布式组件对象模型 (DCOM)
+       远程协议或安全 Shell (SSH)。
+
+           注意
+           ┌──────────────────────────────────────────────────────────────────────────────────────────────┐
+           │注                                                                                            │
+           │                                                                                              │
+           │           如果所有实例与 DAS                                                                 │
+           │           位于同一主机上，则不需要配置                                                       │
+           │           DCOM 或                                                                            │
+           │           SSH。对于其实例位于未配置                                                          │
+           │           DCOM 或 SSH 的 DAS                                                                 │
+           │           远程主机上的集群，可能需要启动该集群。在此情况下，请从实例所在的主机对每个实例运行 │
+           │           start-local-instance(1)                                                            │
+           │           子命令。                                                                           │
+           └──────────────────────────────────────────────────────────────────────────────────────────────┘
+
+       可以从任何可联系 DAS 的主机运行此子命令。
+
+       该子命令仅在远程模式下受支持。
+
+选项
+       --help, -?
+           显示子命令的帮助文本。
+
+       --autohadboverride
+           请不要指定该选项。之所以保留该选项，是为了与早期发行版兼容。如果您指定该选项，并不会出现语法错误，该子命令会成功运行并显示一条警告消息，指出将忽略该选项。
+
+       --verbose
+           指定在启动集群时，是否显示有关该集群中实例状态的其他进度消息。
+
+           有效值如下：
+
+           真
+               显示命令以启动集群中的各个实例，以及是否尝试启动各个连续的实例。
+
+           假
+               不显示其他进度消息 (默认值)。
+
+操作数
+       cluster-name
+           要启动的集群的名称。
+
+示例
+       示例 1, 启动集群
+           该示例将启动集群 ymlcluster。启动集群时，将显示其他状态信息。
+
+               asadmin> start-cluster --verbose ymlcluster
+               start-instance yml-i-sr1-usca-02
+               start-instance yml-i-sr1-usca-01
+
+               The command start-instance executed successfully for:
+               yml-i-sr1-usca-02 yml-i-sr1-usca-01
+
+               Command start-cluster executed successfully.
+
+退出状态
+       0
+           已成功执行命令
+
+       1
+           执行命令时出现错误
+
+另请参阅
+       create-cluster(1)、delete-cluster(1)、list-clusters(1)、setup-ssh(1)、start-local-instance(1)、stop-cluster(1)、validate-dcom(1)
+
+       asadmin(1M)
+
+                              2011 年 12 月 8 日              START-CLUSTER(1)

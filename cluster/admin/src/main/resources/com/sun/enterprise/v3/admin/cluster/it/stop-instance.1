@@ -1,0 +1,85 @@
+STOP-INSTANCE(1)                                              STOP-INSTANCE(1)
+
+NOME
+       stop-instance - arresta un'istanza di GlassFish Server in esecuzione
+
+SINTASSI
+           stop-instance [--help]
+           [--force={false|true}] [--kill={false|true}]
+           instance-name
+
+DESCRIZIONE
+       Il comando secondario stop-instance arresta un'istanza di GlassFish
+       Server.
+
+       Il comando secondario consente di interrompere qualunque istanza di
+       GlassFish Server, indipendentemente da come è stata creata. Ad esempio,
+       con questo comando secondario è possibile arrestare un'istanza creata
+       mediante il comando secondario create-local-instance(1).
+
+       Questo comando è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --force
+           Specifica se l'istanza viene interrotta in modo forzato subito.
+
+           I possibili valori sono i seguenti:
+
+           true
+               L'istanza viene interrotta in modo forzato subito (impostazione
+               predefinita).
+
+           false
+               Il comando secondario attende che tutti i thread associati con
+               un'istanza siano usciti prima di arrestare l'istanza.
+
+       --kill
+           Specifica se l'istanza viene interrotta utilizzando la funzionalità
+           del sistema operativo che consente di terminare il processo
+           dell'istanza.
+
+           I possibili valori sono i seguenti:
+
+           false
+               L'istanza non viene interrotta. Il comando secondario utilizza
+               funzionalità della piattaforma Java per terminare il processo
+               dell'istanza (opzione predefinita).
+
+           true
+               L'istanza è interrotta. Il comando secondario utilizza
+               funzionalità del sistema operativo per terminare il processo
+               dell'istanza.
+
+OPERANDI
+       instance-name
+           Nome dell'istanza di GlassFish Server da arrestare.
+
+ESEMPI
+       In questo esempio viene arrestata l'istanza di GlassFish Server
+       yml-i-sj01.
+
+       Esempio 1, Arresto di un'istanza di GlassFish Server
+
+               asadmin> stop-instance yml-i-sj01
+               The instance, yml-i-sj01, was stopped.
+
+               Command stop-instance executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-instance(1), create-local-instance(1), delete-instance(1),
+       delete-local-instance(1), start-domain(1), start-instance(1),
+       start-local-instance(1), stop-domain(1), stop-local-instance(1)
+
+       asadmin(1M)
+
+                               16 dicembre 2010               STOP-INSTANCE(1)

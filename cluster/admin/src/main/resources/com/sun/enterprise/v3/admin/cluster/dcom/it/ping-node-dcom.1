@@ -1,0 +1,108 @@
+PING-NODE-DCOM(1)                                            PING-NODE-DCOM(1)
+
+NOME
+       ping-node-dcom - verifica se un nodo che è abilitato per la
+       comunicazione su DCOM è utilizzabile
+
+SINTASSI
+           ping-node-dcom [--help]
+           [--validate={false|true}] node-name
+
+DESCRIZIONE
+       Il comando secondario ping-node-dcom verifica se un nodo abilitato alla
+       comunicazione remota sul protocollo remoto DCOM (Distributed Component
+       Object Model) è utilizzabile. Il protocollo DCOM è disponibile solo su
+       sistemi Windows. Questo comando secondario richiede che DCOM sia
+       configurato nel computer in cui è in esecuzione il server di
+       amministrazione del dominio (DAS) e nel computer dove risiede il nodo.
+       È possibile eseguire il comando da qualsiasi computer in grado di
+       contattare il DAS.
+
+       Se il nodo è utilizzabile, il comando secondario consente di
+       visualizzare una conferma della relativa capacità di connettersi al
+       nodo mediante DCOM. Tale conferma include il nome dell'host che il nodo
+       rappresenta.
+
+       Il comando secondario può, facoltativamente, convalidare il nodo per
+       determinare se la utility asadmin(1M) può essere eseguita sull'host che
+       il nodo rappresenta. Per convalidare un nodo, il comando secondario
+       esegue il comando secondario version(1). Se il nodo è valido, il
+       comando secondario visualizza la versione che il comando secondario
+       version restituisce.
+
+       Il nodo che è specificato come operando di questo comando secondario
+       deve essere abilitato alla comunicazione su DCOM. Se il nodo non è
+       abilitato alla comunicazione su DCOM, si verifica un errore. Per
+       stabilire se un nodo è abilitato alla comunicazione su DCOM, usare il
+       comando secondario list-nodes(1).
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           Per verificare se un nodo    │
+           │           abilitato alla comunicazione │
+           │           su SSH (Secure Shell) è      │
+           │           utilizzabile, utilizzare il  │
+           │           comando secondario           │
+           │           ping-node-ssh(1).            │
+           └────────────────────────────────────────┘
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --validate
+           Specifica se il comando secondario convalida il nodo.
+
+           I possibili valori sono i seguenti:
+
+           true
+               Il nodo è convalidato.
+
+           false
+               Il nodo non è convalidato(predefinito).
+
+OPERANDI
+       node-name
+           Nome del nodo da sottoporre a test. Il nodo deve essere abilitato
+           alla comunicazione su DCOM. Altrimenti si verifica un errore.
+
+ESEMPI
+       Esempio 1, Verifica se un nodo abilitato alla comunicazione su DCOM è
+       utilizzabile
+           In questo esempio viene verificata l'utilizzabilità del nodo con
+           abilitazione DCOM wpmd2.
+
+               asadmin> ping-node-dcom wpmdl2
+               Successfully made DCOM connection to node wpmdl2 (wpmdl2.example.com)
+               Command ping-node-dcom executed successfully.
+
+       Esempio 2, Convalida di un nodo con abilitazione DCOM
+           In questo esempio viene convalidato il nodo con abilitazione DCOM
+           adc-node.
+
+               asadmin> ping-node-dcom --validate=true adc-node
+               Successfully made DCOM connection to node adc-node (adc-node.example.com)
+               GlassFish version found at C:\glassfish3:
+               Using locally retrieved version string from version class.
+               Version = GlassFish Server Open Source Edition 3.1.2 (build 18)
+               Command version executed successfully.
+               Command ping-node-dcom executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-node-dcom(1), delete-node-dcom(1), list-nodes(1),
+       ping-node-ssh(1), update-node-dcom(1), validate-dcom(1), version(1)
+
+       asadmin(1M)
+
+                                5 dicembre 2011              PING-NODE-DCOM(1)

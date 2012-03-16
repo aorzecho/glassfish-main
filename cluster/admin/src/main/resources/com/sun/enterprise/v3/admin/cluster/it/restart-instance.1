@@ -1,0 +1,125 @@
+RESTART-INSTANCE(1)                                        RESTART-INSTANCE(1)
+
+NOME
+       restart-instance - riavvia un'istanza di GlassFish Server in esecuzione
+
+SINTASSI
+           restart-instance [--help]
+           [--debug={false|true}] instance-name
+
+DESCRIZIONE
+       Il comando secondario restart-instance riavvia un'istanza di GlassFish
+       Server in esecuzione. Questo comando secondario richiede la
+       configurazione di SSH (Secure Shell) nel computer in cui è in
+       esecuzione il server di amministrazione del dominio (DAS) e nel
+       computer dove risiede l'istanza.
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           L'SSH non è richiesto se     │
+           │           l'istanza risiede su un nodo │
+           │           di tipo CONFIG che           │
+           │           rappresenta l'host locale.   │
+           │           Un nodo di tipo              │
+           │            CONFIG non è abilitato per  │
+           │           la comunicazione su SSH.     │
+           └────────────────────────────────────────┘
+
+       È possibile eseguire il comando secondario da qualsiasi computer in
+       grado di contattare il DAS.
+
+       Il comando secondario consente di riavviare qualsiasi istanza di
+       GlassFish Server, indipendentemente da come è stata creata. Ad esempio,
+       con questo comando secondario è possibile riavviare un'istanza creata
+       utilizzando il comando secondario create-local-instance(1).
+
+       Quando tale comando secondario riavvia un'istanza, il DAS sincronizza
+       l'istanza con le modifiche poiché l'ultima sincronizzazione appare come
+       segue:
+
+       ·   Per la directory config, il DAS sincronizza l'istanza con tutte le
+           modifiche.
+
+       ·   Per le directory applications e docroot, solo una modifica alla
+           sottodirectory di primo livello comporta la sincronizzazione di
+           tutti i file nella sottodirectory indicata da parte del DAS.
+
+           Se un file inferiore alla directory di primo livello viene
+           modificato senza che venga eseguita la modifica a un file nella
+           sottodirectory indicata, è necessario eseguire una sincronizzazione
+           completa. Nelle operazioni classiche, i file inferiori alle
+           sottodirectory di primo livello di tali directory non vengono
+           modificati. Se un'applicazione viene distribuita e non distribuita,
+           non è necessario eseguire una sincronizzazione completa per
+           aggiornare l'istanza con la modifica.
+
+       Se è richiesto un diverso comportamento di sincronizzazione, è
+       necessario arrestare e riavviare l'istanza tramite la seguente sequenza
+       di comandi secondari:
+
+        1. stop-instance(1)
+
+        2. start-instance(1)
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --debug
+           Specifica se l'istanza viene riavviata abilitando il debugger di
+           JPDA (Java Platform Debugger Architecture)
+
+           .
+
+           I possibili valori sono i seguenti:
+
+           true
+               L'istanza viene riavviata con la funzione di debug JPDA
+               abilitata e viene visualizzato il numero di porta per il debug
+               JPDA.
+
+           false
+               L'istanza viene riavviata con l'abilitazione del debug JPDA.
+
+           L'opzione predefinita è l'impostazione corrente dell'opzione per
+           l'istanza riavviata.
+
+OPERANDI
+       instance-name
+           Nome dell'istanza di GlassFish Server da riavviare. Se l'istanza
+           non è in esecuzione, il comando secondario mostra un messaggio di
+           avvertenza e tenta di avviare l'istanza.
+
+ESEMPI
+       Esempio 1, Riavvio di un'istanza di GlassFish Server
+           In questo esempio viene riavviata l'istanza pmdsa1 di GlassFish
+           Server.
+
+               asadmin> restart-instance pmdsa1
+               Instance pmdsa1 was restarted.
+
+               Command restart-instance executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-instance(1), create-local-instance(1), delete-instance(1),
+       delete-local-instance(1), restart-local-instance(1), setup-ssh(1),
+       start-instance(1), start-local-instance(1), stop-instance(1),
+       stop-local-instance(1)
+
+       asadmin(1M)
+
+       Java Platform Debugger Architecture (JPDA)
+       (http://java.sun.com/javase/technologies/core/toolsapis/jpda/)
+
+                                20 ottobre 2010            RESTART-INSTANCE(1)

@@ -1,0 +1,102 @@
+START-CLUSTER(1)                                              START-CLUSTER(1)
+
+NOME
+       start-cluster - avvia un cluster
+
+SINTASSI
+           start-cluster [--help] [--autohadboverride={true|false}]
+           [--verbose={false|true}] cluster-name
+
+DESCRIZIONE
+       Il comando secondario start-cluster avvia un cluster tramite l'avvio di
+       tutte le istanze di GlassFish Server nel cluster che non sono ancora in
+       esecuzione. Questo comando secondario richiede che il protocollo remoto
+       DCOM (Distributed Component Object Model) o SSH (Secure Shell) sia
+       configurato nell'host in cui è in esecuzione il server di
+       amministrazione del dominio (DAS) e in tutti gli host dove risiedono le
+       istanze del cluster.
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           Se tutte le istanze          │
+           │           risiedono nello stesso host  │
+           │           come il DAS, DCOM o SSH non  │
+           │           è necessario. Potrebbe       │
+           │           essere necessario avviare un │
+           │           cluster in cui le istanze    │
+           │           risiedono su host in cui     │
+           │           DCOM o SSH non è configurato │
+           │           ed è remoto rispetto al DAS. │
+           │           In questa situazione,        │
+           │           eseguire il comando          │
+           │           secondario                   │
+           │           start-local-instance(1) per  │
+           │           ogni istanza dall'host in    │
+           │           cui risiede l'istanza.       │
+           └────────────────────────────────────────┘
+
+       È possibile eseguire il comando secondario da qualunque host in grado
+       di contattare il DAS.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --autohadboverride
+           Non è necessario specificare questa opzione, che è stata mantenuta
+           solo per motivi di compatibilità con release precedenti. Se
+           l'opzione viene specificata non si verifica un errore di sintassi.
+           Il comando secondario viene eseguito correttamente e viene
+           visualizzato un messaggio di avvertenza che indica che l'opzione
+           viene ignorata.
+
+       --verbose
+           Specifica se all'avvio del cluster vengono visualizzate
+           informazioni aggiuntive sullo stato.
+
+           I valori validi sono i seguenti:
+
+           true
+               Visualizza il comando per avviare ciascuna istanza del cluster
+               e indica se il tale tentativo di avvio è riuscito.
+
+           false
+               Non vengono visualizzate informazioni aggiuntive sullo stato
+               (valore predefinito).
+
+OPERANDI
+       cluster-name
+           Nome del cluster da avviare.
+
+ESEMPI
+       Esempio 1, Avvio di un cluster
+           Questo esempio avvia il cluster ymlcluster. Ulteriori informazioni
+           di stato vengono visualizzate quando il cluster viene avviato.
+
+               asadmin> start-cluster --verbose ymlcluster
+               start-instance yml-i-sr1-usca-02
+               start-instance yml-i-sr1-usca-01
+
+               The command start-instance executed successfully for:
+               yml-i-sr1-usca-02 yml-i-sr1-usca-01
+
+               Command start-cluster executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-cluster(1), delete-cluster(1), list-clusters(1), setup-ssh(1),
+       start-local-instance(1), stop-cluster(1), validate-dcom(1)
+
+       asadmin(1M)
+
+                                8 dicembre 2011               START-CLUSTER(1)

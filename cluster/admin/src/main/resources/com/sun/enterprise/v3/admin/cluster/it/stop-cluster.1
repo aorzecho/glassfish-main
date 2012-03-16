@@ -1,0 +1,95 @@
+STOP-CLUSTER(1)                                                STOP-CLUSTER(1)
+
+NOME
+       stop-cluster - arresta un cluster GlassFish Server
+
+SINTASSI
+           stop-cluster [--help]
+           [--verbose={false|true}]
+           [--kill={false|true}]
+           [--autohadboverride={true|false}]
+           cluster-name
+
+DESCRIZIONE
+       Il comando secondario stop-cluster interrompe il cluster di GlassFish
+       Server arrestando tutte le istanze di GlassFish Server in esecuzione
+       nel cluster
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --verbose
+           Specifica se vengono visualizzati messaggi aggiuntivi di
+           avanzamento relativi allo stato delle istanze nel cluster durante
+           l'arresto del cluster stesso.
+
+           I possibili valori sono i seguenti:
+
+           true
+               Vengono visualizzati messaggi aggiuntivi di avanzamento
+               relativi allo stato delle istanze nel cluster.
+
+           false
+               Non vengono visualizzati messaggi relativi allo stato delle
+               istanze nel cluster.
+
+       --kill
+           Specifica se ogni istanza nel cluster viene terminata tramite la
+           funzionalità del sistema operativo relativa all'interruzione del
+           processo di istanza.
+
+           I possibili valori sono i seguenti:
+
+           false
+               Nessuna istanza è interrotta. Il comando secondario utilizza la
+               funzionalità della piattaforma Java per interrompere ciascun
+               processo di istanza (opzione predefinita).
+
+           true
+               Tutte le istanze vengono interrotte. Il comando secondario
+               utilizza funzionalità del sistema operativo per interrompere il
+               processo dell'istanza.
+
+       --autohadboverride
+           Non è necessario specificare questa opzione, che è stata mantenuta
+           solo per motivi di compatibilità con release precedenti. Se
+           l'opzione viene specificata non si verifica un errore di sintassi.
+           Il comando secondario viene eseguito correttamente e viene
+           visualizzato un messaggio di avvertenza che indica che l'opzione
+           viene ignorata.
+
+OPERANDI
+       cluster-name
+           Nome del cluster da arrestare.
+
+ESEMPI
+       Esempio 1, Arresto di un cluster
+           Questo esempio interrompe il cluster pmdcluster. Vengono
+           visualizzati messaggi aggiuntivi di avanzamento relativi allo stato
+           delle istanze nel cluster durante l'arresto del cluster stesso.
+
+               asadmin> stop-cluster --verbose pmdcluster
+               stop-instance pmd-i-sj01
+               stop-instance pmd-i-sj02
+
+               The command stop-instance executed successfully for: pmd-i-sj01 pmd-i-sj02
+
+               Command stop-cluster executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-cluster(1), delete-cluster(1), list-clusters(1),
+       start-cluster(1)
+
+       asadmin(1M)
+
+                               16 dicembre 2010                STOP-CLUSTER(1)

@@ -1,0 +1,82 @@
+UPDATE-NODE-CONFIG(1)                                    UPDATE-NODE-CONFIG(1)
+
+NOM
+       update-node-config - met à jour les données de configuration d'un noeud
+
+SYNOPSIS
+           update-node-config [--help]
+           [--nodehost node-host]
+           [--installdir as-install-parent] [--nodedir node-dir]
+           node-name
+
+DESCRIPTION
+       La sous-commande update-node-config met à jour les données de
+       configuration d'un noeud.
+
+       Cette sous-commande peut mettre à jour n'importe quel noeud, sans tenir
+       compte du fait qu'il est activé ou non pour la communication à
+       distance. Si un noeud activé pour la communication à distance est mis à
+       jour, il ne l'est plus après celle-ci.
+
+       Les options de cette sous-commande indiquent les nouvelles valeurs des
+       données de configuration du noeud. Par défaut, la valeur existante de
+       ces options n'est pas modifiée.
+
+       La sous-commande n'exige pas la configuration du protocole SSH (Secure
+       Shell) ou du protocole distant DCOM (Distributed Component Object
+       Model) pour mettre à jour le noeud. Vous pouvez exécuter cette
+       sous-commande à partir de n'importe quel hôte pouvant contacter le
+       serveur DAS.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --nodehost
+           Nom de l'hôte sur lequel le noeud sera représenté après sa mise à
+           jour.
+
+       --installdir
+           Chemin d'accès complet au parent du répertoire d'installation de
+           base du logiciel GlassFish Server sur l'hôte, par exemple
+           /export/glassfish3.
+
+       --nodedir
+           Chemin du répertoire devant contenir les instances GlassFish Server
+           créées sur le noeud. Si un chemin d'accès relatif est spécifié, il
+           est relatif au répertoire as-install, as-install correspondant au
+           répertoire d'installation de base du logiciel GlassFish Server sur
+           l'hôte.
+
+OPÉRANDES
+       node-name
+           Nom du noeud à mettre à jour. Le noeud doit exister. Sinon, une
+           erreur se produit.
+
+EXEMPLES
+       Exemple 1, Mise à jour de l'hôte représentée par un noeud
+           Cet exemple met à jour l'hôte que le noeud sj04 représente en lui
+           attribuant la valeur hsj04.
+
+               asadmin> update-node-config --nodehost hsj04 sj04
+               Command update-node-config executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-node-config(1), create-node-dcom(1), create-node-ssh(1),
+       delete-node-config(1), delete-node-dcom(1), delete-node-ssh(1),
+       install-node(1), install-node-dcom(1), install-node-ssh(1),
+       list-nodes(1), uninstall-node(1), uninstall-node-dcom(1),
+       uninstall-node-ssh(1), update-node-dcom(1), update-node-ssh(1)
+
+       asadmin(1M)
+
+                                  8 déc. 2011            UPDATE-NODE-CONFIG(1)

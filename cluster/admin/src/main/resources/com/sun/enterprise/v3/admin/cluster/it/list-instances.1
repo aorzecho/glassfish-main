@@ -1,0 +1,201 @@
+LIST-INSTANCES(1)                                            LIST-INSTANCES(1)
+
+NOME
+       list-instances - elenca le istanze di GlassFish Server in un dominio
+
+SINTASSI
+           list-instances [--help] [--timeoutmsec timeout]
+           [--long={false|true} | --nostatus={false|true}]
+           [--standaloneonly={false|true} | target]
+
+DESCRIZIONE
+       Il comando secondario list-instances elenca le istanze di GlassFish
+       Server in un dominio. L'elenco può essere filtrato per cluster,
+       istanza, nodo o configurazione.
+
+       Il comando secondario visualizza tutte le istanze di GlassFish Server
+       presenti nella destinazione specificata, indipendentemente dal modo in
+       cui sono state create. Ad esempio, questo comando secondario elenca le
+       istanze create mediante i comandi secondari create-instance(1) e
+       create-local-instance(1).
+
+       Per impostazione predefinita, il comando secondario indica se le
+       istanze elencate sono in esecuzione. Le opzioni di questo comando
+       secondario controllano le informazioni da visualizzare per ogni
+       istanza.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --timeoutmsec
+           Limite di tempo in millisecondi per determinare lo stato delle
+           istanze. Il valore predefinito è 2.000, equivalente a 2 secondi.
+
+       --long, -l
+           Specifica se per ogni istanza elencata vengono visualizzare
+           informazioni dettagliate.
+
+           Le opzioni --long e --nostatus si escludono a vicenda. Se entrambe
+           le opzioni vengono specificate nello stesso comando, si verifica un
+           errore.
+
+           I valori validi sono i seguenti:
+
+           true
+               Per ogni istanza elencata vengono visualizzati i dettagli
+               seguenti:
+
+               ·   Nome dell'istanza
+
+               ·   Nome dell'host in cui risiede il nodo dell'istanza.
+
+               ·   Porta HTTP su cui l'istanza è in attesa delle richieste di
+                   amministrazione
+
+               ·   Identificativo di processo (PID) del processo dell'istanza
+                   o -1 se l'istanza non è in esecuzione
+
+               ·   Nome del cluster a cui appartiene l'istanza, se applicabile
+
+               ·   Stato dell'istanza, running (in esecuzione) o not running
+                   (non in esecuzione)
+
+                   Quando viene elencata un'istanza, alcune modifiche della
+                   configurazione nel server di amministrazione del dominio
+                   (DAS) per l'istanza potrebbero non essere applicate
+                   all'istanza stessa. In questo caso, i comandi necessari ad
+                   applicare le modifiche sono elencati accanto allo stato
+                   dell'istanza. Il numero massimo di comandi elencati per
+                   un'istanza è 10.
+
+           false
+               Viene visualizzato solo il nome dell'istanza e indicato se
+               l'istanza è in esecuzione (valore predefinito). Il periodo di
+               tempo durante il quale l'istanza è stata in esecuzione non
+               viene visualizzato.
+
+       --nostatus
+           Specifica se le informazioni relative allo stato di esecuzione
+           delle istanze vengono eliminate.
+
+           Le opzioni --long e --nostatus si escludono a vicenda. Se entrambe
+           le opzioni vengono specificate nello stesso comando, si verifica un
+           errore.
+
+           I valori validi sono i seguenti:
+
+           true
+               Le informazioni relative allo stato di esecuzione delle istanze
+               vengono eliminate. Viene visualizzato solo il nome di ciascuna
+               istanza.
+
+           false
+               Le informazioni relative allo stato di esecuzione delle istanze
+               vengono visualizzate (valore predefinito).
+
+       --standaloneonly
+           Specifica se vengono elencate solo le istanze standalone.
+
+           L'opzione --standaloneonly e l'operando target si escludono a
+           vicenda. Se nello stesso comando si specificano sia l'opzione
+           --standaloneonly che l'operando target, si verifica un errore.
+
+           I valori validi sono i seguenti:
+
+           true
+               Vengono elencate solo le istanze standalone.
+
+           false
+               Vengono elencate tutte le istanze presenti nella destinazione
+               specificata (valore predefinito).
+
+OPERANDI
+       target
+           Filtra l'elenco delle istanze di GlassFish Server specificando la
+           destinazione in base alla quale vengono elencate.
+
+           L'operando target e l'opzione --standaloneonly si escludono a
+           vicenda. Se nello stesso comando si specificano sia l'operando
+           target che l'opzione --standaloneonly, si verifica un errore.
+
+           I valori validi sono i seguenti:
+
+           domain
+               Elenca tutte le istanze nel dominio (opzione predefinita).
+
+           cluster-name
+               Elenca tutte le istanze membri del cluster specificato.
+
+           instance-name
+               Elenca solo l'istanza specificata.
+
+           node-name
+               Elenca tutte le istanze che risiedono nel nodo specificato.
+
+           configuration-name
+               Elenca tutte le istanze la cui configurazione è definita dalla
+               configurazione denominata specificata.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco delle informazioni di base
+       relative a tutte le istanze di GlassFish Server in un dominio
+           In questo esempio vengono elencati il nome e lo stato di tutte le
+           istanze di GlassFish Server nel dominio corrente.
+
+               asadmin> list-instances
+               pmd-i-sj02 running
+               yml-i-sj02 running
+               pmd-i-sj01 running
+               yml-i-sj01 running
+               pmdsa1 not running
+
+               Command list-instances executed successfully.
+
+       Esempio 2, Visualizzazione dell'elenco di informazioni dettagliate su
+       tutte le istanze di GlassFish Server di un dominio
+           In questo esempio vengono elencate informazioni dettagliate su
+           tutte le istanze di GlassFish Server nel dominio corrente.
+
+               asadmin> list-instances --long=true
+               NAME        HOST       PORT   PID    CLUSTER     STATE
+               pmd-i-sj01  sj01       24848  31310  pmdcluster   running
+               yml-i-sj01  sj01       24849  25355  ymlcluster   running
+               pmdsa1      localhost  24848  -1     ---          not running
+               pmd-i-sj02  sj02       24848  22498  pmdcluster   running
+               yml-i-sj02  sj02       24849  20476  ymlcluster   running
+               ymlsa1      localhost  24849  -1     ---          not running
+               Command list-instances executed successfully.
+
+       Esempio 3, Visualizzazione dello stato di un'istanza
+           In questo esempio viene visualizzato lo stato dell'istanza
+           pmd-i-sj01, che è in esecuzione.
+
+               asadmin> list-instances pmd-i-sj01
+               pmd-i-sj01 running
+               Command list-instances executed successfully.
+
+       Esempio 4, Visualizzazione dell'elenco delle sole istanze standalone di
+       un dominio
+           In questo esempio vengono elencate solo le istanze standalone nel
+           dominio corrente.
+
+               asadmin> list-instances --standaloneonly=true
+               pmdsa1 not running
+               Command list-instances executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-instance(1), create-local-instance(1)
+
+       asadmin(1M)
+
+                               10 dicembre 2010              LIST-INSTANCES(1)
