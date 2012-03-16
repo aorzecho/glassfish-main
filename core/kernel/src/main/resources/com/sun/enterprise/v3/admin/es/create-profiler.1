@@ -1,0 +1,91 @@
+CREATE-PROFILER(1)                                          CREATE-PROFILER(1)
+
+NOMBRE DE REFERENCIA
+       create-profiler - Crea el elemento analizador de perfil.
+
+SINOPSIS
+           create-profiler [--help] [--target target_name]
+           [--classpath classpath] [--nativelibpath native_library_path] [--enabled=true]
+           [--property(name=value)[:name=value]*] profiler_name
+
+DESCRIPCIÓN
+       El subcomando create-profiler crear el elemento analizador de perfil.
+       Una instancia de servidor se vincula al analizador de perfil a través
+       del elemento analizador de perfil en la configuración de Java. Sólo
+       existe un analizador de perfil a la vez. Si intenta crear un analizador
+       de perfil cuando ya existe uno, se mostrará un mensaje de error.
+
+       Para que los cambios surtan efecto, el servidor debe reiniciarse.
+
+       Este subcomando sólo está soportado en modo remoto.
+
+OPCIONES
+       --help, -?
+           Muestra el texto de ayuda para el subcomando.
+
+       --target
+           La opción especifica el destino en el que va a crear el analizador
+           de perfil. Los valores válidos son:
+
+           server
+               Crea el analizador de perfil para la instancia de servidor por
+               defecto. Éste es el valor por defecto.
+
+           configuration_name
+               Crea el analizador de perfil para la configuración
+               especificada.
+
+           cluster_name
+               Crea el analizador de perfil para cada instancia de servidor en
+               el cluster.
+
+           instance_name
+               Crea el analizador de perfil para una determinada instancia de
+               servidor.
+
+       --classpath
+           Cadena de texto de classpath de Java que especifica las clases que
+           necesita el analizador de perfil.
+
+       --nativelibpath
+           Esta ruta de acceso se construye de manera automática para que sea
+           una concatenación de la ruta de acceso relativa de instalación de
+           GlassFish Server para sus bibliotecas nativas compartidas, la ruta
+           de acceso de la biblioteca nativa de JRE estándar, el valor de
+           configuración del entorno del shell (LD_LIBRARY_PATH en UNIX) y
+           cualquier ruta de acceso que se pueda especificar en el elemento de
+           perfil.
+
+       --enabled
+           El analizador de perfil se activa por defecto.
+
+       --property
+           Pares de nombre/valor de atributos específicos del proveedor.
+
+OPERANDOS
+       profiler_name
+           Nombre del analizador de perfil.
+
+EJEMPLOS
+       Ejemplo 1, Creación de un Analizador de Perfil
+           En este ejemplo se crea un analizador de perfil denominado
+           sample_profiler.
+
+               asadmin> create-profiler --classpath /home/appserver/
+               --nativelibpath /u/home/lib --enabled=false
+               --property defaultuser=admin:password=adminadmin sample_profiler
+               Created Profiler with id = sample_profiler
+
+ESTADO DE SALIDA
+       0
+           Subcomando ejecutado correctamente
+
+       1
+           Error al ejecutar el subcomando
+
+CONSULTE TAMBIÉN
+       delete-profiler(1)
+
+       Utilidad asadmin(1M)
+
+                                  22 Dic 2010               CREATE-PROFILER(1)

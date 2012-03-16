@@ -1,0 +1,55 @@
+LIST-SYSTEM-PROPER(1)                                    LIST-SYSTEM-PROPER(1)
+
+名前
+       list-system-properties -
+       ドメイン、構成、クラスタまたはサーバー・インスタンスのシステム・プロパティを一覧表示します
+
+概要
+           list-system-properties [--help] [target]
+
+説明
+       list-system-propertiesサブコマンドは、ドメイン、構成、クラスタ、またはサーバー・インスタンスのシステム・プロパティを一覧表示します。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+オペランド
+       target
+           一覧表示する内容を、指定したターゲットのシステム・プロパティに制限します。有効な値は次のとおりです:
+
+           domain
+               ドメインについて定義されたシステム・プロパティを一覧表示します。
+
+           configuration_name
+               指定した構成のシステム・プロパティと、クラスタがドメインから継承するシステム・プロパティを一覧表示します。
+
+           cluster_name
+               指定したクラスタについて定義されたシステム・プロパティと、クラスタのシステム・プロパティを一覧表示します。構成およびドメインから継承します。
+
+           instance_name
+               指定したサーバー・インスタンスについて定義されたシステム・プロパティと、サーバーがクラスタ(インスタンスがクラスタ化されている場合)、構成、およびドメインから継承するシステム・プロパティを一覧表示します。
+
+例
+       例 1, システム・プロパティの一覧表示
+           この例では、localhostのシステム・プロパティを一覧表示します。
+
+               asadmin> list-system-properties
+               http-listener-port=1088
+               Command list-system-properties executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       create-system-properties(1), delete-system-property(1)
+
+       asadmin(1M)
+
+                                2010年12月22日           LIST-SYSTEM-PROPER(1)

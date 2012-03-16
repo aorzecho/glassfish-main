@@ -1,0 +1,62 @@
+ROTATE-LOG(1)                                                    ROTATE-LOG(1)
+
+參考名
+       rotate-log - 旋轉記錄檔
+
+概要
+           rotate-log [--help]
+
+說明
+       rotate-log 子命令會使用時間戳記名稱來重新命名檔案 (格式為 server.log_
+       date-and-time)
+       並建立新的記錄檔，以旋轉伺服器記錄。變更會以動態方式生效，因此不需要重新啟動伺服器。
+
+       記錄佇列的大小可透過 logging.properties
+       檔案來組態。記錄旋轉是以檔案大小或自從上次記錄旋轉所經過的時間為基礎。在某些情況下佇列可能會填滿，尤其是當記錄層級設定為
+       最
+       子命令會用來立即旋轉伺服器記錄。此子命令對於要在方便時建立旋轉記錄的程序檔來說，也非常有用。
+
+       只有遠端模式支援這個子命令。
+
+選項
+       --help, -?
+           顯示子命令的說明文字。
+
+       --target
+           將重建記錄的伺服器、叢集或伺服器實例。如果省略此選項，則會重建預設伺服器的記錄。
+
+運算元
+       目
+           有效值為：
+
+           ·   server_name - 預設目標為
+               server。如果未指定任何目標，便會重建伺服器的記錄。
+
+           ·   cluster_name - 目標叢集的名稱。
+
+           ·   instance_name - 目標伺服器實例名稱。
+
+範例
+       範例 1, 旋轉伺服器記錄
+           這是旋轉伺服器記錄的範例。
+
+               asadmin> rotate-log
+               Command rotate-log executed successfully.
+
+結束狀態
+       0
+           子命令執行成功
+
+       1
+           執行子命令時發生錯誤
+
+另請參閱
+       collect-log-files(1), list-log-attributes(1), list-log-levels(1),
+       set-log-attributes(1), set-log-levels(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server Administration Guide 中的 Administering the
+       Logging Service
+
+                              2011 年 2 月 12 日                 ROTATE-LOG(1)

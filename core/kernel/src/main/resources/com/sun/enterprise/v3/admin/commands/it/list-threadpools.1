@@ -1,0 +1,62 @@
+LIST-THREADPOOLS(1)                                        LIST-THREADPOOLS(1)
+
+NOME
+       list-threadpools - elenca tutti i pool di thread
+
+SINTASSI
+           list-threadpools [--help] target
+
+DESCRIZIONE
+       Il comando secondario list-threadpools elenca i pool di thread di
+       GlassFish Server.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+OPERANDI
+       target
+           Tale operando indica la destinazione per cui si elencano i pool del
+           thread. L'operando è necessario.
+
+           I valori validi sono i seguenti:
+
+           server
+               Elenca i pool del thread per l'istanza di GlassFish Server
+               predefinita server.
+
+           configuration-name
+               Elenca i pool del thread per la configurazione denominata.
+
+           cluster-name
+               Elenca i pool del thread per tutte le istanze del cluster.
+
+           instance-name
+               Elenca i pool del thread per una particolare istanza.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco dei pool di thread
+           Questo esempio elenca i pool del thread correnti per l'istanza
+           predefinita server.
+
+               asadmin> list-threadpools server
+               admin-thread-pool
+               http-thread-pool
+               thread-pool-1
+               Command list-threadpools executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-threadpool(1), delete-threadpool(1)
+
+       asadmin(1M)
+
+                               20 dicembre 2010            LIST-THREADPOOLS(1)

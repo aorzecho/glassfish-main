@@ -1,0 +1,89 @@
+CREATE-PROFILER(1)                                          CREATE-PROFILER(1)
+
+NOME
+       create-profiler - cria um elemento do gerador de perfis
+
+SINOPSE
+           create-profiler [--help] [--target target_name]
+           [--classpath classpath] [--nativelibpath native_library_path] [--enabled=true]
+           [--property(name=value)[:name=value]*] profiler_name
+
+DESCRIçãO
+       O subcomando create-profiler cria o elemento do gerador de perfil. Uma
+       instância do servidor é vinculada ao gerador de perfil pelo elemento do
+       gerador de perfil na configuração Java. Apenas um gerador de perfil
+       existe no momento. Se você tentar criar um gerador de perfil enquanto
+       já existe um, uma mensagem de erro é exibida.
+
+       Para que as alterações tenham efeito, é necessário reiniciar o
+       servidor.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Esta opção especifica o destino no qual você está criando um
+           gerador de perfil. Valores válidos são
+
+           servidor
+               Cria o gerador de perfil para a instância do servidor default.
+               Este é o valor default.
+
+           configuration_name
+               Cria o gerador de perfil para a configuração nomeada
+
+           cluster_name
+               Cria o gerador de perfil para cada instância do servidor no
+               cluster
+
+           instance_name
+               Cria o gerador de perfil para uma instância de servidor
+               particular
+
+       --classpath
+           String do classpath do Java que especifica as classes necessárias
+           ao gerador de perfil.
+
+       --nativelibpath
+           Este caminho é construído automaticamente para ser uma concatenação
+           do caminho relativo de instalação do GlassFish Server das suas
+           bibliotecas compartilhadas nativas, do caminho da biblioteca nativa
+           JRE padrão, da definição do ambiente de shell (LD_LIBRARY_PATH no
+           UNIX) e de qualquer caminho que possa ser especificado no elemento
+           do gerador de perfis.
+
+       --enabled
+           Gerador de perfil é ativado por default.
+
+       --property
+           Pares de valores/nome de atributos especificados pelo provedor.
+
+OPERANDOS
+       profiler_name
+           Nome do gerador de perfil.
+
+EXEMPLOS
+       Exemplo 1, Criando um gerador de perfil
+           Este exemplo cria um gerador de perfis denominado sample_profiler.
+
+               asadmin> create-profiler --classpath /home/appserver/
+               --nativelibpath /u/home/lib --enabled=false
+               --property defaultuser=admin:password=adminadmin sample_profiler
+               Created Profiler with id = sample_profiler
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       delete-profiler(1)
+
+       asadmin(1M)
+
+                            22 de dezembro de 2010          CREATE-PROFILER(1)

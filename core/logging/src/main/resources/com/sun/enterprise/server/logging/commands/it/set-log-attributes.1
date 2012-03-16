@@ -1,0 +1,137 @@
+SET-LOG-ATTRIBUTES(1)                                    SET-LOG-ATTRIBUTES(1)
+
+NOME
+       set-log-attributes - imposta gli attributi di log per uno o più logger
+
+SINTASSI
+           set-log-attributes [--help] [--target=target]
+           attribute-name=attribute-value[:attribute-name=attribute-value]*
+
+DESCRIZIONE
+       Il comando secondario set-log-attributes consente di impostare
+       attributi di accesso per uno o più programmi di log. Gli attributi che
+       possono essere impostati corrispondono agli attributi disponibili nel
+       file logging.properties per il dominio. A seconda degli attributi
+       impostati, potrebbe essere necessario il riavvio del server.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Dominio del server, istanza o cluster per cui verranno impostati
+           gli attributi del programma di log. Se l'opzione è omessa, gli
+           attributi vengono impostati per il server predefinito.
+
+OPERANDI
+       target
+           I valori validi sono:
+
+           ·   server_name- La destinazione predefinita è server. Se non è
+               specificata una destinazione, gli attributi log vengono
+               impostati per il server.
+
+           ·   cluster_name- Nome di un cluster di destinazione.
+
+           ·   instance_name- Nome di un'istanza del server di destinazione.
+
+       attribute-name
+           Il nome completo dell'attributo di accesso. Il comando secondario
+           list-log-attributes può essere usato per elencare i nomi di tutti
+           gli attributi attualmente definiti.
+
+       attribute-value
+           Il valore da applicare all'attributo specifico.
+
+           I valori dell'attributo che possono essere specificati includono
+           quelli riportati di seguito. Fare riferimento alla Guida in linea e
+           alla sezione "Administering the Logging Service" in Oracle
+           GlassFish Server Administration Guide per spiegazioni dettagliate
+           in merito a ognuno di questi valori.
+
+           com.sun.enterprise.server.logging.GFFileHandler.alarms
+               Il valore predefinito è false.
+
+           com.sun.enterprise.server.logging.GFFileHandler.file
+               Il valore predefinito è
+               ${com.sun.aas.instanceRoot}/logs/server.log.
+
+           com.sun.enterprise.server.logging.GFFileHandler.flushFrequency
+               Il valore predefinito è 1.
+
+           com.sun.enterprise.server.logging.GFFileHandler.formatter
+               Il valore predefinito è
+               com.sun.enterprise.server.logging.UniformLogFormatter .
+
+           com.sun.enterprise.server.logging.GFFileHandler.logtoConsole
+               Il valore predefinito è false.
+
+           com.sun.enterprise.server.logging.GFFileHandler.maxHistoryFiles
+               Il valore predefinito è 0.
+
+           com.sun.enterprise.server.logging.GFFileHandler.retainErrorsStasticsForHours
+               Il valore predefinito è 0.
+
+           com.sun.enterprise.server.logging.GFFileHandler.rotationLimitInBytes
+               Il valore predefinito è 2000000.
+
+           com.sun.enterprise.server.logging.GFFileHandler.rotationTimelimitInMinutes
+               Il valore predefinito è 0.
+
+           com.sun.enterprise.server.logging.SyslogHandler.useSystemLogging
+               Il valore predefinito è false.
+
+           handlers
+               Il valore predefinito è java.util.logging.ConsoleHandler.
+
+           java.util.logging.ConsoleHandler.formatter
+               Il valore predefinito è
+               com.sun.enterprise.server.logging.UniformLogFormatter .
+
+           java.util.logging.FileHandler.count
+               Il valore predefinito è 1.
+
+           java.util.logging.FileHandler.formatter
+               Il valore predefinito è java.util.logging.XMLFormatter.
+
+           java.util.logging.FileHandler.limit
+               Il valore predefinito è 50000.
+
+           java.util.logging.FileHandler.pattern
+               Il valore predefinito è %h/java%u.log.
+
+           log4j.logger.org.hibernate.validator.util.Version
+               Il valore predefinito è warn.
+
+ESEMPI
+       Esempio 1, Impostazione di un valore massimo per i file della
+       cronologia di log da mantenere
+           Questo esempio mostra come impostare a 8 il numero massimo di file
+           della cronologia di log totali per il server.
+
+               asadmin> set-log-attributes --target=server \
+               com.sun.enterprise.server.logging.GFFileHandler.maxHistoryFiles=8
+               com.sun.enterprise.server.logging.GFFileHandler.maxHistoryFiles logging
+               attribute set with value 8.
+               These logging attributes are set for server.
+               Command set-log-attributes executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       collect-log-files(1), list-log-attributes(1), list-log-levels(1),
+       rotate-log(1), set-log-levels(1)
+
+       asadmin(1M)
+
+       "Administering the Logging Service" in Oracle GlassFish Server
+       Administration Guide
+
+                               12 febbraio 2011          SET-LOG-ATTRIBUTES(1)

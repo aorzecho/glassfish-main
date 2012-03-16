@@ -1,0 +1,72 @@
+ROTATE-LOG(1)                                                    ROTATE-LOG(1)
+
+NOME
+       rotate-log - ruota il file di log
+
+SINTASSI
+           rotate-log [--help]
+
+DESCRIZIONE
+       Il comando secondario rotate-log esegue la rotazione del log del server
+       rinominando il file con l'inserimento di un indicatore orario nel nome,
+       nel formato server.log_date-and-time, e creando un nuovo file di log.
+       Le modifiche sono applicate in modo dinamico, pertanto non è necessario
+       riavviare il server.
+
+       Le dimensioni della coda di log possono essere configurate mediante il
+       file logging.properties. La rotazione dei log è basata sulla dimensione
+       del file o sul tempo trascorso dall'ultima rotazione. In alcune
+       circostanze è possibile che la coda si riempia, specialmente se il
+       livello di log è impostato su FINEST e in presenza di un'attività
+       intensa nel server. In questo caso è possibile usare il comando
+       rotate-log per eseguire immediatamente la rotazione del log del server.
+       Questo comando secondario è utile anche per creare script per eseguire
+       la rotazione del log negli orari desiderati.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Server, cluster o istanza del server per cui verrà eseguita la
+           rotazione dei log. Se l'opzione è omessa, i log vengono ruotati per
+           il server predefinito.
+
+OPERANDI
+       target
+           I valori validi sono:
+
+           ·   server_name- La destinazione predefinita è server. Se non è
+               specificata una destinazione, i log vengono ruotati per il
+               server.
+
+           ·   cluster_name- Nome di un cluster di destinazione.
+
+           ·   instance_name- Nome di un'istanza del server di destinazione.
+
+ESEMPI
+       Esempio 1, Rotazione del log del server
+           In questo esempio viene eseguita la rotazione del log del server.
+
+               asadmin> rotate-log
+               Command rotate-log executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       collect-log-files(1), list-log-attributes(1), list-log-levels(1),
+       set-log-attributes(1), set-log-levels(1)
+
+       asadmin(1M)
+
+       "Administering the Logging Service" in Oracle GlassFish Server
+       Administration Guide
+
+                               12 febbraio 2011                  ROTATE-LOG(1)

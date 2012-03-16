@@ -1,0 +1,58 @@
+LIST-THREADPOOLS(1)                                        LIST-THREADPOOLS(1)
+
+參考名
+       list-threadpools - 列出所有的執行緒集區
+
+概要
+           list-threadpools [--help] target
+
+說明
+       list-threadpools 子命令會列出 GlassFish Server 執行緒集區。
+
+       只有遠端模式支援這個子命令。
+
+選項
+       --help, -?
+           顯示子命令的說明文字。
+
+運算元
+       目
+           此運算元可指定您要列出執行緒集區的目標。需要使用此運算元。
+
+           有效的值如下：
+
+           server
+               列出預設 GlassFish Server 實例 server 的執行緒集區。
+
+           configuration-name
+               列出已命名組態的執行緒集區。
+
+           cluster-name
+               列出叢集內每個實例的執行緒集區。
+
+           instance-name
+               列出特定實例的執行緒集區。
+
+範例
+       範例 1, 列出執行緒集區
+           此範例會列出預設實例 server 目前的執行緒集區。
+
+               asadmin> list-threadpools server
+               admin-thread-pool
+               http-thread-pool
+               thread-pool-1
+               Command list-threadpools executed successfully.
+
+結束狀態
+       0
+           子命令執行成功
+
+       1
+           執行子命令時發生錯誤
+
+另請參閱
+       create-threadpool(1), delete-threadpool(1)
+
+       asadmin(1M)
+
+                              2010 年 12 月 20 日          LIST-THREADPOOLS(1)

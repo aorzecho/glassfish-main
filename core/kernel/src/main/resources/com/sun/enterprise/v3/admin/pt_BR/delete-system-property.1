@@ -1,0 +1,53 @@
+DELETE-SYSTEM-PROP(1)                                    DELETE-SYSTEM-PROP(1)
+
+NOME
+       delete-system-property - remove uma propriedade de sistema do domínio,
+       da configuração, do cluster ou da instância do servidor por vez
+
+SINOPSE
+           delete-system-property [--help] [--target target_name ]
+           [property_name]
+
+DESCRIçãO
+       O subcomando delete-system-property deleta uma propriedade do sistema
+       de um domínio, configuração, cluster ou instância do servidor.
+       Assegure-se de que a propriedade do sistema não é referenciada em
+       nenhum outro lugar na configuração antes de deletá-la.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Essa opção especifica o destino no qual você está deletando as
+           propriedades do sistema. Os destinos válidos para esse subcomando
+           são: instância, cluster, configuração, domínio e servidor. Servidor
+           é a opção default.
+
+OPERANDOS
+       property_name
+           Nome da propriedade de sistema a ser removida.
+
+EXEMPLOS
+       Exemplo 1, Deletando uma propriedade do sistema
+           Este exemplo deleta a propriedade do sistema denominada
+           http-listener-port.
+
+               asadmin> delete-system-property http-listener-port
+               Command delete-system-property executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-system-properties(1), list-system-properties(1)
+
+       asadmin(1M)
+
+                            22 de dezembro de 2010       DELETE-SYSTEM-PROP(1)
