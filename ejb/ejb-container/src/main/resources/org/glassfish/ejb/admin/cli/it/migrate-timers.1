@@ -1,0 +1,59 @@
+MIGRATE-TIMERS(1)                                            MIGRATE-TIMERS(1)
+
+NOME
+       migrate-timers - sposta i timer EJB nel momento in cui un'istanza in
+       cluster è stata arrestata o si è bloccata in modo irreversibile
+
+SINTASSI
+           migrate-timers [--help] [--target target_server_name]
+            server_name
+
+DESCRIZIONE
+       Il comando secondario migrate-timers sposta i timer EJB in un server
+       specifico quando un'istanza server si interrompe o viene arrestata, se
+       la migrazione del timer automatico non è abilitata nella configurazione
+       del cluster. Questo comando secondario è supportato solo in modalità
+       remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Istanza server di destinazione. Se non si specifica questa opzione,
+           il server di amministrazione del dominio troverà una o più istanze
+           server. Verrà inviata una notifica di migrazione alle istanze
+           server selezionate.
+
+       --destination
+           Questa opzione è obsoleta. Funziona esattamente come l'opzione
+           --target.
+
+OPERANDI
+       server_name
+           Istanza server in cui si trovano correntemente i timer. Durante il
+           processo di migrazione l'istanza server non deve essere in
+           esecuzione.
+
+ESEMPI
+       Esempio 1, Migrazione di timer
+           In questo esempio viene illustrato come eseguire la migrazione dei
+           timer dal server denominato instance1 a un server denominato
+           instance2.
+
+               asadmin>migrate-timers --target instance2 instance1
+               This command was successfully executed.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       list-timers(1)
+
+       asadmin(1M)
+
+                               17 novembre 2010              MIGRATE-TIMERS(1)
