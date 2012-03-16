@@ -1,68 +1,66 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-managerproptab"></a><h4>Manager-Eigenschaften</h4>
-<a name="indexterm-50"></a><a name="indexterm-51"></a><p>Mit dem Sitzungsmanager k&#246;nnen Sie konfigurieren, wie Sitzungen erstellt und aufgel&#246;st werden,
-wo der Sitzungsstatus gespeichert wird und wie viele Sitzungen maximal zul&#228;ssig sind.</p>
+<p><a id="ref-managerproptab" name="ref-managerproptab"></a><a id="GHWEB00006" name="GHWEB00006"></a></p>
 
-<p>Auf der Seite "Manager-Eigenschaften" k&#246;nnen Sie Sitzungsmanager-Eigenschaften f&#252;r den Webcontainer hinzuf&#252;gen oder
-&#228;ndern.</p>
-
-<p>Die Seite "Manager Properties" (Manager-Eigenschaften) umfasst die folgenden Optionen.</p>
-
-<dl><dt>Standardeinstellungen laden</dt>
-<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r Einstellungen, f&#252;r die es Standardwerte gibt. Einstellungen, die nicht &#252;ber Standardwerte verf&#252;gen, k&#246;nnen nicht ge&#228;ndert werden.</p>
-
+<h4><a id="sthref95" name="sthref95"></a><a id="sthref96" name="sthref96"></a>Managereigenschaften</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Mit dem Sessionmanager k&ouml;nnen Sie konfigurieren, wie Sessions erstellt und aufgel&ouml;st werden, wo der Sessionstatus gespeichert wird und wie viele Sessions maximal zul&auml;ssig sind.</p>
+<p>Auf der Seite "Managereigenschaften" k&ouml;nnen Sie Sessionmanagereigenschaften f&uuml;r den Webcontainer hinzuf&uuml;gen oder &auml;ndern.</p>
+<p>Die Seite "Manager-Eigenschaften" umfasst die folgenden Optionen.</p>
+<dl>
+<dt>Standardeinstellungen laden</dt>
+<dd>
+<p>Schaltfl&auml;che zum Wiederherstellen der Standardwerte f&uuml;r Einstellungen, f&uuml;r die es Standardwerte gibt. Einstellungen, die nicht &uuml;ber Standardwerte verf&uuml;gen, k&ouml;nnen nicht ge&auml;ndert werden.</p>
 </dd>
 <dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
-<dt>Reap Interval (Reap-Intervall)</dt>
-<dd><p>Die Anzahl der Sekunden, bis die Daten zur inaktiven Sitzung aus dem Speicher gel&#246;scht werden. Der Standardwert ist 60.</p>
-
-<p>Legen Sie hierf&#252;r einen niedrigeren Wert fest als f&#252;r die H&#228;ufigkeit der &#196;nderung von Sitzungsdaten. Beispiel: F&#252;r ein Servlet, das die Aufrufe einer stark frequentierten Website z&#228;hlt, sollte ein m&#246;glichst niedriger Wert festgelegt werden (1 Sekunde), da anderenfalls bei jedem Neustart des Servers die letzten Aufrufe verloren gehen k&#246;nnten.</p>
-
+<dt>Reap-Intervall</dt>
+<dd>
+<p>Die Anzahl der Sekunden, bis die Daten zur inaktiven Session aus dem Speicher gel&ouml;scht werden. Der Standardwert ist 60.</p>
+<p>Legen Sie hierf&uuml;r einen niedrigeren Wert fest als f&uuml;r die H&auml;ufigkeit der &Auml;nderung von Sessiondaten. Beispiel: F&uuml;r ein Servlet, das die Aufrufe einer stark frequentierten Website z&auml;hlt, sollte ein m&ouml;glichst niedriger Wert festgelegt werden (1 Sekunde), da anderenfalls bei jedem Neustart des Servers die letzten Aufrufe verloren gehen k&ouml;nnten.</p>
 </dd>
-<dt>Max Sessions (Maximale Sitzungen)</dt>
-<dd><p>Die maximale Anzahl an Sitzungen, die sich im Cache befinden k&#246;nnen. Beim Wert &#8211;1 ist die Anzahl der Sitzungen unbegrenzt. Der Standardwert ist &#8211;1. </p>
-
-<p>Nach Erreichen des Grenzwerts wird bei dem Versuch, eine neue Sitzung zu erstellen, die Ausnahme <tt>IllegalStateException</tt> ausgel&#246;st.</p>
-
+<dt>Max. Sessions</dt>
+<dd>
+<p>Die maximale Anzahl an Sessions, die sich im Cache befinden k&ouml;nnen. Bei einem Wert &ndash;1 ist die Anzahl der Sessions unbegrenzt. Der Standardwert ist -1.</p>
+<p>Nach Erreichen des Grenzwerts wird bei dem Versuch, eine neue Session zu erstellen, die Ausnahme <code>IllegalStateException</code> ausgel&ouml;st.</p>
 </dd>
-<dt>Session File Name (Sitzungsdateiname)</dt>
-<dd><p>Der absolute oder relative Pfad zu dem Verzeichnis, in dem der Sitzungsstatus zwischen Anwendungsneustarts gespeichert wird, sofern die Speicherung des Status m&#246;glich ist. Wenn kein Pfad festgelegt wird, wird der Sitzungsstatus nicht gespeichert. Standardm&#228;&#223;ig ist kein Pfad festgelegt.</p>
-
-<p>Ein relativer Pfad wird relativ zum tempor&#228;ren Verzeichnis f&#252;r diese Webanwendung angegeben.</p>
-
+<dt>Sessiondateiname</dt>
+<dd>
+<p>Der absolute oder relative Pfad zu dem Verzeichnis, in dem der Sessionstatus zwischen Anwendungsneustarts gespeichert wird, sofern die Speicherung des Status m&ouml;glich ist. Wenn kein Pfad festgelegt wird, wird der Sessionstatus nicht gespeichert. Standardm&auml;&szlig;ig ist kein Pfad festgelegt.</p>
+<p>Ein relativer Pfad wird relativ zum tempor&auml;ren Verzeichnis f&uuml;r diese Webanwendung angegeben.</p>
 </dd>
 <dt>Weitere Eigenschaften</dt>
-<dd><p>Weitere Eigenschaften f&#252;r den Sitzungsmanager. Der GlassFish-Server definiert keine zus&#228;tzlichen Eigenschaften f&#252;r den Sitzungsmanager.</p>
-
+<dd>
+<p>Weitere Eigenschaften f&uuml;r den Sessionmanager. Der GlassFish Server definiert keine zus&auml;tzlichen Eigenschaften f&uuml;r den Sessionmanager.</p>
 </dd>
 </dl>
+<a id="sthref97" name="sthref97"></a>
 <h5>Verwandte Aufgaben</h5>
-
-<ul><li><p><a href="task-webcontainergeneral.html">So konfigurieren Sie die allgemeinen Eigenschaften des Webcontainers</a></p>
-
+<ul>
+<li>
+<p><a href="task-webcontainergeneral.html">So werden allgemeine Eigenschaften f&uuml;r den Webcontainer konfiguriert</a></p>
 </li>
-<li><p><a href="task-webcontainersessiontimeout.html">So konfigurieren Sie die Sitzungseigenschaften des Webcontainers</a></p>
-
+<li>
+<p><a href="task-webcontainersessiontimeout.html">So werden Sessioneigenschaften f&uuml;r den Webcontainer konfiguriert</a></p>
 </li>
-<li><p><a href="task-webcontainermanagerprops.html">So konfigurieren Sie die Manager-Eigenschaften des Webcontainers</a></p>
-
+<li>
+<p><a href="task-webcontainermanagerprops.html">So werden Managereigenschaften f&uuml;r den Webcontainer konfiguriert</a></p>
 </li>
-<li><p><a href="task-webcontainerstoreprops.html">So konfigurieren Sie die Speichereigenschaften des Webcontainers</a></p>
-
+<li>
+<p><a href="task-webcontainerstoreprops.html">So werden Speichereigenschaften f&uuml;r den Webcontainer konfiguriert</a></p>
 </li>
-<li><p><a href="task-webcontaineravailability.html">So konfigurieren Sie Verf&#252;gbarkeitseinstellungen f&#252;r den Webcontainer</a></p>
-
-</li></ul>
-<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+<li>
+<p><a href="task-webcontaineravailability.html">So werden Verf&uuml;gbarkeitseinstellungen f&uuml;r den Webcontainer konfiguriert</a></p>
+</li>
+</ul>
+<a id="sthref98" name="sthref98"></a>
+<h5>Zugeh&ouml;rige asadmin-Befehle</h5>
 <p>Keine.</p>
 
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,60 +1,59 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-ejbtimerservice"></a><h4>EJB-Zeitgeberdienst</h4>
-<a name="indexterm-18"></a><a name="indexterm-19"></a><a name="indexterm-20"></a><p>Auf der Seite "EJB-Zeitgeberdienst" k&#246;nnen Sie den EJB-Zeitgeberdienst konfigurieren.</p>
+<p><a id="ref-ejbtimerservice" name="ref-ejbtimerservice"></a><a id="GHEJB00003" name="GHEJB00003"></a></p>
 
-<p>Der Zeitgeberdienst ist ein vom Enterprise-Bean-Container bereitgestellter, fortdauernder und transaktionaler Benachrichtigungsdienst, mit
-dem von Enterprise-Beans verwendete Benachrichtigungen oder Ereignisse geplant werden. Alle Enterprise-Beans akzeptieren
-Stateful Session-Beans und k&#246;nnen Benachrichtigungen vom Zeitgeberdienst empfangen. Durch den Dienst gesetzte
-fortdauernde Zeitgeber werden nicht zerst&#246;rt, wenn der Server heruntergefahren oder neu gestartet
-wird.</p>
-
-<p>Die Seite "EJB-Zeitgeberdienst" enth&#228;lt die folgenden Optionen.</p>
-
-<dl><dt>Standardeinstellungen laden</dt>
-<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r Einstellungen, f&#252;r die es Standardwerte gibt. Einstellungen, die nicht &#252;ber Standardwerte verf&#252;gen, k&#246;nnen nicht ge&#228;ndert werden.</p>
-
+<h4><a id="sthref23" name="sthref23"></a> <a id="sthref24" name="sthref24"></a> <a id="sthref25" name="sthref25"></a> EJB-Timerservice</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Auf der Seite "EJB-Timerservice" k&ouml;nnen Sie den EJB-Timerservice konfigurieren.</p>
+<p>Der Timerservice ist ein vom Enterprise Bean-Container bereitgestellter, persistenter Transaktionsbenachrichtigungsservice, mit dem von Enterprise Beans verwendete Benachrichtigungen oder Ereignisse geplant werden. Alle Enterprise Beans akzeptieren Stateful Session-Beans und k&ouml;nnen Benachrichtigungen vom Timerservice empfangen. Durch den Service gesetzte persistente Timer werden nicht zerst&ouml;rt, wenn der Server heruntergefahren oder neu gestartet wird.</p>
+<p>Die Seite "EJB-Timerservice" enth&auml;lt die folgenden Optionen.</p>
+<dl>
+<dt>Standardeinstellungen laden</dt>
+<dd>
+<p>Schaltfl&auml;che zum Wiederherstellen der Standardwerte f&uuml;r Einstellungen, f&uuml;r die es Standardwerte gibt. Einstellungen, die nicht &uuml;ber Standardwerte verf&uuml;gen, k&ouml;nnen nicht ge&auml;ndert werden.</p>
 </dd>
 <dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
 <dt>Minimales Lieferintervall</dt>
-<dd><p>Die Mindestanzahl Millisekunden, die verstreichen d&#252;rfen, bis der n&#228;chste Zeitgeberablauf f&#252;r einen bestimmten Zeitgeber auftreten kann. Ein zu niedrig gew&#228;hlter Wert f&#252;r diese Einstellung kann zu einer Server&#252;berlastung f&#252;hren. Der Standardwert ist 1000.</p>
-
+<dd>
+<p>Die Mindestanzahl Millisekunden, die verstreichen d&uuml;rfen, bis der n&auml;chste Timerablauf f&uuml;r einen bestimmten Timer auftreten kann. Ein zu niedrig gew&auml;hlter Wert f&uuml;r diese Einstellung kann zu einer Server&uuml;berlastung f&uuml;hren. Der Standardwert ist 1000.</p>
 </dd>
 <dt>Maximale erneute Sendungen</dt>
-<dd><p>Die maximale Anzahl an Versuchen, die der Zeitgeberdienst unternimmt, um einen Zeitgeberablauf aufgrund einer Ausnahme oder einer Zur&#252;cksetzung zu senden. Der Standardwert betr&#228;gt 1. </p>
-
+<dd>
+<p>Die maximale Anzahl an Versuchen, die der Timerservice unternimmt, um einen Timerablauf aufgrund einer Ausnahme oder einer Zur&uuml;cksetzung zu senden. Der Standardwert betr&auml;gt 1.</p>
 </dd>
-<dt>Intervall f&#252;r erneutes Senden</dt>
-<dd><p>Die Zeit zwischen erneuten Sendeversuchen in Millisekunden ein. Der Standardwert lautet 5000.</p>
-
+<dt>Intervall f&uuml;r erneutes Senden</dt>
+<dd>
+<p>Die Zeit zwischen erneuten Sendeversuchen in Millisekunden ein. Der Standardwert lautet 5000.</p>
 </dd>
-<dt>Zeitgeberdatenquelle</dt>
-<dd><p>Der JNDI-Name der JDBC-Ressource, die als Zeitgeberdatenquelle verwendet werden soll. Dieser Wert (sofern angegeben) &#252;berschreibt den Standardwert von <tt>jdbc/__TimerPool</tt> f&#252;r die Zeitgeberdienst-Systemanwendung.</p>
-
+<dt>Timerdatenquelle</dt>
+<dd>
+<p>Der JNDI-Name der JDBC-Ressource, die als Timerdatenquelle verwendet werden soll. Wenn dieser Wert angegeben ist, &uuml;berschreibt er den Standardwert von <code>jdbc/__TimerPool</code> f&uuml;r die Timerservice-Systemanwendung.</p>
 </dd>
 </dl>
+<a id="sthref26" name="sthref26"></a>
 <h5>Verwandte Aufgaben</h5>
-
-<ul><li><p><a href="task-ejbtimerservice.html">So konfigurieren Sie den EJB-Zeitgeberdienst</a></p>
-
+<ul>
+<li>
+<p><a href="task-ejbtimerservice.html">So wird der EJB-Timerservice konfiguriert</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2962&id=task-ejbgeneral">To Configure EJB Settings</a></p>
-
+<li>
+<p><a href="../../../ejb-lite/de/help/missingtopic.html">So werden EJB-Einstellungen konfiguriert</a></p>
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">So konfigurieren Sie MDB-Pooleinstellungen</a></p>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">So werden MDB-Pooleinstellungen konfiguriert</a></p>
+</li>
+</ul>
+<a id="sthref27" name="sthref27"></a>
+<h5>Zugeh&ouml;rige asadmin-Befehle</h5>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00205"><code>list-timers</code>(1)</a></p>
 
-</li></ul>
-<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-timers-1"><tt>list-timers</tt>(1)</a></p>
-
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

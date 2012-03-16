@@ -1,103 +1,107 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-networklisteneredit"></a><h4>Netzwerk-Zielger&#228;t bearbeiten</h4>
-<a name="indexterm-66"></a><p>Auf der Seite "Netzwerk-Zielger&#228;t bearbeiten" k&#246;nnen Sie ein vorhandenes Netzwerk-Zielger&#228;t bearbeiten.</p>
+<p><a id="ref-networklisteneredit" name="ref-networklisteneredit"></a><a id="GHWEB00017" name="GHWEB00017"></a></p>
 
-<p>Beim Bearbeiten eines Netzwerk-Zielger&#228;ts stehen die Registerkarten "SSL", "HTTP" und "Dateicache" f&#252;r
-das verbundene Protokoll ebenfalls zur Bearbeitung zur Verf&#252;gung.</p>
-
-<p>Die Seite "Netzwerk-Zielger&#228;t bearbeiten" enth&#228;lt die folgenden Optionen.</p>
-
-<dl><dt>Standardeinstellungen laden</dt>
-<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r Einstellungen, f&#252;r die es Standardwerte gibt. Einstellungen, die nicht &#252;ber Standardwerte verf&#252;gen, k&#246;nnen nicht ge&#228;ndert werden.</p>
-
+<h4><a id="sthref136" name="sthref136"></a>Netzwerk-Listener bearbeiten</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Auf der Seite "Netzwerk-Listener bearbeiten" k&ouml;nnen Sie einen vorhandenen Netzwerk-Listener bearbeiten.</p>
+<p>Beim Bearbeiten eines Netzwerk-Listeners stehen die Registerkarten "SSL", "HTTP" und "Dateicache" f&uuml;r das verbundene Protokoll ebenfalls zur Bearbeitung zur Verf&uuml;gung.</p>
+<p>Die Seite "Netzwerk-Listener bearbeiten" enth&auml;lt die folgenden Optionen.</p>
+<dl>
+<dt>Standardeinstellungen laden</dt>
+<dd>
+<p>Schaltfl&auml;che zum Wiederherstellen der Standardwerte f&uuml;r Einstellungen, f&uuml;r die es Standardwerte gibt. Einstellungen, die nicht &uuml;ber Standardwerte verf&uuml;gen, k&ouml;nnen nicht ge&auml;ndert werden.</p>
 </dd>
 <dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
 <dt>Name</dt>
-<dd><p>Der eindeutige Zielger&#228;tename. Das Feld Name ist ein schreibgesch&#252;tztes Feld. Sie k&#246;nnen den Namen nur dann festlegen, wenn Sie ein neues Netzwerk-Zielger&#228;t erstellen.</p>
-
+<dd>
+<p>Der eindeutige Listener-Name. Das Feld Name ist ein schreibgesch&uuml;tztes Feld. Sie k&ouml;nnen den Namen nur dann festlegen, wenn Sie einen neuen Netzwerk-Listener erstellen.</p>
 </dd>
 <dt>Protocol (Protokoll)</dt>
-<dd><p>Das mit dem Netzwerk-Zielger&#228;t verbundene Protokoll. Das Feld "Protokoll" ist ein schreibgesch&#252;tztes Feld. Sie k&#246;nnen nur dann ein Protokoll erstellen oder festlegen, wenn Sie ein neues Netzwerk-Zielger&#228;t erstellen.</p>
-
+<dd>
+<p>Das mit dem Netzwerk-Listener verbundene Protokoll. Das Feld "Protokoll" ist ein schreibgesch&uuml;tztes Feld. Sie k&ouml;nnen nur dann ein Protokoll erstellen oder festlegen, wenn Sie einen neuen Netzwerk-Listener erstellen.</p>
 </dd>
 <dt>Status</dt>
-<dd><p>Der Status des Netzwerk-Zielger&#228;ts. Das Zielger&#228;t kann aktiviert oder deaktiviert werden. Diese Option ist standardm&#228;&#223;ig aktiviert. Wenn das Zielger&#228;t deaktiviert ist, f&#252;hren alle Versuche, eine Verbindung zum Zielger&#228;t herzustellen, zu einer Socket-Ausnahme (<tt>java.net.ConnectException</tt>).</p>
-
-<p>In Versionen vor GlassFish-Server 9.1 wurde bei einem Zielger&#228;t, dessen Attribut "Aktiviert" auf "false" gesetzt war, f&#252;r alle an das Zielger&#228;t gesendeten Anforderungen der Antwortcode 404 zur&#252;ckgegeben. Um dieses Verhalten in der aktuellen Version von GlassFish-Server zu erzielen, setzen Sie den Status des Zielger&#228;ts auf "aktiviert" und den Status aller verbundenen virtuellen Server auf "Deaktiviert". Die mit einem virtuellen Server verbundenen Zielger&#228;te werden in der Dropdown-Liste "Netzwerk-Zielger&#228;te" des Servers aufgef&#252;hrt.</p>
-
+<dd>
+<p>Der Status des Netzwerk-Listeners. Der Listener kann aktiviert oder deaktiviert werden. Diese Option ist standardm&auml;&szlig;ig aktiviert. Wenn der Listener deaktiviert ist, f&uuml;hren alle Versuche, eine Verbindung zum Listener herzustellen, zu einer Socket-Ausnahme (<code>java.net.ConnectException</code>).</p>
+<p>In Versionen vor GlassFish Server 9.1 wurde bei einem Listener, dessen Attribut "Aktiviert" auf "False" gesetzt war, f&uuml;r alle an den Listener gesendeten Anforderungen der Antwortcode 404 zur&uuml;ckgegeben. Um dieses Behavior in der aktuellen Version von GlassFish Server zu erzielen, setzen Sie den Status des Listeners auf "Aktiviert" und den Status aller verbundenen virtuellen Server auf "Deaktiviert". Die mit einem virtuellen Server verbundenen Listener werden in der Dropdown-Liste "Netzwerk-Listener" des Servers aufgef&uuml;hrt.</p>
 </dd>
 <dt>Security</dt>
-<dd><p>Bei aktivierter Option ist f&#252;r das vom Netzwerk-Zielger&#228;t verwendete Protokoll Sicherheit aktiviert. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dd>
+<p>Bei aktivierter Option ist f&uuml;r das vom Netzwerk-Listener verwendete Protokoll Sicherheit aktiviert. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
-<dt>JK-Zielger&#228;t</dt>
-<dd><p>Bei aktivierter Option unterst&#252;tzt das Zielger&#228;t das Apache-Protokoll <tt>mod-jk</tt>. Das Protokoll <tt>mod-jk</tt> ist ein propriet&#228;res Kommunikations-/Netzwerkprotokoll zwischen dem Apache-Webserver <tt>httpd</tt> und einer Backend-Instanz von GlassFish-Server. Wenn das Zielger&#228;t dieses Protokoll unterst&#252;tzt, wird davon ausgegangen, dass <tt>httpd</tt> den gesamten statischen Inhalt verarbeitet, w&#228;hrend alle Anforderungen von dynamischen Ressourcen (d.&#160;h. Servlets und JSPs) an das <tt>mod-jk</tt>-f&#228;hige Zielger&#228;t von GlassFish-Server weitergeleitet werden, wobei das Protokoll <tt>mod-jk</tt> verwendet wird. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dt>JK-Listener</dt>
+<dd>
+<p>Bei aktivierter Option unterst&uuml;tzt der Listener das Apache-Protokoll <code>mod-jk</code>. Das Protokoll <code>mod-jk</code> ist ein propriet&auml;res Kommunikations-/Netzwerkprotokoll zwischen dem Apache-Webserver <code>httpd</code> und einer Backend-Instanz von GlassFish Server. Wenn der Listener dieses Protokoll unterst&uuml;tzt, wird davon ausgegangen, dass <code>httpd</code> den gesamten statischen Content verarbeitet, w&auml;hrend alle Anforderungen von dynamischen Ressourcen (d.h. Servlets und JSPs) an den <code>mod-jk</code>-f&auml;higen Listener von GlassFish Server weitergeleitet werden, wobei das Protokoll <code>mod-jk</code> verwendet wird. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
 <dt>Port</dt>
-<dd><p>Die Nummer des Ports, den das Netzwerk-Zielger&#228;t &#252;berwacht. G&#252;ltige Werte sind 1 bis 65535. Bei einem UNIX-System sind zum Erstellen von Sockets, die die Ports 1 bis 1024 &#252;berwachen, Superuser-Rechte erforderlich.</p>
-
+<dd>
+<p>Die Nummer des Ports, auf dem der Netzwerk-Listener horcht. G&uuml;ltige Werte sind 1 bis 65535. Bei einem UNIX-System sind zum Erstellen von Sockets, die auf den Ports 1 bis 1024 horchen, Superuser-Berechtigungen erforderlich.</p>
 </dd>
 <dt>Address (Adresse)</dt>
-<dd><p>Die IP-Adresse, die das Netzwerk-Zielger&#228;t &#252;berwacht. Die Adresse kann als Punktepaar oder in IPv6-Notation angegeben werden. Beim Wert <tt>any</tt> (f&#252;r <tt>INADDR_ANY</tt>) werden alle IP-Adressen &#252;berwacht. Auch die Angabe eines Hostnamens ist m&#246;glich.</p>
-
+<dd>
+<p>Die IP-Adresse, auf der der Netzwerk-Listener horcht. Die Adresse kann als Punktepaar oder in IPv6-Notation angegeben werden. Beim Wert <code>any</code> (f&uuml;r <code>INADDR_ANY</code>) wird auf allen IP-Adressen gehorcht. Auch die Angabe eines Hostnamens ist m&ouml;glich.</p>
 </dd>
 <dt>Thread Pool (Thread-Pool)</dt>
-<dd><p>Der mit dem Netzwerk-Zielger&#228;t verbundene Threadpool.</p>
-
+<dd>
+<p>Der mit dem Netzwerk-Listener verbundene Threadpool.</p>
 </dd>
 <dt>Transport</dt>
-<dd><p>Der Transporttyp f&#252;r des Netzwerk-Zielger&#228;t. Standardm&#228;&#223;ig steht <tt>tcp</tt> als einziger Transporttyp zur Auswahl.</p>
-
+<dd>
+<p>Der Transporttyp f&uuml;r den Netzwerk-Listener. Standardm&auml;&szlig;ig steht <code>tcp</code> als einziger Transporttyp zur Auswahl.</p>
 </dd>
 </dl>
+<a id="sthref137" name="sthref137"></a>
 <h5>Verwandte Aufgaben</h5>
-
-<ul><li><p><a href="task-networklistenernew.html">So erstellen Sie ein Netzwerk-Zielger&#228;t</a></p>
-
+<ul>
+<li>
+<p><a href="task-networklistenernew.html">So wird ein Netzwerk-Listener erstellt</a></p>
 </li>
-<li><p><a href="task-networklisteneredit.html">So bearbeiten Sie ein Netzwerk-Zielger&#228;t</a></p>
-
+<li>
+<p><a href="task-networklisteneredit.html">So wird ein Netzwerk-Listener bearbeitet</a></p>
 </li>
-<li><p><a href="task-networklistenerdelete.html">So l&#246;schen Sie ein Netzwerk-Zielger&#228;t</a></p>
-
+<li>
+<p><a href="task-networklistenerdelete.html">So wird ein Netzwerk-Listener gel&ouml;scht</a></p>
 </li>
-<li><p><a href="task-protocolnew.html">So erstellen Sie ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolnew.html">So wird ein Protokoll erstellt</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">So bearbeiten Sie ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">So wird ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">So bearbeiten Sie SSL-Einstellungen f&#252;r ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">So werden SSL-Einstellungen f&uuml;r ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">So bearbeiten Sie HTTP-Einstellungen f&#252;r ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">So werden HTTP-Einstellungen f&uuml;r ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">So bearbeiten Sie Dateicache-Einstellungen f&#252;r ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">So werden Dateicacheeinstellungen f&uuml;r ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">So l&#246;schen Sie ein Protokoll</a></p>
-
-</li></ul>
-<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-network-listener-1"><tt>create-network-listener</tt>(1)</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">So wird ein Protokoll gel&ouml;scht</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-network-listeners-1"><tt>list-network-listeners</tt>(1)</a></p>
-
+</ul>
+<a id="sthref138" name="sthref138"></a>
+<h5>Zugeh&ouml;rige asadmin-Befehle</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00046"><code>create-network-listener</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-network-listener-1"><tt>delete-network-listener</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00186"><code>list-network-listeners</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00098"><code>delete-network-listener</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

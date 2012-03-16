@@ -1,71 +1,67 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmsavailability"></a><h4>JMS-Verf&#252;gbarkeit</h4>
-<a name="indexterm-41"></a><a name="indexterm-42"></a><p>Auf der Seite "JMS-Verf&#252;gbarkeit" k&#246;nnen Sie Verf&#252;gbarkeitseinstellungen f&#252;r den Java Message Service
-(JMS) konfigurieren.</p>
+<p><a id="ref-jmsavailability" name="ref-jmsavailability"></a><a id="GHJMS00009" name="GHJMS00009"></a></p>
 
-<p>Die Seite "JMS-Verf&#252;gbarkeit" enth&#228;lt die folgenden Optionen.</p>
-
-<dl><dt>Standardeinstellungen laden</dt>
-<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r Einstellungen, f&#252;r die es Standardwerte gibt. Einstellungen, die nicht &#252;ber Standardwerte verf&#252;gen, k&#246;nnen nicht ge&#228;ndert werden.</p>
-
+<h4><a id="sthref71" name="sthref71"></a><a id="sthref72" name="sthref72"></a>JMS-Verf&uuml;gbarkeit</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Auf der Seite "JMS-Verf&uuml;gbarkeit" k&ouml;nnen Sie Verf&uuml;gbarkeitseinstellungen f&uuml;r den Java Message Service (JMS) konfigurieren.</p>
+<p>Die Seite "JMS-Verf&uuml;gbarkeit" enth&auml;lt die folgenden Optionen.</p>
+<dl>
+<dt>Standardeinstellungen laden</dt>
+<dd>
+<p>Schaltfl&auml;che zum Wiederherstellen der Standardwerte f&uuml;r Einstellungen, f&uuml;r die es Standardwerte gibt. Einstellungen, die nicht &uuml;ber Standardwerte verf&uuml;gen, k&ouml;nnen nicht ge&auml;ndert werden.</p>
 </dd>
 <dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
-<dt>Verf&#252;gbarkeitsdienst</dt>
-<dd><p>Der Typ von Nachrichtenwarteschlangen-Cluster, der zur Bereitstellung von JMS-Diensten f&#252;r einen GlassFish-Cluster verwendet wird. Ist das Kontrollk&#228;stchen der Option "Aktiviert" aktiviert, wird ein erweiterter Message Queue-Cluster verwendet. Anderenfalls wird ein konventioneller Message Queue-Cluster verwendet.</p>
-
-<p>Ist das Kontrollk&#228;stchen der Option "Aktiviert" aktiviert, werden die Optionen "Konfigurationsspeichertyp" und "Nachrichtenspeichertyp" ignoriert.</p>
-
+<dt>Verf&uuml;gbarkeitsservice</dt>
+<dd>
+<p>Der Typ des Nachrichtenqueueclusters zur Bereitstellung von JMS-Services f&uuml;r ein GlassFish-Cluster. Wenn das Kontrollk&auml;stchen "Aktiviert" gew&auml;hlt ist, wird ein erweitertes Message Queue-Cluster verwendet. Sonst wird ein konventionelles Message Queue-Cluster verwendet.</p>
+<p>Wenn das Kontrollk&auml;stchen "Aktiviert" gew&auml;hlt ist, werden die Optionen "Konfigurationsspeichertyp" und "Nachrichtenspeichertyp" ignoriert.</p>
 </dd>
 <dt>Konfigurationsspeichertyp</dt>
-<dd><p>Der Datenspeichertyp f&#252;r Konfigurationsdaten in einem konventionellen Message Queue-Cluster. Der Wert <tt>masterbroker</tt> gibt die Verwendung eines Master-Brokers f&#252;r die Speicherung und Verwaltung der Konfigurationsdaten an. Der Wert <tt>shareddb</tt> gibt die Verwendung einer gemeinsamen Datenbank f&#252;r die Speicherung der Konfigurationsdaten an.</p>
-
-<p>Diese Option wird ignoriert, wenn der Verf&#252;gbarkeitsdienst aktiviert ist.</p>
-
+<dd>
+<p>Der Datenspeichertyp f&uuml;r Konfigurationsdaten in einem konventionellen Message Queue-Cluster. Der Wert <code>masterbroker</code> gibt die Verwendung eines Master-Brokers f&uuml;r die Speicherung und Verwaltung der Konfigurationsdaten an. Der Wert <code>shareddb</code> gibt die Verwendung einer gemeinsamen Datenbank f&uuml;r die Speicherung der Konfigurationsdaten an.</p>
+<p>Diese Option wird ignoriert, wenn "Verf&uuml;gbarkeitsservice" aktiviert ist.</p>
 </dd>
 <dt>Nachrichtenspeichertyp</dt>
-<dd><p>Der Datenspeichertyp f&#252;r Nachrichtendaten in Brokern eines konventionellen Clusters. Der Wert <tt>file</tt> gibt einen Datenspeicher an. Der Wert <tt>jdbc</tt> gibt einen JDBC-Speicher an.</p>
-
-<p>Diese Option wird ignoriert, wenn der Verf&#252;gbarkeitsdienst aktiviert ist.</p>
-
+<dd>
+<p>Der Datenspeichertyp f&uuml;r Nachrichtendaten in Brokern eines konventionellen Clusters. Der Wert <code>file</code> gibt einen Datenspeicher an. Der Wert <code>jdbc</code> gibt einen JDBC-Speicher an.</p>
+<p>Diese Option wird ignoriert, wenn "Verf&uuml;gbarkeitsservice" aktiviert ist.</p>
 </dd>
 <dt>Datenbankhersteller</dt>
 <dt>Datenbankbenutzername</dt>
-<dt>Datenbankpasswort</dt>
+<dt>Datenbankkennwort</dt>
 <dt>Datenbankzugriffs-URL</dt>
-<dd><p>Hersteller, Benutzer, Passwort und Zugriffs-URL der JDBC-Datenbank f&#252;r die Verwendung in folgenden F&#228;llen:</p>
-
-
-<ul><li><p>Wenn der Verf&#252;gbarkeitsdienst aktiviert ist</p>
-
+<dd>
+<p>Hersteller, Benutzer und Zugriffs-URL der JDBC-Datenbank f&uuml;r die Verwendung in folgenden F&auml;llen:</p>
+<ul>
+<li>
+<p>Wenn "Verf&uuml;gbarkeitsservice" aktiviert ist</p>
 </li>
-<li><p>Wenn der Konfigurationsspeichertyp auf <tt>shareddb</tt> eingestellt ist</p>
-
+<li>
+<p>Wenn "Konfigurationsspeichertyp" auf <code>shareddb</code> festgelegt ist</p>
 </li>
-<li><p>Wenn der Nachrichtenspeichertyp auf <tt>jdbc</tt> eingestellt ist</p>
-
-</li></ul>
-<p>Weitere Informationen zu unterst&#252;tzten Herstellern und den Zugriffs-URL-Formaten der jeweiligen Hersteller finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=gheaz">JDBC-Based Persistence in <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide</i></a>.</p>
-
+<li>
+<p>Wenn "Nachrichtenspeichertyp" auf <code>jdbc</code> festgelegt ist</p>
+</li>
+</ul>
+<p>Weitere Informationen &uuml;ber unterst&uuml;tzte Hersteller und die Formate der Zugriffs-URLs f&uuml;r jeden Hersteller finden Sie in <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GMADG00244"><i>JDBC-Based Persistence</i> im <i>Oracle GlassFish Server Message Queue Administration Guide</i></a>.</p>
 </dd>
 <dt>Weitere Eigenschaften</dt>
-<dd><p>Weitere Eigenschaften f&#252;r die JMS-Verf&#252;gbarkeit.</p>
-
-<p>Bei GlassFish-Server sind keine weiteren Eigenschaften f&#252;r die JMS-Verf&#252;gbarkeit vordefiniert.</p>
-
+<dd>
+<p>Weitere Eigenschaften f&uuml;r die JMS-Verf&uuml;gbarkeit.</p>
+<p>Bei GlassFish Server sind keine weiteren Eigenschaften f&uuml;r die JMS-Verf&uuml;gbarkeit vordefiniert.</p>
 </dd>
 </dl>
+<a id="sthref73" name="sthref73"></a>
 <h5>Verwandte Aufgaben</h5>
-
-<ul><li><p><a href="task-jmsservice.html">So konfigurieren Sie den JMS-Dienst</a></p>
-
-</li></ul>
+<p><a href="task-jmsservice.html">So wird der JMS-Service konfiguriert</a></p>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

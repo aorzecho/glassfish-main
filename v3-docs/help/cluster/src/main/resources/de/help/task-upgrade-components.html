@@ -1,117 +1,110 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-upgrade-components" name="task-upgrade-components"></a><a id="GHCLU00044" name="GHCLU00044"></a></p>
 
-
-<a name="task-upgrade-components"></a><h3>So aktualisieren Sie Komponenten ohne eine Dienstunterbrechung</h3><a name="indexterm-41"></a><a name="indexterm-42"></a><a name="indexterm-43"></a><a name="indexterm-44"></a><p>In einer Clusterumgebung wird durch ein laufendes Upgrade eine Anwendung bei minimalem
-Verlust von Diensten und Sitzungen erneut bereitgestellt. Eine Sitzung ist ein Artefakt,
-das repliziert werden kann. Beispiel:</p>
-
-
-<ul><li><p><tt>HttpSession</tt></p>
-
+<h4><a id="sthref62" name="sthref62"></a><a id="sthref63" name="sthref63"></a><a id="sthref64" name="sthref64"></a><a id="sthref65" name="sthref65"></a>So werden Komponenten ohne Serviceverlust upgegradet</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>In einer Clusterumgebung wird durch ein laufendes Upgrade eine Anwendung bei minimalem Verlust von Services und Sessions erneut bereitgestellt. Eine Session ist ein Artefakt, das repliziert werden kann. Beispiel:</p>
+<ul>
+<li>
+<p><code>HttpSession</code></p>
 </li>
-<li><p><tt>SingleSignOn</tt></p>
-
+<li>
+<p><code>SingleSignOn</code></p>
 </li>
-<li><p><tt>ServletTimer</tt></p>
-
+<li>
+<p><code>ServletTimer</code></p>
 </li>
-<li><p><tt>DialogFragment</tt></p>
-
+<li>
+<p><code>DialogFragment</code></p>
 </li>
-<li><p>Stateful Session-Bean</p>
-
-</li></ul>
-<p>Sie k&#246;nnen das Lastenausgleichssystem und mehrere Cluster dazu verwenden, um Komponenten in
-GlassFish-Server ohne Dienstunterbrechung zu aktualisieren. Bei einer Komponente kann es sich beispielsweise
-um eine JVM, die GlassFish-Server-Software oder eine Webanwendung handeln.</p>
-
-<p>Ein laufendes Upgrade kann bei leichter bis mittlerer Auslastung stattfinden. Der Vorgang
-dauert 10-15 Minuten f&#252;r jede GlassFish-Server-Instanz.</p>
-
-<p>Die Anwendungen innerhalb des Upgrades m&#252;ssen kompatibel sein. W&#228;hrend des &#220;bergangs m&#252;ssen
-sie ordnungsgem&#228;&#223; funktionieren, wenn bei einigen Instanzen die alte Version und bei
-anderen Instanzen die neue Version ausgef&#252;hrt wird. Die alte und neue Version
-m&#252;ssen die gleiche Form von serialisierbaren Klassen aufweisen, die in Sitzungen gespeicherte
-Objektdiagramme bilden (beispielsweise nicht-tempor&#228;re Instanzenvariablen). Wenn die Form dieser Klassen sich &#228;ndert,
-muss der Entwickler der Anwendung sicherstellen, dass das Serialisierungsverhalten ordnungsgem&#228;&#223; ist. Wenn
-die Anwendungen innerhalb des Upgrades nicht kompatibel sind, muss der Cluster angehalten
-und vollst&#228;ndig neu bereitgestellt werden.</p>
-
-<p>Dieser Ansatz ist nicht m&#246;glich, wenn das Anwendungsupgrade eine &#196;nderung am Datenbankschema
-der Anwendung erfordert.</p>
-
-
-<hr><p><b>Achtung - </b>Um unterschiedliche Versionen bei einem Failover einer Sitzung zu vermeiden, aktualisieren Sie
-gleichzeitig alle Instanzen in einem Cluster. Andernfalls wird m&#246;glicherweise ein Failover einer
-Sitzung auf eine Instanz durchgef&#252;hrt, auf der unterschiedliche Versionen der Komponenten ausgef&#252;hrt
-werden.</p>
-
+<li>
+<p>Stateful Session-Bean</p>
+</li>
+</ul>
+<p>Sie k&ouml;nnen den Load Balancer und mehrere Cluster verwenden, um Komponenten in GlassFish Server ohne Serviceunterbrechung zu aktualisieren. Bei einer Komponente kann es sich beispielsweise um eine JVM, die GlassFish Server-Software oder eine Webanwendung handeln.</p>
+<p>Ein Rolling Upgrade kann bei leichter bis mittlerer Auslastung stattfinden. Der Vorgang dauert 10-15 Minuten f&uuml;r jede GlassFish Server-Instanz.</p>
+<p>Die Anwendungen innerhalb des Upgrades m&uuml;ssen kompatibel sein. W&auml;hrend des &Uuml;bergangs m&uuml;ssen sie ordnungsgem&auml;&szlig; funktionieren, wenn bei einigen Instanzen die alte Version und bei anderen Instanzen die neue Version ausgef&uuml;hrt wird. Die alte und neue Version m&uuml;ssen die gleiche Form von serialisierbaren Klassen aufweisen, die in Sessions gespeicherte Objektdiagramme bilden (beispielsweise nicht-tempor&auml;re Instanzenvariablen). Wenn die Form dieser Klassen sich &auml;ndert, muss der Entwickler der Anwendung sicherstellen, dass das Serialisierungsverhalten ordnungsgem&auml;&szlig; ist. Wenn die Anwendungen innerhalb des Upgrades nicht kompatibel sind, muss das Cluster angehalten und vollst&auml;ndig neu bereitgestellt werden.</p>
+<p>Dieser Ansatz ist nicht m&ouml;glich, wenn das Anwendungsupgrade eine &Auml;nderung am Datenbankschema der Anwendung erfordert.</p>
 
 <hr>
-<p>F&#252;hren Sie diese Aufgabe auf jedem Cluster separat durch. Ein Cluster fungiert
-als Sicherheitsbarriere f&#252;r ein Sitzungs-Failover auf Instanzen im Cluster. Bei Sitzungen in
-einem Cluster kann niemals ein Failover auf Sitzungen in einem anderen Cluster
-durchgef&#252;hrt werden. Dadurch wird das Risiko unterschiedlicher Versionen vermieden.</p>
+<p><b>Achtung:</b></p>
+Um unterschiedliche Versionen bei einem Failover einer Session zu vermeiden, aktualisieren Sie gleichzeitig alle Instanzen in einem Cluster. Andernfalls wird m&ouml;glicherweise ein Failover einer Session auf eine Instanz durchgef&uuml;hrt, auf der unterschiedliche Versionen der Komponenten ausgef&uuml;hrt werden.
+<hr>
 
+<p>F&uuml;hren Sie diese Aufgabe auf jedem Cluster separat durch. Ein Cluster fungiert als Sicherheitsbarriere f&uuml;r ein Session-Failover auf Instanzen im Cluster. Bei Sessions in einem Cluster kann niemals ein Failover auf Sessions in einem anderen Cluster durchgef&uuml;hrt werden. Dadurch wird das Risiko unterschiedlicher Versionen vermieden.</p>
 <ol>
-<li><b>Halten Sie den Cluster an (weitere Informationen erhalten Sie <a href="task-stop-cluster.html">hier</a>).</b></li>
-<li><b>Aktualisieren Sie die Komponenten in diesem Cluster.</b></li>
-<li><b>Starten Sie den Cluster (weitere Informationen erhalten Sie <a href="task-start-cluster.html">hier</a>).</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-create-cluster.html">So erstellen Sie einen Cluster</a></p>
-
+<li>
+<p>Stoppen Sie das Cluster.</p>
+<p>Siehe <a href="task-stop-cluster.html">So wird ein Cluster gestoppt</a></p>
 </li>
-<li><p><a href="task-delete-cluster.html">So l&#246;schen Sie einen Cluster</a></p>
-
+<li>
+<p>Upgraden Sie die Komponenten in diesem Cluster.</p>
 </li>
-<li><p><a href="task-availabilityservice.html">So konfigurieren Sie Verf&#252;gbarkeitseinstellungen f&#252;r einen Cluster</a></p>
-
+<li>
+<p>Starten Sie das Cluster</p>
+<p>Siehe <a href="task-start-cluster.html">So wird ein Cluster gestartet</a></p>
 </li>
-<li><p><a href="task-start-cluster.html">So starten Sie einen Cluster</a></p>
-
+</ol>
+<a id="sthref66" name="sthref66"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-create-cluster.html">So wird ein Cluster erstellt</a></p>
 </li>
-<li><p><a href="task-stop-cluster.html">So halten Sie einen Cluster an</a></p>
-
+<li>
+<p><a href="task-delete-cluster.html">So wird ein Cluster gel&ouml;scht</a></p>
 </li>
-<li><p><a href="task-modify-cluster-config.html">So &#228;ndern Sie die Konfiguration eines Clusters</a></p>
-
+<li>
+<p><a href="task-availabilityservice.html">So werden Verf&uuml;gbarkeitseinstellungen f&uuml;r ein Cluster konfiguriert</a></p>
 </li>
-<li><p><a href="task-cluster-app-deploy.html">So stellen Sie eine Anwendung f&#252;r einen Cluster bereit</a></p>
-
+<li>
+<p><a href="task-start-cluster.html">So wird ein Cluster gestartet</a></p>
 </li>
-<li><p><a href="task-cluster-app-list.html">So listen Sie die f&#252;r einen Cluster bereitgestellten Anwendungen auf</a></p>
-
+<li>
+<p><a href="task-stop-cluster.html">So wird ein Cluster gestoppt</a></p>
 </li>
-<li><p><a href="task-cluster-app-undeploy.html">So heben Sie die Bereitstellung von Anwendungen f&#252;r einen Cluster auf</a></p>
-
+<li>
+<p><a href="task-modify-cluster-config.html">So wird die Konfiguration eines Clusters ge&auml;ndert</a></p>
 </li>
-<li><p><a href="task-cluster-app-remove.html">So entfernen Sie Anwendungen aus einem Cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-deploy.html">So wird eine Anwendung in einem Cluster bereitgestellt</a></p>
 </li>
-<li><p><a href="task-cluster-app-edit.html">So bearbeiten Sie die f&#252;r einen Cluster bereitgestellte Anwendung</a></p>
-
+<li>
+<p><a href="task-cluster-app-list.html">So werden Anwendungen aufgelistet, die in einem Cluster bereitgestellt sind</a></p>
 </li>
-<li><p><a href="task-cluster-app-enable-disable.html">So aktivieren oder deaktivieren Sie die f&#252;r einen Cluster bereitgestellte Anwendung</a></p>
-
+<li>
+<p><a href="task-cluster-app-undeploy.html">So wird das Deployment von Anwendungen in einem Cluster aufgehoben</a></p>
 </li>
-<li><p><a href="task-cluster-app-lb-enable-disable.html">So aktivieren oder deaktivieren Sie den Lastenausgleich der f&#252;r einen Cluster bereitgestellten Anwendung</a></p>
-
+<li>
+<p><a href="task-cluster-app-remove.html">So werden Anwendungen aus einem Cluster entfernt</a></p>
 </li>
-<li><p><a href="task-cluster-resource-create.html">So erstellen Sie eine Ressource f&#252;r einen Cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-edit.html">So wird eine Anwendung bearbeitet, die in einem Cluster bereitgestellt ist</a></p>
 </li>
-<li><p><a href="task-cluster-resource-display.html">So listen Sie Ressourcen f&#252;r einen Cluster auf</a></p>
-
+<li>
+<p><a href="task-cluster-app-enable-disable.html">So wird eine Anwendung aktiviert oder deaktiviert, die in einem Cluster bereitgestellt ist</a></p>
 </li>
-<li><p><a href="task-cluster-resource-enable-disable.html">So aktivieren oder deaktivieren Sie global eine Ressource</a></p>
-
+<li>
+<p><a href="task-cluster-app-lb-enable-disable.html">So wird das Load Balancing f&uuml;r eine Anwendung aktiviert oder deaktiviert, die in einem Cluster bereitgestellt ist</a></p>
 </li>
-<li><p><a href="task-cluster-resource-edit.html">So bearbeiten Sie eine Ressource f&#252;r einen Cluster</a></p>
+<li>
+<p><a href="task-cluster-resource-create.html">So wird eine Ressource f&uuml;r ein Cluster erstellt</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-display.html">So werden Ressourcen f&uuml;r ein Cluster aufgelistet</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-enable-disable.html">So wird eine Ressource global aktiviert oder deaktiviert</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-edit.html">So wird eine Ressource f&uuml;r ein Cluster bearbeitet</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

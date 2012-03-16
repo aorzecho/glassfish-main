@@ -1,183 +1,193 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-virtualserverprops"></a><h4>F&#252;r virtuelle Server spezifische Eigenschaften</h4>
-<a name="indexterm-61"></a><a name="indexterm-62"></a><p>Die folgenden zus&#228;tzlichen Eigenschaften stehen f&#252;r virtuelle Server zur Verf&#252;gung.</p>
+<p><a id="ref-virtualserverprops" name="ref-virtualserverprops"></a><a id="GHWEB00012" name="GHWEB00012"></a></p>
 
-<dl><dt><tt>sso-max-inactive-seconds</tt></dt>
-<dd><p>Gibt den Zeitraum (in Sekunden) an, nach dem der SSO-Eintrag eines Benutzers zum L&#246;schen freigegeben wird, wenn keine Clientaktivit&#228;t verzeichnet wird. Da der SSO-Eintrag f&#252;r verschiedene Anwendungen auf demselben virtuellen Server verwendet wird, wird er durch den Zugriff auf eine beliebige der Anwendungen aktiv gehalten.</p>
-
-<p>Der Standardwert ist 300 Sekunden (5 Minuten). H&#246;here Werte erm&#246;glichen eine l&#228;ngere SSO-Persistenz f&#252;r die Benutzer, jedoch zu Lasten eines h&#246;heren Arbeitsspeicherverbrauchs auf dem Server.</p>
-
+<h4><a id="sthref125" name="sthref125"></a><a id="sthref126" name="sthref126"></a>F&uuml;r virtuelle Server spezifische Eigenschaften</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Die folgenden zus&auml;tzlichen Eigenschaften stehen f&uuml;r virtuelle Server zur Verf&uuml;gung.</p>
+<dl>
+<dt><code>sso-max-inactive-seconds</code></dt>
+<dd>
+<p>Gibt den Zeitraum (in Sekunden) an, nach dem der SSO-Datensatz eines Benutzers zum L&ouml;schen freigegeben wird, wenn keine Clientaktivit&auml;t verzeichnet wird. Da der SSO-Eintrag f&uuml;r verschiedene Anwendungen auf demselben virtuellen Server verwendet wird, wird er durch den Zugriff auf eine beliebige der Anwendungen aktiv gehalten.</p>
+<p>Der Standardwert ist 300 Sekunden (5 Minuten). H&ouml;here Werte erm&ouml;glichen eine l&auml;ngere SSO-Persistenz f&uuml;r die Benutzer, jedoch zu Lasten eines h&ouml;heren Arbeitsspeicherverbrauchs auf dem Server.</p>
 </dd>
-<dt><tt>sso-reap-interval-seconds</tt></dt>
-<dd><p>Gibt den Zeitraum (in Sekunden) an, der zwischen zwei L&#246;schvorg&#228;ngen f&#252;r abgelaufene SSO-Eintr&#228;ge vergeht.</p>
-
+<dt><code>sso-reap-interval-seconds</code></dt>
+<dd>
+<p>Gibt den Zeitraum (in Sekunden) an, der zwischen zwei L&ouml;schvorg&auml;ngen f&uuml;r abgelaufene SSO-Eintr&auml;ge vergeht.</p>
 <p>Der Standardwert ist 60.</p>
-
 </dd>
-<dt><tt>ssoCookieSecure</tt></dt>
-<dd><p>Legt das Attribut <tt>Secure</tt> aller <tt>JSESSIONIDSSO</tt>-Cookies fest, die mit den auf diesem virtuellen Server bereitgestellten Webanwendungen verbunden sind. Diese Eigenschaft ist nur verf&#252;gbar, wenn Single Sign-On (SSO) aktiviert ist. Folgende Werte sind zul&#228;ssig:</p>
-
-<dl><dt><tt>wahr</tt></dt>
-<dd><p>Legt <tt>Secure</tt> auf "true" fest. </p>
-
+<dt><code>ssoCookieSecure</code></dt>
+<dd>
+<p>Legt das Attribut <code>Secure</code> aller <code>JSESSIONIDSSO</code> -Cookies fest, die mit den auf diesem virtuellen Server bereitgestellten Webanwendungen verbunden sind. Diese Eigenschaft ist nur verf&uuml;gbar, wenn Single Sign-On (SSO) aktiviert ist. Folgende Werte sind zul&auml;ssig:</p>
+<dl>
+<dt><code>wahr</code></dt>
+<dd>
+<p>Legt <code>Secure</code> auf "true" fest.</p>
 </dd>
-<dt><tt>falsch</tt></dt>
-<dd><p>Legt <tt>Secure</tt> auf "false" fest.</p>
-
+<dt><code>falsch</code></dt>
+<dd>
+<p>Legt <code>Secure</code> auf "false" fest.</p>
 </dd>
-<dt><tt>dynamic</tt></dt>
-<dd><p>Das Cookie <tt>JSESSIONIDSSO</tt> &#252;bernimmt die <tt>Secure</tt>-Einstellung der ersten Sitzung, die an SSO teilnimmt.</p>
-
+<dt><code>dynamic</code></dt>
+<dd>
+<p>Das Cookie <code>JSESSIONIDSSO</code> &uuml;bernimmt die <code>Secure</code>-Einstellung der ersten Session, die an SSO teilnimmt.</p>
 </dd>
 </dl>
-<p>Zum Festlegen des Secure-Attributs eines <tt>JSESSIONID</tt>-Cookies verwenden Sie die Eigenschaft <tt>cookieSecure</tt> <tt>cookie-properties</tt> in der Datei <tt>sun-web.xml</tt>. Weitere Informationen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beash">cookie-properties in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
-
+<p>Zum Festlegen des Secure-Attributs eines <code>JSESSIONID</code>-Cookies verwenden Sie die Eigenschaft <code>cookieSecure</code> <code>cookie-properties</code> in der Datei <code>sun-web.xml</code>. Weitere Einzelheiten finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00130"><i>cookie-properties</i> in <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
 </dd>
-<dt><tt>setCacheControl</tt></dt>
-<dd><p>Eine durch Kommata getrennte Liste von Direktiven f&#252;r <tt>Cache-Control</tt>-Antworten. Eine Liste g&#252;ltiger Direktiven finden Sie in Abschnitt 14.9 des Dokuments unter <a href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt </a>.</p>
-
+<dt><code>setCacheControl</code></dt>
+<dd>
+<p>Eine durch Kommata getrennte Liste von Direktiven f&uuml;r <code>Cache-Control</code>-Antworten. Eine Liste der g&uuml;ltigen Anweisungen finden Sie in Abschnitt 14.9 des Dokuments in http://www.ietf.org/rfc/rfc2616.txt (<code><a href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt</a></code>).</p>
 </dd>
-<dt><tt>accessLogBufferSize</tt></dt>
-<dd><p>Gibt die Gr&#246;&#223;e des Puffers, in dem Zugriffsprotokollaufrufe gespeichert werden, in Byte an. Ist der Wert kleiner als 5120, wird eine Warnmeldung ausgegeben, und der Wert wird auf 5120 gesetzt. Der Standardwert betr&#228;gt 32768.</p>
-
+<dt><code>accessLogBufferSize</code></dt>
+<dd>
+<p>Gibt die Gr&ouml;&szlig;e des Puffers, in dem Zugriffslogaufrufe gespeichert werden, in Byte an. Ist der Wert kleiner als 5120, wird eine Warnmeldung ausgegeben, und der Wert wird auf 5120 gesetzt. Der Standardwert betr&auml;gt 32768.</p>
 </dd>
-<dt><tt>accessLogWriterInterval</tt></dt>
-<dd><p>Gibt die Anzahl Sekunden an, bevor das Protokoll auf die Festplatte geschrieben wird. Das Zugriffsprotokoll wird geschrieben, wenn der Puffer voll ist oder das Intervall abl&#228;uft. Beim Wert 0 werden die Pufferdaten immer geschrieben, auch wenn der Puffer nicht voll ist. Dies bedeutet, dass das Meldungsprotokoll bei jedem Zugriff auf den Server direkt in der Datei gespeichert wird. Der Standardwert betr&#228;gt 300.</p>
-
+<dt><code>accessLogWriterInterval</code></dt>
+<dd>
+<p>Gibt die Anzahl Sekunden an, bevor das Log auf den Datentr&auml;ger geschrieben wird. Das Zugriffslog wird geschrieben, wenn der Puffer voll ist oder das Intervall abl&auml;uft. Beim Wert 0 werden die Pufferdaten immer geschrieben, auch wenn der Puffer nicht voll ist. Dies bedeutet, dass das Meldungslog bei jedem Zugriff auf den Server direkt in der Datei gespeichert wird. Der Standardwert betr&auml;gt 300.</p>
 </dd>
-<dt><tt>allowRemoteAddress</tt></dt>
-<dd><p>Eine Liste durch Kommata getrennter regul&#228;rer Ausdrucksmuster, mit der die IP-Adresse des Remote-Client verglichen wird. Wenn diese Eigenschaft angegeben ist, <b>muss</b> f&#252;r die Remote-Adresse &#220;bereinstimmung bestehen, damit diese Anforderung akzeptiert wird. Wenn diese Eigenschaft nicht angegeben ist, werden alle Anforderungen akzeptiert, <b>es sei denn</b>, die Remote-Adresse stimmt mit einem <tt>denyRemoteAddress</tt>-Muster &#252;berein.</p>
-
+<dt><code>allowRemoteAddress</code></dt>
+<dd>
+<p>Eine Liste durch Kommata getrennter regul&auml;rer Ausdrucksmuster, mit der die IP-Adresse des Remote-Client verglichen wird. Wenn diese Eigenschaft angegeben ist, <i>muss</i> f&uuml;r die Remote-Adresse &Uuml;bereinstimmung bestehen, damit diese Anforderung akzeptiert wird. Wenn diese Eigenschaft nicht angegeben ist, werden alle Anforderungen akzeptiert, <i>es sei denn</i>, die Remote-Adresse stimmt mit einem <code>denyRemoteAddress</code>-Muster &uuml;berein.</p>
 </dd>
-<dt><tt>denyRemoteAddress</tt></dt>
-<dd><p>Eine Liste durch Kommata getrennter regul&#228;rer Ausdrucksmuster, mit der die IP-Adresse des Remote-Client verglichen wird. Wenn diese Eigenschaft angegeben ist, darf f&#252;r diese Remote-Adresse <b>keine</b> &#220;bereinstimmung bestehen, damit diese Anforderung akzeptiert wird. Wenn diese Eigenschaft nicht angegeben ist, wird das Akzeptieren von Anforderungen allein &#252;ber die Eigenschaft <tt>allowRemoteAddress</tt> geregelt.</p>
-
+<dt><code>denyRemoteAddress</code></dt>
+<dd>
+<p>Eine Liste durch Kommata getrennter regul&auml;rer Ausdrucksmuster, mit der die IP-Adresse des Remote-Client verglichen wird. Wenn diese Eigenschaft angegeben ist, darf f&uuml;r diese Remote-Adresse <i>keine</i> &Uuml;bereinstimmung bestehen, damit diese Anforderung akzeptiert wird. Wenn diese Eigenschaft nicht angegeben ist, wird das Akzeptieren von Anforderungen allein &uuml;ber die Eigenschaft <code>allowRemoteAddress</code> geregelt.</p>
 </dd>
-<dt><tt>allowRemoteHost</tt></dt>
-<dd><p>Eine Liste durch Kommata getrennter regul&#228;rer Ausdrucksmuster, mit der der Hostname des Remote-Client (wie zur&#252;ckgegeben von <tt>[java.net.]Socket.getInetAddress().getHostName() </tt>) verglichen wird. Wenn diese Eigenschaft angegeben ist, <b>muss</b> f&#252;r den Hostnamen dieses Remote-Client &#220;bereinstimmung bestehen, damit diese Anforderung akzeptiert wird. Wenn diese Eigenschaft nicht angegeben ist, werden alle Anforderungen akzeptiert, <b>es sei denn</b>, der Hostname dieses Remote-Client stimmt mit einem <tt>denyRemoteHost</tt>-Muster &#252;berein.</p>
-
+<dt><code>allowRemoteHost</code></dt>
+<dd>
+<p>Gibt eine durch Komma getrennte Liste regul&auml;rer Ausdrucksmuster an, mit denen der Hostname des Remote-Clients (wie von <code>[java.net.]Socket.getInetAddress().getHostName()</code> zur&uuml;ckgegeben) verglichen wird. Wenn diese Eigenschaft angegeben ist, <i>muss</i> f&uuml;r den Hostnamen dieses Remote-Client &Uuml;bereinstimmung bestehen, damit diese Anforderung akzeptiert wird. Wenn diese Eigenschaft nicht angegeben ist, werden alle Anforderungen akzeptiert, <i>es sei denn</i>, der Hostname dieses Remote-Client stimmt mit einem <code>denyRemoteHost</code>-Muster &uuml;berein.</p>
 </dd>
-<dt><tt>denyRemoteHost</tt></dt>
-<dd><p>Eine Liste durch Kommata getrennter regul&#228;rer Ausdrucksmuster, mit der der Hostname des Remote-Client (wie zur&#252;ckgegeben von <tt>[java.net.]Socket.getInetAddress().getHostName() </tt>) verglichen wird. Wenn diese Eigenschaft angegeben ist, darf f&#252;r den Hostnamen dieses Remote-Client <b>keine</b> &#220;bereinstimmung bestehen, damit diese Anforderung akzeptiert wird. Wenn diese Eigenschaft nicht angegeben ist, wird das Akzeptieren von Anforderungen allein &#252;ber die Eigenschaft <tt>allowRemoteHost</tt> geregelt.</p>
-
-<p>Die Festlegung dieser Eigenschaft hat keine Wirkung, wenn der Zugriff auf die GlassFish-Server-Dom&#228;ne &#252;ber ein Netzwerk-Zielger&#228;t erfolgt, f&#252;r das die Option "JK-Zielger&#228;t" aktiviert ist.</p>
-
+<dt><code>denyRemoteHost</code></dt>
+<dd>
+<p>Gibt eine durch Komma getrennte Liste regul&auml;rer Ausdrucksmuster an, mit denen der Hostname des Remote-Clients (wie von <code>[java.net.]Socket.getInetAddress().getHostName()</code> zur&uuml;ckgegeben) verglichen wird. Wenn diese Eigenschaft angegeben ist, darf f&uuml;r den Hostnamen dieses Remote-Client <i>keine</i> &Uuml;bereinstimmung bestehen, damit diese Anforderung akzeptiert wird. Wenn diese Eigenschaft nicht angegeben ist, wird das Akzeptieren von Anforderungen allein &uuml;ber die Eigenschaft <code>allowRemoteHost</code> geregelt.</p>
+<p>Die Festlegung dieser Eigenschaft hat keine Wirkung, wenn der Zugriff auf die GlassFish Server-Domain &uuml;ber ein Netzwerk-Zielger&auml;t erfolgt, f&uuml;r das die Option "JK-Zielger&auml;t" aktiviert ist.</p>
 </dd>
-<dt><tt>authRealm</tt></dt>
-<dd><p>Gibt den Namen eines Authentifizierungsbereichs an, der den Standardbereich einer Serverinstanz f&#252;r eigenst&#228;ndige Webanwendungen, die in diesem virtuellen Server bereitgestellt werden, au&#223;er Kraft setzt. Ein Bereich, der in einer <tt>web.xml</tt>-Datei einer eigenst&#228;ndigen Webanwendung definiert ist, setzt den Bereich des virtuellen Servers au&#223;er Kraft. Weitere Informationen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3027&id=ref-realms">Realms</a>.</p>
-
+<dt><code>authRealm</code></dt>
+<dd>
+<p>Gibt den Namen einer Authentifizierungs-Realm an, die die Standard-Realm einer Serverinstanz f&uuml;r Standalone-Webanwendungen, die in diesem virtuellen Server bereitgestellt werden, &uuml;berschreibt. Eine Realm, die in einer <code>web.xml</code>-Datei einer Standalone-Webanwendung definiert ist, setzt die Realm des virtuellen Servers au&szlig;er Kraft. Weitere Informationen finden Sie unter <a href="../../../common/de/help/missingtopic.html">Realms</a> .</p>
 </dd>
-<dt><tt>securePagesWithPragma</tt></dt>
-<dd><p>Setzen Sie diese Eigenschaft auf <tt>false</tt>, um sicherzustellen, dass das Herunterladen von Dateien &#252;ber Internet Explorer unter Verwendung von SSL f&#252;r alle Webanwendungen auf diesem virtuellen Server korrekt funktioniert. </p>
-
-<p>Einzelne Webanwendungen k&#246;nnen diese Einstellung durch Verwendung des <tt> sun-web-app</tt>-Elements in der Datei <tt>sun-web.xml</tt> au&#223;er Kraft setzen. Weitere Informationen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
-
-<p>Der Standardwert ist <tt>true</tt>.</p>
-
+<dt><code>securePagesWithPragma</code></dt>
+<dd>
+<p>Setzen Sie diese Eigenschaft auf <code>false</code>, um sicherzustellen, dass das Herunterladen von Dateien &uuml;ber Internet Explorer mit SSL f&uuml;r alle Webanwendungen auf diesem virtuellen Server korrekt funktioniert.</p>
+<p>Einzelne Webanwendungen k&ouml;nnen diese Einstellung durch Verwendung des <code>sun-web-app</code>-Elements in der Datei <code>sun-web.xml</code> &uuml;berschreiben. Weitere Einzelheiten finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00161"><i>glassfish-web-app</i> in <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
+<p>Der Standardwert ist <code>true</code>.</p>
 </dd>
-<dt><tt>alternatedocroot_<i>n</i></tt></dt>
-<dd><p>Gibt eine alternative Dokumenten-Root (Docroot) an, wobei <i>n</i> eine positive Ganzzahl ist, die die Angabe von mehr als einer Docroot erlaubt. Alternative Docroots erm&#246;glichen Webanwendungen das Bearbeiten von Anforderungen f&#252;r bestimmte Ressourcen von au&#223;erhalb ihrer eigenen Docroot, abh&#228;ngig davon, ob diese Anforderungen mit einem (oder mehreren) der URI-Muster der alternativen Docroots der Webanwendung &#252;bereinstimmen.</p>
-
-<p>Wenn die Anforderung mit dem URI-Muster einer alternativen Docroot &#252;bereinstimmt, wird es der alternativen Docroot zugeordnet, indem der URI der Anforderung (minus der Kontext-Root der Webanwendung) an den physikalischen Speicherort der alternativen Docroot (Verzeichnis) angeh&#228;ngt wird. Wenn eine Anforderung mit mehreren URI-Mustern &#252;bereinstimmt, wird die alternative Docroot anhand dieser Reihenfolge festgelegt:</p>
-
-
-<ul><li><p>Exakte &#220;bereinstimmung</p>
-
+<dt><code>alternatedocroot_</code><i>n</i></dt>
+<dd>
+<p>Gibt eine alternative Dokumenten-Root (Docroot) an, wobei <i>n</i> eine positive Ganzzahl ist, die die Angabe von mehr als einer Docroot erlaubt. Alternative Docroots erm&ouml;glichen Webanwendungen das Bearbeiten von Anforderungen f&uuml;r bestimmte Ressourcen von au&szlig;erhalb ihrer eigenen Docroot, abh&auml;ngig davon, ob diese Anforderungen mit einem (oder mehreren) der URI-Muster der alternativen Docroots der Webanwendung &uuml;bereinstimmen.</p>
+<p>Wenn die Anforderung mit dem URI-Muster einer alternativen Docroot &uuml;bereinstimmt, wird es der alternativen Docroot zugeordnet, indem der URI der Anforderung (minus Context Root der Webanwendung) an den physikalischen Speicherort der alternativen Docroot (Verzeichnis) angeh&auml;ngt wird. Wenn eine Anforderung mit mehreren URI-Mustern &uuml;bereinstimmt, wird die alternative Docroot anhand dieser Reihenfolge festgelegt:</p>
+<ul>
+<li>
+<p>Exakte &Uuml;bereinstimmung</p>
 </li>
-<li><p>L&#228;ngste &#220;bereinstimmung des Pfades</p>
-
+<li>
+<p>L&auml;ngste &Uuml;bereinstimmung des Pfades</p>
 </li>
-<li><p>&#220;bereinstimmung der Erweiterung</p>
-
-</li></ul>
-<p>Die folgenden Eigenschaften geben beispielweise drei alternative Docroots an: Im URI-Muster der ersten alternativen Docroot wird eine exakte &#220;bereinstimmung verwendet, wogegen im URI-Muster der zweiten und dritten alternativen Docroot eine Erweiterung bzw. das l&#228;ngste Pfadpr&#228;fix verwendet werden. </p>
-
-<pre>&#60;property name="alternatedocroot_1" 
-   value="from=/my.jpg dir=/srv/images/jpg"/>
-&#60;property name="alternatedocroot_2" 
-   value="from=*.jpg dir=/srv/images/jpg"/>
-&#60;property name="alternatedocroot_3" 
-   value="from=/jpg/* dir=/src/images"/></pre><p>Der <tt>Wert</tt> jeder alternativen Docroot hat zwei Komponenten: Die erste Komponente, <tt>from</tt>, gibt das URI-Muster der alternativen Docroot an, die zweite Komponente, <tt>dir</tt>, gibt den physikalischen Speicherort der alternativen Docroot an (das Verzeichnis). Bei der <tt>dir</tt>-Komponente sind Zwischenr&#228;ume erlaubt.</p>
-
-<p>Einzelne Webanwendungen k&#246;nnen diese Einstellung durch Verwendung des <tt> sun-web-app</tt>-Elements in der Datei <tt>sun-web.xml</tt> au&#223;er Kraft setzen. Weitere Informationen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
-
+<li>
+<p>&Uuml;bereinstimmung der Erweiterung</p>
+</li>
+</ul>
+<p>Die folgenden Eigenschaften geben beispielweise drei alternative Docroots an: Im URI-Muster der ersten alternativen Docroot wird eine exakte &Uuml;bereinstimmung verwendet, wogegen im URI-Muster der zweiten und dritten alternativen Docroot eine Erweiterung bzw. das l&auml;ngste Pfadpr&auml;fix verwendet werden.</p>
+<pre>
+&lt;property name="alternatedocroot_1" 
+   value="from=/my.jpg dir=/srv/images/jpg"/&gt;
+&lt;property name="alternatedocroot_2" 
+   value="from=*.jpg dir=/srv/images/jpg"/&gt;
+&lt;property name="alternatedocroot_3" 
+   value="from=/jpg/* dir=/src/images"/&gt;
+</pre>
+<p>Der <code>Wert</code> jeder alternativen Docroot hat zwei Komponenten: Die erste Komponente, <code>from</code>, gibt das URI-Muster der alternativen Docroot an, die zweite Komponente, <code>dir</code>, gibt den physikalischen Speicherort der alternativen Docroot an (das Verzeichnis). Bei der <code>dir</code>-Komponente sind Zwischenr&auml;ume erlaubt.</p>
+<p>Einzelne Webanwendungen k&ouml;nnen diese Einstellung durch Verwendung des <code>sun-web-app</code>-Elements in der Datei <code>sun-web.xml</code> &uuml;berschreiben. Weitere Einzelheiten finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00161"><i>glassfish-web-app</i> in <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
 </dd>
-<dt><tt>contextXmlDefault</tt></dt>
-<dd><p>Gibt, relativ zu <i>domain-dir</i>, den Speicherort der <tt>context.xml</tt>-Datei f&#252;r diesen virtuellen Server an, falls einer verwendet wird. Weitere Informationen zur <tt>context.xml</tt>-Datei finden Sie unter <a href="http://tomcat.apache.org/tomcat-5.5-doc/config/context.html">The Context Container</a>.</p>
-
+<dt><code>contextXmlDefault</code></dt>
+<dd>
+<p>Gibt das Verzeichnis relativ zu <i>domain-dir</i> der Datei <code>context.xml</code> f&uuml;r diesen virtuellen Server an, wenn ein solcher verwendet wird. Weitere Informationen &uuml;ber die Datei <code>context.xml</code> finden Sie unter "The Context Container" (<code><a href="http://tomcat.apache.org/tomcat-5.5-doc/config/context.html">http://tomcat.apache.org/tomcat-5.5-doc/config/context.html</a></code>).</p>
 </dd>
-<dt><tt>allowLinking</tt></dt>
-<dd><p>Wenn diese Eigenschaft auf <tt>true</tt> gesetzt wird, werden Ressourcen in Form von symbolischen Verkn&#252;pfungen f&#252;r alle Webanwendungen verwendet, die auf diesem virtuellen Server bereitgestellt sind. Einzelne Webanwendungen k&#246;nnen diese Einstellung durch Verwendung der <tt>sun-web-app</tt>-Eigenschaft <tt> allowLinking</tt> in der Datei <tt>sun-web.xml</tt> &#252;berschreiben:</p>
-
-<pre>&#60;sun-web-app>
-   &#60;property name="allowLinking" 
-      value="{true|false}"/>
-&#60;/sun-web-app></pre><p>Weitere Informationen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
-
-<p>Der Standardwert ist <tt>false</tt>.</p>
-
-
-<hr><p><b>Achtung - </b>Wenn diese Eigenschaft auf Windows-Systemen auf "true" gesetzt wird, wird JSP-Quellcode offengelegt. </p>
-
+<dt><code>allowLinking</code></dt>
+<dd>
+<p>Wenn diese Eigenschaft auf <code>true</code> gesetzt wird, werden Ressourcen in Form von symbolischen Links f&uuml;r alle Webanwendungen verwendet, die auf diesem virtuellen Server bereitgestellt sind. Einzelne Webanwendungen k&ouml;nnen diese Einstellung durch Verwendung der <code>sun-web-app</code>-Eigenschaft <code>allowLinking</code> in der Datei <code>sun-web.xml</code> &uuml;berschreiben:</p>
+<pre>
+&lt;sun-web-app&gt;
+   &lt;property name="allowLinking" 
+      value="{true|false}"/&gt;
+&lt;/sun-web-app&gt;
+</pre>
+<p>Weitere Einzelheiten finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00161"><i>glassfish-web-app</i> in <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
+<p>Der Standardwert ist <code>false</code>.</p>
 
 <hr>
+<p><b>Achtung:</b></p>
+Wenn diese Eigenschaft auf Windows-Systemen auf "true" gesetzt wird, wird JSP-Quellcode offengelegt.
+<hr>
+
 </dd>
-<dt><tt>send-error_<i>n</i></tt></dt>
-<dd><p>Gibt die benutzerdefinierten Fehlerseitenzuordnungen f&#252;r den virtuellen Server an, der von allen durch den virtuellen Server bereitgestellten Webanwendungen &#252;bernommen wird. Eine Webanwendung kann diese benutzerdefinierten Fehlerseitenzuordnungen in ihrer <tt>web.xml</tt>-Bereitstellungsbeschreibung au&#223;er Kraft setzen. Der Wert jeder <tt>send-error_<i> n</i></tt>-Eigenschaft hat drei Komponenten, die in jeder beliebigen Reihenfolge angegeben werden k&#246;nnen:</p>
-
-
-<ul><li><p>Die Komponente, <tt>code</tt>, gibt den dreistelligen HTTP-Antwortstatuscode an, f&#252;r den die benutzerdefinierte Fehlerseite in der Antwort zur&#252;ckgegeben werden soll.</p>
-
+<dt><code>send-error_</code><i>n</i></dt>
+<dd>
+<p>Gibt die benutzerdefinierten Fehlerseitenzuordnungen f&uuml;r den virtuellen Server an, der von allen durch den virtuellen Server bereitgestellten Webanwendungen &uuml;bernommen wird. Eine Webanwendung kann diese benutzerdefinierten Fehlerseitenzuordnungen in ihrem <code>web.xml</code>-Deployment-Deskriptor &uuml;berschreiben. Der Wert jeder <code>send-error_</code> <i>n</i>-Eigenschaft hat drei Komponenten, die in beliebiger Reihenfolge angegeben werden k&ouml;nnen:</p>
+<ul>
+<li>
+<p>Die Komponente, <code>code</code>, gibt den dreistelligen HTTP-Antwortstatuscode an, f&uuml;r den die benutzerdefinierte Fehlerseite in der Antwort zur&uuml;ckgegeben werden soll.</p>
 </li>
-<li><p>Die zweite Komponente, <tt>path</tt>, gibt den absoluten oder den relativen Dateisystempfad der benutzerdefinierten Fehlerseite an. Ein relativer Dateisystempfad wird relativ zum <tt></tt><i>domain-dir</i><tt>/config</tt>-Verzeichnis interpretiert.</p>
-
+<li>
+<p>Die zweite Komponente, <code>path</code>, gibt den absoluten oder den relativen Dateisystempfad der benutzerdefinierten Fehlerseite an. Ein relativer Dateipfad wird als relativ zu dem <i>domain-dir</i><code>/config</code>-Verzeichnis interpretiert.</p>
 </li>
-<li><p>Die dritte Komponente, <tt>reason</tt>, ist optional und gibt den zur&#252;ckzugebenden Text der Ursachenzeichenfolge an (beispielsweise <tt>Unauthorized</tt> oder <tt> Forbidden</tt>.</p>
-
-</li></ul>
+<li>
+<p>Die dritte Komponente, <code>reason</code>, ist optional und gibt den zur&uuml;ckzugebenden Text der Ursachenzeichenfolge an (beispielsweise <code>Unauthorized</code> oder <code>Forbidden</code>.</p>
+</li>
+</ul>
 <p>Beispiel:</p>
-
-<pre>&#60;property name="send-error_1"
-   value="code=401 path=/myhost/401.html reason=MY-401-REASON"/></pre><p>Dieses Beispiel einer Eigenschaftendefinition f&#252;hrt dazu, dass der Inhalt von <tt>/myhost/401.html</tt> mit 401-Antworten sowie dieser Antwortzeile zur&#252;ckgegebenwird:</p>
-
-<pre>HTTP/1.1 401 MY-401-REASON</pre></dd>
-<dt><tt>redirect_<i>n</i></tt></dt>
-<dd><p>Legt fest, dass eine Anforderung f&#252;r einen alten URL als Anforderung f&#252;r einen neuen URL behandelt wird. Diese Eigenschaften werden von allen Webanwendungen &#252;bernommen, die auf dem virtuellen Server bereitgestellt werden. Der Wert jeder <tt>redirect_<i> n</i></tt>-Eigenschaft hat zwei Komponenten, die in beliebiger Reihenfolge angegeben werden k&#246;nnen:</p>
-
-
-<ul><li><p>Die erste Komponente, <tt>from</tt>, gibt das neue Pr&#228;fix des angeforderten URL an, mit dem &#220;bereinstimmung bestehen muss.</p>
-
+<pre>
+&lt;property name="send-error_1"
+   value="code=401 path=/myhost/401.html reason=MY-401-REASON"/&gt;
+</pre>
+<p>Dieses Beispiel einer Eigenschaftendefinition f&uuml;hrt dazu, dass der Content von <code>/myhost/401.html</code> mit 401-Antworten zusammen mit dieser Antwortzeile zur&uuml;ckgegeben wird:</p>
+<pre>
+HTTP/1.1 401 MY-401-REASON
+</pre></dd>
+<dt><code>redirect_</code><i>n</i></dt>
+<dd>
+<p>Legt fest, dass eine Anforderung f&uuml;r einen alten URL als Anforderung f&uuml;r einen neuen URL behandelt wird. Diese Eigenschaften werden von allen Webanwendungen &uuml;bernommen, die auf dem virtuellen Server bereitgestellt werden. Der Wert jeder <code>redirect_</code> <i>n</i>-Eigenschaft hat zwei Komponenten, die in beliebiger Reihenfolge angegeben werden k&ouml;nnen:</p>
+<ul>
+<li>
+<p>Die erste Komponente, <code>from</code>, gibt das neue Pr&auml;fix des angeforderten URI an, mit dem &Uuml;bereinstimmung bestehen muss.</p>
 </li>
-<li><p>Die zweite Komponente, <tt>url-prefix</tt>, gibt das neue URL-Pr&#228;fix an, das dem Client zur&#252;ckzusenden ist. Das Pr&#228;fix <tt>from</tt> wird einfach durch dieses URL-Pr&#228;fix ersetzt.</p>
-
-</li></ul>
+<li>
+<p>Die zweite Komponente, <code>url-prefix</code>, gibt das neue URL-Pr&auml;fix an, das dem Client zur&uuml;ckzusenden ist. Das Pr&auml;fix <code>from</code> wird einfach durch dieses URL-Pr&auml;fix ersetzt.</p>
+</li>
+</ul>
 <p>Beispiel:</p>
-
-<pre>&#60;property name="redirect_1" 
-  value="from=/dummy url-prefix=http://etude"/></pre></dd>
-<dt><tt>valve_<i>n</i></tt></dt>
-<dd><p>Gibt einen vollst&#228;ndig qualifizierten Klassennamen eines benutzerdefinierten Valve an, wobei <i>n</i> eine positive Ganzzahl ist, die die Angabe von mehr als einem Valve erm&#246;glicht. Die Valve-Klasse muss die Schnittstelle <tt>org.apache.catalina.Valve</tt> aus Tomcat oder fr&#252;heren GlassFish-Server-Versionen oder aber die Schnittstelle <tt>org.glassfish.web.valve.GlassFishValve</tt> aus der aktuellen GlassFish-Server-Version implementieren. Beispiel:</p>
-
-<pre>&#60;property name="valve_1"
-value="org.glassfish.extension.Valve"/></pre><p>Sie k&#246;nnen diese Eigenschaft f&#252;r eine bestimmte Webanwendung festlegen. Weitere Informationen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
-
+<pre>
+&lt;property name="redirect_1" 
+  value="from=/dummy url-prefix=http://etude"/&gt;
+</pre></dd>
+<dt><code>valve_</code><i>n</i></dt>
+<dd>
+<p>Gibt einen vollst&auml;ndig angegebenen Klassennamen eines benutzerdefinierten Valve an, wobei <i>n</i> eine positive Ganzzahl ist, die die Angabe von mehr als einem Valve erm&ouml;glicht. Die Valve-Klasse muss die <code>org.apache.catalina.Valve</code>-Schnittstelle von Tomcat oder der GlassFish Server-Vorg&auml;ngerversionen oder der <code>org.glassfish.web.valve.GlassFishValve</code>-Schnittstelle der aktuellen GlassFish Server-Version implementieren. Beispiel:</p>
+<pre>
+&lt;property name="valve_1"
+value="org.glassfish.extension.Valve"/&gt;
+</pre>
+<p>Sie k&ouml;nnen diese Eigenschaft f&uuml;r eine bestimmte Webanwendung festlegen. Weitere Einzelheiten finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00161"><i>glassfish-web-app</i> in <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
 </dd>
-<dt><tt>listener_<i>n</i></tt></dt>
-<dd><p>Gibt einen vollst&#228;ndig qualifizierten Klassennamen eines benutzerdefinierten Catalina-Zielger&#228;ts an, wobei <i>n</i> eine positive Ganzzahl ist, die die Angabe von mehr als einem Zielger&#228;t erm&#246;glicht. Die Zielger&#228;teklasse muss die Schnittstelle <tt>org.apache.catalina.ContainerListener</tt> oder <tt>org.apache.catalina.LifecycleListener</tt> implementieren. Beispiel:</p>
-
-<pre>&#60;property name="listener_1"
-value="org.glassfish.extension.MyLifecycleListener"/></pre><p>Sie k&#246;nnen diese Eigenschaft f&#252;r eine bestimmte Webanwendung festlegen. Weitere Informationen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=beayb">glassfish-web-app in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p>
-
+<dt><code>listener_</code><i>n</i></dt>
+<dd>
+<p>Gibt einen vollst&auml;ndig angegebenen Klassennamen eines benutzerdefinierten Catalina-Listeners an, wobei <i>n</i> eine positive Ganzzahl ist, die die Angabe von mehr als einem Listener erm&ouml;glicht. Die Listener-Klasse muss die <code>org.apache.catalina.ContainerListener</code>- oder <code>org.apache.catalina.LifecycleListener</code>-Schnittstelle implementieren. Beispiel:</p>
+<pre>
+&lt;property name="listener_1"
+value="org.glassfish.extension.MyLifecycleListener"/&gt;
+</pre>
+<p>Sie k&ouml;nnen diese Eigenschaft f&uuml;r eine bestimmte Webanwendung festlegen. Weitere Einzelheiten finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00161"><i>glassfish-web-app</i> in <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
 </dd>
-<dt><tt>errorReportValve</tt></dt>
-<dd><p>Gibt einen vollst&#228;ndig qualifizierten Klassennamen eines benutzerdefinierten Ventils an, das Standard-Fehlerseiten f&#252;r Anwendungen auf diesem virtuellen Server produziert. Geben Sie eine leere Zeichenfolge an, um den Standard- Fehlerseitenmechanismus f&#252;r diesen virtuellen Server zu deaktivieren.</p>
-
+<dt><code>errorReportValve</code></dt>
+<dd>
+<p>Gibt einen vollst&auml;ndig angegebenen Klassennamen eines benutzerdefinierten Ventils an, das Standardfehlerseiten f&uuml;r Anwendungen auf diesem virtuellen Server produziert. Geben Sie eine leere Zeichenfolge an, um den Standard- Fehlerseitenmechanismus f&uuml;r diesen virtuellen Server zu deaktivieren.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,42 +1,38 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-editfile-adminrealm"></a><h4>F&#252;r die <tt>FileRealm</tt>-Klasse spezifische Eigenschaften</h4>
-<a name="indexterm-203"></a><a name="indexterm-204"></a><p>F&#252;r einen <tt>file</tt>-Bereich sind die folgenden Eigenschaften erforderlich.</p>
+<p><a id="ref-editfile-adminrealm" name="ref-editfile-adminrealm"></a><a id="GHCOM00100" name="GHCOM00100"></a></p>
 
-<dl><dt>JAAS-Kontext</dt>
-<dd><p>Der JAAS-(Java-Authentifizierungs- und Autorisierungsdienst)-Kontext (die Kennung f&#252;r das Anmeldemodul, das f&#252;r diesen Bereich zu verwenden ist). Der einzig g&#252;ltige Wert ist <tt>fileRealm</tt>.</p>
-
+<h4><a id="sthref375" name="sthref375"></a><a id="sthref376" name="sthref376"></a>F&uuml;r die <code>FileRealm</code>-Klasse spezifische Eigenschaften</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>F&uuml;r eine <code>Datei</code>-Realm sind die folgenden Eigenschaften erforderlich.</p>
+<dl>
+<dt>JAAS-Kontext</dt>
+<dd>
+<p>Der JAAS-(Java-Authentifizierungs- und Autorisierungsdienst)-Kontext (die ID f&uuml;r das Anmeldemodul, das f&uuml;r diesen Bereich zu verwenden ist). Der einzig g&uuml;ltige Wert ist <code>fileRealm</code>.</p>
 </dd>
-<dt>Schl&#252;sseldatei</dt>
-<dd><p>Vollst&#228;ndiger Pfad und Name der Datei, in welcher der Server alle Benutzer-, Gruppen- und Passwortinformationen f&#252;r diesen Bereich speichert. Standardwert ist <i>domain-dir</i><tt>/config/keyfile</tt> f&#252;r den <tt>file</tt>-Bereich und <i>domain-dir</i><tt>/config/admin-keyfile</tt> f&#252;r den <tt>admin-realm</tt>-Bereich.</p>
-
+<dt>Schl&uuml;sseldatei</dt>
+<dd>
+<p>Vollst&auml;ndiger Pfad und Name der Datei, in welcher der Server alle Benutzer-, Gruppen- und Passwortinformationen f&uuml;r diese Realm speichert. Der Standardwert ist <i>domain-dir</i><code>/config/keyfile</code>f&uuml;r die <code>Datei-</code>Realm und <i>domain-dir</i><code>/config/admin-keyfile</code> f&uuml;r die <code>admin-realm</code>-Realm.</p>
 </dd>
 </dl>
-<p>Die Schl&#252;sseldatei f&#252;r den <tt>file</tt>-Bereich ist anf&#228;nglich leer, sodass Benutzer auf der
-Seite <a href="ref-managefilerealm.html">Dateibenutzer</a> hinzugef&#252;gt werden m&#252;ssen, bevor der Bereich <tt>file</tt> verwendet wird.</p>
-
-<p>Die Schl&#252;sseldatei f&#252;r den Bereich <tt>admin-realm</tt> enth&#228;lt anf&#228;nglich den Administratorbenutzernamen, das Administratorpasswort
-in verschl&#252;sselter Form sowie die Gruppe, zu der dieser Benutzer geh&#246;rt (standardm&#228;&#223;ig
-<tt>asadmin</tt>). Weitere Informationen zum Hinzuf&#252;gen von Benutzern zum Bereich <tt>admin-realm</tt> finden Sie
-unter <a href="task-accessadmintools.html">So gew&#228;hren Sie Zugriff auf Administrationstools</a>.</p>
-
-
-<hr><p><b>Hinweis - </b>Benutzer in der Gruppe <tt>asadmin</tt> im Bereich <tt>admin-realm</tt> sind zur Verwendung der
-Administration Console und der <tt>asadmin</tt>-Tools berechtigt. F&#252;gen Sie dieser Gruppe nur Benutzer
-hinzu, die &#252;ber Administratorrechte f&#252;r den Server verf&#252;gen.</p>
-
+<p>Die Schl&uuml;sseldatei f&uuml;r die <code>Datei</code>-Realm ist anf&auml;nglich leer, sodass Benutzer auf der Seite <a href="ref-managefilerealm.html">Dateibenutzer</a> hinzugef&uuml;gt werden m&uuml;ssen, bevor die <code>Datei</code>-Realm verwendet wird.</p>
+<p>Die Schl&uuml;sseldatei f&uuml;r die Realm <code>admin-realm</code> enth&auml;lt anf&auml;nglich den Administratorbenutzernamen, das Administratorkennwort in verschl&uuml;sselter Form sowie die Gruppe, zu der dieser Benutzer geh&ouml;rt (standardm&auml;&szlig;ig <code>asadmin</code>). Weitere Informationen zum Hinzuf&uuml;gen von Benutzern zu der <code>admin-realm</code> finden Sie unter <a href="task-accessadmintools.html">So wird Zugriff auf Administrationstools erteilt</a>.</p>
 
 <hr>
-<p>Die folgende optionale Eigenschaft ist f&#252;r einen <tt>file</tt>-Bereich verf&#252;gbar. </p>
+<p><b>Hinweis:</b></p>
+Benutzer in der Gruppe <code>asadmin</code> im Bereich <code>admin-realm</code> sind zur Verwendung der Administrationskonsole und der <code>asadmin</code>-Tools berechtigt. F&uuml;gen Sie dieser Gruppe nur Benutzer hinzu, die &uuml;ber Administratorberechtigungen f&uuml;r den Server verf&uuml;gen.
+<hr>
 
-<dl><dt>Gruppen zuweisen</dt>
-<dd><p>Eine durch Kommata getrennte Liste mit Gruppennamen. Alle Clients, die &#252;ber g&#252;ltige Zertifikate verf&#252;gen, werden diesen Gruppen zugewiesen, zum Beispiel <tt>employee,manager </tt>, wobei dies die Namen von Benutzergruppen sind.</p>
-
+<p>Die folgende optionale Eigenschaft ist f&uuml;r eine <code>Datei</code>-Realm verf&uuml;gbar.</p>
+<dl>
+<dt>Gruppen zuweisen</dt>
+<dd>
+<p>Eine durch Kommata getrennte Liste mit Gruppennamen. Alle Clients, die &uuml;ber g&uuml;ltige Zertifikate verf&uuml;gen, werden diesen Gruppen zugewiesen, zum Beispiel <code>employee,manager</code> , wobei dies die Namen von Benutzergruppen sind.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

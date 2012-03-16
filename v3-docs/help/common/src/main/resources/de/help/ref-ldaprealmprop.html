@@ -1,58 +1,61 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-ldaprealmprop"></a><h4>F&#252;r die <tt>LDAPRealm</tt>-Klasse spezifische Eigenschaften</h4>
-<a name="indexterm-209"></a><a name="indexterm-210"></a><p>Folgende Eigenschaften sind f&#252;r einen LDAP-Bereich erforderlich.</p>
+<p><a id="ref-ldaprealmprop" name="ref-ldaprealmprop"></a><a id="GHCOM00103" name="GHCOM00103"></a></p>
 
-<dl><dt>JAAS-Kontext</dt>
-<dd><p>Der JAAS-(Java-Authentifizierungs- und Autorisierungsdienst)-Kontext (die Kennung f&#252;r das Anmeldemodul, das f&#252;r diesen Bereich zu verwenden ist). Der einzige g&#252;ltige Wert ist <tt>solarisRealm</tt>.</p>
-
+<h4><a id="sthref381" name="sthref381"></a><a id="sthref382" name="sthref382"></a>F&uuml;r die <code>LDAPRealm</code>-Klasse spezifische Eigenschaften</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Folgende Eigenschaften sind f&uuml;r eine LDAP-Realm erforderlich.</p>
+<dl>
+<dt>JAAS-Kontext</dt>
+<dd>
+<p>Der JAAS-(Java-Authentifizierungs- und Autorisierungsdienst)-Kontext (die ID f&uuml;r das Anmeldemodul, das f&uuml;r diesen Bereich zu verwenden ist). Der einzige g&uuml;ltige Wert ist <code>solarisRealm</code>.</p>
 </dd>
 <dt>Verzeichnis</dt>
-<dd><p>Der LDAP-URL f&#252;r Ihren Server.</p>
-
+<dd>
+<p>Der LDAP-URL f&uuml;r Ihren Server.</p>
 </dd>
 <dt>Basis-DN</dt>
-<dd><p>Der LDAP-Basis-DN (Distinguished Name) f&#252;r den Speicherort von Benutzerdaten. Dieser Basis-DN kann sich auf jeder beliebigen Ebene oberhalb der Benutzerdaten befinden, da eine Suchbaum-Suche durchgef&#252;hrt wird. Je kleiner der Suchbaum, desto besser die Leistung.</p>
-
+<dd>
+<p>Der LDAP-Basis-DN (Distinguished Name) f&uuml;r den Speicherort von Benutzerdaten. Dieser Basis-DN kann sich auf jeder beliebigen Ebene oberhalb der Benutzerdaten befinden, da eine Suchbaum-Suche durchgef&uuml;hrt wird. Je kleiner der Suchbaum, desto besser die Performance.</p>
 </dd>
 </dl>
-<p>Die folgende optionale Eigenschaft ist f&#252;r einen LDAP-Bereich verf&#252;gbar. </p>
-
-<dl><dt>Gruppen zuweisen</dt>
-<dd><p>Eine durch Kommata getrennte Liste mit Gruppennamen. Alle Clients, die &#252;ber g&#252;ltige Zertifikate verf&#252;gen, werden diesen Gruppen zugewiesen, zum Beispiel <tt>employee,manager </tt>, wobei dies die Namen von Benutzergruppen sind.</p>
-
+<p>Die folgende optionale Eigenschaft ist f&uuml;r eine LDAP-Realm verf&uuml;gbar.</p>
+<dl>
+<dt>Gruppen zuweisen</dt>
+<dd>
+<p>Eine durch Kommata getrennte Liste mit Gruppennamen. Alle Clients, die &uuml;ber g&uuml;ltige Zertifikate verf&uuml;gen, werden diesen Gruppen zugewiesen, zum Beispiel <code>employee,manager</code> , wobei dies die Namen von Benutzergruppen sind.</p>
 </dd>
 </dl>
-<p>Die folgenden weiteren Eigenschaften sind f&#252;r einen LDAP-Bereich erforderlich.</p>
-
-<dl><dt><tt>search-filter</tt></dt>
-<dd><p>Der Suchfilter, der verwendet wird, um den Benutzer zu finden. Der Standard ist <tt> uid=%s</tt> (<tt>%s</tt> erweitert auf den Namen des Gesuchten).</p>
-
+<p>Die folgenden weiteren Eigenschaften sind f&uuml;r eine LDAP-Realm erforderlich.</p>
+<dl>
+<dt><code>search-filter</code></dt>
+<dd>
+<p>Der Suchfilter, der verwendet wird, um den Benutzer zu finden. Der Standardwert ist <code>uid=%s</code> (<code>%s</code> blendet den Subject-Namen ein).</p>
 </dd>
-<dt><tt>group-base-dn</tt></dt>
-<dd><p>Der Basis-DN f&#252;r den Speicherort von Gruppendaten. Standardm&#228;&#223;ig ist er mit dem Basis-DN-Wert identisch, erforderlichenfalls kann er angepasst werden.</p>
-
+<dt><code>group-base-dn</code></dt>
+<dd>
+<p>Der Basis-DN f&uuml;r den Speicherort von Gruppendaten. Standardm&auml;&szlig;ig ist er mit dem Basis-DN-Wert identisch, erforderlichenfalls kann er angepasst werden.</p>
 </dd>
-<dt><tt>group-search-filter</tt></dt>
-<dd><p>Der Suchfilter, der verwendet wird, um Gruppenzugeh&#246;rigkeiten des Benutzers zu finden. Der Standard ist <tt>uniquemember=%d</tt> (<tt>%d</tt> erweitert auf den Benutzerelement-DN).</p>
-
+<dt><code>group-search-filter</code></dt>
+<dd>
+<p>Der Suchfilter, der verwendet wird, um Gruppenzugeh&ouml;rigkeiten des Benutzers zu finden. Der Standardwert ist <code>uniquemember=%d</code> (<code>%d</code> blendet den Benutzerelement-DN ein).</p>
 </dd>
-<dt><tt>group-target</tt></dt>
-<dd><p>Der LDAP-Attributname, der Gruppennameneintr&#228;ge enth&#228;lt. Der Standardwert lautet <tt>CN</tt>.</p>
-
+<dt><code>group-target</code></dt>
+<dd>
+<p>Der LDAP-Attributname, der Gruppennameneintr&auml;ge enth&auml;lt. Der Standardwert lautet <code>CN</code>.</p>
 </dd>
-<dt><tt>search-bind-dn</tt></dt>
-<dd><p>Ein optionaler DN, der zur Authentifizierung gegen&#252;ber dem Verzeichnis verwendet wird, um den <tt>search-filter</tt> aufzurufen. Dies ist nur bei solchen Verzeichnissen erforderlich, die keine anonyme Suche erlauben.</p>
-
+<dt><code>search-bind-dn</code></dt>
+<dd>
+<p>Ein optionaler DN, der zur Authentifizierung gegen&uuml;ber dem Verzeichnis verwendet wird, um den <code>search-filter</code> aufzurufen. Dies ist nur bei solchen Verzeichnissen erforderlich, die keine anonyme Suche erlauben.</p>
 </dd>
-<dt><tt>search-bind-password</tt></dt>
-<dd><p>Das LDAP-Passwort f&#252;r den DN, der in <tt>search-bind-dn</tt> angegeben ist.</p>
-
+<dt><code>search-bind-password</code></dt>
+<dd>
+<p>Das LDAP-Kennwort f&uuml;r den DN, der in <code>search-bind-dn</code> angegeben ist.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

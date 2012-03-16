@@ -1,70 +1,72 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-transactionservice"></a><h4>Transaktionsdienst</h4>
-<a name="indexterm-8"></a><p>Auf der Seite "Transaktionsdienst" k&#246;nnen Sie die Transaktionswiederherstellung, Zeit&#252;berschreitungen und die Protokollierung
-konfigurieren.</p>
+<p><a id="ref-transactionservice" name="ref-transactionservice"></a><a id="GHJTS00002" name="GHJTS00002"></a></p>
 
-<p>Die Seite "Transaktionsdienst" umfasst die folgenden Optionen.</p>
-
-<dl><dt>Standardeinstellungen laden</dt>
-<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r Einstellungen, f&#252;r die es Standardwerte gibt. Einstellungen, die nicht &#252;ber Standardwerte verf&#252;gen, k&#246;nnen nicht ge&#228;ndert werden.</p>
-
+<h4><a id="sthref14" name="sthref14"></a>Transaktionsservice</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Auf der Seite "Transaktionsservice" k&ouml;nnen Sie Transaktions-Recovery, Timeouts und Logging konfigurieren.</p>
+<p>Die Seite "Transaktionsservice" umfasst die folgenden Optionen.</p>
+<dl>
+<dt>Standardeinstellungen laden</dt>
+<dd>
+<p>Schaltfl&auml;che zum Wiederherstellen der Standardwerte f&uuml;r Einstellungen, f&uuml;r die es Standardwerte gibt. Einstellungen, die nicht &uuml;ber Standardwerte verf&uuml;gen, k&ouml;nnen nicht ge&auml;ndert werden.</p>
 </dd>
 <dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
 <dt>Beim Neustart</dt>
-<dd><p>Wenn das Kontrollk&#228;stchen "Aktiviert" gew&#228;hlt ist, versucht GlassFish-Server unvollst&#228;ndige Transaktionen wiederherzustellen, sobald der Server neu gestartet wird. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dd>
+<p>Wenn das Kontrollk&auml;stchen "Aktiviert" gew&auml;hlt ist, versucht GlassFish Server unvollst&auml;ndige Transaktionen wiederherzustellen, sobald der Server neu gestartet wird. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
-<dt>Transaktionszeit&#252;berschreitung</dt>
-<dd><p>Der Zeitraum (in Sekunden), der verstreicht, bevor der Server eine unvollst&#228;ndige Transaktion zur&#252;cksetzt. Der Standardwert ist 0; das bedeutet, dass es von Seiten des Servers keine Zeitbeschr&#228;nkung f&#252;r den Abschluss einer Transaktion gibt.</p>
-
+<dt>Transaktionstimeout</dt>
+<dd>
+<p>Der Zeitraum (in Sekunden), der verstreicht, bevor der Server eine unvollst&auml;ndige Transaktion zur&uuml;cksetzt. Der Standardwert ist 0; das bedeutet, dass es von Seiten des Servers keine Zeitbeschr&auml;nkung f&uuml;r den Abschluss einer Transaktion gibt.</p>
 </dd>
-<dt>Wiederholungszeit&#252;berschreitung</dt>
-<dd><p>Der Zeitraum (in Sekunden), w&#228;hrend dessen GlassFish-Server versucht, eine Verbindung zu einem nicht erreichbaren Server herzustellen. Der Standardwert betr&#228;gt 600 (10 Minuten).</p>
-
+<dt>Wiederholungstimeout</dt>
+<dd>
+<p>Der Zeitraum (in Sekunden), w&auml;hrend dessen GlassFish Server versucht, eine Verbindung zu einem nicht erreichbaren Server herzustellen. Der Standardwert betr&auml;gt 600 (10 Minuten).</p>
 </dd>
-<dt>Speicherort des Transaktionsprotokolls</dt>
-<dd><p>Das Verzeichnis, in dem die Serverprotokolle gespeichert sind. Transaktionsprotokolle werden im Unterverzeichnis <tt>tx</tt> des Verzeichnisses gespeichert, das in diesem Feld angegeben ist. Der Standardwert ist das Verzeichnis, das auf der Seite "Dom&#228;nenattribute" im Feld "Protokollstamm" angegeben ist, das sich im Knoten GlassFish-Server auf der Registerkarte "Erweitert" befindet.</p>
-
+<dt>Verzeichnis des Transaktionslogs</dt>
+<dd>
+<p>Das Verzeichnis, in dem die Serverprotokolle gespeichert sind. Transaktionslogs werden im Unterverzeichnis <code>tx</code> des Verzeichnisses gespeichert, das in diesem Feld angegeben ist. Der Standardwert ist das Verzeichnis, das auf der Seite "Domainattribute" im Feld "Log-Root" angegeben ist, das sich im Knoten GlassFish Server in der Registerkarte "Erweitert" befindet.</p>
 </dd>
 <dt>Heuristische Entscheidung</dt>
-<dd><p>Die Entscheidung, ob Transaktionen, die nicht erreichbare Server betreffen, durchgef&#252;hrt oder zur&#252;ckgesetzt werden. Der Standardwert ist Zur&#252;cksetzen. Das Durchf&#252;hren unbestimmter Transaktionen kann die Datenintegrit&#228;t Ihrer Anwendung gef&#228;hrden.</p>
-
+<dd>
+<p>Die Entscheidung, ob Transaktionen, die nicht erreichbare Server betreffen, festgeschrieben oder zur&uuml;ckgesetzt werden. Der Standardwert ist Zur&uuml;cksetzen. Das Festschreiben unbestimmter Transaktionen kann die Datenintegrit&auml;t Ihrer Anwendung gef&auml;hrden.</p>
 </dd>
-<dt>Schl&#252;sselpunktintervall</dt>
-<dd><p>Die Anzahl der Transaktionen zwischen Schl&#252;sselpunktvorg&#228;ngen, die das Transaktionsprotokoll komprimieren. Der Standardwert betr&#228;gt 65.536.</p>
-
+<dt>Schl&uuml;sselpunktintervall</dt>
+<dd>
+<p>Die Anzahl der Transaktionen zwischen Schl&uuml;sselpunktvorg&auml;ngen, die das Transaktionslog komprimieren. Der Standardwert betr&auml;gt 65.536.</p>
 </dd>
 <dt>Weitere Eigenschaften</dt>
-<dd><p>Weitere Eigenschaften f&#252;r den Transaktionsdienst.</p>
-
-<p>Eine Beschreibung der verf&#252;gbaren Eigenschaften finden Sie unter <a href="ref-transactionsvcproperties.html">F&#252;r den Transaktionsdienst spezifische Eigenschaften</a>.</p>
-
+<dd>
+<p>Weitere Eigenschaften f&uuml;r den Transaktionsservice.</p>
+<p>Eine Beschreibung der verf&uuml;gbaren Eigenschaften finden Sie unter <a href="ref-transactionsvcproperties.html">F&uuml;r Transaktionsservice spezifische Eigenschaften</a>.</p>
 </dd>
 </dl>
-<a name="ginkt"></a><h5>Verwandte Aufgaben</h5>
-
-<ul><li><p><a href="task-configtransservice.html">So konfigurieren Sie den Transaktionsdienst</a></p>
-
+<a id="sthref15" name="sthref15"></a>
+<h5>Verwandte Aufgaben</h5>
+<ul>
+<li>
+<p><a href="task-configtransservice.html">So wird der Transaktionsservice konfiguriert</a></p>
 </li>
-<li><p><a href="task-configtransrecovery.html">So konfigurieren Sie die Wiederherstellung von Transaktionen in GlassFish-Server</a></p>
-
+<li>
+<p><a href="task-configtransrecovery.html">So wird konfiguriert, wie GlassFish Server Transaktionen wiederherstellt</a></p>
 </li>
-<li><p><a href="task-settranstimeout.html">So legen Sie einen Zeit&#252;berschreitungswert f&#252;r Transaktionen fest</a></p>
-
+<li>
+<p><a href="task-settranstimeout.html">So wird ein Timeoutwert f&uuml;r Transaktionen festgelegt</a></p>
 </li>
-<li><p><a href="task-settranslog.html">So legen Sie den Speicherort f&#252;r Transaktionsprotokolle fest</a></p>
-
+<li>
+<p><a href="task-settranslog.html">So wird das Verzeichnis der Transaktionslogs festgelegt</a></p>
 </li>
-<li><p><a href="task-setkeyptinterval.html">So legen Sie das Schl&#252;sselpunktintervall fest</a></p>
+<li>
+<p><a href="task-setkeyptinterval.html">So wird das Schl&uuml;sselpunktintervall festgelegt</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

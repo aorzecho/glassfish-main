@@ -1,77 +1,112 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-virtualserveredit" name="task-virtualserveredit"></a><a id="GHWEB00037" name="GHWEB00037"></a></p>
 
-
-<a name="task-virtualserveredit"></a><h3>So bearbeiten Sie einen virtuellen Server</h3><a name="indexterm-19"></a><ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
-<li><b>W&#228;hlen Sie unter dem Konfigurationsknoten den Knoten "Virtuelle Server".</b><p>Die Seite "Virtuelle Server" wird ge&#246;ffnet. </p></li>
-<li><b>Klicken Sie auf der Seite "Virtuelle Server" auf den Namen des zu
-bearbeitenden virtuellen Servers.</b><p>Die Seite "Virtuellen Server bearbeiten" wird ge&#246;ffnet.</p></li>
-<li><b>Geben Sie im Feld "Hosts" die Hostnamen oder IP-Adressen f&#252;r den Computer
-ein, auf dem der Server ausgef&#252;hrt wird.</b><p>Verwenden Sie entweder tats&#228;chliche oder virtuelle Hostnamen, die beim DNS-Server f&#252;r Ihr
-Netzwerk registriert sind (und auf einem UNIX-System in der Datei <tt>/etc/hosts</tt>). Der
-Standardwert ist der Systemeigenschaftswert <tt>${com.sun.aas.hostName}</tt>.</p></li>
-<li><b>W&#228;hlen Sie die Option "Status" f&#252;r den virtuellen Server.</b><p>Folgende Werte sind m&#246;glich:</p><dl><dt>Ein</dt>
-<dd><p>Der virtuelle Server ist aktiv. Dies ist der Standardwert.</p>
-
+<h4><a id="sthref37" name="sthref37"></a>So wird ein virtueller Server bearbeitet</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Konfiguration" ein.</p>
+</li>
+<li>
+<p>Select the configuration that you are changing.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie unter dem Konfigurationsknoten den Knoten "Virtuelle Server".</p>
+<p>Die Seite "Virtuelle Server" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Klicken Sie auf der Seite "Virtuelle Server" auf den Namen des zu bearbeitenden virtuellen Servers.</p>
+<p>Die Seite "Virtuellen Server bearbeiten" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Hosts" die Hostnamen oder IP-Adressen f&uuml;r den Computer ein, auf dem der Server ausgef&uuml;hrt wird.</p>
+<p>Verwenden Sie entweder tats&auml;chliche oder virtuelle Hostnamen, die beim DNS-Server f&uuml;r Ihr Netzwerk registriert sind (auf einem UNIX-System in der Datei <code>/etc/hosts</code>). Der Standardwert ist der Wert der Systemeigenschaft <code>${com.sun.aas.hostName}</code>.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie die Option "Status" f&uuml;r den virtuellen Server.</p>
+<p>Folgende Werte sind m&ouml;glich:</p>
+<dl>
+<dt>Ein</dt>
+<dd>
+<p>Der virtuelle Server ist aktiv. Dies ist der Standardwert.</p>
 </dd>
 <dt>Aus</dt>
-<dd><p>Der virtuelle Server ist inaktiv. Versuche, auf den Server zuzugreifen f&#252;hren zum Fehlercode 404 (Ressource nicht verf&#252;gbar).</p>
-
+<dd>
+<p>Der virtuelle Server ist inaktiv. Versuche, auf den Server zuzugreifen f&uuml;hren zum Fehlercode 404 (Ressource nicht verf&uuml;gbar).</p>
 </dd>
 <dt>Deaktiviert</dt>
-<dd><p>Der virtuelle Server ist deaktiviert. Versuche, auf den Server zuzugreifen f&#252;hren zum Fehlercode 403 (Anforderung abgelehnt).</p>
-
+<dd>
+<p>Der virtuelle Server ist deaktiviert. Versuche, auf den Server zuzugreifen f&uuml;hren zum Fehlercode 403 (Anforderung abgelehnt).</p>
 </dd>
 </dl>
 </li>
-<li><b>W&#228;hlen Sie eine SSL-Option f&#252;r den neuen virtuellen Server aus.</b><p>Standardm&#228;&#223;ig &#252;bernimmt ein virtueller Server die SSO-Einstellung (Single Sign-On) des HTTP-Diensts. W&#228;hlen
-Sie "Aktiviert" oder "Deaktiviert", um die HTTP-Diensteinstellung au&#223;er Kraft zu setzen, indem
-Sie SSO f&#252;r diesen virtuellen Server aktivieren oder deaktivieren.</p><p>Anwendungs&#252;bergreifendes SSO f&#252;r GlassFish-Server wird von Servlets und JSP-Dateien unterst&#252;tzt. Diese Funktion
-erm&#246;glicht es mehreren Anwendungen, f&#252;r die dieselben Benutzeranmeldeinformationen erforderlich sind, diese Informationen
-gemeinsam zu nutzen. Auf diese Weise muss sich der Benutzer nicht bei
-jeder Anwendung einzeln anmelden. </p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Netzwerk-Zielger&#228;te" ein oder mehrere Netzwerk-Zielger&#228;te aus, oder
-lassen Sie das Feld leer.</b></li>
-<li><b>W&#228;hlen Sie in der Dropdown-Liste "Standardwebmodul" das Modul aus, das auf alle
-Antworten soll, die nicht anderen, dem virtuellen Server bereitgestellten Webmodulen zugeordnet werden
-kann.</b><p>Wenn kein Standardwebmodul angegeben ist, wird das Webmodul verwendet, das einen leeren
-Kontext aufweist. Ist kein solches Webmodul vorhanden, wird ein Standardwebmodul f&#252;r das
-System erstellt und verwendet.</p></li>
-<li><b>Geben Sie im Feld "Protokolldatei" den Pfad zu der Datei ein, in
-der Meldungen f&#252;r diesen virtuellen Server protokolliert werden.</b><p>Standardm&#228;&#223;ig werden Protokollmeldungen im Standard-Serverprotokoll gespeichert, <tt></tt><i>domain-dir</i><tt>/logs/server.log </tt>.</p></li>
-<li><b>Geben Sie im Feld "Docroot" den absoluten Pfad zum Rootdokumentverzeichnis des Servers
-ein.</b><p>Der Standardwert ist <tt></tt><i>domain-dir</i><tt>/docroot</tt>.</p></li>
-<li><b>Aktivieren Sie die Option "Zugriffsprotokollierung", um die Zugriffsprotokollierung zu aktivieren oder zu
-deaktivieren.</b><p>Standardm&#228;&#223;ig &#252;bernimmt ein virtueller Server die Zugriffsprotokolleinstellung des HTTP-Diensts. W&#228;hlen Sie "Aktiviert"
-oder "Deaktiviert", um die HTTP-Diensteinstellung au&#223;er Kraft zu setzen, indem Sie die
-Zugriffsprotokollierung f&#252;r diesen virtuellen Server aktivieren oder deaktivieren.</p></li>
-<li><b>Geben Sie im Feld "Verzeichnis" den absoluten Verzeichnispfad zu den Serverzugriffsprotokollen ein.</b><p>Der Standardwert ist <tt></tt><i>domain-dir</i><tt>/logs/access</tt>.</p></li>
-<li>(Optional) <b>Geben Sie im Abschnitt "Weitere Eigenschaften" zus&#228;tzliche Eigenschaften f&#252;r den virtuellen Server
-an.</b><p>Information zu verf&#252;gbaren Eigenschaften finden Sie unter <a href="ref-virtualserverprops.html">F&#252;r virtuelle Server spezifische Eigenschaften</a>.</p><ul>
-<li><b>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
-Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
-"Name" und den Eigenschaftswert in das Feld "Wert" ein.</b></li>
-<li><b>Um eine Eigenschaft zu &#228;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</b></li>
-<li><b>Um eine Eigenschaft zu l&#246;schen, aktivieren Sie das Kontrollk&#228;stchen links neben dem
-Feld "Name" der zu l&#246;schenden Eigenschaft und klicken Sie anschlie&#223;end auf die
-Schaltfl&#228;che "Eigenschaften l&#246;schen".</b></li></ul></li>
-<li><b>Klicken Sie auf "Speichern".</b>
-<hr><p><b>Tipp - </b>Um zu den Standardeinstellungen zur&#252;ckzukehren, klicken Sie auf die Schaltfl&#228;che "Standardwerte laden"
-und anschlie&#223;end auf "Speichern".</p>
-
+<li>
+<p>W&auml;hlen Sie eine SSO-Option f&uuml;r den neuen virtuellen Server aus.</p>
+<p>Standardm&auml;&szlig;ig &uuml;bernimmt ein virtueller Server die SSO-Einstellung (Single Sign-On) des HTTP-Service. W&auml;hlen Sie "Aktiviert" oder "Deaktiviert", um die HTTP-Serviceeinstellung au&szlig;er Kraft zu setzen, indem Sie SSO f&uuml;r diesen virtuellen Server aktivieren oder deaktivieren.</p>
+<p>Anwendungs&uuml;bergreifendes SSO f&uuml;r GlassFish Server wird von Servlets und JSP-Dateien unterst&uuml;tzt. Dieses Feature erm&ouml;glicht es mehreren Anwendungen, f&uuml;r die dieselben Benutzeranmeldeinformationen erforderlich sind, diese Informationen gemeinsam zu nutzen. Auf diese Weise muss sich der Benutzer nicht bei jeder Anwendung einzeln anmelden.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Netzwerk-Listener" mindestens einen Netzwerk-Listener, oder lassen Sie das Feld leer.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie in der Dropdown-Liste "Standardwebmodul" das Modul aus, das auf alle Antworten soll, die nicht anderen, dem virtuellen Server bereitgestellten Webmodulen zugeordnet werden kann.</p>
+<p>Wenn kein Standardwebmodul angegeben ist, wird das Webmodul verwendet, das einen leeren Kontext aufweist. Ist kein solches Webmodul vorhanden, wird ein Standardwebmodul f&uuml;r das System erstellt und verwendet.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Logdatei" den Pfad zu der Datei ein, in der Meldungen f&uuml;r diesen virtuellen Server protokolliert werden.</p>
+<p>Standardm&auml;&szlig;ig werden Logging-Meldungen an das Standardserverlog gesendet, <i>domain-dir</i><code>/logs/server.log</code>.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Docroot" den absoluten Pfad zum Rootdokumentverzeichnis des Servers ein.</p>
+<p>Der Standardwert ist <i>domain-dir</i><code>/docroot</code>.</p>
+</li>
+<li>
+<p>Aktivieren Sie die Option "Zugriffsprotokollierung", um die Zugriffsprotokollierung zu aktivieren oder zu deaktivieren.</p>
+<p>Standardm&auml;&szlig;ig &uuml;bernimmt ein virtueller Server die Zugriffsprotokolleinstellung des HTTP-Service. W&auml;hlen Sie "Aktiviert" oder "Deaktiviert", um die HTTP-Serviceeinstellung au&szlig;er Kraft zu setzen, indem Sie die Zugriffsprotokollierung f&uuml;r diesen virtuellen Server aktivieren oder deaktivieren.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Verzeichnis" den absoluten Verzeichnispfad zu den Serverzugriffsprotokollen ein.</p>
+<p>Der Standardwert ist <i>domain-dir</i><code>/logs/access</code>.</p>
+</li>
+<li>
+<p>Geben Sie im Abschnitt "Weitere Eigenschaften" zus&auml;tzliche Eigenschaften f&uuml;r den virtuellen Server an.</p>
+<p>Information zu verf&uuml;gbaren Eigenschaften finden Sie unter <a href="ref-virtualserverprops.html">F&uuml;r virtuelle Server spezifische Eigenschaften</a>.</p>
+<ul>
+<li>
+<p>Um eine Eigenschaft hinzuzuf&uuml;gen, klicken Sie auf die Schaltfl&auml;che "Eigenschaft hinzuf&uuml;gen". Geben Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld "Name" und den Eigenschaftswert in das Feld "Wert" ein.</p>
+</li>
+<li>
+<p>Um eine Eigenschaft zu &auml;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</p>
+</li>
+<li>
+<p>Um eine Eigenschaft zu l&ouml;schen, aktivieren Sie das Kontrollk&auml;stchen links neben dem Feld "Name" der zu l&ouml;schenden Eigenschaft, und klicken Sie anschlie&szlig;end auf die Schaltfl&auml;che "Eigenschaften l&ouml;schen".</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Klicken Sie auf "Speichern".</p>
 
 <hr>
-</li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-virtualservercreate.html">So erstellen Sie einen virtuellen Server</a></p>
+<p><b>Tipp:</b></p>
+Um zu den Standardeinstellungen zur&uuml;ckzukehren, klicken Sie auf die Schaltfl&auml;che "Standardwerte laden" und anschlie&szlig;end auf "Speichern".
+<hr>
 
 </li>
-<li><p><a href="task-virtualserverdelete.html">So l&#246;schen Sie einen virtuellen Server</a></p>
+</ol>
+<a id="sthref38" name="sthref38"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-virtualservercreate.html">So wird ein virtueller Server erstellt</a></p>
+</li>
+<li>
+<p><a href="task-virtualserverdelete.html">So wird ein virtueller Server gel&ouml;scht</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

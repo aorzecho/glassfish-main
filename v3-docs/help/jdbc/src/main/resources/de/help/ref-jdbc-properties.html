@@ -1,62 +1,60 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jdbc-properties"></a><h4>Spezifische Eigenschaften von JDBC-Verbindungspools</h4>
-<a name="indexterm-26"></a><a name="indexterm-27"></a><p>Die meisten JDBC-Treiber gestatten die Verwendung standardm&#228;&#223;iger Eigenschaftslisten, um den Benutzer, das
-Passwort und andere Informationen zur Ressourcenkonfiguration anzugeben. Obwohl Eigenschaften in Bezug auf
-den GlassFish-Server optional sind, sind einige Eigenschaften f&#252;r die meisten Datenbanken m&#246;glicherweise
-erforderlich. Weitere Informationen finden Sie im Abschnitt zur JDBC 4.0 Standard Extension
-API.</p>
+<p><a id="ref-jdbc-properties" name="ref-jdbc-properties"></a><a id="GHJDB00029" name="GHJDB00029"></a></p>
 
-<p>Das &#196;ndern der JDBC-Treibereigenschaften macht einen Server-Neustart erforderlich.</p>
-
-<p>Die folgenden Standardeigenschaften sind bei vielen bekannten JDBC-Anbietern gleich. Informationen zu den
-f&#252;r Ihren Treiber verf&#252;gbaren Eigenschaften erhalten Sie in der Dokumentation des entsprechenden
-Anbieters.</p>
-
-<dl><dt><tt>user (Benutzer)</tt></dt>
-<dd><p>Der Benutzername f&#252;r die Verbindung mit der Datenbank.</p>
-
+<h4><a id="sthref56" name="sthref56"></a><a id="sthref57" name="sthref57"></a>F&uuml;r JDBC-Connection Pools spezifische Eigenschaften</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Die meisten JDBC-Treiber gestatten die Verwendung standardm&auml;&szlig;iger Eigenschaftslisten, um den Benutzer, das Kennwort und andere Informationen zur Ressourcenkonfiguration anzugeben. Obwohl Eigenschaften in Bezug auf den GlassFish Server optional sind, sind einige Eigenschaften f&uuml;r die meisten Datenbanken m&ouml;glicherweise erforderlich. Weitere Informationen finden Sie im Abschnitt zur JDBC 4.0 Standard Extension API.</p>
+<p>Das &Auml;ndern der JDBC-Treibereigenschaften macht einen Server-Neustart erforderlich.</p>
+<p>Die folgenden Standardeigenschaften sind bei vielen bekannten JDBC-Providern gleich. Informationen zu den f&uuml;r Ihren JDBC-Treiber verf&uuml;gbaren Eigenschaften erhalten Sie in der Dokumentation des entsprechenden Providers.</p>
+<dl>
+<dt><code>user (Benutzer)</code></dt>
+<dd>
+<p>Der Benutzername f&uuml;r die Verbindung mit der Datenbank.</p>
 </dd>
-<dt><tt>password (Passwort)</tt></dt>
-<dd><p>Das Passwort f&#252;r die Verbindung mit der Datenbank.</p>
-
+<dt><code>Kennwort</code></dt>
+<dd>
+<p>Das Kennwort f&uuml;r die Verbindung mit der Datenbank.</p>
 </dd>
-<dt><tt>databaseName (Datenbankname)</tt></dt>
-<dd><p>Die Datenbank f&#252;r diesen Verbindungspool.</p>
-
+<dt><code>databaseName (Datenbankname)</code></dt>
+<dd>
+<p>Die Datenbank f&uuml;r diesen Connection Pool.</p>
 </dd>
-<dt><tt>serverName (Servername)</tt></dt>
-<dd><p>Der Datenbankserver f&#252;r diesen Verbindungspool.</p>
-
+<dt><code>serverName (Servername)</code></dt>
+<dd>
+<p>Der Datenbankserver f&uuml;r diesen Connection Pool.</p>
 </dd>
-<dt><tt>port (Port)</tt></dt>
-<dd><p>Der Port, den der Datenbankserver auf Anforderungen &#252;berwacht.</p>
-
+<dt><code>port (Port)</code></dt>
+<dd>
+<p>Der Port, auf dem der Datenbankserver auf Anforderungen horcht.</p>
 </dd>
-<dt><tt>networkProtocol (Netzwerkprotokoll)</tt></dt>
-<dd><p>Das Kommunikationsprotokoll.</p>
-
+<dt><code>networkProtocol (Netzwerkprotokoll)</code></dt>
+<dd>
+<p>Das Kommunikationsprotokoll.</p>
 </dd>
-<dt><tt>roleName (Rollenname)</tt></dt>
-<dd><p>Gibt den urspr&#252;nglichen SQL-Rollennamen an.</p>
-
+<dt><code>roleName (Rollenname)</code></dt>
+<dd>
+<p>Gibt den urspr&uuml;nglichen SQL-Rollennamen an.</p>
 </dd>
-<dt><tt>datasourceName (Datenquellenname)</tt></dt>
-<dd><p>Gibt eine zugrunde liegendes <tt>XADataSource</tt> oder ein <tt>ConnectionPoolDataSource</tt> an, wenn Verbindungspools verwendet werden.</p>
-
+<dt><code>datasourceName (Datenquellenname)</code></dt>
+<dd>
+<p>Gibt eine zugrunde liegendes <code>XADataSource</code> oder ein <code>ConnectionPoolDataSource</code> an, wenn Connection Pools verwendet werden.</p>
 </dd>
-<dt><tt>Description (Beschreibung)</tt></dt>
-<dd><p>Gibt eine Textbeschreibung an.</p>
-
+<dt><code>Description (Beschreibung)</code></dt>
+<dd>
+<p>Gibt eine Textbeschreibung an.</p>
 </dd>
-<dt><tt>url</tt></dt>
-<dd><p>Die URL f&#252;r diesen Verbindungspool. Obwohl dies keine Standardeigenschaft ist, wird sie allgemein verwendet.</p>
-
+<dt><code>url</code></dt>
+<dd>
+<p>Die URL f&uuml;r diesen Connection Pool. Obwohl dies keine Standardeigenschaft ist, wird sie allgemein verwendet.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

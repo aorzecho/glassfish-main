@@ -1,34 +1,62 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-migrate-ejb-timers" name="task-migrate-ejb-timers"></a><a id="GHCLU00085" name="GHCLU00085"></a></p>
 
-
-<a name="task-migrate-ejb-timers"></a><h3>So migrieren Sie EJB-Zeitgeber</h3><a name="indexterm-158"></a><a name="indexterm-159"></a><a name="indexterm-160"></a><p>Wenn eine GlassFish-Server-Instanz angehalten wird, werden ebenfalls die auf dieser Instanz installierten
-EJB-Zeitgeber (Enterprise JavaBeans) angehalten. Wenn die Instanz anormal oder unerwartet angehalten wird,
-k&#246;nnen Sie bei angehaltener Instanz diese Zeitgeber aktivieren, indem Sie die Zeitgeber
-auf eine ausgef&#252;hrte Serverinstanz im Cluster migrieren.</p>
-
+<h4><a id="sthref240" name="sthref240"></a> <a id="sthref241" name="sthref241"></a> <a id="sthref242" name="sthref242"></a>So werden EJB-Timer migriert</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Wenn eine GlassFish Server-Instanz angehalten wird, werden ebenfalls die auf dieser Instanz installierten EJB-Timer (Enterprise JavaBeans) angehalten. Wenn die Instanz anormal oder unerwartet angehalten wird, k&ouml;nnen Sie bei angehaltener Instanz diese Timer aktivieren, indem Sie die Timer auf eine ausgef&uuml;hrte Serverinstanz im Cluster migrieren.</p>
 <ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Knoten "Cluster".</b></li>
-<li><b>W&#228;hlen Sie in der Navigationsstruktur im Knoten "Cluster" den Cluster aus.</b><p>Die Seite "Allgemeine Informationen" f&#252;r den Cluster wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie auf der Seite "Allgemeine Informationen" auf "EJB-Zeitgeber migrieren".</b><p>Die Seite "EJB-Zeitgeber migrieren" wird ge&#246;ffnet.</p>
-<hr><p><b>Hinweis - </b>Wenn alle Instanzen im Cluster ausgef&#252;hrt werden, ist die Schaltfl&#228;che "EJB-Zeitgeber migrieren"
-deaktiviert.</p>
-
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Cluster" ein.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie in der Navigationsbaumstruktur im Knoten "Cluster" das Cluster.</p>
+<p>Die Seite "Allgemeine Informationen" f&uuml;r das Cluster wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Klicken Sie auf der Seite "Allgemeine Informationen" auf "EJB-Timer migrieren".</p>
+<p>Die Seite "EJB-Timer migrieren" wird ge&ouml;ffnet.</p>
 
 <hr>
-</li>
-<li><b>W&#228;hlen Sie auf der Seite "EJB-Zeitgeber migrieren" die Instanz, von der und
-auf die die Zeitgeber migriert werden sollen.</b><ol style="list-style-type: lower-alpha">
-<li><b>W&#228;hlen Sie in der Dropdown-Liste "Quelle" die angehaltene Instanz, von der aus
-Sie die Zeitgeber migrieren m&#246;chten.</b></li>
-<li>(Optional) <b>W&#228;hlen Sie in der Dropdown-Liste "Ziel" die ausgef&#252;hrte Instanz, auf die Sie
-die Zeitgeber migrieren m&#246;chten. </b></li>
-<li><b>Klicken Sie auf "OK".</b></li></ol></li>
-<li><b>Halten Sie die Instanz, auf die Sie die EJB-Zeitgeber migriert haben, an
-und starten Sie sie erneut.</b><p>Wenn die Quellinstanz ausgef&#252;hrt oder die Zielinstanz nicht ausgef&#252;hrt wird, zeigt die
-Administration Console eine Fehlermeldung an.</p></li></ol>
+<p><b>Hinweis:</b></p>
+Wenn alle Instanzen im Cluster ausgef&uuml;hrt werden, ist die Schaltfl&auml;che "EJB-Timer migrieren" deaktiviert.
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<p>Die Seite "EJB-Timer migrieren" enth&auml;lt eine Tabelle der EJB-Timer mit den folgenden Informationen, um Sie bei der Migration der Timer zu unterst&uuml;tzen..</p>
+<dl>
+<dt>Server Name (Servername)</dt>
+<dd>
+<p>Liste der GlassFish Server-Instanzen im Cluster.</p>
+</dd>
+<dt>Timerwert</dt>
+<dd>
+<p>Anzahl persistenter Timer auf jeder Instanz.</p>
+</dd>
+</dl>
+</li>
+<li>
+<p>W&auml;hlen Sie auf der Seite "EJB-Timer migrieren" die Instanz, von der und auf die die Timer migriert werden sollen.</p>
+<ol type="a">
+<li>
+<p>W&auml;hlen Sie in der Dropdown-Liste "Quelle" die angehaltene Instanz, von der aus Sie die Timer migrieren m&ouml;chten.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie in der Dropdown-Liste "Ziel" die ausgef&uuml;hrte Instanz, auf die Sie die Timer migrieren m&ouml;chten.</p>
+</li>
+<li>
+<p>Klicken Sie auf "OK".</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Halten Sie die Instanz, auf die Sie die EJB-Timer migriert haben, an und starten Sie sie erneut.</p>
+<p>Wenn die Quellinstanz ausgef&uuml;hrt oder die Zielinstanz nicht ausgef&uuml;hrt wird, zeigt die Administrationskonsole eine Fehlermeldung an.</p>
+</li>
+</ol>
+
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

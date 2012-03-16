@@ -1,42 +1,60 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-createcustomrealm" name="task-createcustomrealm"></a><a id="GHCOM00187" name="GHCOM00187"></a></p>
 
-
-<a name="task-createcustomrealm"></a><h3>So erstellen Sie einen benutzerdefinierten Bereich</h3><a name="indexterm-85"></a><a name="indexterm-86"></a><p>Neben den drei integrierten Bereichen k&#246;nnen benutzerdefinierte Bereiche erstellt werden, um Daten
-auf andere Weise zu speichern (wie z. B. in einer relationalen Datenbank).
-Die Entwicklung eines benutzerdefinierten Bereichs kann im Rahmen dieses Dokuments nicht erl&#228;utert
-werden. Weitere Informationen erhalten Sie in <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beabg">Kapitel 4, Securing Applications in <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p>
-
-<p>F&#252;r Verwaltungszwecke werden benutzerdefinierte Bereich durch eine Klasse (<tt>LoginModule</tt> genannt) implementiert, die
-dem Java Authentication and Authorization Service (JAAS)-Paket entstammt.</p>
-
+<h4><a id="sthref147" name="sthref147"></a><a id="sthref148" name="sthref148"></a>So werden benutzerdefinierte Realms erstellt</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Neben den drei integrierten Realms k&ouml;nnen benutzerdefinierte Realms erstellt werden, um Daten auf andere Weise zu speichern (wie z.B. in einer relationalen Datenbank). Die Entwicklung einer benutzerdefinierten Realm kann im Rahmen dieses Dokuments nicht erl&auml;utert werden. Weitere Informationen finden Sie in <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDVG00006">Chapter 5, <i>Securing Applications,</i> im <i>Oracle GlassFish Server Application Development Guide</i></a>.</p>
+<p>F&uuml;r Administrationszwecke werden benutzerdefinierte Realms durch eine Klasse (<code>LoginModule</code> genannt) implementiert, die dem Java Authentication and Authorization Service (JAAS)-Package entstammt.</p>
 <ol>
-<li><b>F&#252;hren Sie die unter <a href="task-realmnew.html">So erstellen Sie einen Bereich</a> beschriebenen Schritte aus und geben Sie den
-Namen des benutzerdefinierten Bereichs sowie den Namen der <tt>LoginModule</tt>-Klasse ein. </b><p>Verwenden Sie f&#252;r benutzerdefinierte Bereiche einen eindeutigen Namen, wie z. B. <tt>myCustomRealm</tt>.</p></li>
-<li><b>Klicken Sie auf "OK".</b></li>
-<li><b>Bearbeiten Sie die Anmeldekonfigurationsdatei der Dom&#228;ne, <tt></tt><i>domain-dir</i><tt>/config/login.conf</tt>, und f&#252;gen Sie den vollqualifizierten
-Klassennamen des JAAS <tt>LoginModuls</tt> am Ende der Datei wie folgt hinzu.</b><pre><i>realmName</i> {
+<li>
+<p>F&uuml;hren Sie die unter <a href="task-realmnew.html">So wird eine Realm erstellt</a> beschriebenen Schritte aus, und geben Sie den Namen der benutzerdefinierten Realm sowie den Namen der <code>LoginModule</code>-Klasse ein.</p>
+<p>Verwenden Sie f&uuml;r benutzerdefinierte Bereiche einen eindeutigen Namen, wie z.B. <code>myCustomRealm</code>.</p>
+</li>
+<li>
+<p>Klicken Sie auf "OK".</p>
+</li>
+<li>
+<p>Bearbeiten Sie die Anmeldekonfigurationsdatei der Domain, <i>domain-dir</i><code>/config/login.conf</code>, und f&uuml;gen Sie den vollst&auml;ndig angegebenen Klassennamen von JAAS-<code>LoginModule</code> am Ende der Datei wie folgt hinzu:</p>
+<pre>
+<i>realmName</i> {
     <i>fully-qualified-LoginModule-classname</i> required;
-};</pre><p>Zum Beispiel:</p><pre>myCustomRealm {
+};
+</pre>
+<p>Zum Beispiel:</p>
+<pre>
+myCustomRealm {
     com.foo.bar.security.customrealm.simpleCustomLoginModule required;
-};</pre></li>
-<li><b>Kopieren Sie die Klasse des <tt>LoginModule</tt><tt> und alle abh&#228;ngigen Klassen in das Verzeichnis </tt><i>domain-dir</i><tt>/lib/classes</tt>.</b></li>
-<li><b>Starten Sie den Server neu, wenn "Neustart erforderlich" in der Administration Console
-angezeigt wird.</b></li>
-<li><b>Stellen Sie sicher, dass der Bereich ordnungsgem&#228;&#223; geladen wird.</b><p>&#220;berpr&#252;fen Sie <tt></tt><i>domain-dir</i><tt>/logs/server.log </tt>, um sicherzustellen, dass der Server den Bereich geladen hat.
-Der Server sollte die Methode <tt>init</tt> des Bereichs aufrufen.</p></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-realmnew.html">So erstellen Sie einen Bereich</a></p>
-
+};
+</pre></li>
+<li>
+<p>Kopieren Sie die <code>LoginModule</code>-Klasse und alle abh&auml;ngigen Klassen in das Verzeichnis <i>domain-dir</i><code>/lib/classes</code>.</p>
 </li>
-<li><p><a href="task-realmedit.html">So bearbeiten Sie einen Bereich</a></p>
-
+<li>
+<p>Starten Sie den Server neu, wenn "Neustart erforderlich" in der Administrationskonsole angezeigt wird.</p>
 </li>
-<li><p><a href="task-todeleterealm.html">So l&#246;schen Sie einen Bereich</a></p>
+<li>
+<p>Stellen Sie sicher, dass die Realm ordnungsgem&auml;&szlig; geladen wird.</p>
+<p>Pr&uuml;fen Sie <i>domain-dir</i><code>/logs/server.log</code>, um sicherzustellen, dass der Server die Realm geladen hat. Der Server muss die <code>init</code>-Methode der Realm aufrufen.</p>
+</li>
+</ol>
+<a id="sthref149" name="sthref149"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-realmnew.html">So wird eine Realm erstellt</a></p>
+</li>
+<li>
+<p><a href="task-realmedit.html">So wird eine Realm bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-todeleterealm.html">So wird eine Realm gel&ouml;scht</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

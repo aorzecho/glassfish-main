@@ -1,32 +1,35 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-messagesecurityproviderconfigprops"></a><h4>Besondere Eigenschaften von Meldungssicherheitsanbieter-Konfigurationen</h4>
-<a name="indexterm-234"></a><a name="indexterm-235"></a><p>Die folgenden Eigenschaften stehen f&#252;r eine Meldungssicherheitsanbieter-Konfiguration zur Verf&#252;gung.</p>
+<p><a id="ref-messagesecurityproviderconfigprops" name="ref-messagesecurityproviderconfigprops"></a><a id="GHCOM00123" name="GHCOM00123"></a></p>
 
-<dl><dt><tt>server.config</tt></dt>
-<dd><p>Das Verzeichnis und der Dateiname einer XML-Datei mit den Serverkonfigurationsdaten. Der Standardwert ist <i>domain-dir</i><tt>/config/wss-server-config-1.0.xml </tt>.</p>
-
+<h4><a id="sthref435" name="sthref435"></a><a id="sthref436" name="sthref436"></a>F&uuml;r Konfigurationen des Nachrichtensicherheitsproviders spezifische Eigenschaften</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Die folgenden Eigenschaften stehen f&uuml;r eine Meldungssicherheitsprovider-Konfiguration zur Verf&uuml;gung.</p>
+<dl>
+<dt><code>server.config</code></dt>
+<dd>
+<p>Das Verzeichnis und der Dateiname einer XML-Datei mit den Serverkonfigurationsdaten. Der Standardwert ist <i>domain-dir</i><code>/config/wss-server-config-1.0.xml</code>.</p>
 </dd>
-<dt><tt>Debug</tt></dt>
-<dd><p>Bei <tt>wahr</tt> wird das Abbilden der Serveranbieter-Debug-Meldungen zum Server-Protokoll aktiviert. Der Standardwert ist <tt>false</tt>.</p>
-
+<dt><code>Debug</code></dt>
+<dd>
+<p>Bei <code>True</code> wird die Ausgabe der Debug-Meldungen des Serverproviders im Serverlog aktiviert. Der Standardwert ist <code>false</code>.</p>
 </dd>
-<dt><tt>dynamic.username.password</tt></dt>
-<dd><p>Bei <tt>wahr</tt> signalisiert der Anbieter Laufzeit, um den Benutzernamen und das Passwort vom <tt>CallbackHandler</tt> f&#252;r jede Anfrage zu sammeln. Bei "falsch" werden Benutzername und Passwort f&#252;r <tt>wsse:UsernameToken(s) </tt> einmal w&#228;hrend der Modulinitialisierung gesammelt. Diese Eigenschaft ist nur auf ein <tt>ClientAuthModule</tt> anwendbar. Der Standardwert ist <tt>false</tt>.</p>
-
+<dt><code>dynamic.username.password</code></dt>
+<dd>
+<p>Bei <code>wahr</code> signalisiert der Anbieter Laufzeit, um den Benutzernamen und das Kennwort vom <code>CallbackHandler</code> f&uuml;r jede Anfrage zu sammeln. Bei "False" werden Benutzername und Kennwort f&uuml;r <code>wsse:UsernameToken(s)</code> einmal w&auml;hrend der Modulinitialisierung gesammelt. Diese Eigenschaft ist nur auf ein <code>ClientAuthModule</code> anwendbar. Der Standardwert ist <code>false</code>.</p>
 </dd>
-<dt><tt>encryption.key.alias</tt></dt>
-<dd><p>Legt den Verschl&#252;sselungsschl&#252;ssel fest, der vom Anbieter verwendet wird. Der Schl&#252;ssel wird durch sein <tt>Schl&#252;sselspeicher-</tt>Alias gekennzeichnet. Der Standardwert ist <tt>s1as</tt>.</p>
-
+<dt><code>encryption.key.alias</code></dt>
+<dd>
+<p>Legt den Verschl&uuml;sselungsschl&uuml;ssel fest, der vom Provider verwendet wird. Der Schl&uuml;ssel wird durch den <code>Keystore-</code>Alias gekennzeichnet. Der Standardwert ist <code>s1as</code>.</p>
 </dd>
-<dt><tt>signature.key.alias</tt></dt>
-<dd><p>Legt den Signaturschl&#252;ssel fest, der vom Anbieter verwendet wurde. Der Schl&#252;ssel wird durch sein <tt>Schl&#252;sselspeicher-</tt>Alias gekennzeichnet. Der Standardwert ist <tt>s1as</tt>.</p>
-
+<dt><code>signature.key.alias</code></dt>
+<dd>
+<p>Legt den Signaturschl&uuml;ssel fest, der vom Provider verwendet wurde. Der Schl&uuml;ssel wird durch den <code>Keystore-</code>Alias gekennzeichnet. Der Standardwert ist <code>s1as</code>.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

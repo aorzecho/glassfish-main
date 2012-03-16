@@ -1,43 +1,76 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-ejbcontaineravailability" name="task-ejbcontaineravailability"></a><a id="GHEJB00006" name="GHEJB00006"></a></p>
 
-
-<a name="task-ejbcontaineravailability"></a><h3>So konfigurieren Sie die Verf&#252;gbarkeitseinstellungen f&#252;r den EJB-Container</h3><a name="indexterm-9"></a><a name="indexterm-10"></a><a name="indexterm-11"></a><a name="indexterm-12"></a><ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Knoten "Konfiguration".</b></li>
-<li><b>W&#228;hlen Sie die Konfiguration aus, die Sie &#228;ndern.</b></li>
-<li><b>W&#228;hlen Sie unter dem Konfigurationsknoten den Verf&#252;gbarkeitsdienst-Knoten aus.</b><p>Die Seite "Verf&#252;gbarkeitsdienst" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie auf der Seite "Verf&#252;gbarkeitsdienst" auf die Registerkarte "EJB-Container-Verf&#252;gbarkeit".</b><p>Die Seite "EJB-Container-Verf&#252;gbarkeit" wird ge&#246;ffnet.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Aktiviert" f&#252;r den Verf&#252;gbarkeitsdienst, um die Verf&#252;gbarkeit f&#252;r
-den EJB-Container zu aktivieren.</b><p>Um die Verf&#252;gbarkeit aufzuheben, deaktivieren Sie das Kontrollk&#228;stchen "Aktiviert" f&#252;r den Verf&#252;gbarkeitsdienst.</p></li>
-<li><b>Der HA-Fortdauertyp lautet <tt>replicated</tt>.</b><p>Dies ist der Fortdauermechanismums, der verwendet wird, wenn "Aktiviert" f&#252;r den Verf&#252;gbarkeitsdienst
-aktiviert ist.  Die Fortdauer basiert auf einem Failover in einem Cluster.
-&#196;ndern Sie diesen Wert nicht.</p></li>
-<li><b>Der SFSB-Fortdauertyp lautet <tt>file</tt>.</b><p>Dies ist der Fortdauermechanismums, der verwendet wird, wenn "Aktiviert" f&#252;r den Verf&#252;gbarkeitsdienst
-<b>nicht</b> aktiviert ist. Die Fortdauer basiert auf dem Dateisystem.  &#196;ndern Sie
-diesen Wert nicht.</p><p>Das Feld "Sitzungsspeicherort" bestimmt, wo SFSB-Fixpunktzust&#228;nde beibehalten werden. Informationen zum Sitzungsspeicherort finden
-Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2962&id=task-ejbgeneral">To Configure EJB Settings</a>.</p></li>
-<li><b>Klicken Sie zum Wiederherstellen der Standardwerte auf die Schaltfl&#228;che "Standardeinstellungen laden".</b></li>
-<li>(Optional) <b>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</b><p>GlassFish-Server definiert keine weiteren Eigenschaften f&#252;r die EJB-Container-Verf&#252;gbarkeit.</p><ul>
-<li><b>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
-Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
-"Name" und den Eigenschaftswert in das Feld "Wert" ein.</b></li>
-<li><b>Um eine Eigenschaft zu &#228;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</b></li>
-<li><b>Um eine Eigenschaft zu l&#246;schen, aktivieren Sie das Kontrollk&#228;stchen links neben dem
-Feld "Name" der zu l&#246;schenden Eigenschaft und klicken Sie anschlie&#223;end auf die
-Schaltfl&#228;che "Eigenschaften l&#246;schen".</b></li></ul></li>
-<li><b>Klicken Sie auf "Speichern".</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2962&id=task-ejbgeneral">To Configure EJB Settings</a></p>
-
+<h4><a id="sthref10" name="sthref10"></a><a id="sthref11" name="sthref11"></a><a id="sthref12" name="sthref12"></a><a id="sthref13" name="sthref13"></a>So werden Verf&uuml;gbarkeitseinstellungen f&uuml;r den EJB-Container konfiguriert</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Konfiguration" ein.</p>
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">So konfigurieren Sie MDB-Pooleinstellungen</a></p>
-
+<li>
+<p>W&auml;hlen Sie die Konfiguration aus, die Sie &auml;ndern.</p>
 </li>
-<li><p><a href="task-ejbtimerservice.html">So konfigurieren Sie den EJB-Zeitgeberdienst</a></p>
+<li>
+<p>W&auml;hlen Sie unter dem Konfigurationsknoten den Verf&uuml;gbarkeitsservice-Knoten aus.</p>
+<p>Die Seite "Verf&uuml;gbarkeitsservice" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Klicken Sie auf der Seite "Verf&uuml;gbarkeitsservice" auf die Registerkarte "EJB-Container-Verf&uuml;gbarkeit".</p>
+<p>Die Seite "EJB-Container-Verf&uuml;gbarkeit" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Aktiviert" f&uuml;r den Verf&uuml;gbarkeitsservice, um die Verf&uuml;gbarkeit f&uuml;r den EJB-Container zu aktivieren.</p>
+<p>Um die Verf&uuml;gbarkeit aufzuheben, deaktivieren Sie das Kontrollk&auml;stchen "Aktiviert" f&uuml;r den Verf&uuml;gbarkeitsservice.</p>
+</li>
+<li>
+<p>Der HA-Persistenztyp lautet <code>replicated</code>.</p>
+<p>Dies ist der Persistenzmechanismus, der verwendet wird, wenn "Aktiviert" f&uuml;r den Verf&uuml;gbarkeitsservice aktiviert ist. Die Persistenz basiert auf einem Failover in einem Cluster. &Auml;ndern Sie diesen Wert nicht.</p>
+</li>
+<li>
+<p>Der SFSB-Persistenztyp lautet <code>file</code>.</p>
+<p>Dies ist der Persistenzmechanismus, der verwendet wird, wenn "Aktiviert" f&uuml;r den Verf&uuml;gbarkeitsservice <i>nicht</i> aktiviert ist. Die Persistenz basiert auf dem Dateisystem. &Auml;ndern Sie diesen Wert nicht.</p>
+<p>Das Feld "Sessionspeicherort" bestimmt, wo SFSB-Fixpunktzust&auml;nde beibehalten werden. Informationen zum Verzeichnis des Sessionspeichers finden Sie unter <a href="../../../ejb-lite/de/help/missingtopic.html">So werden EJB-Einstellungen konfiguriert</a>.</p>
+</li>
+<li>
+<p>Klicken Sie zum Wiederherstellen der Standardwerte auf die Schaltfl&auml;che "Standardeinstellungen laden".</p>
+</li>
+<li>
+<p>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</p>
+<p>GlassFish Server definiert keine weiteren Eigenschaften f&uuml;r die EJB-Container-Verf&uuml;gbarkeit.</p>
+<ul>
+<li>
+<p>Um eine Eigenschaft hinzuzuf&uuml;gen, klicken Sie auf die Schaltfl&auml;che "Eigenschaft hinzuf&uuml;gen". Geben Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld "Name" und den Eigenschaftswert in das Feld "Wert" ein.</p>
+</li>
+<li>
+<p>Um eine Eigenschaft zu &auml;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</p>
+</li>
+<li>
+<p>Um eine Eigenschaft zu l&ouml;schen, aktivieren Sie das Kontrollk&auml;stchen links neben dem Feld "Name" der zu l&ouml;schenden Eigenschaft, und klicken Sie anschlie&szlig;end auf die Schaltfl&auml;che "Eigenschaften l&ouml;schen".</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Klicken Sie auf "Speichern".</p>
+</li>
+</ol>
+<a id="sthref14" name="sthref14"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="../../../ejb-lite/de/help/missingtopic.html">So werden EJB-Einstellungen konfiguriert</a></p>
+</li>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">So werden MDB-Pooleinstellungen konfiguriert</a></p>
+</li>
+<li>
+<p><a href="task-ejbtimerservice.html">So wird der EJB-Timerservice konfiguriert</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

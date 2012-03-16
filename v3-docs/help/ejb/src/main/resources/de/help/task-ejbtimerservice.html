@@ -1,47 +1,67 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-ejbtimerservice" name="task-ejbtimerservice"></a><a id="GHEJB00005" name="GHEJB00005"></a></p>
 
-
-<a name="task-ejbtimerservice"></a><h3>So konfigurieren Sie den EJB-Zeitgeberdienst</h3><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>Der Zeitgeberdienst ist ein vom Enterprise-Bean-Container bereitgestellter, fortdauernder und transaktionaler Benachrichtigungsdienst, mit
-dem von Enterprise-Beans verwendete Benachrichtigungen oder Ereignisse geplant werden. Alle Enterprise-Beans akzeptieren
-Stateful Session-Beans und k&#246;nnen Benachrichtigungen vom Zeitgeberdienst empfangen. Durch den Dienst gesetzte
-fortdauernde Zeitgeber werden nicht zerst&#246;rt, wenn der Server heruntergefahren oder neu gestartet
-wird.</p>
-
+<h4><a id="sthref6" name="sthref6"></a><a id="sthref7" name="sthref7"></a><a id="sthref8" name="sthref8"></a>So wird der EJB-Timerservice konfiguriert</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Der Timerservice ist ein vom Enterprise Bean-Container bereitgestellter, persistenter Transaktionsbenachrichtigungsservice, mit dem von Enterprise Beans verwendete Benachrichtigungen oder Ereignisse geplant werden. Alle Enterprise Beans akzeptieren Stateful Session-Beans und k&ouml;nnen Benachrichtigungen vom Timerservice empfangen. Durch den Service gesetzte persistente Timer werden nicht zerst&ouml;rt, wenn der Server heruntergefahren oder neu gestartet wird.</p>
 <ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
-<li><b>W&#228;hlen Sie den Knoten "EJB-Container".</b><p>Die Seite "Enterprise Java Beans (EJB)" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie auf die Registerkarte "EJB-Zeitgeberdienst".</b><p>Die Seite "EJB-Zeitgeberdienst" wird ge&#246;ffnet.</p></li>
-<li><b>Geben Sie im Feld "Minimales Lieferintervall" die Mindestanzahl Millisekunden an, die verstreichen
-d&#252;rfen, bis der n&#228;chste Zeitgeberablauf f&#252;r einen bestimmten Zeitgeber auftreten kann.</b><p>Ein zu niedrig gew&#228;hlter Wert f&#252;r diese Einstellung kann zu einer Server&#252;berlastung
-f&#252;hren. Der Standardwert ist 1000.</p></li>
-<li><b>Geben Sie im Feld "Maximale erneute Sendungen" die maximale Anzahl an Versuchen
-ein, die der Zeitgeberdienst unternimmt, um einen Zeitgeberablauf aufgrund einer Ausnahme oder
-einer Zur&#252;cksetzung zu senden.</b><p>Der Standardwert betr&#228;gt 1. </p></li>
-<li><b>Geben Sie im Feld "Intervall f&#252;r erneutes Senden" die Zeit zwischen erneuten
-Sendeversuchen in Millisekunden ein.</b><p>Der Standardwert lautet 5000.</p></li>
-<li><b>Geben Sie im Feld "Zeitgeberdatenquelle" den JNDI-Namen der JDBC-Ressource ein, die als
-Zeitgeberdatenquelle verwendet werden soll.</b><p>Dieser Wert (sofern angegeben) &#252;berschreibt den Standardwert von <tt>jdbc/__TimerPool</tt> f&#252;r die Zeitgeberdienst-Systemanwendung.</p></li>
-<li><b>Klicken Sie auf "Speichern".</b>
-<hr><p><b>Tipp - </b>Um zu den Standardeinstellungen zur&#252;ckzukehren, klicken Sie auf die Schaltfl&#228;che "Standardwerte laden"
-und anschlie&#223;end auf "Speichern".</p>
-
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Konfiguration" ein.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie den Knoten "EJB-Container".</p>
+<p>Die Seite "Enterprise Java Beans (EJB)" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Klicken Sie auf die Registerkarte "EJB-Timerservice".</p>
+<p>Die Seite "EJB-Timerservice" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Minimales Lieferintervall" die Mindestanzahl Millisekunden an, die verstreichen d&uuml;rfen, bis der n&auml;chste Timerablauf f&uuml;r einen bestimmten Timer auftreten kann.</p>
+<p>Ein zu niedrig gew&auml;hlter Wert f&uuml;r diese Einstellung kann zu einer Server&uuml;berlastung f&uuml;hren. Der Standardwert ist 1000.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Maximale erneute Sendungen" die maximale Anzahl an Versuchen ein, die der Timerservice unternimmt, um einen Timerablauf aufgrund einer Ausnahme oder einer Zur&uuml;cksetzung zu senden.</p>
+<p>Der Standardwert betr&auml;gt 1.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Intervall f&uuml;r erneutes Senden" die Zeit zwischen erneuten Sendeversuchen in Millisekunden ein.</p>
+<p>Der Standardwert lautet 5000.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Timerdatenquelle" den JNDI-Namen der JDBC-Ressource ein, die als Timerdatenquelle verwendet werden soll.</p>
+<p>Wenn dieser Wert angegeben ist, &uuml;berschreibt er den Standardwert von <code>jdbc/__TimerPool</code> f&uuml;r die Timerservice-Systemanwendung.</p>
+</li>
+<li>
+<p>Klicken Sie auf "Speichern".</p>
 
 <hr>
-</li>
-<li><b>Starten Sie GlassFish-Server neu.</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2962&id=task-ejbgeneral">To Configure EJB Settings</a></p>
+<p><b>Tipp:</b></p>
+Um zu den Standardeinstellungen zur&uuml;ckzukehren, klicken Sie auf die Schaltfl&auml;che "Standardwerte laden" und anschlie&szlig;end auf "Speichern".
+<hr>
 
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">So konfigurieren Sie MDB-Pooleinstellungen</a></p>
-
+<li>
+<p>Starten Sie GlassFish Server neu.</p>
 </li>
-<li><p><a href="task-ejbcontaineravailability.html">So konfigurieren Sie die Verf&#252;gbarkeitseinstellungen f&#252;r den EJB-Container</a></p>
+</ol>
+<a id="sthref9" name="sthref9"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="../../../ejb-lite/de/help/missingtopic.html">So werden EJB-Einstellungen konfiguriert</a></p>
+</li>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">So werden MDB-Pooleinstellungen konfiguriert</a></p>
+</li>
+<li>
+<p><a href="task-ejbcontaineravailability.html">So werden Verf&uuml;gbarkeitseinstellungen f&uuml;r den EJB-Container konfiguriert</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

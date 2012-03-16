@@ -1,113 +1,113 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-editnode" name="task-editnode"></a><a id="GHCLU00084" name="GHCLU00084"></a></p>
 
-
-<a name="task-editnode"></a><h3>So bearbeiten Sie einen Knoten</h3><a name="indexterm-157"></a><p>Durch das Bearbeiten eines Knotens werden Konfigurationsdaten eines GlassFish-Server-Knotens aktualisiert. Au&#223;erdem wird
-durch das Bearbeiten eines Knotens der Knotentyp von KONFIGURATION in SSH ge&#228;ndert,
-um die Kommunikation &#252;ber SSH f&#252;r den Knoten zu aktivieren.</p>
-
-<p>Nach dem &#196;ndern des Knotentyps von KONFIGURATION in SSH werden die Standardwerte
-angewendet, wenn eines der folgenden Felder leer ist:</p>
-
-
-<ul><li><p>SSH-Anschluss</p>
-
+<h4><a id="sthref236" name="sthref236"></a>So wird ein Knoten bearbeitet</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Durch das Bearbeiten eines Knotens werden Konfigurationsdaten eines GlassFish Server-Knotens aktualisiert. Au&szlig;erdem wird durch das Bearbeiten eines Knotens der Knotentyp von CONFIG in DCOM oder SSH ge&auml;ndert, um die Remote-Kommunikation f&uuml;r den Knoten zu aktivieren.</p>
+<p>Nach dem &Auml;ndern des Knotentyps von CONFIG in DCOM werden die Standardwerte angewendet, wenn eines der folgenden Felder leer ist:</p>
+<ul>
+<li>
+<p>Windows-Domain</p>
 </li>
-<li><p>SSH-Benutzername</p>
-
+<li>
+<p>Windows-Benutzer</p>
 </li>
-<li><p>Schl&#252;sseldatei</p>
-
-</li></ul>
+</ul>
+<p>Nach dem &Auml;ndern des Knotentyps von CONFIG in SSH werden die Standardwerte angewendet, wenn eines der folgenden Felder leer ist:</p>
+<ul>
+<li>
+<p>SSH-Port</p>
+</li>
+<li>
+<p>SSH-Benutzername</p>
+</li>
+<li>
+<p>Schl&uuml;sseldatei</p>
+</li>
+</ul>
 <ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Knoten "Knoten".</b></li>
-<li><b>W&#228;hlen Sie in der Liste der Knoten den zu bearbeitenden Knoten.</b><p>Die Seite "Knoten bearbeiten" wird ge&#246;ffnet.</p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Typ" den aktualisierten Knotentyp.</b><ul>
-<li><b>W&#228;hlen Sie SSH, um eine Kommunikation &#252;ber Secure Shell (SSH) f&#252;r den
-Knoten zu unterst&#252;tzen.</b></li>
-<li><b>W&#228;hlen Sie KONFIGURATION, um keine Remote-Konfiguration f&#252;r den Knoten zu unterst&#252;tzen.</b><p>Wenn Sie KONFIGURATION w&#228;hlen, werden keine Optionen f&#252;r die SSH-Konfiguration angezeigt. Wenn
-der aktuelle Knotentyp SSH ist und Sie KONFIGURATION ausw&#228;hlen, werden beim Speichern
-der &#196;nderungen die SSH-Konfigurationsdaten aus der Knotenkonfiguration entfernt.</p></li></ul></li>
-<li><b>Geben Sie im Feld "Knoten-Host" den Namen des Hosts ein, den der
-aktualisierte Knoten darstellen soll.</b><p>Ob dieses Feld obligatorisch ist, h&#228;ngt vom Knotentyp ab:</p>
-<ul><li><p>Wenn der Knotentyp KONFIGURATION ist, kann der Name des Hosts ausgelassen werden. Der Name des Hosts kann festgelegt werden, wenn die Instanzen erstellt werden, die sich auf dem Knoten befinden. </p>
-
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Knoten" ein.</p>
 </li>
-<li><p>Wenn der Knotentyp SSH ist, muss der Name des Hosts angegeben werden. Anderenfalls tritt ein Fehler auf.</p>
-
-</li></ul>
+<li>
+<p>W&auml;hlen Sie in der Liste der Knoten den zu bearbeitenden Knoten.</p>
+<p>Die Seite "Knoten bearbeiten" wird ge&ouml;ffnet.</p>
 </li>
-<li><b>Geben Sie im Feld "Knotenverzeichnis" den Pfad zu dem Verzeichnis ein, das
-die GlassFish-Server-Instanzen enthalten soll, die auf dem Knoten erstellt werden.</b><p>Wenn Sie einen relativen Pfad angeben, ist der Pfad relativ zum Verzeichnis
-<i>as-install</i>. Dabei steht <i>as-install</i> f&#252;r das Basisinstallationsverzeichnis der GlassFish-Server-Software auf dem Host.</p></li>
-<li><b>Geben Sie im Feld "Installationsverzeichnis" den vollst&#228;ndigen Pfad zum &#252;bergeordneten Verzeichnis des
-Basisinstallationsverzeichnis der GlassFish-Server-Software auf dem Host ein. Beispiel: <tt>/export/glassfish3/</tt>.</b></li>
-<li><b>Damit der Knoten in der Konfiguration des Dom&#228;nenadministrationsservers (DAS, Domain Administration Server)
-erstellt wird, auch wenn die Validierung der Knotenparameter fehlschl&#228;gt, aktivieren Sie die
-Option "Erzwingen".</b></li>
-<li><b>Geben Sie im Feld "SSH-Anschluss" den Port ein, der f&#252;r SSH-Verbindungen zum
-Host dieses Knotens verwendet werden soll.</b><p>Wenn Sie den Knotentyp von KONFIGURATION in SSH &#228;ndern und dieses Feld
-leer lassen, wird die Option "SSH-Anschluss" auf 22 gesetzt.</p></li>
-<li><b>Geben Sie im Feld "SSH-Benutzername" den Namen des Benutzers auf dem Host
-dieses Knotens an, der die Verbindung mit dem Host &#252;ber SSH herstellen
-soll.</b><p>Wenn Sie den Knotentyp von KONFIGURATION in SSH &#228;ndern und dieses Feld
-leer lassen, wird f&#252;r die Option "SSH-Benutzername" der Benutzer verwendet, der den
-DAS-Prozess ausf&#252;hrt.</p></li>
-<li><b>Geben Sie an, wie der SSH-Benutzer authentifiziert wird, wenn er sich beim
-Host dieses Knotens anmeldet.</b><ul>
-<li><b>Um die Authentifizierung durch eine Datei f&#252;r den privaten SSH-Schl&#252;ssel anzugeben, gehen
-Sie wie folgt vor:</b><ol style="list-style-type: lower-alpha">
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "SSH-Benutzerauthentifizierung" die Option "Schl&#252;sseldatei".</b></li>
-<li><b>Geben Sie im Feld "Schl&#252;sseldatei" den absoluten Pfad zur Datei f&#252;r den
-privaten SSH-Schl&#252;ssel des Benutzers ein, der durch die Option "SSH-Benutzername" angegeben ist.
-</b>
-<hr><p><b>Hinweis - </b>GlassFish-Server unterst&#252;tzt ebenfalls eine Passwort-Authentifizierung &#252;ber den Eintrag <tt>AS_ADMIN_SSHPASSWORD</tt> in der Passwortdatei.
-Die Passwort-Datei wird in der Option <tt>--paswordfile</tt> des Dienstprogramms <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a> angegeben.</p>
-
-
-<hr>
-<p>Wenn Sie den Knotentyp von KONFIGURATION in SSH &#228;ndern und dieses Feld
-leer lassen, wird die Option "Schl&#252;sseldatei" auf eine Schl&#252;sseldatei im Verzeichnis <tt>.ssh</tt>
-des Benutzers gesetzt. Wenn mehrere Schl&#252;sseldateien gefunden werden, verwendet GlassFish-Server die folgende
-Reihenfolge:</p>
-<ul><li><p><tt>id_rsa</tt></p>
-
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Typ" den aktualisierten Knotentyp.</p>
+<ul>
+<li>
+<p>Um den Knoten zur Unterst&uuml;tzung der Kommunikation &uuml;ber das Remote-Protokoll "Distributed Component Object Model (DCOM)" zu aktivieren, w&auml;hlen Sie DCOM.</p>
 </li>
-<li><p><tt>id_dsa</tt></p>
-
+<li>
+<p>W&auml;hlen Sie SSH, um eine Kommunikation &uuml;ber Secure Shell (SSH) f&uuml;r den Knoten zu unterst&uuml;tzen.</p>
 </li>
-<li><p><tt>identity</tt></p>
-
-</li></ul>
-</li></ol></li>
-<li><b>Um die Authentifizierung durch ein Passwort anzugeben, die in der DAS-Konfiguration gespeichert
-wird, gehen Sie wie folgt vor:</b>
-<hr><p><b>Achtung - </b>Dieses Passwort wird als Klartext in der DAS-Konfiguration gespeichert. Verwenden Sie eine
-Schl&#252;sseldatei oder eine Passwort-Alias, um die Sicherheit zu erh&#246;hen.</p>
-
-
-<hr>
-<ol style="list-style-type: lower-alpha">
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "SSH-Benutzerauthentifizierung" die Option "Passwort".</b></li>
-<li><b>Geben Sie im Feld "SSH-Passwort" das Passwort ein, das der SSH-Benutzer verwendet,
-wenn er sich beim Host dieses Knotens anmeldet. </b></li>
-<li><b>Geben Sie in das Feld "SSH-Passwort best&#228;tigen" erneut das Passwort ein.</b></li></ol></li>
-<li><b>Um die Authentifizierung durch ein Passwort-Alias anzugeben, gehen Sie wie folgt vor:</b><ol style="list-style-type: lower-alpha">
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "SSH-Benutzerauthentifizierung" die Option "Passwort-Alias".</b></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Passwort-Alias" ein vorhandenes Alias.</b></li></ol></li></ul></li>
-<li><b>Klicken Sie auf "Speichern".</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-createnode.html">So erstellen Sie einen Knoten</a></p>
-
+<li>
+<p>W&auml;hlen Sie CONFIG, um keine Remote-Konfiguration f&uuml;r den Knoten zu unterst&uuml;tzen.</p>
+<p>Wenn Sie CONFIG w&auml;hlen, werden keine Optionen f&uuml;r die SSH-Konfiguration oder DCOM-Konfiguration angezeigt. Wenn der aktuelle Knotentyp DCOM oder SSH ist und Sie CONFIG-, DCOM-Konfigurationsdaten oder SSH ausw&auml;hlen, werden beim Speichern der &Auml;nderungen die Konfigurationsdaten aus der Knotenkonfiguration entfernt.</p>
 </li>
-<li><p><a href="task-deletenode.html">So l&#246;schen Sie einen Knoten</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-listnodes.html">So listen Sie alle Knoten in der aktuellen Dom&#228;ne auf</a></p>
+<li>
+<p>Geben Sie im Feld "Knoten-Host" den Namen des Hosts ein, den der aktualisierte Knoten darstellen soll.</p>
+<p>Ob dieses Feld obligatorisch ist, h&auml;ngt vom Knotentyp ab:</p>
+<ul>
+<li>
+<p>Wenn der Knotentyp CONFIG ist, kann der Name des Hosts ausgelassen werden. Der Name des Hosts kann festgelegt werden, wenn die Instanzen erstellt werden, die sich auf dem Knoten befinden.</p>
+</li>
+<li>
+<p>Wenn der Knotentyp DCOM oder SSH ist, muss der Name des Hosts angegeben werden. Anderenfalls tritt ein Fehler auf.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Geben Sie im Feld "Knotenverzeichnis" den Pfad zu dem Verzeichnis ein, das die GlassFish Server-Instanzen enthalten soll, die auf dem Knoten erstellt werden.</p>
+<p>Wenn Sie einen relativen Pfad eingeben, ist der Pfad relativ zu <i>as-install</i> Verzeichnis, wobei <i>as-install</i> das Hauptinstallationsverzeichnis der GlassFish Server-Software auf dem Host ist.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Installationsverzeichnis" den vollst&auml;ndigen Pfad zum <i>&uuml;bergeordneten</i> Verzeichnis des Hauptinstallationsverzeichnisses der GlassFish Server-Software auf dem Host ein. Beispiel: <code>/export/glassfish3</code>.</p>
+</li>
+<li>
+<p>Beenden Sie das Update des Knotens je nach Knotentyp.</p>
+<ol type="a">
+<li>
+<p>Wenn der Knotentyp "CONFIG" ist, klicken Sie auf "Speichern".</p>
+</li>
+<li>
+<p>Wenn der Knotentyp DCOM ist, befolgen Sie die Anweisungen in <a href="task-nodeupdatedcom.html">So wird das Update eines DCOM-Knotens beendet</a>.</p>
+</li>
+<li>
+<p>Wenn der Knotentyp SSH ist, befolgen Sie die Anweisungen in <a href="task-nodeeditssh.html">So wird das Update eines SSH-Knotens beendet</a>.</p>
+</li>
+</ol>
+</li>
+</ol>
+<a id="sthref237" name="sthref237"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-nodeupdatedcom.html">So wird das Update eines DCOM-Knotens beendet</a></p>
+</li>
+<li>
+<p><a href="task-nodeeditssh.html">So wird das Update eines SSH-Knotens beendet</a></p>
+</li>
+<li>
+<p><a href="task-createnode.html">So wird ein Knoten erstellt</a></p>
+</li>
+<li>
+<p><a href="task-deletenode.html">So werden Knoten gel&ouml;scht</a></p>
+</li>
+<li>
+<p><a href="task-listnodes.html">So werden alle Knoten in der aktuellen Domain aufgelistet</a></p>
+</li>
+<li>
+<p><a href="task-pingnode.html">So wird getestet, ob ein Knoten erreichbar ist</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

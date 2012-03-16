@@ -1,159 +1,179 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-create-cluster" name="task-create-cluster"></a><a id="GHCLU00027" name="GHCLU00027"></a></p>
 
-
-<a name="task-create-cluster"></a><h3>So erstellen Sie einen Cluster</h3><a name="indexterm-1"></a><p>Ein <b>Cluster</b> ist eine benannte Sammlung aus GlassFish-Server-Instanzen, die dieselben Anwendungen, Ressourcen
-und Konfigurationsinformationen nutzen.</p>
-
-<p>Ein Cluster bietet eine hohe Verf&#252;gbarkeit durch Skalierbarkeit, Lastenausgleich und Fehlerschutz. Wenn
-bei einer Instanz oder einem Host in einem Cluster ein Fehler auftritt,
-erkennt GlassFish-Server den Fehler, leitet Anfragen von der fehlerhaften Instanz an andere
-Instanzen im Cluster um und stellt den Status der Benutzersitzung wieder her.
-Da die gleichen Anwendungen und Ressourcen in allen Instanzen des Clusters vorhanden
-sind, kann eine Instanz ein Failover zu einer anderen Instanz im Cluster
-durchf&#252;hren.</p>
-
-<p>GlassFish-Server erm&#246;glicht die Verwaltung aller Instanzen im Cluster von einem einzigen Host
-aus als eine Einheit, unabh&#228;ngig davon, ob die Instanzen sich auf dem
-gleichen Host oder auf unterschiedlichen Hosts befinden.</p>
-
-<p><b>Bevor Sie beginnen</b></p><p>Wenn Sie GlassFish-Server-Instanzen zu dem zu erstellenden Cluster hinzuf&#252;gen m&#246;chten, stellen Sie
-sicher, dass die Knoten, auf denen sich die Instanzen befinden sollen, vorhanden
-sind.</p>
-
+<h4><a id="sthref2" name="sthref2"></a>So wird ein Cluster erstellt</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Ein Cluster ist eine benannte Collection aus GlassFish Server-Instanzen, die dieselben Anwendungen, Ressourcen und Konfigurationsinformationen verwenden.</p>
+<p>Ein Cluster bietet eine hohe Verf&uuml;gbarkeit durch Skalierbarkeit, Load Balancing und Fehlerschutz. Wenn bei einer Instanz oder einem Host in einem Cluster ein Fehler auftritt, erkennt GlassFish Server den Fehler, leitet Anfragen von der fehlerhaften Instanz an andere Instanzen im Cluster um und stellt den Status der Benutzersession wieder her. Da die gleichen Anwendungen und Ressourcen in allen Instanzen des Clusters vorhanden sind, kann eine Instanz ein Failover zu einer anderen Instanz im Cluster durchf&uuml;hren.</p>
+<p>GlassFish Server erm&ouml;glicht die Verwaltung aller Instanzen im Cluster von einem einzigen Host aus als eine Einheit, unabh&auml;ngig davon, ob die Instanzen sich auf dem gleichen Host oder auf unterschiedlichen Hosts befinden.</p>
+<a id="sthref3" name="sthref3"></a>
+<h5>Bevor Sie beginnen</h5>
+<p>Wenn Sie GlassFish Server-Instanzen zu dem zu erstellenden Cluster hinzuf&uuml;gen m&ouml;chten, stellen Sie sicher, dass die Knoten, auf denen sich die Instanzen befinden sollen, vorhanden sind.</p>
 <ol>
-<li><b>W&#228;hlen Sie in der Navigationsstruktur den Knoten "Cluster".</b><p>Die Seite "Cluster" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie auf der Seite "Cluster" auf "Neu". </b><p>Die Seite "Neuer Cluster" wird ge&#246;ffnet.</p></li>
-<li><b>Geben Sie im Feld "Clustername" einen Namen f&#252;r den Cluster ein.</b><p>Der Name muss den folgenden Anforderungen entsprechen:</p>
-<ul><li><p>Der Name darf nur ASCII-Zeichen enthalten.</p>
-
+<li>
+<p>W&auml;hlen Sie in der Navigationsstruktur den Knoten "Cluster".</p>
+<p>Die Seite "Cluster" wird ge&ouml;ffnet.</p>
 </li>
-<li><p>Der Name muss mit einem Buchstaben, einer Ziffer oder einem Unterstrich beginnen.</p>
-
+<li>
+<p>Klicken Sie auf der Seite "Cluster" auf "Neu".</p>
+<p>Die Seite "Neues Cluster" wird ge&ouml;ffnet.</p>
 </li>
-<li><p>Der Name darf nur die folgenden Zeichen enthalten:</p>
-
-
-<ul><li><p>Kleinbuchstaben</p>
-
+<li>
+<p>Geben Sie im Feld "Clustername" einen Namen f&uuml;r das Cluster ein.</p>
+<p>Der Name muss den folgenden Anforderungen entsprechen:</p>
+<ul>
+<li>
+<p>Der Name darf nur ASCII-Zeichen enthalten.</p>
 </li>
-<li><p>Gro&#223;buchstaben</p>
-
+<li>
+<p>Der Name muss mit einem Buchstaben, einer Ziffer oder einem Unterstrich beginnen.</p>
 </li>
-<li><p>Ziffern</p>
-
+<li>
+<p>Der Name darf nur die folgenden Zeichen enthalten:</p>
+<ul>
+<li>
+<p>Kleinbuchstaben</p>
 </li>
-<li><p>Bindestriche</p>
-
+<li>
+<p>Gro&szlig;buchstaben</p>
 </li>
-<li><p>Punkte</p>
-
+<li>
+<p>Ziffern</p>
 </li>
-<li><p>Unterstriche</p>
-
-</li></ul>
+<li>
+<p>Bindestriche</p>
 </li>
-<li><p>Der Name muss in der Dom&#228;ne eindeutig sein und darf nicht der Name eines anderen Clusters, einer benannten Konfiguration, einer GlassFish-Server-Instanz oder eines Knotens sein.</p>
-
+<li>
+<p>Punkte</p>
 </li>
-<li><p>Bei dem Namen darf es sich nicht um <tt>domain</tt>, <tt>server</tt> oder ein anderes Schl&#252;sselwort handeln, das von GlassFish-Server reserviert ist.</p>
-
-</li></ul>
+<li>
+<p>Unterstriche</p>
 </li>
-<li><b>W&#228;hlen Sie in der Dropdown-Liste "Konfiguration" die benannte Konfiguration, die der Cluster
-verwenden soll.</b>
-<hr><p><b>Hinweis - </b>Wenn Sie <tt>default-config</tt> ausw&#228;hlen, m&#252;ssen Sie im n&#228;chsten Schritt angeben, dass die
-Konfiguration <b>nicht</b> gemeinsam genutzt ist. Die Konfiguration <tt>default-config</tt> kann nicht gemeinsam genutzt
-werden.</p>
-
+</ul>
+</li>
+<li>
+<p>Der Name muss in der Domain eindeutig sein und darf nicht der Name eines anderen Clusters, einer benannten Konfiguration, einer GlassFish Server-Instanz oder eines Knotens sein.</p>
+</li>
+<li>
+<p>Bei dem Namen darf es sich nicht um <code>domain</code>, <code>server</code> oder ein anderes Schl&uuml;sselwort handeln, das von GlassFish Server reserviert ist.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>W&auml;hlen Sie in der Dropdown-Liste "Konfiguration" die benannte Konfiguration, die das Cluster verwenden soll.</p>
 
 <hr>
-</li>
-<li><b>Geben Sie an, ob die Konfiguration, die der Cluster verwenden soll, gemeinsam
-genutzt ist.</b><ul>
-<li><b>Wenn die Konfiguration nicht gemeinsam genutzt werden soll, lassen Sie die Option
-"Kopie der ausgew&#228;hlten Konfiguration erstellen" aktiviert. </b><p>Die ausgew&#228;hlte Konfiguration wird kopiert, wenn der Cluster erstellt wird. Der Kopie
-der Konfiguration wird der Name <tt><i>cluster-name</i>-config</tt> zugewiesen, wobei <i>cluster-name</i> f&#252;r den Namen
-des zu erstellenden Clusters steht.</p></li>
-<li><b>Wenn die Konfiguration nicht gemeinsam genutzt ist, w&#228;hlen Sie die Option "Auf
-ausgew&#228;hlte Konfiguration verweisen".</b><p>Der Cluster verwendet die angegebene benannte Konfiguration.</p></li></ul></li>
-<li>(Optional) <b><a name="indexterm-2"></a>F&#252;gen Sie GlassFish-Server-Instanzen zum Cluster hinzu.</b>
-<hr><p><b>Hinweis - </b>Um eine Instanz auf einem Knotentyp KONFIGURATION zu erstellen, der einen Remote-Host
-darstellt, m&#252;ssen Sie den Unterbefehl <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a> verwenden. Zu diesem Zweck k&#246;nnen Sie
-nicht die Administration Console verwenden.</p>
+<p><b>Hinweis:</b></p>
+Wenn Sie <code>default-config</code> ausw&auml;hlen, m&uuml;ssen Sie im n&auml;chsten Schritt angeben, dass die Konfiguration <i>nicht</i> gemeinsam genutzt ist. Die Konfiguration <code>default-config</code> kann nicht gemeinsam genutzt werden.
+<hr>
 
+</li>
+<li>
+<p>Geben Sie an, ob die Konfiguration, die das Cluster verwenden soll, gemeinsam genutzt ist.</p>
+<ul>
+<li>
+<p>Wenn die Konfiguration nicht gemeinsam genutzt werden soll, lassen Sie die Option "Kopie der ausgew&auml;hlten Konfiguration erstellen" aktiviert.</p>
+<p>Die ausgew&auml;hlte Konfiguration wird kopiert, wenn das Cluster erstellt wird. Der Kopie der Konfiguration wird der Name cluster-name<code>-config</code> zugewiesen, wobei <i>cluster-name</i> f&uuml;r den Namen des zu erstellenden Clusters steht.</p>
+</li>
+<li>
+<p>Wenn die Konfiguration nicht gemeinsam genutzt ist, w&auml;hlen Sie die Option "Auf ausgew&auml;hlte Konfiguration verweisen".</p>
+<p>Das Cluster verwendet die angegebene benannte Konfiguration.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><a id="sthref4" name="sthref4"></a>F&uuml;gen Sie GlassFish Server-Instanzen zum Cluster hinzu.</p>
 
 <hr>
-<p>Au&#223;erdem k&#246;nnen Sie Instanzen nach dem Erstellen des Clusters hinzuf&#252;gen (weitere Informationen
-finden Sie <a href="task-create-clustered-instance.html">hier</a>).</p><p>F&#252;gen Sie jede Instanz wie folgt hinzu:</p><ol style="list-style-type: lower-alpha">
-<li><b>Klicken Sie im Bereich "Zu erstellende Serverinstanzen" auf "Hinzuf&#252;gen".</b><p>Eine Zeile wird zur Tabelle der Instanzen im Cluster hinzugef&#252;gt.</p></li>
-<li><b>Geben Sie im Feld "Instanzname" einen Namen f&#252;r die Instanz ein.</b></li>
-<li><b>Geben Sie im Feld "Gewichtung" eine Ganzzahl ein, die f&#252;r die Gewichtung
-des Lastenausgleichs der Instanz steht.</b><p>Die Gewichtung des Lastenausgleichs bestimmt den Anteil aller Anforderungen an den Cluster,
-die von der Instanz verarbeitet werden.</p><p>Beispielsweise muss bei einem Cluster mit zwei Instanzen eine Instanz eine von
-vier Anforderungen und die andere Instanz drei von vier Anforderungen verarbeiten. Definieren
-Sie in diesem Fall f&#252;r die Gewichtung der Instanz, die eine von
-vier Anforderungen verarbeiten soll, den Wert 1 und f&#252;r die Gewichtung der
-anderen Instanz den Wert 3. Wenn Sie stattdessen Prozents&#228;tze bevorzugen, legen Sie
-f&#252;r die Gewichtung der Instanzen jeweils den Prozentwert 25 und 75 fest.</p><p>Die Standardgewichtung ist 100.</p></li>
-<li><b>W&#228;hlen Sie in der Dropdown-Liste "Knoten" den Knoten, auf dem die Instanz
-sich befinden soll.</b></li></ol></li>
-<li><b>Klicken Sie auf "OK".</b><p>Die Seite "Cluster" wird erneut angezeigt. Der Cluster wird zur Tabelle der
-Cluster auf der Seite hinzugef&#252;gt.</p></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-delete-cluster.html">So l&#246;schen Sie einen Cluster</a></p>
+<p><b>Hinweis:</b></p>
+Um eine Instanz auf einem Knotentyp CONFIG zu erstellen, der einen Remote-Host darstellt, m&uuml;ssen Sie den Unterbefehl <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00044"><code>create-local-instance</code>(1)</a> verwenden. Zu diesem Zweck k&ouml;nnen Sie nicht die Administrationskonsole verwenden.
+<hr>
 
+<p>Au&szlig;erdem k&ouml;nnen Sie Instanzen nach dem Erstellen des Clusters hinzuf&uuml;gen, wie in <a href="task-create-clustered-instance.html">So wird eine GlassFish Server-Instanz einem Cluster hinzugef&uuml;gt</a> beschrieben.</p>
+<p>F&uuml;gen Sie jede Instanz wie folgt hinzu:</p>
+<ol type="a">
+<li>
+<p>Klicken Sie im Bereich "Zu erstellende Serverinstanzen" auf "Hinzuf&uuml;gen".</p>
+<p>Eine Zeile wird zur Tabelle der Instanzen im Cluster hinzugef&uuml;gt.</p>
 </li>
-<li><p><a href="task-availabilityservice.html">So konfigurieren Sie Verf&#252;gbarkeitseinstellungen f&#252;r einen Cluster</a></p>
-
+<li>
+<p>Geben Sie im Feld "Instanzname" einen Namen f&uuml;r die Instanz ein.</p>
 </li>
-<li><p><a href="task-start-cluster.html">So starten Sie einen Cluster</a></p>
-
+<li>
+<p>Geben Sie im Feld "Gewichtung" eine Ganzzahl ein, die f&uuml;r die Gewichtung des Load Balancings der Instanz steht.</p>
+<p>Die Gewichtung des Load Balancings bestimmt den Anteil aller Anforderungen an das Cluster, die von der Instanz verarbeitet werden.</p>
+<p>Beispielsweise muss bei einem Cluster mit zwei Instanzen eine Instanz eine von vier Anforderungen und die andere Instanz drei von vier Anforderungen verarbeiten. Definieren Sie in diesem Fall f&uuml;r die Gewichtung der Instanz, die eine von vier Anforderungen verarbeiten soll, den Wert 1 und f&uuml;r die Gewichtung der anderen Instanz den Wert 3. Wenn Sie stattdessen Prozents&auml;tze bevorzugen, legen Sie f&uuml;r die Gewichtung der Instanzen jeweils den Prozentwert 25 und 75 fest.</p>
+<p>Die Standardgewichtung ist 100.</p>
 </li>
-<li><p><a href="task-stop-cluster.html">So halten Sie einen Cluster an</a></p>
-
+<li>
+<p>W&auml;hlen Sie in der Dropdown-Liste "Knoten" den Knoten, auf dem die Instanz sich befinden soll.</p>
 </li>
-<li><p><a href="task-modify-cluster-config.html">So &#228;ndern Sie die Konfiguration eines Clusters</a></p>
-
+</ol>
 </li>
-<li><p><a href="task-cluster-app-deploy.html">So stellen Sie eine Anwendung f&#252;r einen Cluster bereit</a></p>
-
+<li>
+<p>Klicken Sie auf "OK".</p>
+<p>Die Seite "Cluster" wird erneut angezeigt. Das Cluster wird zur Tabelle der Cluster auf der Seite hinzugef&uuml;gt.</p>
 </li>
-<li><p><a href="task-cluster-app-list.html">So listen Sie die f&#252;r einen Cluster bereitgestellten Anwendungen auf</a></p>
-
+</ol>
+<a id="sthref5" name="sthref5"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-delete-cluster.html">So wird ein Cluster gel&ouml;scht</a></p>
 </li>
-<li><p><a href="task-cluster-app-undeploy.html">So heben Sie die Bereitstellung von Anwendungen f&#252;r einen Cluster auf</a></p>
-
+<li>
+<p><a href="task-availabilityservice.html">So werden Verf&uuml;gbarkeitseinstellungen f&uuml;r ein Cluster konfiguriert</a></p>
 </li>
-<li><p><a href="task-cluster-app-remove.html">So entfernen Sie Anwendungen aus einem Cluster</a></p>
-
+<li>
+<p><a href="task-start-cluster.html">So wird ein Cluster gestartet</a></p>
 </li>
-<li><p><a href="task-cluster-app-edit.html">So bearbeiten Sie die f&#252;r einen Cluster bereitgestellte Anwendung</a></p>
-
+<li>
+<p><a href="task-stop-cluster.html">So wird ein Cluster gestoppt</a></p>
 </li>
-<li><p><a href="task-cluster-app-enable-disable.html">So aktivieren oder deaktivieren Sie die f&#252;r einen Cluster bereitgestellte Anwendung</a></p>
-
+<li>
+<p><a href="task-modify-cluster-config.html">So wird die Konfiguration eines Clusters ge&auml;ndert</a></p>
 </li>
-<li><p><a href="task-cluster-app-lb-enable-disable.html">So aktivieren oder deaktivieren Sie den Lastenausgleich der f&#252;r einen Cluster bereitgestellten Anwendung</a></p>
-
+<li>
+<p><a href="task-cluster-app-deploy.html">So wird eine Anwendung in einem Cluster bereitgestellt</a></p>
 </li>
-<li><p><a href="task-cluster-resource-create.html">So erstellen Sie eine Ressource f&#252;r einen Cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-list.html">So werden Anwendungen aufgelistet, die in einem Cluster bereitgestellt sind</a></p>
 </li>
-<li><p><a href="task-cluster-resource-display.html">So listen Sie Ressourcen f&#252;r einen Cluster auf</a></p>
-
+<li>
+<p><a href="task-cluster-app-undeploy.html">So wird das Deployment von Anwendungen in einem Cluster aufgehoben</a></p>
 </li>
-<li><p><a href="task-cluster-resource-enable-disable.html">So aktivieren oder deaktivieren Sie global eine Ressource</a></p>
-
+<li>
+<p><a href="task-cluster-app-remove.html">So werden Anwendungen aus einem Cluster entfernt</a></p>
 </li>
-<li><p><a href="task-cluster-resource-edit.html">So bearbeiten Sie eine Ressource f&#252;r einen Cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-edit.html">So wird eine Anwendung bearbeitet, die in einem Cluster bereitgestellt ist</a></p>
 </li>
-<li><p><a href="task-upgrade-components.html">So aktualisieren Sie Komponenten ohne eine Dienstunterbrechung</a></p>
+<li>
+<p><a href="task-cluster-app-enable-disable.html">So wird eine Anwendung aktiviert oder deaktiviert, die in einem Cluster bereitgestellt ist</a></p>
+</li>
+<li>
+<p><a href="task-cluster-app-lb-enable-disable.html">So wird das Load Balancing f&uuml;r eine Anwendung aktiviert oder deaktiviert, die in einem Cluster bereitgestellt ist</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-create.html">So wird eine Ressource f&uuml;r ein Cluster erstellt</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-display.html">So werden Ressourcen f&uuml;r ein Cluster aufgelistet</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-enable-disable.html">So wird eine Ressource global aktiviert oder deaktiviert</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-edit.html">So wird eine Ressource f&uuml;r ein Cluster bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-upgrade-components.html">So werden Komponenten ohne Serviceverlust upgegradet</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

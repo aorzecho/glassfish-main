@@ -1,139 +1,158 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-filter-logs" name="task-filter-logs"></a><a id="GHCOM00148" name="GHCOM00148"></a></p>
 
-
-<a name="task-filter-logs"></a><h3>So filtern Sie angezeigte Protokolldatens&#228;tze</h3><p><b>Bevor Sie beginnen</b></p><p>Stellen Sie sicher, dass Sie die Protokolldateien f&#252;r den Domain Administration Server
-(DAS), eine GlassFish-Server-Clusterinstanz oder eine eigenst&#228;ndige Instanz anzeigen. Weitere Informationen finden Sie
-in den folgenden Abschnitten:</p>
-
-
-<ul><li><p><a href="task-logviewer.html">So zeigen Sie Protokolldateien f&#252;r den DAS an</a></p>
-
+<h4>So werden angezeigte Logdatens&auml;tze gefiltert</h4>
+<a name="BEGIN" id="BEGIN"></a><a id="sthref29" name="sthref29"></a>
+<h5>Bevor Sie beginnen</h5>
+<p>Stellen Sie sicher, dass Sie die Logdateien f&uuml;r den Domain Administration Server (DAS), eine GlassFish Server-Clusterinstanz oder eine eigenst&auml;ndige Instanz anzeigen. Weitere Informationen finden Sie in den folgenden Abschnitten:</p>
+<ul>
+<li>
+<p><a href="task-logviewer.html">So werden Logdateien f&uuml;r den DAS angezeigt</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3187&id=task-view-logs-clustered-instance">So zeigen Sie Protokolldateien f&#252;r eine GlassFish-Server-Cluster-Instanz an</a></p>
-
+<li>
+<p><a href="../../../cluster/de/help/missingtopic.html">So zeigen Sie Logdateien f&uuml;r eine GlassFish Server-Clusterinstanz an</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3187&id=task-view-logs-standalone-instance">So zeigen Sie Protokolldateien f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
-
-</li></ul>
+<li>
+<p><a href="../../../cluster/de/help/missingtopic.html">So zeigen Sie Logdateien f&uuml;r eine Standalone-GlassFish Server-Instanz an</a></p>
+</li>
+</ul>
 <ol>
-<li><b>Filtern Sie im Bereich "Suchkriterien" die Datens&#228;tze nach Inhalt, Zeitraum und Protokollebene.</b><ol style="list-style-type: lower-alpha">
-<li><b>Um nur Datens&#228;tze anzuzeigen, die einen bestimmten Text enthalten, geben Sie im
-Feld "Textsuche" den betreffenden Text ein.</b><p>Bei der Suche wird zwischen Gro&#223;- und Kleinschreibung unterschieden.</p></li>
-<li><b>Um auszuw&#228;hlen, wie lange Protokolldatens&#228;tze angezeigt werden, verwenden Sie die Option "Zeitstempel".</b><ul>
-<li><b>Um die aktuellsten Meldungen anzuzeigen, w&#228;hlen Sie "Aktuell" (Standardeinstellung).</b></li>
-<li><b>Um Meldungen aus einem bestimmten Zeitraum anzuzeigen, w&#228;hlen Sie "Bestimmter Zeitraum", und
-geben Sie einen Datums- und Uhrzeitwert in die Felder "Von" und "An"
-ein.</b><p>Der Wert "Datum" muss folgendes Format aufweisen:</p><pre><i>MM</i>/<i>DD</i>/<i>YY</i></pre><dl><dt><i>MM</i></dt>
-<dd><p>Eine Ganzzahl im Bereich von 1 bis 12 f&#252;r den Monat, beispielsweise 1 f&#252;r Januar oder 10 f&#252;r Oktober.</p>
-
-</dd>
-<dt><i>DD</i></dt>
-<dd><p>Eine Ganzzahl im Bereich von 1 bis 31 f&#252;r den Tag des Monats.</p>
-
-</dd>
-<dt><i>YY</i></dt>
-<dd><p>Die letzten beiden Zahlen des Jahres, beispielsweise 11 f&#252;r das Jahr 2011.</p>
-
-</dd>
-</dl>
-<p>Um beispielsweise das Datum 1. Februar 2011 anzugeben, geben Sie im Feld
-"Datum" <tt>2/1/11</tt> ein.</p><p>Der Wert "Zeit" muss folgendes Format aufweisen:</p><pre><i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i></pre><dl><dt><i>hh</i></dt>
-<dd><p>Eine Ganzzahl im Bereich von 0 bis 23 stellt die Stunden dar. F&#252;r Zeiten am Nachmittag verwenden Sie Ganzzahlen im Bereich von 12 bis 23, beispielsweise 14 f&#252;r 2 Uhr nachmittags.</p>
-
-</dd>
-<dt><i>mm</i></dt>
-<dd><p>Eine Ganzzahl im Bereich von 0 bis 59 stellt die Minuten dar.</p>
-
-</dd>
-<dt><i>ss</i></dt>
-<dd><p>Eine Ganzzahl im Bereich von 0 bis 59 stellt die Sekunden dar.</p>
-
-</dd>
-<dt><i>SSS</i></dt>
-<dd><p>Eine dreistellige Ganzzahl (wenn n&#246;tig mit f&#252;hrenden Nullen) im Bereich von 000 bis 999 stellt die Millisekunden dar. </p>
-
-</dd>
-</dl>
-<p>Um beispielsweise die Zeit 5:10 Uhr vormittags anzugeben, geben Sie im Feld
-"Zeit" <tt>17:10:00.000</tt> ein.</p><p>Wenn der Wert im Feld "Von" zeitlich hinter dem Wert in "Bis"
-liegt, wird eine Fehlermeldung angezeigt.</p></li></ul></li>
-<li><b>Filtermeldungen nach Protokollebene.</b><p>Um sicherzustellen, dass die Nachrichten, die Sie anzeigen m&#246;chten, im Serverprotokoll angezeigt
-werden, definieren Sie zun&#228;chst auf der Seite "Modul-Protokollebenen" die entsprechenden Protokollebenen.<a href="task-eelogginglevels.html"></a></p><p>Wenn Sie sich f&#252;r eine Filterung von Protokollmeldungen basierend auf der Protokollebene
-entschieden haben, werden nur Meldungen angezeigt, die den angegebenen Filterkriterien entsprechen. Diese
-Filterung wirkt sich jedoch nicht darauf aus, welche Meldungen im Serverprotokoll aufgezeichnet
-werden.</p><ol style="list-style-type: lower-roman">
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Protokollebene" die Protokollebene aus.</b></li>
-<li><b>Um Meldungen ausschlie&#223;lich auf der gew&#228;hlten Ebene anzuzeigen, aktivieren Sie die Option
-"Keine weiteren als schwerwiegend eingestuften Meldungen aufnehmen".</b><p>Standardm&#228;&#223;ig werden alle im Serverprotokoll enthaltenen Meldungen angezeigt, die der gew&#228;hlten Protokollebene
-oder einer Ebene mit h&#246;herem Schweregrad entsprechen.</p></li></ol></li></ol></li>
-<li><b>Im Bereich "Erweiterte Suche" filtern Sie Datens&#228;tze entsprechend dem Namespace der Protokollfunktion
-und w&#228;hlen den Informationsumfang aus, der angezeigt wird.</b><ol style="list-style-type: lower-alpha">
-<li><b>Klicken Sie auf den Link "Erweiterte Suche".</b><p>Der Bereich "Erweiterte Suche" wird in das Fenster "Protokoll-Viewer" eingef&#252;gt.</p></li>
-<li><b>Um nach Modul zu filtern, w&#228;hlen Sie aus der Dropdown-Liste "Protokollfunktion" einen
-oder mehrere Namespaces aus.</b><p>Klicken Sie bei gedr&#252;ckter Umschalt- oder Strg-Taste, um mehrere Namespaces auszuw&#228;hlen.</p><p>Die Auswahl eines Namespaces einer h&#246;heren Ebene f&#252;hrt zur Auswahl aller darunter
-angeordneten Namespaces. Wenn Sie beispielsweise <tt>javax.enterprise.system</tt> ausw&#228;hlen, werden auch die Protokollfunktionen aller
-Module unterhalb dieses Namespace ausgew&#228;hlt, beispielsweise <tt>javax.enterprise.system.core</tt>, <tt>javax.enterprise.system.tools.admin</tt> usw.</p></li>
-<li><b>Um Meldungen von Protokollfunktionen f&#252;r eine bestimmte Anwendung anzuzeigen, geben Sie im
-Feld "Benutzerdefinierte Protokollfunktion" den Namen jeder Protokollfunktion auf jeweils einer separaten Zeile
-ein.</b><p>Wenn die Anwendung &#252;ber mehrere Module verf&#252;gt, k&#246;nnen Sie einige oder alle
-dieser Module anzeigen. Beispielsweise kann eine Anwendung &#252;ber folgende Protokollfunktionen verf&#252;gen:</p>
-<ul><li><p><tt>com.example.myapp.module1</tt></p>
-
+<li>
+<p>Filtern Sie im Bereich "Suchkriterien" die Datens&auml;tze nach Content, Zeitraum und Protokollebene.</p>
+<ol type="a">
+<li>
+<p>Um nur Datens&auml;tze anzuzeigen, die einen bestimmten Text enthalten, geben Sie im Feld "Textsuche" den betreffenden Text ein.</p>
+<p>Bei der Suche wird zwischen Gro&szlig;- und Kleinschreibung unterschieden.</p>
 </li>
-<li><p><tt>com.example.myapp.module2</tt></p>
-
+<li>
+<p>Um auszuw&auml;hlen, wie lange Logdatens&auml;tze angezeigt werden, verwenden Sie die Option "Zeitstempel".</p>
+<ul>
+<li>
+<p>Um die aktuellsten Meldungen anzuzeigen, w&auml;hlen Sie "Aktuell" (Standardeinstellung).</p>
 </li>
-<li><p><tt>com.example.myapp.module3</tt></p>
-
-</li></ul>
-<p>Um Meldungen aller Module in der Anwendung anzuzeigen, geben Sie <tt>com.mycompany.myapp</tt> ein.
-Um nur Meldungen von <tt>module2</tt> anzuzeigen, geben Sie <tt>com.example.myapp.module2</tt> ein.</p><p>Wenn Sie eine oder mehrere benutzerdefinierte Protokollfunktionen angeben, werden Meldungen von GlassFish-Server-Modulen
-nur dann angezeigt, wenn Sie sie im Bereich "Protokollfunktion" explizit auff&#252;hren.</p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Anzeigen" die Meldungen aus, die angezeigt werden
-sollen.</b><p>Als Standardanzeige f&#252;r Nachrichten wird 40 angezeigt. Dar&#252;ber hinaus stehen 100, 250
-und 1000 zur Auswahl.</p></li>
-<li><b>Um Daten zur Stapelablaufverfolgung anzuzeigen, deaktivieren Sie die Option "Sehr lange Meldungen
-begrenzen".</b><p>Standardm&#228;&#223;ig werden in der Anzeige keine Daten zur Stapelablaufverfolgung angezeigt. Um Daten
-zur Stapelablaufverfolgung anzuzeigen, klicken Sie auf den Link (Details) f&#252;r eine Meldung.</p></li>
-<li><b>Um den Bereich "Erweiterte Suche" auszublenden, klicken Sie auf den Link "Einfache
-Suche".</b></li></ol></li>
-<li><b>Um die Instanz und die zugeh&#246;rige Protokolldatei anzugeben, die Sie anzeigen m&#246;chten,
-verwenden Sie den Bereich "Suche modifizieren".</b><ul>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Instanz" die Instanz aus.</b><p>Der Standardwert ist die Instanz, f&#252;r die Sie anfangs festgelegt hatten, dass
-Protokolldateien angezeigt werden sollen. Wenn Sie festgelegt hatten, dass Protokolldateien f&#252;r den
-Domain Administration Server (DAS) angezeigt werden sollen, lautet der Standardwert, der auf
-den DAS verweist, server. </p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Protokolldatei" die Protokolldatei aus.</b><p>Der Standardname lautet <tt>server.log</tt>. Andere Optionen h&#228;ngen von den Protokolleinstellungen f&#252;r das
-gew&#228;hlte Ziel ab.</p></li></ul></li>
-<li><b>Passen Sie im Bereich "Suchergebnisse" die Anzeige von Protokollmeldungen an.</b><p>Im Bereich "Suchergebnisse" werden entsprechend den Einstellungen auf den Seiten "Protokollierungseinstellungen" und
-"Protokollebenen" die letzten 40 Eintr&#228;ge des Serverprotokolls angezeigt.</p><ul>
-<li><b>Um die Meldungen unterschiedlich zu sortieren, klicken Sie auf die Pfeile in
-den Spalten.</b></li>
-<li><b>Um eine formatierte Version einer Meldung anzuzeigen, klicken Sie auf den Link
-(Details) f&#252;r eine Meldung.</b><p>Es wird ein Fenster "Protokolleintragsdetail" angezeigt, das eine formatierte Version der Meldung
-enth&#228;lt.</p></li>
-<li><b>Um vorhergehende oder nachfolgende Eintr&#228;ge in der Protokolldatei anzuzeigen, klicken Sie auf
-die Schaltfl&#228;chen "Eintr&#228;ge vor" bzw. "Eintr&#228;ge nach", die sich am oberen Rand
-der Tabelle befinden.</b></li></ul></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-eelogging.html">So konfigurieren Sie allgemeine Protokollierungseinstellungen</a></p>
-
+<li>
+<p>Um Meldungen aus einem bestimmten Zeitraum anzuzeigen, w&auml;hlen Sie "Bestimmter Zeitraum", und geben Sie einen Datums- und Uhrzeitwert in die Felder "Von" und "An" ein.</p>
+<p>Der Wert "Datum" muss folgendes Format aufweisen:</p>
+<pre>
+<i>MM</i>/<i>DD</i>/<i>YY</i>
+</pre>
+<p><code><i>MM</i></code> ist eine Ganzzahl im Bereich 1-12 f&uuml;r die Monatszahl; Beispiel: 1 f&uuml;r Januar oder 10 f&uuml;r Oktober. <code><i>DD</i></code> ist eine Ganzzahl im Bereich 1-31 f&uuml;r den Tag des Monats. <code><i>YY</i></code> sind die beiden letzten Ziffern des Jahres; Beispiel: 11 f&uuml;r das Jahr 2011.</p>
+<p>Beispiel: Um das Datum 1. Februar 2011 anzugeben, geben Sie <code>2/1/11</code> in das Feld "Datum" ein.</p>
+<p>Der Wert "Zeit" muss folgendes Format aufweisen:</p>
+<pre>
+<i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i>
+</pre>
+<p><code><i>hh</i></code> ist eine Ganzzahl im Bereich 0-23 zur Darstellung der Stunde. F&uuml;r Zeiten am Nachmittag verwenden Sie Ganzzahlen im Bereich von 12-23; Beispiel: 14 f&uuml;r 2 Uhr nachmittags. <code><i>mm</i></code> ist eine Ganzzahl im Bereich 0-59 f&uuml;r die Anzahl von Minuten nach Angabe der Stunde. <code><i>ss</i></code> ist eine Ganzzahl im Bereich 0-59 f&uuml;r die Anzahl von Sekunden. <code><i>SSS</i></code> ist eine dreistellige Ganzzahl, gegebenenfalls mit f&uuml;hrenden Nullen, im Bereich 000-999 f&uuml;r die Anzahl von Millisekunden.</p>
+<p>Um beispielsweise die Zeit 5:10 Uhr vormittags anzugeben, geben Sie im Feld "Zeit" <code>17:10:00.000</code> ein.</p>
+<p>Wenn der Wert im Feld "Von" zeitlich hinter dem Wert in "Bis" liegt, wird eine Fehlermeldung angezeigt.</p>
 </li>
-<li><p><a href="task-eelogginglevels.html">So konfigurieren Sie Protokollebenen</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-logviewer.html">So zeigen Sie Protokolldateien f&#252;r den DAS an</a></p>
-
+<li>
+<p>Filtermeldungen nach Logebene.</p>
+<p>Um sicherzustellen, dass die Nachrichten, die Sie anzeigen m&ouml;chten, im Serverlog angezeigt werden, definieren Sie zun&auml;chst auf der Seite "Modullogebenen" die entsprechenden Logebenen. Weitere Anweisungen finden Sie in <a href="task-eelogginglevels.html">So werden Logebenen konfiguriert</a>.</p>
+<p>Wenn Sie sich f&uuml;r eine Filterung von Logmeldungen basierend auf der Logebene entschieden haben, werden nur Meldungen angezeigt, die den angegebenen Filterkriterien entsprechen. Diese Filterung wirkt sich jedoch nicht darauf aus, welche Meldungen im Serverlog aufgezeichnet werden.</p>
+<ol>
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Logebene" die Logebene.</p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3187&id=task-view-logs-clustered-instance">So zeigen Sie Protokolldateien f&#252;r eine GlassFish-Server-Cluster-Instanz an</a></p>
-
+<li>
+<p>Um Meldungen ausschlie&szlig;lich auf der gew&auml;hlten Ebene anzuzeigen, aktivieren Sie die Option "Keine weiteren als schwerwiegend eingestuften Meldungen aufnehmen".</p>
+<p>Standardm&auml;&szlig;ig werden alle im Serverlog enthaltenen Meldungen angezeigt, die der gew&auml;hlten Logebene oder einer Ebene mit h&ouml;herem Schweregrad entsprechen.</p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3187&id=task-view-logs-standalone-instance">So zeigen Sie Protokolldateien f&#252;r eine eigenst&#228;ndige GlassFish-Server-Instanz an</a></p>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Im Bereich "Erweiterte Suche" filtern Sie Datens&auml;tze entsprechend dem Namespace der Protokollfunktion und w&auml;hlen den Informationsumfang aus, der angezeigt wird.</p>
+<ol type="a">
+<li>
+<p>Klicken Sie auf den Link "Erweiterte Suche".</p>
+<p>Der Bereich "Erweiterte Suche" wird in das Fenster "Log Viewer" eingef&uuml;gt.</p>
+</li>
+<li>
+<p>Um nach Modul zu filtern, w&auml;hlen Sie aus der Dropdown-Liste "Protokollfunktion" einen oder mehrere Namespaces aus.</p>
+<p>Klicken Sie bei gedr&uuml;ckter Umschalt- oder Strg-Taste, um mehrere Namespaces auszuw&auml;hlen.</p>
+<p>Die Auswahl eines Namespaces einer h&ouml;heren Ebene f&uuml;hrt zur Auswahl aller darunter angeordneten Namespaces. Wenn Sie beispielsweise <code>javax.enterprise.system</code> ausw&auml;hlen, werden auch die Protokollfunktionen aller Module unterhalb dieses Namespace ausgew&auml;hlt, beispielsweise <code>javax.enterprise.system.core</code>, <code>javax.enterprise.system.tools.admin</code> usw.</p>
+</li>
+<li>
+<p>Um Meldungen von Protokollfunktionen f&uuml;r eine bestimmte Anwendung anzuzeigen, geben Sie im Feld "Benutzerdefinierte Protokollfunktion" den Namen jeder Protokollfunktion auf jeweils einer separaten Zeile ein.</p>
+<p>Wenn die Anwendung &uuml;ber mehrere Module verf&uuml;gt, k&ouml;nnen Sie einige oder alle dieser Module anzeigen. Beispielsweise kann eine Anwendung &uuml;ber folgende Protokollfunktionen verf&uuml;gen:</p>
+<pre>
+com.example.myapp.module1
+com.example.myapp.module2
+com.example.myapp.module3
+</pre>
+<p>Um Meldungen aller Module in der Anwendung anzuzeigen, geben Sie <code>com.mycompany.myapp</code> ein. Um nur Meldungen von <code>module2</code> anzuzeigen, geben Sie <code>com.example.myapp.module2</code> ein.</p>
+<p>Wenn Sie eine oder mehrere benutzerdefinierte Protokollfunktionen angeben, werden Meldungen von GlassFish Server-Modulen nur dann angezeigt, wenn Sie sie im Bereich "Protokollfunktion" explizit auff&uuml;hren.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Anzeigen" die Meldungen aus, die angezeigt werden sollen.</p>
+<p>Als Standardanzeige f&uuml;r Nachrichten wird 40 angezeigt. Dar&uuml;ber hinaus stehen 100, 250 und 1000 zur Auswahl.</p>
+</li>
+<li>
+<p>Um Stack Traces anzuzeigen, deaktivieren Sie die Option "Sehr lange Meldungen begrenzen".</p>
+<p>Standardm&auml;&szlig;ig werden in der Anzeige keine Daten zur Stapelablaufverfolgung angezeigt. Um Stack Traces anzuzeigen, klicken Sie auf den Link (Details) f&uuml;r eine Meldung.</p>
+</li>
+<li>
+<p>Um den Bereich "Erweiterte Suche" auszublenden, klicken Sie auf den Link "Einfache Suche".</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Um die Instanz und die zugeh&ouml;rige Logdatei anzugeben, die Sie anzeigen m&ouml;chten, verwenden Sie den Bereich "Suche modifizieren".</p>
+<ul>
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Instanz" die Instanz aus.</p>
+<p>Der Standardwert ist die Instanz, f&uuml;r die Sie anfangs festgelegt hatten, dass Logdateien angezeigt werden sollen. Wenn Sie festgelegt hatten, dass Logdateien f&uuml;r den Domain Administration Server (DAS) angezeigt werden sollen, lautet der Standardwert, der auf den DAS verweist, "server".</p>
+</li>
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Logdatei" die Logdatei.</p>
+<p>Der Standardname lautet <code>server.log</code>. Andere Optionen h&auml;ngen von den Logeinstellungen f&uuml;r das gew&auml;hlte Ziel ab.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Passen Sie im Bereich "Suchergebnisse" die Anzeige von Logmeldungen an.</p>
+<p>Im Bereich "Suchergebnisse" werden entsprechend den Einstellungen auf den Seiten "Logging-Einstellungen" und "Logebenen" die letzten 40 Eintr&auml;ge des Serverlogs angezeigt.</p>
+<ul>
+<li>
+<p>Um die Meldungen unterschiedlich zu sortieren, klicken Sie auf die Pfeile in den Spalten.</p>
+</li>
+<li>
+<p>Um eine formatierte Version einer Meldung anzuzeigen, klicken Sie auf den Link (Details) f&uuml;r eine Meldung.</p>
+<p>Es wird ein Fenster "Logeintragsdetail" angezeigt, das eine formatierte Version der Meldung enth&auml;lt.</p>
+</li>
+<li>
+<p>Um vorhergehende oder nachfolgende Eintr&auml;ge in der Logdatei anzuzeigen, klicken Sie auf die Schaltfl&auml;chen "Eintr&auml;ge vor" bzw. "Eintr&auml;ge nach", die sich am oberen Rand der Tabelle befinden.</p>
+</li>
+</ul>
+</li>
+</ol>
+<a id="sthref30" name="sthref30"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-eelogging.html">So werden allgemeine Logging-Einstellungen konfiguriert</a></p>
+</li>
+<li>
+<p><a href="task-eelogginglevels.html">So werden Logebenen konfiguriert</a></p>
+</li>
+<li>
+<p><a href="task-logviewer.html">So werden Logdateien f&uuml;r den DAS angezeigt</a></p>
+</li>
+<li>
+<p><a href="../../../cluster/de/help/missingtopic.html">So zeigen Sie Logdateien f&uuml;r eine GlassFish Server-Clusterinstanz an</a></p>
+</li>
+<li>
+<p><a href="../../../cluster/de/help/missingtopic.html">So zeigen Sie Logdateien f&uuml;r eine Standalone-GlassFish Server-Instanz an</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

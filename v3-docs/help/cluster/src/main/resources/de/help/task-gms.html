@@ -1,49 +1,80 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-gms" name="task-gms"></a><a id="GHCLU00080" name="GHCLU00080"></a></p>
 
-
-<a name="task-gms"></a><h3>So konfigurieren Sie den Gruppenverwaltungsdienst</h3><a name="indexterm-153"></a><p>Der Gruppenverwaltungsdienst (GMS, Group Management Service) ist ein prozessinterner Dienst, der Dienste
-f&#252;r Cluster&#252;berwachung, Clustermitgliedschaft und Gruppenkommunikation bereitstellt. Der GMS f&#252;hrt folgende Funktionen aus:</p>
-
-
-<ul><li><p>Benachrichtigt registrierte Module in einer GlassFish-Server-Instanz, wenn mindestens eine Mitgliedsinstanz zum Cluster hinzugef&#252;gt bzw. aus dem Cluster entfernt wurde oder bei denen Fehler vermutet bzw. best&#228;tigt wurden.</p>
-
+<h4><a id="sthref222" name="sthref222"></a>So wird der Group Management Service konfiguriert</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Der Group Management Service (GMS) ist ein prozessinterner Service, der Services f&uuml;r Cluster&uuml;berwachung, Clustermitgliedschaft und Gruppenkommunikation bereitstellt. Der GMS f&uuml;hrt folgende Funktionen aus:</p>
+<ul>
+<li>
+<p>Benachrichtigt registrierte Module in einer GlassFish Server-Instanz, wenn mindestens eine Mitgliedsinstanz zum Cluster hinzugef&uuml;gt bzw. aus dem Cluster entfernt wurde oder bei denen Fehler vermutet bzw. best&auml;tigt wurden.</p>
 </li>
-<li><p>Erm&#246;glicht das Senden und Erhalten von Meldungen zwischen einer Gruppe von Prozessen.</p>
-
-</li></ul>
+<li>
+<p>Erm&ouml;glicht das Senden und Erhalten von Meldungen zwischen einer Gruppe von Prozessen.</p>
+</li>
+</ul>
 <ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Knoten "Konfiguration".</b></li>
-<li><b>W&#228;hlen Sie die Konfiguration f&#252;r den zu &#228;ndernden Cluster.</b></li>
-<li><b>W&#228;hlen Sie unter dem Konfigurationsknoten den Gruppenverwaltungsdienst-Knoten aus.</b><p>Die Seite "Gruppenverwaltungsdienst" wird ge&#246;ffnet.</p></li>
-<li><b>Geben Sie im Feld "Maximum Missed Heartbeats" (Maximale Anzahl nicht ausgel&#246;ster Heartbeats)
-die maximale Anzahl der &#220;berwachungsversuche an, nach denen der GMS einen vermuteten
-Fehler best&#228;tigt.</b><p>Der Standardwert betr&#228;gt 3.</p></li>
-<li><b>Geben Sie im Feld "Heartbeat Frequency" (Heartbeat-H&#228;ufigkeit) den Zeitraum zwischen den &#220;berwachungsversuchen
-an.</b><p>Der Standardwert betr&#228;gt 2000 Millisekunden.</p></li>
-<li><b>Geben Sie im Feld "Group Discovery Timeout" (Zeit&#252;berschreitung f&#252;r Gruppenerkennung) den Zeitraum
-an, den der GMS wartet, bis die Erkennung anderer Clustermitglieder fortgesetzt wird.</b><p>Der Standardwert betr&#228;gt 5000 Millisekunden.</p></li>
-<li><b>Geben Sie im Feld "Failure Verification Wait Time" (Wartezeit f&#252;r Fehler&#252;berpr&#252;fung) den
-Zeitraum an, nach dem ein vermuteter Fehler als best&#228;tigt markiert wird.</b><p>Der Standardwert betr&#228;gt 1500 Millisekunden.</p></li>
-<li><b>Klicken Sie zum Wiederherstellen der Standardwerte auf die Schaltfl&#228;che "Standardeinstellungen laden".</b></li>
-<li>(Optional) <b>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</b><p>Bei GlassFish-Server sind keine zus&#228;tzlichen Eigenschaften f&#252;r den GMS definiert.</p><ul>
-<li><b>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
-Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
-"Name" und den Eigenschaftswert in das Feld "Wert" ein.</b></li>
-<li><b>Um eine Eigenschaft zu &#228;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</b></li>
-<li><b>Um eine Eigenschaft zu l&#246;schen, aktivieren Sie das Kontrollk&#228;stchen links neben dem
-Feld "Name" der zu l&#246;schenden Eigenschaft und klicken Sie anschlie&#223;end auf die
-Schaltfl&#228;che "Eigenschaften l&#246;schen".</b></li></ul></li>
-<li><b>Klicken Sie auf "Speichern".</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-gmsenable.html">So aktivieren Sie den Gruppenverwaltungsdienst</a></p>
-
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Konfiguration" ein.</p>
 </li>
-<li><p><a href="task-gmscluster.html">So konfigurieren Sie GMS-Einstellungen f&#252;r einen Cluster</a></p>
+<li>
+<p>W&auml;hlen Sie die Konfiguration f&uuml;r den zu &auml;ndernden Cluster.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie unter dem Konfigurationsknoten den Group Management Service-Knoten aus.</p>
+<p>Die Seite "Group Management Service" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Maximum Missed Heartbeats" (Maximale Anzahl nicht ausgel&ouml;ster Heartbeats) die maximale Anzahl der &Uuml;berwachungsversuche an, nach denen der GMS einen vermuteten Fehler best&auml;tigt.</p>
+<p>Der Standardwert betr&auml;gt 3.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Heartbeat Frequency" (Heartbeat-H&auml;ufigkeit) den Zeitraum zwischen den &Uuml;berwachungsversuchen an.</p>
+<p>Der Standardwert betr&auml;gt 2000 Millisekunden.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Group Discovery Timeout" (Timeout f&uuml;r Gruppenerkennung) den Zeitraum an, den der GMS wartet, bis die Erkennung anderer Clustermitglieder fortgesetzt wird.</p>
+<p>Der Standardwert betr&auml;gt 5000 Millisekunden.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Failure Verification Wait Time" (Wartezeit f&uuml;r Fehler&uuml;berpr&uuml;fung) den Zeitraum an, nach dem ein vermuteter Fehler als best&auml;tigt markiert wird.</p>
+<p>Der Standardwert betr&auml;gt 1500 Millisekunden.</p>
+</li>
+<li>
+<p>Klicken Sie zum Wiederherstellen der Standardwerte auf die Schaltfl&auml;che "Standardeinstellungen laden".</p>
+</li>
+<li>
+<p>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</p>
+<ul>
+<li>
+<p>Um eine Eigenschaft hinzuzuf&uuml;gen, klicken Sie auf die Schaltfl&auml;che "Eigenschaft hinzuf&uuml;gen". Geben Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld "Name" und den Eigenschaftswert in das Feld "Wert" ein.</p>
+</li>
+<li>
+<p>Um eine Eigenschaft zu &auml;ndern, bearbeiten Sie das Feld "Wert" dieser Eigenschaft.</p>
+</li>
+<li>
+<p>Um eine Eigenschaft zu l&ouml;schen, aktivieren Sie das Kontrollk&auml;stchen links neben dem Feld "Name" der zu l&ouml;schenden Eigenschaft, und klicken Sie anschlie&szlig;end auf die Schaltfl&auml;che "Eigenschaften l&ouml;schen".</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Klicken Sie auf "Speichern".</p>
+</li>
+</ol>
+<a id="sthref223" name="sthref223"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-gmsenable.html">So wird der Group Management Service aktiviert</a></p>
+</li>
+<li>
+<p><a href="task-gmscluster.html">So konfigurieren Sie Group Management Service-Einstellungen f&uuml;r ein Cluster</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,99 +1,105 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-virtualservernew"></a><h4>Neuer virtueller Server</h4>
-<a name="indexterm-60"></a><p>Auf der Seite "Neuer virtueller Server" k&#246;nnen Sie einen virtuellen Server erstellen.</p>
+<p><a id="ref-virtualservernew" name="ref-virtualservernew"></a><a id="GHWEB00011" name="GHWEB00011"></a></p>
 
+<h4><a id="sthref122" name="sthref122"></a>Neuer virtueller Server</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Auf der Seite "Neuer virtueller Server" k&ouml;nnen Sie einen virtuellen Server erstellen.</p>
 <p>Die Seite "Neuer virtueller Server" umfasst die folgenden Optionen.</p>
-
-<dl><dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<dl>
+<dt>Name der Konfiguration</dt>
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
 <dt>Id</dt>
-<dd><p>Intern sichtbare Server-ID. Sie wird gegen&#252;ber HTTP-Clients nicht offengelegt. Die Hostnamen, die gegen&#252;ber HTTP-Clients offengelegt werden, m&#252;ssen im Feld "Hosts" angegeben werden.</p>
-
+<dd>
+<p>Intern sichtbare Server-ID. Sie wird gegen&uuml;ber HTTP-Clients nicht offengelegt. Die Hostnamen, die gegen&uuml;ber HTTP-Clients offengelegt werden, m&uuml;ssen im Feld "Hosts" angegeben werden.</p>
 </dd>
 <dt>Hosts</dt>
-<dd><p>Der Hostname oder Namen f&#252;r den Computer, auf dem der Server ausgef&#252;hrt wird. Verwenden Sie entweder tats&#228;chliche oder virtuelle Hostnamen, die beim DNS-Server f&#252;r Ihr Netzwerk registriert sind (und auf einem UNIX-System in der Datei <tt>/etc/hosts</tt>). Der Standardwert ist der Systemeigenschaftswert <tt>${com.sun.aas.hostName}</tt>.</p>
-
+<dd>
+<p>Der Hostname oder Namen f&uuml;r den Computer, auf dem der Server ausgef&uuml;hrt wird. Verwenden Sie entweder tats&auml;chliche oder virtuelle Hostnamen, die beim DNS-Server f&uuml;r Ihr Netzwerk registriert sind (auf einem UNIX-System in der Datei <code>/etc/hosts</code>). Der Standardwert ist der Wert der Systemeigenschaft <code>${com.sun.aas.hostName}</code>.</p>
 </dd>
 <dt>Status</dt>
-<dd><p>Der gew&#252;nschte Status f&#252;r den virtuellen Server. Folgende Werte sind m&#246;glich:</p>
-
-<dl><dt>Ein</dt>
-<dd><p>Der virtuelle Server ist aktiv. Dies ist der Standardwert.</p>
-
+<dd>
+<p>Der gew&uuml;nschte Status f&uuml;r den virtuellen Server. Folgende Werte sind m&ouml;glich:</p>
+<dl>
+<dt>Ein</dt>
+<dd>
+<p>Der virtuelle Server ist aktiv. Dies ist der Standardwert.</p>
 </dd>
 <dt>Aus</dt>
-<dd><p>Der virtuelle Server ist inaktiv. Versuche, auf den Server zuzugreifen f&#252;hren zum Fehlercode 404 (Ressource nicht verf&#252;gbar).</p>
-
+<dd>
+<p>Der virtuelle Server ist inaktiv. Versuche, auf den Server zuzugreifen f&uuml;hren zum Fehlercode 404 (Ressource nicht verf&uuml;gbar).</p>
 </dd>
 <dt>Deaktiviert</dt>
-<dd><p>Der virtuelle Server ist deaktiviert. Versuche, auf den Server zuzugreifen f&#252;hren zum Fehlercode 403 (Anforderung abgelehnt).</p>
-
+<dd>
+<p>Der virtuelle Server ist deaktiviert. Versuche, auf den Server zuzugreifen f&uuml;hren zum Fehlercode 403 (Anforderung abgelehnt).</p>
 </dd>
 </dl>
 </dd>
 <dt>SSO</dt>
-<dd><p>Gibt an, ob das Single Sign-On-Verhalten (SSO) vom HTTP-Dienst &#252;bernommen wird oder ob es aktiviert oder deaktiviert ist. Standardm&#228;&#223;ig wird sie vom HTTP-Dienst &#252;bernommen. Bei aktivierter Option ist SSO f&#252;r Webanwendungen auf diesem virtuellen Server aktiviert, die f&#252;r den gleichen Bereich konfiguriert sind. Bei deaktivierter Option ist SSO f&#252;r diesen virtuellen Server deaktiviert, und Benutzer m&#252;ssen sich bei jeder Anwendung auf dem virtuellen Server separat authentifizieren.</p>
-
+<dd>
+<p>Gibt an, ob das Single Sign-On-Verhalten (SSO) vom HTTP-Service &uuml;bernommen wird oder ob es aktiviert oder deaktiviert ist. Standardm&auml;&szlig;ig wird sie vom HTTP-Service &uuml;bernommen. Bei aktivierter Option ist SSO f&uuml;r Webanwendungen auf diesem virtuellen Server aktiviert, die f&uuml;r dieselbe Realm konfiguriert sind. Bei deaktivierter Option ist SSO f&uuml;r diesen virtuellen Server deaktiviert, und Benutzer m&uuml;ssen sich bei jeder Anwendung auf dem virtuellen Server separat authentifizieren.</p>
 </dd>
-<dt>Netzwerk-Zielger&#228;te</dt>
-<dd><p>Das bzw. die mit diesem Server verbundenen Netzwerk-Zielger&#228;te (sofern vorhanden).</p>
-
+<dt>Netzwerk-Listener</dt>
+<dd>
+<p>Die mit diesem Server verbundenen Netzwerk-Listener (sofern vorhanden).</p>
 </dd>
 <dt>Standardwebmodul</dt>
-<dd><p>Das bereitgestellte Webmodul (sofern vorhanden), das auf alle Anforderungen antworten soll, die keinem anderen auf dem virtuellen Server bereitgestellten Webmodul zugeordnet werden k&#246;nnen. Wenn kein Standardwebmodul angegeben ist, wird das Webmodul verwendet, das einen leeren Root-Kontext aufweist. Ist kein solches Webmodul vorhanden, wird ein Standardwebmodul f&#252;r das System erstellt und verwendet.</p>
-
+<dd>
+<p>Das bereitgestellte Webmodul (sofern vorhanden), das auf alle Anforderungen antworten soll, die keinem anderen auf dem virtuellen Server bereitgestellten Webmodul zugeordnet werden k&ouml;nnen. Wenn kein Standardwebmodul angegeben ist, wird das Webmodul verwendet, das einen leeren Root-Kontext aufweist. Ist kein solches Webmodul vorhanden, wird ein Standardwebmodul f&uuml;r das System erstellt und verwendet.</p>
 </dd>
-<dt>Protokolldatei</dt>
-<dd><p>Der Pfad zu der Datei, in der Protokollmeldungen f&#252;r diesen virtuellen Server erscheinen. Standardm&#228;&#223;ig werden Meldungen in <tt></tt><i>domain-dir</i><tt>/logs/server.log?</tt> protokolliert.</p>
-
+<dt>Logdatei</dt>
+<dd>
+<p>Der Pfad zu der Datei, in der Protokollmeldungen f&uuml;r diesen virtuellen Server erscheinen. Standardm&auml;&szlig;ig stehen Logging-Meldungen in <i>domain-dir</i><code>/logs/server.log</code>.</p>
 </dd>
 <dt>Docroot</dt>
-<dd><p>Der absolute Pfad zum Root-Dokumentverzeichnis f&#252;r den Server. Der Standardwert ist <tt></tt><i>domain-dir</i><tt>/docroot</tt>.</p>
-
+<dd>
+<p>Der absolute Pfad zum Root-Dokumentverzeichnis f&uuml;r den Server. Der Standardwert ist <i>domain-dir</i><code>/docroot</code>.</p>
 </dd>
-<dt>Access Logging (Zugriffsprotokollierung)</dt>
-<dd><p>Gibt an, ob die Zugriffsprotokollierung vom HTTP-Dienst &#252;bernommen wird oder ob sie aktiviert oder deaktiviert ist. Standardm&#228;&#223;ig wird sie vom HTTP-Dienst &#252;bernommen.</p>
-
+<dt>Zugriffsprotokollierung</dt>
+<dd>
+<p>Gibt an, ob die Zugriffsprotokollierung vom HTTP-Service &uuml;bernommen wird oder ob sie aktiviert oder deaktiviert ist. Standardm&auml;&szlig;ig wird sie vom HTTP-Service &uuml;bernommen.</p>
 </dd>
 <dt>Verzeichnis</dt>
-<dd><p>Der absolute Verzeichnispfad zu den Serverzugriffsprotokollen. Der Standardwert ist <i>domain-dir</i><tt>/logs/access</tt>.</p>
-
+<dd>
+<p>Der absolute Verzeichnispfad zu den Serverzugriffsprotokollen. Der Standardwert ist <i>domain-dir</i><code>/logs/access</code>.</p>
 </dd>
 <dt>Weitere Eigenschaften</dt>
-<dd><p>Weitere Eigenschaften f&#252;r den virtuellen Server.</p>
-
-<p>Information zu verf&#252;gbaren Eigenschaften finden Sie unter <a href="ref-virtualserverprops.html">F&#252;r virtuelle Server spezifische Eigenschaften</a>.</p>
-
+<dd>
+<p>Weitere Eigenschaften f&uuml;r den virtuellen Server.</p>
+<p>Information zu verf&uuml;gbaren Eigenschaften finden Sie unter <a href="ref-virtualserverprops.html">F&uuml;r virtuelle Server spezifische Eigenschaften</a>.</p>
 </dd>
 </dl>
+<a id="sthref123" name="sthref123"></a>
 <h5>Verwandte Aufgaben</h5>
-
-<ul><li><p><a href="task-virtualservercreate.html">So erstellen Sie einen virtuellen Server</a></p>
-
+<ul>
+<li>
+<p><a href="task-virtualservercreate.html">So wird ein virtueller Server erstellt</a></p>
 </li>
-<li><p><a href="task-virtualserveredit.html">So bearbeiten Sie einen virtuellen Server</a></p>
-
+<li>
+<p><a href="task-virtualserveredit.html">So wird ein virtueller Server bearbeitet</a></p>
 </li>
-<li><p><a href="task-virtualserverdelete.html">So l&#246;schen Sie einen virtuellen Server</a></p>
-
-</li></ul>
-<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-virtual-server-1"><tt>create-virtual-server</tt>(1)</a></p>
-
+<li>
+<p><a href="task-virtualserverdelete.html">So wird ein virtueller Server gel&ouml;scht</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-virtual-servers-1"><tt>list-virtual-servers</tt>(1)</a></p>
-
+</ul>
+<a id="sthref124" name="sthref124"></a>
+<h5>Zugeh&ouml;rige asadmin-Befehle</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00062"><code>create-virtual-server</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-virtual-server-1"><tt>delete-virtual-server</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00207"><code>list-virtual-servers</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00113"><code>delete-virtual-server</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

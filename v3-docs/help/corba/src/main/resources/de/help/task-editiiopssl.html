@@ -1,53 +1,84 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-editiiopssl" name="task-editiiopssl"></a><a id="GHCOR00009" name="GHCOR00009"></a></p>
 
-
-<a name="task-editiiopssl"></a><h3>So bearbeiten Sie die SSL-Einstellungen f&#252;r einen sicheren IIOP-Listener</h3><a name="indexterm-5"></a><a name="indexterm-6"></a><ol>
-<li><b>Erweitern Sie in der Struktur den Knoten "Konfiguration".</b></li>
-<li><b>Erweitern Sie unter dem Knoten "Konfiguration" den Knoten "ORB".</b></li>
-<li><b>W&#228;hlen Sie den Knoten "IIOP-Listener".</b><p>Die Seite "IIOP-Listener" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie in der Tabelle auf den Namen des zu bearbeitenden Listeners.</b><p>Die Seite "IIOP-Listener bearbeiten" wird ge&#246;ffnet.</p></li>
-<li><b>Wenn das Kontrollk&#228;stchen "Sicherheit aktiviert" aktiviert ist, klicken Sie auf den Fensterbereich
-mit Registerkarten f&#252;r SSL, um die SSL-Einstellungen (Secure Socket Layer) dieses IIOP-Listener
-zu &#228;ndern.</b><p>Die Seite "SSL" wird ge&#246;ffnet.</p></li>
-<li><b>Aktivieren Sie auf der Seite "SSL" das Kontrollk&#228;stchen "SSL3 aktiviert", um SSL3
-zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "TLS aktiviert", um TLS (Transport Layer Security) zu
-aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Client-Authentifizierung aktiviert", um von Clients zu fordern, dass
-sie sich selbst dem Server gegen&#252;ber auf jede Anfrage hin identifizieren.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>Geben Sie in das Feld "Zertifikatspseudonym" das Pseudonym des Serverzertifikats in der
-Zertifikatsdatenbank oder dem Token PKCS#11 ein.</b><p>In dem Zertifikat ist das Namensformat <tt><i> Tokenname</i>:<i>Pseudonym</i></tt>. Einschlie&#223;lich der Teil <tt><i>Tokenname</i>:</tt> des
-Namens in diesem Attribut ist optional. </p></li>
-<li><b>Geben Sie im Feld "Schl&#252;sselspeicher" den Namen der Schl&#252;sselspeicher-Datei (z. B. <tt>keystore.jks</tt>)
-ein.</b></li>
-<li><b>Geben Sie im Feld Trust-Algorithmus den Namen des Trust-Management-Algorithmus (z. B. PKIX)
-ein, um diesen f&#252;r die Validierung des Zertifizierungspfads zu verwenden.</b></li>
-<li><b>Geben Sie im Feld "Maximale Zertifikatsl&#228;nge" die maximale Anzahl der nicht selbst
-herausgegebenen Zwischenzertifikate ein, die in einem Zertifizierungspfad vorhanden sein k&#246;nnen. </b><p>Dieses Feld wird nur dann verwendet, wenn das Feld "Trust-Algorithmus" auf PKIX
-eingestellt ist. Ein Wert von 0 l&#228;sst darauf schlie&#223;en, dass der Pfad
-nur ein einziges Zertifikat enthalten kann. Ein Wert von -1 l&#228;sst darauf
-schlie&#223;en, dass die Pfadl&#228;nge nicht beschr&#228;nkt ist (es gibt keinen H&#246;chstwert). Das
-Einstellen eines Werts, der geringer als -1 ist, f&#252;hrt zu einem Ausnahmefehler.</p></li>
-<li><b>Geben Sie im Feld "Truststore" den Namen der Schl&#252;sselspeicher-Datei (z.&#160;B. <tt>cacerts.jks</tt>) ein.</b></li>
-<li><b>Legen Sie im Bereich "Cipher Suites" die Cipher Suites fest, die verwendet
-werden sollen.</b><p>Wenn Sie keine Cipher-Suites hinzuf&#252;gen, werden alle Cipher-Suites verwendet.</p></li>
-<li><b>Klicken Sie auf "OK".</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-orb.html">So konfigurieren Sie den ORB</a></p>
-
+<h4><a id="sthref9" name="sthref9"></a><a id="sthref10" name="sthref10"></a>So werden SSL-Einstellungen f&uuml;r einen sicheren IIOP-Listener bearbeitet</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Blenden Sie in der Baumkomponente den Knoten "Konfiguration" ein.</p>
 </li>
-<li><p><a href="task-iioplistenernew.html">So erstellen Sie einen IIOP-Listener</a></p>
-
+<li>
+<p>Blenden Sie unter dem Knoten "Konfiguration" den Knoten "ORB" ein.</p>
 </li>
-<li><p><a href="task-iioplisteneredit.html">So bearbeiten Sie einen IIOP-Listener</a></p>
-
+<li>
+<p>W&auml;hlen Sie den Knoten "IIOP-Listener".</p>
+<p>Die Seite "IIOP-Listener" wird ge&ouml;ffnet.</p>
 </li>
-<li><p><a href="task-iioplistenerdelete.html">So l&#246;schen Sie einen IIOP-Listener</a></p>
+<li>
+<p>Klicken Sie in der Tabelle auf den Namen des zu bearbeitenden Listeners.</p>
+<p>Die Seite "IIOP-Listener bearbeiten" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Wenn das Kontrollk&auml;stchen "Sicherheit aktiviert" aktiviert ist, klicken Sie auf den Fensterbereich mit Registerkarten f&uuml;r SSL, um die SSL-Einstellungen (Secure Socket Layer) dieses IIOP-Listener zu &auml;ndern.</p>
+<p>Die Seite "SSL" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Aktivieren Sie auf der SSL-Seite das Kontrollk&auml;stchen f&uuml;r SSL3, um SSL3 zu aktivieren.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig aktiviert.</p>
+</li>
+<li>
+<p>Aktivieren Sie das TLS-Kontrollk&auml;stchen, um Transport Layer Security (TLS) zu aktivieren.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig aktiviert.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Client-Authentifizierung aktiviert", um von Clients zu fordern, dass sie sich selbst dem Server gegen&uuml;ber auf jede Anfrage hin identifizieren.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</li>
+<li>
+<p>Geben Sie in das Feld "Zertifikatskurzname" den Kurznamen des Serverzertifikats in der Zertifikatsdatenbank oder dem Token PKCS&amp;num:#11 ein.</p>
+<p>In dem Zertifikat ist das Namensformat <i>Tokenname</i><code>:</code> <i>Kurzname</i> . Die Aufnahme des Teils Tokenname<code>:</code> des Namens in diesem Attribut ist optional.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Keystore" den Namen der Keystore-Datei (z.B. <code>keystore.jks</code>) ein.</p>
+</li>
+<li>
+<p>Geben Sie im Feld Trust-Algorithmus den Namen des Trust-Management-Algorithmus (z.B. PKIX) ein, um diesen f&uuml;r die Validierung des Zertifizierungspfads zu verwenden.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Maximale Zertifikatsl&auml;nge" die maximale Anzahl der nicht selbst herausgegebenen Zwischenzertifikate ein, die in einem Zertifizierungspfad vorhanden sein k&ouml;nnen.</p>
+<p>Dieses Feld wird nur dann verwendet, wenn das Feld "Trust-Algorithmus" auf PKIX eingestellt ist. Ein Wert von 0 l&auml;sst darauf schlie&szlig;en, dass der Pfad nur ein einziges Zertifikat enthalten kann. Ein Wert von -1 l&auml;sst darauf schlie&szlig;en, dass die Pfadl&auml;nge nicht beschr&auml;nkt ist (es gibt keinen H&ouml;chstwert). Das Einstellen eines Werts, der geringer als -1 ist, f&uuml;hrt zu einem Ausnahmefehler.</p>
+</li>
+<li>
+<p>Geben Sie im Feld Truststore den Namen der Schl&uuml;sselspeicher-Datei (z.B. <code>cacerts.jks</code>) ein.</p>
+</li>
+<li>
+<p>Legen Sie im Bereich Cipher Suites die Cipher Suites fest, die verwendet werden sollen.</p>
+<p>Wenn Sie keine Cipher Suites hinzuf&uuml;gen, werden alle Cipher Suites verwendet.</p>
+</li>
+<li>
+<p>Klicken Sie auf "OK".</p>
+</li>
+</ol>
+<a id="sthref11" name="sthref11"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-orb.html">So wird der ORB konfiguriert</a></p>
+</li>
+<li>
+<p><a href="task-iioplistenernew.html">So wird ein IIOP-Listener erstellt</a></p>
+</li>
+<li>
+<p><a href="task-iioplisteneredit.html">So wird ein IIOP-Listener bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-iioplistenerdelete.html">So wird ein IIOP-Listener gel&ouml;scht</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

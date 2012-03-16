@@ -1,88 +1,125 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmsphysicaldestnew" name="task-jmsphysicaldestnew"></a><a id="GHJMS00030" name="GHJMS00030"></a></p>
 
-
-<a name="task-jmsphysicaldestnew"></a><h3>So erstellen Sie ein physisches JMS-Ziel</h3><a name="indexterm-17"></a><a name="indexterm-18"></a><p>Normalerweise ist die Erstellung physischer Ziele nicht erforderlich, da Sie beim Erstellen
-einer JMS-Zielressource einen Namen f&#252;r ein physisches Ziel angeben und GlassFish-Server das
-physische Ziel bei Bedarf automatisch erstellt.</p>
-
+<h4><a id="sthref30" name="sthref30"></a><a id="sthref31" name="sthref31"></a>So wird ein physisches JMS-Ziel erstellt</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Normalerweise ist die Erstellung physischer Ziele nicht erforderlich, da Sie beim Erstellen einer JMS-Zielressource einen Namen f&uuml;r ein physisches Ziel angeben und GlassFish Server das physische Ziel bei Bedarf automatisch erstellt.</p>
 <ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
-<li><b>Erweitern Sie unter dem Konfigurationsknoten den Knoten "Java Message Service".</b></li>
-<li><b>W&#228;hlen Sie unter dem Knoten "Java Message Service" den Knoten "Physikalische Ziele"
-aus.</b><p>Die Seite "Physikalische Ziele" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie auf der Seite "Physikalische Ziele" auf "Neu".</b><p>Die Seite "Neue physische JMS-Ziele" wird ge&#246;ffnet.</p></li>
-<li><b>Geben Sie im Feld "Name" den Namen des physischen Ziels ein.</b></li>
-<li><b>W&#228;hlen Sie in der Dropdown-Liste "Typ" entweder <tt>javax.jms.Topic</tt> oder <tt>javax.jms.Queue</tt> aus.</b></li>
-<li><b>Geben Sie im Feld "H&#246;chstzahl nicht konsumierter Meldungen" die f&#252;r das Ziel
-maximal zul&#228;ssige Anzahl unkonsumierter Meldungen ein.</b><p>Der Wert &#8211;1 bedeutet, dass die Anzahl der unkonsumierten Meldungen nicht begrenzt
-ist. Der Standardwert ist &#8211;1.</p></li>
-<li><b>Geben Sie im Feld "Maximalgr&#246;&#223;e von Meldungen" die maximal zul&#228;ssige Gr&#246;&#223;e einer
-einzelnen Meldung in Byte ein.</b><p>Der Wert &#8211;1 bedeutet, dass die Meldungsgr&#246;&#223;e unbegrenzt ist. Der Standardwert ist
-&#8211;1.</p></li>
-<li><b>Geben Sie im Feld "Maximaler Gesamtspeicher" den maximalen Gesamtspeicher f&#252;r unkonsumierte Meldungen
-in Byte ein.</b><p>Der Wert &#8211;1 bedeutet, dass die Speichergr&#246;&#223;e f&#252;r unkonsumierte Meldungen nicht begrenzt
-ist. Der Standardwert ist &#8211;1.</p></li>
-<li><b>W&#228;hlen Sie in der Dropdown-Liste "Schwellenwertverhalten" das Verhalten aus, das der Broker
-bei Erreichen des Speicher-Schwellenwerts anwenden soll. </b><ul>
-<li><b><tt>Reject newest messages</tt> weist den Broker an, die neuesten Meldungen zur&#252;ckzuweisen, und den produzierenden
-Client nur dann mit einer Ausnahme zu benachrichtigen, wenn die Meldung persistent
-ist.</b><p><tt>Reject newest messages</tt> ist der Standardwert.</p></li>
-<li><b><tt>Slow down producers</tt> weist den Broker an, die Geschwindigkeit zu verringern, mit der Meldungsproduzenten
-Meldungen senden.</b></li>
-<li><b><tt>Throw out oldest</tt> weist den Broker an, die &#228;ltesten Meldungen zu verwerfen.</b></li>
-<li><b><tt>Throw out lowest-priority messages</tt> weist den Broker an, die Meldungen mit der niedrigsten Priorit&#228;t zu
-verwerfen.</b></li></ul><p>Wenn der Wert <tt>Throw out oldest</tt> oder <tt>Throw out lowest-priority messages</tt> gew&#228;hlt und "Warteschlange f&#252;r nicht zugestellte
-Meldungen verwenden" auf "true" gesetzt ist, werden &#252;bersch&#252;ssige Meldungen in die Warteschlange
-f&#252;r nicht zugestellte Meldungen verschoben.</p></li>
-<li><b>Geben Sie im Feld "H&#246;chstzahl von Produzenten" die maximale Anzahl an Meldungsproduzenten
-ein, die mit diesem physischen Ziel verkn&#252;pft werden k&#246;nnen.</b><p>Bei Erreichen dieses Grenzwerts k&#246;nnen keine neuen Produzenten mehr erstellt werden. Der
-Wert &#8211;1 bedeutet, dass die Anzahl der Produzenten unbegrenzt ist. Der Standardwert
-betr&#228;gt 100.</p></li>
-<li><b>Geben Sie im Feld "H&#246;chstzahl der Meldungen bei Sammelzustellung" die maximale Anzahl
-an Meldungen ein, die Konsumenten in einem einzigen Batch zugestellt werden k&#246;nnen.</b><p>Der Wert &#8211;1 bedeutet, dass die Anzahl der Meldungen unbegrenzt ist. Der
-Standardwert ist 1000.</p></li>
-<li><b>W&#228;hlen Sie in der Dropdown-Liste "Warteschlange f&#252;r nicht zugestellte Meldungen verwenden" den
-Wert "true" aus, um nicht zugestellte Meldungen in die Warteschlange f&#252;r nicht
-zugestellte Meldungen zu stellen.</b><p>Wenn der Wert auf "false" gesetzt wird, werden nicht zugestellte Meldungen verworfen.
-Die Standardeinstellung f&#252;r diese Option ist "true".</p></li>
-<li><b>W&#228;hlen Sie in der Dropdown-Liste "XML-Schema &#252;berpr&#252;fen" den Wert "true" aus, um
-die XML-Schema&#252;berpr&#252;fung f&#252;r das Ziel zu aktivieren.</b><p>Wenn der Wert auf "true" gesetzt ist, versucht die Message Queue-Clientlaufzeit, eine
-XML-Meldung anhand der angegebenen XML-Schemadefinitionen  (oder anhand der DTD, falls keine XSD
-angegeben ist) zu &#252;berpr&#252;fen, bevor sie an den Broker gesendet wird. Kann
-das angegebene Schema nicht gefunden oder die Meldung nicht &#252;berpr&#252;ft werden, wird
-die Meldung nicht gesendet, und eine Ausnahme wird ausgel&#246;st. Die Standardeinstellung f&#252;r
-diese Option ist "false".</p></li>
-<li><b>Geben Sie im Feld "XML-Schema - URI-Liste" eine mit Leerzeichen getrennte Liste
-von URI-Zeichenfolgen einer XML-Schemadefinition (XSD) ein. </b><p>Wenn die XML-Schema&#252;berpr&#252;fung aktiviert ist, verweisen die URIs auf den Speicherort einer
-oder mehrerer XSDs, die f&#252;r die XML-Schema&#252;berpr&#252;fung zu verwenden sind.</p></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-jmsservice.html">So konfigurieren Sie den JMS-Dienst</a></p>
-
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Konfiguration" ein.</p>
 </li>
-<li><p><a href="task-jmshostnew.html">So erstellen Sie einen JMS-Host</a></p>
-
+<li>
+<p>Select the instance to configure:</p>
+<ul>
+<li>
+<p>To configure a particular instance, select the instance's config node. For example, for the default instance, <code>server</code>, select the <code>server-config</code> node.</p>
 </li>
-<li><p><a href="task-jmshostedit.html">So bearbeiten Sie einen JMS-Host</a></p>
-
+<li>
+<p>To configure the default settings for future instances that use a copy of <code>default-config</code>, select the <code>default-config</code> node.</p>
 </li>
-<li><p><a href="task-jmshostdelete.html">So l&#246;schen Sie einen JMS-Host</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-jmsphysicaldestedit.html">So bearbeiten Sie ein physisches JMS-Ziel</a></p>
-
+<li>
+<p>Blenden Sie unter dem Konfigurationsknoten den Knoten "Java Message Service" ein.</p>
 </li>
-<li><p><a href="task-jmsphysicaldestdelete.html">So l&#246;schen Sie ein physisches JMS-Ziel</a></p>
-
+<li>
+<p>W&auml;hlen Sie unter dem Knoten "Java Message Service" den Knoten "Physische Ziele".</p>
+<p>Die Seite "Physikalische Ziele" wird ge&ouml;ffnet.</p>
 </li>
-<li><p><a href="task-jmsflushmessages.html">So entfernen Sie Meldungen von einem physischen JMS-Ziel</a></p>
-
+<li>
+<p>Klicken Sie auf der Seite "Physikalische Ziele" auf "Neu".</p>
+<p>Die Seite "Neue physische JMS-Ziele" wird ge&ouml;ffnet.</p>
 </li>
-<li><p><a href="task-jmsphysicaldeststats.html">So zeigen Sie Statistiken f&#252;r ein physisches JMS-Ziel an</a></p>
+<li>
+<p>Geben Sie im Feld "Name" den Namen des physischen Ziels ein.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie in der Dropdown-Liste "Typ" entweder <code>javax.jms.Topic</code> oder <code>javax.jms.Queue</code> aus.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "H&ouml;chstzahl nicht konsumierter Meldungen" die f&uuml;r das Ziel maximal zul&auml;ssige Anzahl unkonsumierter Meldungen ein.</p>
+<p>Der Wert &ndash;1 bedeutet, dass die Anzahl der unkonsumierten Meldungen nicht begrenzt ist. Der Standardwert ist -1.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Maximalgr&ouml;&szlig;e von Meldungen" die maximal zul&auml;ssige Gr&ouml;&szlig;e einer einzelnen Meldung in Byte ein.</p>
+<p>Der Wert &ndash;1 bedeutet, dass die Meldungsgr&ouml;&szlig;e unbegrenzt ist. Der Standardwert ist -1.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Maximaler Gesamtspeicher" den maximalen Gesamtspeicher f&uuml;r unkonsumierte Meldungen in Byte ein.</p>
+<p>Der Wert &ndash;1 bedeutet, dass die Speichergr&ouml;&szlig;e f&uuml;r unkonsumierte Meldungen nicht begrenzt ist. Der Standardwert ist -1.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie in der Dropdown-Liste "Schwellenwertverhalten" das Verhalten aus, das der Broker bei Erreichen des Speicher-Schwellenwerts anwenden soll.</p>
+<ul>
+<li>
+<p><code>Reject newest messages</code> weist den Broker an, die neuesten Meldungen zur&uuml;ckzuweisen, und den produzierenden Client nur dann mit einer Ausnahme zu benachrichtigen, wenn die Meldung persistent ist.</p>
+<p><code>Reject newest messages</code> ist der Standardwert.</p>
+</li>
+<li>
+<p><code>Slow down producers</code> weist den Broker an, die Geschwindigkeit zu verringern, mit der Meldungsproduzenten Meldungen senden.</p>
+</li>
+<li>
+<p><code>Throw out oldest</code> weist den Broker an, die &auml;ltesten Meldungen zu verwerfen.</p>
+</li>
+<li>
+<p><code>Throw out lowest-priority messages</code> weist den Broker an, die Meldungen mit der niedrigsten Priorit&auml;t zu verwerfen.</p>
+</li>
+</ul>
+<p>Wenn der Wert <code>Throw out oldest</code> oder <code>Throw out lowest-priority messages</code> gew&auml;hlt und "Queue f&uuml;r nicht zugestellte Meldungen verwenden" auf "true" gesetzt ist, werden &uuml;bersch&uuml;ssige Meldungen in die Queue f&uuml;r nicht zugestellte Meldungen verschoben.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "H&ouml;chstzahl von Produzenten" die maximale Anzahl an Meldungsproduzenten ein, die mit diesem physischen Ziel verkn&uuml;pft werden k&ouml;nnen.</p>
+<p>Bei Erreichen dieses Grenzwerts k&ouml;nnen keine neuen Produzenten mehr erstellt werden. Der Wert &ndash;1 bedeutet, dass die Anzahl der Produzenten unbegrenzt ist. Der Standardwert betr&auml;gt 100.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "H&ouml;chstzahl der Meldungen bei Batch-Zustellung" die maximale Anzahl an Meldungen ein, die Konsumenten in einem einzigen Batch zugestellt werden k&ouml;nnen.</p>
+<p>Der Wert &ndash;1 bedeutet, dass die Anzahl der Meldungen unbegrenzt ist. Der Standardwert ist 1000.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie in der Dropdown-Liste "Queue f&uuml;r nicht zugestellte Meldungen verwenden" den Wert "true" aus, um nicht zugestellte Meldungen in die Queue f&uuml;r nicht zugestellte Meldungen zu stellen.</p>
+<p>Wenn der Wert auf "false" gesetzt wird, werden nicht zugestellte Meldungen verworfen. Die Standardeinstellung f&uuml;r diese Option ist "true".</p>
+</li>
+<li>
+<p>W&auml;hlen Sie in der Dropdown-Liste "XML-Schema validieren" den Wert "True", um die XML-Schema&uuml;berpr&uuml;fung f&uuml;r das Ziel zu aktivieren.</p>
+<p>Wenn der Wert auf "true" gesetzt ist, versucht die Message Queue-Clientlaufzeit, eine XML-Meldung anhand der angegebenen XML-Schemadefinitionen (oder anhand der DTD, falls keine XSD angegeben ist) zu &uuml;berpr&uuml;fen, bevor sie an den Broker gesendet wird. Kann das angegebene Schema nicht gefunden oder die Meldung nicht validiert werden, wird die Meldung nicht gesendet, und eine Ausnahme wird ausgel&ouml;st. Die Standardeinstellung f&uuml;r diese Option ist "false".</p>
+</li>
+<li>
+<p>Geben Sie im Feld "XML-Schema - URI-Liste" eine mit Leerzeichen getrennte Liste von URI-Zeichenfolgen einer XML-Schemadefinition (XSD) ein.</p>
+<p>Wenn die XML-Schema&uuml;berpr&uuml;fung aktiviert ist, verweisen die URIs auf den Speicherort einer oder mehrerer XSDs, die f&uuml;r die XML-Schema&uuml;berpr&uuml;fung zu verwenden sind.</p>
+</li>
+</ol>
+<a id="sthref32" name="sthref32"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-jmsservice.html">So wird der JMS-Service konfiguriert</a></p>
+</li>
+<li>
+<p><a href="task-jmshostnew.html">So wird ein JMS-Host erstellt</a></p>
+</li>
+<li>
+<p><a href="task-jmshostedit.html">So wird ein JMS-Host bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-jmshostdelete.html">So wird ein JMS-Host gel&ouml;scht</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestedit.html">So wird ein physisches JMS-Ziel bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestdelete.html">So wird ein physisches JMS-Ziel gel&ouml;scht</a></p>
+</li>
+<li>
+<p><a href="task-jmsflushmessages.html">So werden Nachrichten aus einem physischen JMS-Ziel entfernt</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldeststats.html">So werden Statistiken f&uuml;r ein physisches JMS-Ziel angezeigt</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

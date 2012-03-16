@@ -1,84 +1,89 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-messagesecurityconfignew"></a><h4>Neue Meldungssicherheitskonfiguration</h4>
-<a name="indexterm-230"></a><p>&#220;ber die Seite "Neue Meldungssicherheitskonfiguration" k&#246;nnen Sie eine HttpServlet-Konfiguration f&#252;r Meldungssicherheit erstellen.</p>
+<p><a id="ref-messagesecurityconfignew" name="ref-messagesecurityconfignew"></a><a id="GHCOM00119" name="GHCOM00119"></a></p>
 
-<p>Die Seite "Neue Meldungssicherheitskonfiguration" enth&#228;lt die folgenden Optionen.</p>
-
-<dl><dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<h4><a id="sthref423" name="sthref423"></a>Neue Nachrichtensicherheitskonfiguration</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>&Uuml;ber die Seite "Neue Meldungssicherheitskonfiguration" k&ouml;nnen Sie eine HttpServlet-Konfiguration f&uuml;r Meldungssicherheit erstellen.</p>
+<p>Die Seite "Neue Meldungssicherheitskonfiguration" enth&auml;lt die folgenden Optionen.</p>
+<dl>
+<dt>Name der Konfiguration</dt>
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
 <dt>Authentifizierungs-Layer</dt>
-<dd><p>Legt die Meldungslayer fest, in der die Authentifizierung durchgef&#252;hrt wird. Der Wert muss <tt>SOAP</tt> oder <tt>HttpServlet</tt> sein. Da eine SOAP-Konfiguration standardm&#228;&#223;ig zur Verf&#252;gung steht, lautet die einzige Auswahl <tt> HttpServlet</tt>.</p>
-
+<dd>
+<p>Legt die Meldungslayer fest, in der die Authentifizierung durchgef&uuml;hrt wird. Der Wert muss <code>SOAP</code> oder <code>HttpServlet</code> sein. Da eine SOAP-Konfiguration standardm&auml;&szlig;ig zur Verf&uuml;gung steht, lautet die einzige Auswahl <code>HttpServlet</code>.</p>
 </dd>
-<dt>Anbieter-ID</dt>
-<dd><p>Der eindeutige Identifizierer der Anbieterkonfiguration f&#252;r diese Meldungssicherheitskonfiguration.</p>
-
+<dt>Provider-ID</dt>
+<dd>
+<p>Die eindeutige ID der Providerkonfiguration f&uuml;r diese Meldungssicherheitskonfiguration.</p>
 </dd>
-<dt>Standardanbieter</dt>
-<dd><p>Wenn diese Option ausgew&#228;hlt wird, ist dieser Anbieter der Standardanbieter. Der Standardanbieter wird f&#252;r alle Anwendungen aufgerufen, f&#252;r die kein spezifischer Anbieter angegeben ist. Die Einstellung "Anbietertyp" legt fest, ob es sich um den standardm&#228;&#223;igen Clientanbieter, den standardm&#228;&#223;igen Serveranbieter oder um beide handelt.</p>
-
+<dt>Standardprovider</dt>
+<dd>
+<p>Wenn diese Option ausgew&auml;hlt wird, ist dieser Provider der Standardprovider. Der Standardprovider wird f&uuml;r alle Anwendungen aufgerufen, f&uuml;r die kein spezifischer Provider angegeben ist. Die Einstellung "Providertyp" legt fest, ob es sich um den standardm&auml;&szlig;igen Clientprovider, den standardm&auml;&szlig;igen Serverprovider oder um beide handelt.</p>
 </dd>
-<dt>Anbietertyp</dt>
-<dd><p>Legt den Anbietertyp fest. Zur Auswahl stehen:</p>
-
-<dl><dt><tt>Client</tt></dt>
-<dd><p>Legt fest, dass der Anbieter der Client-Authentifizierungsanbieter ist.</p>
-
+<dt>Providertyp</dt>
+<dd>
+<p>Legt den Providertyp fest. Zur Auswahl stehen:</p>
+<dl>
+<dt><code>Client</code></dt>
+<dd>
+<p>Legt fest, dass der Provider der Client-Authentifizierungsprovider ist.</p>
 </dd>
-<dt><tt>Server</tt></dt>
-<dd><p>Legt fest, dass der Anbieter der Server-Authentifizierungsanbieter ist.</p>
-
+<dt><code>Server</code></dt>
+<dd>
+<p>Legt fest, dass der Provider der Server-Authentifizierungsprovider ist.</p>
 </dd>
-<dt><tt>Client-Server</tt></dt>
-<dd><p>Legt fest, dass der Anbieter sowohl ein Client- als auch ein Server-Authentifizierungsanbieter ist.</p>
-
+<dt><code>Client-Server</code></dt>
+<dd>
+<p>Legt fest, dass der Provider sowohl ein Client- als auch ein Server-Authentifizierungsprovider ist.</p>
 </dd>
 </dl>
 </dd>
 <dt>Klassenname</dt>
-<dd><p>Der Name der Java Implementierungsklasse des Anbieters. Client-Authentifizierungsanbieter m&#252;ssen die Schnittstelle <tt>com.sun.enterprise.security.jauth.ClientAuthModule</tt> implementieren. Serverseitige Anbieter m&#252;ssen die Schnittstelle <tt>com.sun.enterprise.security.jauth.ServerAuthModule</tt> implementieren. Client-Server-Anbieter m&#252;ssen beide Schnittstellen implementieren.</p>
-
+<dd>
+<p>Der Name der Java Implementierungsklasse des Providers. Clientauthentifizierungsprovider m&uuml;ssen die <code>com.sun.enterprise.security.jauth.ClientAuthModule</code>-Schnittstelle implementieren. Serverseitige Provider m&uuml;ssen die <code>com.sun.enterprise.security.jauth.ServerAuthModule</code>-Schnittstelle implementieren. Client-Server-Provider m&uuml;ssen beide Schnittstellen implementieren.</p>
 </dd>
 <dt>Additional Properties (Weitere Eigenschaften)</dt>
-<dd><p>Weitere Eigenschaften f&#252;r die Meldungssicherheitskonfiguration.</p>
-
+<dd>
+<p>Weitere Eigenschaften f&uuml;r die Meldungssicherheitskonfiguration.</p>
 </dd>
 </dl>
-<a name="gkokx"></a><h5>Verwandte Aufgaben</h5>
-
-<ul><li><p><a href="task-configmsgsecproviders.html">So konfigurieren Sie GlassFish-Server-Funktionen f&#252;r die Verwendung durch Meldungssicherheitsanbieter</a></p>
-
+<a id="sthref424" name="sthref424"></a>
+<h5>Verwandte Aufgaben</h5>
+<ul>
+<li>
+<p><a href="task-configmsgsecproviders.html">So werden GlassFish Server-Funktionalit&auml;ten zur Verwendung durch Nachrichtensicherheitsprovider konfiguriert</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfignew.html">So erstellen Sie eine Meldungssicherheitskonfiguration</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfignew.html">So wird eine Nachrichtensicherheitskonfiguration erstellt</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigedit.html">So bearbeiten Sie eine Meldungssicherheitskonfiguration</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigedit.html">So wird eine Nachrichtensicherheitskonfiguration bearbeitet</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigdelete.html">So l&#246;schen Sie eine Meldungssicherheitskonfiguration</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigdelete.html">So wird eine Nachrichtensicherheitskonfiguration gel&ouml;scht</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfignew.html">So erstellen Sie eine Meldungssicherheitsanbieter-Konfiguration</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfignew.html">So wird eine Konfiguration eines Nachrichtensicherheitsprovider erstellt</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigedit.html">So bearbeiten Sie eine Konfiguration von Meldungssicherheitsanbietern</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigedit.html">So wird eine Konfiguration eines Nachrichtensicherheitsprovider bearbeitet</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigdelete.html">So l&#246;schen Sie eine Konfiguration des Meldungssicherheitsanbieters</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigdelete.html">So wird eine Konfiguration eines Nachrichtensicherheitsproviders gel&ouml;scht</a></p>
 </li>
-<li><p><a href="task-enablemesec4appclients.html">So aktivieren Sie die Meldungssicherheit f&#252;r Anwendungs-Clients</a></p>
-
-</li></ul>
-<a name="gkone"></a><h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+<li>
+<p><a href="task-enablemesec4appclients.html">So wird die Nachrichtensicherheit f&uuml;r Anwendungsclients aktiviert</a></p>
+</li>
+</ul>
+<a id="sthref425" name="sthref425"></a>
+<h5>Zugeh&ouml;rige asadmin-Befehle</h5>
 <p>Keine.</p>
 
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

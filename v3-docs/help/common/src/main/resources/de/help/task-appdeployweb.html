@@ -1,135 +1,155 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-appdeployweb" name="task-appdeployweb"></a><a id="GHCOM00156" name="GHCOM00156"></a></p>
 
-
-<a name="task-appdeployweb"></a><h3>So stellen Sie eine Webanwendung bereit</h3><a name="indexterm-29"></a><a name="indexterm-30"></a><a name="indexterm-31"></a><ol>
-<li><b>W&#228;hlen Sie in der Navigationsstruktur den Anwendungsknoten.</b><p>Die Seite "Anwendungen" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie in der Tabelle "Bereitgestellte Anwendungen" auf die Schaltfl&#228;che "Bereitstellen".</b><p>Die Seite "Anwendungen oder Module bereitstellen" wird ge&#246;ffnet.</p></li>
-<li><b>Geben Sie den Speicherort der bereitzustellenden Anwendung an.</b><ul>
-<li><b>Wenn es sich bei der Anwendung um eine Archivdatei handelt, die auf
-dem Clientcomputer gespeichert oder &#252;ber diesen zug&#228;nglich ist, w&#228;hlen Sie die Option
-"Gepackte Datei zum Hochladen auf den Server" aus.</b><p>Der Clientcomputer ist der Host, auf dem Sie die Administration Console &#252;ber
-einen Browser anzeigen.</p><p>Klicken Sie auf "Durchsuchen", um nach der Datei zu suchen, oder geben
-Sie den vollst&#228;ndigen Pfad zu der Datei ein.</p></li>
-<li><b>Wenn es sich bei der Anwendung um eine Archivdatei handelt, die auf
-dem Servercomputer gespeichert ist, oder um eine nicht gepackte Anwendung aus einem
-aufgel&#246;sten Verzeichnis, w&#228;hlen Sie die Option "Lokale gepackte Datei oder Verzeichnis, auf
-die/das von GlassFish-Server aus zugegriffen werden kann".</b><p>Der Serverrechner ist der Host, der den Domain Administration Server (DAS) ausf&#252;hrt.
-</p><p>Klicken auf "Dateien durchsuchen", um zu einer Datei zu gelangen, oder auf
-"Ordner durchsuchen", um zu einem Verzeichnis zu gelangen. Alternativ k&#246;nnen Sie auch
-den Namen des vollst&#228;ndigen Pfads zur Datei oder zum Verzeichnis eingeben. Die
-Bereitstellung aus einem erweiterten Verzeichnis ist f&#252;r erfahrene Entwickler vorgesehen und wird
-f&#252;r Produktionsumgebungen nicht empfohlen.</p></li></ul></li>
-<li><b>W&#228;hlen Sie "Webanwendung" aus der Dropdown-Liste "Typ".</b><p>Wenn Sie entweder eine gepackte Datei angegeben haben, die auf den Server
-hochgeladen werden soll, oder eine lokale gepackte Datei, die von GlassFish-Server aus
-zug&#228;nglich ist, wird der Anwendungstyp automatisch erkannt. Wenn Sie ein Verzeichnis angegeben
-haben, das von GlassFish-Server aus zug&#228;nglich ist, m&#252;ssen Sie den Typ manuell
-festlegen.</p></li>
-<li><b>Im Feld "Kontext-Root" k&#246;nnen Sie eine Zeichenfolge zur Identifizierung der Webanwendung eingeben.</b><p>Im URL der Webanwendung folgt die Kontext-Root gleich hinter der Portnummer (<tt>http://</tt><i>host</i><tt>:</tt><i> port</i><tt>/</tt><i>context-root</i><tt>/...</tt>).
-Die Kontext-Root sollte mit einem Schr&#228;gstrich beginnen, wie z. B. <tt>/hallo</tt>.</p></li>
-<li><b>Im Feld "Anwendungsname" k&#246;nnen Sie den Standardnamen (das Pr&#228;fix des Dateinamens) beibehalten
-oder einen anderen Namen eingeben.  </b><p>Der Standardname wird angezeigt, wenn Sie eine Datei f&#252;r den Upload ausw&#228;hlen.
-Der Anwendungsname muss eindeutig sein.</p><p>Der Name kann eine optionale Versionskennung enthalten, die dem Namen folgt und
-von diesem durch einen Doppelpunkt (<tt>:</tt>) getrennt ist. Die Versionskennung muss mit
-einem Buchstaben oder einer Zahl beginnen. Sie kann alphanumerische Zeichen sowie Unterstriche
-(<tt>_</tt>), Bindestriche (<tt>-</tt>) und Punkte (<tt>.</tt>) enthalten. Weitere Informationen zu Modul- und
-Anwendungsversionen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Virtuelle Server" den mit dieser Anwendung zu
-verkn&#252;pfenden virtuellen Server aus.</b><p>Die Option "Virtuelle Server" wird angezeigt, wenn nur die standardm&#228;&#223;ige Serverinstanz <tt>server</tt>
-vorhanden ist. Wenn Cluster oder andere eigenst&#228;ndige Serverinstanzen vorhanden sind, k&#246;nnen Sie
-nach der Bereitstellung virtuelle Server ausw&#228;hlen. W&#228;hlen Sie auf der Seite "Anwendung
-bearbeiten" die Registerkarte "Ziel" und anschlie&#223;end "Virtuelle Server verwalten" f&#252;r das gew&#252;nschte
-Ziel.</p></li>
-<li><b>Markieren Sie das Kontrollk&#228;stchen "Status aktiviert", um die Anwendung zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert. Wenn diese Option deaktiviert wird, ist die
-Anwendung nicht verf&#252;gbar.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Verf&#252;gbarkeit aktiviert", um die Sitzungsfortdauer f&#252;r die Anwendung
-zu aktivieren.</b><p>Wenn das Kontrollk&#228;stchen "Aktiviert" aktiviert ist, wird Hochverf&#252;gbarkeit f&#252;r Websitzungen aktiviert. Ist
-der Wert auf false (Standardwert) gesetzt, werden alle Websitzungsspeichervorg&#228;nge f&#252;r die angegebene
-Webanwendung deaktiviert. Ist der Wert auf true gesetzt, wird die angegebene Webanwendung
-f&#252;r Hochverf&#252;gbarkeit aktiviert. Setzen Sie diese Option nur dann auf true, wenn
-die Hochverf&#252;gbarkeit auf einer h&#246;heren Ebene konfiguriert und aktiviert ist, beispielsweise auf
-Server- und Containerebene.</p><p>Diese Option wird angezeigt, wenn neben der standardm&#228;&#223;igen Serverinstanz (<tt>server</tt>) Cluster oder
-eigenst&#228;ndige Serverinstanzen vorhanden sind.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "JSPs vorkompilieren", um die JavaServer Pages (JSP)-Dateien vorzukompilieren.</b><p>Wenn Sie diese Option deaktivieren, werden die JSP-Dateien beim ersten Zugriff zur
-Laufzeit kompiliert. Die Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Verifier ausf&#252;hren", um die Bereitstellungs-Deskriptoren vor der Bereitstellung
-zu verifizieren.</b><p>Wenn die &#220;berpr&#252;fung bei Auswahl dieser Option fehlschl&#228;gt, findet keine Bereitstellung statt.
-Der Verifier &#252;berpr&#252;ft Struktur und Inhalt der Bereitstellungs-Deskriptoren. Die &#220;berpr&#252;fung von gro&#223;en
-Anwendungen ist h&#228;ufig sehr zeitaufwendig. Die Option ist standardm&#228;&#223;ig deaktiviert.</p><p>Verifier-Pakete m&#252;ssen mithilfe des Aktualisierungstools installiert werden. Anderenfalls wird eine Warnung protokolliert
-und diese Option wird ignoriert.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen Erneute Bereitstellung erzwingen, um die erneute Bereitstellung zu
-erzwingen, wenn die Anwendung bereits bereitgestellt ist.</b><p>Ist diese Option nicht ausgew&#228;hlt, wird beim Versuch, eine bereits bereitgestellte Anwendung
-bereitzustellen, eine Fehlermeldung angezeigt. Die Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Status beibehalten", um Websitzungen, SFSB-Instanzen und dauerhaft erstellte
-EJB-Zeitgeber zwischen erneuten Bereitstellungen beizubehalten.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert. Diese Option wird nur bei der standardm&#228;&#223;igen
-Serverinstanz (<tt>server</tt>) unterst&#252;tzt. Bei anderen Zielen wird sie nicht unterst&#252;tzt und ignoriert.</p><p>&#196;nderungen, die an einer Anwendung zwischen Bereitstellungen vorgenommen werden, verhindern, dass diese
-Funktion richtig funktioniert. &#196;ndern Sie beispielsweise nicht die Instanzenvariablen in der SFSB-Bean-Klasse.</p><p>Bei Webanwendungen ist diese Funktion nur dann anwendbar, wenn in der Datei
-<tt>glassfish-web-app.xml </tt> das Attribut <tt>Fortdauertyp</tt> des Elements <tt> Sitzungsmanager</tt> <tt>file</tt> lautet.</p><p>Bei Stateful-Session-Bean-Instanzen wird der Fortdauertyp ohne hohe Verf&#252;gbarkeit im Server festgelegt (die
-Option "SFSB-Fortdauertyp") und muss auf <tt>file</tt>, den empfohlenen Standardwert, gesetzt werden.</p><p>Kann eine aktive Websitzung, SFSB-Instanz oder ein EJB-Zeitgeber nicht gespeichert oder wiederhergestellt
-werden, stehen diese <b>nicht</b> zur Verf&#252;gung, wenn die erneute Bereitstellung abgeschlossen ist.
-Die erneute Bereitstellung wird jedoch fortgesetzt, und eine Warnmeldung wird aufgezeichnet.</p><p>Damit die Daten aktiver Zust&#228;nde erhalten bleiben, werden die Daten von GlassFish-Server
-serialisiert und gespeichert. Zum Wiederherstellen der Daten entserialisiert das Klassenladeprogramm der erneut
-bereitgestellten Anwendung die Daten, die zuvor gespeichert wurden.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "F&#252;r einen bestimmten Anwendungsbereich definierte Ressourcen beibehalten", um
-f&#252;r bestimmte Anwendungen definierte Ressourcen beizubehalten und w&#228;hrend der erneuten Bereitstellung wiederherzustellen.</b><p>Die Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>Geben Sie im Feld "Bibliotheken" eine durch Kommas getrennte Liste von Bibliotheken-JAR-Dateien
-ein, die f&#252;r dieses Modul oder diese Anwendung spezifisch sind. </b><p>Die Pfade k&#246;nnen absolut oder relativ sein. Ein relativer Pfad ist relativ
-zu <tt></tt><i>domain-dir</i><tt>/lib/applibs</tt>. Wenn der Pfad absolut ist, muss der Pfad f&#252;r den
-Domain Administration Server (DAS) zug&#228;nglich sein. Dies bedeutet, dass er sich unter
-<tt></tt><i>domain-dir</i><tt></tt> befinden muss. Die Bibliotheken werden f&#252;r die Anwendung in der Reihenfolge
-verf&#252;gbar gemacht, in der sie festgelegt werden.</p></li>
-<li><b>Geben Sie im Feld "Beschreibung" eine Beschreibung dieser Anwendung ein.</b></li>
-<li><b>Um Zielserverinstanzen und Cluster hinzuzuf&#252;gen, auf denen das Modul oder die Anwendung
-bereitgestellt werden soll, w&#228;hlen Sie Zielserverinstanzen oder Cluster aus der Liste "Verf&#252;gbare
-Ziele" aus und verwenden die Schaltfl&#228;che "Hinzuf&#252;gen", um sie in die Liste
-"Ausgew&#228;hlte Ziele" zu verschieben.</b><p>Die Option "Ziel" wird angezeigt, wenn neben der standardm&#228;&#223;igen Serverinstanz (<tt>server</tt>) Cluster
-oder eigenst&#228;ndige Serverinstanzen vorhanden sind. Das Modul oder die Anwendung wird standardm&#228;&#223;ig
-f&#252;r die standardm&#228;&#223;ige Serverinstanz <tt>server</tt> bereitgestellt. Verwenden Sie die Schaltfl&#228;che "Alle hinzuf&#252;gen",
-um die Bereitstellung f&#252;r alle Ziele durchzuf&#252;hren. Verwenden Sie die Schaltfl&#228;chen "Entfernen"
-und "Alle entfernen", um Ziele aus der Liste "Ausgew&#228;hlte Ziele" zu entfernen.</p></li>
-<li><b>Klicken Sie auf "OK".</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-applistdeployed.html">So zeigen Sie eine Liste eingesetzter Anwendungen an</a></p>
-
+<h4><a id="sthref54" name="sthref54"></a><a id="sthref55" name="sthref55"></a><a id="sthref56" name="sthref56"></a>So werden Webanwendungen bereitgestellt</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>W&auml;hlen Sie in der Navigationsstruktur den Anwendungsknoten.</p>
+<p>Die Seite "Anwendungen" wird ge&ouml;ffnet.</p>
 </li>
-<li><p><a href="task-deployentapp.html">So stellen Sie eine Unternehmensanwendung bereit</a></p>
-
+<li>
+<p>Klicken Sie in der Tabelle "Bereitgestellte Anwendungen" auf die Schaltfl&auml;che "Bereitstellen".</p>
+<p>Die Seite "Anwendungen oder Module bereitstellen" wird ge&ouml;ffnet.</p>
 </li>
-<li><p><a href="task-appdeployclient.html">So stellen Sie einen Anwendungs-Client bereit</a></p>
-
+<li>
+<p>Geben Sie den Speicherort der bereitzustellenden Anwendung an.</p>
+<ul>
+<li>
+<p>Wenn es sich bei der Anwendung um eine Archivdatei handelt, die auf dem Clientcomputer gespeichert oder &uuml;ber diesen zug&auml;nglich ist, w&auml;hlen Sie die Option "Gepackte Datei zum Hochladen auf den Server" aus.</p>
+<p>Der Clientrechner ist der Host, auf dem Sie die Administrationskonsole &uuml;ber einen Browser anzeigen.</p>
+<p>Klicken Sie auf "Durchsuchen", um nach der Datei zu suchen, oder geben Sie den vollst&auml;ndigen Pfad zu der Datei ein.</p>
 </li>
-<li><p><a href="task-appdeployconn.html">So stellen Sie ein Verbindungsmodul bereit</a></p>
-
+<li>
+<p>Wenn es sich bei der Anwendung um eine Archivdatei handelt, die auf dem Servercomputer gespeichert ist, oder um eine nicht gepackte Anwendung aus einem aufgel&ouml;sten Verzeichnis, w&auml;hlen Sie die Option "Lokale gepackte Datei oder Verzeichnis, auf die/das von GlassFish Server aus zugegriffen werden kann".</p>
+<p>Der Serverrechner ist der Host, der den Domain Administration Server (DAS) ausf&uuml;hrt.</p>
+<p>Klicken Sie auf "Dateien durchsuchen", um zu einer Datei zu gelangen, oder auf "Ordner durchsuchen", um zu einem Verzeichnis zu gelangen. Alternativ k&ouml;nnen Sie auch den Namen des vollst&auml;ndigen Pfads zur Datei oder zum Verzeichnis eingeben. Das Deployment aus einem eingeblendeten Verzeichnis ist f&uuml;r erfahrene Entwickler vorgesehen und wird f&uuml;r Produktionsumgebungen nicht empfohlen.</p>
 </li>
-<li><p><a href="task-appdeployejb.html">So stellen Sie ein EJB Jar bereit</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-appedit.html">So bearbeiten Sie eine bereitgestellte Anwendung</a></p>
-
+<li>
+<p>W&auml;hlen Sie "Webanwendung" aus der Dropdown-Liste "Typ".</p>
+<p>Wenn Sie entweder eine gepackte Datei angegeben haben, die auf den Server hochgeladen werden soll, oder eine lokale gepackte Datei, die von GlassFish Server aus zug&auml;nglich ist, wird der Anwendungstyp automatisch erkannt. Wenn Sie ein Verzeichnis angegeben haben, das von GlassFish Server aus zug&auml;nglich ist, m&uuml;ssen Sie den Typ manuell festlegen.</p>
 </li>
-<li><p><a href="task-appviewdesc.html">So zeigen Sie die Beschreibung einer Anwendung an</a></p>
-
+<li>
+<p>Im Feld "Context Root" k&ouml;nnen Sie eine Zeichenfolge zur Identifizierung der Webanwendung eingeben.</p>
+<p>In der URL der Webanwendung folgt Context Root unmittelbar auf die Portnummer (<code>http://</code><i>host</i><code>:</code><i>port</i><code>/</code><i>context-root</i><code>/...</code>). Context Root muss mit einem Schr&auml;gstrich beginnen, Beispiel: <code>/hello</code>.</p>
 </li>
-<li><p><a href="task-appviewtargets.html">So zeigen Sie Anwendungsziele an</a></p>
-
+<li>
+<p>Im Feld "Anwendungsname" k&ouml;nnen Sie den Standardnamen (das Pr&auml;fix des Dateinamens) beibehalten oder einen anderen Namen eingeben.</p>
+<p>Der Standardname wird angezeigt, wenn Sie eine Datei f&uuml;r den Upload ausw&auml;hlen. Der Anwendungsname muss eindeutig sein.</p>
+<p>Der Name kann eine optionale Versions-ID enthalten, die dem Namen folgt und von diesem durch einen Doppelpunkt (<code>:</code>) getrennt ist. Die Versions-ID muss mit einem Buchstaben oder einer Zahl beginnen. Sie kann alphanumerische Zeichen sowie Unterstriche (<code>_</code>), Bindestriche (<code>-</code>) und Punkte (<code>.</code>) enthalten. Weitere Informationen zu Modul- und Anwendungsversionen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00324"><i>Module and Application Versions</i> im <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
 </li>
-<li><p><a href="task-endpoint.html">So zeigen Sie Endpunkt-Informationen f&#252;r einen Webdienst an</a></p>
-
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Virtuelle Server" den mit dieser Anwendung zu verkn&uuml;pfenden virtuellen Server aus.</p>
+<p>Die Option "Virtuelle Server" wird angezeigt, wenn nur die Standardserverinstanz <code>server</code> vorhanden ist. Wenn Cluster oder andere Standalone-Serverinstanzen vorhanden sind, k&ouml;nnen Sie nach dem Deployment virtuelle Server ausw&auml;hlen. W&auml;hlen Sie auf der Seite "Anwendung bearbeiten" die Registerkarte "Ziel" und anschlie&szlig;end "Virtuelle Server verwalten" f&uuml;r das gew&uuml;nschte Ziel.</p>
 </li>
-<li><p><a href="task-applaunch.html">So starten Sie eine Anwendung</a></p>
-
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Status aktiviert", um die Anwendung zu aktivieren.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig aktiviert. Wenn diese Option deaktiviert wird, ist die Anwendung nicht verf&uuml;gbar.</p>
 </li>
-<li><p><a href="task-appclientlaunch.html">So starten Sie einen Anwendungs-Client</a></p>
-
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Verf&uuml;gbarkeit aktiviert", um die Sessionpersistenz f&uuml;r die Anwendung zu aktivieren.</p>
+<p>Wenn das Kontrollk&auml;stchen "Aktiviert" aktiviert ist, wird Hochverf&uuml;gbarkeit f&uuml;r Websessions aktiviert. Ist der Wert auf false (Standardwert) gesetzt, werden alle Websessionspeichervorg&auml;nge f&uuml;r die angegebene Webanwendung deaktiviert. Ist der Wert auf true gesetzt, wird die angegebene Webanwendung f&uuml;r Hochverf&uuml;gbarkeit aktiviert. Setzen Sie diese Option nur dann auf true, wenn die Hochverf&uuml;gbarkeit auf einer h&ouml;heren Ebene konfiguriert und aktiviert ist, beispielsweise auf Server- und Containerebene.</p>
+<p>Diese Option wird angezeigt, wenn neben der standardm&auml;&szlig;igen Serverinstanz (<code>server</code>) Cluster oder eigenst&auml;ndige Serverinstanzen vorhanden sind.</p>
 </li>
-<li><p><a href="task-appredeploy.html">Eine bereitgestellte Anwendung erneut bereitstellen</a></p>
-
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "JSP vorkompilieren", um eine Vorkompilierung der JavaServer Pages- (JSP-)Dateien durchzuf&uuml;hren.</p>
+<p>Wenn Sie diese Option deaktivieren, werden die JSP-Dateien beim ersten Zugriff zur Laufzeit kompiliert. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </li>
-<li><p><a href="task-apprestart.html">So laden Sie eine bereitgestellte Anwendung erneut</a></p>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Verifier ausf&uuml;hren", um die Deployment-Deskriptoren vor dem Deployment zu verifizieren.</p>
+<p>Wenn die &Uuml;berpr&uuml;fung bei Auswahl dieser Option nicht erfolgreich ist, findet kein Deployment statt. Der Verifier &uuml;berpr&uuml;ft Struktur und Content der Deployment-Deskriptoren. Die &Uuml;berpr&uuml;fung von gro&szlig;en Anwendungen ist h&auml;ufig sehr zeitaufwendig. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+<p>Verifier-Packages m&uuml;ssen mithilfe des Updatetools installiert werden. Anderenfalls wird eine Warnung protokolliert und diese Option wird ignoriert.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Erneutes Deployment erzwingen", um das erneute Deployment zu erzwingen, wenn die Anwendung bereits bereitgestellt ist.</p>
+<p>Ist diese Option nicht ausgew&auml;hlt, wird beim Versuch, eine bereits bereitgestellte Anwendung bereitzustellen, eine Fehlermeldung angezeigt. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Status beibehalten", um Websessions, SFSB-Instanzen und persistent erstellte EJB-Timer zwischen erneuten Deployments beizubehalten.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig deaktiviert. Diese Option wird nur bei der standardm&auml;&szlig;igen Serverinstanz (<code>server</code>) unterst&uuml;tzt. Bei anderen Zielen wird sie nicht unterst&uuml;tzt und ignoriert.</p>
+<p>&Auml;nderungen, die an einer Anwendung zwischen Deployments vorgenommen werden, verhindern, dass diese Funktion richtig funktioniert. &Auml;ndern Sie beispielsweise nicht die Instanzenvariablen in der SFSB-Bean-Klasse.</p>
+<p>Bei Webanwendungen ist dieses Feature nur dann anwendbar, wenn in der Datei <code>glassfish-web-app.xml</code> das Attribut <code>persistence-type</code> des Elements <code>session-manager</code> <code>file</code> lautet.</p>
+<p>Bei Stateful-Session-Bean-Instanzen wird der Persistenztyp ohne hohe Verf&uuml;gbarkeit im Server festgelegt (die Option "SFSB-Persistenztyp") und muss auf <code>file</code>, den empfohlenen Standardwert, gesetzt werden.</p>
+<p>Kann eine aktive Websession, SFSB-Instanz oder ein EJB-Timer nicht gespeichert oder wiederhergestellt werden, stehen diese <i>nicht</i> zur Verf&uuml;gung, wenn das erneute Deployment abgeschlossen ist. Das erneute Deployment wird jedoch fortgesetzt, und eine Warnmeldung wird protokolliert.</p>
+<p>Damit die Daten aktiver Zust&auml;nde erhalten bleiben, werden die Daten von GlassFish Server serialisiert und gespeichert. Zum Wiederherstellen der Daten entserialisiert das Klassenladeprogramm der erneut bereitgestellten Anwendung die Daten, die zuvor gespeichert wurden.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "F&uuml;r einen bestimmten Anwendungsbereich definierte Ressourcen beibehalten", um f&uuml;r bestimmte Anwendungen definierte Ressourcen beizubehalten und w&auml;hrend des erneuten Deployments wiederherzustellen.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Bibliotheken" eine durch Kommas getrennte Liste von Bibliotheken-JAR-Dateien ein, die f&uuml;r dieses Modul oder diese Anwendung spezifisch sind.</p>
+<p>Die Pfade k&ouml;nnen absolut oder relativ sein. Ein relativer Pfad ist relativ zu <i>domain-dir</i><code>/lib/applibs</code>. Wenn der Pfad absolut ist, muss der Pfad f&uuml;r den Domain Administration Server (DAS) zug&auml;nglich sein. Dies bedeutet, dass er sich unter folgendem Verzeichnis befinden muss: <i>domain-dir</i>. Die Bibliotheken werden f&uuml;r die Anwendung in der Reihenfolge verf&uuml;gbar gemacht, in der sie festgelegt werden.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Beschreibung" eine Beschreibung dieser Anwendung ein.</p>
+</li>
+<li>
+<p>Um Zielserverinstanzen und Cluster hinzuzuf&uuml;gen, auf denen das Modul oder die Anwendung bereitgestellt werden soll, w&auml;hlen Sie Zielserverinstanzen oder Cluster aus der Liste "Verf&uuml;gbare Ziele" aus und verwenden die Schaltfl&auml;che "Hinzuf&uuml;gen", um sie in die Liste "Ausgew&auml;hlte Ziele" zu verschieben.</p>
+<p>Die Option "Ziel" wird angezeigt, wenn neben der standardm&auml;&szlig;igen Serverinstanz (<code>server</code>) Cluster oder eigenst&auml;ndige Serverinstanzen vorhanden sind. Das Modul oder die Anwendung wird standardm&auml;&szlig;ig f&uuml;r die standardm&auml;&szlig;ige Serverinstanz <code>server</code> bereitgestellt. Verwenden Sie die Schaltfl&auml;che "Alle hinzuf&uuml;gen", um das Deployment f&uuml;r alle Ziele durchzuf&uuml;hren. Verwenden Sie die Schaltfl&auml;chen "Entfernen" und "Alle entfernen", um Ziele aus der Liste "Ausgew&auml;hlte Ziele" zu entfernen.</p>
+</li>
+<li>
+<p>Klicken Sie auf "OK".</p>
+</li>
+</ol>
+<a id="sthref57" name="sthref57"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-applistdeployed.html">So wird die Liste der bereitgestellten Anwendungen angezeigt</a></p>
+</li>
+<li>
+<p><a href="task-deployentapp.html">So werden Enterprise-Anwendungen bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-appdeployclient.html">So werden Anwendungsclients bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-appdeployconn.html">So werden Connector-Module bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-appdeployejb.html">So werden EJB-Jars bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-appedit.html">So werden bereitgestellte Anwendungen bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-appviewdesc.html">So werden Deskriptoren einer Anwendung angezeigt</a></p>
+</li>
+<li>
+<p><a href="task-appviewtargets.html">So zeigen Sie Anwendungsziele an</a></p>
+</li>
+<li>
+<p><a href="task-endpoint.html">So werden End Point-Informationen f&uuml;r einen Webservice angezeigt</a></p>
+</li>
+<li>
+<p><a href="task-applaunch.html">So werden Anwendungen gestartet</a></p>
+</li>
+<li>
+<p><a href="task-appclientlaunch.html">So werden Anwendungsclients gestartet</a></p>
+</li>
+<li>
+<p><a href="task-appclientstubs.html">So werden Anwendungsclient-Stubs heruntergeladen</a></p>
+</li>
+<li>
+<p><a href="task-appredeploy.html">So werden bereitgestellte Anwendungen erneut bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-apprestart.html">So wird eine bereitgestellte Anwendung erneut geladen</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesview.html">So werden Anwendungsgeltungsbereichsressourcen angezeigt</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesedit.html">So werden Anwendungsgeltungsbereichsressourcen ge&auml;ndert</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

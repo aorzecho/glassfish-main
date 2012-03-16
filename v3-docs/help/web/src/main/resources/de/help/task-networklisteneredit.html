@@ -1,81 +1,100 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-networklisteneredit" name="task-networklisteneredit"></a><a id="GHWEB00040" name="GHWEB00040"></a></p>
 
-
-<a name="task-networklisteneredit"></a><h3>So bearbeiten Sie ein Netzwerk-Zielger&#228;t</h3><a name="indexterm-22"></a><ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
-<li><b>Erweitern Sie unter dem Konfigurationsknoten den Knoten "Netzwerk konfigurieren".</b></li>
-<li><b>W&#228;hlen Sie unter dem Knoten "Netzwerkkonfiguration" den Knoten "Netzwerk-Zielger&#228;te".</b><p>Die Seite "Netzwerk-Zielger&#228;te" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie auf der Seite "Netzwerk-Zielger&#228;te" auf den Namen des zu bearbeitenden
-Netzwerk-Zielger&#228;ts.</b><p>Die Seite "Netzwerk-Zielger&#228;t bearbeiten" wird ge&#246;ffnet.</p></li>
-<li><b>Markieren Sie das Kontrollk&#228;stchen "Status aktiviert" oder entfernen Sie die Markierung, um
-den Status des Netzwerkzielger&#228;ts zu &#228;ndern.</b><p>Das Zielger&#228;t kann aktiviert oder deaktiviert werden. Diese Option ist standardm&#228;&#223;ig aktiviert.
-Wenn das Zielger&#228;t deaktiviert ist, f&#252;hren alle Versuche, eine Verbindung zum Zielger&#228;t herzustellen,
-zu einer Socket-Ausnahme (<tt>java.net.ConnectException</tt>).</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Sicherheit", um Sicherheit f&#252;r das vom Netzwerk-Zielger&#228;t verwendete
-Protokoll zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "JK-Zielger&#228;t", um anzugeben, dass das Zielger&#228;t das Apache-Protokoll
-<tt>mod-jk</tt> unterst&#252;tzt.</b><p>Das Protokoll <tt>mod-jk</tt> ist ein propriet&#228;res Kommunikations-/Netzwerkprotokoll zwischen dem Apache-Webserver <tt>httpd</tt> und
-einer Backend-Instanz von GlassFish-Server. Wenn das Zielger&#228;t dieses Protokoll unterst&#252;tzt, wird davon
-ausgegangen, dass <tt>httpd</tt> den gesamten statischen Inhalt verarbeitet, w&#228;hrend alle Anforderungen von
-dynamischen Ressourcen (d.&#160;h. Servlets und JSPs) an das <tt>mod-jk</tt>-f&#228;hige Zielger&#228;t von GlassFish-Server
-weitergeleitet werden, wobei das Protokoll <tt>mod-jk</tt> verwendet wird. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>Geben Sie im Feld "Port" die Nummer des Ports ein, den das
-Netzwerk-Zielger&#228;t &#252;berwachen soll. </b><p>G&#252;ltige Werte sind 1 bis 65535. Bei einem UNIX-System sind zum Erstellen
-von Sockets, die die Ports 1 bis 1024 &#252;berwachen, Superuser-Rechte erforderlich.</p></li>
-<li><b>Geben Sie im Feld "Adresse" die IP-Adresse ein, &#252;ber die die Verbindung
-zum Netzwerkzielger&#228;t hergestellt wird. </b><p>Die Adresse kann als Punktepaar oder in IPv6-Notation angegeben werden. Beim Wert
-<tt>any</tt> (f&#252;r <tt>INADDR_ANY</tt>) werden alle IP-Adressen &#252;berwacht. Auch die Angabe eines Hostnamens
-ist m&#246;glich.</p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Threadpool" den Threadpool aus, der mit dem
-Netzwerk-Zielger&#228;t verbunden werden soll.</b></li>
-<li><b>Klicken Sie auf "Speichern".</b>
-<hr><p><b>Tipp - </b>Um zu den Standardeinstellungen zur&#252;ckzukehren, klicken Sie auf die Schaltfl&#228;che "Standardwerte laden"
-und anschlie&#223;end auf "Speichern".</p>
-
+<h4><a id="sthref45" name="sthref45"></a>So wird ein Netzwerk-Listener bearbeitet</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Konfiguration" ein.</p>
+</li>
+<li>
+<p>Blenden Sie unter dem Konfigurationsknoten den Knoten "Netzwerkkonfiguration" ein.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie unter dem Knoten "Netzwerkkonfiguration" den Knoten "Netzwerk-Listener".</p>
+<p>Die Seite "Netzwerk-Listener" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Klicken Sie auf der Seite "Netzwerk-Listener" auf den Namen des zu bearbeitenden Netzwerk-Listeners.</p>
+<p>Die Seite "Netzwerk-Listener bearbeiten" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Status aktiviert", oder entfernen Sie die Markierung, um den Status des Netzwerk-Listeners zu &auml;ndern.</p>
+<p>Der Listener kann aktiviert oder deaktiviert werden. Diese Option ist standardm&auml;&szlig;ig aktiviert. Wenn der Listener deaktiviert ist, f&uuml;hren alle Versuche, eine Verbindung zum Listener herzustellen, zu einer Socket-Ausnahme (<code>java.net.ConnectException</code>).</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Sicherheit", um Sicherheit f&uuml;r das vom Netzwerk-Listener verwendete Protokoll zu aktivieren.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "JK-Listener", um anzugeben, dass der Listener das Apache-Protokoll <code>mod-jk</code> unterst&uuml;tzt.</p>
+<p>Das Protokoll <code>mod-jk</code> ist ein propriet&auml;res Kommunikations-/Netzwerkprotokoll zwischen dem Apache-Webserver <code>httpd</code> und einer Backend-Instanz von GlassFish Server. Wenn der Listener dieses Protokoll unterst&uuml;tzt, wird davon ausgegangen, dass <code>httpd</code> den gesamten statischen Content verarbeitet, w&auml;hrend alle Anforderungen von dynamischen Ressourcen (d.h. Servlets und JSPs) an den <code>mod-jk</code>-f&auml;higen Listener von GlassFish Server weitergeleitet werden, wobei das Protokoll <code>mod-jk</code> verwendet wird. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Port" die Nummer des Ports ein, auf dem der Netzwerk-Listener horchen soll.</p>
+<p>G&uuml;ltige Werte sind 1 bis 65535. Bei einem UNIX-System sind zum Erstellen von Sockets, die auf den Ports 1 bis 1024 horchen, Superuser-Berechtigungen erforderlich.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Adresse" die IP-Adresse ein, &uuml;ber die die Verbindung zum Netzwerk-Listener hergestellt wird.</p>
+<p>Die Adresse kann als Punktepaar oder in IPv6-Notation angegeben werden. Beim Wert <code>any</code> (f&uuml;r <code>INADDR_ANY</code>) wird auf allen IP-Adressen gehorcht. Auch die Angabe eines Hostnamens ist m&ouml;glich.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Threadpool" den Threadpool aus, der mit dem Netzwerk-Listener verbunden werden soll.</p>
+</li>
+<li>
+<p>Klicken Sie auf "Speichern".</p>
 
 <hr>
-</li></ol><p></b>N&#228;chste Schritte</b></p><p>Auf den Registerkarten "SSL", "HTTP" und "Dateicache" k&#246;nnen Sie die Einstellungen f&#252;r
-das mit dem Netzwerk-Zielger&#228;t verbundene Protokoll bearbeiten. Die Registerkarte "SSL" ist nur
-dann von Bedeutung, wenn Sie Sicherheit f&#252;r das Netzwerk-Zielger&#228;t aktiviert haben.</p>
-
-<p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-networklistenernew.html">So erstellen Sie ein Netzwerk-Zielger&#228;t</a></p>
+<p><b>Tipp:</b></p>
+Um zu den Standardeinstellungen zur&uuml;ckzukehren, klicken Sie auf die Schaltfl&auml;che "Standardwerte laden" und anschlie&szlig;end auf "Speichern".
+<hr>
 
 </li>
-<li><p><a href="task-networklistenerdelete.html">So l&#246;schen Sie ein Netzwerk-Zielger&#228;t</a></p>
-
+</ol>
+<a id="sthref46" name="sthref46"></a>
+<h5>N&auml;chste Schritte</h5>
+<p>In den Registerkarten "SSL", "HTTP" und "Dateicache" k&ouml;nnen Sie die Einstellungen f&uuml;r das mit dem Netzwerk-Listener verbundene Protokoll bearbeiten. Die Registerkarte "SSL" ist nur dann von Bedeutung, wenn Sie Sicherheit f&uuml;r den Netzwerk-Listener aktiviert haben.</p>
+<a id="sthref47" name="sthref47"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-networklistenernew.html">So wird ein Netzwerk-Listener erstellt</a></p>
 </li>
-<li><p><a href="task-protocolnew.html">So erstellen Sie ein Protokoll</a></p>
-
+<li>
+<p><a href="task-networklistenerdelete.html">So wird ein Netzwerk-Listener gel&ouml;scht</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">So bearbeiten Sie ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolnew.html">So wird ein Protokoll erstellt</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">So bearbeiten Sie SSL-Einstellungen f&#252;r ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">So wird ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">So bearbeiten Sie HTTP-Einstellungen f&#252;r ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">So werden SSL-Einstellungen f&uuml;r ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">So bearbeiten Sie Dateicache-Einstellungen f&#252;r ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">So werden HTTP-Einstellungen f&uuml;r ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">So l&#246;schen Sie ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">So werden Dateicacheeinstellungen f&uuml;r ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-transportnew.html">So erstellen Sie einen Transport</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">So wird ein Protokoll gel&ouml;scht</a></p>
 </li>
-<li><p><a href="task-transportedit.html">So bearbeiten Sie einen Transport</a></p>
-
+<li>
+<p><a href="task-transportnew.html">So wird ein Transport erstellt</a></p>
 </li>
-<li><p><a href="task-transportdelete.html">So l&#246;schen Sie einen Transport</a></p>
+<li>
+<p><a href="task-transportedit.html">So wird ein Transport bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-transportdelete.html">So wird ein Transport gel&ouml;scht</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

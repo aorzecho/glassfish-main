@@ -1,193 +1,207 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-protocolhttpedit"></a><h4>HTTP</h4>
-<a name="indexterm-72"></a><a name="indexterm-73"></a><p>Auf der Seite "HTTP" k&#246;nnen Sie HTTP-Einstellungen f&#252;r ein Netzwerkprotokoll &#228;ndern.</p>
+<p><a id="ref-protocolhttpedit" name="ref-protocolhttpedit"></a><a id="GHWEB00022" name="GHWEB00022"></a></p>
 
-<p>Die Seite "HTTP" enth&#228;lt die folgenden Optionen.</p>
-
-<dl><dt>Standardeinstellungen laden</dt>
-<dd><p>Schaltfl&#228;che zum Wiederherstellen der Standardwerte f&#252;r Einstellungen, f&#252;r die es Standardwerte gibt. Einstellungen, die nicht &#252;ber Standardwerte verf&#252;gen, k&#246;nnen nicht ge&#228;ndert werden.</p>
-
+<h4><a id="sthref152" name="sthref152"></a><a id="sthref153" name="sthref153"></a>HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Auf der Seite "HTTP" k&ouml;nnen Sie HTTP-Einstellungen f&uuml;r ein Netzwerkprotokoll &auml;ndern.</p>
+<p>Die Seite "HTTP" enth&auml;lt die folgenden Optionen.</p>
+<dl>
+<dt>Standardeinstellungen laden</dt>
+<dd>
+<p>Schaltfl&auml;che zum Wiederherstellen der Standardwerte f&uuml;r Einstellungen, f&uuml;r die es Standardwerte gibt. Einstellungen, die nicht &uuml;ber Standardwerte verf&uuml;gen, k&ouml;nnen nicht ge&auml;ndert werden.</p>
 </dd>
 <dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
 <dt>Protokollname</dt>
-<dd><p>Der Name des Protokolls. Das Feld "Protokollname" ist ein schreibgesch&#252;tztes Feld. Sie k&#246;nnen den Namen nur festlegen, wenn Sie ein neues Protokoll erstellen.</p>
-
+<dd>
+<p>Der Name des Protokolls. Das Feld "Protokollname" ist ein schreibgesch&uuml;tztes Feld. Sie k&ouml;nnen den Namen nur festlegen, wenn Sie ein neues Protokoll erstellen.</p>
 </dd>
 <dt>Server Name (Servername)</dt>
-<dd><p>Der Hostname, der in den URLs verwendet werden soll, die der Server an den Client sendet. Dieser Name ist der Aliasname, falls Ihr Server einen Alias verwendet. Wenn Ihr Server keinen Alias verwendet, lassen Sie dieses Feld leer.</p>
-
+<dd>
+<p>Der Hostname, der in den URLs verwendet werden soll, die der Server an den Client sendet. Dieser Name ist der Aliasname, falls Ihr Server einen Alias verwendet. Wenn Ihr Server keinen Alias verwendet, lassen Sie dieses Feld leer.</p>
 </dd>
-<dt>Default Virtual Server (Standardm&#228;&#223;iger virtueller Server)</dt>
-<dd><p>Der mit dem Protokoll verbundene virtuelle Server. Auf der Seite "Virtuelle Server" k&#246;nnen Sie virtuelle Server definieren.</p>
-
+<dt>Default Virtual Server (Standardm&auml;&szlig;iger virtueller Server)</dt>
+<dd>
+<p>Der mit dem Protokoll verbundene virtuelle Server. Auf der Seite "Virtuelle Server" k&ouml;nnen Sie virtuelle Server definieren.</p>
 </dd>
 <dt>Redirect Port (Port umleiten)</dt>
-<dd><p>Port-Wert, der eine Anforderung an einen anderen Port umleitet. GlassFish-Server leitet Anforderungen automatisch weiter, wenn die folgenden zwei Bedingungen erf&#252;llt sind:</p>
-
-
-<ul><li><p>Dieses Protokoll unterst&#252;tzt Nicht-SSL-Anforderungen.</p>
-
+<dd>
+<p>Port-Wert, der eine Anforderung an einen anderen Port umleitet. GlassFish Server leitet Anforderungen automatisch weiter, wenn die folgenden zwei Bedingungen erf&uuml;llt sind:</p>
+<ul>
+<li>
+<p>Dieses Protokoll unterst&uuml;tzt Nicht-SSL-Anforderungen.</p>
 </li>
-<li><p>Es wird eine Anforderung empfangen, f&#252;r die eine &#252;bereinstimmende Sicherheitsbeschr&#228;nkung einen SSL-Transport erfordert.</p>
-
-</li></ul>
-<p>Wird keine Port-Umleitung angegeben, verwendet GlassFish-Server die in der urspr&#252;nglichen Anforderung angegebene Portnummer.</p>
-
+<li>
+<p>Es wird eine Anforderung empfangen, f&uuml;r die ein &uuml;bereinstimmendes Sicherheits-Constraint einen SSL-Transport erfordert.</p>
+</li>
+</ul>
+<p>Wird keine Port-Umleitung angegeben, verwendet GlassFish Server die in der urspr&uuml;nglichen Anforderung angegebene Portnummer.</p>
 </dd>
 <dt>Max Connections (Maximale Verbindungen)</dt>
-<dd><p>Die maximale Zahl vorhandener Verbindungen, die im Keep-Alive-Modus gehalten werden. Das untergeordnete Keep-Alive-System fragt periodisch im Leerlauf befindliche Verbindungen ab. Der Standardwert ist 256.</p>
-
+<dd>
+<p>Die maximale Zahl vorhandener Verbindungen, die im Keep-Alive-Modus gehalten werden. Das untergeordnete Keep-Alive-System fragt periodisch im Leerlauf befindliche Verbindungen ab. Der Standardwert ist 256.</p>
 </dd>
-<dt>Zeit&#252;berschreitung</dt>
-<dd><p>Die maximale Anzahl Sekunden, die eine Verbindung als im Leerlauf befindlich betrachtet und im Keep-Alive-Zustand gehalten werden kann. Ein Wert kleiner oder gleich null (0) bedeutet, dass Keep-Alive-Verbindungen unbegrenzt offen gehalten werden. Der Standardwert betr&#228;gt 30 Sekunden.</p>
-
+<dt>Timeout</dt>
+<dd>
+<p>Die maximale Anzahl Sekunden, die eine Verbindung als im Leerlauf befindlich betrachtet und im Keep-Alive-Zustand gehalten werden kann. Ein Wert kleiner oder gleich null (0) bedeutet, dass Keep-Alive-Verbindungen unbegrenzt offen gehalten werden. Der Standardwert betr&auml;gt 30 Sekunden.</p>
 </dd>
-<dt>Zeit&#252;berschreitung beim Hochladen</dt>
-<dd><p>Bei aktivierter Option wird die Verbindung f&#252;r ein Servlet, das Bytes langsam liest, nach Erreichen des Grenzwerts f&#252;r die Zeit&#252;berschreitung beim Hochladen der Verbindung geschlossen. Bei deaktivierter Option tritt f&#252;r Servlet-Verbindungen keine Zeit&#252;berschreitung ein. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dt>Timeout beim Hochladen</dt>
+<dd>
+<p>Bei aktivierter Option wird die Verbindung f&uuml;r ein Servlet, das Bytes langsam liest, nach Erreichen des Grenzwerts f&uuml;r den Timeout beim Hochladen der Verbindung geschlossen. Bei deaktivierter Option tritt f&uuml;r Servlet-Verbindungen kein Timeout ein. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
-<dt>Zeit&#252;berschreitung beim Hochladen der Verbindung</dt>
-<dd><p>Die Zeit&#252;berschreitung (in Millisekunden) beim Hochladen. Dieses Feld steht nur zur Verf&#252;gung, wenn das Kontrollk&#228;stchen "Zeit&#252;berschreitung beim Hochladen" aktiviert ist. Der Standardwert betr&#228;gt 300.000 Millisekunden.</p>
-
+<dt>Timeout beim Hochladen der Verbindung</dt>
+<dd>
+<p>Das Timeout (in Millisekunden) beim Hochladen. Dieses Feld steht nur zur Verf&uuml;gung, wenn das Kontrollk&auml;stchen "Timeout beim Hochladen" aktiviert ist. Der Standardwert betr&auml;gt 300.000 Millisekunden.</p>
 </dd>
-<dt>Zeit&#252;berschreitung f&#252;r Anforderung</dt>
-<dd><p>Die Anzahl der Sekunden, bevor die Anforderung eine Zeit&#252;berschreitung erf&#228;hrt. Wenn die Anforderung nicht vor Erreichen des Zeit&#252;berschreitungswerts verarbeitet wird, wird sie ignoriert. Der Standardwert betr&#228;gt 30 Sekunden.</p>
-
+<dt>Timeout f&uuml;r Anforderung</dt>
+<dd>
+<p>Die Anzahl der Sekunden, bevor die Anforderung wegen Timeout abgebrochen wird. Wenn die Anforderung nicht vor Erreichen des Timeoutwerts verarbeitet wird, wird sie ignoriert. Der Standardwert betr&auml;gt 30 Sekunden.</p>
 </dd>
-<dt>Gr&#246;&#223;e des Sendepuffers</dt>
-<dd><p>Die Gr&#246;&#223;e des Sendepuffers in Byte. Der Standardwert betr&#228;gt 8192 Byte.</p>
-
+<dt>Gr&ouml;&szlig;e des Sendepuffers</dt>
+<dd>
+<p>Die Gr&ouml;&szlig;e des Sendepuffers in Byte. Der Standardwert betr&auml;gt 8192 Byte.</p>
 </dd>
-<dt>Kopfzeilenpuffergr&#246;&#223;e</dt>
-<dd><p>Die Gr&#246;&#223;e (in Byte) des Puffers, der von den Anforderungsverarbeitungs-Threads zum Lesen der angeforderten Daten verwendet wird. Der Standardwert betr&#228;gt 8192 Byte.</p>
-
+<dt>Header-Puffergr&ouml;&szlig;e</dt>
+<dd>
+<p>Die Gr&ouml;&szlig;e (in Byte) des Puffers, der von den Anforderungsverarbeitungs-Threads zum Lesen der angeforderten Daten verwendet wird. Der Standardwert betr&auml;gt 8192 Byte.</p>
 </dd>
-<dt>Maximale Post-Gr&#246;&#223;e</dt>
-<dd><p>Die maximale Gr&#246;&#223;e von POST-Aktionen in Byte. Der Standardwert betr&#228;gt 2.097.152 Byte.</p>
-
+<dt>Maximale Post-Gr&ouml;&szlig;e</dt>
+<dd>
+<p>Die maximale Gr&ouml;&szlig;e von POST-Aktionen in Byte. Der Standardwert betr&auml;gt 2.097.152 Byte.</p>
 </dd>
 <dt>URI-Codierung</dt>
-<dd><p>Der Name des Zeichensatzes, der zum Decodieren der erhaltenen Anforderungs-URIs verwendet wird. Als Wert muss ein g&#252;ltiger IANA-Zeichensatzname angegeben werden. Der Standardwert ist UTF-8.</p>
-
+<dd>
+<p>Der Name des Zeichensatzes, der zum Decodieren der erhaltenen Anforderungs-URIs verwendet wird. Als Wert muss ein g&uuml;ltiger IANA-Zeichensatzname angegeben werden. Der Standardwert ist UTF-8.</p>
 </dd>
 <dt>Version</dt>
-<dd><p>Die Version des verwendeten HTTP-Protokolls. Der Standardwert ist HTTP/1.1.</p>
-
+<dd>
+<p>Die Version des verwendeten HTTP-Protokolls. Der Standardwert ist HTTP/1.1.</p>
 </dd>
 <dt>Kompression</dt>
-<dd><p>HTTP/1.1 GZIP-Kompression zum Einsparen von Serverbandbreite aktivieren. Zur Auswahl stehen:</p>
-
-<dl><dt><tt>Ein</tt></dt>
-<dd><p>Daten.</p>
-
+<dd>
+<p>HTTP/1.1 GZIP-Komprimierung verwenden, um Serverbandbreite zu sparen. Zur Auswahl stehen:</p>
+<dl>
+<dt><code>Ein</code></dt>
+<dd>
+<p>Daten.</p>
 </dd>
-<dt><tt>aus</tt></dt>
-<dd><p>In der folgenden Tabelle werden diese Eigenschaften aufgelistet.</p>
-
+<dt><code>aus</code></dt>
+<dd>
+<p>In der folgenden Tabelle werden diese Eigenschaften aufgelistet.</p>
 </dd>
-<dt><tt> force</tt></dt>
-<dd><p>Erzwingt die Datenkomprimierung in allen F&#228;llen.</p>
-
+<dt><code>force</code></dt>
+<dd>
+<p>Erzwingt die Datenkomprimierung in allen F&auml;llen.</p>
 </dd>
 </dl>
-<p><tt>Der Standardwert ist "AUS".</tt></p>
-
+<p><code>Der Standardwert ist "AUS".</code></p>
 </dd>
 <dt>Komprimierbare MIME-Typen</dt>
-<dd><p>Eine durch Kommata getrennte Liste von MIME-Typen, f&#252;r die HTTP-Kompression verwendet wird. Der Standardwert lautet <tt>text/html,text/xml,text/plain</tt>.</p>
-
+<dd>
+<p>Eine durch Kommata getrennte Liste von MIME-Typen, f&uuml;r die HTTP-Kompression verwendet wird. Der Standardwert ist <code>text/html,text/xml,text/plain</code>.</p>
 </dd>
-<dt>Mindestkompressionsgr&#246;&#223;e</dt>
-<dd><p>Die minimale Gr&#246;&#223;e einer komprimierten Datei. Dieser Wert muss festgelegt werden, wenn das Kontrollk&#228;stchen "Kompression" aktiviert wird. <tt></tt><tt></tt> Der Standardwert betr&#228;gt 2048 Byte.</p>
-
+<dt>Mindestkompressionsgr&ouml;&szlig;e</dt>
+<dd>
+<p>Die minimale Gr&ouml;&szlig;e einer komprimierten Datei. Dieser Wert muss festgelegt werden, wenn das Kontrollk&auml;stchen "Kompression" aktiviert wird. Der Standardwert betr&auml;gt 2048 Byte.</p>
 </dd>
-<dt>Benutzeragenten ohne Kompression?</dt>
-<dd><p>Eine durch Kommata getrennte Liste von regul&#228;ren Ausdr&#252;cken, die Benutzeragenten von HTTP-Clients entsprechen, f&#252;r die keine Kompression verwendet werden sollte. Standardm&#228;&#223;ig handelt es sich bei diesem Wert um eine leere Zeichenfolge.</p>
-
+<dt>Benutzeragenten ohne Kompression</dt>
+<dd>
+<p>Eine durch Kommata getrennte Liste von regul&auml;ren Ausdr&uuml;cken, die Benutzeragenten von HTTP-Clients entsprechen, f&uuml;r die keine Kompression verwendet werden sollte. Standardm&auml;&szlig;ig handelt es sich bei diesem Wert um eine leere Zeichenfolge.</p>
 </dd>
-<dt>Beschr&#228;nkte Benutzeragenten</dt>
-<dd><p>Eine Liste von beschr&#228;nkten Benutzeragenten, auf die HTTP-Kompression angewendet wird. Wenn keine Benutzeragenten angegeben werden, wird die HTTP-Kompression auf alle Benutzeragenten angewendet. Standardm&#228;&#223;ig sind keine Benutzeragenten angegeben.</p>
-
+<dt>Beschr&auml;nkte Benutzeragenten</dt>
+<dd>
+<p>Eine Liste von beschr&auml;nkten Benutzeragenten, auf die HTTP-Kompression angewendet wird. Wenn keine Benutzeragenten angegeben werden, wird die HTTP-Kompression auf alle Benutzeragenten angewendet. Standardm&auml;&szlig;ig sind keine Benutzeragenten angegeben.</p>
 </dd>
-<dt>Standardm&#228;&#223;iger Antworttyp</dt>
-<dd><p>Eine Zeichenfolge, die den standardm&#228;&#223;igen Antworttyp angibt. Das Format ist eine durch Semikolon getrennte Zeichenfolge bestehend aus Inhaltstyp, Codierung, Sprache und Zeichensatz. Der Standardwert lautet <tt>text/html; charset=iso-8859-1</tt>.</p>
-
+<dt>Standardantworttyp</dt>
+<dd>
+<p>Eine Zeichenfolge, die den standardm&auml;&szlig;igen Antworttyp angibt. Das Format ist eine durch Semikolon getrennte Zeichenfolge bestehend aus Contenttyp, Codierung, Sprache und Zeichensatz. Der Standardwert ist <code>text/html; charset=iso-8859-1</code>.</p>
 </dd>
 <dt>Erzwungener Antworttyp</dt>
-<dd><p>Eine Zeichenfolge, die den zu verwendenden Antworttyp angibt, falls keine MIME-Zuordnung mit der Dateierweiterung &#252;bereinstimmt. Das Format ist eine durch Semikolon getrennte Zeichenfolge bestehend aus Inhaltstyp, Codierung, Sprache und Zeichensatz. Der Standardwert lautet <tt>text/html; charset=iso-8859-1</tt>.</p>
-
+<dd>
+<p>Eine Zeichenfolge, die den zu verwendenden Antworttyp angibt, falls keine MIME-Zuordnung mit der Dateierweiterung &uuml;bereinstimmt. Das Format ist eine durch Semikolon getrennte Zeichenfolge bestehend aus Contenttyp, Codierung, Sprache und Zeichensatz. Der Standardwert ist <code>text/html; charset=iso-8859-1</code>.</p>
 </dd>
 <dt>Adapter</dt>
-<dd><p>Der Klassenname des statischen Ressourcenadapters. Der Standardwert lautet <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p>
-
+<dd>
+<p>Der Klassenname des statischen Ressourcenadapters. Der Standardwert lautet <code>com.sun.grizzly.tcp.StaticResourcesAdapter</code>.</p>
 </dd>
-<dt>Comet Support (Comet-Unterst&#252;tzung)</dt>
-<dd><p>Wenn diese Option gew&#228;hlt wird, wird die Comet-Unterst&#252;tzung f&#252;r das Protokoll aktiviert. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dt>Comet Support (Comet-Unterst&uuml;tzung)</dt>
+<dd>
+<p>Wenn diese Option gew&auml;hlt wird, wird die Comet-Unterst&uuml;tzung f&uuml;r das Protokoll aktiviert. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
 <dt>DNS-Suche</dt>
-<dd><p>Bei aktivierter Option ist die DNS-Suche (Domain Name System) aktiviert. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dd>
+<p>Bei aktivierter Option ist die DNS-Suche (Domain Name System) aktiviert. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
-<dt>RCM-Unterst&#252;tzung</dt>
-<dd><p>Bei aktivierter Option ist Resource Configuration Management (RCM) aktiviert. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dt>RCM-Unterst&uuml;tzung</dt>
+<dd>
+<p>Bei aktivierter Option ist Resource Configuration Management (RCM) aktiviert. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
 <dt>Verfolgen</dt>
-<dd><p>Bei aktivierter Option ist die TRACE-Operation aktiviert. Bei deaktivierter Option ist GlassFish-Server weniger anf&#228;llig f&#252;r site&#252;bergreifende Skriptangriffe. Diese Option ist standardm&#228;&#223;ig aktiviert.</p>
-
+<dd>
+<p>Bei aktivierter Option ist der TRACE-Vorgang aktiviert. Bei deaktivierter Option ist GlassFish Server weniger anf&auml;llig f&uuml;r site&uuml;bergreifende Skriptangriffe. Diese Option ist standardm&auml;&szlig;ig aktiviert.</p>
 </dd>
 <dt>Autorisierungs-Durchlauf</dt>
-<dd><p>Bei aktivierter Option empf&#228;ngt das Netzwerk-Zielger&#228;t, das dieses Protokoll verwendet, Daten von einem SSL-beendenden Proxyserver. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dd>
+<p>Bei aktivierter Option empf&auml;ngt der Netzwerk-Listener, der dieses Protokoll verwendet, Daten von einem SSL-beendenden Proxyserver. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
-<dt>Erstellen von Datenbl&#246;cken</dt>
-<dd><p>Bei aktivierter Option ist das Erstellen von Datenbl&#246;cken f&#252;r HTTP-Antworten aktiviert. Diese Option ist standardm&#228;&#223;ig aktiviert.</p>
-
+<dt>Erstellen von Datenbl&ouml;cken</dt>
+<dd>
+<p>Bei aktivierter Option ist das Erstellen von Datenbl&ouml;cken f&uuml;r HTTP-Antworten aktiviert. Diese Option ist standardm&auml;&szlig;ig aktiviert.</p>
 </dd>
 <dt>XPowered-By</dt>
-<dd><p>Bei aktivierter Option verwendet GlassFish-Server <tt>X-Powered-By</tt>-Header entsprechend den Spezifikationen f&#252;r Java Servlet 3.0 und Java Server Pages 2.0. Diese Option ist standardm&#228;&#223;ig aktiviert.</p>
-
+<dd>
+<p>Bei aktivierter Option verwendet GlassFish Server <code>X-Powered-By</code> Header entsprechend den Spezifikationen f&uuml;r Java Servlet 3.0 und Java Server Pages 2.0. Diese Option ist standardm&auml;&szlig;ig aktiviert.</p>
+</dd>
+<dt>Codierter Schr&auml;gstrich</dt>
+<dd>
+<p>Wenn diese Option gew&auml;hlt wird, k&ouml;nnen URIs codierte Schr&auml;gstriche enthalten. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</dd>
+<dt>Unterst&uuml;tzung von Websockets</dt>
+<dd>
+<p>Wenn diese Option gew&auml;hlt wird, wird das WebSockets-Protokoll unterst&uuml;tzt. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
 </dl>
+<a id="sthref154" name="sthref154"></a>
 <h5>Verwandte Aufgaben</h5>
-
-<ul><li><p><a href="task-protocolnew.html">So erstellen Sie ein Protokoll</a></p>
-
+<ul>
+<li>
+<p><a href="task-protocolnew.html">So wird ein Protokoll erstellt</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">So bearbeiten Sie ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">So wird ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">So bearbeiten Sie SSL-Einstellungen f&#252;r ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">So werden SSL-Einstellungen f&uuml;r ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">So bearbeiten Sie HTTP-Einstellungen f&#252;r ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">So werden HTTP-Einstellungen f&uuml;r ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">So bearbeiten Sie Dateicache-Einstellungen f&#252;r ein Protokoll</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">So werden Dateicacheeinstellungen f&uuml;r ein Protokoll bearbeitet</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">So l&#246;schen Sie ein Protokoll</a></p>
-
-</li></ul>
-<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">So wird ein Protokoll gel&ouml;scht</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
-
+</ul>
+<a id="sthref155" name="sthref155"></a>
+<h5>Zugeh&ouml;rige asadmin-Befehle</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00051"><code>create-protocol</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00195"><code>list-protocols</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00103"><code>delete-protocol</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

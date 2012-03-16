@@ -1,86 +1,108 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-appedit" name="task-appedit"></a><a id="GHCOM00161" name="GHCOM00161"></a></p>
 
-
-<a name="task-appedit"></a><h3>So bearbeiten Sie eine bereitgestellte Anwendung</h3><a name="indexterm-44"></a><ol>
-<li><b>W&#228;hlen Sie in der Navigationsstruktur den Anwendungsknoten.</b><p>Die Seite "Anwendungen" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie in der Tabelle "Bereitgestellte Anwendungen" auf den Namen der zu
-bearbeitenden Anwendung.</b><p>Der Name kann eine optionale Versionskennung enthalten, die dem Namen folgt und
-von diesem durch einen Doppelpunkt (<tt>:</tt>) getrennt ist. Weitere Informationen zu Modul-
-und Anwendungsversionen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions in <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p><p>Die Seite "Anwendung bearbeiten" wird ge&#246;ffnet.</p></li>
-<li><b>Entfernen Sie die Markierung des Kontrollk&#228;stchens "Status aktiviert", um die Anwendung zu
-deaktivieren, so dass sie nicht verf&#252;gbar ist.</b><p>Standardm&#228;&#223;ig ist der Status einer Anwendung mit der Bereitstellung "Aktiviert". </p></li>
-<li><b>Geben Sie f&#252;r eine Webanwendung im Feld "Kontext-Root" den Pfad f&#252;r die
-Anwendung ein.</b><p>Im URL der Webanwendung folgt die Kontext-Root gleich hinter der Portnummer (<tt>http://</tt><i>host</i><tt>:</tt><i> port</i><tt>/</tt><i>context-root</i><tt>/...</tt>).
-Die Kontext-Root muss mit einem Schr&#228;gstrich beginnen, wie z. B. <tt>/hallo</tt>.</p></li>
-<li><b>Deaktivieren Sie das Kontrollk&#228;stchen "Verf&#252;gbarkeit aktiviert", um die Sitzungsfortdauer und SFSB-Fixpunktroutinen f&#252;r
-die Anwendung zu deaktivieren.</b><p>Wenn dieses Kontrollk&#228;stchen aktiviert ist, wird die Hochverf&#252;gbarkeit f&#252;r Websitzungen und f&#252;r
-die Stateful Session-Bean (SFSB)-Fixpunktroutine und m&#246;glicherweise die Passivierung aktiviert. Ist der Wert
-auf false (Standardwert) gesetzt, werden alle Websitzungsspeichervorg&#228;nge und SFSB-Fixpunktroutinen f&#252;r die angegebene
-Anwendung, Webanwendung oder das EJB-Modul deaktiviert. Ist der Wert auf true gesetzt,
-wird die angegebene Anwendung oder das Modul f&#252;r Hochverf&#252;gbarkeit aktiviert. Setzen Sie
-diese Option nur dann auf true, wenn die Hochverf&#252;gbarkeit auf einer h&#246;heren
-Ebene konfiguriert und aktiviert ist, beispielsweise auf Server- und Containerebene.</p><p>Diese Option wird angezeigt, wenn neben der standardm&#228;&#223;igen Serverinstanz (<tt>server</tt>) Cluster oder
-eigenst&#228;ndige Serverinstanzen vorhanden sind.</p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Virtuelle Server" den mit dieser Anwendung zu
-verkn&#252;pfenden virtuellen Server aus.</b><p>Die Option "Virtuelle Server" wird angezeigt, wenn nur die standardm&#228;&#223;ige Serverinstanz <tt>server</tt>
-vorhanden ist. Wenn Cluster oder andere eigenst&#228;ndige Serverinstanzen vorhanden sind, k&#246;nnen Sie
-nach der Bereitstellung virtuelle Server ausw&#228;hlen. W&#228;hlen Sie auf der Seite "Anwendung
-bearbeiten" die Registerkarte "Ziel" und anschlie&#223;end "Virtuelle Server verwalten" f&#252;r das gew&#252;nschte
-Ziel.</p></li>
-<li><b>Markieren Sie das Kontrollk&#228;stchen "Java Web Start aktiviert", um die Java Web
-Start-Software zur Bereitstellung der Anwendung zu verwenden.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert oder deaktiviert, was von ihrer Einstellung zum
-Zeitpunkt der urspr&#252;nglichen Bereitstellung abh&#228;ngig ist.</p></li>
-<li><b>Geben Sie im Feld "Beschreibung" eine Beschreibung dieser Anwendung ein.</b></li>
-<li><b>Zum Anzeigen der Liste mit den Modul-Deskriptoren f&#252;r die Anwendung klicken Sie
-auf die Registerkarte "Beschreibung". Weitere Informationen finden Sie unter <a href="task-appviewdesc.html">So zeigen Sie die Beschreibung einer Anwendung an</a></b></li>
-<li><b>Der Status einer Anwendung ist standardm&#228;&#223;ig f&#252;r alle Ziele aktiviert. Klicken Sie
-auf die Registerkarte "Ziele", um die Ziele anzuzeigen, auf denen die Anwendung
-aktiviert wurde. Sie k&#246;nnen Anwendungen f&#252;r mindestens ein Ziel aktivieren oder deaktivieren.
-Siehe <a href="task-appviewtargets.html">So zeigen Sie Anwendungsziele an</a>.</b></li>
-<li><b>Klicken Sie auf "Speichern".</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-applistdeployed.html">So zeigen Sie eine Liste eingesetzter Anwendungen an</a></p>
-
+<h4><a id="sthref74" name="sthref74"></a>So werden bereitgestellte Anwendungen bearbeitet</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>W&auml;hlen Sie in der Navigationsstruktur den Anwendungsknoten.</p>
+<p>Die Seite "Anwendungen" wird ge&ouml;ffnet.</p>
 </li>
-<li><p><a href="task-appdeployweb.html">So stellen Sie eine Webanwendung bereit</a></p>
-
+<li>
+<p>Klicken Sie in der Tabelle "Bereitgestellte Anwendungen" auf den Namen der zu bearbeitenden Anwendung.</p>
+<p>Der Name kann eine optionale Versions-ID enthalten, die dem Namen folgt und von diesem durch einen Doppelpunkt (<code>:</code>) getrennt ist. Weitere Informationen zu Modul- und Anwendungsversionen finden Sie unter <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00324"><i>Module and Application Versions</i> im <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
+<p>Die Seite "Anwendung bearbeiten" wird ge&ouml;ffnet.</p>
 </li>
-<li><p><a href="task-deployentapp.html">So stellen Sie eine Unternehmensanwendung bereit</a></p>
-
+<li>
+<p>Entfernen Sie die Markierung des Kontrollk&auml;stchens "Status aktiviert", um die Anwendung zu deaktivieren, so dass sie nicht verf&uuml;gbar ist.</p>
+<p>Standardm&auml;&szlig;ig ist der Status einer Anwendung mit dem Deployment "Aktiviert".</p>
 </li>
-<li><p><a href="task-appdeployclient.html">So stellen Sie einen Anwendungs-Client bereit</a></p>
-
+<li>
+<p>Geben Sie f&uuml;r eine Webanwendung im Feld "Context Root" den Pfad f&uuml;r die Anwendung ein.</p>
+<p>In der URL der Webanwendung folgt Context Root unmittelbar auf die Portnummer (<code>http://</code><i>host</i><code>:</code><i>port</i><code>/</code><i>context-root</i><code>/...</code>). Context Root muss mit einem Schr&auml;gstrich beginnen, Beispiel: <code>/hello</code>.</p>
 </li>
-<li><p><a href="task-appdeployconn.html">So stellen Sie ein Verbindungsmodul bereit</a></p>
-
+<li>
+<p>Deaktivieren Sie das Kontrollk&auml;stchen "Verf&uuml;gbarkeit aktiviert", um die Sessionpersistenz und das SFSB-Checkpointing f&uuml;r die Anwendung zu deaktivieren.</p>
+<p>Wenn dieses Kontrollk&auml;stchen aktiviert ist, wird die Hochverf&uuml;gbarkeit f&uuml;r Websessions und f&uuml;r die Stateful Session-Bean (SFSB)-Fixpunktroutine und m&ouml;glicherweise die Passivierung aktiviert. Ist der Wert auf false (Standardwert) gesetzt, werden alle Websessionspeichervorg&auml;nge und SFSB-Fixpunktroutinen f&uuml;r die angegebene Anwendung, Webanwendung oder das EJB-Modul deaktiviert. Ist der Wert auf true gesetzt, wird die angegebene Anwendung oder das Modul f&uuml;r Hochverf&uuml;gbarkeit aktiviert. Setzen Sie diese Option nur dann auf true, wenn die Hochverf&uuml;gbarkeit auf einer h&ouml;heren Ebene konfiguriert und aktiviert ist, beispielsweise auf Server- und Containerebene.</p>
+<p>Diese Option wird angezeigt, wenn neben der standardm&auml;&szlig;igen Serverinstanz (<code>server</code>) Cluster oder eigenst&auml;ndige Serverinstanzen vorhanden sind.</p>
 </li>
-<li><p><a href="task-appdeployejb.html">So stellen Sie ein EJB Jar bereit</a></p>
-
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Virtuelle Server" den mit dieser Anwendung zu verkn&uuml;pfenden virtuellen Server aus.</p>
+<p>Die Option "Virtuelle Server" wird angezeigt, wenn nur die Standardserverinstanz <code>server</code> vorhanden ist. Wenn Cluster oder andere Standalone-Serverinstanzen vorhanden sind, k&ouml;nnen Sie nach dem Deployment virtuelle Server ausw&auml;hlen. W&auml;hlen Sie auf der Seite "Anwendung bearbeiten" die Registerkarte "Ziel" und anschlie&szlig;end "Virtuelle Server verwalten" f&uuml;r das gew&uuml;nschte Ziel.</p>
 </li>
-<li><p><a href="task-appviewdesc.html">So zeigen Sie die Beschreibung einer Anwendung an</a></p>
-
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Java Web Start aktiviert", um die Java Web Start-Software zum Deployment der Anwendung zu verwenden.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig aktiviert oder deaktiviert, was von der Einstellung zum Zeitpunkt des urspr&uuml;nglichen Deployments abh&auml;ngt.</p>
 </li>
-<li><p><a href="task-appviewtargets.html">So zeigen Sie Anwendungsziele an</a></p>
-
+<li>
+<p>Geben Sie im Feld "Beschreibung" eine Beschreibung dieser Anwendung ein.</p>
 </li>
-<li><p><a href="task-endpoint.html">So zeigen Sie Endpunkt-Informationen f&#252;r einen Webdienst an</a></p>
-
+<li>
+<p>Zum Anzeigen der Liste mit den Modul-Deskriptoren f&uuml;r die Anwendung klicken Sie auf die Registerkarte "Beschreibung". Weitere Einzelheiten finden Sie unter <a href="task-appviewdesc.html">So werden Deskriptoren einer Anwendung angezeigt</a>.</p>
 </li>
-<li><p><a href="task-applaunch.html">So starten Sie eine Anwendung</a></p>
-
+<li>
+<p>Der Status einer Anwendung ist standardm&auml;&szlig;ig f&uuml;r alle Ziele aktiviert. Klicken Sie auf die Registerkarte "Ziele", um die Ziele anzuzeigen, auf denen die Anwendung aktiviert wurde. Sie k&ouml;nnen Anwendungen f&uuml;r mindestens ein Ziel aktivieren oder deaktivieren. Siehe <a href="task-appviewtargets.html">So zeigen Sie Anwendungsziele an</a></p>
 </li>
-<li><p><a href="task-appclientlaunch.html">So starten Sie einen Anwendungs-Client</a></p>
-
+<li>
+<p>Klicken Sie auf "Speichern".</p>
 </li>
-<li><p><a href="task-appredeploy.html">Eine bereitgestellte Anwendung erneut bereitstellen</a></p>
-
+</ol>
+<a id="sthref75" name="sthref75"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-applistdeployed.html">So wird die Liste der bereitgestellten Anwendungen angezeigt</a></p>
 </li>
-<li><p><a href="task-apprestart.html">So laden Sie eine bereitgestellte Anwendung erneut</a></p>
+<li>
+<p><a href="task-appdeployweb.html">So werden Webanwendungen bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-deployentapp.html">So werden Enterprise-Anwendungen bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-appdeployclient.html">So werden Anwendungsclients bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-appdeployconn.html">So werden Connector-Module bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-appdeployejb.html">So werden EJB-Jars bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-appviewdesc.html">So werden Deskriptoren einer Anwendung angezeigt</a></p>
+</li>
+<li>
+<p><a href="task-appviewtargets.html">So zeigen Sie Anwendungsziele an</a></p>
+</li>
+<li>
+<p><a href="task-endpoint.html">So werden End Point-Informationen f&uuml;r einen Webservice angezeigt</a></p>
+</li>
+<li>
+<p><a href="task-applaunch.html">So werden Anwendungen gestartet</a></p>
+</li>
+<li>
+<p><a href="task-appclientlaunch.html">So werden Anwendungsclients gestartet</a></p>
+</li>
+<li>
+<p><a href="task-appclientstubs.html">So werden Anwendungsclient-Stubs heruntergeladen</a></p>
+</li>
+<li>
+<p><a href="task-appredeploy.html">So werden bereitgestellte Anwendungen erneut bereitgestellt</a></p>
+</li>
+<li>
+<p><a href="task-apprestart.html">So wird eine bereitgestellte Anwendung erneut geladen</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesview.html">So werden Anwendungsgeltungsbereichsressourcen angezeigt</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesedit.html">So werden Anwendungsgeltungsbereichsressourcen ge&auml;ndert</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

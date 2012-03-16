@@ -1,37 +1,37 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-httpserviceprops"></a><h4>Spezifische Eigenschaften des HTTP-Diensts</h4>
-<a name="indexterm-57"></a><a name="indexterm-58"></a><p>Folgende weitere Eigenschaften stehen f&#252;r den HTTP-Dienst zur Verf&#252;gung. Wenn Sie diese
-Eigenschaften angeben, gelten sie f&#252;r alle <a href="ref-group-networklisteners.html">Netzwerk-Zielger&#228;te</a>.</p>
+<p><a id="ref-httpserviceprops" name="ref-httpserviceprops"></a><a id="GHWEB00009" name="GHWEB00009"></a></p>
 
-<dl><dt><tt>ssl-cache-entriese</tt></dt>
-<dd><p>Die Anzahl der zwischenzuspeichernden SSL-Sitzungen. Der Standardwert betr&#228;gt 10.000.</p>
-
+<h4><a id="sthref108" name="sthref108"></a><a id="sthref109" name="sthref109"></a>F&uuml;r den HTTP-Service spezifische Eigenschaften</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Folgende weitere Eigenschaften stehen f&uuml;r den HTTP-Service zur Verf&uuml;gung. Wenn Sie diese Eigenschaften angeben, gelten sie f&uuml;r alle<a href="ref-group-networklisteners.html">Netzwerk-Listener</a></p>
+<dl>
+<dt><code>ssl-cache-entriese</code></dt>
+<dd>
+<p>Die Anzahl der zwischenzuspeichernden SSL-Sessions. Der Standardwert betr&auml;gt 10.000.</p>
 </dd>
-<dt><tt>ssl3-session-timeout</tt></dt>
-<dd><p>Das Intervall, in dem SSL3-Sitzungen zwischengespeichert werden. Der Standardwert betr&#228;gt 86.400.</p>
-
+<dt><code>ssl3-session-timeout</code></dt>
+<dd>
+<p>Das Intervall, in dem SSL3-Sessions zwischengespeichert werden. Der Standardwert betr&auml;gt 86.400.</p>
 </dd>
-<dt><tt>ssl-session-timeout</tt></dt>
-<dd><p>Das Intervall, in dem SSL2-Sitzungen zwischengespeichert werden. Der Standardwert betr&#228;gt 100.</p>
-
+<dt><code>ssl-session-timeout</code></dt>
+<dd>
+<p>Das Intervall, in dem SSL2-Sessions zwischengespeichert werden. Der Standardwert betr&auml;gt 100.</p>
 </dd>
-<dt><tt>proxyHandler</tt></dt>
-<dd><p>Der vollst&#228;ndig qualifizierte Klassenname einer benutzerdefinierten Implementierung der abstrakten Klasse <tt>com.sun.appserv.ProxyHandler</tt>, der es einer Backend-Instanz von GlassFish-Server erm&#246;glicht, Informationen &#252;ber die urspr&#252;ngliche Clientanforderung abzurufen, die von einem SSL-beendenden Proxyserver (z.&#160;B. einem Lastenausgleichssystem) abgefangen wurde. Eine Implementierung dieser abstrakten Klasse &#252;berpr&#252;ft eine bestimmte Anforderung auf die benutzerdefinierten Anforderungsheader, &#252;ber die der Proxyserver die Informationen &#252;ber die urspr&#252;ngliche Clientanforderung an die Enterprise Server-Instanz kommunziert, und gibt diese Informationen anschlie&#223;end an den Aufrufer zur&#252;ck.</p>
-
-<p>Die Standardimplementierung liest die IP-Adresse des Clients aus einem HTTP-Anforderungsheader namens <tt>Proxy-ip</tt>, die SSL <tt>keysize</tt> aus einem HTTP-Anforderungsheader namens <tt>Proxy-keysize</tt> und die SSL-Clientzertifikatskette aus einem HTTP-Anforderungsheader namens <tt>Proxy-auth-cert</tt>. Der Wert von <tt>Proxy-auth-cert</tt> muss die BASE-64-codierte Clientzertifikatskette ohne die Begrenzungen <tt>BEGIN CERTIFICATE</tt> und <tt>END CERTIFICATE</tt> enthalten; au&#223;erdem muss <tt>\n</tt> durch <tt>% d% a</tt> ersetzt werden.</p>
-
-<p>Diese Einstellung wird nur verwendet, wenn das Kontrollk&#228;stchen "Autorisierungs-Durchlauf" auf der Seite "HTTP" des Netzwerk-Zielger&#228;teprotokolls aktiviert ist.</p>
-
+<dt><code>proxyHandler</code></dt>
+<dd>
+<p>Der vollst&auml;ndig angegebene Klassenname einer benutzerdefinierten Implementierung&darr;der abstrakten Klasse <code>com.sun.appserv.ProxyHandler</code>,&darr;der es einer Backend-Instanz von GlassFish Server erm&ouml;glicht, Informationen &uuml;ber die urspr&uuml;ngliche Clientanforderung abzurufen, die von einem SSL-beendenden Proxyserver (z.B. einem Load Balancer) abgefangen wurde. Eine Implementierung dieser abstrakten Klasse &uuml;berpr&uuml;ft eine bestimmte Anforderung auf die benutzerdefinierten Anforderungs-Header, &uuml;ber die der Proxyserver die Informationen &uuml;ber die urspr&uuml;ngliche Clientanforderung an die Enterprise Server-Instanz kommuniziert, und gibt diese Informationen anschlie&szlig;end an den Aufrufer zur&uuml;ck.</p>
+<p>Die Standardimplementierung liest die IP-Adresse des Clients aus einem HTTP-Anforderungs-Header namens <code>Proxy-ip</code>, die SSL <code>keysize</code> aus einem HTTP-Anforderungs-Header namens <code>Proxy-keysize</code> und die SSL-Clientzertifikatfolge aus einem HTTP-Anforderungs-Header namens <code>Proxy-auth-cert</code> . Der Wert <code>Proxy-auth-cert</code>muss die BASE-64-codierte Clientzertifikatfolge ohne die Grenzwerte <code>BEGIN CERTIFICATE</code> und <code>END CERTIFICATE</code> enthalten. Au&szlig;erdem wird <code>\n</code> durch <code>% d% a</code> ersetzt.</p>
+<p>Diese Einstellung wird nur verwendet, wenn das Kontrollk&auml;stchen "Autorisierungs-Durchlauf" auf der Seite "HTTP" des Netzwerk-Listener-Protokolls aktiviert ist.</p>
 </dd>
-<dt><tt>connectionTimeout</tt></dt>
-<dd><p>Gibt die Anzahl Sekunden an, die Netzwerk-Zielger&#228;te nach dem Akzeptieren einer Verbindung auf das Senden der Anforderungs-URI-Zeile warten. Der Standardwert ist 30.</p>
-
+<dt><code>connectionTimeout</code></dt>
+<dd>
+<p>Gibt die Anzahl Sekunden an, die Netzwerk-Listener nach dem Akzeptieren einer Verbindung auf das Senden der Anforderungs-URI-Zeile warten. Der Standardwert ist 30.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

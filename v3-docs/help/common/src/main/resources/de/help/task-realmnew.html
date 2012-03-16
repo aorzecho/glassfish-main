@@ -1,110 +1,123 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-realmnew" name="task-realmnew"></a><a id="GHCOM00184" name="GHCOM00184"></a></p>
 
-
-<a name="task-realmnew"></a><h3>So erstellen Sie einen Bereich</h3><a name="indexterm-81"></a><a name="indexterm-82"></a><p>GlassFish-Server verf&#252;gt &#252;ber drei vorkonfigurierte Bereiche: <tt>file</tt>, <tt> certificate</tt> und <tt>admin-realm</tt>. Dar&#252;ber hinaus
-k&#246;nnen die Bereiche <tt>ldap</tt>, <tt>JDBC</tt>, <tt>solaris</tt>, <tt>PAM</tt> sowie benutzerdefinierte Bereiche erstellt werden.
-Im Allgemeinen ist auf jedem Server ein Bereich jeden Typs vorhanden, GlassFish-Server
-verf&#252;gt jedoch &#252;ber zwei Dateibereiche: <tt>file</tt> and <tt> admin-realm</tt>. Dies sind zwei Bereiche
-desselben Typs, die f&#252;r unterschiedliche Zwecke verwendet werden. Dar&#252;ber hinaus kann f&#252;r
-jeden virtuellen Server auf dem System eine separate Zertifikatdatenbank bereitgestellt werden.</p>
-
+<h4>Sicherheits-Realms<a id="sthref141" name="sthref141"></a>So wird eine Realm erstellt</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>GlassFish Server verf&uuml;gt &uuml;ber drei vorkonfigurierte Realms: <code>file</code>, <code>certificate</code> und <code>admin-realm</code>. Dar&uuml;ber hinaus k&ouml;nnen die Realms <code>ldap</code>, <code>JDBC</code>, <code>solaris</code>, <code>PAM</code> sowie benutzerdefinierte Realms erstellt werden. Im Allgemeinen ist auf jedem Server eine Realm jeden Typs vorhanden, GlassFish Server verf&uuml;gt jedoch &uuml;ber zwei Datei-Realms: <code>file</code> und <code>admin-realm</code>. Dies sind zwei Realms desselben Typs, die f&uuml;r unterschiedliche Zwecke verwendet werden. Dar&uuml;ber hinaus kann f&uuml;r jeden virtuellen Server auf dem System eine separate Zertifikatdatenbank bereitgestellt werden.</p>
 <ol>
-<li><b>Erweitern Sie unter dem Knoten "Konfigurationen" die Serverinstanz oder die Cluster-Konfiguration, f&#252;r
-die Sie Bereiche konfigurieren m&#246;chten.</b></li>
-<li><b>Erweitern Sie den Knoten "Sicherheit".</b></li>
-<li><b>Erweitern Sie den Knoten "Bereiche".</b><p>Die Seite "Bereiche" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie auf der Seite "Bereiche" auf "Neu".</b><p>Die Seite "Neuer Bereich" wird ge&#246;ffnet.</p></li>
-<li><b>Geben Sie im Feld "Name" einen Namen f&#252;r den Bereich ein.</b></li>
-<li><b>Sie haben folgende M&#246;glichkeiten, den Klassennamen des Bereichs anzugeben: </b><ul>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Klassenname" den Klassennamen f&#252;r den zu erstellenden
-Bereich.</b><p>Zul&#228;ssige Optionen sind in der folgenden Tabelle aufgef&#252;hrt.</p><table><col width="16%"><col width="83%"><tr><th align="left" valign="top" scope="column"><p>Bereichsname</p>
+<li>
+<p>Blenden Sie unter dem Knoten "Konfigurationen" die Serverinstanz oder die Clusterkonfiguration ein, f&uuml;r die Sie Realms konfigurieren m&ouml;chten.</p>
+</li>
+<li>
+<p>Blenden Sie den Knoten "Sicherheit" ein.</p>
+</li>
+<li>
+<p>Blenden Sie den Knoten "Realms" ein.</p>
+<p>Die Seite "Realms" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Klicken Sie auf der Seite "Realms" auf "Neu".</p>
+<p>Die Seite "Neue Realm" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Name" einen Namen f&uuml;r die Realm ein.</p>
+</li>
+<li>
+<p>Sie haben folgende M&ouml;glichkeiten, den Klassennamen der Realm anzugeben:</p>
+<ul>
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Klassenname" den Klassennamen f&uuml;r die zu erstellende Realm.</p>
+<p>Zul&auml;ssige Optionen sind in der folgenden Tabelle aufgef&uuml;hrt.</p>
 
-</th>
-<th align="left" valign="top" scope="column"><p>Klassenname</p>
-
-</th>
+<table  summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="16%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t7">Realm-Name</th>
+<th align="left" valign="bottom" id="r1c2-t7">Klassenname</th>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>file</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.file.FileRealm</tt></p>
-
-</td>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t7" headers="r1c1-t7"><code>file</code></td>
+<td align="left" headers="r2c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.file.FileRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>certificate</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.certificate.CertificateRealm </tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t7" headers="r1c1-t7"><code>Zertifikat</code></td>
+<td align="left" headers="r3c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.certificate.CertificateRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>ldap</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.ldap.LDAPRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t7" headers="r1c1-t7"><code>ldap</code></td>
+<td align="left" headers="r4c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.ldap.LDAPRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>JDBC</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t7" headers="r1c1-t7"><code>JDBC</code></td>
+<td align="left" headers="r5c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>solaris</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.solaris.SolarisRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t7" headers="r1c1-t7"><code>solaris</code></td>
+<td align="left" headers="r6c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.solaris.SolarisRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>PAM</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.solaris.PamRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t7" headers="r1c1-t7"><code>PAM</code></td>
+<td align="left" headers="r7c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.solaris.PamRealm</code></td>
 </tr>
-</table></li>
-<li><b>W&#228;hlen Sie das untere Optionsfeld und geben Sie den Klassennamen f&#252;r den
-zu erstellenden benutzerdefinierten Bereich ein.</b></li></ul></li>
-<li>(Optional) <b>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</b><p>Um eine Eigenschaft hinzuzuf&#252;gen, klicken Sie auf die Schaltfl&#228;che "Eigenschaft hinzuf&#252;gen". Geben
-Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld
-"Name" und den Eigenschaftswert in das Feld "Wert" ein.</p><p>G&#252;ltige Eigenschaften sind abh&#228;ngig vom Typ des Bereichs.</p>
-<ul><li><p><a href="ref-editfile-adminrealm.html">F&#252;r die <tt>FileRealm</tt>-Klasse spezifische Eigenschaften</a></p>
-
+</tbody>
+</table>
+<hr>
 </li>
-<li><p><a href="ref-editcertrealm.html">F&#252;r die <tt>CertificateRealm</tt>-Klasse spezifische Eigenschaften</a></p>
-
+<li>
+<p>W&auml;hlen Sie das untere Optionsfeld, und geben Sie den Klassennamen f&uuml;r die zu erstellende benutzerdefinierte Realm ein.</p>
 </li>
-<li><p><a href="ref-editjdbcrealm.html">F&#252;r die <tt>JDBCRealm</tt>-Klasse spezifische Eigenschaften</a></p>
-
+</ul>
 </li>
-<li><p><a href="ref-ldaprealmprop.html">F&#252;r die <tt>LDAPRealm</tt>-Klasse spezifische Eigenschaften</a></p>
-
+<li>
+<p>Geben Sie im Abschnitt "Weitere Eigenschaften" weitere Eigenschaften an.</p>
+<p>Um eine Eigenschaft hinzuzuf&uuml;gen, klicken Sie auf die Schaltfl&auml;che "Eigenschaft hinzuf&uuml;gen". Geben Sie in die daraufhin angezeigte leere Zeile den Eigenschaftsnamen in das Feld "Name" und den Eigenschaftswert in das Feld "Wert" ein.</p>
+<p>G&uuml;ltige Eigenschaften sind abh&auml;ngig vom Typ der Realm.</p>
+<ul>
+<li>
+<p><a href="ref-editfile-adminrealm.html">F&uuml;r die <code>FileRealm</code>-Klasse spezifische Eigenschaften</a></p>
 </li>
-<li><p><a href="ref-solarisrealmprop.html">F&#252;r die <tt>SolarisRealm</tt>-Klasse spezifische Eigenschaften</a></p>
-
+<li>
+<p><a href="ref-editcertrealm.html">F&uuml;r die <code>CertificateRealm</code>-Klasse spezifische Eigenschaften</a></p>
 </li>
-<li><p><a href="ref-pamrealmprop.html">F&#252;r die PamRealm-Klasse spezifische Eigenschaften<tt></tt></a></p>
-
-</li></ul>
+<li>
+<p><a href="ref-editjdbcrealm.html">F&uuml;r die <code>JDBCRealm</code>-Klasse spezifische Eigenschaften</a></p>
 </li>
-<li><b>Klicken Sie auf "OK".</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-realmedit.html">So bearbeiten Sie einen Bereich</a></p>
-
+<li>
+<p><a href="ref-ldaprealmprop.html">F&uuml;r die <code>LDAPRealm</code>-Klasse spezifische Eigenschaften</a></p>
 </li>
-<li><p><a href="task-todeleterealm.html">So l&#246;schen Sie einen Bereich</a></p>
-
+<li>
+<p><a href="ref-solarisrealmprop.html">F&uuml;r die <code>SolarisRealm</code>-Klasse spezifische Eigenschaften</a></p>
 </li>
-<li><p><a href="task-createcustomrealm.html">So erstellen Sie einen benutzerdefinierten Bereich</a></p>
+<li>
+<p><a href="ref-pamrealmprop.html">F&uuml;r die <code>PamRealm</code>-Klasse spezifische Eigenschaften</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Klicken Sie auf "OK".</p>
+</li>
+</ol>
+<a id="sthref142" name="sthref142"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-realmedit.html">So wird eine Realm bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-todeleterealm.html">So wird eine Realm gel&ouml;scht</a></p>
+</li>
+<li>
+<p><a href="task-createcustomrealm.html">So werden benutzerdefinierte Realms erstellt</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

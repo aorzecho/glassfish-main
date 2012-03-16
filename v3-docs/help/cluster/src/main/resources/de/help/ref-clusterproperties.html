@@ -1,96 +1,127 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-clusterproperties"></a><h4>Clustereigenschaften</h4>
-<a name="indexterm-193"></a><a name="indexterm-194"></a><p>Auf der Seite "Clustereigenschaften" werden die Eigenschaften aufgelistet, die f&#252;r die ausgew&#228;hlten
-Cluster festgelegt sind. Diese Eigenschaften enthalten optionale Konfigurationsinformationen zum Cluster.</p>
+<p><a id="ref-clusterproperties" name="ref-clusterproperties"></a><a id="GHCLU00014" name="GHCLU00014"></a></p>
 
-<p>Das Feld "Clustername" ist ein schreibgesch&#252;tztes Feld, in dem der Name des
-ausgew&#228;hlten Clusters angezeigt wird.</p>
-
-<p>F&#252;r jede Instanz werden folgende Informationen angezeigt:</p>
-
-<dl><dt>Name</dt>
-<dd><p>Der Name der Eigenschaft.</p>
-
+<h4><a id="sthref300" name="sthref300"></a> <a id="sthref301" name="sthref301"></a>Clustereigenschaften</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Auf der Seite "Clustereigenschaften" werden die Eigenschaften aufgelistet, die f&uuml;r die ausgew&auml;hlten Cluster festgelegt sind. Diese Eigenschaften f&uuml;gen optionale Konfigurationsinformationen zum Cluster hinzu.</p>
+<p>Das Feld "Clustername" ist ein schreibgesch&uuml;tztes Feld, in dem der Name des ausgew&auml;hlten Clusters angezeigt wird.</p>
+<p>F&uuml;r jede Instanz werden folgende Informationen angezeigt:</p>
+<dl>
+<dt>Name</dt>
+<dd>
+<p>Der Name der Eigenschaft.</p>
 </dd>
 <dt>Wert</dt>
-<dd><p>Der Wert der Eigenschaft, der f&#252;r die ausgew&#228;hlte Instanz festgelegt ist.</p>
-
+<dd>
+<p>Der Wert der Eigenschaft, der f&uuml;r die ausgew&auml;hlte Instanz festgelegt ist.</p>
 </dd>
 <dt>Beschreibung</dt>
-<dd><p>Eine Textbeschreibung mit weiteren Informationen zur Eigenschaft.</p>
-
+<dd>
+<p>Eine Textbeschreibung mit weiteren Informationen zur Eigenschaft.</p>
 </dd>
 </dl>
-<p>Die Tabelle "Weitere Eigenschaften" enth&#228;lt dar&#252;ber hinaus die folgenden Optionen.</p>
-
-<dl><dt>Eigenschaft hinzuf&#252;gen</dt>
-<dd><p>Schaltfl&#228;che zum Hinzuf&#252;gen einer Eigenschaft. Durch Klicken auf diese Schaltfl&#228;che wird eine Zeile zur Tabelle "Weitere Eigenschaften" hinzugef&#252;gt.</p>
-
+<p>Die Tabelle "Weitere Eigenschaften" enth&auml;lt dar&uuml;ber hinaus die folgenden Optionen.</p>
+<dl>
+<dt>Eigenschaft hinzuf&uuml;gen</dt>
+<dd>
+<p>Schaltfl&auml;che zum Hinzuf&uuml;gen einer Eigenschaft. Durch Klicken auf diese Schaltfl&auml;che wird eine Zeile zur Tabelle "Weitere Eigenschaften" hinzugef&uuml;gt.</p>
 </dd>
-<dt>Eigenschaften l&#246;schen</dt>
-<dd><p>Schaltfl&#228;che zum L&#246;schen einer oder mehrerer ausgew&#228;hlter Eigenschaften. Eine gel&#246;schte Eigenschaft wird auf den Standardwert zur&#252;ckgesetzt oder, falls kein Standardwert vorhanden ist, nicht definiert.</p>
-
-</dd>
-</dl>
-<p>GlassFish-Server definiert die folgenden Clustereigenschaften:</p>
-
-<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
-<dd><p>Die Nummer des Ports, den der Cluster auf Meldungen des Gruppenverwaltungsdiensts (GMS, Group Management Service) &#252;berwacht. Der Standardwert reicht in vielen F&#228;llen aus.</p>
-
-</dd>
-<dt><tt>GMS_LOOPBACK</tt></dt>
-<dd><p>Gibt an, ob eine Instanz von sich selbst Meldungen auf Anwendungsebene erhalten kann, die die Instanz an den Cluster sendet.</p>
-
-<p>M&#246;gliche Werte:</p>
-
-<dl><dt><tt>false</tt></dt>
-<dd><p>Die Instanz darf <b>keine</b> Meldungen von sich selbst erhalten (Standardeinstellung).</p>
-
-</dd>
-<dt><tt>true</tt></dt>
-<dd><p>Die Instanz kann Meldungen von sich selbst erhalten. Verwenden Sie diese Einstellung zum Testen einer Instanz, wenn die Instanz die einzige Instanz in einem Cluster ist.</p>
-
+<dt>Eigenschaften l&ouml;schen</dt>
+<dd>
+<p>Schaltfl&auml;che zum L&ouml;schen einer oder mehrerer ausgew&auml;hlter Eigenschaften. Eine gel&ouml;schte Eigenschaft wird auf den Standardwert zur&uuml;ckgesetzt oder, falls kein Standardwert vorhanden ist, nicht definiert.</p>
 </dd>
 </dl>
+<p>GlassFish Server definiert die folgenden Clustereigenschaften:</p>
+<dl>
+<dt><code>GMS_LISTENER_PORT</code></dt>
+<dd>
+<p>Die Nummer des Ports, auf dem das Cluster auf Meldungen des Group Management Service (GMS) horcht.</p>
+<p>Der Standardwert ist <code>${GMS_LISTENER_PORT-</code><i>cluster-name</i><code>}</code>. In den meisten Situationen sollte dieser Standardwert ausreichen.</p>
+<p>Wenn jedoch GMS Multicast <b>nicht</b> f&uuml;r die &Uuml;bertragung von Nachrichten verwendet wird, muss diese Eigenschaft eine Portnummer angeben, die f&uuml;r alle GlassFish Server-Instanzen in dem Cluster g&uuml;ltig ist. Um den Standardwert zur Erf&uuml;llung dieser Anforderung zu verwenden, verwenden Sie eine Systemeigenschaft, mit der Sie die Portnummer individuell f&uuml;r jede Instanz festlegen k&ouml;nnen.</p>
+<p>Beispiel: Verwenden Sie die Seite <a href="ref-clustersystemproperties.html">Clustersystemeigenschaften</a>, um die Systemeigenschaft <code>GMS_LISTENER_PORT-</code><i>cluster-name</i> zu erstellen. Danach legen Sie f&uuml;r jede Instanz in dem Cluster die Systemeigenschaft <code>GMS_LISTENER_PORT-</code><i>cluster-name</i> auf die Portnummer fest, auf der die Instanz auf Nachrichten von GMS horcht. Der Standardwert der Eigenschaft <code>GMS_LISTENER_PORT</code> f&uuml;r das Cluster referenziert diese Systemeigenschaft.</p>
 </dd>
-<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
-<dd><p>Die maximale Anzahl der Iterationen oder &#220;bertragungen, die bei einer Multicast-Meldung der folgenden Ereignistypen auftreten kann, bevor die Meldung verworfen wird:</p>
-
-
-<ul><li><p>Gruppenerkennung</p>
-
+<dt><code>GMS_LOOPBACK</code></dt>
+<dd>
+<p>Gibt an, ob eine Instanz von sich selbst Meldungen auf Anwendungsebene erhalten kann, die die Instanz an das Cluster sendet.</p>
+<p>M&ouml;gliche Werte:</p>
+<dl>
+<dt><code>false</code></dt>
+<dd>
+<p>Die Instanz darf <i>keine</i> Meldungen von sich selbst erhalten (Standardeinstellung).</p>
+</dd>
+<dt><code>true</code></dt>
+<dd>
+<p>Die Instanz kann Meldungen von sich selbst erhalten. Verwenden Sie diese Einstellung zum Testen einer Instanz, wenn die Instanz die einzige Instanz in einem Cluster ist.</p>
+</dd>
+</dl>
+</dd>
+<dt><code>GMS_MULTICAST_TIME_TO_LIVE</code></dt>
+<dd>
+<p>Die maximale Anzahl der Iterationen oder &Uuml;bertragungen, die bei einer Multicast-Meldung der folgenden Ereignistypen auftreten kann, bevor die Meldung verworfen wird:</p>
+<ul>
+<li>
+<p>Gruppenerkennung</p>
 </li>
-<li><p>Mitglied-Heartbeats</p>
-
+<li>
+<p>Mitglied-Heartbeats</p>
 </li>
-<li><p>Mitgliedschafts&#228;nderungen</p>
-
-</li></ul>
-<p>Damit die Konfiguration des Netzwerks, auf dem der DAS und die Cluster-Instanzen bereitgestellt sind, &#252;bereinstimmt, setzen Sie diesen Wert so niedrig wie m&#246;glich. Um den geringstm&#246;glichen Wert f&#252;r das System festzustellen, verwenden Sie den Unterbefehl <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=validate-multicast-1"><tt>validate-multicast</tt>(1)</a>.</p>
-
+<li>
+<p>Mitgliedschafts&auml;nderungen</p>
+</li>
+</ul>
+<p>Damit die Konfiguration des Netzwerks, auf dem der DAS und die Clusterinstanzen bereitgestellt sind, &uuml;bereinstimmt, setzen Sie diesen Wert so niedrig wie m&ouml;glich. Um den niedrigstm&ouml;glichen Wert f&uuml;r das System zu ermitteln, verwenden Sie den Unterbefehl <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00259"><code>validate-multicast</code>1</a>.</p>
 <p>Bei einem Wert von 0 wird sichergestellt, dass Multicast-Meldungen auf keinen Fall den Host verlassen, von dem sie gesendet werden.</p>
-
-<p>Ein Wert von 1 kann verhindern, dass Meldungen zwischen den &#252;ber einen Schalter oder Router verbundenen Hosts im gleichen Teilnetz gesendet wird. </p>
-
-<p>Der Standardwert betr&#228;gt 4. Dadurch wird sichergestellt, dass Meldungen zwischen allen Cluster-Mitgliedern in Netzwerken erfolgreich gesendet werden, in denen Hosts &#252;ber Schalter oder Router verbunden sind.</p>
-
+<p>Ein Wert von 1 kann verhindern, dass Meldungen zwischen den &uuml;ber einen Schalter oder Router verbundenen Hosts im gleichen Subnet gesendet wird.</p>
+<p>Der Standardwert betr&auml;gt 4. Dadurch wird sichergestellt, dass Meldungen zwischen allen Cluster-Mitgliedern in Netzwerken erfolgreich gesendet werden, in denen Hosts &uuml;ber Schalter oder Router verbunden sind.</p>
+</dd>
+<dt><code>GMS_DISCOVERY_URI_LIST</code></dt>
+<dd>
+<p>Die Verzeichnisse der GlassFish Server-Instanzen, an die GMS-Gruppenereignisse senden soll. Diese Eigenschaft ist nur erforderlich, wenn GMS kein Multicast f&uuml;r die &Uuml;bertragung von Nachrichten verwendet.</p>
+<p>G&uuml;ltige Werte f&uuml;r diese Eigenschaft sind:</p>
+<ul>
+<li>
+<p>Eine durch Komma getrennte Liste der Uniform Resource Identifier (URIs). Jeder URI muss eine GlassFish Server-Instanz suchen. Dieses Format ist erforderlich, wenn mehrere GlassFish Server-Instanzen auf demselben Host ausgef&uuml;hrt werden.</p>
+<p>Jeder URI in der Liste hat folgendes Format:</p>
+<p><i>scheme</i><code>://</code><i>host-name-or -IP-address</i><code>:</code><i>port</i></p>
+<ul>
+<li>
+<p><i>scheme</i> ist das URI-Schema, d.h. <code>tcp</code>.</p>
+</li>
+<li>
+<p><i>host-name- oder IP-address</i> ist der Hostname oder die IP-Adresse des Hosts, auf dem die Instanz ausgef&uuml;hrt wird.</p>
+</li>
+<li>
+<p><i>port</i> ist die Portnummer des Ports, auf dem die Instanz auf Nachrichten von GMS horcht. Die Systemeigenschaft <code>GMS_LISTENER_PORT-</code><i>clustername</i> muss f&uuml;r die Instanz festgelegt werden. Weitere Informationen &uuml;ber die Festlegung dieser Systemeigenschaft f&uuml;r eine Instanz finden Sie in <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSHAG00373"><i>Locating GlassFish Server Instances When Multicast Is Disabled,</i> im <i>Oracle GlassFish Server High Availability Administration Guide</i></a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Eine durch Komma getrennte Liste der IP-Adressen oder Hostnamen. Die Liste kann eine Mischung aus IP-Adressen und Hostnamen enthalten. Dieses Format kann nur verwendet werden, wenn eine Clusterinstanz auf jedem Host ausgef&uuml;hrt wird. Der Wert der Eigenschaft <code>GMS_LISTENER_PORT</code> muss f&uuml;r jedes Cluster in einer Domain eindeutig sein.</p>
+</li>
+<li>
+<p>Das Schl&uuml;sselwort <code>generate</code>. Dieses Format kann nur verwendet werden, wenn eine Instanz in einem Cluster auf jedem Host ausgef&uuml;hrt wird. Mehrere Instanzen auf demselben Host k&ouml;nnen nicht Member desselben Clusters sein. Der Wert der Eigenschaft <code>GMS_LISTENER_PORT</code> muss f&uuml;r jedes Cluster in einer Domain eindeutig sein.</p>
+</li>
+</ul>
 </dd>
 </dl>
-<h5>Entsprechende <tt>asadmin</tt>-Unterbefehle</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=get-1"><tt>get</tt>(1)</a></p>
-
+<a id="sthref302" name="sthref302"></a>
+<h5>Entsprechende asadmin-Unterbefehle</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00139"><code>get</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-1"><tt>list</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00145"><code>list</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00226"><code>set</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

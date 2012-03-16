@@ -1,62 +1,65 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmxconnectoredit"></a><h4>JMX Connector bearbeiten</h4>
-<a name="indexterm-238"></a><p>Nutzen Sie die Seite JMX-Connector bearbeiten, um den mit JSR 360 kompatiblen
-JMX Connector zu bearbeiten.</p>
+<p><a id="ref-jmxconnectoredit" name="ref-jmxconnectoredit"></a><a id="GHCOM00127" name="GHCOM00127"></a></p>
 
-<p>Die Seite JMX-Connector bearbeiten enth&#228;lt die folgenden Optionen.</p>
-
-<dl><dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<h4><a id="sthref442" name="sthref442"></a>Bearbeiten von JMX-Connector</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Verwenden Sie die Seite "JMX-Connector bearbeiten", um den mit JSR 360-konformen JMX-Connector zu bearbeiten.</p>
+<p>Die Seite "JMX-Connector bearbeiten" enth&auml;lt die folgenden Optionen.</p>
+<dl>
+<dt>Name der Konfiguration</dt>
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
 <dt>Name</dt>
-<dd><p>Der Name des JMX-Connectors. Dies ist ein schreibgesch&#252;tztes Feld.</p>
-
+<dd>
+<p>Der Name des JMX-Connectors. Dies ist ein schreibgesch&uuml;tztes Feld.</p>
 </dd>
 <dt>JMX-Protokoll</dt>
-<dd><p>Der Name des Protokolls, das dieser JMX-Connector unterst&#252;tzt. Dies ist ein schreibgesch&#252;tztes Feld.</p>
-
+<dd>
+<p>Der Name des Protokolls, das dieser JMX-Connector unterst&uuml;tzt. Dies ist ein schreibgesch&uuml;tztes Feld.</p>
 </dd>
 <dt>JMXServiceURL</dt>
-<dd><p>Die JMX Service URL. Dies ist ein schreibgesch&#252;tztes Feld.</p>
-
+<dd>
+<p>Die JMX Service URL. Dies ist ein schreibgesch&uuml;tztes Feld.</p>
 </dd>
 <dt>Security</dt>
-<dd><p>Bei aktiviertem Kontrollk&#228;stchen Aktiviert ist die JMX-Daten&#252;bertragung verschl&#252;sselt. Die Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dd>
+<p>Bei aktiviertem Kontrollk&auml;stchen Aktiviert ist die JMX-Daten&uuml;bertragung verschl&uuml;sselt. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
 <dt>Address (Adresse)</dt>
-<dd><p>Die IP-Adresse des Namen-Service, in dem der Stub des JMX-Connector-Servers registriert ist. Dies ist nicht der Port des Server-Sockets, der die eigentliche JMX-Daten&#252;bertragung &#252;bernimmt. Dies ist die Adresse der Netzwerk-Schnittstelle, in der die RMI-Registry gestartet wird. Falls Ihr System mehrere Netzwerk-Schnittstellen besitzt, &#228;ndern Sie diesen Wert so, dass nur eine bestimmte Schnittstelle ausgew&#228;hlt wird. Der Standardwert ist <tt>0.0.0.0</tt>.</p>
-
+<dd>
+<p>Die IP-Adresse des Naming Service, in dem der Stub des JMX-Connector-Servers registriert ist. Dies ist nicht der Port des Server-Sockets, der die eigentliche JMX-Daten&uuml;bertragung &uuml;bernimmt. Dies ist die Adresse der Netzwerk-Schnittstelle, in der die RMI-Registry gestartet wird. Falls Ihr System mehrere Netzwerk-Schnittstellen besitzt, &auml;ndern Sie diesen Wert so, dass nur eine bestimmte Schnittstelle ausgew&auml;hlt wird. Der Standardwert ist <code>0.0.0.0</code>.</p>
 </dd>
 <dt>Port</dt>
-<dd><p>Die Nummer des Ports, an dem der Benennungsdienst (RMI-Registry) versucht, RMI-Client-Verbindungen ausfindig zu machen. Die einzige Verwendung dieses Benennungsdienstes besteht darin, die RMI-Stubs herunterzuladen. Falls der Standard-Port besetzt ist, wird ein freier Port verwendet. G&#252;ltige Werte sind 1 - 65535. Bei UNIX-Systemen erfordert das Erstellen von Sockets, die an die Ports 1 - 1024 angeschlossen sind, Superuser-Rechte. Der Standardwert betr&#228;gt 8686.</p>
-
+<dd>
+<p>Die Nummer des Ports, auf dem der Naming Service (RMI-Registry) auf RMI-Clientverbindungen horcht. Die einzige Verwendung dieses Naming Service besteht darin, die RMI-Stubs herunterzuladen. Falls der Standard-Port besetzt ist, wird ein freier Port verwendet. G&uuml;ltige Werte sind 1 - 65535. Bei UNIX-Systemen erfordert das Erstellen von Sockets, die auf den Ports 1 - 1024 horchen, Superuser-Berechtigungen. Der Standardwert betr&auml;gt 8686.</p>
 </dd>
-<dt>Bereichsname</dt>
-<dd><p>Der Name, der den speziellen Administrationsbereich repr&#228;sentiert. Alle Authentifizierungsvorg&#228;nge werden von diesem Bereich abgewickelt. Der Standardwert ist <tt>admin-realm </tt>.</p>
-
+<dt>Realm-Name</dt>
+<dd>
+<p>Der Name, der die spezielle Administrations-Realm darstellt. Alle Authentifizierungsvorg&auml;nge werden von dieser Realm abgewickelt. Der Standardwert ist <code>admin-realm</code> .</p>
 </dd>
 <dt>Additional Properties (Weitere Eigenschaften)</dt>
-<dd><p>Weitere Eigenschaften f&#252;r den JMX Connector. Verschiedene Eigenschaften werden durch Standardwerte konfiguriert.</p>
-
+<dd>
+<p>Weitere Eigenschaften f&uuml;r den JMX Connector. Verschiedene Eigenschaften werden durch Standardwerte konfiguriert.</p>
 </dd>
 </dl>
+<a id="sthref443" name="sthref443"></a>
 <h5>Verbundene Aufgabe</h5>
-
-<ul><li><p><a href="task-jmxconnectoredit.html">So bearbeiten Sie den JMX-Connector </a></p>
-
+<ul>
+<li>
+<p><a href="task-jmxconnectoredit.html">So wird der JMX-Connector bearbeitet</a></p>
 </li>
-<li><p><a href="task-jmxconnectorssledit.html">So bearbeiten Sie die SSL-Einstellungen f&#252;r den JMX Connector</a></p>
-
-</li></ul>
-<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
+<li>
+<p><a href="task-jmxconnectorssledit.html">So werden SSL-Einstellungen f&uuml;r den JMX-Connector bearbeitet</a></p>
+</li>
+</ul>
+<a id="sthref444" name="sthref444"></a>
+<h5>Zugeh&ouml;rige asadmin-Befehle</h5>
 <p>Keine.</p>
 
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

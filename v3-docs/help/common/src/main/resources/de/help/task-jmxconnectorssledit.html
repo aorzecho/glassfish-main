@@ -1,45 +1,71 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmxconnectorssledit" name="task-jmxconnectorssledit"></a><a id="GHCOM00212" name="GHCOM00212"></a></p>
 
-
-<a name="task-jmxconnectorssledit"></a><h3>So bearbeiten Sie die SSL-Einstellungen f&#252;r den JMX Connector</h3><a name="indexterm-116"></a><a name="indexterm-117"></a><a name="indexterm-118"></a><p><b>Bevor Sie beginnen</b></p><p>Diese Aufgabe ist nur dann von Bedeutung, wenn die Sicherheit f&#252;r den
-JMX Connector aktiviert ist.</p>
-
+<h4><a id="sthref201" name="sthref201"></a><a id="sthref202" name="sthref202"></a><a id="sthref203" name="sthref203"></a>So werden SSL-Einstellungen f&uuml;r den JMX-Connector bearbeitet</h4>
+<a name="BEGIN" id="BEGIN"></a><a id="sthref204" name="sthref204"></a>
+<h5>Bevor Sie beginnen</h5>
+<p>Diese Aufgabe ist nur dann von Bedeutung, wenn die Sicherheit f&uuml;r den JMX Connector aktiviert ist.</p>
 <ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
-<li><b>W&#228;hlen Sie unter dem Konfigurationsknoten den Admin-Dienstknoten aus.</b><p>Die Seite "JMX-Connector bearbeiten" wird ge&#246;ffnet.</p></li>
-<li><b>Markieren Sie das Kontrollk&#228;stchen "Sicherheit aktiviert", damit der JMX-Datenaustausch verschl&#252;sselt werden kann.</b><p>Die Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>Klicken Sie auf die Registerkarte "SSL".</b><p>Die Seite "SSL" wird ge&#246;ffnet.</p></li>
-<li><b>Markieren Sie auf der Seite SSL das f&#252;r SSL3 aktivierte Kontrollk&#228;stchen, um
-SSL3 zu aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
-<li><b>Markieren Sie das Kontrollk&#228;stchen TLS aktiviert, um Transport Layer Security (TLS) zu
-aktivieren.</b><p>Diese Option ist standardm&#228;&#223;ig aktiviert.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Client-Authentifizierung aktiviert", um von Clients zu fordern, dass
-sie sich selbst dem Server gegen&#252;ber auf jede Anfrage hin identifizieren.</b><p>Die Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>Geben Sie in das Feld "Zertifikatspseudonym" das Pseudonym des Serverzertifikats in der
-Zertifikatsdatenbank oder dem Token PKCS#11 ein.</b><p>In dem Zertifikat ist das Namensformat <tt><i> Tokenname</i>:<i>Pseudonym</i></tt>. Einschlie&#223;lich der Teil <tt><i>Tokenname</i>:</tt> des
-Namens in diesem Attribut ist optional. </p></li>
-<li><b>Geben Sie im Feld "Schl&#252;sselspeicher" den Namen der Schl&#252;sselspeicher-Datei (z. B. <tt>keystore.jks</tt>)
-ein.</b></li>
-<li><b>Geben Sie im Feld Trust-Algorithmus den Namen des Trust-Management-Algorithmus (z. B. PKIX)
-ein, um diesen f&#252;r die Validierung des Zertifizierungspfads zu verwenden.</b></li>
-<li><b>Geben Sie im Feld "Maximale Zertifikatsl&#228;nge" die maximale Anzahl der nicht selbst
-herausgegebenen Zwischenzertifikate ein, die in einem Zertifizierungspfad vorhanden sein k&#246;nnen.</b><p>Dieses Feld wird nur dann verwendet, wenn das Feld "Trust-Algorithmus" auf PKIX
-eingestellt ist. Ein Wert von 0 l&#228;sst darauf schlie&#223;en, dass der Pfad
-nur ein einziges Zertifikat enthalten kann. Ein Wert von -1 l&#228;sst darauf
-schlie&#223;en, dass die Pfadl&#228;nge nicht beschr&#228;nkt ist (es gibt keinen H&#246;chstwert). Das
-Einstellen eines Werts, der geringer als -1 ist, f&#252;hrt zu einem Ausnahmefehler.</p></li>
-<li><b>Geben Sie im Feld Truststore den Namen der Schl&#252;sselspeicher-Datei (z. B. <tt>cacerts.jks</tt>)
-ein.</b></li>
-<li><b>Legen Sie im Bereich Cipher Suites die Cipher Suites fest, die verwendet
-werden sollen.</b><p>Wenn Sie keine Cipher-Suites hinzuf&#252;gen, werden alle Cipher-Suites verwendet.</p></li>
-<li><b>Klicken Sie auf "OK".</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-jmxconnectoredit.html">So bearbeiten Sie den JMX-Connector </a></p>
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Konfiguration" ein.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie unter dem Konfigurationsknoten den Knoten "Admin-Service".</p>
+<p>Die Seite "JMX-Connector bearbeiten" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Sicherheit aktiviert", damit der JMX-Datenaustausch verschl&uuml;sselt werden kann.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</li>
+<li>
+<p>Klicken Sie auf die Registerkarte "SSL".</p>
+<p>Die Seite "SSL" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Aktivieren Sie auf der SSL-Seite das Kontrollk&auml;stchen f&uuml;r SSL3, um SSL3 zu aktivieren.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig aktiviert.</p>
+</li>
+<li>
+<p>Aktivieren Sie das TLS-Kontrollk&auml;stchen, um Transport Layer Security (TLS) zu aktivieren.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig aktiviert.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Client-Authentifizierung aktiviert", um von Clients zu fordern, dass sie sich selbst dem Server gegen&uuml;ber auf jede Anfrage hin identifizieren.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</li>
+<li>
+<p>Geben Sie in das Feld "Zertifikatskurzname" den Kurznamen des Serverzertifikats in der Zertifikatsdatenbank oder dem Token PKCS&amp;num:#11 ein.</p>
+<p>In dem Zertifikat ist das Namensformat <i>Tokenname</i><code>:</code> <i>Kurzname</i> . Die Aufnahme des Teils Tokenname<code>:</code> des Namens in diesem Attribut ist optional.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Keystore" den Namen der Keystore-Datei (z.B. <code>keystore.jks</code>) ein.</p>
+</li>
+<li>
+<p>Geben Sie im Feld Trust-Algorithmus den Namen des Trust-Management-Algorithmus (z.B. PKIX) ein, um diesen f&uuml;r die Validierung des Zertifizierungspfads zu verwenden.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Maximale Zertifikatsl&auml;nge" die maximale Anzahl der nicht selbst herausgegebenen Zwischenzertifikate ein, die in einem Zertifizierungspfad vorhanden sein k&ouml;nnen.</p>
+<p>Dieses Feld wird nur dann verwendet, wenn das Feld "Trust-Algorithmus" auf PKIX eingestellt ist. Ein Wert von 0 l&auml;sst darauf schlie&szlig;en, dass der Pfad nur ein einziges Zertifikat enthalten kann. Ein Wert von -1 l&auml;sst darauf schlie&szlig;en, dass die Pfadl&auml;nge nicht beschr&auml;nkt ist (es gibt keinen H&ouml;chstwert). Das Einstellen eines Werts, der geringer als -1 ist, f&uuml;hrt zu einem Ausnahmefehler.</p>
+</li>
+<li>
+<p>Geben Sie im Feld Truststore den Namen der Schl&uuml;sselspeicher-Datei (z.B. <code>cacerts.jks</code>) ein.</p>
+</li>
+<li>
+<p>Legen Sie im Bereich Cipher Suites die Cipher Suites fest, die verwendet werden sollen.</p>
+<p>Wenn Sie keine Cipher Suites hinzuf&uuml;gen, werden alle Cipher Suites verwendet.</p>
+</li>
+<li>
+<p>Klicken Sie auf "OK".</p>
+</li>
+</ol>
+<a id="sthref205" name="sthref205"></a>
+<h5>Siehe auch</h5>
+<p><a href="task-jmxconnectoredit.html">So wird der JMX-Connector bearbeitet</a></p>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,61 +1,53 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-configreq-respolicy"></a><h4>Anforderungs- und Antwortrichtlinienkonfigurationen</h4>
-<a name="indexterm-237"></a><p>Wenn als Authentifizierungsquelle <tt>sender</tt> festgelegt wurde, enth&#228;lt die Meldung einen <tt>wsse:Security</tt>-Header mit
-<tt>wsse:UsernameToken</tt> (mit Passwort). Wenn als Authentifizierungsquelle "content" festgelegt wurde, ist der Inhalt
-der SOAP-Meldung signiert, und die Meldung enth&#228;lt einen <tt>wsse:Security</tt>-Header; die Meldungstextsignatur wird
-als <tt>ds</tt>: <tt>Signature</tt>.</p>
+<p><a id="ref-configreq-respolicy" name="ref-configreq-respolicy"></a><a id="GHCOM00125" name="GHCOM00125"></a></p>
 
-<p>Wenn als Authentifizierungsempf&#228;nger <tt>before-content</tt> oder <tt>after-content</tt> festgelegt wurde, wird der Inhalt der
-SOAP-Meldung verschl&#252;sselt und durch <tt>xend:EncryptedData</tt> ersetzt. Die Meldung enth&#228;lt einen <tt>a wsse:Security</tt>-Header mit
-<tt>xenc:EncryptedKey</tt>. <tt>xenc:EncryptedKey</tt> enth&#228;lt den Schl&#252;ssel f&#252;r die Verschl&#252;sselung des SOAP-Meldungstexts. Der Schl&#252;ssel
-wird im &#246;ffentlichen Schl&#252;ssel des Empf&#228;ngers verschl&#252;sselt.</p>
-
-<p>Wenn f&#252;r Authentifizierungsquelle und -empf&#228;nger keine Werte angegeben werden, ist keine Sicherheitsrichtlinie
-festgelegt, und die Module f&#252;hren keine Sicherheitsoperationen durch.</p>
-
-<p>Die folgende Tabelle zeigt Meldungssicherheitsrichtlinien-Konfigurationen und die entsprechenden Meldungssicherheitsoperationen, die von den
-WS-Security-SOAP-Meldungssicherheitsanbietern f&#252;r die jeweilige Konfiguration durchgef&#252;hrt werden.</p>
-
-<a name="gbutq"></a><p><b>Tabelle&#160;1 Meldungssicherheitsrichtlinie basierend auf der WS-Security-SOAP-Meldungssicherheitsoperation</b></p><table><col width="33%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"></th>
-<th align="left" valign="top" scope="column"><p>Empf&#228;ngerauthentifizierung <tt>before-content</tt></p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>Empf&#228;ngerauthentifizierung <tt>after-content</tt></p>
-
-</th>
+<h4><a id="sthref440" name="sthref440"></a>Konfigurationen der Anforderungs- und Antwort-Policys</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Wenn als Authentifizierungsquelle <code>sender</code> festgelegt wurde, enth&auml;lt die Nachricht einen <code>wsse:Security</code> Header mit <code>wsse:UsernameToken</code> (mit Kennwort). Wenn als Authentifizierungsquelle "content" festgelegt wurde, ist der Content der SOAP-Nachricht signiert, und die Nachricht enth&auml;lt einen <code>wsse:Security</code> Header; die Meldungstextsignatur wird als <code>ds</code>: <code>Signature</code> dargestellt.</p>
+<p>Wenn als Authentifizierungsempf&auml;nger <code>before-content</code> oder <code>after-content</code> festgelegt wurde, wird der Content der SOAP-Meldung verschl&uuml;sselt und durch <code>xend:EncryptedData</code> ersetzt. Die Nachricht enth&auml;lt einen <code>wsse:Security</code> Header mit <code>xenc:EncryptedKey</code>. <code>xenc:EncryptedKey</code> enth&auml;lt den Schl&uuml;ssel f&uuml;r die Verschl&uuml;sselung des SOAP-Meldungstexts. Der Schl&uuml;ssel wird im Public Key des Empf&auml;ngers verschl&uuml;sselt.</p>
+<p>Wenn f&uuml;r Authentifizierungsquelle und -empf&auml;nger keine Werte angegeben werden, ist keine Sicherheits-Policy festgelegt, und die Module f&uuml;hren keine Sicherheitsvorg&auml;nge durch.</p>
+<p>Die folgende Tabelle zeigt Konfigurationen der Nachrichtenschutz-Policy und die entsprechenden Nachrichtensicherheitsvorg&auml;nge, die von den WS-Security-SOAP-Nachrichtensicherheitsprovidern f&uuml;r die jeweilige Konfiguration durchgef&uuml;hrt werden.</p>
+<a id="sthref441" name="sthref441"></a><a id="gbutq" name="gbutq"></a>
+<p><b>Nachrichtenschutz-Policy basierend auf WS-Security-SOAP-Nachrichtensicherheitsvorgang</b></p>
+<table  title="Nachrichtenschutz-Policy basierend auf WS-Security-SOAP-Nachrichtensicherheitsvorgang" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="20%" />
+<col width="*" />
+<col width="40%" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t11"><br /></th>
+<th align="left" valign="bottom" id="r1c2-t11">Empf&auml;ngerauthentifizierung <code>before-content</code></th>
+<th align="left" valign="bottom" id="r1c3-t11">Empf&auml;ngerauthentifizierung <code>after-content</code></th>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p>Authentifizierungsquelle <tt>sender</tt></p>
-
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t11" headers="r1c1-t11">
+<p>Authentifizierungsquelle <code>sender</code></p>
 </td>
-<td colspan="2" align="left" valign="top" scope="row"><p>Der Inhalt der
-SOAP-Meldung wird verschl&#252;sselt und durch <tt>xend:EncryptedData</tt> ersetzt. Die Nachricht enth&#228;lt einen a
-<tt>wsse:Security</tt>-Header, der einen <tt>wsse:UsernameToken (mit Passwort)</tt> enth&#228;lt und einen <tt>xenc:EncryptedKey</tt>. <tt>xenc:EncryptedKey</tt> enth&#228;lt den Schl&#252;ssel
-f&#252;r die Verschl&#252;sselung des SOAP-Meldungstexts. Der Schl&#252;ssel wird im &#246;ffentlichen Schl&#252;ssel des
-Empf&#228;ngers verschl&#252;sselt.</p>
-
+<td align="left" headers="r2c1-t11 r1c2-t11 r1c3-t11" colspan="2">
+<p>Der Content der SOAP-Nachricht wird verschl&uuml;sselt und durch <code>xend:EncryptedData</code> ersetzt. Die Nachricht enth&auml;lt einen <code>wsse:Security</code> Header, der einen <code>wsse:UsernameToken (mit Kennwort)</code> enth&auml;lt und einen <code>xenc:EncryptedKey</code>. <code>xenc:EncryptedKey</code> enth&auml;lt den Schl&uuml;ssel f&uuml;r die Verschl&uuml;sselung des SOAP-Meldungstexts. Der Schl&uuml;ssel wird im Public Key des Empf&auml;ngers verschl&uuml;sselt.</p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p>Authentifizierungsquelle <tt>Inhalt</tt></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t11" headers="r1c1-t11">
+<p>Authentifizierungsquelle <code>content</code></p>
 </td>
-<td align="left" valign="top" scope="row"><p>Der Inhalt der SOAP-Meldung wird verschl&#252;sselt und durch <tt>xend:EncryptedData</tt> ersetzt.
-<tt>xenc:EncryptedData</tt> ist signiert. Die Meldung enth&#228;lt einen Header <tt>a wsse:Sicherheit</tt>, der einen <tt>xenc:EncryptedKey</tt>
-und eine <tt>ds:Signatur </tt> enth&#228;lt. <tt>xenc:EncryptedKey</tt> enth&#228;lt den Schl&#252;ssel f&#252;r die Verschl&#252;sselung des
-SOAP-Meldungstexts. Der Schl&#252;ssel wird im &#246;ffentlichen Schl&#252;ssel des Empf&#228;ngers verschl&#252;sselt.</p>
-
+<td align="left" headers="r3c1-t11 r1c2-t11">
+<p>Der Content der SOAP-Nachricht wird verschl&uuml;sselt und durch <code>xend:EncryptedData</code> ersetzt. <code>xenc:EncryptedData</code> ist signiert. Die Nachricht enth&auml;lt einen <code>wsse:Security</code> Header, der einen <code>xenc:EncryptedKey</code> und eine <code>ds:Signatur</code> enth&auml;lt. <code>xenc:EncryptedKey</code> enth&auml;lt den Schl&uuml;ssel f&uuml;r die Verschl&uuml;sselung des SOAP-Meldungstexts. Der Schl&uuml;ssel wird im Public Key des Empf&auml;ngers verschl&uuml;sselt.</p>
 </td>
-<td align="left" valign="top" scope="row"><p>Der Inhalt der
-SOAP-Meldung wird signiert, verschl&#252;sselt und anschlie&#223;end durch <tt>xend:EncryptedData</tt> ersetzt. Die Nachricht enth&#228;lt
-einen <tt>wsse:Security</tt>-Header, der einen <tt> xenc:EncryptedKey</tt> und eine <tt>ds:Signature</tt> enth&#228;lt. <tt>xenc:EncryptedKey</tt> enth&#228;lt den
-Schl&#252;ssel f&#252;r die Verschl&#252;sselung des SOAP-Meldungstexts. Der Schl&#252;ssel wird im &#246;ffentlichen Schl&#252;ssel
-des Empf&#228;ngers verschl&#252;sselt.</p>
-
+<td align="left" headers="r3c1-t11 r1c3-t11">
+<p>Der Content der SOAP-Nachricht wird signiert, verschl&uuml;sselt und anschlie&szlig;end durch <code>xend:EncryptedData</code> ersetzt. Die Nachricht enth&auml;lt einen <code>wsse:Security</code> Header, der einen <code>xenc:EncryptedKey</code> und eine <code>ds:Signature</code> enth&auml;lt. <code>xenc:EncryptedKey</code> enth&auml;lt den Schl&uuml;ssel f&uuml;r die Verschl&uuml;sselung des SOAP-Meldungstexts. Der Schl&uuml;ssel wird im Public Key des Empf&auml;ngers verschl&uuml;sselt.</p>
 </td>
 </tr>
+</tbody>
 </table>
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

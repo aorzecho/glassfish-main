@@ -1,99 +1,134 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jdbcconnectionpooledit" name="task-jdbcconnectionpooledit"></a><a id="GHJDB00037" name="GHJDB00037"></a></p>
 
-
-<a name="task-jdbcconnectionpooledit"></a><h3>So bearbeiten Sie die allgemeinen JDBC-Verbindungspooleinstellungen</h3><a name="indexterm-10"></a><ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Ressourcenknoten.</b></li>
-<li><b>Erweitern Sie unter dem Ressourcenknoten den JDBC-Knoten.</b></li>
-<li><b>W&#228;hlen Sie unter dem JDBC-Knoten den Verbindungspoolknoten aus.</b><p>Die Seite "Verbindungspools" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie auf den Namen des zu bearbeitenden Verbindungspools.</b><p>Die Seite "Verbindungspool bearbeiten" wird ge&#246;ffnet.</p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Ressourcentyp" einen Ressourcentyp aus.</b><p>Zur Auswahl stehen <tt>javax.sql.DataSource</tt> (nur lokale Transaktionen), <tt>javax.sql.XADataSource</tt> (globale Transaktionen) und <tt>java.sql.ConnectionPoolDataSource</tt>
-(lokale Transaktionen, m&#246;gliche Leistungsverbesserung).</p></li>
-<li><b>Geben Sie im Feld "Klassenname der Datenquelle" den Namen der herstellerspezifischen Klasse
-ein, die die API <tt>DataSource</tt>, <tt>ConnectionPoolDataSource</tt> oder <tt>XADataSource</tt> implementiert.</b><p>Wenn Sie einen der Datenquellen-Ressourcentypen ausw&#228;hlen, wird in dieses Feld normalerweise automatisch
-der Klassenname eingef&#252;gt, der mit dem ausgew&#228;hlten Ressourcentyp und Datenbankhersteller verbunden ist.
-Bei Auswahl des Ressourcentyps <tt>java.sql.Driver?</tt> ist dieses Feld deaktiviert.</p></li>
-<li><b>Geben Sie im Feld "Klassenname der Datenquelle" den Namen der herstellerspezifischen Klasse
-ein, die die API <tt>java.sql.Driver</tt> implementiert.</b><p>Wenn Sie den Ressourcentyp <tt>java.sql.Driver</tt> ausgew&#228;hlt haben, wird in dieses Feld normalerweise
-automatisch der Klassenname eingef&#252;gt, der mit dem ausgew&#228;hlten Treiber und Datenbankhersteller verbunden
-ist. Bei Auswahl eines der Datenquellen-Ressourcentypen ist dieses Feld deaktiviert.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Ping", um bei der Erstellung oder Neukonfiguration eines
-Pools automatisch ein Ping-Signal an den Pool zu senden, um falsche Attributwerte
-zu ermitteln und eine diesbez&#252;gliche Warnung auszugeben.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>Geben Sie im Feld "Beschreibung" eine kurze Beschreibung f&#252;r den Verbindungspool ein.</b></li>
-<li><b>Geben Sie in das Feld "Urspr&#252;ngliche und minimale Poolgr&#246;&#223;e" die minimale Anzahl
-der Verbindungen in diesem Pool ein.</b><p>Dieser Wert legt auch die Anzahl an Verbindungen fest, die im Pool
-platziert werden, wenn der Pool erstellt bzw. GlassFish-Server gestartet wird. Der Standardwert
-ist 8.</p></li>
-<li><b>Geben Sie in das Feld "Maximale Poolgr&#246;&#223;e" die maximale Anzahl der Verbindungen
-in diesem Pool ein.</b><p>Der Standardwert lautet 32.</p></li>
-<li><b>Geben Sie im Feld "Umfang der Gr&#246;&#223;en&#228;nderungen des Pools" die Anzahl der
-Verbindungen pro Gr&#246;&#223;en&#228;nderung des Pools ein.</b><p>Wenn die Poolgr&#246;&#223;e nach oben oder unten skaliert wird, erfolgt die Anpassung
-in Schritten. Dieser Wert legt die Anzahl an Verbindungen im Stapel fest.
-Wenn dieser Wert zu hoch eingestellt ist, entstehen Verz&#246;gerungen beim Erstellen von
-Verbindungen und beim Verbindungswiederaufbau, ist der Wert zu niedrig eingestellt, wird die
-Effizienz beeintr&#228;chtigt. Der Standardwert ist 2.</p></li>
-<li><b>Geben Sie im Feld "Leerlaufzeit&#252;berschreitung" die maximale Dauer (in Sekunden) an, die
-eine Verbindung im Leerlauf im Pool verbleiben kann.</b><p>Nach Ablauf dieser Zeitspanne wird die Verbindung aus dem Pool entfernt. Der
-Standardwert betr&#228;gt 300.</p></li>
-<li><b>Geben Sie im Feld "Maximale Wartezeit" die maximale Wartezeit (in Millisekunden) an,
-w&#228;hrend der die eine Verbindung anfordernde Anwendung wartet, bevor sie eine Verbindungszeit&#252;berschreitung
-erreicht hat.</b><p>Der Standardwert ist 60.000.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Nicht transaktionsbezogene Verbindungen", um nicht transaktionsbezogene Verbindungen zur&#252;ckzugeben.</b><p>Diese Option ist standardm&#228;&#223;ig deaktiviert.</p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste den Transaktionsisolationsgrad f&#252;r den Verbindungspool. </b><p>Sofern nicht angegeben, verwendet der Pool den vom JDBC-Treiber festgelegten Standardisolationsgrad. Standardm&#228;&#223;ig
-ist diese Option nicht aktiviert.</p></li>
-<li><b>Aktivieren Sie das Kontrollk&#228;stchen "Isolationsebene garantiert", sodass f&#252;r alle Verbindungen aus dem
-Pool dieselbe Isolationsebene gilt.</b><p>Wenn beispielsweise die Isolationsebene f&#252;r die Verbindung nach der letzten Verwendung programmatisch
-(&#252;ber <tt>con.setTransactionIsolation </tt>) ge&#228;ndert wird, wird der Status auf die angegebene Isolationsebene zur&#252;ckgesetzt.</p><p>Diese Einstellung steht nur dann zur Verf&#252;gung, wenn ein Transaktionsisolationsgrad angegeben wurde.</p></li>
-<li><b>Klicken Sie auf die Schaltfl&#228;che "Ping", um die Datenbankverbindung zu &#252;berpr&#252;fen.</b><p>Die Administration Console versucht, eine Verbindung zur Datenbank herzustellen. Wenn eine Fehlermeldung
-angezeigt wird, pr&#252;fen Sie, ob der Datenbankserver neu gestartet wurde.</p></li>
-<li><b>Klicken Sie auf die Schaltfl&#228;che "Leeren", um den Verbindungspool in seinen urspr&#252;nglichen
-Zustand zur&#252;ckzuversetzen.</b><p>Bestehende Live-Verbindungen werden entfernt, was bedeutet, dass die mit diesen Verbindungen verbundenen
-Transaktionen verloren gehen. Anschlie&#223;end erstellt der Unterbefehl die anf&#228;nglichen Verbindungen f&#252;r den
-Pool neu und stellt dann die konstante Gr&#246;&#223;e des Pools wieder her.</p></li>
-<li><b>Klicken Sie auf "Speichern".</b>
-<hr><p><b>Tipp - </b>Um zu den Standardeinstellungen zur&#252;ckzukehren, klicken Sie auf die Schaltfl&#228;che "Standardwerte laden"
-und anschlie&#223;end auf "Speichern".</p>
-
+<h4><a id="sthref17" name="sthref17"></a>So werden allgemeine Eigenschaften eines JDBC-Connection Pools bearbeitet</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Ressourcen" ein.</p>
+</li>
+<li>
+<p>Blenden Sie unter dem Ressourcenknoten den JDBC-Knoten ein.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie unter dem JDBC-Knoten den Knoten "Connection Pools".</p>
+<p>Die Seite "Connection Pools" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>Klicken Sie auf den Namen des zu bearbeitenden Connection Pools.</p>
+<p>Die Seite "Connection Pool bearbeiten" wird ge&ouml;ffnet.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Ressourcentyp" einen Ressourcentyp aus.</p>
+<p>Zur Auswahl stehen <code>javax.sql.DataSource</code> (nur lokale Transaktionen), <code>javax.sql.XADataSource</code> (globale Transaktionen) und <code>java.sql.ConnectionPoolDataSource</code> (lokale Transaktionen, m&ouml;gliche Performanceverbesserung).</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Klassenname der Datenquelle" den Namen der herstellerspezifischen Klasse ein, die die API <code>DataSource</code>, <code>ConnectionPoolDataSource</code> oder <code>XADataSource</code> implementiert.</p>
+<p>Wenn Sie einen der Datenquellen-Ressourcentypen ausw&auml;hlen, wird in dieses Feld normalerweise automatisch der Klassenname eingef&uuml;gt, der mit dem ausgew&auml;hlten Ressourcentyp und Datenbankhersteller verbunden ist. Bei Auswahl des Ressourcentyps <code>java.sql.Driver</code> ist dieses Feld deaktiviert.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Klassenname der Datenquelle" den Namen der herstellerspezifischen Klasse ein, die die API <code>java.sql.Driver</code> implementiert.</p>
+<p>Wenn Sie den Ressourcentyp <code>java.sql.Driver</code> ausgew&auml;hlt haben, wird in dieses Feld normalerweise automatisch der Klassenname eingef&uuml;gt, der mit dem ausgew&auml;hlten Treiber und Datenbankhersteller verbunden ist. Bei Auswahl eines der Datenquellen-Ressourcentypen ist dieses Feld deaktiviert.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Ping", um bei der Erstellung oder Neukonfiguration eines Pools automatisch ein Ping-Signal an den Pool zu senden, um falsche Attributwerte zu ermitteln und eine diesbez&uuml;gliche Warnung auszugeben.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Beschreibung" eine kurze Beschreibung f&uuml;r den Connection Pool ein.</p>
+</li>
+<li>
+<p>Geben Sie in das Feld "Urspr&uuml;ngliche und minimale Poolgr&ouml;&szlig;e" die minimale Anzahl der Verbindungen in diesem Pool ein.</p>
+<p>Dieser Wert legt auch die Anzahl an Verbindungen fest, die im Pool platziert werden, wenn der Pool erstellt bzw. GlassFish Server gestartet wird. Der Standardwert ist 8.</p>
+</li>
+<li>
+<p>Geben Sie in das Feld "Maximale Poolgr&ouml;&szlig;e" die maximale Anzahl der Verbindungen in diesem Pool ein.</p>
+<p>Der Standardwert lautet 32.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Umfang der Gr&ouml;&szlig;en&auml;nderungen des Pools" die Anzahl der Verbindungen pro Gr&ouml;&szlig;en&auml;nderung des Pools ein.</p>
+<p>Wenn die Poolgr&ouml;&szlig;e nach oben oder unten skaliert wird, erfolgt die Anpassung in Schritten. Dieser Wert legt die Anzahl an Verbindungen im Batch fest. Wenn dieser Wert zu hoch eingestellt ist, entstehen Verz&ouml;gerungen beim Erstellen von Verbindungen und beim Verbindungswiederaufbau, ist der Wert zu niedrig eingestellt, wird die Effizienz beeintr&auml;chtigt. Der Standardwert ist 2.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Leerlaufzeittimeout" die maximale Dauer (in Sekunden) an, die eine Verbindung im Leerlauf im Pool verbleiben kann.</p>
+<p>Nach Ablauf dieser Zeitspanne wird die Verbindung aus dem Pool entfernt. Der Standardwert betr&auml;gt 300.</p>
+</li>
+<li>
+<p>Geben Sie im Feld "Maximale Wartezeit" die maximale Wartezeit (in Millisekunden) an, w&auml;hrend der die eine Verbindung anfordernde Anwendung wartet, bevor sie wegen Verbindungstimeout abgebrochen wird.</p>
+<p>Der Standardwert ist 60.000.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Nicht transaktionsbezogene Verbindungen", um nicht transaktionsbezogene Verbindungen zur&uuml;ckzugeben.</p>
+<p>Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
+</li>
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste den Transaktionsisolationsgrad f&uuml;r den Connection Pool.</p>
+<p>Sofern nicht angegeben, verwendet der Pool den vom JDBC-Treiber festgelegten Standardisolationsgrad. Standardm&auml;&szlig;ig ist diese Option nicht aktiviert.</p>
+</li>
+<li>
+<p>Aktivieren Sie das Kontrollk&auml;stchen "Isolationsebene garantiert", sodass f&uuml;r alle Verbindungen aus dem Pool dieselbe Isolationsebene gilt.</p>
+<p>Wenn beispielsweise die Isolationsebene f&uuml;r die Verbindung nach der letzten Verwendung programmatisch (&uuml;ber <code>con.setTransactionIsolation</code> ) ge&auml;ndert wird, wird der Status auf die angegebene Isolationsebene zur&uuml;ckgesetzt.</p>
+<p>Diese Einstellung steht nur dann zur Verf&uuml;gung, wenn ein Transaktionsisolationsgrad angegeben wurde.</p>
+</li>
+<li>
+<p>Klicken Sie auf die Schaltfl&auml;che "Ping", um die Datenbankverbindung zu &uuml;berpr&uuml;fen.</p>
+<p>Die Administrationskonsole versucht, eine Verbindung zur Datenbank herzustellen. Wenn eine Fehlermeldung angezeigt wird, pr&uuml;fen Sie, ob der Datenbankserver neu gestartet wurde.</p>
+</li>
+<li>
+<p>Klicken Sie auf die Schaltfl&auml;che "Leeren", um den Connection Pool in seinen urspr&uuml;nglichen Zustand zur&uuml;ckzuversetzen.</p>
+<p>Bestehende Live-Verbindungen werden entfernt, was bedeutet, dass die mit diesen Verbindungen verbundenen Transaktionen verloren gehen. Anschlie&szlig;end erstellt der Unterbefehl die anf&auml;nglichen Verbindungen f&uuml;r den Pool neu und stellt dann die konstante Gr&ouml;&szlig;e des Pools wieder her.</p>
+</li>
+<li>
+<p>Klicken Sie auf "Speichern".</p>
 
 <hr>
-</li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-setdbaccess.html">So richten Sie den Datenbankzugriff ein</a></p>
+<p><b>Tipp:</b></p>
+Um zu den Standardeinstellungen zur&uuml;ckzukehren, klicken Sie auf die Schaltfl&auml;che "Standardwerte laden" und anschlie&szlig;end auf "Speichern".
+<hr>
 
 </li>
-<li><p><a href="task-integratejdbcdriver.html">So integrieren Sie einen JDBC-Treiber</a></p>
-
+</ol>
+<a id="sthref18" name="sthref18"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-setdbaccess.html">So wird der Datenbankzugriff eingerichtet</a></p>
 </li>
-<li><p><a href="task-jdbcresourcenew.html">So erstellen Sie eine JDBC-Ressource</a></p>
-
+<li>
+<p><a href="task-integratejdbcdriver.html">So wird ein JDBC-Treiber integriert</a></p>
 </li>
-<li><p><a href="task-jdbcresourcesedit.html">So bearbeiten Sie eine JDBC-Ressource</a></p>
-
+<li>
+<p><a href="task-jdbcresourcenew.html">So wird eine JDBC-Ressource erstellt</a></p>
 </li>
-<li><p><a href="task-jdbcresourcetargets.html">So bearbeiten Sie Ziele f&#252;r JDBC-Ressourcen</a></p>
-
+<li>
+<p><a href="task-jdbcresourcesedit.html">So wird eine JDBC-Ressource bearbeitet</a></p>
 </li>
-<li><p><a href="task-jdbcresourcesdelete.html">So l&#246;schen Sie eine JDBC-Ressource</a></p>
-
+<li>
+<p><a href="task-jdbcresourcetargets.html">So bearbeiten Sie Ziele f&uuml;r JDBC-Ressourcen</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">So erstellen Sie einen JDBC-Verbindungspool</a></p>
-
+<li>
+<p><a href="task-jdbcresourcesdelete.html">So wird eine JDBC-Ressource gel&ouml;scht</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">So bearbeiten Sie die erweiterten Attribute eines JDBC-Verbindungspools</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">So wird ein JDBC-Connection Pool erstellt</a></p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">So &#252;berpr&#252;fen Sie die Verbindungspooleinstellungen</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">So werden erweiterte Attribute des JDBC-Connection Pools bearbeitet</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">So bearbeiten Sie Eigenschaften von JDBC-Verbindungspools</a></p>
-
+<li>
+<p><a href="task-verifyconnpoolsettings.html">So werden Connection Pool-Einstellungen gepr&uuml;ft</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">So l&#246;schen Sie einen JDBC-Verbindungspool</a></p>
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">So werden JDBC-Connection Pool-Eigenschaften bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">So wird ein JDBC-Connection Pool gel&ouml;scht</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

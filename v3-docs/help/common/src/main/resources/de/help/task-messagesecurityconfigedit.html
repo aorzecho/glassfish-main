@@ -1,63 +1,70 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-messagesecurityconfigedit" name="task-messagesecurityconfigedit"></a><a id="GHCOM00205" name="GHCOM00205"></a></p>
 
-
-<a name="task-messagesecurityconfigedit"></a><h3>So bearbeiten Sie eine Meldungssicherheitskonfiguration</h3><a name="indexterm-108"></a><p>Zum Aktivieren der Meldungssicherheit f&#252;r in GlassFish-Server bereitgestellte Webdienstendpunkte muss ein Anbieter
-als Standardanbieter f&#252;r die Serverseite angegeben werden. Wenn Sie einen Standardanbieter f&#252;r
-die Meldungssicherheit aktivieren, m&#252;ssen ebenfalls Anbieter f&#252;r die Clients der in GlassFish-Server
-bereitgestellten Webdienste aktiviert werden. Informationen zum Aktivieren der Anbieter, die von Clients
-verwendet werden, werden in <a href="task-enablemesec4appclients.html">So aktivieren Sie die Meldungssicherheit f&#252;r Anwendungs-Clients</a> diskutiert.</p>
-
-<p>Zum Aktivieren der Meldungssicherheit f&#252;r Webdienstaufrufe von bereitgestellten Endpunkten muss ein standardm&#228;&#223;iger
-Clientanbieter angegeben werden. Wenn ein standardm&#228;&#223;iger Clientanbieter f&#252;r GlassFish-Server aktiviert wurde, muss
-sichergestellt werden, dass die von in GlassFish-Server bereitgestellten Endpunkten aufgerufenen Dienste f&#252;r
-Sicherheit auf Meldungsebene konfiguriert sind.</p>
-
+<h4><a id="sthref185" name="sthref185"></a>So wird eine Nachrichtensicherheitskonfiguration bearbeitet</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Zum Aktivieren der Meldungssicherheit f&uuml;r in GlassFish Server bereitgestellte Webdienst-End Points muss ein Provider als Standardprovider f&uuml;r die Serverseite angegeben werden. Wenn Sie einen Standardprovider f&uuml;r die Meldungssicherheit aktivieren, m&uuml;ssen ebenfalls Provider f&uuml;r die Clients der in GlassFish Server bereitgestellten Webdienste aktiviert werden. Informationen &uuml;ber die Aktivierung der Provider, die von den Clients verwendet werden, sind in <a href="task-enablemesec4appclients.html">So wird die Nachrichtensicherheit f&uuml;r Anwendungsclients aktiviert</a> enthalten.</p>
+<p>Zum Aktivieren der Meldungssicherheit f&uuml;r Webdienstaufrufe von bereitgestellten End Points muss ein standardm&auml;&szlig;iger Clientprovider angegeben werden. Wenn ein Standardclientprovider f&uuml;r GlassFish Server aktiviert wurde, muss sichergestellt werden, dass die von in GlassFish Server bereitgestellten End Points aufgerufenen Dienste f&uuml;r Sicherheit auf Meldungsebene konfiguriert sind.</p>
 <ol>
-<li><b>Erweitern Sie in der Navigationsstruktur den Konfigurationsknoten.</b></li>
-<li><b>Erweitern Sie den Knoten "Sicherheit".</b></li>
-<li><b>W&#228;hlen Sie den Knoten "Meldungssicherheit".</b><p>Die Seite "Nachrichtensicherheitskonfigurationen" wird ge&#246;ffnet.</p></li>
-<li><b>Klicken Sie auf der Seite "Nachrichtensicherheitskonfigurationen" auf den Namen der Authentifizierungslayer der
-Konfiguration, die Sie bearbeiten.</b><p>Standardm&#228;&#223;ig ist die einzige konfigurierte Nachrichtensicherheitskonfiguration SOAP.</p><p>Die Seite "Neue Meldungssicherheitskonfiguration bearbeiten" wird ge&#246;ffnet.</p></li>
-<li><b>W&#228;hlen Sie auf der Seite "Meldungssicherheitskonfiguration bearbeiten" aus der Dropdown-Liste "Standardanbieter" einen
-Server-seitigen Anbieter aus.</b><p>Der standardm&#228;&#223;ige Serveranbieter, auch Standardanbieter genannt, gibt den Serveranbieter an, der f&#252;r
-Anwendungen aufgerufen wird, f&#252;r die kein spezifischer Serveranbieter festgelegt ist. Zur Auswahl
-stehen <tt>Serveranbieter</tt>, <tt>XWS_ServerProvider </tt> oder keine. Standardm&#228;&#223;ig wird kein Anbieter ausgew&#228;hlt, so dass
-GlassFish-Server Server-seitig keinen Meldungssicherheitsanbieter aufruft. W&#228;hlen Sie im Allgemeinen <tt> ServerProvider</tt> als Standardanbieter
-aus.</p></li>
-<li><b>W&#228;hlen Sie aus der Dropdown-Liste "Standard-Client-Anbieter" einen Client-Anbieter aus.</b><p>Der standardm&#228;&#223;ige Clientanbieter gibt den Clientanbieter an, der f&#252;r Anwendungen aufgerufen wird,
-f&#252;r die kein spezifischer Clientanbieter festgelegt ist. Zur Auswahl stehen <tt>ClientProvider</tt>, <tt> XWS_ClientProvider</tt>
-oder keine. Standardm&#228;&#223;ig ist kein Anbieter ausgew&#228;hlt, so dass GlassFish-Server Client-seitig keinen
-Meldungssicherheitsanbieter aufruft. W&#228;hlen Sie im Allgemeinen f&#252;r den Standard-Clientanbieter "keine" aus. W&#228;hlen
-Sie <tt>ClientProvider</tt>, um einen Standardanbieter und eine Meldungssicherheitsrichtilinie zu aktivieren, die f&#252;r
-Webdienstaufrufe von in GlassFish-Server bereitgestellten Webdienstendpunkten angewendet werden.</p></li>
-<li><b>Klicken Sie auf "Speichern".</b></li>
-<li><b>Anweisungen zum &#196;ndern von Meldungssicherheitsrichtlinien f&#252;r aktivierte Client- oder Serveranbieter finden Sie
-unter <a href="task-messagesecurityproviderconfigedit.html">So bearbeiten Sie eine Konfiguration von Meldungssicherheitsanbietern</a>.</b></li></ol><p></b>Siehe auch</b></p>
-<ul><li><p><a href="task-configmsgsecproviders.html">So konfigurieren Sie GlassFish-Server-Funktionen f&#252;r die Verwendung durch Meldungssicherheitsanbieter</a></p>
-
+<li>
+<p>Blenden Sie in der Navigationsbaumstruktur den Knoten "Konfiguration" ein.</p>
 </li>
-<li><p><a href="task-messagesecurityconfignew.html">So erstellen Sie eine Meldungssicherheitskonfiguration</a></p>
-
+<li>
+<p>Blenden Sie den Knoten "Sicherheit" ein.</p>
 </li>
-<li><p><a href="task-messagesecurityconfigdelete.html">So l&#246;schen Sie eine Meldungssicherheitskonfiguration</a></p>
-
+<li>
+<p>W&auml;hlen Sie den Knoten "Meldungssicherheit".</p>
+<p>Die Seite "Nachrichtensicherheitskonfigurationen" wird ge&ouml;ffnet.</p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfignew.html">So erstellen Sie eine Meldungssicherheitsanbieter-Konfiguration</a></p>
-
+<li>
+<p>Klicken Sie auf der Seite "Nachrichtensicherheitskonfigurationen" auf den Namen der Authentifizierungslayer der Konfiguration, die Sie bearbeiten.</p>
+<p>Standardm&auml;&szlig;ig ist die einzige konfigurierte Nachrichtensicherheitskonfiguration SOAP.</p>
+<p>Die Seite "Neue Meldungssicherheitskonfiguration bearbeiten" wird ge&ouml;ffnet.</p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigedit.html">So bearbeiten Sie eine Konfiguration von Meldungssicherheitsanbietern</a></p>
-
+<li>
+<p>W&auml;hlen Sie auf der Seite "Meldungssicherheitskonfiguration bearbeiten" aus der Dropdown-Liste "Standardprovider" einen serverseitigen Provider.</p>
+<p>Der Standardserverprovider, auch Standardprovider genannt, gibt den Serverprovider an, der f&uuml;r Anwendungen aufgerufen wird, f&uuml;r die kein spezifischer Serverprovider festgelegt ist. Zur Auswahl stehen <code>ServerProvider</code>, <code>XWS_ServerProvider</code> oder keine. Standardm&auml;&szlig;ig wird kein Provider ausgew&auml;hlt, so dass GlassFish Server serverseitig keinen Nachrichtensicherheitsprovider aufruft. W&auml;hlen Sie im Allgemeinen <code>ServerProvider</code> als Standardprovider.</p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigdelete.html">So l&#246;schen Sie eine Konfiguration des Meldungssicherheitsanbieters</a></p>
-
+<li>
+<p>W&auml;hlen Sie aus der Dropdown-Liste "Standardclientprovider" einen Clientprovider.</p>
+<p>Der Standardclientprovider gibt den Clientprovider an, der f&uuml;r Anwendungen aufgerufen wird, f&uuml;r die kein spezifischer Clientprovider festgelegt ist. Zur Auswahl stehen <code>ClientProvider</code>, <code>XWS_ClientProvider</code> oder keine. Standardm&auml;&szlig;ig ist kein Provider ausgew&auml;hlt, so dass GlassFish Server Client-seitig keinen Meldungssicherheitsprovider aufruft. W&auml;hlen Sie im Allgemeinen f&uuml;r den Standardclientprovider "keine" aus. W&auml;hlen Sie <code>ClientProvider</code>, um einen Standardprovider und eine Nachrichtenschutz-Policy zu aktivieren, die f&uuml;r Webserviceaufrufe von in GlassFish Server bereitgestellten Webservice-End Points angewendet werden.</p>
 </li>
-<li><p><a href="task-enablemesec4appclients.html">So aktivieren Sie die Meldungssicherheit f&#252;r Anwendungs-Clients</a></p>
+<li>
+<p>Klicken Sie auf "Speichern".</p>
+</li>
+<li>
+<p>Weitere Anweisungen zur &Auml;nderung der Nachrichtenschutz-Policys von aktivierten Client- oder Serverprovidern finden Sie unter <a href="task-messagesecurityproviderconfigedit.html">So wird eine Konfiguration eines Nachrichtensicherheitsprovider bearbeitet</a>.</p>
+</li>
+</ol>
+<a id="sthref186" name="sthref186"></a>
+<h5>Siehe auch</h5>
+<ul>
+<li>
+<p><a href="task-configmsgsecproviders.html">So werden GlassFish Server-Funktionalit&auml;ten zur Verwendung durch Nachrichtensicherheitsprovider konfiguriert</a></p>
+</li>
+<li>
+<p><a href="task-messagesecurityconfignew.html">So wird eine Nachrichtensicherheitskonfiguration erstellt</a></p>
+</li>
+<li>
+<p><a href="task-messagesecurityconfigdelete.html">So wird eine Nachrichtensicherheitskonfiguration gel&ouml;scht</a></p>
+</li>
+<li>
+<p><a href="task-messagesecurityproviderconfignew.html">So wird eine Konfiguration eines Nachrichtensicherheitsprovider erstellt</a></p>
+</li>
+<li>
+<p><a href="task-messagesecurityproviderconfigedit.html">So wird eine Konfiguration eines Nachrichtensicherheitsprovider bearbeitet</a></p>
+</li>
+<li>
+<p><a href="task-messagesecurityproviderconfigdelete.html">So wird eine Konfiguration eines Nachrichtensicherheitsproviders gel&ouml;scht</a></p>
+</li>
+<li>
+<p><a href="task-enablemesec4appclients.html">So wird die Nachrichtensicherheit f&uuml;r Anwendungsclients aktiviert</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

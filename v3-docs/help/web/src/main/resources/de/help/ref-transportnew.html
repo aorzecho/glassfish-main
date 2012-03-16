@@ -1,100 +1,104 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-transportnew"></a><h4>Neuer Transport</h4>
-<a name="indexterm-77"></a><p>Auf der Seite "Neuer Transport" k&#246;nnen Sie einen neuen Transport erstellen.</p>
+<p><a id="ref-transportnew" name="ref-transportnew"></a><a id="GHWEB00025" name="GHWEB00025"></a></p>
 
-<p>Zus&#228;tzlich zum Standardtransport <tt>tcp</tt> wird normalerweise kein weiterer Transport ben&#246;tigt.</p>
-
-<p>Die Seite "Neuer Transport" enth&#228;lt die folgenden Optionen.</p>
-
-<dl><dt>Name der Konfiguration</dt>
-<dd><p>Der Name der Konfiguration, f&#252;r die die Einstellungen auf dieser Seite gelten. Dieses Feld ist schreibgesch&#252;tzt.</p>
-
+<h4><a id="sthref163" name="sthref163"></a>Neuer Transport</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Auf der Seite "Neuer Transport" k&ouml;nnen Sie einen neuen Transport erstellen.</p>
+<p>Zus&auml;tzlich zum Standardtransport <code>tcp</code> wird normalerweise kein weiterer Transport ben&ouml;tigt.</p>
+<p>Die Seite "Neuer Transport" enth&auml;lt die folgenden Optionen.</p>
+<dl>
+<dt>Name der Konfiguration</dt>
+<dd>
+<p>Der Name der Konfiguration, f&uuml;r die die Einstellungen auf dieser Seite angewendet werden. Dieses Feld ist schreibgesch&uuml;tzt.</p>
 </dd>
 <dt>Transportname</dt>
-<dd><p>Ein eindeutiger Name f&#252;r den Transport.</p>
-
+<dd>
+<p>Ein eindeutiger Name f&uuml;r den Transport.</p>
 </dd>
 <dt>Klassenname</dt>
-<dd><p>Der Klassenname der Transportimplementierung. Der Standardwert lautet <tt>com.sun.grizzly.TCPSelectorHandler</tt>.</p>
-
+<dd>
+<p>Der Klassenname der Transportimplementierung. Der Standardwert lautet <code>com.sun.grizzly.TCPSelectorHandler</code>.</p>
 </dd>
-<dt>Auswahlschl&#252;ssel-Behandlungsroutine</dt>
-<dd><p>Der Klassenname der Auswahlschl&#252;ssel-Behandlungsroutine. Eine Auswahlschl&#252;ssel-Behandlungsroutine ist eine abstrakte Klasse, die die G&#252;ltigkeitsdauer von Auswahlschl&#252;sseln verwaltet. Wenn Sie keinen Wert angeben, wird eine Standardimplementierung verwendet.</p>
-
+<dt>Auswahlschl&uuml;ssel-Handler</dt>
+<dd>
+<p>Der Klassenname des Auswahlschl&uuml;ssel-Handlers. Ein Auswahlschl&uuml;ssel-Handler ist eine abstrakte Klasse, die den Lebenszyklus von Auswahlschl&uuml;sseln verwaltet. Wenn Sie keinen Wert angeben, wird eine Standardimplementierung verwendet.</p>
 </dd>
 <dt>Bytepuffertyp</dt>
-<dd><p>Der zu verwendende <tt>ByteBuffer</tt>-Typ. Zur Auswahl stehen <tt>HEAP</tt> und <tt>DIRECT</tt>. Der Standardwert lautet <tt>HEAP</tt>.</p>
-
+<dd>
+<p>Der zu verwendende <code>ByteBuffer</code>-Typ. Zur Auswahl stehen <code>HEAP</code> und <code>DIRECT</code>. Der Standardwert lautet <code>HEAP</code>.</p>
 </dd>
 <dt>Annahmethreads</dt>
-<dd><p>Die Anzahl der Prozessoren im Computer. Der Wert &#8211;1 gibt an, dass Grizzly die Anzahl der Annahmethreads basierend auf der Anzahl der Prozessoren im Computer selbst berechnet. Der Standardwert betr&#228;gt 1. </p>
-
-<p>Um die Anzahl der Anforderungsverarbeitungs-Threads festzulegen, setzen Sie den Wert von "Maximale Threadpool-Gr&#246;&#223;e" des Threadpools, der von einem Netzwerk-Zielger&#228;t verwendet wird, das diesen Transport nutzt.</p>
-
+<dd>
+<p>Die Anzahl der Prozessoren im Computer. Der Wert &ndash;1 gibt an, dass Grizzly die Anzahl der Acceptor-Threads basierend auf der Anzahl der Prozessoren im Rechner selbst berechnet. Der Standardwert betr&auml;gt 1.</p>
+<p>Um die Anzahl der Anforderungsverarbeitungsthreads festzulegen, setzen Sie den Wert von "Maximale Threadpoolgr&ouml;&szlig;e" des Threadpools, der von einem Netzwerk-Listener verwendet wird, der diesen Transport nutzt.</p>
 </dd>
-<dt>Verbindungsh&#246;chstzahl</dt>
-<dd><p>Die maximale Anzahl von ausstehenden Verbindungen auf einem Netzwerk-Zielger&#228;t, das diesen Transport verwendet. Der Standardwert ist 4096.</p>
-
+<dt>Verbindungsh&ouml;chstzahl</dt>
+<dd>
+<p>Die maximale Anzahl von ausstehenden Verbindungen auf einem Netzwerk-Listener, das diesen Transport verwendet. Der Standardwert ist 4096.</p>
 </dd>
-<dt>Puffergr&#246;&#223;e</dt>
-<dd><p>Die Gr&#246;&#223;e (in Byte) des Puffers, der f&#252;r Eingabestr&#246;me bereitzustellen ist, die von einem Netzwerk-Zielger&#228;t erstellt werden, das diesen Transport verwendet. Der Standardwert ist 8192.</p>
-
+<dt>Puffergr&ouml;&szlig;e</dt>
+<dd>
+<p>Die Gr&ouml;&szlig;e (in Byte) des Puffers, der f&uuml;r Input Streams bereitzustellen ist, die von einem Netzwerk-Listener erstellt werden, der diesen Transport verwendet. Der Standardwert ist 8192.</p>
 </dd>
-<dt>Leerlaufschl&#252;ssel-Zeit&#252;berschreitung</dt>
-<dd><p>Die Anzahl Sekunden, nach der ein Leerlaufschl&#252;ssel abgebrochen und der Kanal geschlossen wird. Der Standardwert ist 30.</p>
-
+<dt>Leerlaufschl&uuml;ssel-Timeout</dt>
+<dd>
+<p>Die Anzahl Sekunden, nach der ein Leerlaufschl&uuml;ssel abgebrochen und der Kanal geschlossen wird. Der Standardwert ist 30.</p>
 </dd>
-<dt>Zeit&#252;berschreitung f&#252;r Lesevorgang</dt>
-<dd><p>Die Anzahl Millisekunden, die GlassFish-Server w&#228;hrend der Header- und Body-Analysephase eines Lesevorgangs wartet. Der Standardwert betr&#228;gt 30.000.</p>
-
+<dt>Timeout f&uuml;r Lesevorgang</dt>
+<dd>
+<p>Die Anzahl Millisekunden, die GlassFish Server w&auml;hrend der Header- und Body-Parsingphase eines Lesevorgangs wartet. Der Standardwert betr&auml;gt 30.000.</p>
 </dd>
-<dt>Zeit&#252;berschreitung bei Selektorabruf</dt>
-<dd><p>Die Anzahl Millisekunden, die ein NIO-Selektor das Warten auf Ereignisse (Benutzeranforderungen) blockiert. Der Standardwert ist 1000.</p>
-
+<dt>Timeout bei Selektorabruf</dt>
+<dd>
+<p>Die Anzahl Millisekunden, die ein NIO-Selektor das Warten auf Ereignisse (Benutzeranforderungen) blockiert. Der Standardwert ist 1000.</p>
 </dd>
-<dt>Zeit&#252;berschreitung f&#252;r Schreibvorgang</dt>
-<dd><p>Die Anzahl Millisekunden, die GlassFish-Server beim Schreiben der Antwort wartet, bevor der Remote-Client als getrennt betrachtet wird. Der Standardwert betr&#228;gt 30.000.</p>
-
+<dt>Timeout f&uuml;r Schreibvorgang</dt>
+<dd>
+<p>Die Anzahl Millisekunden, die GlassFish Server beim Schreiben der Antwort wartet, bevor der Remote-Client als getrennt betrachtet wird. Der Standardwert betr&auml;gt 30.000.</p>
 </dd>
 <dt>Konfiguration anzeigen</dt>
-<dd><p>Bei aktivierter Option wird die interne Konfiguration von Grizzly in die Serverprotokolle &#252;bertragen. Diese Option kann n&#252;tzliche Informationen f&#252;r die Fehlersuche bereitstellen. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dd>
+<p>Bei aktivierter Option wird die interne Konfiguration von Grizzly in die Serverprotokolle &uuml;bertragen. Diese Option kann n&uuml;tzliche Informationen f&uuml;r das Debugging bereitstellen. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
 <dt>Snoop</dt>
-<dd><p>Bei aktivierter Option werden die Anforderungs-/Antwortinformationen im Serverprotokoll abgelegt. Diese Option kann n&#252;tzliche Informationen f&#252;r die Fehlersuche bereitstellen, beeintr&#228;chtigt die Leistung jedoch erheblich. Diese Option ist standardm&#228;&#223;ig deaktiviert.</p>
-
+<dd>
+<p>Bei aktivierter Option werden die Anforderungs-/Antwortinformationen im Serverlog abgelegt. Diese Option kann n&uuml;tzliche Informationen f&uuml;r das Debugging bereitstellen, beeintr&auml;chtigt die Performance jedoch erheblich. Diese Option ist standardm&auml;&szlig;ig deaktiviert.</p>
 </dd>
-<dt>TCP keine Verz&#246;gerung</dt>
-<dd><p>Bei aktivierter Option ist TCP_NODELAY (auch Nagle-Algorithmus genannt) aktiviert. Diese Option ist standardm&#228;&#223;ig aktiviert.</p>
-
+<dt>TCP keine Verz&ouml;gerung</dt>
+<dd>
+<p>Wenn diese Option gew&auml;hlt wird, wird TCP_NODELAY (auch als Nagle-Algorithmus bezeichnet) aktiviert. Diese Option ist standardm&auml;&szlig;ig aktiviert.</p>
 </dd>
 </dl>
+<a id="sthref164" name="sthref164"></a>
 <h5>Verwandte Aufgaben</h5>
-
-<ul><li><p><a href="task-transportnew.html">So erstellen Sie einen Transport</a></p>
-
+<ul>
+<li>
+<p><a href="task-transportnew.html">So wird ein Transport erstellt</a></p>
 </li>
-<li><p><a href="task-transportedit.html">So bearbeiten Sie einen Transport</a></p>
-
+<li>
+<p><a href="task-transportedit.html">So wird ein Transport bearbeitet</a></p>
 </li>
-<li><p><a href="task-transportdelete.html">So l&#246;schen Sie einen Transport</a></p>
-
-</li></ul>
-<h5>Verwandte <tt>asadmin</tt>-Befehle</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-transport-1"><tt>create-transport</tt>(1)</a></p>
-
+<li>
+<p><a href="task-transportdelete.html">So wird ein Transport gel&ouml;scht</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-transports-1"><tt>list-transports</tt>(1)</a></p>
-
+</ul>
+<a id="sthref165" name="sthref165"></a>
+<h5>Zugeh&ouml;rige asadmin-Befehle</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00061"><code>create-transport</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-transport-1"><tt>delete-transport</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00206"><code>list-transports</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00112"><code>delete-transport</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle und/oder verbundene Unternehmen. Alle Rechte vorbehalten. <a href="docinfo.html">Rechtlicher Hinweis</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
