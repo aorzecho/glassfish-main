@@ -1,0 +1,107 @@
+CREATE-JDBC-RESOUR(1)                                    CREATE-JDBC-RESOUR(1)
+
+NOME
+       create-jdbc-resource - crea una risorsa JDBC con il nome JNDI
+       specificato
+
+SINTASSI
+           create-jdbc-resource [--help]
+           --connectionpoolid connectionpoolid
+           [--enabled={false|true}]
+           [--description description]
+           [--property (property=value)[:name=value]*]
+           [--target target]
+           jndi_name
+
+DESCRIZIONE
+       Il comando secondario create-jdbc-resource crea una nuova risorsa JDBC.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --connectionpoolid
+           Nome del connection pool JDBC. Se due o più elementi risorsa JDBC
+           puntano allo stesso elemento connection pool, utilizzano la stessa
+           connessione del pool in fase di esecuzione.
+
+       --enabled
+           Determina se la risorsa JDBC è abilitata in fase di esecuzione. Il
+           valore predefinito è true.
+
+       --description
+           Testo in cui vengono forniti dettagli descrittivi sulla risorsa
+           JDBC.
+
+       --property
+           Coppie nome/valore di attributo per la configurazione della
+           risorsa.
+
+       --target
+           Questa opzione consente di specificare la destinazione della
+           distribuzione. I valori validi sono:
+
+           server
+               Distribuisce il componente all'istanza server predefinita.
+               Questo è il valore predefinito.
+
+           domain
+               Distribuisce il componente al dominio.
+
+           cluster_name
+               Distribuisce il componente a ogni istanza server del cluster.
+
+           instance_name
+               Distribuisce il componente a una particolare istanza server.
+
+           Nota
+           ┌────────────────────────────────────────┐
+           │Nota                                    │
+           │                                        │
+           │           La risorsa viene sempre      │
+           │           creata per l'intero dominio, │
+           │           mentre l'elemento            │
+           │           resource-ref per la risorsa  │
+           │           viene creato solo per        │
+           │           l'elemento --target          │
+           │           specificato. Ciò significa   │
+           │           che, benché la risorsa sia   │
+           │           definita a livello di        │
+           │           dominio, è disponibile solo  │
+           │           per il livello destinazione  │
+           │           specificato. Se necessario,  │
+           │           utilizzare il comando        │
+           │           secondario                   │
+           │           create-resource-ref per fare │
+           │           riferimento alla risorsa in  │
+           │           più livelli target.          │
+           └────────────────────────────────────────┘
+
+OPERANDI
+       jndi_name
+           Nome JNDI della risorsa JDBC.
+
+ESEMPI
+       Esempio 1, Creazione di una risorsa JDBC
+           In questo esempio viene creata la risorsa JDBC denominata
+           jdbc/DerbyPool.
+
+               asadmin> create-jdbc-resource
+               --connectionpoolid sample_derby_pool jdbc/DerbyPool
+               Command create-jdbc-resource executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       delete-jdbc-resource(1), list-jdbc-resources(1), create-resource-ref(1)
+
+       asadmin(1M)
+
+                               10 febbraio 2011          CREATE-JDBC-RESOUR(1)

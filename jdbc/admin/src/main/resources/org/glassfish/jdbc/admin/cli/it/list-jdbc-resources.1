@@ -1,0 +1,57 @@
+LIST-JDBC-RESOURCE(1)                                    LIST-JDBC-RESOURCE(1)
+
+NOME
+       list-jdbc-resources - recupera tutte le risorse JDBC
+
+SINTASSI
+           list-jdbc-resources [--help] [target target]
+
+DESCRIZIONE
+       Il comando secondario list-jdbc-resources visualizza un elenco delle
+       risorse JDBC esistenti.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+OPERANDI
+       --target
+           Questo operando specifica quali risorse JDBC è possibile elencare.
+           L'utilizzo di tale operando è opzionale. I valori validi sono:
+
+           server
+               Elenca le risorse JDBC presenti nel server corrente ed è il
+               valore predefinito.
+
+           domain
+               Elenca le risorse JDBC presenti nel dominio corrente.
+
+           cluster_name
+               Elenca le risorse JDBC presenti in un cluster.
+
+           instance_name
+               Elenca le risorse JDBC per una particolare istanza.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco delle risorse JDBC
+           In questo esempio vengono elencate le risorse JDBC correnti.
+
+               asadmin> list-jdbc-resources
+               jdbc/DerbyPool
+               Command list-jdbc-resources executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-jdbc-resource(1), delete-jdbc-resource(1)
+
+       asadmin(1M)
+
+                               17 settembre 2010         LIST-JDBC-RESOURCE(1)

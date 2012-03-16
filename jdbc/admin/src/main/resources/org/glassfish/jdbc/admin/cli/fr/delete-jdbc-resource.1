@@ -1,0 +1,87 @@
+DELETE-JDBC-RESOUR(1)                                    DELETE-JDBC-RESOUR(1)
+
+NOM
+       delete-jdbc-resource - enlève une ressource JDBC portant le nom JNDI
+       indiqué
+
+SYNOPSIS
+           delete-jdbc-resource [--help] [--target target] jndi_name
+
+DESCRIPTION
+       La sous-commande delete-jdbc-resource enlève une ressource JDBC.
+       Assurez-vous que toutes les associations à la ressource JDBC sont
+       enlevées avant d'exécuter cette sous-commande.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Cette option permet de spécifier la cible à partir de laquelle vous
+           enlevez la ressource JDBC. Les cibles valides sont les suivantes :
+
+           server
+               Enlève la ressource de l'instance de serveur par défaut. Ceci
+               est la valeur par défaut.
+
+           domain
+               Enlève la ressource du domaine.
+
+           cluster_name
+               Enlève la ressource de chaque instance de serveur du cluster.
+
+           instance_name
+               Enlève la ressource d'une instance de serveur donnée.
+
+           Note
+           ┌────────────────────────────────────────┐
+           │Remarque                                │
+           │                                        │
+           │           Les ressources sont toujours │
+           │           créées pour un domaine dans  │
+           │           sa totalité, mais sont       │
+           │           actives uniquement pour les  │
+           │           cibles pour lesquelles un    │
+           │           élément <resource-ref> a été │
+           │           créé à l'aide de l'option    │
+           │           --target lorsque la          │
+           │           ressource a été créée. Cela  │
+           │           signifie que la suppression  │
+           │           d'une ressource ne supprime  │
+           │           que l'élément <resource-ref> │
+           │           pour l'option --target       │
+           │           spécifiée et ne supprime pas │
+           │           la ressource du domaine dans │
+           │           sa totalité, à moins que la  │
+           │           valeur domain ne soit        │
+           │           spécifiée pour --target pour │
+           │           la suppression.              │
+           └────────────────────────────────────────┘
+
+OPÉRANDES
+       jndi_name
+           Nom JNDI de la ressource JDBC à enlever.
+
+EXEMPLES
+       Exemple 1, Suppression d'une ressource JDBC
+           Dans l'exemple suivant, la ressource JDBC nommée jdbc/DerbyPool est
+           supprimée.
+
+               asadmin> delete-jdbc-resource jdbc/DerbyPool
+               Command delete-jdbc-resource executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-jdbc-resource(1), list-jdbc-resources(1)
+
+       asadmin(1M)
+
+                                 11 fév. 2011            DELETE-JDBC-RESOUR(1)

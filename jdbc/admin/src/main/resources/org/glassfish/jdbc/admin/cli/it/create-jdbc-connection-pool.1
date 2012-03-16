@@ -1,0 +1,586 @@
+CREATE-JDBC-CONNEC(1)                                    CREATE-JDBC-CONNEC(1)
+
+NOME
+       create-jdbc-connection-pool - registra un connection pool JDBC
+
+SINTASSI
+           create-jdbc-connection-pool [--help]
+           [--datasourceclassname=datasourceclassname]
+           [--restype=resourcetype]
+           [--steadypoolsize=poolsize]
+           [--maxpoolsize=maxpoolsize]
+           [--maxwait=maxwaittime]
+           [--poolresize=poolresizelimit]
+           [--idletimeout=idletimeout]
+           [--initsql=initsqlstring]
+           [--isolationlevel=isolationlevel]
+           [--isisolationguaranteed={true|false}]
+           [--isconnectvalidatereq={false|true}]
+           [--validationmethod=validationmethod]
+           [--validationtable=validationtable]
+           [--failconnection={false|true}]
+           [--allownoncomponentcallers={false|true}]
+           [--nontransactionalconnections={false|true}]
+           [--validateatmostonceperiod=validationinterval]
+           [--leaktimeout=leaktimeout]
+           [--leakreclaim={false|true}]
+           [--statementleaktimeout=satementleaktimeout]
+           [--statmentleakreclaim={false|true}]
+           [--creationretryattempts=creationretryattempts]
+           [--creationretryinterval=creationretryinterval]
+           [--sqltracelisteners=sqltracelisteners[,sqltracelisteners]]
+           [--statementtimeout=statementtimeout]
+           [--lazyconnectionenlistment={false|true}]
+           [--lazyconnectionassociation={false|true}]
+           [--associatewiththread={false|true}]
+           [--driverclassname=jdbcdriverclassname]
+           [--matchconnections={false|true}]
+           [--maxconnectionusagecount=maxconnectionusagecount]
+           [--ping={false|true}]
+           [--pooling={false|true}]
+           [--statementcachesize=statementcachesize]
+           [--validationclassname=validationclassname]
+           [--wrapjdbcobjects={false|true}]
+           [--description description]
+           [--property name=value)[:name=value]*]
+           [--target=target]
+           connectionpoolid
+
+DESCRIZIONE
+       Il comando secondario create-jdbc-connection-pool registra un nuovo
+       connection pool software "JDBC" (Java Database Connectivity) con il
+       nome di connection pool JDBC specificato.
+
+       Per creare un connection pool JDBC con autenticazione è possibile
+       utilizzare un'opzione --property per specificare l'utente, la password
+       o altre informazioni di connessione oppure specificare le informazioni
+       di connessione in file descrittore XML.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --datasourceclassname
+           Nome del Resource Manager dell'origine dati JDBC del fornitore. Una
+           classe di origine dati in grado di supportare le transazioni XA o
+           globali implementa l'interfaccia
+            javax.sql.XADatasource. Le origini dati per transazioni non XA o
+           esclusivamente locali implementano l'interfaccia
+           javax.sql.Datasource.
+
+       --restype, necessaria quando una classe di origine dati implementa due
+       o più interfacce (javax.sql.DataSource, javax.sql.XADataSource o
+       javax.sql.ConnectionPoolDataSource) oppure quando deve essere fornito
+       il nome di una classe di driver.
+
+           ·   Se --restype = java.sql.Driver, è richiesta l'opzione
+               --driverclassname.
+
+           ·   Se --restype = javax.sql.DataSource, javax.sql.XADataSource o
+               javax.sql.ConnectionPoolDataSource, è necessario utilizzare
+               l'opzione --datasourceclassname.
+
+           ·   Se non si specifica --restype, è necessario specificare
+               l'opzione --driverclassname o l'opzione --datasourceclassname,
+               ma non entrambe.
+
+       --steadypoolsize
+           Numero minimo e iniziale di connessioni gestite nel pool. Il valore
+           predefinito è 8.
+
+       --maxpoolsize
+           Numero massimo di connessioni che è possibile creare. Il valore
+           predefinito è 32.
+
+       --maxwait
+           Intervallo di tempo, in millisecondi, durante il quale un chiamante
+           può restare in attesa prima che venga inviato un timeout di
+           connessione. Il valore predefinito è 60000 (60 secondi). Il valore
+           0 indica che il chiamante può restare in attesa a tempo
+           indeterminato.
+
+       --poolresize
+           Numero di connessioni da rimuovere quando scade il timer
+           idle-timeout-in-seconds . Tale opzione indica di quanto viene
+           aumentato o diminuito il numero delle connessioni del pool.
+           Aumento: quando nel pool non sono presenti connessioni libere, il
+           pool viene aumentato di questa quantità. Diminuzione: tutte le
+           connessioni non valide o inattive vengono rimosse, a volte in
+           numero superiore a quello indicato dal valore. Le connessioni
+           rimaste inattive per un intervallo di tempo superiore a quello
+           previsto per il timeout sono candidate per la rimozione. Viene
+           comunque garantito il numero di connessioni specificato mediante
+           l'opzione steadypoolsize. I valori possibili sono compresi tra 0 e
+           MAX_INTEGER. Il valore predefinito è 2.
+
+       --idletimeout
+           Numero massimo di secondi durante i quali una connessione può
+           rimanere inattiva nel pool. Trascorso tale intervallo,
+           l'implementazione può chiudere la connessione. Questo valore di
+           timeout deve essere impostato su un valore inferiore al valore di
+           timeout relativo al server di database per impedire l'accumulo di
+           connessioni non utilizzabili nell'applicazione. Il valore
+           predefinito è 300.
+
+       --initsql
+           Stringa SQL che viene eseguita ogni volta che viene creata una
+           connessione dal pool. Se viene riutilizzata una connessione
+           esistente, tale stringa non viene eseguita. Le connessioni rimaste
+           inattive per un intervallo di tempo superiore a quello previsto per
+           il timeout sono candidate per la rimozione. Per l'opzione non è
+           previsto un valore predefinito.
+
+       --isolationlevel
+           Livello di isolamento della transazione nelle connessioni di
+           database del pool. Per l'opzione non è previsto un valore
+           predefinito. Se tale opzione non viene specificata, il pool
+           funziona con il livello di isolamento predefinito fornito dal
+           driver JDBC. È possibile impostare il livello di isolamento
+           desiderato utilizzando uno dei livelli di isolamento della
+           transazione standard: read-uncommitted, read-committed,
+           repeatable-read e serializable. Le applicazioni che modificano il
+           livello di isolamento per una connessione del pool a livello di
+           programmazione rischiano di alterare il pool stesso e questo può
+           causare errori di programma.
+
+       --isisolationguaranteed
+           Applicabile solo quando viene specificato un determinato livello di
+           isolamento per transaction-isolation-level. Il valore predefinito è
+           true.
+
+           Questa opzione garantisce che il livello di isolamento venga
+           impostato sul valore desiderato ogni volta che si ottiene una
+           connessione dal pool. Ciò può incidere sulle prestazioni di alcuni
+           driver JDBC. Gli amministratori possono impostare questa opzione su
+           false quando l'applicazione non modifica il livello
+           --isolationlevel prima di restituire la connessione.
+
+       --isconnectvalidatereq
+           Se si imposta true, le connessioni vengono convalidate o verificate
+           per stabilire se sono utilizzabili prima di essere fornite
+           all'applicazione. Il valore predefinito è false.
+
+       --validationmethod
+           Tipo di convalida da eseguire quando
+           is-connection-validation-required è true. Le impostazioni valide
+           sono auto-commit,
+            meta-data, table e custom-validation. Il valore predefinito è
+           table.
+
+       --validationtable
+           Nome della tabella di convalida utilizzata per eseguire una query
+           per convalidare una connessione. Se l'opzione
+           is-connection-validation-required è impostata su true e l'opzione
+           connection-validation-type è impostata su table, questa opzione è
+           obbligatoria.
+
+       --failconnection
+           Se si imposta true, tutte le connessioni del pool devono essere
+           chiuse quando una singola verifica di convalida ha esito negativo.
+           Il valore predefinito è false. Viene effettuato un tentativo di
+           ristabilire le connessioni non riuscite.
+
+       --allownoncomponentcallers
+           Un pool con questa proprietà impostata su true può essere
+           utilizzato da componenti EE non Java, ovvero da componenti diversi
+           da EJB o servlet. La connessione restituita viene integrata
+           automaticamente nel contesto di transazione ottenuto dal
+           Transaction Manager. Le connessioni ottenute da chiamanti non
+           componenti non vengono eliminate automaticamente dal contenitore
+           alla fine di una transazione. Tali connessioni devono essere chiuse
+           esplicitamente dal chiamante.
+
+       --nontransactionalconnections
+           Un pool con questa proprietà impostata su true restituisce
+           connessioni non transazionali. Tale connessione non viene integrata
+           automaticamente nel Transaction Manager.
+
+       --validateatmostonceperiod
+           Specifica l'intervallo di tempo espresso in secondi tra richieste
+           successive di convalida di una connessione (al massimo una volta).
+           Impostando un valore appropriato per questo attributo si riduce al
+           minimo il numero di richieste di convalida di una connessione. Il
+           valore predefinito è 0 e implica che l'attributo non sia abilitato.
+
+       --leaktimeout
+           Specifica la quantità di tempo, in secondi, destinata al trace
+           delle perdite di connessione in un connection pool. Quando
+           l'applicazione non restituisce una connessione al pool entro il
+           periodo specificato, si presuppone una possibile perdita di
+           connessione e viene registrato lo stack trace del chiamante. Questa
+           opzione consente solo di rilevare un'eventuale perdita di
+           connessione. La connessione può essere recuperata solo se l'opzione
+           connection-leak-reclaim è impostata su true.
+
+           Se il trace delle perdite di connessione è abilitato, è possibile
+           usare Administration Console per attivare il monitoraggio del
+           connection pool JDBC allo scopo di ottenere statistiche sul numero
+           di perdite di connessione. Il valore predefinito è 0 e disabilita
+           il trace delle perdite di connessione.
+
+       --leakreclaim
+           Specifica se le connessioni perse vengono ripristinate nel
+           connection pool quando il trace della connessione persa è completo.
+           I possibili valori sono i seguenti:
+
+           false
+               Le connessioni perse non vengono ripristinate nel connection
+               pool (impostazione predefinita).
+
+           true
+               Le connessioni perse vengono ripristinate nel connection pool.
+
+       --statementleaktimeout
+           Specifica l'intervallo di tempo, in secondi, dopo il quale devono
+           essere rilevate le eventuali istruzioni non chiuse da
+           un'applicazione. I cursori delle applicazioni possono esaurirsi se
+           gli oggetti istruzione non vengono chiusi correttamente. Questa
+           opzione consente solo di rilevare l'eventuale perdita di
+           un'istruzione. L'istruzione può essere recuperata solo se l'opzione
+           statement-leak-reclaim è impostata su true. L'istruzione persa
+           viene chiusa quando viene recuperata.
+
+           Lo stack trace del chiamante che crea l'istruzione viene registrata
+           quando viene rilevata la perdita di un'istruzione. Se il trace
+           delle perdite di istruzioni è abilitato, è possibile utilizzare
+           Administration Console per attivare il monitoraggio del connection
+           pool JDBC allo scopo di ottenere statistiche sul numero di perdite
+           di istruzioni. Il valore predefinito è 0 e disabilita il trace
+           delle perdite di istruzioni.
+
+           Al valore di timeout delle perdite di istruzioni si applicano le
+           seguenti limitazioni:
+
+           ·   Il valore deve essere inferiore al valore impostato per
+               l'opzione leak-timeout della connessione.
+
+           ·   Il valore deve essere superiore al valore impostato per
+               l'opzione statement-timeout .
+
+       --statementleakreclaim
+           Specifica se le istruzioni perse vengono recuperate dopo la
+           perdita. I possibili valori sono i seguenti:
+
+           false
+               Le istruzioni perse non vengono recuperate (valore
+               predefinito).
+
+           true
+               Le istruzioni perse vengono recuperate.
+
+       --creationretryattempts
+           Specifica il numero massimo di tentativi che possono essere
+           effettuati da GlassFish Server per creare una connessione se il
+           primo tentativo non riesce. Il valore predefinito è 0 e indica che
+           GlassFish Server non tenta di nuovo di creare la connessione.
+
+       --creationretryinterval
+           Specifica l'intervallo, in secondi, tra tentativi consecutivi di
+           creare una connessione.
+
+           Se il valore di --creationretryattempts è 0, l'opzione
+           --creationretryinterval verrà ignorata. Il valore predefinito è 10.
+
+       --sqltracelisteners
+           Lista di uno o più moduli personalizzati che forniscono l'accesso
+           personalizzato delle attività di database. Ogni modulo deve
+           implementare l'interfaccia pubblica
+           org.glassfish.api.jdbc.SQLTraceListener. Quando tale opzione è
+           impostata su un valore appropriato, vengono tracciate le istruzioni
+           SQL eseguite dalle applicazioni. Per l'opzione non è previsto un
+           valore predefinito.
+
+       --statementtimeout
+           Specifica l'intervallo di tempo in secondi dopo il quale una query
+           non completata viene terminata.
+
+           Una query che resta incompleta per un lungo periodo di tempo può
+           causare il blocco dell'applicazione che l'ha inviata. Per evitare
+           tale problema, utilizzare questa opzione per impostare un timeout
+           per tutte le istruzioni che verranno create a partire dal
+           connection pool che si sta creando. Quando si crea un'istruzione,
+           in GlassFish Server la proprietà QueryTimeout dell'istruzione viene
+           impostata sul periodo di tempo specificato. Il valore predefinito è
+           -1 e indica che le query incomplete non vengono mai terminate.
+
+       --lazyconnectionenlistment
+           Specifica se una risorsa per una transazione viene integrata solo
+           quando un metodo la utilizza effettivamente. I possibili valori
+           sono i seguenti:
+
+           false
+               Le risorse per una transazione vengono sempre integrate e non
+               solo quando un metodo le utilizza effettivamente (valore
+               predefinito).
+
+           true
+               Le risorse per una transazione vengono integrate solo quando un
+               metodo le utilizza effettivamente.
+
+       --lazyconnectionassociation
+           Specifica se una connessione fisica deve essere associata alla
+           connessione logica solo quando è utilizzata, e disassociata al
+           completamento della transazione. L'associazione e la
+           disassociazione permettono il riutilizzo delle connessioni fisiche.
+           I possibili valori sono i seguenti:
+
+           false
+               Una connessione fisica viene associata alla connessione logica
+               anche prima di essere utilizzata, e non viene disassociata al
+               completamento della transazione (valore predefinito).
+
+           true
+               Una connessione fisica viene associata alla connessione logica
+               solo quando è utilizzata, e disassociata al completamento della
+               transazione. Anche l'opzione --lazyconnectionenlistment deve
+               essere impostata su true.
+
+       --associatewiththread
+           Specifica se al thread è associata una connessione per consentire
+           al thread di riutilizzarla. Se al thread non è associata una
+           connessione, il thread deve ottenerne una dal pool ogni volta che è
+           necessario. I possibili valori sono i seguenti:
+
+           false
+               Al thread non è associata una connessione (valore predefinito).
+
+           true
+               Al thread è associata una connessione.
+
+       --driverclassname
+           Nome della classe di driver JDBC specificata dal fornitore. Tale
+           driver deve implementare l'interfaccia java.sql.Driver.
+
+       --matchconnections
+           Specifica se una connessione selezionata dal pool deve essere
+           associata al Resource Adapter. Se tutte le connessioni del pool
+           sono omogenee, non è necessario che una connessione selezionata dal
+           pool venga associata al Resource Adapter, pertanto questa opzione
+           può essere impostata su false. I possibili valori sono i seguenti:
+
+           false
+               Una connessione non deve essere associata al Resource Adapter
+               (valore predefinito).
+
+           true
+               Una connessione deve essere associata al Resource Adapter.
+
+       --maxconnectionusagecount
+           Specifica il numero massimo di volte in cui è possibile
+           riutilizzare una connessione. Raggiunto questo limite, la
+           connessione viene chiusa. Limitando il numero massimo di volte in
+           cui è possibile riutilizzare una connessione, è possibile evitare
+           perdite di istruzioni.
+
+           Il valore predefinito è 0 e indica che non è previsto alcun limite
+           per il numero di volte in cui una connessione può essere
+           riutilizzata.
+
+       --ping
+           Specifica se viene eseguito il ping durante la creazione o la
+           riconfigurazione del pool per identificare e segnalare eventuali
+           valori errati per gli attributi del pool stesso. Il valore
+           predefinito è false.
+
+       --pooling
+           Specifica se il connection pooling è abilitato per il pool. Il
+           valore predefinito è true.
+
+       --statementcachesize
+           Numero di istruzioni SQL da inserire nella cache utilizzando il
+           meccanismo di inserimento nella cache predefinito (istruzioni
+           utilizzate meno di recente). Il valore predefinito è 0 e indica che
+           l'inserimento delle istruzioni nella cache non è abilitata.
+
+       --validationclassname
+           Nome della classe che fornisce la convalida personalizzata quando
+           il valore di validationmethod è custom-validation. Questa classe
+           deve implementare l'interfaccia
+           org.glassfish.api.jdbc.ConnectionValidation e deve essere
+           accessibile a GlassFish Server. Tale opzione è obbligatoria se il
+           tipo di convalida delle connessioni è impostato sulla convalida
+           personalizzata.
+
+       --wrapjdbcobjects
+           Specifica se l'infrastruttura di pooling fornisce oggetti JDBC con
+           wrapping alle applicazioni. Fornendo tali oggetti, l'infrastruttura
+           di pooling impedisce le perdite di connessione garantendo che le
+           applicazioni utilizzino connessioni logiche del connection pool e
+           non connessioni fisiche. L'utilizzo di connessioni logiche assicura
+           che le connessioni vengano restituite al connection pool quando
+           vengono chiuse. La fornitura di oggetti JDBC con wrapping può
+           tuttavia incidere negativamente sulle prestazioni delle
+           applicazioni. Il valore predefinito è true.
+
+           L'infrastruttura di pooling fornisce oggetti con wrapping per le
+           implementazioni delle seguenti interfacce nell'API JDBC:
+
+           ·   java.sql.CallableStatement
+
+           ·   java.sql.DatabaseMetaData
+
+           ·   java.sql.PreparedStatement
+
+           ·   java.sql.ResultSet
+
+           ·   java.sql.Statement
+
+           Di seguito sono riportati i valori possibili di --wrapjdbcobjects.
+
+           false
+               L'infrastruttura di pooling non fornisce oggetti JDBC con
+               wrapping alle applicazioni. (valore predefinito).
+
+           true
+               L'infrastruttura di pooling fornisce oggetti JDBC con wrapping
+               alle applicazioni.
+
+       --description
+           Testo in cui vengono forniti dettagli relativi al connection pool
+           JDBC specificato.
+
+       --property
+           Coppie nome/valore di attributo per la configurazione del pool.
+           Sono disponibili le proprietà seguenti:
+
+           user
+               Specifica il nome utente per la connessione al database.
+
+           password
+               Specifica la password per la connessione al database.
+
+           databaseName
+               Specifica il database per il connection pool corrente.
+
+           serverName
+               Specifica il database server per il connection pool corrente.
+
+           port
+               Specifica la porta in cui le richieste vengono rilevate dal
+               server database.
+
+           networkProtocol
+               Specifica il protocollo di comunicazione.
+
+           roleName
+               Specifica il nome del ruolo SQL iniziale.
+
+           datasourceName
+               Specifica una classe XADataSource sottostante oppure una classe
+               ConnectionPoolDataSource se viene implementato il connection
+               pooling.
+
+           description
+               Specifica una descrizione di testo.
+
+           url
+               Specifica l'URL per il connection pool corrente. Questa
+               proprietà non è standard, tuttavia è utilizzata di frequente.
+
+           dynamic-reconfiguration-wait-timeout-in-seconds
+               Consente di attivare la riconfigurazione dinamica del
+               connection pool in modo trasparente per le applicazioni che
+               utilizzano il pool. In tal modo non sarà necessario riabilitare
+               le applicazioni per attivare le modifiche di attributi o
+               proprietà del pool. Il completamento delle richieste di
+               connessione delle transazioni durante l'esecuzione verrà
+               autorizzato con la configurazione del pool precedente (a
+               condizione che le richieste di connessione rientrino nel
+               periodo di timeout) in modo da consentire il completamento
+               della transazione. Le nuove richieste devono attendere il
+               completamento della riconfigurazione del pool e le connessioni
+               vengono acquisite utilizzando la configurazione modificata.
+
+           LazyConnectionEnlistment
+               Obsoleto. Usare l'attributo equivalente. Il valore predefinito
+               è false.
+
+           LazyConnectionAssociation
+               Obsoleto. Usare l'attributo equivalente. Il valore predefinito
+               è false.
+
+           AssociateWithThread
+               Obsoleto. Usare l'attributo equivalente. Il valore predefinito
+               è false.
+
+           MatchConnections
+               Obsoleto. Usare l'attributo equivalente. Il valore predefinito
+               è true.
+
+           Prefer-Validate-Over-Recreate
+               Specifica se il resizer del pool deve convalidare le
+               connessioni inattive prima di distruggerle e ricrearle. Il
+               valore predefinito è true.
+
+           time-to-keep-queries-in-minutes
+               Specifica per quanti minuti viene mantenuto l'inserimento nella
+               cache allo scopo di calcolare le query di utilizzo frequente.
+               Viene attivata quando il trace e il monitoraggio SQL sono
+               abilitati per il connection pool JDBC. Il valore predefinito è
+               5 minuti.
+
+           number-of-top-queries-to-report
+               Specifica il numero di query da elencare durante il report
+               delle prime query di utilizzo frequente. Viene attivata quando
+               il trace e il monitoraggio SQL sono abilitati per il connection
+               pool JDBC. Il valore predefinito è 10 query.
+
+               Nota
+               ┌────────────────────────────────────────┐
+               │Nota Se il nome o il valore di un       │
+               │attributo contiene un carattere due     │
+               │punti, è necessario utilizzare la barra │
+               │rovesciata (\) per rendere letterali i  │
+               │due punti nel nome o nel valore. Il     │
+               │carattere di escape potrebbe essere     │
+               │necessario anche per altri caratteri.   │
+               │Per ulteriori informazioni sui          │
+               │caratteri di escape nelle opzioni dei   │
+               │comandi, vedere la pagina man           │
+               │asadmin(1M).                            │
+               └────────────────────────────────────────┘
+
+       --target
+           Non è necessario specificare questa opzione, che è stata mantenuta
+           solo per motivi di compatibilità con release precedenti. Se
+           l'opzione viene specificata non si verifica un errore di sintassi.
+           Il comando secondario viene eseguito correttamente e viene
+           visualizzato un messaggio di avvertenza che indica che l'opzione
+           viene ignorata.
+
+OPERANDI
+       connectionpoolid
+           Nome del connection pool JDBC da creare.
+
+ESEMPI
+       Esempio 1, Creazione di un connection pool JDBC
+           In questo esempio viene creato il connection pool JDBC denominato
+           sample_derby_pool.
+
+               asadmin> create-jdbc-connection-pool
+               --datasourceclassname org.apache.derby.jdbc.ClientDataSource
+               --restype javax.sql.XADataSource
+               --property portNumber=1527:password=APP:user=APP:serverName=
+               localhost:databaseName=sun-appserv-samples:connectionAttributes=\;
+               create\\=true sample_derby_pool
+               Command create-jdbc-connection-pool executed successfully
+           Il carattere di escape barra rovesciata (\) viene utilizzato
+           nell'opzione --property per distinguere il punto e virgola (;). In
+           modo analogo, vengono utilizzate due barre rovesciate (\\) per
+           distinguere il segno di uguale (=).
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       delete-jdbc-connection-pool(1), list-jdbc-connection-pools(1)
+
+       asadmin(1M)
+
+                               10 febbraio 2011          CREATE-JDBC-CONNEC(1)
