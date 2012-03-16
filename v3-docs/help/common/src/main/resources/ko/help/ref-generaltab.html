@@ -1,63 +1,99 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-generaltab"></a><h4>일반 정보</h4>
-<a name="indexterm-141"></a><a name="indexterm-142"></a><p>일반 정보 페이지에서는 GlassFish Server 설정을 확인하고 Java Virtual Machine 데이터를 볼
-수 있습니다.</p>
+<p><a id="ref-generaltab" name="ref-generaltab"></a><a id="GHCOM00058" name="GHCOM00058"></a></p>
 
-<p>일반 정보 페이지에는 다음 정보가 포함됩니다.</p>
-
-<dl><dt>중지 버튼</dt>
-<dd><p>GlassFish Server를 중지하려면 중지 버튼을 누릅니다.</p>
-
+<h4><a id="sthref247" name="sthref247"></a><a id="sthref248" name="sthref248"></a>&#51068;&#48152; &#51221;&#48372;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>The GlassFish Server creates one application server instance, called <code>server</code> at the time of installation. You can delete the server instance and create a new instance with a different name if you prefer.</p>
+<p>Each GlassFish Server instance has its own Java configuration, Java resources, application deployment areas, and server configuration settings. Changes to one application server instance have no effect on other application server instances. You can have one application server instance within one administrative domain.</p>
+<p>For many users, one application server instance meets their needs. However, depending upon your environment, you might want to create one or more additional application server instances. For example, in a development environment you can use different application server instances to test different GlassFish Server configurations, or to compare and test different application deployments. Because you can easily add or delete an application server instance, you can use them to create temporary "sandbox" areas to experiment with while developing.</p>
+<p>In addition, for each application server instance you can also create virtual servers. Within a single installed application server instance you can offer companies or individuals domain names, IP Addresses, and some administration capabilities. For the users, it is almost as if they have their own web server, without the hardware and basic server maintenance. These virtual servers do not span application server instances. For more information about virtual servers, see <a href="ref-serverinstjvmgeneral.html">JVM &#51068;&#48152; &#49444;&#51221;</a>.</p>
+<p>In operational deployments, for many purposes you can use virtual servers instead of multiple application server instances. However, if virtual servers do not meet your needs, you can also use multiple application server instances.</p>
+<p>An GlassFish Server instance is not started automatically. Once you start an instance, the instance runs until you stop it. When you stop an application server instance, it stops accepting new connections, then waits for all outstanding connections to complete. If your machine crashes or is taken offline, the server quits and any requests it was servicing may be lost.</p>
+<p>[&#51068;&#48152; &#51221;&#48372;] &#54168;&#51060;&#51648;&#50640;&#49436;&#45716; GlassFish Server &#49444;&#51221;&#51012; &#54869;&#51064;&#54616;&#44256; Java Virtual Machine &#45936;&#51060;&#53552;&#47484; &#48380; &#49688; &#51080;&#49845;&#45768;&#45796;.</p>
+<p>[&#51068;&#48152; &#51221;&#48372;] &#54168;&#51060;&#51648;&#50640;&#45716; &#45796;&#51020; &#51221;&#48372;&#44032; &#54252;&#54632;&#46121;&#45768;&#45796;.</p>
+<dl>
+<dt>&#51221;&#51648; &#45800;&#52628;</dt>
+<dd>
+<p>GlassFish Server&#51012;(&#47484;) &#51221;&#51648;&#54616;&#47140;&#47732; [&#51221;&#51648;] &#45800;&#52628;&#47484; &#45572;&#47493;&#45768;&#45796;.</p>
 </dd>
-<dt>다시 시작 버튼</dt>
-<dd><p>GlassFish Server를 다시 시작하려면 다시 시작 버튼을 누릅니다.</p>
-
+<dt>&#51116;&#49884;&#51089; &#45800;&#52628;</dt>
+<dd>
+<p>GlassFish Server&#51012;(&#47484;) &#51116;&#49884;&#51089;&#54616;&#47140;&#47732; [&#51116;&#49884;&#51089;] &#45800;&#52628;&#47484; &#45572;&#47493;&#45768;&#45796;.</p>
 </dd>
-<dt>로그 파일 보기 버튼</dt>
-<dd><p>GlassFish Server 인스턴스나 클러스터에 대한 로그 파일을 보려면 로그 파일 보기 버튼을 누릅니다.</p>
-
+<dt>&#47196;&#44536; &#54028;&#51068; &#48372;&#44592; &#45800;&#52628;</dt>
+<dd>
+<p>GlassFish Server &#51064;&#49828;&#53556;&#49828;&#45208; &#53364;&#47084;&#49828;&#53552;&#50640; &#45824;&#54620; &#47196;&#44536; &#54028;&#51068;&#51012; &#48372;&#47140;&#47732; [&#47196;&#44536; &#54028;&#51068; &#48372;&#44592;] &#45800;&#52628;&#47484; &#45572;&#47493;&#45768;&#45796;.</p>
 </dd>
-<dt>이름</dt>
-<dd><p>서버의 이름입니다.</p>
-
+<dt>&#50896;&#49884; &#47196;&#44536; &#48372;&#44592; &#45800;&#52628;</dt>
+<dd>
+<p>&#44288;&#47532; &#49436;&#48260;(&#51060;&#47492;: <code>server</code>)&#50640; &#45824;&#54620; &#50896;&#49884; &#47196;&#44536; &#54028;&#51068;&#51012; &#48372;&#47140;&#47732; [&#50896;&#49884; &#47196;&#44536; &#48372;&#44592;] &#45800;&#52628;&#47484; &#45572;&#47493;&#45768;&#45796;.</p>
+</dd>
+<dt>&#48372;&#50504; &#44288;&#47532; &#45800;&#52628;</dt>
+<dd>
+<p>[&#48372;&#50504; &#44288;&#47532;] &#45800;&#52628;&#47484; &#45572;&#47476;&#47732; <a href="ref-securityadmin.html">&#48372;&#50504; &#44288;&#47532;</a> &#54168;&#51060;&#51648;&#50640;&#49436; &#48372;&#50504; &#44288;&#47532;&#44032; &#49324;&#50857; &#46608;&#45716; &#49324;&#50857; &#50504;&#54632;&#51004;&#47196; &#49444;&#51221;&#46121;&#45768;&#45796;.</p>
+</dd>
+<dt>&#51060;&#47492;</dt>
+<dd>
+<p>&#49436;&#48260;&#51032; current &#51060;&#47492;&#51077;&#45768;&#45796;.</p>
+</dd>
+<dt>&#49345;&#53468;</dt>
+<dd>
+<p>&#49436;&#48260; &#51064;&#49828;&#53556;&#49828;&#51032; &#54788;&#51116; &#49345;&#53468;&#51077;&#45768;&#45796;. &#49436;&#48260;&#45716; &#51221;&#51648;&#46120;, &#49884;&#51089;&#46120; &#46608;&#45716; &#49892;&#54665; &#51473; &#49345;&#53468;&#51068; &#49688; &#51080;&#49845;&#45768;&#45796;.</p>
+</dd>
+<dt>&#51089;&#46041; &#49884;&#44036;</dt>
+<dd>
+<p>&#49436;&#48260; &#51064;&#49828;&#53556;&#49828;&#44032; &#50672;&#49549;&#51004;&#47196; &#49892;&#54665; &#51473;&#51064; &#49884;&#44036;(&#49884;:&#48516;)&#51012; &#45208;&#53440;&#45236;&#47728;, &#51069;&#44592; &#51204;&#50857;&#51077;&#45768;&#45796;.</p>
+</dd>
+<dt>HTTP Load Balancer</dt>
+<dd>
+<p>The name of the load balancer, if it is enabled for the server instance.</p>
 </dd>
 <dt>JVM</dt>
-<dd><p>JVM 보고서를 누르면 별도의 창이 열리고 요약 보고서, 메모리 관리 및 가비지 컬렉션 보고서, 클래스 로딩 보고서 및 현재 스레드 덤프를 포함한 Java Virtual Machine에 대한 보고서가 표시됩니다.</p>
-
+<dd>
+<p>JVM &#48372;&#44256;&#49436;&#47484; &#45572;&#47476;&#47732; &#48324;&#46020;&#51032; &#52285;&#51060; &#50676;&#47532;&#44256; &#50836;&#50557; &#48372;&#44256;&#49436;, &#47700;&#47784;&#47532; &#44288;&#47532; &#48143; &#48520;&#54596;&#50836;&#54620; &#51221;&#48372; &#49688;&#51665; &#48372;&#44256;&#49436;, &#53364;&#47000;&#49828; &#47196;&#46377; &#48372;&#44256;&#49436; &#48143; &#54788;&#51116; &#49828;&#47112;&#46300; &#45924;&#54532;&#47484; &#54252;&#54632;&#54620; Java Virtual Machine&#50640; &#45824;&#54620; &#48372;&#44256;&#49436;&#44032; &#54364;&#49884;&#46121;&#45768;&#45796;.</p>
 </dd>
-<dt>구성 디렉토리</dt>
-<dd><p><tt>domain.xml</tt>과 같은 구성 파일이 포함된 호스트 시스템의 디렉토리입니다.</p>
-
+<dt>&#44396;&#49457; &#46356;&#47113;&#53664;&#47532;</dt>
+<dd>
+<p><code>domain.xml</code>&#44284; &#44057;&#51008; &#44396;&#49457; &#54028;&#51068;&#51060; &#54252;&#54632;&#46108; &#54840;&#49828;&#53944; &#49884;&#49828;&#53596;&#51032; &#46356;&#47113;&#53664;&#47532;&#51077;&#45768;&#45796;.</p>
 </dd>
-<dt>설치된 버전</dt>
-<dd><p>제품 버전 식별자입니다.</p>
-
+<dt>&#49444;&#52824;&#46108; &#48260;&#51204;</dt>
+<dd>
+<p>&#51228;&#54408; &#48260;&#51204; &#49885;&#48324;&#51088;&#51077;&#45768;&#45796;.</p>
 </dd>
-<dt>디버그</dt>
-<dd><p>디버깅을 사용하도록 설정되어 있는지 여부를 식별합니다. 디버깅을 사용하도록 설정된 경우 포트 번호도 표시됩니다.</p>
-
+<dt>&#48372;&#50504; &#44288;&#47532;</dt>
+<dd>
+<p>&#48372;&#50504; &#44288;&#47532;&#51032; &#54788;&#51116; &#49345;&#53468;&#51077;&#45768;&#45796;. &#44032;&#45733;&#54620; &#44050;&#51008; &#49324;&#50857; &#48143; &#49324;&#50857; &#50504;&#54632;&#51077;&#45768;&#45796;.</p>
 </dd>
-<dt>HTTP 포트</dt>
-<dd><p>HTTP 요청 및 응답에 대해 현재 구성된 포트입니다.</p>
-
+<dt>&#46356;&#48260;&#44536;</dt>
+<dd>
+<p>&#46356;&#48260;&#44613;&#51012; &#49324;&#50857;&#54616;&#46020;&#47197; &#49444;&#51221;&#46104;&#50612; &#51080;&#45716;&#51648; &#50668;&#48512;&#47484; &#49885;&#48324;&#54633;&#45768;&#45796;. &#46356;&#48260;&#44613;&#51012; &#49324;&#50857;&#54616;&#46020;&#47197; &#49444;&#51221;&#46108; &#44221;&#50864; &#54252;&#53944; &#48264;&#54840;&#46020; &#54364;&#49884;&#46121;&#45768;&#45796;.</p>
 </dd>
-<dt>IIOP 포트</dt>
-<dd><p>IIOP 요청 및 응답에 대해 현재 구성된 포트입니다.</p>
-
+<dt>HTTP &#54252;&#53944;</dt>
+<dd>
+<p>HTTP &#50836;&#52397; &#48143; &#51025;&#45813;&#50640; &#45824;&#54644; &#54788;&#51116; &#44396;&#49457;&#46108; &#54252;&#53944;&#51077;&#45768;&#45796;.</p>
+</dd>
+<dt>IIOP &#54252;&#53944;</dt>
+<dd>
+<p>IIOP &#50836;&#52397; &#48143; &#51025;&#45813;&#50640; &#45824;&#54644; &#54788;&#51116; &#44396;&#49457;&#46108; &#54252;&#53944;&#51077;&#45768;&#45796;.</p>
 </dd>
 </dl>
-<h5>관련 작업</h5>
-
-<ul><li><p><a href="task-generaltab.html">DAS에 대한 일반 정보를 보는 방법</a></p>
-
+<a id="sthref249" name="sthref249"></a>
+<h5>&#44288;&#47144; &#51089;&#50629;</h5>
+<ul>
+<li>
+<p><a href="task-generaltab.html">DAS&#50640; &#45824;&#54620; &#51068;&#48152; &#51221;&#48372;&#47484; &#48372;&#45716; &#48169;&#48277;</a></p>
 </li>
-<li><p><a href="task-logviewer.html">DAS에 대한 로그 파일을 보는 방법</a></p>
+<li>
+<p><a href="task-logviewer.html">DAS&#50640; &#45824;&#54620; &#47196;&#44536; &#54028;&#51068;&#51012; &#48372;&#45716; &#48169;&#48277;</a></p>
+</li>
+<li>
+<p><a href="task-rawlogviewer.html">DAS&#50640; &#45824;&#54620; &#50896;&#49884; &#47196;&#44536; &#54028;&#51068;&#51012; &#48372;&#45716; &#48169;&#48277;</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">법적 공지</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
