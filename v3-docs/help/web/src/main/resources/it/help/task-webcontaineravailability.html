@@ -1,89 +1,128 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-webcontaineravailability" name="task-webcontaineravailability"></a><a id="GHWEB00034" name="GHWEB00034"></a></p>
 
-
-<a name="task-webcontaineravailability"></a><h3>Configurare le impostazioni di disponibilit&#224; per il contenitore Web</h3><a name="indexterm-12"></a><a name="indexterm-13"></a><a name="indexterm-14"></a><a name="indexterm-15"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Selezionare la configurazione da modificare.</b></li>
-<li><b>Nel nodo Configuration, selezionare il nodo Availability Service.</b><p>Viene visualizzata la pagina Availability Service.</p></li>
-<li><b>Nella pagina Availability Service, fare clic sulla scheda Web Container Availability.</b><p>Viene visualizzata la pagina Web Container Availability.</p></li>
-<li><b>Nel campo Availability Service, selezionare la casella Enabled per abilitare la disponibilit&#224;
-per il contenitore Web.</b><p>Per disabilitare la disponibilit&#224;, rimuovere il segno di spunta dalla casella Availability
-Service Enabled.</p></li>
-<li><b>Nell'elenco a discesa Persistence Type, selezionare il meccanismo di persistenza.</b><ul>
-<li><b>Se la casella Availability Service Enabled <b>non</b> &#232; selezionata, scegliere una delle
-seguenti opzioni:</b>
-<ul><li><p><tt>memory</tt> per nessuna persistenza delle sessioni</p>
-
+<h4><a id="sthref16" name="sthref16"></a><a id="sthref17" name="sthref17"></a><a id="sthref18" name="sthref18"></a><a id="sthref19" name="sthref19"></a>Configurare le impostazioni di disponibilit&agrave; per il contenitore Web</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
 </li>
-<li><p><tt>file</tt> per una persistenza delle sessioni basata sul file system, che non &#232; ad alta disponibilit&#224;</p>
-
-</li></ul>
+<li>
+<p>Selezionare la configurazione da modificare.</p>
 </li>
-<li><b>Se la casella Availability Service Enabled &#232; selezionata, selezionare <tt>replicated </tt> per una
-persistenza delle sessioni basata su failover del cluster, che &#232; ad alta
-disponibilit&#224;.</b></li></ul></li>
-<li><b>Nell'elenco a discesa Persistence Frequency, selezionare la frequenza a cui viene memorizzata
-la sessione HTTP:</b>
-<ul><li><p><tt>web-method</tt>: lo stato della sessione viene memorizzato al termine di ogni richiesta Web prima dell'invio di una risposta al client. Questa modalit&#224; rappresenta la migliore garanzia che lo stato della sessione sia aggiornato completamente in caso di errore. Questo &#232; il valore predefinito.</p>
-
-</li></ul>
-<p>L'opzione Persistence Frequency &#232; valida solo se l'opzione Persistence Type &#232; impostata
-su <tt> replicated</tt>.</p></li>
-<li><b>Nell'elenco a discesa Persistence Scope, selezionare l'ambito delle modifiche della sessione HTTP
-necessarie per consentire la memorizzazione:</b>
-<ul><li><p><tt>session</tt>: viene ogni volta memorizzato lo stato dell'intera sessione. Questa modalit&#224; rappresenta la migliore garanzia che i dati della sessione vengano memorizzati correttamente per ogni applicazione Web distribuibile.</p>
-
+<li>
+<p>Nel nodo Configurazione, selezionare il nodo Servizio disponibilit&agrave;.</p>
+<p>Viene visualizzata la pagina Servizio disponibilit&agrave;.</p>
 </li>
-<li><p><tt>modified-session</tt>: viene memorizzato lo stato dell'intera sessione nel caso in cui abbia subito modifiche. Una sessione viene considerata modificata se &#232; stato chiamato un metodo <tt>HttpSession.setAttribute()</tt> o <tt> HttpSession.removeAttribute()</tt>. &#200; necessario quindi garantire che venga chiamato <tt>setAttribute()</tt> ogni volta che un attributo viene modificato. Non si tratta di un requisito delle specifiche Java EE, ma &#232; necessario affinch&#233; questa modalit&#224; funzioni correttamente.</p>
-
+<li>
+<p>Nella pagina Servizio disponibilit&agrave;, fare clic sulla scheda Disponibilit&agrave; contenitore Web.</p>
+<p>Viene visualizzata la pagina Disponibilit&agrave; contenitore Web.</p>
 </li>
-<li><p><tt>modified-attribute</tt>: vengono memorizzati solo gli attributi di sessione modificati. Affinch&#233; questa modalit&#224; funzioni correttamente, &#232; necessario osservare le seguenti linee guida:</p>
-
-
-<ul><li><p>Chiamare <tt>setAttribute()</tt> ogni volta che lo stato della sessione viene modificato.</p>
-
+<li>
+<p>Nel campo Servizio disponibilit&agrave;, selezionare la casella Abilitato per abilitare la disponibilit&agrave; per il contenitore Web.</p>
+<p>Per disabilitare la disponibilit&agrave;, rimuovere il segno di spunta dalla casella Servizio disponibilit&agrave; abilitato.</p>
 </li>
-<li><p>Accertarsi che non ci siano riferimenti incrociati tra gli attributi. Il grafico degli oggetti sotto ciascuna chiave di attributo viene serializzato e memorizzato separatamente. Se esistono riferimenti incrociati tra gli oggetti sotto ciascuna chiave separata, essi non verranno serializzati e deserializzati correttamente.</p>
-
+<li>
+<p>Nell'elenco a discesa Tipo di persistenza, selezionare il meccanismo di persistenza.</p>
+<ul>
+<li>
+<p>Se la casella Servizio disponibilit&agrave; abilitato <i>non</i> &egrave; selezionata, scegliere una delle opzioni riportate di seguito.</p>
+<ul>
+<li>
+<p><code>memory</code> per nessuna persistenza delle sessioni</p>
 </li>
-<li><p>Distribuire lo stato della sessione tra pi&#249; attributi o almeno tra un attributo di sola lettura e un attributo modificabile.</p>
-
-</li></ul>
-</li></ul>
-<p>L'opzione Persistence Scope &#232; valida solo se l'opzione Persistence Type &#232; impostata
-su <tt>replicated </tt>.</p></li>
-<li><b>Nel campo Single-Sign-On State, selezionare la casella Enabled per rendere lo stato
-SSO disponibile per il failover.</b><p>Per rendere lo stato SSO non disponibile per il failover, rimuovere il
-segno di spunta dalla casella Single-Sign-On State Enabled.</p></li>
-<li><b>Per ripristinare i valori predefiniti di tutte le impostazioni, fare clic sul
-pulsante Load Defaults.</b></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per la disponibilit&#224;
-del contenitore Web.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
-della propriet&#224;.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-webcontainergeneral.html">Configurare le propriet&#224; generali per il contenitore Web</a></p>
-
+<li>
+<p><code>file</code> per una persistenza delle sessioni basata sul file system, che non &egrave; ad alta disponibilit&agrave;</p>
 </li>
-<li><p><a href="task-webcontainersessiontimeout.html">Configurare le propriet&#224; di sessione per il contenitore Web</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-webcontainermanagerprops.html">Configurare le propriet&#224; di gestione per il contenitore Web</a></p>
-
+<li>
+<p>Se la casella Servizio disponibilit&agrave; abilitato &egrave; selezionata, selezionare <code>replicated</code> per una persistenza delle sessioni basata su failover del cluster, che &egrave; ad alta disponibilit&agrave;.</p>
 </li>
-<li><p><a href="task-webcontainerstoreprops.html">Configurare le propriet&#224; dell'archivio per il contenitore Web</a></p>
+</ul>
+</li>
+<li>
+<p>Nell'elenco a discesa Frequenza di persistenza, selezionare la frequenza a cui viene memorizzata la sessione HTTP:</p>
+<ul>
+<li>
+<p><code>web-method</code>: lo stato della sessione viene memorizzato al termine di ogni richiesta Web prima dell'invio di una risposta al client. Questa modalit&agrave; rappresenta la migliore garanzia che lo stato della sessione sia aggiornato completamente in caso di errore. Questo &egrave; il valore predefinito.</p>
+</li>
+</ul>
+<p>L'opzione Frequenza di persistenza &egrave; valida solo se l'opzione Tipo di persistenza &egrave; impostata su <code>replicated</code>.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa Ambito persistenza, selezionare l'ambito delle modifiche della sessione HTTP necessarie per consentire la memorizzazione:</p>
+<ul>
+<li>
+<p><code>session</code>: viene ogni volta memorizzato lo stato dell'intera sessione. Questa modalit&agrave; rappresenta la migliore garanzia che i dati della sessione vengano memorizzati correttamente per ogni applicazione Web distribuibile.</p>
+</li>
+<li>
+<p><code>modified-session</code>: viene memorizzato lo stato dell'intera sessione nel caso in cui abbia subito modifiche. Una sessione viene considerata modificata se &egrave; stato chiamato un metodo <code>HttpSession.setAttribute()</code> o <code>HttpSession.removeAttribute()</code>. &Egrave; necessario quindi garantire che venga chiamato <code>setAttribute()</code> ogni volta che un attributo viene modificato. Non si tratta di un requisito delle specifiche Java EE, ma &egrave; necessario affinch&eacute; questa modalit&agrave; funzioni correttamente.</p>
+</li>
+<li>
+<p><code>modified-attribute</code>: vengono memorizzati solo gli attributi di sessione modificati. Affinch&eacute; questa modalit&agrave; funzioni correttamente, &egrave; necessario osservare le seguenti linee guida:</p>
+<ul>
+<li>
+<p>Chiamare <code>setAttribute()</code> ogni volta che lo stato della sessione viene modificato.</p>
+</li>
+<li>
+<p>Accertarsi che non ci siano riferimenti incrociati tra gli attributi. Il grafico degli oggetti sotto ciascuna chiave di attributo viene serializzato e memorizzato separatamente. Se esistono riferimenti incrociati tra gli oggetti sotto ciascuna chiave separata, essi non verranno serializzati e deserializzati correttamente.</p>
+</li>
+<li>
+<p>Distribuire lo stato della sessione tra pi&ugrave; attributi o almeno tra un attributo di sola lettura e un attributo modificabile.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>L'opzione Ambito persistenza &egrave; valida solo se l'opzione Tipo di persistenza &egrave; impostata su <code>replicated</code>.</p>
+</li>
+<li>
+<p>Nel campo Stato Single-Sign-On, selezionare la casella Abilitato per rendere lo stato SSO disponibile per il failover.</p>
+<p>Per rendere lo stato SSO non disponibile per il failover, rimuovere il segno di spunta dalla casella Stato Single-Sign-On abilitato.</p>
+</li>
+<li>
+<p>Per ripristinare i valori predefiniti di tutte le impostazioni, fare clic sul pulsante Carica impostazioni predefinite.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>In GlassFish Server non &egrave; definita alcuna propriet&agrave; aggiuntiva per la disponibilit&agrave; del contenitore Web.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+</ol>
+<a id="sthref20" name="sthref20"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-webcontainergeneral.html">Configurare le propriet&agrave; generali per il contenitore Web</a></p>
+</li>
+<li>
+<p><a href="task-webcontainersessiontimeout.html">Configurare le propriet&agrave; di sessione per il contenitore Web</a></p>
+</li>
+<li>
+<p><a href="task-webcontainermanagerprops.html">Configurare le propriet&agrave; manager per il contenitore Web</a></p>
+</li>
+<li>
+<p><a href="task-webcontainerstoreprops.html">Configurare le propriet&agrave; dell'area di memorizzazione per il contenitore Web</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

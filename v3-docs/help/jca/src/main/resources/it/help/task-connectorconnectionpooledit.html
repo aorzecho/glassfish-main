@@ -1,121 +1,159 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-connectorconnectionpooledit" name="task-connectorconnectionpooledit"></a><a id="GHJCA00064" name="GHJCA00064"></a></p>
 
-
-<a name="task-connectorconnectionpooledit"></a><h3>Modificare un pool di connessione del connettore</h3><a name="indexterm-5"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Resources.</b></li>
-<li><b>Espandere il nodo Connectors.</b></li>
-<li><b>Nel nodo Connectors, selezionare il nodo Connector Connection Pools. </b><p>Viene visualizzata la pagina Connector Connection Pools.</p></li>
-<li><b>Nella pagina Connector Connection Pools, fare clic sul nome del pool di
-connessione del connettore che verr&#224; modificato.</b><p>Viene visualizzata la pagina Edit Connector Connection Pool.</p></li>
-<li><b>Dall'elenco a discesa Resource Adapter, selezionare un altro adattatore di risorsa.</b></li>
-<li><b>Dall'elenco a discesa Connection Definition, selezionare il nome della classe per la
-definizione di connessione.</b><p>Le opzioni nell'elenco dipendono dall'adattatore di risorsa selezionato. La definizione della connessione
-identifica un elemento <tt>connection-definition</tt> dell'adattatore di risorsa nel file <tt>ra.xml</tt>.</p></li>
-<li><b>Selezionare la casella di controllo Ping Enabled per eseguire il ping del
-pool di connessione durante il processo di creazione o riconfigurazione al fine
-di identificare e segnalare valori non corretti per i relativi attributi.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Nel campo Description, digitare una descrizione del pool di connessione del connettore.</b></li>
-<li><b>Nel campo Initial and Minimum Pool Size, specificare il numero minimo di
-connessioni per il pool di connessione del connettore.</b><p>Il valore predefinito &#232; 8.</p></li>
-<li><b>Nel campo Maximum Pool Size, specificare il numero massimo di connessioni per
-il pool di connessione del connettore.</b><p>Il valore predefinito &#232; 32.</p></li>
-<li><b>Nel campo Pool Resize Quantity, specificare il numero di connessioni da rimuovere
-allo scadere del timeout di inattivit&#224; del pool.</b><p>Il valore predefinito &#232; 2.</p></li>
-<li><b>Nel campo Idle Timeout, specificare il numero massimo di secondi durante i
-quali una connessione pu&#242; rimanere inattiva nel pool.</b><p>Il valore predefinito &#232; 300.</p></li>
-<li><b>Nel campo Max Wait Time, specificare il tempo di attesa per la
-richiesta di connessione di un'applicazione, prima che si verifichi il timeout della
-connessione.</b><p>Il valore predefinito &#232; 60000.</p></li>
-<li><b>Selezionare la casella di controllo Connection Validation Required per abilitare la convalida
-della connessione.</b><p>Se la casella di controllo Required &#232; selezionata, le connessioni vengono convalidate
-prima di essere fornite all'applicazione. Se la convalida non viene eseguita, la
-risorsa viene eliminata. Viene creata e restituita una risorsa nuova. Questa opzione
-&#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Se la casella di controllo On Any Failure &#232; selezionata, in GlassFish
-Server tutte le connessioni del pool vengono chiuse e quindi ristabilite in
-caso di errore di una singola connessione.</b><p>Se non si seleziona la casella di controllo, le singole connessioni vengono
-ristabilite solo quando vengono utilizzate.</p></li>
-<li><b>Dall'elenco a discesa Transaction Support, selezionare il tipo di supporto di transazione
-per il pool di connessione.</b><p>Il supporto delle transazioni scelto sovrascrive l'attributo relativo al supporto delle transazioni
-nell'adattatore di risorsa associato a questo pool di connessione compatibilmente con gli
-elementi derivati. In altre parole, pu&#242; supportare un livello di transazione inferiore
-a quello specificato nell'adattatore di risorsa, oppure un livello di transazione uguale
-a quello specificato nell'adattatore di risorsa, ma non un livello superiore.</p><p>Nell'elenco a discesa sono disponibili le seguenti opzioni:</p><ul>
-<li><b>NoTransaction: indica che l'adattatore di risorsa non supporta le transazioni locali o
-JTA del gestore delle risorse e non implementa le interfacce XAResource o
-LocalTransaction.</b></li>
-<li><b>LocalTransaction: indica che l'adattatore di risorsa supporta le transazioni locali tramite l'implementazione
-dell'interfaccia LocalTransaction.</b><p>Le transazioni locali sono gestite internamente a un gestore delle risorse e
-non coinvolgono gestori di transazioni esterni.</p></li>
-<li><b>XATransaction: indica che l'adattatore di risorsa supporta le transazioni locali e JTA
-del gestore delle risorse tramite l'implementazione delle interfacce LocalTransaction e XAResource.</b><p>Le transazioni XA sono controllate e coordinate da un gestore delle transazioni
-esterno a un gestore delle risorse.</p></li></ul></li>
-<li>(Opzionale) <b>Fare clic sul pulsante Flush per scaricare tutte le connessioni dal pool.</b><p>Se si fa clic sul pulsante Flush vengono eliminate le connessioni esistenti,
-ricreate le connessioni stabilite per il pool e ripristinate le dimensioni minime
-e iniziali del pool.</p></li>
-<li>(Opzionale) <b>Fare clic sul pulsante Ping per verificare l'utilizzabilit&#224; del pool di connessione.</b></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<h4><a id="sthref12" name="sthref12"></a>Modificare un connection pool del connettore</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Risorse.</p>
+</li>
+<li>
+<p>Espandere il nodo Connettori.</p>
+</li>
+<li>
+<p>Nel nodo Connettori, selezionare il nodo Connection pool connettore.</p>
+<p>Viene visualizzata la pagina Connection pool connettore.</p>
+</li>
+<li>
+<p>Nella pagina Connection pool connettore, fare clic sul nome del connection pool del connettore che verr&agrave; modificato.</p>
+<p>Viene visualizzata la pagina Modifica connection pool connettore.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Resource Adapter, selezionare un altro adattatore di risorsa.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Definizione connessione, selezionare il nome della classe per la definizione di connessione.</p>
+<p>Le opzioni nella lista dipendono dal Resource Adapter selezionato. La definizione della connessione identifica un elemento <code>connection-definition</code> dell'adattatore di risorsa nel file <code>ra.xml</code>.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Ping abilitato per eseguire il ping del connection pool durante il processo di creazione o riconfigurazione al fine di identificare e segnalare valori non corretti per i relativi attributi.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Descrizione, digitare una descrizione del connection pool del connettore.</p>
+</li>
+<li>
+<p>Nel campo Dimensione pool iniziale e minima, specificare il numero minimo di connessioni per il connection pool del connettore.</p>
+<p>Il valore predefinito &egrave; 8.</p>
+</li>
+<li>
+<p>Nel campo Dimensione massima pool, specificare il numero massimo di connessioni per il connection pool del connettore.</p>
+<p>Il valore predefinito &egrave; 32.</p>
+</li>
+<li>
+<p>Nel campo Quantit&agrave; di ridimensionamento pool, specificare il numero di connessioni da rimuovere allo scadere del timeout di inattivit&agrave; del pool.</p>
+<p>Il valore predefinito &egrave; 2.</p>
+</li>
+<li>
+<p>Nel campo Timeout inattivit&agrave;, specificare il numero massimo di secondi durante i quali una connessione pu&ograve; rimanere inattiva nel pool.</p>
+<p>Il valore predefinito &egrave; 300.</p>
+</li>
+<li>
+<p>Nel campo Tempo massimo di attesa, specificare il tempo di attesa per la richiesta di connessione di un'applicazione, prima che si verifichi il timeout della connessione.</p>
+<p>Il valore predefinito &egrave; 60000.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Convalida della connessione necessaria per abilitare la convalida della connessione.</p>
+<p>Se la casella di controllo Obbligatorio &egrave; selezionata, le connessioni vengono convalidate prima di essere fornite all'applicazione. Se la convalida non viene eseguita, la risorsa viene eliminata. Viene creata e restituita una risorsa nuova. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Se la casella di controllo In caso di qualsiasi errore &egrave; selezionata, in GlassFish Server tutte le connessioni del pool vengono chiuse e quindi ristabilite in caso di errore di una singola connessione.</p>
+<p>Se non si seleziona la casella di controllo, le singole connessioni vengono ristabilite solo quando vengono utilizzate.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Supporto transazioni, selezionare il tipo di supporto di transazione per il connection pool.</p>
+<p>Il supporto delle transazioni scelto sovrascrive l'attributo relativo al supporto delle transazioni nell'adattatore di risorsa associato a questo connection pool compatibilmente con gli elementi derivati. In altre parole, pu&ograve; supportare un livello di transazione inferiore a quello specificato nell'adattatore di risorsa, oppure un livello di transazione uguale a quello specificato nell'adattatore di risorsa, ma non un livello superiore.</p>
+<p>Nell'elenco a discesa sono disponibili le opzioni riportate di seguito.</p>
+<ul>
+<li>
+<p>NoTransaction: indica che l'adattatore di risorsa non supporta le transazioni locali o JTA del gestore delle risorse e non implementa le interfacce XAResource o LocalTransaction.</p>
+</li>
+<li>
+<p>LocalTransaction: indica che l'adattatore di risorsa supporta le transazioni locali tramite l'implementazione dell'interfaccia LocalTransaction.</p>
+<p>Le transazioni locali sono gestite internamente a un gestore delle risorse e non coinvolgono gestori di transazioni esterni.</p>
+</li>
+<li>
+<p>XATransaction: indica che l'adattatore di risorsa supporta le transazioni locali e JTA del gestore delle risorse tramite l'implementazione delle interfacce LocalTransaction e XAResource.</p>
+<p>Le transazioni XA sono controllate e coordinate da un gestore delle transazioni esterno a un gestore delle risorse.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic sul pulsante Flush per scaricare tutte le connessioni dal pool.</p>
+<p>Se si fa clic sul pulsante Flush vengono eliminate le connessioni esistenti, ricreate le connessioni stabilite per il pool e ripristinate le dimensioni minime e iniziali del pool.</p>
+</li>
+<li>
+<p>Fare clic sul pulsante Ping per verificare l'utilizzabilit&agrave; del connection pool.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-connectorresourcenew.html">Creare una risorsa connettore</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-connectorresourceedit.html">Modificare una risorsa connettore</a></p>
-
+</ol>
+<a id="sthref13" name="sthref13"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-connectorresourcenew.html">Creare una risorsa del connettore</a></p>
 </li>
-<li><p><a href="task-connectorresourcesdelete.html">Eliminare una risorsa connettore</a></p>
-
+<li>
+<p><a href="task-connectorresourceedit.html">Modificare una risorsa del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpoolnew.html">Creare un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorresourcesdelete.html">Eliminare una risorsa del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooladvance.html">Modificare gli attributi avanzati del pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpoolnew.html">Creare un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpoolproperty.html">Modificare le propriet&#224; del pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooladvance.html">Modificare gli attributi avanzati dei connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapnew.html">Creare una mappa di sicurezza per un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpoolproperty.html">Modificare le propriet&agrave; del connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapedit.html">Modificare una mappa di sicurezza per un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapnew.html">Creare una mappa di sicurezza per un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapdel.html">Eliminare una mappa di sicurezza per un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapedit.html">Modificare una mappa di sicurezza per un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooldel.html">Eliminare un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapdel.html">Eliminare una mappa di sicurezza per un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-setupeisaccess.html">Impostare l'accesso EIS</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooldel.html">Eliminare un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-adminobjectnew.html">Creare una risorsa oggetto amministrato</a></p>
-
+<li>
+<p><a href="task-setupeisaccess.html">Impostare l'accesso EIS</a></p>
 </li>
-<li><p><a href="task-adminobjectedit.html">Modificare una risorsa oggetto amministrato</a></p>
-
+<li>
+<p><a href="task-adminobjectnew.html">Creare una risorsa oggetto amministrato</a></p>
 </li>
-<li><p><a href="task-administeredobjectresourcedelete.html">Eliminare una risorsa oggetto amministrato</a></p>
-
+<li>
+<p><a href="task-adminobjectedit.html">Modificare una risorsa oggetto amministrato</a></p>
 </li>
-<li><p><a href="task-worksecuritymapnew.html">Creare una mappa di sicurezza operativa</a></p>
-
+<li>
+<p><a href="task-administeredobjectresourcedelete.html">Eliminare una risorsa oggetto amministrato</a></p>
 </li>
-<li><p><a href="task-worksecuritymapedit.html">Modificare una mappa di sicurezza operativa</a></p>
-
+<li>
+<p><a href="task-worksecuritymapnew.html">Creare una mappa di sicurezza lavoro</a></p>
 </li>
-<li><p><a href="task-worksecuritymapdelete.html">Eliminare una mappa di sicurezza operativa</a></p>
+<li>
+<p><a href="task-worksecuritymapedit.html">Modificare una mappa di sicurezza lavoro</a></p>
+</li>
+<li>
+<p><a href="task-worksecuritymapdelete.html">Eliminare una mappa di sicurezza lavoro</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

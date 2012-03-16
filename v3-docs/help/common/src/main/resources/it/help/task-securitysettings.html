@@ -1,87 +1,114 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-securitysettings" name="task-securitysettings"></a><a id="GHCOM00181" name="GHCOM00181"></a></p>
 
-
-<a name="task-securitysettings"></a><h3>Configurare le impostazioni di sicurezza</h3><a name="indexterm-77"></a><a name="indexterm-78"></a><p>In Administration Console &#232; possibile definire varie impostazioni di sicurezza a livello
-dell'intero sistema.</p>
-
+<h4><a id="sthref134" name="sthref134"></a><a id="sthref135" name="sthref135"></a>Configurare le impostazioni di sicurezza</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>In Console di amministrazione &egrave; possibile definire varie impostazioni di sicurezza a livello dell'intero sistema.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configurations.</b></li>
-<li><b>Nel nodo Configurations, fare clic sulla configurazione dell'istanza server o del cluster
-per cui si desidera configurare le impostazioni di sicurezza.</b><p>Viene visualizzata la pagina Configuration.</p></li>
-<li><b>Nella pagina Configuration, fare clic su Security.</b><p>Viene visualizzata la pagina delle impostazioni di sicurezza per la destinazione della
-configurazione selezionata.</p></li>
-<li><b>Selezionare la casella di controllo Security Manager Enabled per attivare il gestore
-della sicurezza.</b><p>Se questa opzione &#232; abilitata, l'opzione JVM <tt>-Djava.security.manager</tt> viene aggiunta alle impostazioni
-JVM di GlassFish Server. Vedere <a href="task-jvmoptions.html">Configurare le opzioni JVM</a>. Per rendere effettiva questa modifica &#232;
-necessario riavviare il server.</p><p>Verificare di aver impostato le autorizzazioni necessarie per tutte le applicazioni. &#200;
-possibile disattivare il gestore della sicurezza per migliorare le prestazioni. Questa opzione
-&#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo Audit Logging Enabled per attivare il log
-di revisione.</b><p>Se questa opzione &#232; abilitata, il server carica ed esegue tutti i
-moduli di revisione selezionati nell'elenco Audit Modules. Se l'opzione &#232; disabilitata, il
-server non accede ai moduli di revisione. Questa opzione &#232; disabilitata per
-impostazione predefinita.</p></li>
-<li><b>Dall'elenco a discesa Default Realm selezionare un settore attivo che il server
-utilizzer&#224; per l'autenticazione.</b><p>Le applicazioni utilizzeranno tale settore, salvo se il descrittore di distribuzione specifica
-un settore diverso. Tutti i settori configurati sono visibili nell'elenco. Il valore
-predefinito &#232; <tt>file</tt>.</p></li>
-<li><b>Specificare informazioni per Default Principal.</b><ol style="list-style-type: lower-alpha">
-<li><b>Nel campo Default Principal digitare il nome utente predefinito.</b><p>Se non &#232; specificata nessun'altra identit&#224;, il server utilizza questo nome utente.</p></li>
-<li><b>Nel campo Default Principal Password, digitare la password dell'identit&#224; predefinita specificata nel
-campo Default Principal.</b></li></ol><p>Un'identit&#224; predefinita non &#232; obbligatoria per il normale funzionamento del server.</p></li>
-<li><b>Nell'elenco a discesa JACC selezionare il nome di un provider JACC configurato.</b><p>Le scelte predefinite disponibili sono <tt>default</tt> e <tt>simple</tt>. L'impostazione predefinita &#232; <tt>default</tt>.
-Per informazioni sulla creazione di nuovi provider JACC, vedere ***.</p></li>
-<li><b>Nell'elenco a discesa Audit Modules selezionare i moduli del provider di revisione
-che verranno utilizzati dal sottosistema di revisione se &#232; abilitato il log
-di revisione.</b><p>Per impostazione predefinita il server utilizza un modulo di revisione denominato <tt>default</tt>.
-Per informazioni sulla creazione di nuovi moduli di revisione, vedere <a href="task-auditmodulenew.html">Creare un modulo di revisione</a>.</p></li>
-<li><b>Selezionare la casella di controllo Default Principal To Role Mapping Enabled per
-applicare un mapping identit&#224;-ruolo predefinito alle applicazioni per le quali non &#232;
-definito un mapping specifico.</b></li>
-<li><b>Se &#232; stato abilitato il mapping identit&#224;-ruolo predefinito, nel campo Mapped Principal
-Class digitare il nome di una classe di implementazione <tt>java.security.Principal</tt> personalizzata da
-utilizzare per il mapping identit&#224;-ruolo predefinito.</b></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>Le propriet&#224; valide variano in base al tipo di settore selezionato nel
-campo Default Realm. Fare riferimento alla voce appropriata del seguente elenco per
-il tipo di settore che si desidera configurare.</p>
-<ul><li><p><a href="ref-editfile-adminrealm.html">Propriet&#224; specifiche della classe <tt> FileRealm</tt></a></p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazioni.</p>
 </li>
-<li><p><a href="ref-editcertrealm.html">Propriet&#224; specifiche della classe <tt>CertificateRealm </tt></a></p>
-
+<li>
+<p>Nel nodo Configurazioni, fare clic sulla configurazione dell'istanza server o del cluster per cui si desidera configurare le impostazioni di sicurezza.</p>
+<p>Viene visualizzata la pagina Configurazione.</p>
 </li>
-<li><p><a href="ref-editjdbcrealm.html">Propriet&#224; specifiche della classe <tt>JDBCRealm </tt></a></p>
-
+<li>
+<p>Nella pagina Configurazione, fare clic su Sicurezza.</p>
+<p>Viene visualizzata la pagina delle impostazioni di sicurezza per la destinazione della configurazione selezionata.</p>
 </li>
-<li><p><a href="ref-ldaprealmprop.html">Propriet&#224; specifiche della classe <tt>LDAPRealm </tt></a></p>
-
+<li>
+<p>Selezionare la casella di controllo Security Manager abilitato per attivare il gestore della sicurezza.</p>
+<p>Se questa opzione &egrave; abilitata, l'opzione JVM <code>-Djava.security.manager</code> viene aggiunta alle impostazioni JVM di GlassFish Server. Vedere <a href="task-jvmoptions.html">Configurare le opzioni JVM</a>. Per abilitare questa modifica, &egrave; necessario riavviare il server.</p>
+<p>Verificare di aver impostato le autorizzazioni necessarie per tutte le applicazioni. &Egrave; possibile disattivare il gestore della sicurezza per migliorare le prestazioni. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </li>
-<li><p><a href="ref-solarisrealmprop.html">Propriet&#224; specifiche della classe <tt>SolarisRealm </tt></a></p>
-
+<li>
+<p>Selezionare la casella di controllo Log di audit abilitato per attivare il log di revisione.</p>
+<p>Se questa opzione &egrave; abilitata, il server carica ed esegue tutti i moduli di audit selezionati nella lista Moduli di audit. Se l'opzione &egrave; disabilitata, il server non accede ai moduli di revisione. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </li>
-<li><p><a href="ref-pamrealmprop.html">Propriet&#224; specifiche della classe <tt>PamRealm </tt></a></p>
-
-</li></ul>
+<li>
+<p>Dall'elenco a discesa Realm predefinito selezionare un realm attivo che il server utilizzer&agrave; per l'autenticazione.</p>
+<p>Le applicazioni utilizzeranno tale realm, salvo se il descrittore di distribuzione specifica un realm diverso. Tutti i realm configurati sono visibili nella lista. Il valore predefinito &egrave; <code>file</code>.</p>
+</li>
+<li>
+<p>Specificare informazioni per Principal predefinito.</p>
+<ol type="a">
+<li>
+<p>Nel campo Principal predefinito digitare il nome utente predefinito.</p>
+<p>Il server utilizza questo nome utente se non viene fornito un altro principal.</p>
+</li>
+<li>
+<p>Nel campo Password principal predefinito, digitare la password dell'identit&agrave; predefinita specificata nel campo Principal predefinito.</p>
+</li>
+</ol>
+<p>Un principal predefinito non &egrave; obbligatorio per il normale funzionamento del server.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa JACC selezionare il nome di un provider JACC configurato.</p>
+<p>Le scelte predefinite disponibili sono <code>default</code> e <code>simple</code>. L'impostazione predefinita &egrave; <code>default</code>. Per informazioni sulla creazione di nuovi provider JACC, vedere ***.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa Moduli di audit selezionare i moduli del provider di revisione che verranno utilizzati dal sottosistema di revisione se &egrave; abilitato il log di revisione.</p>
+<p>Per impostazione predefinita il server utilizza un modulo di revisione denominato <code>default</code>. Per informazioni sulla creazione di nuovi moduli di revisione, vedere <a href="task-auditmodulenew.html">Creare un modulo di audit</a>.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Mapping principal/ruolo predefinito abilitato per applicare un mapping principal/ruolo predefinito alle applicazioni per le quali non &egrave; definito un mapping specifico.</p>
+</li>
+<li>
+<p>Se &egrave; stato abilitato il mapping principal/ruolo predefinito, nel campo Classe principal mappata digitare il nome di una classe di implementazione <code>java.security.Principal</code> personalizzata da utilizzare per il mapping principal/ruolo predefinito.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>Le propriet&agrave; valide variano in base al tipo di realm selezionato nel campo Realm predefinito. Fare riferimento alla voce appropriata della lista riportata di seguito per il tipo di realm che si desidera configurare.</p>
 <ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
-della propriet&#224;.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-accessadmintools.html">Consentire l'accesso agli strumenti di amministrazione</a></p>
-
+<li>
+<p><a href="ref-editfile-adminrealm.html">Propriet&agrave; specifiche della classe <code>FileRealm</code></a></p>
 </li>
-<li><p><a href="task-changeadminpasswd.html">Modificare la password di un utente nel settore Admin</a></p>
+<li>
+<p><a href="ref-editcertrealm.html">Propriet&agrave; specifiche della classe <code>CertificateRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-editjdbcrealm.html">Propriet&agrave; specifiche della classe <code>JDBCRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-ldaprealmprop.html">Propriet&agrave; specifiche della classe <code>LDAPRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-solarisrealmprop.html">Propriet&agrave; specifiche della classe <code>SolarisRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-pamrealmprop.html">Propriet&agrave; specifiche della classe <code>PamRealm</code></a></p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+</ol>
+<a id="sthref136" name="sthref136"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-accessadmintools.html">Concedere l'accesso agli strumenti di amministrazione</a></p>
+</li>
+<li>
+<p><a href="task-changeadminpasswd.html">Modificare la password per un utente nel realm di amministrazione</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

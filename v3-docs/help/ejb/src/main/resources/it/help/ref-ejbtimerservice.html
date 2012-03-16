@@ -1,61 +1,59 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-ejbtimerservice"></a><h4>EJB Timer Service</h4>
-<a name="indexterm-18"></a><a name="indexterm-19"></a><a name="indexterm-20"></a><p>Nella pagina EJB Timer Service &#232; possibile configurare il servizio timer EJB.</p>
+<p><a id="ref-ejbtimerservice" name="ref-ejbtimerservice"></a><a id="GHEJB00003" name="GHEJB00003"></a></p>
 
-<p>Il servizio timer &#232; un servizio di notifica persistente e transazionale che
-viene fornito dal contenitore bean enterprise e viene utilizzato per pianificare notifiche
-o eventi utilizzati dai bean enterprise. Tutti i bean enterprise possono ricevere
-notifiche dal servizio timer, a eccezione dei bean di sessione con stato.
-I timer persistenti impostati dal servizio non vengono eliminati quando il server
-viene arrestato o riavviato.</p>
-
-<p>La pagina EJB Timer Service contiene le seguenti opzioni.</p>
-
-<dl><dt>Load Defaults</dt>
-<dd><p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
-
+<h4><a id="sthref23" name="sthref23"></a><a id="sthref24" name="sthref24"></a><a id="sthref25" name="sthref25"></a>Servizio timer EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Servizio timer EJB &egrave; possibile configurare il servizio timer EJB.</p>
+<p>Il servizio timer &egrave; un servizio di notifica persistente e transazionale che viene fornito dal contenitore di bean enterprise e viene utilizzato per pianificare notifiche o eventi utilizzati dai bean enterprise. Tutti i bean enterprise possono ricevere notifiche dal servizio timer, a eccezione dei bean di sessione con conservazione dello stato. I timer persistenti impostati dal servizio non vengono eliminati quando il server viene chiuso o riavviato.</p>
+<p>La pagina Servizio timer EJB contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Carica impostazioni predefinite</dt>
+<dd>
+<p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
-<dt>Minimum Delivery Interval</dt>
-<dd><p>Numero minimo di millisecondi consentito per l'attivazione di un timer prima dello scadere del tempo impostato nel timer successivo. L'impostazione di tale intervallo su valori eccessivamente bassi pu&#242; causare il sovraccarico del server. Il valore predefinito &#232; 1000.</p>
-
+<dt>Intervallo minimo di consegna</dt>
+<dd>
+<p>Numero minimo di millisecondi consentito prima della scadenza del timer successivo per un determinato timer. L'impostazione di tale intervallo su valori eccessivamente bassi pu&ograve; causare il sovraccarico del server. Il valore predefinito &egrave; 1000.</p>
 </dd>
-<dt>Maximum Redeliveries</dt>
-<dd><p>Numero massimo di tentativi consentiti al servizio timer per riattivare la scadenza di un timer a causa di eccezione o rollback. Il valore predefinito &#232; 1.</p>
-
+<dt>N. massimo ripetizioni consegna</dt>
+<dd>
+<p>Numero massimo di tentativi eseguiti dal servizio timer per riattivare la scadenza di un timer a causa di un'eccezione o del rollback. Il valore predefinito &egrave; 1.</p>
 </dd>
-<dt>Redelivery Interval</dt>
-<dd><p>Intervallo, in millisecondi, tra i tentativi di riattivazione. Il valore predefinito &#232; 5000.</p>
-
+<dt>Intervallo tra tentativi di consegna</dt>
+<dd>
+<p>Intervallo, in millisecondi, tra i tentativi di consegna. Il valore predefinito &egrave; 5000.</p>
 </dd>
-<dt>Timer Datasource</dt>
-<dd><p>Nome JNDI della risorsa JDBC che verr&#224; utilizzata come sorgente dati del timer. Se specificato, questo valore sovrascrive il valore predefinito di <tt> jdbc/__TimerPool</tt> per l'applicazione del sistema di servizio timer.</p>
-
+<dt>Origine dati timer</dt>
+<dd>
+<p>Nome JNDI della risorsa JDBC che verr&agrave; utilizzata come origine dati del timer. Se specificato, questo valore sostituisce il valore predefinito di <code>jdbc/__TimerPool</code> per l'applicazione di sistema del servizio timer.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-ejbtimerservice.html">Configurare EJB Timer Service</a></p>
-
+<a id="sthref26" name="sthref26"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-ejbtimerservice.html">Configurare il servizio timer EJB</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2965&id=task-ejbgeneral">To Configure EJB Settings</a></p>
-
+<li>
+<p><a href="../../../ejb-lite/it/help/missingtopic.html">To Configure EJB Settings</a></p>
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">Configurare le impostazioni del pool di MDB</a></p>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">Configurare le impostazioni del pool MDB</a></p>
+</li>
+</ul>
+<a id="sthref27" name="sthref27"></a>
+<h5>Comandi asadmin correlati</h5>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00205"><code>list-timers</code>(1)</a></p>
 
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-timers-1"><tt>list-timers</tt>(1)</a></p>
-
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

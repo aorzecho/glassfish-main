@@ -1,120 +1,110 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-upgrade-components" name="task-upgrade-components"></a><a id="GHCLU00044" name="GHCLU00044"></a></p>
 
-
-<a name="task-upgrade-components"></a><h3>Aggiornare componenti senza perdita di servizio</h3><a name="indexterm-41"></a><a name="indexterm-42"></a><a name="indexterm-43"></a><a name="indexterm-44"></a><p>In un ambiente in cluster, un aggiornamento distribuito consente di distribuire un'applicazione
-con una perdita minima di servizio e sessioni. Per sessione si intende
-qualsiasi struttura replicabile, ad esempio:</p>
-
-
-<ul><li><p><tt>HttpSession</tt></p>
-
+<h4><a id="sthref62" name="sthref62"></a><a id="sthref63" name="sthref63"></a><a id="sthref64" name="sthref64"></a><a id="sthref65" name="sthref65"></a>Aggiornare i componenti senza interruzioni del servizio</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>In un ambiente in cluster, un aggiornamento in sequenza consente di ridistribuire un'applicazione con una perdita minima di servizio e sessioni. Per sessione si intende qualsiasi artifact replicabile, ad esempio:</p>
+<ul>
+<li>
+<p><code>HttpSession</code></p>
 </li>
-<li><p><tt>SingleSignOn</tt></p>
-
+<li>
+<p><code>SingleSignOn</code></p>
 </li>
-<li><p><tt>ServletTimer</tt></p>
-
+<li>
+<p><code>ServletTimer</code></p>
 </li>
-<li><p><tt>DialogFragment</tt></p>
-
+<li>
+<p><code>DialogFragment</code></p>
 </li>
-<li><p>Bean di sessione con stato</p>
-
-</li></ul>
-<p>&#200; possibile utilizzare il bilanciamento del carico e pi&#249; cluster per aggiornare
-componenti in GlassFish Server senza perdita di servizio. Un componente pu&#242; essere
-rappresentato, ad esempio, da un computer JVM, il software GlassFish Server o
-un'applicazione Web.</p>
-
-<p>&#200; possibile eseguire l'aggiornamento distribuito con carichi da leggeri a moderati. La
-procedura richiede circa 10-15 minuti per ciascuna istanza di GlassFish Server.</p>
-
-<p>Le applicazioni devono essere compatibili in tutto l'aggiornamento. Devono funzionare correttamente nella
-fase di transizione, ossia quando alcune istanze sono in esecuzione nella versione
-precedente e altre nella nuova versione. Nella versione precedente e in quella
-nuova deve essere disponibile la stessa forma delle classi serializzabili che costituiscono
-i grafici di oggetti archiviati in sessioni (ad esempio, variabili di istanza
-non temporanee). Se &#232; necessario modificare la forma di queste classi, lo
-sviluppatore dell'applicazione deve assicurare che il comportamento della serializzazione sia corretto. Se
-l'applicazione non &#232; compatibile nel corso dell'intero aggiornamento, il cluster deve essere
-interrotto per una ridistribuzione completa.</p>
-
-<p>Questo approccio non &#232; possibile se l'aggiornamento dell'applicazione implica una modifica allo
-schema del database dell'applicazione.</p>
-
-
-<hr><p><b>Avvertenza - </b>Per evitare rischi di mancata corrispondenza tra le versioni in caso di
-failover di una sessione, aggiornare tutte le istanze di un cluster contemporaneamente.
-In caso contrario una sessione potrebbe eseguire il failover in un'istanza in
-cui sono in esecuzione versioni diverse dei componenti.</p>
-
+<li>
+<p>Bean di sessione con conservazione dello stato</p>
+</li>
+</ul>
+<p>&Egrave; possibile utilizzare il load balancer e pi&ugrave; cluster per aggiornare componenti in GlassFish Server senza perdita di servizio. Un componente pu&ograve; essere rappresentato, ad esempio, da un computer JVM, il software GlassFish Server o un'applicazione Web.</p>
+<p>&Egrave; possibile eseguire l'aggiornamento in sequenza con carichi da leggeri a moderati. La procedura richiede circa 10-15 minuti per ciascuna istanza di GlassFish Server.</p>
+<p>Le applicazioni devono essere compatibili in tutto l'aggiornamento. Devono funzionare correttamente nella fase di transizione, ossia quando alcune istanze sono in esecuzione nella versione precedente e altre nella nuova versione. Nella versione precedente e in quella nuova deve essere disponibile la stessa forma delle classi serializzabili che costituiscono i grafici di oggetti memorizzati nelle sessioni (ad esempio, variabili di istanza non temporanee). Se &egrave; necessario modificare la forma di queste classi, lo sviluppatore dell'applicazione deve assicurare che il comportamento della serializzazione sia corretto. Se l'applicazione non &egrave; compatibile nel corso dell'intero aggiornamento, il cluster deve essere interrotto per una ridistribuzione completa.</p>
+<p>Questo approccio non &egrave; possibile se l'aggiornamento dell'applicazione implica una modifica allo schema del database dell'applicazione.</p>
 
 <hr>
-<p>Eseguire l'attivit&#224; in ogni cluster separatamente. I cluster rappresentano un limite sicuro
-per i failover di sessione per le istanze del cluster. Le sessioni
-di un cluster non eseguono mai il failover in sessioni di un
-altro cluster. In tal modo si evita il rischio di mancata corrispondenza
-delle versioni.</p>
+<p><b>Attenzione:</b></p>
+Per evitare rischi di mancata corrispondenza tra le versioni in caso di failover di una sessione, aggiornare tutte le istanze di un cluster contemporaneamente. In caso contrario una sessione potrebbe eseguire il failover in un'istanza in cui sono in esecuzione versioni diverse dei componenti.
+<hr>
 
+<p>Eseguire il task in ogni cluster separatamente. I cluster rappresentano un limite sicuro per i failover di sessione per le istanze del cluster. Le sessioni di un cluster non eseguono mai il failover in sessioni di un altro cluster. In tal modo si evita il rischio di mancata corrispondenza delle versioni.</p>
 <ol>
-<li><b><a href="task-stop-cluster.html">Stop the cluster</a>.</b></li>
-<li><b>Aggiornare il componente in quel cluster.</b></li>
-<li><b><a href="task-start-cluster.html">Start the cluster</a>.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-create-cluster.html">Creare un cluster</a></p>
-
+<li>
+<p>Arrestare il cluster.</p>
+<p>Vedere <a href="task-stop-cluster.html">Arrestare un cluster</a>.</p>
 </li>
-<li><p><a href="task-delete-cluster.html">Eliminare un cluster</a></p>
-
+<li>
+<p>Aggiornare il componente in quel cluster.</p>
 </li>
-<li><p><a href="task-availabilityservice.html">Configurare le impostazioni di disponibilit&#224; per un cluster</a></p>
-
+<li>
+<p>Avviare il cluster.</p>
+<p>Vedere <a href="task-start-cluster.html">Avviare un cluster</a>.</p>
 </li>
-<li><p><a href="task-start-cluster.html">Avviare un cluster</a></p>
-
+</ol>
+<a id="sthref66" name="sthref66"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-create-cluster.html">Creare un cluster</a></p>
 </li>
-<li><p><a href="task-stop-cluster.html">Arrestare un cluster</a></p>
-
+<li>
+<p><a href="task-delete-cluster.html">Eliminare un cluster</a></p>
 </li>
-<li><p><a href="task-modify-cluster-config.html">Modificare la configurazione di un cluster</a></p>
-
+<li>
+<p><a href="task-availabilityservice.html">Configurare le impostazioni di disponibilit&agrave; per un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-deploy.html">Distribuire un'applicazione in un cluster</a></p>
-
+<li>
+<p><a href="task-start-cluster.html">Avviare un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-list.html">Elencare applicazioni distribuite a un cluster</a></p>
-
+<li>
+<p><a href="task-stop-cluster.html">Arrestare un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-undeploy.html">Annullare la distribuzione di applicazioni da un cluster</a></p>
-
+<li>
+<p><a href="task-modify-cluster-config.html">Modificare la configurazione di un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-remove.html">Rimuovere applicazioni da un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-deploy.html">Distribuire un'applicazione a un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-edit.html">Modificare un'applicazione distribuita a un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-list.html">Elencare le applicazioni distribuite in un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-enable-disable.html">Abilitare o disabilitare un'applicazione distribuita a un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-undeploy.html">Annullare la distribuzione delle applicazioni da un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-lb-enable-disable.html">Abilitare o disabilitare il bilanciamento del carico per un'applicazione distribuita a un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-remove.html">Rimuovere applicazioni da un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-resource-create.html">Creare una risorsa per un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-edit.html">Modificare un'applicazione distribuita in un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-resource-display.html">Visualizzare l'elenco di risorse per un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-enable-disable.html">Abilitare o disabilitare un'applicazione distribuita in un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-resource-enable-disable.html">Abilitare o disabilitare una risorsa globalmente</a></p>
-
+<li>
+<p><a href="task-cluster-app-lb-enable-disable.html">Abilitare o disabilitare il bilanciamento del carico per un'applicazione distribuita in un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-resource-edit.html">Modificare una risorsa per un cluster</a></p>
+<li>
+<p><a href="task-cluster-resource-create.html">Creare una risorsa per un cluster</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-display.html">Elencare le risorse per un cluster</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-enable-disable.html">Abilitare o disabilitare una risorsa a livello globale</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-edit.html">Modificare una risorsa per un cluster</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

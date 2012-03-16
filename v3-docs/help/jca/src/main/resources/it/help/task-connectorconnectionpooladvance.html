@@ -1,110 +1,140 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-connectorconnectionpooladvance" name="task-connectorconnectionpooladvance"></a><a id="GHJCA00065" name="GHJCA00065"></a></p>
 
-
-<a name="task-connectorconnectionpooladvance"></a><h3>Modificare gli attributi avanzati del pool di connessione del connettore</h3><a name="indexterm-6"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Resources.</b></li>
-<li><b>Espandere il nodo Connectors.</b></li>
-<li><b>Nel nodo Connectors, selezionare il nodo Connector Connection Pools. </b><p>Viene visualizzata la pagina Connector Connection Pools.</p></li>
-<li><b>Nella pagina Connector Connection Pools, fare clic sul nome del pool di
-connessione del connettore che verr&#224; modificato.</b><p>Viene visualizzata la pagina Edit Connector Connection Pool.</p></li>
-<li><b>Nella pagina Edit Connector Connection Pool, fare clic sulla scheda Advanced.</b><p>Viene visualizzata la pagina Edit Connector Connection Pool Advanced Attributes.</p></li>
-<li><b>Nel campo Validate At Most Once, digitare il numero di secondi al
-termine dei quali una connessione viene convalidata al massimo una volta.</b><p>Impostando un valore appropriato per questo attributo si riduce al minimo il
-numero di richieste di convalida di una connessione. Il valore predefinito &#232;
-0 e implica che l'attributo non sia abilitato.</p></li>
-<li><b>Nel campo Leak Timeout, digitare il numero di secondi necessari per rilevare
-le perdite di connessione in un pool di connessione.</b><p>Un valore pari a 0 indica che il rilevamento delle perdite di
-connessione &#232; disabilitato. Il valore predefinito &#232; 0.</p></li>
-<li><b>Selezionare la casella di controllo Leak Reclaim per abilitare il ripristino delle
-connessioni perse nel pool al termine del rilevamento.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Nel campo Creation Retry Attempts, digitare il numero di tentativi da effettuare
-in caso di errore durante la creazione di una nuova connessione.</b><p>Un valore pari a 0 indica che non sono consentiti tentativi per
-ricreare la connessione. Il valore predefinito &#232; 0.</p></li>
-<li><b>Nel campo Retry Interval, digitare l'intervallo in secondi che intercorre tra un
-tentativo di creare una connessione e quello successivo.</b><p>Questo attributo viene utilizzato solo se il valore di Creation Retry Attempts
-&#232; maggiore di 0. Il valore predefinito &#232; 10 secondi.</p></li>
-<li><b>Selezionare la casella di controllo Pooling per abilitare la creazione del raggruppamento
-delle connessioni per il pool.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo Lazy Association per abilitare l'associazione lenta delle
-connessioni quando sono utilizzate in un'operazione.</b><p>Le connessioni vengono disassociate quando la transazione &#232; completa e viene terminato
-un metodo del componente. In tal modo il riutilizzo delle connessioni fisiche
-risulta pi&#249; agevole. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo Lazy Connection Enlistment per integrare una risorsa
-nella transazione solo quando viene effettivamente utilizzata in un metodo.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo Associate with Thread per associare una connessione
-a un thread.</b><p>Quando lo stesso thread richiede una connessione, pu&#242; riutilizzare la connessione gi&#224;
-associata a esso, senza cos&#236; provocare l'overhead per ottenere una connessione dal
-pool. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo Match Connections per abilitare la corrispondenza tra
-connessioni per il pool.</b><p>Disabilitare questa opzione se si &#232; certi che le connessioni nel pool
-saranno sempre omogenee e che la connessione ottenuta dal pool non debba
-pertanto corrispondere all'adattatore di risorsa. Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
-<li><b>Nel campo Match Connection Usage, digitare il numero consentito di riutilizzi di
-una connessione da parte del pool.</b><p>Una volta che una connessione viene riutilizzata per il numero di volte
-specificato, viene chiusa. Un valore pari a 0 indica che questo attributo
-non &#232; abilitato. Il valore predefinito &#232; 0.</p></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<h4><a id="sthref14" name="sthref14"></a>Modificare gli attributi avanzati dei connection pool del connettore</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Risorse.</p>
+</li>
+<li>
+<p>Espandere il nodo Connettori.</p>
+</li>
+<li>
+<p>Nel nodo Connettori, selezionare il nodo Connection pool connettore.</p>
+<p>Viene visualizzata la pagina Connection pool connettore.</p>
+</li>
+<li>
+<p>Nella pagina Connection pool connettore, fare clic sul nome del connection pool del connettore che verr&agrave; modificato.</p>
+<p>Viene visualizzata la pagina Modifica connection pool connettore.</p>
+</li>
+<li>
+<p>Nella pagina Modifica connection pool connettore, fare clic sulla scheda Avanzate.</p>
+<p>Viene visualizzata la pagina Modifica connection pool connettore Advanced Attributes.</p>
+</li>
+<li>
+<p>Nel campo Convalida al massimo una volta, digitare il numero di secondi al termine dei quali una connessione viene convalidata al massimo una volta.</p>
+<p>Impostando un valore appropriato per questo attributo si riduce al minimo il numero di richieste di convalida di una connessione. Il valore predefinito &egrave; 0 e implica che l'attributo non sia abilitato.</p>
+</li>
+<li>
+<p>Nel campo Leak Timeout, digitare il numero di secondi necessari per rilevare le perdite di connessione in un connection pool.</p>
+<p>Un valore pari a 0 indica che il rilevamento delle perdite di connessione &egrave; disabilitato. Il valore predefinito &egrave; 0.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Recupero perdite per abilitare il ripristino delle connessioni perse nel pool al termine del trace della perdita delle connessioni.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Numero di nuovi tentativi di creazione, digitare il numero di tentativi da effettuare in caso di errore durante la creazione di una nuova connessione.</p>
+<p>Un valore pari a 0 indica che non sono consentiti tentativi per ricreare la connessione. Il valore predefinito &egrave; 0.</p>
+</li>
+<li>
+<p>Nel campo Intervallo tentativi, digitare l'intervallo in secondi che intercorre tra un tentativo di creare una connessione e quello successivo.</p>
+<p>Questo attributo viene utilizzato solo se il valore di Numero di nuovi tentativi di creazione &egrave; maggiore di 0. Il valore predefinito &egrave; 10 secondi.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Pooling per abilitare la creazione del connection pooling per il pool.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Associazione ritardata per abilitare l'associazione lenta delle connessioni quando sono utilizzate in un'operazione.</p>
+<p>Le connessioni vengono disassociate quando la transazione &egrave; completa e viene terminato un metodo del componente. In tal modo il riutilizzo delle connessioni fisiche risulta pi&ugrave; agevole. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Partecipazione alla transazione connessioni ritardate per integrare una risorsa nella transazione solo quando viene effettivamente utilizzata in un metodo.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Associa a thread per associare una connessione a un thread.</p>
+<p>Quando lo stesso thread richiede una connessione, pu&ograve; riutilizzare la connessione gi&agrave; associata a esso, senza cos&igrave; provocare un sovraccarico per ottenere una connessione dal pool. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Corrispondenza connessioni per abilitare la corrispondenza tra connessioni per il pool.</p>
+<p>Disabilitare questa opzione se si &egrave; certi che le connessioni nel pool saranno sempre omogenee e che la connessione ottenuta dal pool non debba pertanto corrispondere all'adattatore di risorsa. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Uso corrispondenza connessioni, digitare il numero consentito di riutilizzi di una connessione da parte del pool.</p>
+<p>Una volta che una connessione viene riutilizzata per il numero di volte specificato, viene chiusa. Un valore pari a 0 indica che questo attributo non &egrave; abilitato. Il valore predefinito &egrave; 0.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-connectorresourcenew.html">Creare una risorsa connettore</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-connectorresourceedit.html">Modificare una risorsa connettore</a></p>
-
+</ol>
+<a id="sthref15" name="sthref15"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-connectorresourcenew.html">Creare una risorsa del connettore</a></p>
 </li>
-<li><p><a href="task-connectorresourcesdelete.html">Eliminare una risorsa connettore</a></p>
-
+<li>
+<p><a href="task-connectorresourceedit.html">Modificare una risorsa del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpoolnew.html">Creare un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorresourcesdelete.html">Eliminare una risorsa del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooledit.html">Modificare un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpoolnew.html">Creare un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpoolproperty.html">Modificare le propriet&#224; del pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooledit.html">Modificare un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapnew.html">Creare una mappa di sicurezza per un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpoolproperty.html">Modificare le propriet&agrave; del connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapedit.html">Modificare una mappa di sicurezza per un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapnew.html">Creare una mappa di sicurezza per un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapdel.html">Eliminare una mappa di sicurezza per un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapedit.html">Modificare una mappa di sicurezza per un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooldel.html">Eliminare un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapdel.html">Eliminare una mappa di sicurezza per un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-setupeisaccess.html">Impostare l'accesso EIS</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooldel.html">Eliminare un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-adminobjectnew.html">Creare una risorsa oggetto amministrato</a></p>
-
+<li>
+<p><a href="task-setupeisaccess.html">Impostare l'accesso EIS</a></p>
 </li>
-<li><p><a href="task-adminobjectedit.html">Modificare una risorsa oggetto amministrato</a></p>
-
+<li>
+<p><a href="task-adminobjectnew.html">Creare una risorsa oggetto amministrato</a></p>
 </li>
-<li><p><a href="task-administeredobjectresourcedelete.html">Eliminare una risorsa oggetto amministrato</a></p>
-
+<li>
+<p><a href="task-adminobjectedit.html">Modificare una risorsa oggetto amministrato</a></p>
 </li>
-<li><p><a href="task-worksecuritymapnew.html">Creare una mappa di sicurezza operativa</a></p>
-
+<li>
+<p><a href="task-administeredobjectresourcedelete.html">Eliminare una risorsa oggetto amministrato</a></p>
 </li>
-<li><p><a href="task-worksecuritymapedit.html">Modificare una mappa di sicurezza operativa</a></p>
-
+<li>
+<p><a href="task-worksecuritymapnew.html">Creare una mappa di sicurezza lavoro</a></p>
 </li>
-<li><p><a href="task-worksecuritymapdelete.html">Eliminare una mappa di sicurezza operativa</a></p>
+<li>
+<p><a href="task-worksecuritymapedit.html">Modificare una mappa di sicurezza lavoro</a></p>
+</li>
+<li>
+<p><a href="task-worksecuritymapdelete.html">Eliminare una mappa di sicurezza lavoro</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,51 +1,80 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-gms" name="task-gms"></a><a id="GHCLU00080" name="GHCLU00080"></a></p>
 
-
-<a name="task-gms"></a><h3>Configurare il servizio GMS</h3><a name="indexterm-153"></a><p>Il servizio GMS (Group Management Service) &#232; un servizio in-process che offre
-monitoraggio del cluster, appartenenza del cluster e servizi di comunicazione di gruppo.
-Esegue le funzioni seguenti:</p>
-
-
-<ul><li><p>Notifica ai moduli registrati in un'istanza di GlassFish Server l'aggiunta o la rimozione di una o pi&#249; istanze membro da un cluster oppure un errore sospetto o confermato di tali istanze.</p>
-
+<h4><a id="sthref222" name="sthref222"></a>Configurare GMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Il servizio GMS (Group Management Service) &egrave; un servizio in-process che offre monitoraggio del cluster, appartenenza del cluster e servizi di comunicazione di gruppo. Esegue le funzioni seguenti:</p>
+<ul>
+<li>
+<p>Notifica ai moduli registrati in un'istanza di GlassFish Server l'aggiunta o la rimozione di una o pi&ugrave; istanze membro da un cluster oppure un errore sospetto o confermato di tali istanze.</p>
 </li>
-<li><p>Consente di inviare e ricevere messaggi tra processi di un gruppo.</p>
-
-</li></ul>
+<li>
+<p>Consente di inviare e ricevere messaggi tra processi di un gruppo.</p>
+</li>
+</ul>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Selezionare la configurazione per il cluster da modificare.</b></li>
-<li><b>Nel nodo della configurazione, selezionare il nodo Group Management Service.</b><p>Viene visualizzata la pagina Group Management Service.</p></li>
-<li><b>Nel campo Maximum Missed Heartbeats immettere il numero massimo di tentativi di
-monitoraggio precedenti alla conferma, da parte del servizio GMS, di un probabile
-errore.</b><p>Il valore predefinito &#232; 3.</p></li>
-<li><b>Nel campo Heartbeat Frequency immettere il periodo di tempo tra i tentativi
-di monitoraggio.</b><p>Il valore predefinito &#232; 2000 millisecondi.</p></li>
-<li><b>Nel campo Group Discovery Timeout immettere il tempo di attesa del servizio
-GMS per l'individuazione di altri membri del cluster.</b><p>Il valore predefinito &#232; 5000 millisecondi.</p></li>
-<li><b>Nel campo Failure Verification Wait Time immettere il tempo al termine del
-quale contrassegnare un errore sospetto come verificato.</b><p>Il valore predefinito &#232; 1500 millisecondi.</p></li>
-<li><b>Per ripristinare valori predefiniti, fare clic sul pulsante Load Defaults.</b></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; GMS aggiuntiva.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
-della propriet&#224;.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-gmsenable.html">Abilitare il servizio GMS</a></p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
 </li>
-<li><p><a href="task-gmscluster.html">Configurare le impostazioni del servizio di gestione gruppi per un cluster</a></p>
+<li>
+<p>Selezionare la configurazione per il cluster da modificare.</p>
+</li>
+<li>
+<p>Nel nodo della configurazione, selezionare il nodo Group Management Service.</p>
+<p>Viene visualizzata la pagina Group Management Service.</p>
+</li>
+<li>
+<p>Nel campo Numero massimo heartbeat mancati immettere il numero massimo di tentativi di monitoraggio precedenti alla conferma, da parte del servizio GMS, di un probabile errore.</p>
+<p>Il valore predefinito &egrave; 3.</p>
+</li>
+<li>
+<p>Nel campo Frequenza heartbeat immettere il periodo di tempo tra i tentativi di monitoraggio.</p>
+<p>Il valore predefinito &egrave; 2000 millisecondi.</p>
+</li>
+<li>
+<p>Nel campo Timeout di individuazione gruppo immettere il tempo di attesa del servizio GMS per l'individuazione di altri membri del cluster.</p>
+<p>Il valore predefinito &egrave; 5000 millisecondi.</p>
+</li>
+<li>
+<p>Nel campo Tempo di attesa verifica errore immettere il tempo al termine del quale contrassegnare un errore sospetto come verificato.</p>
+<p>Il valore predefinito &egrave; 1500 millisecondi.</p>
+</li>
+<li>
+<p>Per ripristinare valori predefiniti, fare clic sul pulsante Carica impostazioni predefinite.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+</ol>
+<a id="sthref223" name="sthref223"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-gmsenable.html">Abilitare GMS</a></p>
+</li>
+<li>
+<p><a href="task-gmscluster.html">Configurare le impostazioni di GMS per un cluster</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

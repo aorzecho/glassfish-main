@@ -1,96 +1,127 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-clusterproperties"></a><h4>Cluster Properties</h4>
-<a name="indexterm-193"></a><a name="indexterm-194"></a><p>Nella pagina Cluster Properties viene visualizzato un elenco di propriet&#224; impostate per
-i cluster selezionati. Queste propriet&#224; aggiungono informazioni di configurazione opzionali sul cluster.</p>
+<p><a id="ref-clusterproperties" name="ref-clusterproperties"></a><a id="GHCLU00014" name="GHCLU00014"></a></p>
 
-<p>Il campo Cluster Name &#232; un campo di sola lettura in cui
-viene visualizzato il nome del cluster selezionato.</p>
-
-<p>Per ogni propriet&#224; vengono visualizzate le seguenti informazioni:</p>
-
-<dl><dt>Name</dt>
-<dd><p>Nome della propriet&#224;.</p>
-
+<h4><a id="sthref300" name="sthref300"></a><a id="sthref301" name="sthref301"></a>Propriet&agrave; cluster</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Propriet&agrave; cluster viene visualizzata una lista di propriet&agrave; impostate per i cluster selezionati. Queste propriet&agrave; aggiungono informazioni di configurazione opzionali sul cluster.</p>
+<p>Il campo Nome cluster &egrave; un campo di sola lettura in cui viene visualizzato il nome del cluster selezionato.</p>
+<p>Per ogni propriet&agrave; vengono visualizzate le seguenti informazioni:</p>
+<dl>
+<dt>Nome</dt>
+<dd>
+<p>Nome della propriet&agrave;.</p>
 </dd>
-<dt>Value</dt>
-<dd><p>Il valore della propriet&#224; &#232; impostato per l'istanza selezionata.</p>
-
+<dt>Valore</dt>
+<dd>
+<p>Il valore della propriet&agrave; &egrave; impostato per l'istanza selezionata.</p>
 </dd>
-<dt>Description</dt>
-<dd><p>Descrizione testuale in cui sono riportate ulteriori informazioni sulla propriet&#224;.</p>
-
-</dd>
-</dl>
-<p>La tabella Additional Properties contiene inoltre le seguenti opzioni.</p>
-
-<dl><dt>Add Property</dt>
-<dd><p>Pulsante che consente di aggiungere una propriet&#224;. Se si fa clic su questo pulsante, viene aggiunta una riga alla tabella Additional Properties.</p>
-
-</dd>
-<dt>Delete Properties</dt>
-<dd><p>Pulsante che consente di eliminare una o pi&#249; propriet&#224; selezionate. Quando una propriet&#224; viene eliminata, viene ripristinato il rispettivo valore predefinito oppure, se non &#232; specificato il valore predefinito, il valore resta non definito.</p>
-
+<dt>Descrizione</dt>
+<dd>
+<p>Descrizione testuale in cui sono riportate ulteriori informazioni sulla propriet&agrave;.</p>
 </dd>
 </dl>
-<p>GlassFish Server definisce le seguenti propriet&#224; del cluster:</p>
-
-<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
-<dd><p>Numero della porta su cui il cluster resta in attesa di messaggi provenienti dal servizio GMS (Group Management Service). Il valore predefinito dovrebbe essere adatto nella maggior parte delle situazioni.</p>
-
+<p>La tabella Propriet&agrave; aggiuntive contiene inoltre le seguenti opzioni.</p>
+<dl>
+<dt>Aggiungi propriet&agrave;</dt>
+<dd>
+<p>Pulsante che consente di aggiungere una propriet&agrave;. Se si fa clic su questo pulsante, viene aggiunta una riga alla tabella Propriet&agrave; aggiuntive.</p>
 </dd>
-<dt><tt>GMS_LOOPBACK</tt></dt>
-<dd><p>Specifica se consentire a un'istanza di ricevere da se stessa messaggi a livello di applicazione trasmessi dall'istanza al cluster.</p>
-
+<dt>Elimina propriet&agrave;</dt>
+<dd>
+<p>Pulsante che consente di eliminare una o pi&ugrave; propriet&agrave; selezionate. Quando una propriet&agrave; viene eliminata, viene ripristinato il rispettivo valore predefinito oppure, se non &egrave; specificato il valore predefinito, il valore resta non definito.</p>
+</dd>
+</dl>
+<p>GlassFish Server definisce le seguenti propriet&agrave; del cluster:</p>
+<dl>
+<dt><code>GMS_LISTENER_PORT</code></dt>
+<dd>
+<p>Numero della porta su cui il cluster ascolta i messaggi provenienti dal servizio GMS (Group Management Service).</p>
+<p>L'impostazione predefinita &egrave; <code>${GMS_LISTENER_PORT-</code><i>cluster-name</i><code>}</code>. Nella maggior parte delle situazioni l'impostazione predefinita &egrave; sufficiente.</p>
+<p>Tuttavia, se GMS <b>non</b> utilizza il multicast per trasmettere i messaggi, questa propriet&agrave; deve specificare un numero di porta valido per tutte le istanze GlassFish Server presenti nel cluster. Per utilizzare l'impostazione predefinita per soddisfare questo requisito, utilizzare una propriet&agrave; di sistema per impostare il numero di porta a livello individuale per ciascuna istanza.</p>
+<p>Ad esempio, utilizzare la pagina <a href="ref-clustersystemproperties.html">Propriet&agrave; di sistema del cluster</a> per creare la propriet&agrave; di sistema <code>GMS_LISTENER_PORT-</code><i>cluster-name</i>. Quindi, per ciascuna istanza nel cluster, impostare la propriet&agrave; di sistema <code>GMS_LISTENER_PORT-</code><i>cluster-name</i> sul numero della porta su cui l'istanza ascolta i messaggi da GMS. L'impostazione predefinita della propriet&agrave; <code>GMS_LISTENER_PORT</code> per il cluster fa riferimento a questa propriet&agrave; di sistema.</p>
+</dd>
+<dt><code>GMS_LOOPBACK</code></dt>
+<dd>
+<p>Specifica se consentire a un'istanza di ricevere da se stessa messaggi a livello di applicazione trasmessi dall'istanza al cluster.</p>
 <p>I possibili valori sono i seguenti:</p>
-
-<dl><dt><tt>false</tt></dt>
-<dd><p>L'istanza <b>non</b> pu&#242; ricevere messaggi provenienti da se stessa (opzione predefinita).</p>
-
+<dl>
+<dt><code>false</code></dt>
+<dd>
+<p>L'istanza <i>non</i> pu&ograve; ricevere messaggi provenienti da se stessa (opzione predefinita).</p>
 </dd>
-<dt><tt>true</tt></dt>
-<dd><p>L'istanza pu&#242; ricevere messaggi da se stessa. Utilizzare questa impostazione per verificare un'istanza quando &#232; l'unica istanza in un cluster.</p>
-
+<dt><code>true</code></dt>
+<dd>
+<p>L'istanza pu&ograve; ricevere messaggi da se stessa. Utilizzare questa impostazione per verificare un'istanza quando &egrave; l'unica istanza in un cluster.</p>
 </dd>
 </dl>
 </dd>
-<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
-<dd><p>Numero massimo di ripetizioni o trasmissioni che possono verificarsi per i seguenti tipi di eventi prima che un messaggio multicast venga ignorato:</p>
-
-
-<ul><li><p>Individuazione gruppo</p>
-
+<dt><code>GMS_MULTICAST_TIME_TO_LIVE</code></dt>
+<dd>
+<p>Numero massimo di ripetizioni o trasmissioni che possono verificarsi per i seguenti tipi di eventi prima che un messaggio multicast venga ignorato:</p>
+<ul>
+<li>
+<p>Individuazione gruppo</p>
 </li>
-<li><p>Heartbeat membro</p>
-
+<li>
+<p>Heartbeat membro</p>
 </li>
-<li><p>Modifiche appartenenza</p>
-
-</li></ul>
-<p>Per soddisfare la configurazione della rete in cui vengono distribuite le istanze DAS e le istanze in cluster, impostare il minimo valore possibile. Per determinare il minimo valore possibile per il sistema in uso, utilizzare il comando secondario <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=validate-multicast-1"><tt>validate-multicast</tt>(1)</a>.</p>
-
+<li>
+<p>Modifiche appartenenza</p>
+</li>
+</ul>
+<p>Per soddisfare la configurazione della rete in cui vengono distribuite le istanze DAS e le istanze in cluster, impostare il minimo valore possibile. Per determinare il minimo valore possibile per il sistema in uso, utilizzare il comando secondario <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00259"><code>validate-multicast</code>(1)</a>.</p>
 <p>Se si imposta un valore pari a 0, i messaggi multicast non lasciano mai l'host dal quale vengono trasmessi.</p>
-
-<p>Se si imposta un valore pari a 1, la trasmissione di messaggi tra host della stessa sottorete connessi tramite switch o router potrebbe non riuscire. </p>
-
-<p>Il valore predefinito &#232; 4 e assicura che i messaggi vengano trasmessi correttamente a tutti i membri del cluster delle reti in cui gli host sono collegati tramite switch o router.</p>
-
+<p>Se si imposta un valore pari a 1, la trasmissione di messaggi tra host della stessa sottorete connessi tramite switch o router potrebbe non riuscire.</p>
+<p>Il valore predefinito &egrave; 4 e assicura che i messaggi vengano trasmessi correttamente a tutti i membri del cluster delle reti in cui gli host sono collegati tramite switch o router.</p>
+</dd>
+<dt><code>GMS_DISCOVERY_URI_LIST</code></dt>
+<dd>
+<p>Le posizioni delle istanze di GlassFish Server in cui GMS invier&agrave; gli eventi di gruppo. Questa propriet&agrave; &egrave; obbligatoria solo se GMS non utilizza il multicast per la trasmissione dei messaggi.</p>
+<p>I valori validi per questa propriet&agrave; sono riportati di seguito.</p>
+<ul>
+<li>
+<p>Una lista di URI (Uniform Resource Identifier) separati da virgole. Ciascun URI deve individuare un'istanza di GlassFish Server. Questo formato &egrave; obbligatorio se pi&ugrave; istanze di GlassFish Server sono in esecuzione sullo stesso host.</p>
+<p>Il formato di ciascun URI nella lista &egrave; il seguente:</p>
+<p><i>scheme</i><code>://</code><i>host-name-or -IP-address</i><code>:</code><i>port</i></p>
+<ul>
+<li>
+<p><i>scheme</i> &egrave; lo schema dell'URI, ossia <code>tcp</code>.</p>
+</li>
+<li>
+<p><i>host-name-or -IP-address</i> &egrave; il nome host o l'indirizzo IP dell'host su cui &egrave; in esecuzione l'istanza.</p>
+</li>
+<li>
+<p><i>porta</i> &egrave; il numero della porta su cui l'istanza ascolta i messaggi da GMS. La propriet&agrave; di sistema <code>GMS_LISTENER_PORT-</code><i>clustername</i> deve essere impostata per l'istanza. Per informazioni su come impostare questa propriet&agrave; di sistema per un'istanza, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSHAG00373"><i>Locating GlassFish Server Instances When Multicast Is Disabled,</i> in <i>Oracle GlassFish Server High Availability Administration Guide</i></a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Una lista di indirizzi IP o nomi host separati da virgole. La lista pu&ograve; contenere un misto di indirizzi IP e nomi host. Questo formato pu&ograve; essere utilizzato solo se un'istanza in cluster &egrave; in esecuzione su ciascun host. Il valore della propriet&agrave; <code>GMS_LISTENER_PORT</code> deve essere univoco per ciascun cluster in un dominio.</p>
+</li>
+<li>
+<p>La parola chiave <code>generate</code>. Questo formato pu&ograve; essere utilizzato solo se un'istanza in un cluster &egrave; in esecuzione su ciascun host. Pi&ugrave; istanze sullo stesso host non possono essere membri dello stesso cluster. Il valore della propriet&agrave; <code>GMS_LISTENER_PORT</code> deve essere univoco per ciascun cluster in un dominio.</p>
+</li>
+</ul>
 </dd>
 </dl>
-<h5>Comandi secondari <tt>asadmin</tt> equivalenti</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=get-1"><tt>get</tt>(1)</a></p>
-
+<a id="sthref302" name="sthref302"></a>
+<h5>Comandi secondari equivalenti asadmin</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00139"><code>get</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-1"><tt>list</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00145"><code>list</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00226"><code>set</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

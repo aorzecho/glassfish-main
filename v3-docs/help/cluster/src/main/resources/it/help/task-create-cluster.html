@@ -1,154 +1,179 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-create-cluster" name="task-create-cluster"></a><a id="GHCLU00027" name="GHCLU00027"></a></p>
 
-
-<a name="task-create-cluster"></a><h3>Creare un cluster</h3><a name="indexterm-1"></a><p>Per <b>cluster</b> si intende una raccolta con nome di istanze GlassFish Server
-che condividono le stesse applicazioni, risorse e informazioni di configurazione.</p>
-
-<p>I cluster consentono di ottenere alta disponibilit&#224; grazie a scalabilit&#224;, bilanciamento del
-carico e protezione da errori. Quando si verifica un errore per un'istanza
-o un host in un cluster, GlassFish Server rileva l'errore, reindirizza le
-richieste dall'istanza con errori ad altre istanze nel cluster e ripristina lo
-stato della sessione dell'utente. Poich&#233; le stesse applicazioni e risorse si trovano
-in tutte le istanze del cluster, un'istanza pu&#242; eseguire il failover in
-un'altra qualsiasi istanza nel cluster.</p>
-
-<p>GlassFish Server consente di amministrare tutte le istanze in un cluster come
-unit&#224; singola da un solo host, indipendentemente dal fatto che le istanze
-si trovino sullo stesso host o su host diversi.</p>
-
-<p><b>Prima di cominciare</b></p><p>Se si prevede di aggiungere istanze di GlassFish Server al cluster creato,
-verificare che i nodi in cui si desidera collocare le istanze siano
-gi&#224; esistenti.</p>
-
+<h4><a id="sthref2" name="sthref2"></a>Creare un cluster</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Per cluster si intende una raccolta denominata di istanze GlassFish Server che condividono le stesse applicazioni, risorse e informazioni di configurazione.</p>
+<p>I cluster consentono di ottenere alta disponibilit&agrave; grazie a scalabilit&agrave;, bilanciamento del carico e protezione da errori. Quando si verifica un errore per un'istanza o un host in un cluster, GlassFish Server rileva l'errore, reindirizza le richieste dall'istanza con errori ad altre istanze nel cluster e ripristina lo stato della sessione dell'utente. Poich&eacute; le stesse applicazioni e risorse si trovano in tutte le istanze del cluster, un'istanza pu&ograve; eseguire il failover in un'altra qualsiasi istanza nel cluster.</p>
+<p>GlassFish Server consente di amministrare tutte le istanze in un cluster come unit&agrave; singola da un solo host, indipendentemente dal fatto che le istanze risiedano sullo stesso host o su host diversi.</p>
+<a id="sthref3" name="sthref3"></a>
+<h5>Prima di iniziare</h5>
+<p>Se si prevede di aggiungere istanze di GlassFish Server al cluster creato, verificare che i nodi in cui dovranno risiedere le istanze siano gi&agrave; esistenti.</p>
 <ol>
-<li><b>Nella struttura ad albero, selezionare il nodo Clusters.</b><p>Viene visualizzata la pagina Clusters.</p></li>
-<li><b>Nella pagina Clusters fare clic su New. </b><p>Viene visualizzata la pagina New Cluster.</p></li>
-<li><b>Nel campo Cluster Name digitare un nome per il cluster.</b><p>Il nome deve soddisfare i seguenti requisiti:</p>
-<ul><li><p>Il nome pu&#242; contenere solo caratteri ASCII.</p>
-
+<li>
+<p>Nell'albero di navigazione selezionare il nodo Cluster.</p>
+<p>Viene visualizzata la pagina Cluster.</p>
 </li>
-<li><p>Il nome deve iniziare con una lettera, un numero o un carattere di sottolineatura.</p>
-
+<li>
+<p>Nella pagina Cluster fare clic su Nuovo.</p>
+<p>Viene visualizzata la pagina Nuovo cluster.</p>
 </li>
-<li><p>Il nome pu&#242; contenere solo i seguenti caratteri:</p>
-
-
-<ul><li><p>Lettere minuscole</p>
-
+<li>
+<p>Nel campo Nome cluster digitare un nome per il cluster.</p>
+<p>Il nome deve soddisfare i seguenti requisiti:</p>
+<ul>
+<li>
+<p>Il nome pu&ograve; contenere solo caratteri ASCII.</p>
 </li>
-<li><p>Lettere maiuscole</p>
-
+<li>
+<p>Il nome deve iniziare con una lettera, un numero o un carattere di sottolineatura.</p>
 </li>
-<li><p>Numeri</p>
-
+<li>
+<p>Il nome pu&ograve; contenere solo i seguenti caratteri:</p>
+<ul>
+<li>
+<p>Lettere minuscole</p>
 </li>
-<li><p>Trattino</p>
-
+<li>
+<p>Lettere maiuscole</p>
 </li>
-<li><p>Punto</p>
-
+<li>
+<p>Numeri</p>
 </li>
-<li><p>Carattere di sottolineatura</p>
-
-</li></ul>
+<li>
+<p>Trattino</p>
 </li>
-<li><p>Il nome deve essere univoco nel dominio e non deve essere il nome di un altro cluster, di una configurazione con nome, di un'istanza di GlassFish Server o di un nodo.</p>
-
+<li>
+<p>Punto</p>
 </li>
-<li><p>Il nome non deve essere <tt>domain</tt>, <tt>server</tt> n&#233; nessun'altra parola chiave riservata per GlassFish Server.</p>
-
-</li></ul>
+<li>
+<p>Carattere di sottolineatura</p>
 </li>
-<li><b>Nell'elenco a discesa Configuration selezionare la configurazione con nome da utilizzare per
-il cluster.</b>
-<hr><p><b>Nota - </b>Se si seleziona <tt>default-config</tt>, &#232; necessario specificare nel passaggio successivo che la
-configurazione <b>non</b> &#232; condivisa. La configurazione <tt>default-config</tt> non pu&#242; essere condivisa.</p>
-
+</ul>
+</li>
+<li>
+<p>Il nome deve essere univoco nel dominio e non deve essere il nome di un altro cluster, di una configurazione denominata, di un'istanza di GlassFish Server o di un nodo.</p>
+</li>
+<li>
+<p>Il nome non deve essere <code>domain</code>, <code>server</code> n&eacute; nessun'altra parola chiave riservata per GlassFish Server.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nell'elenco a discesa Configurazione selezionare la configurazione denominata da utilizzare per il cluster.</p>
 
 <hr>
-</li>
-<li><b>Specificare se la configurazione che verr&#224; utilizzata dal cluster sar&#224; condivisa.</b><ul>
-<li><b>Se la configurazione non &#232; condivisa, lasciare selezionata l'opzione Make a Copy
-of the Selected Configuration. </b><p>La configurazione selezionata viene copiata al momento della creazione del cluster. Alla
-copia della configurazione viene assegnato il nome <tt><i>cluster-name</i>-config</tt>, in cui <i>cluster-name</i> &#232;
-il nome del cluster che si sta creando.</p></li>
-<li><b>Se la configurazione &#232; condivisa, selezionare l'opzione Reference the Selected Configuration.</b><p>Il cluster utilizza la configurazione con nome esistente specificata.</p></li></ul></li>
-<li>(Opzionale) <b><a name="indexterm-2"></a>Aggiungere istanze di GlassFish Server al cluster.</b>
-<hr><p><b>Nota - </b>Per creare un'istanza in un nodo di tipo CONFIG che rappresenta un
-host remoto, &#232; necessario utilizzare il comando secondario <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a>. Per questa operazione
-non &#232; possibile utilizzare Administration Console.</p>
+<p><b>Nota:</b></p>
+Se si seleziona <code>default-config</code>, &egrave; necessario specificare nel passo successivo che la configurazione <i>non</i> &egrave; condivisa. La configurazione <code>default-config</code> non pu&ograve; essere condivisa.
+<hr>
 
+</li>
+<li>
+<p>Specificare se la configurazione che verr&agrave; utilizzata dal cluster sar&agrave; condivisa.</p>
+<ul>
+<li>
+<p>Se la configurazione non &egrave; condivisa, lasciare selezionata l'opzione Crea una copia della configurazione selezionata.</p>
+<p>La configurazione selezionata viene copiata al momento della creazione del cluster. Alla copia della configurazione viene assegnato il nome cluster-name<code>-config</code>, dove <i>cluster-name</i> &egrave; il nome del cluster che si sta creando.</p>
+</li>
+<li>
+<p>Se la configurazione &egrave; condivisa, selezionare l'opzione Crea riferimento alla configurazione selezionata.</p>
+<p>Il cluster utilizza la configurazione con nome esistente specificata.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><a id="sthref4" name="sthref4"></a>Aggiungere istanze di GlassFish Server al cluster.</p>
 
 <hr>
-<p>&#200; inoltre possibile <a href="task-create-clustered-instance.html">aggiungere istanze in seguito alla creazione del cluster</a>.</p><p>Aggiungere ogni istanza come segue:</p><ol style="list-style-type: lower-alpha">
-<li><b>Nell'area Server Instances To Be Created, fare clic su Add.</b><p>Viene aggiunta una riga alla tabella di istanze nel cluster.</p></li>
-<li><b>Nel campo Instance Name, digitare un nome per l'istanza.</b></li>
-<li><b>Nel campo Weight, digitare un numero intero che rappresenta il peso per
-il bilanciamento del carico dell'istanza.</b><p>Il peso per il bilanciamento del carico determina la proporzione di tutte
-le richieste inviate al cluster che l'istanza dovrebbe elaborare.</p><p>Ad esempio, in un cluster a due istanze pu&#242; essere necessaria un'istanza
-per elaborare una di quattro richieste e un'altra istanza per elaborarne tre
-di quattro. In questa situazione, impostare su 1 il peso dell'istanza che
-elabora una delle quattro richieste e su 3 il peso dell'altra istanza.
-Se si preferisce utilizzare valori percentuali, impostare i pesi delle istanze rispettivamente
-su 25 e 75.</p><p>Il peso predefinito &#232; 100. </p></li>
-<li><b>Nell'elenco Node, selezionare il nodo in cui collocare l'istanza.</b></li></ol></li>
-<li><b>Fare clic su OK.</b><p>Viene visualizzata la pagina Clusters. Il cluster viene aggiunto alla tabella di
-cluster della pagina.</p></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-delete-cluster.html">Eliminare un cluster</a></p>
+<p><b>Nota:</b></p>
+Per creare un'istanza in un nodo di tipo CONFIG che rappresenta un host remoto, &egrave; necessario utilizzare il comando secondario <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00044"><code>create-local-instance</code>(1)</a>. Per questa operazione non &egrave; possibile utilizzare Console di amministrazione.
+<hr>
 
+<p>&Egrave; inoltre possibile aggiungere istanze in seguito alla creazione del cluster, come descritto in <a href="task-create-clustered-instance.html">Aggiungere un'istanza di GlassFish Server a un cluster</a>.</p>
+<p>Aggiungere ogni istanza come segue:</p>
+<ol type="a">
+<li>
+<p>Nell'area Istanze server da creare, fare clic su Aggiungi.</p>
+<p>Viene aggiunta una riga alla tabella di istanze nel cluster.</p>
 </li>
-<li><p><a href="task-availabilityservice.html">Configurare le impostazioni di disponibilit&#224; per un cluster</a></p>
-
+<li>
+<p>Nel campo Nome istanza, digitare un nome per l'istanza.</p>
 </li>
-<li><p><a href="task-start-cluster.html">Avviare un cluster</a></p>
-
+<li>
+<p>Nel campo Fattore ponderale, digitare un numero intero che rappresenta il fattore ponderale per il bilanciamento del carico dell'istanza.</p>
+<p>Il fattore ponderale per il bilanciamento del carico determina la proporzione di tutte le richieste inviate al cluster che l'istanza dovrebbe elaborare.</p>
+<p>Ad esempio, in un cluster a due istanze pu&ograve; essere necessaria un'istanza per elaborare una di quattro richieste e un'altra istanza per elaborarne tre di quattro. In questa situazione, impostare su 1 il fattore ponderale dell'istanza che elabora una delle quattro richieste e su 3 il fattore ponderale dell'altra istanza. Se si preferisce utilizzare valori percentuali, impostare i fattori ponderali delle istanze rispettivamente su 25 e 75.</p>
+<p>Il fattore ponderale predefinito &egrave; 100.</p>
 </li>
-<li><p><a href="task-stop-cluster.html">Arrestare un cluster</a></p>
-
+<li>
+<p>Nell'elenco a discesa Nodo selezionare il nodo in cui deve risiedere l'istanza.</p>
 </li>
-<li><p><a href="task-modify-cluster-config.html">Modificare la configurazione di un cluster</a></p>
-
+</ol>
 </li>
-<li><p><a href="task-cluster-app-deploy.html">Distribuire un'applicazione in un cluster</a></p>
-
+<li>
+<p>Fare clic su OK.</p>
+<p>Viene visualizzata la pagina Cluster. Il cluster viene aggiunto alla tabella di cluster della pagina.</p>
 </li>
-<li><p><a href="task-cluster-app-list.html">Elencare applicazioni distribuite a un cluster</a></p>
-
+</ol>
+<a id="sthref5" name="sthref5"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-delete-cluster.html">Eliminare un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-undeploy.html">Annullare la distribuzione di applicazioni da un cluster</a></p>
-
+<li>
+<p><a href="task-availabilityservice.html">Configurare le impostazioni di disponibilit&agrave; per un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-remove.html">Rimuovere applicazioni da un cluster</a></p>
-
+<li>
+<p><a href="task-start-cluster.html">Avviare un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-edit.html">Modificare un'applicazione distribuita a un cluster</a></p>
-
+<li>
+<p><a href="task-stop-cluster.html">Arrestare un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-enable-disable.html">Abilitare o disabilitare un'applicazione distribuita a un cluster</a></p>
-
+<li>
+<p><a href="task-modify-cluster-config.html">Modificare la configurazione di un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-app-lb-enable-disable.html">Abilitare o disabilitare il bilanciamento del carico per un'applicazione distribuita a un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-deploy.html">Distribuire un'applicazione a un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-resource-create.html">Creare una risorsa per un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-list.html">Elencare le applicazioni distribuite in un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-resource-display.html">Visualizzare l'elenco di risorse per un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-undeploy.html">Annullare la distribuzione delle applicazioni da un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-resource-enable-disable.html">Abilitare o disabilitare una risorsa globalmente</a></p>
-
+<li>
+<p><a href="task-cluster-app-remove.html">Rimuovere applicazioni da un cluster</a></p>
 </li>
-<li><p><a href="task-cluster-resource-edit.html">Modificare una risorsa per un cluster</a></p>
-
+<li>
+<p><a href="task-cluster-app-edit.html">Modificare un'applicazione distribuita in un cluster</a></p>
 </li>
-<li><p><a href="task-upgrade-components.html">Aggiornare componenti senza perdita di servizio</a></p>
+<li>
+<p><a href="task-cluster-app-enable-disable.html">Abilitare o disabilitare un'applicazione distribuita in un cluster</a></p>
+</li>
+<li>
+<p><a href="task-cluster-app-lb-enable-disable.html">Abilitare o disabilitare il bilanciamento del carico per un'applicazione distribuita in un cluster</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-create.html">Creare una risorsa per un cluster</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-display.html">Elencare le risorse per un cluster</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-enable-disable.html">Abilitare o disabilitare una risorsa a livello globale</a></p>
+</li>
+<li>
+<p><a href="task-cluster-resource-edit.html">Modificare una risorsa per un cluster</a></p>
+</li>
+<li>
+<p><a href="task-upgrade-components.html">Aggiornare i componenti senza interruzioni del servizio</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

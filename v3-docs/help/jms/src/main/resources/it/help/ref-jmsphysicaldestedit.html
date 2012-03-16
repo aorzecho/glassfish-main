@@ -1,115 +1,120 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmsphysicaldestedit"></a><h4>Edit JMS Physical Destination</h4>
-<a name="indexterm-53"></a><a name="indexterm-54"></a><p>Nella pagina Edit JMS Physical Destination &#232; possibile modificare le impostazioni per
-una destinazione fisica JMS.</p>
+<p><a id="ref-jmsphysicaldestedit" name="ref-jmsphysicaldestedit"></a><a id="GHJMS00018" name="GHJMS00018"></a></p>
 
-<p>La pagina Edit JMS Physical Destination contiene le seguenti opzioni.</p>
-
-<dl><dt>Name</dt>
-<dd><p>Nome della destinazione fisica. Il campo &#232; di sola lettura. &#200; possibile specificare il nome solo quando si crea una risorsa di destinazione JMS o una destinazione fisica.</p>
-
+<h4><a id="sthref96" name="sthref96"></a><a id="sthref97" name="sthref97"></a>Modifica destinazione fisica JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Modifica destinazione fisica JMS &egrave; possibile modificare le impostazioni per una destinazione fisica JMS.</p>
+<p>La pagina Modifica destinazione fisica JMS contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome</dt>
+<dd>
+<p>Nome della destinazione fisica. Questo campo &egrave; di sola lettura. &Egrave; possibile specificare il nome solo quando si crea una risorsa di destinazione JMS o una destinazione fisica.</p>
 </dd>
-<dt>Type</dt>
-<dd><p>Tipo della destinazione fisica. Il campo &#232; di sola lettura. &#200; possibile specificare il tipo solo quando si crea una risorsa di destinazione JMS o una destinazione fisica.</p>
-
+<dt>Tipo</dt>
+<dd>
+<p>Tipo di destinazione fisica. Questo campo &egrave; di sola lettura. &Egrave; possibile specificare il tipo solo quando si crea una risorsa di destinazione JMS o una destinazione fisica.</p>
 </dd>
-<dt>Maximum Number of Unconsumed Messages</dt>
-<dd><p>Numero massimo di messaggi non utilizzati consentiti per la destinazione. Un valore pari a -1 indica un numero illimitato di messaggi non utilizzati. Il valore predefinito &#232; -1.</p>
-
+<dt>Numero massimo di messaggi non utilizzati</dt>
+<dd>
+<p>Numero massimo di messaggi non utilizzati consentiti per la destinazione. Un valore pari a -1 indica che non sono impostati limiti per il numero di messaggi non utilizzati. Il valore predefinito &egrave; -1.</p>
 </dd>
-<dt>Maximum Message Size</dt>
-<dd><p>Dimensione massima di ogni singolo messaggio, in byte. Un valore pari a -1 indica una dimensione illimitata del messaggio. Il valore predefinito &#232; -1.</p>
-
+<dt>Dimensione massima messaggio</dt>
+<dd>
+<p>Dimensione massima, in byte, di un singolo messaggio. Un valore pari a -1 indica una dimensione illimitata del messaggio. Il valore predefinito &egrave; -1.</p>
 </dd>
-<dt>Maximum Total Memory</dt>
-<dd><p>Memoria totale massima, in byte, per messaggi non utilizzati. Un valore pari a -1 indica una dimensione illimitata di memoria per messaggi non utilizzati. Il valore predefinito &#232; -1.</p>
-
+<dt>Memoria totale massima</dt>
+<dd>
+<p>Memoria totale massima, in byte, per i messaggi non utilizzati. Un valore pari a -1 indica una dimensione illimitata di memoria per i messaggi non utilizzati. Il valore predefinito &egrave; -1.</p>
 </dd>
-<dt>Threshold Limit Behavior</dt>
-<dd><p>Comportamento desiderato per il broker quando viene raggiunta la soglia del limite di memoria. Sono disponibili le seguenti opzioni:</p>
-
-<dl><dt><tt>Reject newest messages</tt></dt>
-<dd><p>Consente di rifiutare i messaggi pi&#249; recenti e notificare al client di produzione un'eccezione solo se il messaggio &#232; persistente. &#200; il valore predefinito.</p>
-
+<dt>Funzionamento limite soglia</dt>
+<dd>
+<p>Funzionamento del broker quando viene raggiunta la soglia del limite di memoria. Sono disponibili le opzioni riportate di seguito.</p>
+<dl>
+<dt>Rifiuta i messaggi pi&ugrave; recenti</dt>
+<dd>
+<p>Consente di rifiutare i messaggi pi&ugrave; recenti e notificare al client di produzione un'eccezione solo se il messaggio &egrave; persistente. Questo &egrave; il valore predefinito.</p>
 </dd>
-<dt><tt>Slow down producers</tt></dt>
-<dd><p>Consente di ridurre la velocit&#224; alla quale i produttori inviano messaggi.</p>
-
+<dt>Rallenta producer</dt>
+<dd>
+<p>Consente di ridurre la velocit&agrave; alla quale i producer inviano messaggi.</p>
 </dd>
-<dt><tt>Throw out oldest</tt></dt>
-<dd><p>Consente di ignorare i messaggi meno recenti.</p>
-
+<dt>Elimina i meno recenti</dt>
+<dd>
+<p>Consente di eliminare i messaggi meno recenti.</p>
 </dd>
-<dt><tt>Throw out lowest-priority messages</tt></dt>
-<dd><p>Consente di ignorare i messaggi con la priorit&#224; minima.</p>
-
-</dd>
-</dl>
-<p>Se il valore &#232; Throw out oldest o Throw out lowest-priority messages e Use Dead Message Queue &#232; impostato su True, i messaggi in eccesso vengono spostati nella coda dei messaggi bloccati.</p>
-
-</dd>
-<dt>Maximum Number of Producers</dt>
-<dd><p>Numero massimo di produttori di messaggi che &#232; possibile associare alla destinazione fisica. Una volta raggiunto il limite, non &#232; possibile creare nuovi produttori. Un valore pari a -1 indica un numero illimitato di produttori. Il valore predefinito &#232; 100.</p>
-
-</dd>
-<dt>Batch Delivery Max Message Count</dt>
-<dd><p>Numero massimo di messaggi che &#232; possibile consegnare ai consumatori in un solo batch. Un valore pari a -1 indica un numero illimitato di messaggi. Il valore predefinito &#232; 1000.</p>
-
-</dd>
-<dt>Use Dead Message Queue</dt>
-<dd><p>Se l'opzione &#232; abilitata, i messaggi bloccati vengono posizionati nella coda di messaggi bloccati. Se l'opzione &#232; disabilitata, i messaggi bloccati vengono ignorati. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
-</dd>
-<dt>Validate XML Schema</dt>
-<dd><p>Se l'opzione &#232; abilitata, prima dell'invio di un messaggio XML al broker, il runtime del client Message Queue tenter&#224; di convalidarlo in base alle XSD (XML Schema Definition) specificate o, se non &#232; specificata nessuna XSD, in base al DTD. Se non &#232; possibile individuare lo schema specificato o convalidare il messaggio, quest'ultimo non viene inviato e viene generata un'eccezione. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
-</dd>
-<dt>XML Schema URI List</dt>
-<dd><p>Elenco separato da spazi di stringhe URI per XSD (XML Schema Definition). Se &#232; abilitata la convalida dello schema XML, gli URI fanno riferimento alla posizione di una o pi&#249; XSD da utilizzare per tale convalida.</p>
-
+<dt>Elimina i messaggi con la priorit&agrave; pi&ugrave; bassa</dt>
+<dd>
+<p>Consente di eliminare i messaggi con la priorit&agrave; pi&ugrave; bassa.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-jmsservice.html">Configurare il servizio JMS</a></p>
-
+<p>Se il valore &egrave; Elimina i meno recenti o Elimina i messaggi con la priorit&agrave; pi&ugrave; bassa e Usa coda dei messaggi bloccati &egrave; impostato su True, i messaggi in eccesso vengono spostati nella coda dei messaggi bloccati.</p>
+</dd>
+<dt>Numero massimo di producer</dt>
+<dd>
+<p>Numero massimo di producer di messaggi che &egrave; possibile associare a questa destinazione fisica. Una volta raggiunto il limite, non &egrave; possibile creare nuovi producer. Un valore pari a -1 indica un numero illimitato di producer. Il valore predefinito &egrave; 100.</p>
+</dd>
+<dt>Numero massimo messaggi per consegna batch</dt>
+<dd>
+<p>Numero massimo di messaggi che &egrave; possibile consegnare ai consumer in un singolo batch. Un valore pari a -1 indica un numero illimitato di messaggi. Il valore predefinito &egrave; 1000.</p>
+</dd>
+<dt>Usa coda dei messaggi bloccati</dt>
+<dd>
+<p>Se questa opzione &egrave; abilitata, i messaggi bloccati vengono posizionati nella coda di messaggi bloccati. Se questa opzione &egrave; disabilitata, i messaggi bloccati vengono eliminati. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</dd>
+<dt>Convalida schema XML</dt>
+<dd>
+<p>Se questa opzione &egrave; abilitata, la fase di esecuzione del client Message Queue tenter&agrave; di convalidare un messaggio XML in base alle XSD (XML Schema Definition) specificate o in base al DTD se non &egrave; specificata nessuna XSD prima di inviare il messaggio al broker. Se non &egrave; possibile individuare lo schema specificato o convalidare il messaggio, quest'ultimo non viene inviato e viene restituita un'eccezione. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</dd>
+<dt>Lista URI schema XML</dt>
+<dd>
+<p>Lista di valori separati da spazi di stringhe URI per XSD (XML Schema Definition). Se &egrave; abilitata la convalida dello schema XML, gli URI puntano alla posizione di una o pi&ugrave; XSD da utilizzare per tale convalida.</p>
+</dd>
+</dl>
+<a id="sthref98" name="sthref98"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-jmsservice.html">Configurare il servizio JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestnew.html">Creare una destinazione fisica JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestnew.html">Creare una destinazione fisica JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestedit.html">Modificare una destinazione fisica JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestedit.html">Modificare una destinazione fisica JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestdelete.html">Eliminare una destinazione fisica JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestdelete.html">Eliminare una destinazione fisica JMS</a></p>
 </li>
-<li><p><a href="task-jmsflushmessages.html">Rimuovere messaggi da una destinazione fisica JMS </a></p>
-
+<li>
+<p><a href="task-jmsflushmessages.html">Rimuovere i messaggi da una destinazione fisica JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldeststats.html">Visualizzare statistiche per una destinazione fisica JMS</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jmsdest-1"><tt>create-jmsdest</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldeststats.html">Visualizzare le statistiche per una destinazione fisica JMS</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jmsdest-1"><tt>list-jmsdest</tt>(1)</a></p>
-
+</ul>
+<a id="sthref99" name="sthref99"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00038"><code>create-jmsdest</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jmsdest-1"><tt>delete-jmsdest</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00175"><code>list-jmsdest</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=flush-jmsdest-1"><tt>flush-jmsdest</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00090"><code>delete-jmsdest</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=jms-ping-1"><tt>jms-ping</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00136"><code>flush-jmsdest</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00144"><code>jms-ping</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

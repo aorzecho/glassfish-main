@@ -1,71 +1,56 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-uc-concepts"></a><h4>Concetti chiave di Update Tool</h4>
-<a name="indexterm-253"></a><p>Update Tool consente di gestire le installazioni dei componenti software di GlassFish
-Server inclusi in una singola directory del file system nel sistema in
-uso.</p>
+<p><a id="ref-uc-concepts" name="ref-uc-concepts"></a><a id="GHCOM00133" name="GHCOM00133"></a></p>
 
-<p>La versione Administration Console di Update Tool consente di effettuare le seguenti
-operazioni:</p>
-
-
-<ul><li><p>Installare i componenti add-on</p>
-
+<h4><a id="sthref466" name="sthref466"></a>Nozioni fondamentali su Strumento di aggiornamento</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Strumento di aggiornamento consente di gestire le installazioni dei componenti software di GlassFish Server inclusi in una singola directory del file system nel sistema in uso.</p>
+<p>La versione Console di amministrazione di Strumento di aggiornamento consente di effettuare le operazioni riportate di seguito.</p>
+<ul>
+<li>
+<p>Installare i componenti aggiuntivi.</p>
 </li>
-<li><p>Visualizzare gli aggiornamenti per i componenti installati</p>
-
+<li>
+<p>Visualizzare gli aggiornamenti per i componenti installati.</p>
 </li>
-<li><p>Visualizzare i componenti installati</p>
-
-</li></ul>
-<p>Per aggiornare o rimuovere i componenti installati &#232; necessario chiudere il dominio
-GlassFish Server, quindi eseguire uno dei seguenti comandi:</p>
-
-
-<ul><li><p><tt><i>as-install-parent</i>/bin/updatetool</tt>, che avvia l'utility grafica Update Tool</p>
-
+<li>
+<p>Visualizzare i componenti installati.</p>
 </li>
-<li><p><tt><i>as-install-parent</i>/bin/pkg</tt>, una versione a riga di comando dell'utility Update Tool</p>
-
-</li></ul>
-<p>Nelle sezioni che seguono vengono descritti i concetti chiave di Update Tool.</p>
-
-<a name="ref-uc-about-component"></a><h5>Componente</h5>
-<p>Per <b>componente</b> si intende l'unit&#224; installabile gestita da Update Tool. Un componente
-&#232; composto da file installati come unit&#224; di sistema in un'immagine di
-installazione.</p>
-
-<a name="ref-uc-about-image"></a><h5>Immagine di installazione</h5>
-<p>Con il termine <b>immagine di installazione</b> si definisce la directory in cui si trovano
-i componenti software, incluso il contenuto della directory. L'immagine di installazione viene
-aggiunta a Update Tool in seguito al download e all'installazione del software
-GlassFish Server. Per consentire l'aggiunta e l'aggiornamento dei componenti software di GlassFish
-Server, ogni immagine di installazione include informazioni sull'installazione di componenti.</p>
-
-<a name="ref-uc-about-repository"></a><h5>Repository di rete</h5>
-<p>I <b>repository di rete</b> contengono i seguenti elementi:</p>
-
-
-<ul><li><p>Componenti che possono essere aggiunti a un'immagine di installazione</p>
-
+</ul>
+<p>Per aggiornare o rimuovere i componenti installati, &egrave; necessario arrestare il dominio GlassFish Server, quindi eseguire uno dei comandi riportati di seguito.</p>
+<ul>
+<li>
+<p><i>as-install-parent</i><code>/bin/updatetool</code>, che consente di avviare la utility grafica Strumento di aggiornamento.</p>
 </li>
-<li><p>Aggiornamenti per i componenti esistenti di un'immagine di installazione</p>
+<li>
+<p><i>as-install-parent</i><code>/bin/pkg</code>, una versione della riga di comando dello Strumento di aggiornamento.</p>
+</li>
+</ul>
+<p>Nelle sezioni seguenti vengono descritti i concetti chiave di Strumento di aggiornamento.</p>
+<a id="ref-uc-about-component" name="ref-uc-about-component"></a>
+<h5>Componente</h5>
+<p>Per componente si intende l'unit&agrave; installabile gestita da Strumento di aggiornamento. Un componente &egrave; composto da file installati come unit&agrave; di sistema in un'immagine di installazione.</p>
+<a id="ref-uc-about-image" name="ref-uc-about-image"></a>
+<h5>Immagine di installazione</h5>
+<p>Per immagine di installazione si intende la directory contenente i componenti software, incluso il contenuto della directory. L'immagine di installazione viene aggiunta a Strumento di aggiornamento in seguito allo scaricamento e all'installazione del software GlassFish Server. Per abilitare l'aggiunta e l'aggiornamento dei componenti software di GlassFish Server, ogni immagine di installazione include informazioni sull'installazione dei componenti.</p>
+<a id="ref-uc-about-repository" name="ref-uc-about-repository"></a>
+<h5>Repository di rete</h5>
+<p>Il repository di rete contiene gli elementi riportati di seguito.</p>
+<ul>
+<li>
+<p>Componenti che possono essere aggiunti a un'immagine di installazione</p>
+</li>
+<li>
+<p>Aggiornamenti ai componenti esistenti di un'immagine di installazione</p>
+</li>
+</ul>
+<p>A uno o pi&ugrave; repository di rete &egrave; associata un'immagine di installazione. Ogni repository di rete &egrave; rappresentato da un nome e un URL associato. Il nome di repository &egrave; univoco per ogni immagine di installazione e rappresenta sia l'organizzazione o il progetto che gestisce il repository sia un ambito di contenuti definito correttamente. Per ulteriori informazioni sui repository di rete preconfigurati per GlassFish Server, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSADG00569"><i>Preconfigured Repositories for GlassFish Server</i> in <i>Oracle GlassFish Server Administration Guide</i></a>.</p>
+<a id="ref-uc-about-addon" name="ref-uc-about-addon"></a>
+<h5>Componente aggiuntivo</h5>
+<p>Per componente add-on si intende un componente dell'immagine di installazione non ancora installato.</p>
 
-</li></ul>
-<p>A uno o pi&#249; repository di rete &#232; associata un'immagine di installazione.
-Ogni repository di rete &#232; rappresentato da un nome e un URL
-associato. I nomi di repository sono univoci per ogni immagine di installazione
-e rappresentano sia l'organizzazione o il progetto che gestisce il repository che
-un ambito di contenuti definito correttamente. Per ulteriori informazioni sui repository di
-rete preconfigurati per GlassFish Server, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2416&id=gjzko">Preconfigured Repositories for GlassFish Server in <i>Oracle GlassFish Server 3.1 Administration Guide </i></a>.</p>
 
-<a name="ref-uc-about-addon"></a><h5>Componente add-on</h5>
-<p>Per <b>componente add-on</b> si intende un componente dell'immagine di installazione che non &#232;
-ancora stato installato.</p>
-
-
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

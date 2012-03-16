@@ -1,54 +1,69 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-configtransrecovery" name="task-configtransrecovery"></a><a id="GHJTS00005" name="GHJTS00005"></a></p>
 
-
-<a name="task-configtransrecovery"></a><h3>Configurare la modalit&#224; di ripristino delle transazioni in GlassFish Server</h3><a name="indexterm-2"></a><p>Le transazioni incomplete possono essere dovute all'arresto anomalo del server o di
-un gestore delle risorse. &#200; pertanto importante completare tali transazioni e ripristinarle.
-GlassFish Server &#232; stato progettato per eseguire tali operazioni di ripristino e
-completamento all'avvio del server.</p>
-
-<p>In fase di ripristino, se alcune delle risorse non sono raggiungibili, il
-riavvio del server potrebbe richiedere pi&#249; tempo a causa dei tentativi di
-ripristino delle transazioni.</p>
-
-<p>Quando una transazione viene gestita in pi&#249; server, il server dal quale
-&#232; stata avviata pu&#242; contattare gli altri server per ottenere il relativo
-risultato. Se gli altri server sono irraggiungibili, &#232; possibile determinare tale risultato
-mediante il campo Heuristic Decision.</p>
-
+<h4><a id="sthref4" name="sthref4"></a>Configurare le modalit&agrave; di recupero delle transazioni da parte di GlassFish Server</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Le transazioni incomplete possono essere dovute all'arresto anomalo del server o di un gestore delle risorse. &Egrave; pertanto importante completare tali transazioni e ripristinarle. GlassFish Server &egrave; stato progettato per eseguire tali operazioni di recupero e completamento all'avvio del server.</p>
+<p>In fase di recupero, se alcune delle risorse non sono raggiungibili, il riavvio del server potrebbe richiedere pi&ugrave; tempo a causa dei tentativi di recupero delle transazioni.</p>
+<p>Quando una transazione viene gestita in pi&ugrave; server, il server dal quale &egrave; stata avviata pu&ograve; contattare gli altri server per ottenere il relativo risultato. Se gli altri server sono irraggiungibili, &egrave; possibile determinare tale risultato mediante il campo Decisione euristica.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Selezionare l'istanza da configurare:</b><ul>
-<li><b>Per configurare una particolare istanza, selezionare il nodo config dell'istanza. Ad esempio,
-per l'istanza predefinita <tt>server</tt>, selezionare il nodo <tt>server-config</tt>.</b></li>
-<li><b>Per configurare le impostazioni predefinite per tutte le istanze, selezionare il nodo
-<tt>default-config</tt>.</b></li></ul></li>
-<li><b>Selezionare il nodo Transaction Service.</b><p>Viene visualizzata la pagina Transaction Service.</p></li>
-<li><b>Nella pagina Transaction Service, selezionare la casella di controllo On Restart Enabled
-per abilitare il ripristino delle transazioni incomplete al riavvio del server.</b><p>Per impostazione predefinita, la casella di controllo Enabled non &#232; selezionata.</p></li>
-<li><b>Nel campo Retry Timeout, immettere il numero di secondi durante i quali
-GlassFish Server tenter&#224; di eseguire la connessione a un server irraggiungibile.</b><p>Il valore predefinito &#232; 600 (10 minuti).</p></li>
-<li><b>Dall'elenco a discesa Heuristic Decision, selezionare il criterio per i server irraggiungibili
-di una transazione.</b><p>&#200; consigliabile lasciare Heuristic Decision impostato su Rollback (impostazione predefinita) a meno
-che non sia effettivamente utile selezionare Commit. L'esecuzione del commit di un
-numero indeterminato di transazioni potrebbe avere ripercussioni sull'integrit&#224; dei dati dell'applicazione.</p></li>
-<li><b>Fare clic su Save.</b></li>
-<li><b>Riavviare GlassFish Server.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-configtransservice.html">Configurare Transaction Service</a></p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
 </li>
-<li><p><a href="task-settranstimeout.html">Impostare un valore di timeout per le transazioni</a></p>
-
+<li>
+<p>Selezionare l'istanza da configurare:</p>
+<ul>
+<li>
+<p>Per configurare un'istanza specifica, selezionare il nodo di configurazione dell'istanza. Ad esempio, per l'istanza predefinita <code>server</code>, selezionare il nodo <code>server-config</code>.</p>
 </li>
-<li><p><a href="task-settranslog.html">Impostare la posizione dei log delle transazioni</a></p>
-
+<li>
+<p>Per configurare le impostazioni predefinite per tutte le istanze, selezionare il nodo <code>default-config</code>.</p>
 </li>
-<li><p><a href="task-setkeyptinterval.html">Impostare l'intervallo keypoint</a></p>
+</ul>
+</li>
+<li>
+<p>Selezionare il nodo Servizio transazioni.</p>
+<p>Viene visualizzata la pagina Servizio transazioni.</p>
+</li>
+<li>
+<p>Nella pagina Servizio transazioni, selezionare la casella di controllo Al riavvio abilitato per abilitare il recupero delle transazioni incomplete al riavvio del server.</p>
+<p>Per impostazione predefinita, la casella di controllo Abilitato non &egrave; selezionata.</p>
+</li>
+<li>
+<p>Nel campo Timeout tentativi, immettere il numero di secondi durante i quali GlassFish Server tenter&agrave; di eseguire la connessione a un server irraggiungibile.</p>
+<p>Il valore predefinito &egrave; 600 (10 minuti).</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Decisione euristica, selezionare il criterio per i server irraggiungibili di una transazione.</p>
+<p>&Egrave; consigliabile lasciare Decisione euristica impostato su Rollback (impostazione predefinita) a meno che non sia effettivamente utile selezionare Commit. L'esecuzione del commit di un numero indeterminato di transazioni potrebbe avere ripercussioni sull'integrit&agrave; dei dati dell'applicazione.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+<li>
+<p>Riavviare GlassFish Server.</p>
+</li>
+</ol>
+<a id="sthref5" name="sthref5"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-configtransservice.html">Configurare il servizio transazioni</a></p>
+</li>
+<li>
+<p><a href="task-settranstimeout.html">Impostare un valore di timeout per le transazioni</a></p>
+</li>
+<li>
+<p><a href="task-settranslog.html">Impostare la posizione dei log delle transazioni</a></p>
+</li>
+<li>
+<p><a href="task-setkeyptinterval.html">Impostare l'intervallo dei punti chiave</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

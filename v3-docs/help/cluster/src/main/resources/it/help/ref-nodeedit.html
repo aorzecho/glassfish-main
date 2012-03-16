@@ -1,181 +1,287 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-nodeedit"></a><h4>Edit Node</h4>
-<a name="indexterm-198"></a><p>Nella pagina Edit Node &#232; possibile aggiornare i dati di configurazione di
-un nodo GlassFish Server. &#200; inoltre possibile utilizzare tale pagina per modificare
-il tipo di nodo da CONFIG a SSH per attivare la comunicazione
-SSH per il nodo.</p>
+<p><a id="ref-nodeedit" name="ref-nodeedit"></a><a id="GHCLU00017" name="GHCLU00017"></a></p>
 
-<p>Se si modifica il tipo di nodo da CONFIG a SSH e
-si lascia vuoto uno dei campi indicati di seguito, vengono applicati i
-valori predefiniti.</p>
-
-
-<ul><li><p>SSH Port</p>
-
+<h4><a id="sthref313" name="sthref313"></a>Modifica nodo</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Modifica nodo &egrave; possibile aggiornare i dati di configurazione di un nodo GlassFish Server. &Egrave; inoltre possibile utilizzare la pagina per modificare il tipo di un nodo da CONFIG a DCOM per abilitare la comunicazione remota per il nodo.</p>
+<p>Se si modifica il tipo di nodo da CONFIG a DCOM e si lascia vuoto uno dei campi indicati di seguito, vengono applicati i valori predefiniti.</p>
+<ul>
+<li>
+<p>Dominio Windows</p>
 </li>
-<li><p>User Name</p>
-
+<li>
+<p>Utente Windows</p>
 </li>
-<li><p>Key File</p>
-
-</li></ul>
-<p>La pagina Edit Node contiene le seguenti opzioni:</p>
-
-<dl><dt>Name</dt>
-<dd><p>Nome assegnato al nodo al momento della creazione. Campo di sola lettura.</p>
-
+</ul>
+<p>Se si modifica il tipo di nodo da CONFIG in SSH e si lascia vuoto uno dei campi indicati di seguito, vengono applicati i valori predefiniti.</p>
+<ul>
+<li>
+<p>Porta SSH</p>
+</li>
+<li>
+<p>Nome utente</p>
+</li>
+<li>
+<p>File di chiave</p>
+</li>
+</ul>
+<p>Le opzioni contenute nella pagina Modifica nodo dipendono dal tipo di nodo.</p>
+<a id="sthref314" name="sthref314"></a>
+<h5>Opzioni per tutti i tipi di nodi</h5>
+<p>Le opzioni riportate di seguito sono disponibili per tutti i tipi di nodo.</p>
+<dl>
+<dt>Nome</dt>
+<dd>
+<p>Nome assegnato al nodo al momento della creazione. Campo di sola lettura.</p>
 </dd>
-<dt>Type</dt>
-<dd><p>Elenco a discesa che consente di specificare il tipo di nodo. Di seguito sono indicati i tipi possibili:</p>
-
-<dl><dt>SSH</dt>
-<dd><p>Il nodo supporta la comunicazione su SSH (Secure Shell).</p>
-
-</dd>
+<dt>Tipo</dt>
+<dd>
+<p>Elenco a discesa che consente di specificare il tipo di nodo. Di seguito sono indicati i tipi possibili:</p>
+<dl>
 <dt>CONFIG</dt>
-<dd><p>Il nodo non supporta la comunicazione remota. Se &#232; selezionato CONFIG, non vengono visualizzate opzioni per la configurazione SSH. Se il tipo corrente del nodo &#232; SSH e si seleziona CONFIG, i dati di configurazione SSH vengono rimossi dalla configurazione del nodo quando si salvano le modifiche.</p>
-
+<dd>
+<p>Il nodo non supporta la comunicazione remota. Se &egrave; selezionato CONFIG, non vengono visualizzate opzioni per la configurazione DCOM o SSH. Se il tipo corrente del nodo &egrave; SSH e si seleziona CONFIG, i dati di configurazione DCOM o SSH vengono rimossi dalla configurazione del nodo quando si salvano le modifiche.</p>
+</dd>
+<dt>DCOM</dt>
+<dd>
+<p>Il nodo supporta comunicazioni sul protocollo remoto DCOM (Distributed Component Object Model). Il protocollo DCOM &egrave; disponibile solo sui sistemi Windows.</p>
+</dd>
+<dt>SSH</dt>
+<dd>
+<p>Il nodo supporta la comunicazione su SSH (Secure Shell).</p>
 </dd>
 </dl>
 </dd>
-<dt>Node Host</dt>
-<dd><p>Nome dell'host che il nodo deve rappresentare dopo l'aggiornamento. L'obbligatoriet&#224; di tale campo dipende dal tipo del nodo:</p>
-
-
-<ul><li><p>Se il nodo &#232; di tipo CONFIG, &#232; possibile omettere il nome dell'host. Tale nome potr&#224; essere determinato al momento della creazione delle istanze che risiedono nel nodo.</p>
-
+<dt>Host nodo</dt>
+<dd>
+<p>Nome dell'host che il nodo deve rappresentare dopo l'aggiornamento. L'obbligatoriet&agrave; di tale campo dipende dal tipo del nodo:</p>
+<ul>
+<li>
+<p>Se il nodo &egrave; di tipo CONFIG, &egrave; possibile omettere il nome dell'host. Tale nome potr&agrave; essere determinato al momento della creazione delle istanze che risiedono nel nodo.</p>
 </li>
-<li><p>Se il nodo &#232; di tipo SSH, &#232; necessario specificare il nome dell'host. Altrimenti si verifica un errore.</p>
-
-</li></ul>
+<li>
+<p>Se il nodo &egrave; di tipo DCOM o SSH, &egrave; necessario specificare il nome dell'host. Altrimenti si verifica un errore.</p>
+</li>
+</ul>
 </dd>
-<dt>Node Directory</dt>
-<dd><p>Percorso della directory destinata a contenere le istanze di GlassFish Server create nel nodo. Se viene specificato un percorso relativo, il percorso si riferisce alla directory <i>as-install</i>, dove <i>as-install</i> &#232; la directory base di installazione del software GlassFish Server nell'host.</p>
-
+<dt>Directory nodo</dt>
+<dd>
+<p>Percorso della directory destinata a contenere le istanze di GlassFish Server create nel nodo. Se viene specificato un percorso relativo, il percorso &egrave; relativo alla directory <i>as-install</i>, dove <i>as-install</i> &egrave; la directory di installazione di base del software GlassFish Server sull'host.</p>
 <p>Se il campo viene lasciato vuoto, la configurazione del nodo viene aggiornata come indicato di seguito:</p>
-
-
-<ul><li><p>Se il nodo &#232; di tipo CONFIG, per il nodo non viene specificata alcuna directory per le istanze nella configurazione del server di amministrazione del dominio (DAS, Domain Administration Server). La directory del nodo potr&#224; essere determinata al momento della creazione delle istanze che risiedono nel nodo.</p>
-
+<ul>
+<li>
+<p>Se il nodo &egrave; di tipo CONFIG, per il nodo non viene specificata alcuna directory per le istanze nella configurazione del server di amministrazione del dominio (DAS, Domain Administration Server). La directory del nodo potr&agrave; essere determinata al momento della creazione delle istanze che risiedono nel nodo.</p>
 </li>
-<li><p>Se il nodo &#232; di tipo SSH, la relativa directory sar&#224; <tt></tt><i>as-install</i><tt>/nodes</tt>, in cui <i>as-install</i> rappresenta la directory base di installazione del software GlassFish Server nell'host.</p>
-
-</li></ul>
+<li>
+<p>Se il tipo di nodo &egrave; DCOM, l'impostazione predefinita &egrave; <i>as-install</i><code>\nodes</code>, dove <i>as-install</i> &egrave; la directory di installazione di base del software GlassFish Server sull'host.</p>
+</li>
+<li>
+<p>Se il tipo di nodo &egrave; SSH, la directory del nodo &egrave; <i>as-install</i><code>/nodes</code>, dove <i>as-install</i> &egrave; la directory di installazione di base del software GlassFish Server sull'host.</p>
+</li>
+</ul>
 </dd>
-<dt>Installation Directory</dt>
-<dd><p>Percorso completo del livello superiore della directory base di installazione del software GlassFish Server nell'host, ad esempio <tt>/export/glassfish3/</tt>. </p>
-
+<dt>Directory di installazione</dt>
+<dd>
+<p>Percorso completo dell'elemento<i>padre</i> della directory di installazione di base del software GlassFish Server nell'host, ad esempio <code>/export/glassfish3</code>;.</p>
 <p>Se il campo viene lasciato vuoto, la configurazione del nodo viene aggiornata come indicato di seguito:</p>
-
-
-<ul><li><p>Se il nodo &#232; di tipo CONFIG, per il nodo non viene specificata alcuna directory di installazione nella configurazione del DAS. La directory di installazione potr&#224; essere determinata al momento della creazione delle istanze che risiedono nel nodo.</p>
-
+<ul>
+<li>
+<p>Se il nodo &egrave; di tipo CONFIG, per il nodo non viene specificata alcuna directory di installazione nella configurazione del DAS. La directory di installazione potr&agrave; essere determinata al momento della creazione delle istanze che risiedono nel nodo.</p>
 </li>
-<li><p>Se il nodo &#232; di tipo SSH, la directory di installazione &#232; il livello superiore della directory base di installazione predefinita del software GlassFish Server per il DAS. Questa impostazione &#232; utile solo se GlassFish Server &#232; installato nello stesso percorso in tutti gli host.</p>
-
-</li></ul>
+<li>
+<p>Se il nodo &egrave; DCOM o SSH, la directory di installazione &egrave; l'elemento padre della directory di installazione di base predefinita del software GlassFish Server per DAS. Questa impostazione &egrave; utile solo se GlassFish Server &egrave; installato nello stesso percorso in tutti gli host.</p>
+</li>
+</ul>
 </dd>
-<dt>Force</dt>
-<dd><p>Se viene selezionata l'opzione Enabled, il nodo viene aggiornato nella configurazione del server di amministrazione del dominio (DAS, Domain Administration Server) anche se la convalida dei parametri del nodo non riesce. Per convalidare i parametri di un nodo, il DAS deve poter contattare l'host del nodo tramite SSH. </p>
-
+</dl>
+<a id="sthref315" name="sthref315"></a>
+<h5>Opzioni aggiuntive per i nodi DCOM</h5>
+<p>Le opzioni riportate di seguito sono disponibili solo se il campo Tipo &egrave; impostato su DCOM.</p>
+<dl>
+<dt>Imponi</dt>
+<dd>
+<p>Se viene selezionata l'opzione Abilitato, il nodo viene creato nella configurazione DAS anche se la convalida dei parametri del nodo non riesce. Per convalidare i parametri di un nodo, DAS deve poter contattare l'host del nodo tramite DCOM.</p>
 </dd>
-<dt>SSH Port</dt>
-<dd><p>Porta da utilizzare per le connessione SSH all'host del nodo. </p>
-
-<p>Se si modifica il tipo di nodo da CONFIG a SSH e si lascia il campo vuoto, l'opzione SSH Port viene impostata su 22.</p>
-
-<p>Se l'opzione Node Host &#232; impostata su <tt>localhost-<i>domain</i></tt>, l'opzione SSH Port viene ignorata.</p>
-
+<dt>Convalida DCOM</dt>
+<dd>
+<p>Se si seleziona l'opzione Abilitato, GlassFish Server esegue il test della connessione su DCOM sull'host del nodo prima di aggiornare il nodo. Come parte del test, GlassFish Server copia uno script denominato <code>delete_me.bat</code> sull'host.</p>
+<p>Se si seleziona questa opzione, il campo Directory di test remota viene attivato per consentire di specificare la directory in cui GlassFish Server deve copiare lo script.</p>
 </dd>
-<dt>SSH User Name</dt>
-<dd><p>Utente nell'host del nodo che deve eseguire il processo per la connessione all'host tramite SSH. </p>
-
-<p>Se si modifica il tipo di nodo da CONFIG a SSH e si lascia il campo vuoto, l'opzione User Name viene impostata sull'utente che esegue il processo DAS.</p>
-
-<p>Se l'opzione Node Host &#232; impostata su <tt>localhost-<i>domain</i></tt>, l'opzione SSH User viene ignorata.</p>
-
+<dt>Directory di test remota</dt>
+<dd>
+<p>La cartella nell'host remoto in cui GlassFish Server deve creare il file <code>delete_me.bat</code>. L'utente specificato dall'opzione Nome utente Windows deve disporre di accesso in scrittura a questa cartella. In caso contrario si verifica un errore. L'impostazione predefinita &egrave; <code>C:\</code>.</p>
 </dd>
-<dt>SSH User Authentication</dt>
-<dd><p>Elenco a discesa che consente di specificare la modalit&#224; di autenticazione dell'utente SSH per il login all'host del nodo. I metodi possibili per l'autenticazione sono i seguenti:</p>
+<dt>Dominio Windows</dt>
+<dd>
+<p>Nome del dominio Windows che contiene l'utente specificato dall'opzione Nome utente Windows. L'impostazione predefinita &egrave; il nome dell'host su cui Console di amministrazione &egrave; in esecuzione.</p>
+</dd>
+<dt>Nome utente Windows</dt>
+<dd>
+<p>L'utente sull'host del nodo che eseguir&agrave; il processo per la connessione all'host tramite DCOM. L'impostazione predefinita &egrave; l'utente che esegue il processo DAS. Se l'opzione Host nodo &egrave; impostata su <code>localhost-</code><i>domain</i>, l'opzione Nome utente Windows viene ignorata.</p>
+</dd>
+<dt>Autenticazione utente Windows</dt>
+<dd>
+<p>Elenco a discesa che consente di specificare la modalit&agrave; di autenticazione dell'utente Windows per il login all'host del nodo. I metodi possibili per l'autenticazione sono i seguenti:</p>
+<dl>
+<dt>Password</dt>
+<dd>
+<p>L'utente Windows viene autenticato tramite una password memorizzata nella configurazione di DAS.</p>
 
-<dl><dt>Key File</dt>
-<dd><p>L'utente SSH viene autenticato tramite un file di chiave privata SSH. Se si seleziona questa opzione, specificare il percorso assoluto del file nel campo Key File.</p>
+<hr>
+<p><b>Attenzione:</b></p>
+La password viene memorizzata come testo in chiaro nella configurazione del DAS. Per una maggiore sicurezza, utilizzare un file di chiave o un alias password.
+<hr>
 
+<p>Se si seleziona questa opzione, vengono attivati i campi Password dell'utente Windows e Conferma password per consentire l'immissione della password.</p>
+</dd>
+<dt>Alias password</dt>
+<dd>
+<p>L'utente Windows viene autenticato tramite un alias password. Se si seleziona questa opzione, selezionare l'alias password dall'elenco a discesa Alias password.</p>
+</dd>
+</dl>
+</dd>
+<dt>Password dell'utente Windows</dt>
+<dd>
+<p>Password che l'utente Windows utilizzer&agrave; per il login all'host del nodo.</p>
+</dd>
+<dt>Conferma password</dt>
+<dd>
+<p>Conferma della password che l'utente Windows utilizzer&agrave; per il login all'host del nodo. Il contenuto del campo deve corrispondere esattamente al contenuto del campo Password dell'utente Windows.</p>
+</dd>
+<dt>Alias password</dt>
+<dd>
+<p>Elenco a discesa di alias password definiti per il dominio.</p>
+</dd>
+</dl>
+<a id="sthref316" name="sthref316"></a>
+<h5>Opzioni aggiuntive per i nodi SSH</h5>
+<p>Le opzioni riportate di seguito sono disponibili solo se il campo Tipo &egrave; impostato su SSH:</p>
+<dl>
+<dt>Imponi</dt>
+<dd>
+<p>Se viene selezionata l'opzione Abilitato, il nodo viene aggiornato nella configurazione del server di amministrazione del dominio (DAS, Domain Administration Server) anche se la convalida dei parametri del nodo non riesce. Per convalidare i parametri di un nodo, il DAS deve poter contattare l'host del nodo tramite SSH.</p>
+</dd>
+<dt>Porta SSH</dt>
+<dd>
+<p>Porta da utilizzare per le connessione SSH all'host del nodo.</p>
+<p>Se si modifica il tipo di nodo da CONFIG a SSH e si lascia il campo vuoto, l'opzione Porta SSH viene impostata su 22.</p>
+<p>Se l'opzione Host nodo &egrave; impostata su <code>localhost-</code><i>domain</i>, l'opzione Porta SSH viene ignorata.</p>
+</dd>
+<dt>Nome utente SSH</dt>
+<dd>
+<p>Utente nell'host del nodo che deve eseguire il processo per la connessione all'host tramite SSH.</p>
+<p>Se si modifica il tipo di nodo da CONFIG a SSH e si lascia il campo vuoto, l'opzione Nome utente viene impostata sull'utente che esegue il processo DAS.</p>
+<p>Se l'opzione Host nodo &egrave; impostata su <code>localhost-</code><i>domain</i>, l'opzione Utente SSH viene ignorata.</p>
+</dd>
+<dt>Autenticazione utente SSH</dt>
+<dd>
+<p>Elenco a discesa che consente di specificare la modalit&agrave; di autenticazione dell'utente SSH per il login all'host del nodo. I metodi possibili per l'autenticazione sono i seguenti:</p>
+<dl>
+<dt>File di chiave</dt>
+<dd>
+<p>L'utente SSH viene autenticato tramite un file di chiave privata SSH. Se si seleziona questa opzione, specificare il percorso assoluto del file nel campo File di chiave.</p>
 </dd>
 <dt>Password</dt>
-<dd><p>L'utente SSH viene autenticato tramite una password memorizzata nella configurazione del DAS.</p>
-
-
-<hr><p><b>Avvertenza - </b>La password viene memorizzata come testo non crittografato nella configurazione del DAS. Per una maggiore sicurezza, utilizzare un file di chiave o un alias di password.</p>
-
+<dd>
+<p>L'utente SSH viene autenticato tramite una password memorizzata nella configurazione del DAS.</p>
 
 <hr>
-<p>Se si seleziona questa opzione, vengono attivati i campi SSH Password e Confirm SSH Password per consentire l'immissione della password.</p>
+<p><b>Attenzione:</b></p>
+La password viene memorizzata come testo in chiaro nella configurazione del DAS. Per una maggiore sicurezza, utilizzare un file di chiave o un alias password.
+<hr>
 
+<p>Se si seleziona questa opzione, vengono attivati i campi Password dell'utente SSH e Conferma password per consentire l'immissione della password.</p>
 </dd>
-<dt>Password Alias</dt>
-<dd><p>L'utente SSH viene autenticato tramite un alias di password. Se si seleziona questa opzione, selezionare l'alias di password dall'elenco a discesa Password Alias.</p>
-
+<dt>Alias password</dt>
+<dd>
+<p>L'utente SSH viene autenticato tramite un alias password. Se si seleziona questa opzione, selezionare l'alias password dall'elenco a discesa Alias password.</p>
 </dd>
 </dl>
 </dd>
-<dt>SSH Password</dt>
-<dd><p>Password che l'utente SSH utilizzer&#224; per il login all'host del nodo.</p>
-
+<dt>Imposta SSH</dt>
+<dd>
+<p>Se si seleziona l'opzione Abilitato, GlassFish Server imposta una chiave SSH sull'host del nodo. GlassFish Server imposta la chiave SSH copiando file di chiave esistenti dall'host di DAS o, se necessario, generando i file prima di copiarli. Questa opzione &egrave; disponibile solo se l'opzione Autenticazione utente SSH &egrave; impostata su File di chiave.</p>
 </dd>
-<dt>Confirm SSH Password</dt>
-<dd><p>Conferma della password che l'utente SSH utilizzer&#224; per il login all'host del nodo. Il contenuto di tale campo deve corrispondere esattamente al contenuto del campo SSH Password.</p>
-
+<dt>Genera chiave</dt>
+<dd>
+<p>Se si seleziona l'opzione Abilitato, GlassFish Server genera i file di chiave SSH prima di copiare i file nell'host locale.</p>
 </dd>
-<dt>Password Alias</dt>
-<dd><p>Elenco a discesa di alias di password definiti per il dominio.</p>
-
+<dt>Password dell'utente SSH</dt>
+<dd>
+<p>Password che l'utente SSH utilizzer&agrave; per il login all'host del nodo.</p>
 </dd>
-<dt>Key File</dt>
-<dd><p>Percorso assoluto del file della chiave privata SSH per l'utente specificato dall'opzione User Name. Questo file viene usato per l'autenticazione al daemon <tt>sshd</tt> nell'host del nodo.</p>
-
-
-<hr><p><b>Nota - </b>GlassFish Server supporta anche l'autenticazione della password tramite la voce <tt>AS_ADMIN_SSHPASSWORD</tt> nel file delle password. Il file delle password &#232; specificato nell'opzione <tt>--paswordfile</tt> dell'utility <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
-
+<dt>Conferma password</dt>
+<dd>
+<p>Conferma della password che l'utente SSH utilizzer&agrave; per il login all'host del nodo. Il contenuto del campo deve corrispondere esattamente al contenuto del campo Password dell'utente SSH.</p>
+</dd>
+<dt>Alias password</dt>
+<dd>
+<p>Elenco a discesa di alias password definiti per il dominio.</p>
+</dd>
+<dt>File di chiave pubblica</dt>
+<dd>
+<p>Percorso assoluto del file di chiave pubblica SSH per l'utente specificato dall'opzione Nome utente SSH. Il contenuto del file di chiave pubblica viene aggiunto al file <code>.ssh/authorized_keys</code> dell'utente sull'host del nodo. Se il file <code>.ssh/authorized_keys</code> non esiste sull'host, GlassFish Server lo crea.</p>
+<p>Il percorso del file della chiave deve essere raggiungibile dal DAS e il file stesso deve essere leggibile per il DAS.</p>
+<p>Il valore predefinito &egrave; un file di chiave nella directory <code>.ssh</code> dell'utente. Se vengono rilevati pi&ugrave; file di chiave, GlassFish Server utilizza l'ordine di preferenza riportato di seguito.</p>
+<ol>
+<li>
+<p><code>id_rsa</code></p>
+</li>
+<li>
+<p><code>id_dsa</code></p>
+</li>
+<li>
+<p><code>identity</code></p>
+</li>
+</ol>
+</dd>
+<dt>File di chiave</dt>
+<dd>
+<p>Percorso assoluto del file della chiave privata SSH per l'utente specificato dall'opzione Nome utente. Questo file viene usato per l'autenticazione al daemon <code>sshd</code> nell'host del nodo.</p>
 
 <hr>
-<p>Se il file della chiave privata SSH &#232; protetto da una passphrase, il file delle password deve contenere la voce <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt>.</p>
+<p><b>Nota:</b></p>
+GlassFish Server supporta inoltre l'autenticazione della password mediante la voce <code>AS_ADMIN_SSHPASSWORD</code> nel file delle password. Il file delle password &egrave; specificato nell'opzione <code>--passwordfile</code> della utility <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00263"><code>asadmin</code>(1)</a>.
+<hr>
 
-<p>Il percorso del file della chiave deve essere raggiungibile dal DAS e il file stesso deve essere leggibile per il DAS. </p>
-
+<p>Se il file della chiave privata SSH &egrave; protetto da una passphrase, il file delle password deve contenere la voce <code>AS_ADMIN_SSHKEYPASSPHRASE</code>.</p>
+<p>Il percorso del file della chiave deve essere raggiungibile dal DAS e il file stesso deve essere leggibile per il DAS.</p>
 <p>L'opzione predefinita varia a seconda che si modifichi o meno il tipo di nodo da CONFIG a SSH per abilitare la comunicazione SSH per il nodo.</p>
-
-<p>Se si modifica il tipo di nodo da CONFIG a SSH e si lascia il campo vuoto, l'opzione Key File viene impostata su un file di chiave nella directory <tt>.ssh</tt> dell'utente. Se vengono rilevati pi&#249; file di chiave, GlassFish Server utilizza l'ordine di preferenza seguente:</p>
-
-
-<ol><li><p><tt>id_rsa</tt></p>
-
+<p>Se si modifica il tipo di nodo da CONFIG a SSH e si lascia il campo vuoto, l'opzione File di chiave viene impostata su un file di chiave nella directory <code>.ssh</code> dell'utente. Se vengono rilevati pi&ugrave; file di chiave, GlassFish Server utilizza l'ordine di preferenza riportato di seguito.</p>
+<ol>
+<li>
+<p><code>id_rsa</code></p>
 </li>
-<li><p><tt>id_dsa</tt></p>
-
+<li>
+<p><code>id_dsa</code></p>
 </li>
-<li><p><tt>identity</tt></p>
-
-</li></ol>
+<li>
+<p><code>identity</code></p>
+</li>
+</ol>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-editnode.html">Modificare un nodo</a></p>
-
-</li></ul>
-<h5>Comandi secondari <tt>asadmin</tt> equivalenti</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-config-1"><tt>update-node-config</tt>(1)</a></p>
-
+<a id="sthref317" name="sthref317"></a>
+<h5>Task correlati</h5>
+<p><a href="task-editnode.html">Modificare un nodo</a></p>
+<a id="sthref318" name="sthref318"></a>
+<h5>Comandi secondari equivalenti asadmin</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00255"><code>update-node-config</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-node-ssh-1"><tt>update-node-ssh</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM789"><code>update-node-dcom</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00256"><code>update-node-ssh</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

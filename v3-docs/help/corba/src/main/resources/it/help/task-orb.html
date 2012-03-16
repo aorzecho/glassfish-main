@@ -1,60 +1,92 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-orb" name="task-orb"></a><a id="GHCOR00006" name="GHCOR00006"></a></p>
 
-
-<a name="task-orb"></a><h3>Configurare ORB</h3><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Selezionare l'istanza da configurare:</b><ul>
-<li><b>Per configurare una particolare istanza, selezionare il nodo config dell'istanza. Ad esempio,
-per l'istanza predefinita <tt>server</tt>, selezionare il nodo <tt>server-config</tt>.</b></li>
-<li><b>Per configurare le impostazioni predefinite di istanze future che utilizzano una copia
-di <tt>default-config</tt>, selezionare il nodo <tt> default-config</tt>.</b></li></ul></li>
-<li><b>Selezionare il nodo ORB.</b><p>Viene visualizzata la pagina ORB.</p></li>
-<li><b>Nell'elenco a discesa Thread Pool ID selezionare il pool del thread utilizzato
-in ORB.</b><p>ORB utilizza i pool del thread per rispondere alle richieste di client
-remoti di bean enterprise e di altri client che comunicano mediante RMI-IIOP.
-Il pool del thread predefinito per ORB &#232; <tt> thread-pool-1</tt>, che utilizza impostazioni
-predefinite appropriate per RMI/IIOP.</p><p>Per ulteriori informazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3021&id=ref-threadpools">Thread Pools</a>.</p></li>
-<li><b>Nell'elenco a discesa Max Message Fragment Size, selezionare la dimensione massima del
-frammento per messaggi IIOP.</b><p>Se i messaggi hanno dimensioni superiori a quella specificata, vengono frammentati. Il
-valore predefinito &#232; pari a 1024 byte.</p></li>
-<li><b>Nel campo Total Connections, impostare il numero massimo di connessioni in entrata
-per tutti i listener IIOP.</b><p>Il valore predefinito &#232; pari a 1024.</p></li>
-<li><b>Selezionare la casella di controllo IIOP Client Authentication Required per specificare che
-&#232; necessaria l'autorizzazione client IIOP.</b><p>Se l'autenticazione client IIOP &#232; abilitata, il server rifiuta le richieste non
-autenticate e inserisce un bit richiesto per l'autenticazione nei riferimenti IOR (Interoperable
-Object References) inviati ai client. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li>(Opzionale) <b>Nell'area Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per ORB.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario modificarne il campo Value.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<h4><a id="sthref2" name="sthref2"></a><a id="sthref3" name="sthref3"></a>Configurazione dell'ORB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nella struttura ad albero di navigazione, espandere il nodo Configurazione.</p>
+</li>
+<li>
+<p>Selezionare l'istanza da configurare:</p>
+<ul>
+<li>
+<p>Per configurare un'istanza specifica, selezionare il nodo di configurazione dell'istanza. Ad esempio, per l'istanza predefinita <code>server</code>, selezionare il nodo <code>server-config</code>.</p>
+</li>
+<li>
+<p>Per configurare le impostazioni predefinite per le istanze future che utilizzino una copia di <code>default-config</code>, selezionare il nodo <code>default-config</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Selezionare il nodo ORB.</p>
+<p>Viene visualizzata la pagina ORB.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa ID pool di thread selezionare il pool del thread utilizzato in ORB.</p>
+<p>ORB utilizza i pool del thread per rispondere alle richieste di client remoti di bean enterprise e di altri client che comunicano mediante RMI-IIOP. Il pool del thread predefinito per l'ORB &egrave; <code>thread-pool-1</code>, che utilizza impostazioni predefinite appropriate per RMI/IIOP.</p>
+<p>Per ulteriori informazioni, vedere <a href="../../../web/it/help/missingtopic.html">Thread Pools</a>.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa Max Message Fragment Size, selezionare la dimensione massima del frammento per messaggi IIOP.</p>
+<p>Se i messaggi hanno dimensioni superiori a quella specificata, vengono frammentati. Il valore predefinito &egrave; pari a 1024 byte.</p>
+</li>
+<li>
+<p>Nel campo Connessioni totali, impostare il numero massimo di connessioni in entrata per tutti i listener IIOP.</p>
+<p>Il valore predefinito &egrave; pari a 1024.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Autenticazione client IIOP necessaria per specificare che &egrave; necessaria l'autorizzazione client IIOP.</p>
+<p>Se l'autenticazione client IIOP &egrave; abilitata, il server rifiuta le richieste non autenticate e inserisce un bit richiesto per l'autenticazione nei riferimenti IOR (Interoperable Object References) inviati ai client. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nell'area Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>In GlassFish Server non &egrave; definita alcuna propriet&agrave; aggiuntiva per ORB.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li>
-<li><b>Riavviare GlassFish Server.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-iioplistenernew.html">Creare un listener IIOP</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-iioplisteneredit.html">Modificare un listener IIOP </a></p>
-
+<li>
+<p>Riavviare GlassFish Server.</p>
 </li>
-<li><p><a href="task-editiiopssl.html">Modificare impostazioni SSL per un listener IIOP sicuro</a></p>
-
+</ol>
+<a id="sthref4" name="sthref4"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-iioplistenernew.html">Creare un listener IIOP</a></p>
 </li>
-<li><p><a href="task-iioplistenerdelete.html">Eliminare un listener IIOP</a></p>
+<li>
+<p><a href="task-iioplisteneredit.html">Modificare un listener IIOP</a></p>
+</li>
+<li>
+<p><a href="task-editiiopssl.html">Modificare le impostazioni SSL per un listener IIOP sicuro</a></p>
+</li>
+<li>
+<p><a href="task-iioplistenerdelete.html">Eliminare un listener IIOP</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

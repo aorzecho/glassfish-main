@@ -1,69 +1,96 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jvmsettings" name="task-jvmsettings"></a><a id="GHCOM00172" name="GHCOM00172"></a></p>
 
-
-<a name="task-jvmsettings"></a><h3>Configurare le impostazioni generali di JVM</h3><a name="indexterm-61"></a><a name="indexterm-62"></a><p>La macchina virtuale Java (JVM) consente l'esecuzione di bytecode Java in un
-computer fisico. &#200; possibile regolare le impostazioni JVM per ottenere prestazioni migliori
-ed eliminare gli errori di allocazione della memoria.</p>
-
-<p>La macchina virtuale Java &#232; inclusa in Java Platform, Standard Edition (Java
-SE), obbligatoria per GlassFish Server. Con impostazioni JVM errate il server non
-funziona; &#232; pertanto necessario prestare particolare attenzione in caso di modifica di
-tali impostazioni.</p>
-
-
-<hr><p><b>Nota - </b>I termini "macchina virtuale Java" e "JVM" indicano una macchina virtuale per
-la piattaforma Java.</p>
-
+<h4><a id="sthref110" name="sthref110"></a>Configurare le impostazioni generali JVM</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La Java Virtual Machine (JVM) consente l'esecuzione di bytecode Java byte in un computer fisico. &Egrave; possibile regolare le impostazioni JVM per ottenere prestazioni migliori ed evitare errori di allocazione della memoria.</p>
+<p>La Java Virtual Machine &egrave; inclusa in Java Platform, Standard Edition (Java SE), obbligatoria per GlassFish Server. Con impostazioni JVM errate il server non funziona; &egrave; pertanto necessario prestare particolare attenzione in caso di modifica di tali impostazioni.</p>
 
 <hr>
+<p><b>Nota:</b></p>
+I termini "Java Virtual Machine" e "JVM" indicano una virtual machine per la piattaforma Java.
+<hr>
+
 <ol>
-<li><b>Nella struttura ad albero, selezionare il nodo Configuration.</b></li>
-<li><b>Nel nodo Configuration, selezionare il nodo JVM Settings.</b><p>Viene visualizzata la pagina JVM General Settings.</p></li>
-<li><b>Nel campo Java Home della pagina JVM General Settings, digitare il nome
-della directory di installazione del software Java SE.</b><p>GlassFish Server si basa sulla piattaforma Java SE. Per verificare che la
-versione del software Java SE specificata sia supportata in questa release, vedere
-<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2434&id=sjsaseern"><i>Oracle GlassFish Server 3.1-3.1.1 Release Notes </i></a>. Se si immette il nome di una directory inesistente o della
-directory di una versione di Java SE non supportata, GlassFish Server non
-viene avviato.</p></li>
-<li><b>Nel campo Java Options digitare le opzioni della riga di comando per
-il compilatore del linguaggio di programmazione Java.</b><p>In GlassFish Server il compilatore viene eseguito al momento della distribuzione dei
-componenti EJB  (Enterprise JavaBeans).</p></li>
-<li><b>Selezionare la casella di controllo Debug Enabled per abilitare il debug con
-JPDA (Java Platform Debugger Architecture).</b><p>JPDA &#232; utilizzato dagli sviluppatori di applicazioni. Per ulteriori informazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=sjsaseedg"><i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p></li>
-<li><b>Nel campo Debug Options digitare le opzioni JPDA da passare a JVM.</b><p>Questo campo &#232; valido soltanto se nel passaggio precedente &#232; stato abilitato
-il debug.</p></li>
-<li><b>Nel campo RMI Compile Options digitare le opzioni della riga di comando
-per il compilatore <tt>rmic</tt>.</b><p>In GlassFish Server il compilatore <tt>rmic</tt> viene eseguito al momento della distribuzione
-dei componenti EJB.</p></li>
-<li><b>Nel campo Bytecode Preprocessor digitare un elenco di nomi classe.</b><p>Utilizzare le virgole per separare i nomi delle classi. Ogni classe deve
-implementare l'interfaccia com.sun.appserv.BytecodePreprocessor. Le classi vengono chiamate nell'ordine specificato.</p></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</p><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per JVM.</p></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<li>
+<p>In the navigation tree, expand the Configuration node.</p>
+</li>
+<li>
+<p>Select the configuration that you are changing.</p>
+</li>
+<li>
+<p>Select the JVM Settings node.</p>
+<p>The JVM General Settings tab page opens.</p>
+</li>
+<li>
+<p>Nell'albero di navigazione selezionare il nodo Configurazione.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione, selezionare il nodo Impostazioni JVM.</p>
+<p>Viene visualizzata la pagina Impostazioni generali JVM.</p>
+</li>
+<li>
+<p>Nel campo Java Home della pagina Impostazioni generali JVM, digitare il nome della directory di installazione del software Java SE.</p>
+<p>GlassFish Server si basa sulla piattaforma Java SE. Per verificare che la versione del software Java SE specificata sia supportata in questa release, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRLN"><i>Oracle GlassFish Server Release Notes</i></a>;. Se si immette il nome di una directory inesistente o della directory di una versione di Java SE non supportata, GlassFish Server non viene avviato.</p>
+</li>
+<li>
+<p>Nel campo Opzioni Java digitare le opzioni della riga di comando per il compilatore del linguaggio di programmazione Java.</p>
+<p>In GlassFish Server il compilatore viene eseguito al momento della distribuzione dei componenti EJB (Enterprise JavaBeans).</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Debug abilitato per abilitare il debug con JPDA (Java Platform Debugger Architecture).</p>
+<p>JPDA &egrave; utilizzato dagli sviluppatori di applicazioni. Per ulteriori informazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDVG"><i>Oracle GlassFish Server Application Development Guide</i></a>.</p>
+</li>
+<li>
+<p>Nel campo Opzioni di debug digitare le opzioni JPDA da passare a JVM.</p>
+<p>Questo campo &egrave; valido soltanto se nel passo precedente &egrave; stato abilitato il debug.</p>
+</li>
+<li>
+<p>Nel campo Opzioni di compilazione RMI digitare le opzioni della riga di comando per il compilatore <code>rmic</code>.</p>
+<p>In GlassFish Server il compilatore <code>rmic</code> viene eseguito al momento della distribuzione dei componenti EJB.</p>
+</li>
+<li>
+<p>Nel campo Preprocessore bytecode digitare una lista di nomi classe.</p>
+<p>Utilizzare le virgole per separare i nomi delle classi. Ogni classe deve implementare l'interfaccia com.sun.appserv.BytecodePreprocessor. Le classi vengono chiamate nell'ordine specificato.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+<p>In GlassFish Server non &egrave; definita alcuna propriet&agrave; aggiuntiva per JVM.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li>
-<li><b>Riavviare il server.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-jvmpathsettings.html">Configurare le impostazioni del percorso JVM</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-jvmoptions.html">Configurare le opzioni JVM</a></p>
-
+<li>
+<p>Riavviare il server.</p>
 </li>
-<li><p><a href="task-securitymanagerdisable.html">Disabilitare il gestore della sicurezza</a></p>
-
+</ol>
+<a id="sthref111" name="sthref111"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-jvmpathsettings.html">Configurare le impostazioni del percorso JVM</a></p>
 </li>
-<li><p><a href="task-jvmprofilersettings.html">Configurare le impostazioni del profiler JVM</a></p>
+<li>
+<p><a href="task-jvmoptions.html">Configurare le opzioni JVM</a></p>
+</li>
+<li>
+<p><a href="task-securitymanagerdisable.html">Disabilitare Security Manager</a></p>
+</li>
+<li>
+<p><a href="task-jvmprofilersettings.html">Configurare le impostazioni del profiler JVM</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

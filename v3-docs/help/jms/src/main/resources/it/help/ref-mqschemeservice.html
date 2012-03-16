@@ -1,130 +1,78 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-mqschemeservice"></a><h4>Sintassi di indirizzi MQ Scheme e MQ Service</h4>
-<p>Per l'indirizzo di un servizio di messaggi viene utilizzata la sintassi</p>
+<p><a id="ref-mqschemeservice" name="ref-mqschemeservice"></a><a id="GHJMS00011" name="GHJMS00011"></a></p>
 
-<pre><i>scheme</i>://<i>address-syntax</i></pre><p>dove <i>scheme</i> e <i>address-syntax </i> indicano quanto descritto nella tabella sottostante.</p>
+<h4>Sintassi degli indirizzi dello schema MQ e del servizio MQ</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La sintassi completa per l'indirizzo di un servizio di messaggi &egrave;</p>
+<pre>
+<i>scheme</i>://<i>address-syntax</i>
+</pre>
+<p>dove lo <i>schema</i> e la <i>sintassi-indirizzo</i> vengono descritti nella tabella riportata di seguito.</p>
+<p>I valori Schema MQ e Servizio MQ sono quelli riportati nelle prime due colonne della tabella seguente.</p>
 
-<p>I valori MQ Scheme e MQ Service sono quelli riportati nelle prime
-due colonne della tabella seguente.</p>
-
-<table><col width="16%"><col width="16%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"><p>Nome schema</p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>Servizio di connessione</p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>Descrizione</p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>Sintassi indirizzo</p>
-
-</th>
+<table  summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="9%" />
+<col width="13%" />
+<col width="36%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t2">Nome schema</th>
+<th align="left" valign="bottom" id="r1c2-t2">Servizio di connessione</th>
+<th align="left" valign="bottom" id="r1c3-t2">Descrizione</th>
+<th align="left" valign="bottom" id="r1c4-t2">Sintassi indirizzo</th>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>mq</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>jms</tt> e <tt>ssljms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Il runtime
-del client Message Queue stabilisce una connessione con MQ Port Mapper sull'host
-e sulla porta specificati. Port Mapper restituisce un elenco di porte di
-servizio di connessione definite dinamicamente, quindi il runtime del client di Message
-Queue esegue la connessione alla porta host del servizio di connessione specificato.</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>[</tt><i>hostName</i><tt>][:</tt><i> port</i><tt>][/</tt><i>serviceName</i><tt> ]</tt></p>
-
-<p>Impostazioni
-predefinite: <i>hostName</i> = <tt>localhost</tt>, <i>port</i> = <tt>7676</tt>, <i>serviceName </i> = <tt>jms</tt></p>
-
-<p>Le impostazioni predefinite
-vengono applicate solo al servizio di connessione <tt>jms</tt>. Per il servizio di
-connessione <tt>ssljms</tt>, &#232; necessario specificare tutte le variabili.</p>
-
-<p>Esempio: <tt>mq:MyHost:7677/ssljms</tt></p>
-
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t2" headers="r1c1-t2"><code>mq</code></td>
+<td align="left" headers="r2c1-t2 r1c2-t2"><code>jms</code> e <code>ssljms</code></td>
+<td align="left" headers="r2c1-t2 r1c3-t2">La fase di esecuzione del client Message Queue stabilisce una connessione al port mapper MQ sull'host e sulla porta specificati. Port mapper restituisce una lista di porte di servizio di connessione definite dinamicamente, quindi la fase di esecuzione del client Message Queue esegue una connessione alla porta host del servizio di connessione specificato.</td>
+<td align="left" headers="r2c1-t2 r1c4-t2"><code>[</code><i>Nomehost</i><code>][:</code><i>porta</i><code>][/</code><i>Nomeservizio</i><code>]</code>
+<p>Le impostazioni predefinite sono: <i>Nomehost</i> = <code>localhost</code>, <i>porta</i> = <code>7676</code>, <i>Nomeservizio</i> = <code>jms</code></p>
+<p>Le impostazioni predefinite vengono applicate solo al servizio di connessione <code>jms</code>. Per il servizio di connessione <code>ssljms</code> &egrave; necessario specificare tutte le variabili.</p>
+<p>Esempio: <code>mq:MyHost:7677/ssljms</code></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>mqtcp</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>jms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Il runtime del client
-Message Queue esegue una connessione TCP all'host e alla porta specificati (ignorando
-MQ Port Mapper) per stabilire una connessione.</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /jms</tt></p>
-
-<p>Esempio: <tt>mqtcp:localhost:7676/jms</tt></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t2" headers="r1c1-t2"><code>mqtcp</code></td>
+<td align="left" headers="r3c1-t2 r1c2-t2"><code>jms</code></td>
+<td align="left" headers="r3c1-t2 r1c3-t2">Per stabilire una connessione, la fase di esecuzione del client Message Queue esegue una connessione TCP all'host e alla porta specificati ignorando il port mapper MQ.</td>
+<td align="left" headers="r3c1-t2 r1c4-t2"><i>Nomehost</i><code>:</code><i>porta</i><code>/jms</code>
+<p>Esempio: <code>mqtcp:localhost:7676/jms</code></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>mqssl</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>ssljms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Il runtime del client Message
-Queue esegue una connessione SSL sicura all'host e alla porta specificati (evitando
-MQ Port Mapper) per stabilire una connessione.</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /ssljms</tt></p>
-
-<p>Esempio: <tt>mqssl:localhost:7676/ssljms</tt></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t2" headers="r1c1-t2"><code>mqssl</code></td>
+<td align="left" headers="r4c1-t2 r1c2-t2"><code>ssljms</code></td>
+<td align="left" headers="r4c1-t2 r1c3-t2">Per stabilire una connessione, la fase di esecuzione del client Message Queue esegue una connessione SSL sicura all'host e alla porta specificati evitando il port mapper MQ.</td>
+<td align="left" headers="r4c1-t2 r1c4-t2"><i>Nomehost</i><code>:</code><i>porta</i><code>/ssljms</code>
+<p>Esempio: <code>mqssl:localhost:7676/ssljms</code></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>http</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>httpjms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Il runtime del client Message
-Queue esegue una connessione HTTP a un servlet di tunnel Message Queue
-nell'URL specificato. Il broker deve essere configurato per l'accesso al servlet di
-tunnel HTTP, come descritto nel <b>manuale dell'amministratore</b> di Message Queue.</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
-
-<p>Se viene utilizzato lo
-stesso servlet di tunnel per pi&#249; istanze del broker, la sintassi per
-la connessione a un'istanza specifica del broker (anzich&#233; a una selezionata a
-caso) &#232;: <tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t2" headers="r1c1-t2"><code>http</code></td>
+<td align="left" headers="r5c1-t2 r1c2-t2"><code>httpjms</code></td>
+<td align="left" headers="r5c1-t2 r1c3-t2">La fase di esecuzione del client Message Queue esegue una connessione HTTP a un servlet di tunnel Message Queue nell'URL specificato. Il broker deve essere configurato per l'accesso al servlet di tunnel HTTP, come descritto in Message Queue <i>Administrator's Guide</i>.</td>
+<td align="left" headers="r5c1-t2 r1c4-t2"><i>Nomehost</i><code>:</code><i>porta</i><code>/</code><i>Radicecontesto</i><code>/tunnel</code>
+<p>Se pi&ugrave; istanze di broker utilizzano lo stesso servlet di tunnel, la sintassi per la connessione a un'istanza di broker specifica (anzich&eacute; a una selezionata in modo casuale) &egrave;: <code>http://</code><i>Nomehost</i><code>:</code><i>porta</i><code>/</code><i>radicecontesto</i><code>/tunnel?</code><i>Nomeserver</i><code>=</code><i>Namehost</i><code>:</code><i>Nomestanza</i></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>https</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>httpsjms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Il runtime del client Message Queue esegue una connessione sicura
-HTTPS all'URL del servlet di tunnel Message Queue specificato. Il broker deve
-essere configurato per l'accesso al servlet di tunnel HTTPS, come descritto nel
-<b>manuale dell'amministratore</b> di Message Queue.</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
-
-<p>Se viene utilizzato lo stesso servlet di tunnel per
-pi&#249; istanze del broker, la sintassi per la connessione a un'istanza specifica
-del broker (anzich&#233; a una selezionata a caso) &#232;: <tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t2" headers="r1c1-t2"><code>https</code></td>
+<td align="left" headers="r6c1-t2 r1c2-t2"><code>httpsjms</code></td>
+<td align="left" headers="r6c1-t2 r1c3-t2">La fase di esecuzione del client Message Queue esegue una connessione sicura HTTPS all'URL del servlet di tunnel Message Queue specificato. Il broker deve essere configurato per l'accesso al servlet di tunnel HTTPS, come descritto in <i>Administrator's Guide</i> di Message Queue.</td>
+<td align="left" headers="r6c1-t2 r1c4-t2"><i>Nomehost</i><code>:</code><i>porta</i><code>/</code><i>Radicecontesto</i><code>/tunnel</code>
+<p>Se pi&ugrave; istanze di broker utilizzano lo stesso servlet di tunnel, la sintassi per la connessione a un'istanza di broker specifica (anzich&eacute; a una selezionata in modo casuale) &egrave;: <code>http://</code><i>Nomehost</i><code>:</code><i>porta</i><code>/</code><i>radicecontesto</i><code>/tunnel?</code><i>Nomeserver</i><code>=</code><i>Namehost</i><code>:</code><i>Nomestanza</i></p>
 </td>
 </tr>
+</tbody>
 </table>
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

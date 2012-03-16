@@ -1,99 +1,105 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-virtualservernew"></a><h4>New Virtual Server</h4>
-<a name="indexterm-60"></a><p>Nella pagina New Virtual Server &#232; possibile creare un server virtuale.</p>
+<p><a id="ref-virtualservernew" name="ref-virtualservernew"></a><a id="GHWEB00011" name="GHWEB00011"></a></p>
 
-<p>La pagina New Virtual Server contiene le seguenti opzioni.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<h4><a id="sthref122" name="sthref122"></a>Nuovo server virtuale</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Nuovo server virtuale &egrave; possibile creare un server virtuale.</p>
+<p>La pagina Nuovo server virtuale contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
-<dt>Id</dt>
-<dd><p>Identificatore del server virtuale visibile internamente. Non viene visualizzato ai client HTTP. I nomi host visibili ai client HTTP devono essere specificati nel campo Hosts.</p>
-
+<dt>ID</dt>
+<dd>
+<p>Identificativo del server virtuale visibile internamente. Non viene visualizzato ai client HTTP. I nomi host visibili ai client HTTP devono essere specificati nel campo Host.</p>
 </dd>
-<dt>Hosts</dt>
-<dd><p>Nome o nomi host per la macchina in cui &#232; in esecuzione il server. Utilizzare i nomi reali o i nomi virtuali registrati con il server DNS per la rete (e, in un sistema UNIX, nel file <tt>/etc/hosts</tt>). Il valore predefinito &#232; il valore della propriet&#224; di sistema <tt>${com.sun.aas.hostName}</tt>.</p>
-
+<dt>Host</dt>
+<dd>
+<p>Nome o nomi host per il computer su cui &egrave; in esecuzione il server. Utilizzare nomi effettivi o virtuali registrati con il server DNS per la rete e, in un sistema UNIX, nel file <code>/etc/hosts</code>. Il valore predefinito &egrave; il valore della propriet&agrave; di sistema <code>${com.sun.aas.hostName}</code>.</p>
 </dd>
-<dt>State</dt>
-<dd><p>Stato desiderato per il server virtuale. Il valore pu&#242; essere uno qualsiasi dei seguenti:</p>
-
-<dl><dt>On</dt>
-<dd><p>Il server virtuale &#232; attivo. Questo &#232; il valore predefinito.</p>
-
+<dt>Stato</dt>
+<dd>
+<p>Stato desiderato per il server virtuale. Il valore pu&ograve; essere uno dei seguenti:</p>
+<dl>
+<dt>On</dt>
+<dd>
+<p>Server virtuale attivo. Questo &egrave; il valore predefinito.</p>
 </dd>
 <dt>Off</dt>
-<dd><p>Il server virtuale &#232; inattivo. Ogni tentativo di accedere al server restituir&#224; il codice errore 404 (risorsa non disponibile).</p>
-
+<dd>
+<p>Server virtuale non attivo. I tentativi di accesso al server restituiranno il codice errore 404 (risorsa non disponibile).</p>
 </dd>
 <dt>Disabled</dt>
-<dd><p>Il server virtuale &#232; disabilitato. Ogni tentativo di accedere al server restituir&#224; il codice errore 403 (richiesta non accettata).</p>
-
+<dd>
+<p>Server virtuale disabilitato. I tentativi di accesso al server restituiranno il codice di errore 403 (elaborazione richiesta rifiutata).</p>
 </dd>
 </dl>
 </dd>
 <dt>SSO</dt>
-<dd><p>Specifica se il comportamento del sistema SSO viene ereditato dal servizio HTTP, se viene abilitato o disabilitato. Per impostazione predefinita, viene ereditato dal servizio HTTP. Se l'opzione &#232; selezionata, il sistema SSO viene abilitato per le applicazioni Web di questo server virtuale configurate per lo stesso settore. Se l'opzione non &#232; selezionata, il sistema SSO viene disabilitato per questo server virtuale e gli utenti devono eseguire l'autenticazione per ogni applicazione nel server virtuale.</p>
-
+<dd>
+<p>Specifica se il funzionamento del Single Sign-On viene ereditato dal servizio HTTP, se &egrave; abilitato o disabilitato. Per impostazione predefinita, viene ereditato dal servizio HTTP. Se questa opzione &egrave; selezionata, il Single Sign-On &egrave; abilitato per le applicazioni Web di questo server virtuale configurate per lo stesso realm. Se questa opzione non &egrave; selezionata, il Single Sign-On &egrave; disabilitato per questo server virtuale e gli utenti devono eseguire l'autenticazione per ogni applicazione nel server virtuale.</p>
 </dd>
-<dt>Network Listeners</dt>
-<dd><p>Listener di rete associati al server, se disponibili.</p>
-
+<dt>Listener di rete</dt>
+<dd>
+<p>Listener o listener di rete associati al server, se disponibili.</p>
 </dd>
-<dt>Default Web Module</dt>
-<dd><p>Modulo Web distribuito (se disponibile) che deve rispondere a tutte le richieste che non possono essere mappate su altri moduli Web distribuiti nel server virtuale. Se non viene specificato un modulo Web predefinito, viene utilizzato il modulo Web con una root di contesto vuota. Se non sono disponibili moduli Web con una root di contesto vuota, viene creato e utilizzato un modulo Web predefinito per il sistema.</p>
-
+<dt>Modulo Web predefinito</dt>
+<dd>
+<p>Modulo Web distribuito (se disponibile) che deve rispondere a tutte le richieste che non possono essere mappate ad altri moduli Web distribuiti sul server virtuale. Se non viene specificato un modulo Web predefinito, viene utilizzato il modulo Web con una radice contesto vuota. Se non sono disponibili moduli Web con una radice contesto vuota, viene creato e utilizzato un modulo Web predefinito per il sistema.</p>
 </dd>
-<dt>Log File</dt>
-<dd><p>Nome del percorso del file in cui visualizzare i messaggi di log provenienti da questo server virtuale. Per impostazione predefinita, i messaggi di log verranno visualizzati nel file <tt></tt><i>domain-dir</i><tt>/logs/server.log</tt>.</p>
-
+<dt>File di log</dt>
+<dd>
+<p>Nome del percorso del file in cui verranno visualizzati i messaggi di log provenienti da questo server virtuale. Per impostazione predefinita, i messaggi di log verranno visualizzati nel file <i>domain-dir</i><code>/logs/server.log</code>.</p>
 </dd>
 <dt>Docroot</dt>
-<dd><p>Percorso completo della directory di documenti root per il server. Il valore predefinito &#232; <tt></tt><i>domain-dir</i><tt>/docroot</tt>.</p>
-
+<dd>
+<p>Percorso assoluto della directory di documenti radice per il server. Il valore predefinito &egrave; <i>domain-dir</i><code>/docroot</code>.</p>
 </dd>
-<dt>Access Logging</dt>
-<dd><p>Specifica se la registrazione degli accessi viene ereditata dal servizio HTTP, se viene abilitata o disabilitata. Per impostazione predefinita, viene ereditata dal servizio HTTP.</p>
-
+<dt>Log degli accessi</dt>
+<dd>
+<p>Specifica se il log degli accessi viene ereditato dal servizio HTTP, se &egrave; abilitato o disabilitato. Per impostazione predefinita, viene ereditato dal servizio HTTP.</p>
 </dd>
 <dt>Directory</dt>
-<dd><p>Percorso completo della directory dei log di accesso del server. Il valore predefinito &#232; <i>domain-dir</i><tt>/logs/access</tt>.</p>
-
+<dd>
+<p>Percorso assoluto della directory dei log degli accessi del server. Il valore predefinito &egrave; <i>domain-dir</i><code>/logs/access</code>.</p>
 </dd>
-<dt>Additional Properties</dt>
-<dd><p>Propriet&#224; aggiuntive per il server virtuale.</p>
-
-<p>Per informazioni sulle propriet&#224; disponibili, vedere <a href="ref-virtualserverprops.html">Propriet&#224; specifiche dei server virtuali</a>.</p>
-
+<dt>Propriet&agrave; aggiuntive</dt>
+<dd>
+<p>Propriet&agrave; aggiuntive per il server virtuale.</p>
+<p>Per informazioni sulle propriet&agrave; disponibili, vedere <a href="ref-virtualserverprops.html">Propriet&agrave; specifiche dei server virtuali</a>.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-virtualservercreate.html">Creare server virtuali</a></p>
-
+<a id="sthref123" name="sthref123"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-virtualservercreate.html">Creare un server virtuale</a></p>
 </li>
-<li><p><a href="task-virtualserveredit.html">Modificare un server virtuale</a></p>
-
+<li>
+<p><a href="task-virtualserveredit.html">Creare un server virtuale</a></p>
 </li>
-<li><p><a href="task-virtualserverdelete.html">Eliminare un server virtuale</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-virtual-server-1"><tt>create-virtual-server</tt>(1)</a></p>
-
+<li>
+<p><a href="task-virtualserverdelete.html">Eliminare un server virtuale</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-virtual-servers-1"><tt>list-virtual-servers</tt>(1)</a></p>
-
+</ul>
+<a id="sthref124" name="sthref124"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00062"><code>create-virtual-server</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-virtual-server-1"><tt>delete-virtual-server</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00207"><code>list-virtual-servers</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00113"><code>delete-virtual-server</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

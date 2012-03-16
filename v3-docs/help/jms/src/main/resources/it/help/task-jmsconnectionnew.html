@@ -1,82 +1,128 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmsconnectionnew" name="task-jmsconnectionnew"></a><a id="GHJMS00020" name="GHJMS00020"></a></p>
 
-
-<a name="task-jmsconnectionnew"></a><h3>Creare una risorsa factory di connessione JMS </h3><a name="indexterm-1"></a><a name="indexterm-2"></a><p>Quando si crea una factory di connessione JMS, vengono creati un pool
-di connessione del connettore e una risorsa connettore per la factory di
-connessione. &#200; possibile visualizzare questi oggetti nel nodo Connectors.</p>
-
+<h4><a id="sthref2" name="sthref2"></a><a id="sthref3" name="sthref3"></a>Creare una risorsa Connection Factory JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Quando si crea una Connection Factory JMS, vengono creati un connection pool del connettore e una risorsa connettore per la Connection Factory. &Egrave; possibile visualizzare questi oggetti nel nodo Connettori.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Resources.</b></li>
-<li><b>Nel nodo Resources espandere il nodo JMS Resources.</b></li>
-<li><b>Nel nodo JMS Resources selezionare il nodo JMS Connection Factories.</b><p>Viene visualizzata la pagina JMS Connection Factories.</p></li>
-<li><b>Nella pagina JMS Connection Factories fare clic su New.</b><p>Viene visualizzata la pagina New JMS Connection Factory.</p></li>
-<li><b>Nel campo Pool Name immettere il nome univoco della factory di connessione.
-</b><p>Il nome JNDI della factory di connessione viene impostato su tale valore
-da GlassFish Server.</p></li>
-<li><b>Dall'elenco a discesa Resource Type, selezionare <tt>javax.jms.ConnectionFactory </tt>, <tt>javax.jms.QueueConnectionFactory</tt> o <tt>javax.jms.TopicConnectionFactory</tt>.</b></li>
-<li><b>Nel campo Description, digitare una descrizione della factory di connessione.</b></li>
-<li><b>Selezionare la casella di controllo Status Enabled per abilitare la risorsa in
-fase di runtime.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
-<li><b>Nel campo Initial and Minimum Pool Size, specificare il numero minimo di
-connessioni per il pool.</b><p>Il valore predefinito &#232; 8.</p></li>
-<li><b>Nel campo Maximum Pool Size, specificare il numero massimo di connessioni per
-il pool.</b><p>Il valore predefinito &#232; 32.</p></li>
-<li><b>Nel campo Pool Resize Quantity, specificare il numero di connessioni da rimuovere
-allo scadere del timeout di inattivit&#224; del pool.</b><p>Il valore predefinito &#232; 2.</p></li>
-<li><b>Nel campo Idle Timeout, specificare il numero massimo di secondi durante i
-quali una connessione pu&#242; rimanere inattiva nel pool.</b><p>Il valore predefinito &#232; 300.</p></li>
-<li><b>Nel campo Max Wait Time, specificare il tempo di attesa per la
-richiesta di connessione di un'applicazione, prima che si verifichi il timeout della
-connessione.</b><p>Il valore predefinito &#232; 60000.</p></li>
-<li><b>Se la casella di controllo On Any Failure Close All Connections &#232;
-selezionata, in GlassFish Server tutte le connessioni del pool vengono chiuse e
-quindi ristabilite in caso di errore di una singola connessione.</b><p>Se non si seleziona la casella di controllo, le singole connessioni vengono
-ristabilite solo quando vengono utilizzate. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Per una risorsa factory di connessione JMS, selezionare il livello di Transaction
-Support.</b><p>Il valore selezionato sovrascrive l'attributo di supporto della transazione in Resource Adapter
-compatibilmente con gli elementi derivati.</p><ul>
-<li><b>Selezionare XATransaction (valore predefinito per JMS Resource Adapter) per una risorsa utilizzabile
-per transazioni che implicano l'uso di pi&#249; di una risorsa nell'ambito della
-transazione.</b><p>Ad esempio &#232; possibile che in una transazione sia necessario utilizzare questa
-risorsa in abbinamento a una risorsa JDBC, una risorsa del connettore o
-un'altra risorsa della factory di connessione JMS. Questo valore offre la massima
-flessibilit&#224;. Una risorsa configurata come XATransaction verr&#224; utilizzata in operazioni di commit
-a due fasi.</p></li>
-<li><b>Selezionare LocalTransaction per una risorsa utilizzabile in transazioni che prevedono l'uso di
-una sola risorsa o come ultimo agente in una transazione distribuita che
-prevede l'uso di pi&#249; risorse XA.</b><p>Il valore offre prestazioni decisamente migliori. Le risorse configurate come LocalTransaction non
-vengono utilizzate in operazioni di commit a due fasi.</p></li>
-<li><b>Selezionare NoTransaction per una risorsa che non pu&#242; mai partecipare a una
-transazione.</b><p>L'impostazione &#232; di uso limitato in applicazioni JMS.</p></li></ul></li>
-<li><b>Selezionare la casella di controllo Connection Validation Required per abilitare la convalida
-della connessione.</b><p>Se l'opzione &#232; selezionata, le connessioni vengono convalidate prima di essere fornite
-all'applicazione. Se la convalida non viene eseguita, la risorsa viene eliminata. Viene
-creata e restituita una risorsa nuova. Questa opzione &#232; disabilitata per impostazione
-predefinita.</p></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive per la factory di
-connessione.</b><p>Per informazioni sulle propriet&#224; disponibili, vedere <a href="ref-jmsconnectionproperties.html">Propriet&#224; specifiche delle factory di connessione JMS</a>.</p><p>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</p></li>
-<li><b>Fare clic su OK.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-jmsconnectionedit.html">Modificare una risorsa factory di connessione JMS</a></p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Risorse.</p>
 </li>
-<li><p><a href="task-jmsconnectiondelete.html">Eliminare una risorsa factory di connessione JMS</a></p>
-
+<li>
+<p>Nel nodo Risorse espandere il nodo Risorse JMS.</p>
 </li>
-<li><p><a href="task-jmsdestinationnew.html">Creare una risorsa di destinazione JMS</a></p>
-
+<li>
+<p>Nel nodo Risorse JMS selezionare il nodo Connection Factory JMS.</p>
+<p>Viene visualizzata la pagina Connection Factory JMS.</p>
 </li>
-<li><p><a href="task-jmsdestinationedit.html">Modificare una risorsa di destinazione JMS</a></p>
-
+<li>
+<p>Nella pagina Connection Factory JMS fare clic su Nuovo.</p>
+<p>Viene visualizzata la pagina Nuova connection factory JMS.</p>
 </li>
-<li><p><a href="task-jmsdestinationdelete.html">Eliminare una risorsa di destinazione JMS</a></p>
+<li>
+<p>Nel campo Nome pool immettere il nome univoco della Connection Factory.</p>
+<p>Il nome JNDI della Connection Factory viene impostato su tale valore da GlassFish Server.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Tipo di risorsa, selezionare <code>javax.jms.ConnectionFactory</code> , <code>javax.jms.QueueConnectionFactory</code> o <code>javax.jms.TopicConnectionFactory</code>.</p>
+</li>
+<li>
+<p>Nel campo Descrizione, digitare una descrizione della Connection Factory.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Stato abilitato per abilitare la risorsa in fase e.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Dimensione pool iniziale e minima, specificare il numero minimo di connessioni per il pool.</p>
+<p>Il valore predefinito &egrave; 8.</p>
+</li>
+<li>
+<p>Nel campo Dimensione massima pool, specificare il numero massimo di connessioni per il pool.</p>
+<p>Il valore predefinito &egrave; 32.</p>
+</li>
+<li>
+<p>Nel campo Quantit&agrave; di ridimensionamento pool, specificare il numero di connessioni da rimuovere allo scadere del timeout di inattivit&agrave; del pool.</p>
+<p>Il valore predefinito &egrave; 2.</p>
+</li>
+<li>
+<p>Nel campo Timeout inattivit&agrave;, specificare il numero massimo di secondi durante i quali una connessione pu&ograve; rimanere inattiva nel pool.</p>
+<p>Il valore predefinito &egrave; 300.</p>
+</li>
+<li>
+<p>Nel campo Tempo massimo di attesa, specificare il tempo di attesa per la richiesta di connessione di un'applicazione, prima che si verifichi il timeout della connessione.</p>
+<p>Il valore predefinito &egrave; 60000.</p>
+</li>
+<li>
+<p>Se la casella di controllo In caso di qualsiasi errore: Chiudi tutte le connessioni &egrave; selezionata, in GlassFish Server tutte le connessioni del pool vengono chiuse e quindi ristabilite in caso di errore di una singola connessione.</p>
+<p>Se non si seleziona la casella di controllo, le singole connessioni vengono ristabilite solo quando vengono utilizzate. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Per una risorsa Connection Factory JMS, selezionare il livello di Supporto transazioni.</p>
+<p>Il valore selezionato sovrascrive l'attributo di supporto della transazione in Resource Adapter compatibilmente con gli elementi derivati.</p>
+<ul>
+<li>
+<p>Selezionare XATransaction (valore predefinito per JMS Resource Adapter) per una risorsa utilizzabile per transazioni che implicano l'uso di pi&ugrave; di una risorsa nell'ambito della transazione.</p>
+<p>Ad esempio &egrave; possibile che in una transazione sia necessario utilizzare questa risorsa in abbinamento a una risorsa JDBC, una risorsa del connettore o un'altra risorsa della Connection Factory JMS. Questo valore offre la massima flessibilit&agrave;. Una risorsa configurata come XATransaction verr&agrave; utilizzata in operazioni di commit a due fasi.</p>
+</li>
+<li>
+<p>Selezionare LocalTransaction per una risorsa utilizzabile in transazioni che prevedono l'uso di una sola risorsa nell'ambito della transazione o come ultimo agente in una transazione distribuita che prevede l'uso di pi&ugrave; risorse XA.</p>
+<p>Il valore offre prestazioni decisamente migliori. Le risorse configurate come LocalTransaction non vengono utilizzate in operazioni di commit a due fasi.</p>
+</li>
+<li>
+<p>Selezionare per una risorsa che non pu&ograve; mai partecipare a una transazione.NoTransaction</p>
+<p>L'impostazione &egrave; di uso limitato in applicazioni JMS.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Selezionare la casella di controllo Convalida della connessione necessaria per abilitare la convalida della connessione.</p>
+<p>Se l'opzione &egrave; selezionata, le connessioni vengono convalidate prima di essere fornite all'applicazione. Se la convalida non viene eseguita, la risorsa viene eliminata. Viene creata e restituita una risorsa nuova. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive per la Connection Factory.</p>
+<p>Per informazioni sulle propriet&agrave; disponibili, vedere <a href="ref-jmsconnectionproperties.html">Propriet&agrave; specifiche delle Connection Factory JMS</a>.</p>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>In the Targets area, do the following:</p>
+<ol type="a">
+<li>
+<p>From the Available column, select the target or targets to which applications that use the resource will be deployed.</p>
+<p>The available targets include the available clusters and server instances as well as the default server instance, <code>server</code>.</p>
+</li>
+<li>
+<p>Click Add to move the target to the Selected column.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Fare clic su OK.</p>
+</li>
+</ol>
+<a id="sthref4" name="sthref4"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-jmsconnectionedit.html">Modificare una risorsa Connection Factory JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsconnectiondelete.html">Eliminare una risorsa Connection Factory JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsdestinationnew.html">Creare una risorsa di destinazione JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsdestinationedit.html">Creare una risorsa di destinazione JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsdestinationdelete.html">Eliminare una risorsa di destinazione JMS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

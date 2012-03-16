@@ -1,83 +1,96 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-editjdbcrealm"></a><h4>Propriet&#224; specifiche della classe <tt>JDBCRealm </tt></h4>
-<a name="indexterm-207"></a><a name="indexterm-208"></a><p>Per proteggere pagine o applicazioni Web, &#232; possibile impostare la sicurezza in
-modo da limitare l'accesso a tali elementi solo agli utenti registrati. Questa
-funzione &#232; nota come risorsa di autenticazione. Questo tipo di settore consente
-la memorizzazione delle credenziali degli utenti in un database. GlassFish Server utilizza
-le informazioni del database e l'opzione del settore JDBC abilitata nel file
-di configurazione.</p>
+<p><a id="ref-editjdbcrealm" name="ref-editjdbcrealm"></a><a id="GHCOM00102" name="GHCOM00102"></a></p>
 
-<p>Le seguenti propriet&#224; sono obbligatorie per un settore JDBC.</p>
-
-<dl><dt>JAAS Context</dt>
-<dd><p>Contesto di JAAS (Java Authentication and Authorization Service): l'identificatore del modulo di login da utilizzare per questo settore. L'unico valore valido &#232; <tt>jdbcRealm</tt>.</p>
-
+<h4><a id="sthref379" name="sthref379"></a><a id="sthref380" name="sthref380"></a>Propriet&agrave; specifiche della classe <code>JDBCRealm</code></h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Per proteggere pagine o applicazioni Web, &egrave; possibile impostare la sicurezza in modo da limitare l'accesso a tali elementi solo agli utenti registrati. Questa funzione &egrave; nota come risorsa di autenticazione. Questo tipo di realm implica la memorizzazione delle credenziali degli utenti in un database. GlassFish Server utilizza le informazioni del database e l'opzione del realm JDBC abilitata nel file di configurazione.</p>
+<p>Le propriet&agrave; riportate di seguito sono necessarie per un realm JDBC.</p>
+<dl>
+<dt>Contesto JAAS</dt>
+<dd>
+<p>Contesto JAAS (Java Authentication and Authorization Service): l'identificativo del modulo di login da utilizzare per questo realm. L'unico valore valido &egrave; <code>jdbcRealm</code>.</p>
 </dd>
 <dt>JNDI</dt>
-<dd><p>Nome JNDI per questo settore. Il valore predefinito &#232; <tt>jdbc/security</tt>.</p>
-
+<dd>
+<p>Nome JNDI per questo realm. Il valore predefinito &egrave; <code>jdbc/security</code>.</p>
 </dd>
-<dt>User Table</dt>
-<dd><p>Tabella che contiene un elenco di utenti autorizzati per questo settore. Il valore predefinito &#232; <tt>usertable</tt>.</p>
-
+<dt>Tabella utenti</dt>
+<dd>
+<p>Tabella che contiene una lista di utenti autorizzati per questo realm. Il valore predefinito &egrave; <code>usertable</code>.</p>
 </dd>
-<dt>User Name Column</dt>
-<dd><p>Nome della colonna che contiene l'elenco di utenti nella tabella utente. Il valore predefinito &#232; <tt>userid</tt>.</p>
-
+<dt>Colonna Nomi utenti</dt>
+<dd>
+<p>Nome della colonna che contiene la lista di utenti nella tabella utente. Il valore predefinito &egrave; <code>userid</code>.</p>
 </dd>
-<dt>Password Column</dt>
-<dd><p>Nome della colonna che contiene la rispettiva password utente nella tabella utente. Il valore predefinito &#232; <tt>password</tt>.</p>
-
+<dt>Colonna Password</dt>
+<dd>
+<p>Nome della colonna che contiene la password dell'utente corrispondente nella tabella utente. Il valore predefinito &egrave; <code>password</code>.</p>
 </dd>
-<dt>Group Table</dt>
-<dd><p>Nome della tabella gruppo nel database. Il valore predefinito &#232; <tt>grouptable</tt>.</p>
-
+<dt>Tabella gruppi</dt>
+<dd>
+<p>Nome della tabella dei gruppi nel database. Il valore predefinito &egrave; <code>grouptable</code>.</p>
 </dd>
-<dt>Group Name Column</dt>
-<dd><p>Nome della colonna relativa al nome gruppo nella tabella gruppo del database. Il valore predefinito &#232; <tt>groupid</tt>.</p>
-
+<dt>Colonna Nomi gruppi</dt>
+<dd>
+<p>Nome della colonna relativa ai nomi dei gruppi nella tabella gruppi del database. Il valore predefinito &egrave; <code>groupid</code>.</p>
 </dd>
 </dl>
-<p>Per un settore JDBC sono disponibili le seguenti propriet&#224; opzionali.</p>
-
-<dl><dt>Assign Groups</dt>
-<dd><p>Elenco separato da virgole di nomi di gruppi. Tutti i client con certificati validi vengono assegnati a questi gruppi, ad esempio <tt>employee,manager</tt>, dove questi sono i nomi dei gruppi di utenti.</p>
-
+<p>Per un realm JDBC sono disponibili le propriet&agrave; opzionali riportate di seguito.</p>
+<dl>
+<dt>Gruppi di assegnazione</dt>
+<dd>
+<p>Lista di valori separati da virgole di nomi di gruppi. Tutti i client con certificati validi vengono assegnati a questi gruppi, ad esempio <code>employee,manager</code>, dove questi sono i nomi dei gruppi di utenti.</p>
 </dd>
-<dt>Database User</dt>
-<dd><p>Consente di specificare il nome utente del database nel settore anzich&#233; utilizzare la configurazione <tt>jdbc-connection-pool</tt>. In tal modo si impedisce ad altre applicazioni di eseguire ricerche nel database, stabilire una connessione ed esplorare la tabella utente. Per impostazione predefinita viene utilizzata la configurazione <tt>jdbc-connection-pool</tt>.</p>
-
+<dt>Utente database</dt>
+<dd>
+<p>Consente di specificare il nome utente del database nel realm anzich&eacute; utilizzare la configurazione <code>jdbc-connection-pool</code>. In tal modo, si impedisce ad altre applicazioni di eseguire ricerche nel database, stabilire una connessione e sfogliare la tabella utenti. Per impostazione predefinita, viene utilizzata la configurazione <code>jdbc-connection-pool</code>.</p>
 </dd>
-<dt>Database Password</dt>
-<dd><p>Consente di specificare la password del database nel settore anzich&#233; utilizzare la configurazione <tt>jdbc-connection-pool</tt>. In tal modo si impedisce ad altre applicazioni di eseguire ricerche nel database, stabilire una connessione ed esplorare la tabella utente. Per impostazione predefinita viene utilizzata la configurazione <tt>jdbc-connection-pool</tt>.</p>
-
+<dt>Password database</dt>
+<dd>
+<p>Consente di specificare la password del database nel realm anzich&eacute; utilizzare la configurazione <code>jdbc-connection-pool</code>. In tal modo, si impedisce ad altre applicazioni di eseguire ricerche nel database, stabilire una connessione e sfogliare la tabella utenti. Per impostazione predefinita, viene utilizzata la configurazione <code>jdbc-connection-pool</code>.</p>
 </dd>
-<dt>Digest Algorithm</dt>
-<dd><p>(Opzionale) Specifica l'algoritmo di digest. Il valore predefinito &#232; <tt> SHA-256</tt>. &#200; possibile usare qualsiasi algoritmo supportato nel JDK o non usarne alcuno.</p>
-
-
-<hr><p><b>Nota - </b>Nelle versioni di GlassFish Server anteriori alla 3.1, l'algoritmo predefinito era <tt>MD5</tt>. In presenza di applicazioni che dipendono dall'algoritmo <tt> MD5</tt>, &#232; possibile ignorare l'algoritmo predefinito <tt>SHA-25</tt> utilizzando il comando secondario <tt>asadmin set</tt>:</p>
-
-<pre>asadmin> <tt><b>set server.security-service.property.default-digest-algorithm=MD5</b></tt></pre><p>Per determinare l'algoritmo attualmente in uso, utilizzare il comando secondario <tt>asadmin get</tt>:</p>
-
-<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>Si noti inoltre che, al fine di mantenere la compatibilit&#224; con le versioni precedenti, se viene eseguito un aggiornamento da GlassFish Server v2.<i>x</i> o v3.0.<i> x</i> a GlassFish Server 3.1, l'algoritmo predefinito viene automaticamente impostato su <tt>MD5</tt> nei casi in cui l'algoritmo di digest non sia stato esplicitamente impostato nella versione di GlassFish Server precedente.</p>
-
+<dt>Algoritmo Digest</dt>
+<dd>
+<p>(Facoltativo) Specifica l'algoritmo Digest. Il valore predefinito &egrave; <code>SHA-256</code>. &Egrave; possibile usare qualsiasi algoritmo supportato nel JDK o non usarne alcuno.</p>
 
 <hr>
-</dd>
-<dt>Encoding</dt>
-<dd><p>Codifica. I valori consentiti sono <tt>Hex</tt> e <tt> Base64</tt>. Se viene specificato <tt>digest-algorithm</tt>, il valore predefinito &#232; <tt>Hex</tt>. Se non &#232; stato specificato <tt>digest-algorithm</tt>, per impostazione predefinita non viene specificata alcuna codifica.</p>
+<p><b>Nota:</b></p>
+Nelle versioni di GlassFish Server precedenti alla 3.1.2 l'algoritmo predefinito era <code>MD5</code>. In presenza di applicazioni che dipendono dall'algoritmo <code>MD5</code>, &egrave; possibile sostituire l'algoritmo predefinito <code>SHA-25</code> utilizzando il comando secondario <code>asadmin set</code>:
+<pre>
+asadmin&gt; <b>set server.security-service.property.default-digest-algorithm=MD5</b>
+</pre>
+<p>Per determinare l'algoritmo attualmente in uso, utilizzare il comando secondario <code>asadmin get</code>:</p>
+<pre>
+asadmin&gt; <b>get server.security-service.property.default-digest-algorithm</b>
+</pre>
+<p>Si noti inoltre che, al fine di mantenere la compatibilit&agrave; con le versioni precedenti, se viene eseguito un aggiornamento da GlassFish Server v2.<i>x</i> o v3.0.<i>x</i> a GlassFish Server 3.1.2, l'algoritmo predefinito viene automaticamente impostato su <code>MD5</code> nei casi in cui l'algoritmo Digest non sia stato impostato esplicitamente nella versione precedente di GlassFish Server.</p>
+
+<hr>
 
 </dd>
-<dt>Charset</dt>
-<dd><p>Insieme di caratteri per l'algoritmo digest. </p>
+<dt>Algoritmo cifratura password</dt>
+<dd>
+<p>Codifica. I valori consentiti sono <code>Hex</code> e <code>Base64</code>. Se viene specificato <code>digest-algorithm</code>, il valore predefinito &egrave; <code>Hex</code>. Se non &egrave; stato specificato <code>digest-algorithm</code>, per impostazione predefinita non viene specificata alcuna codifica.</p>
+</dd>
+<dt>Codifica</dt>
+<dd>
+<p>Algoritmo per la cifratura delle password memorizzate nel database.</p>
 
+<hr>
+<p><b>Nota:</b></p>
+La mancata specifica di un algoritmo di cifratura della password costituisce un rischio per la sicurezza.
+<hr>
+
+</dd>
+<dt>Set di caratteri</dt>
+<dd>
+<p>Set di caratteri per l'algoritmo digest.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

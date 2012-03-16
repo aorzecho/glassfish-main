@@ -1,57 +1,83 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-ejbmdbpoolsettings" name="task-ejbmdbpoolsettings"></a><a id="GHEJB00004" name="GHEJB00004"></a></p>
 
-
-<a name="task-ejbmdbpoolsettings"></a><h3>Configurare le impostazioni del pool di MDB</h3><a name="indexterm-1"></a><a name="indexterm-2"></a><a name="indexterm-3"></a><a name="indexterm-4"></a><a name="indexterm-5"></a><p>Il pool di MDB &#232; simile al pool di bean di sessione.
-Per impostazione predefinita, il contenitore include un pool di MDB.</p>
-
-<p>Per impostare la configurazione del pool, attenersi alla procedura seguente.</p>
-
+<h4><a id="sthref2" name="sthref2"></a><a id="sthref3" name="sthref3"></a><a id="sthref4" name="sthref4"></a>Configurare le impostazioni del pool MDB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Il pool per i bean basati su messaggi &egrave; simile al pool di bean di sessione. Per impostazione predefinita, il contenitore include un pool di bean basati su messaggi.</p>
+<p>Per regolare la configurazione del pool, attenersi alla procedura seguente.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Selezionare il nodo EJB Container.</b><p>Viene aperta la pagina EJB (Enterprise Java Beans).</p></li>
-<li><b>Fare clic sulla scheda MDB Settings.</b><p>Viene visualizzata la pagina MDB Default Pool Settings.</p></li>
-<li><b>Nel campo Initial and Minimum Pool Size, digitare il numero minimo di
-MDB da conservare nel pool.</b><p>Il valore predefinito &#232; 0.</p></li>
-<li><b>Nel campo Maximum Pool Size, digitare il numero massimo di bean che
-il contenitore pu&#242; conservare nel pool in una volta sola.</b><p>Il valore predefinito &#232; 32.</p></li>
-<li><b>Nel campo Pool Resize Quantity, digitare il numero di bean che verranno
-rimossi dal pool se rimangono inattivi per un periodo di tempo superiore
-a quello specificato nel campo Pool Idle Timeout.</b><p>Il valore deve essere compreso tra 0 e il valore specificato nel
-campo Maximum Pool Size. Il valore predefinito &#232; 8.</p></li>
-<li><b>Nel campo Pool Idle Timeout, digitare il tempo, in secondi, durante il
-quale un bean pu&#242; rimanere inattivo prima che venga rimosso dal pool.</b><p>Dopo questo periodo di tempo, il bean viene eliminato. Un valore pari
-a 0 indica che un bean pu&#242; rimanere inattivo per un periodo
-di tempo indeterminato. Il valore predefinito &#232; 600.</p></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per il pool
-di MDB.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario modificarne il campo Value.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
+</li>
+<li>
+<p>Selezionare il nodo Contenitore EJB.</p>
+<p>Viene aperta la pagina EJB (Enterprise Java Beans).</p>
+</li>
+<li>
+<p>Fare clic sulla scheda Impostazioni MDB.</p>
+<p>Viene visualizzata la pagina Impostazioni del pool predefinito MDB.</p>
+</li>
+<li>
+<p>Nel campo Dimensione pool iniziale e minima, digitare il numero minimo di MDB da conservare nel pool.</p>
+<p>Il valore predefinito &egrave; 0.</p>
+</li>
+<li>
+<p>Nel campo Dimensione massima pool, digitare il numero massimo di bean che il contenitore pu&ograve; conservare nel pool in una volta sola.</p>
+<p>Il valore predefinito &egrave; 32.</p>
+</li>
+<li>
+<p>Nel campo Quantit&agrave; di ridimensionamento pool, digitare il numero di bean che verranno rimossi dal pool se rimangono inattivi per un periodo di tempo superiore a quello specificato nel campo Timeout inattivit&agrave; pool.</p>
+<p>Il valore deve essere compreso tra 0 e il valore specificato nel campo Dimensione massima pool. Il valore predefinito &egrave; 8.</p>
+</li>
+<li>
+<p>Nel campo Timeout inattivit&agrave; pool, digitare il tempo, in secondi, durante il quale un bean pu&ograve; rimanere inattivo prima che venga rimosso dal pool.</p>
+<p>Dopo questo periodo di tempo, il bean viene eliminato. Un valore pari a 0 indica che un bean pu&ograve; rimanere inattivo per un periodo di tempo indeterminato. Il valore predefinito &egrave; 600.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>In GlassFish Server non &egrave; definita alcuna propriet&agrave; aggiuntiva per il pool di MDB.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li>
-<li><b>Riavviare GlassFish Server.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2965&id=task-ejbgeneral">To Configure EJB Settings</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-ejbtimerservice.html">Configurare EJB Timer Service</a></p>
-
+<li>
+<p>Riavviare GlassFish Server.</p>
 </li>
-<li><p><a href="task-ejbcontaineravailability.html">Configurare le impostazioni di disponibilit&#224; per il contenitore EJB</a></p>
+</ol>
+<a id="sthref5" name="sthref5"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="../../../ejb-lite/it/help/missingtopic.html">To Configure EJB Settings</a></p>
+</li>
+<li>
+<p><a href="task-ejbtimerservice.html">Configurare il servizio timer EJB</a></p>
+</li>
+<li>
+<p><a href="task-ejbcontaineravailability.html">Configurare le impostazioni di disponibilit&agrave; per il contenitore EJB</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

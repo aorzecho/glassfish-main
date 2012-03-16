@@ -1,46 +1,76 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-ejbcontaineravailability" name="task-ejbcontaineravailability"></a><a id="GHEJB00006" name="GHEJB00006"></a></p>
 
-
-<a name="task-ejbcontaineravailability"></a><h3>Configurare le impostazioni di disponibilit&#224; per il contenitore EJB</h3><a name="indexterm-9"></a><a name="indexterm-10"></a><a name="indexterm-11"></a><a name="indexterm-12"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Selezionare la configurazione da modificare.</b></li>
-<li><b>Nel nodo Configuration, selezionare il nodo Availability Service.</b><p>Viene visualizzata la pagina Availability Service.</p></li>
-<li><b>Nella pagina Availability Service, fare clic sulla scheda EJB Container Availability.</b><p>Viene visualizzata la pagina EJB Container Availability.</p></li>
-<li><b>Selezionare la casella Availability Service Enabled per abilitare la disponibilit&#224; per il
-contenitore EJB.</b><p>Per disabilitare la disponibilit&#224;, rimuovere il segno di spunta dalla casella Availability
-Service Enabled.</p></li>
-<li><b>L'opzione HA Persistence Type &#232; impostata su <tt>replicated</tt>.</b><p>Si tratta del meccanismo di persistenza utilizzato quando la casella Availability Service
-Enabled &#232; selezionata. La persistenza si basa su failover in un cluster.
-Non modificare questo valore.</p></li>
-<li><b>L'opzione SFSB Persistence Type &#232; impostata su <tt>file</tt>.</b><p>Si tratta del meccanismo di persistenza utilizzato quando la casella Availability Service
-Enabled <b>non</b> &#232; selezionata. La persistenza si basa sul file system. Non
-modificare questo valore.</p><p>Il campo Session Store Location determina la posizione in cui gli stati
-dei checkpoint SFSB vengono resi persistenti. Per impostare Session Store Location, vedere
-<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2965&id=task-ejbgeneral"> To Configure EJB Settings</a>.</p></li>
-<li><b>Per ripristinare valori predefiniti, fare clic sul pulsante Load Defaults.</b></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per la disponibilit&#224;
-del contenitore EJB.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario modificarne il campo Value.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2965&id=task-ejbgeneral">To Configure EJB Settings</a></p>
-
+<h4><a id="sthref10" name="sthref10"></a><a id="sthref11" name="sthref11"></a><a id="sthref12" name="sthref12"></a><a id="sthref13" name="sthref13"></a>Configurare le impostazioni di disponibilit&agrave; per il contenitore EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">Configurare le impostazioni del pool di MDB</a></p>
-
+<li>
+<p>Selezionare la configurazione da modificare.</p>
 </li>
-<li><p><a href="task-ejbtimerservice.html">Configurare EJB Timer Service</a></p>
+<li>
+<p>Nel nodo Configurazione, selezionare il nodo Servizio disponibilit&agrave;.</p>
+<p>Viene visualizzata la pagina Servizio disponibilit&agrave;.</p>
+</li>
+<li>
+<p>Nella pagina Servizio disponibilit&agrave;, fare clic sulla scheda Disponibilit&agrave; contenitore EJB.</p>
+<p>Viene visualizzata la pagina Disponibilit&agrave; contenitore EJB.</p>
+</li>
+<li>
+<p>Selezionare la casella Servizio disponibilit&agrave; abilitato per abilitare la disponibilit&agrave; per il contenitore EJB.</p>
+<p>Per disabilitare la disponibilit&agrave;, rimuovere il segno di spunta dalla casella Servizio disponibilit&agrave; abilitato.</p>
+</li>
+<li>
+<p>L'opzione Tipo di persistenza HA &egrave; impostata su <code>replicated</code>.</p>
+<p>Si tratta del meccanismo di persistenza utilizzato quando la casella Servizio disponibilit&agrave; abilitato &egrave; selezionata. La persistenza si basa su failover in un cluster. Non modificare questo valore.</p>
+</li>
+<li>
+<p>L'opzione Tipo di persistenza SFSB &egrave; impostata su <code>file</code>.</p>
+<p>Si tratta del meccanismo di persistenza utilizzato quando la casella Servizio disponibilit&agrave; abilitato <i>non</i> &egrave; selezionata. La persistenza si basa sul file system. Non modificare questo valore.</p>
+<p>Il campo Posizione di memorizzazione sessione determina la posizione in cui gli stati dei checkpoint SFSB vengono resi persistenti. Per impostare Posizione di memorizzazione sessione, vedere <a href="../../../ejb-lite/it/help/missingtopic.html">To Configure EJB Settings</a>.</p>
+</li>
+<li>
+<p>Per ripristinare valori predefiniti, fare clic sul pulsante Carica impostazioni predefinite.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>In GlassFish Server non &egrave; definita alcuna propriet&agrave; aggiuntiva per la disponibilit&agrave; del contenitore EJB.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+</ol>
+<a id="sthref14" name="sthref14"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="../../../ejb-lite/it/help/missingtopic.html">To Configure EJB Settings</a></p>
+</li>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">Configurare le impostazioni del pool MDB</a></p>
+</li>
+<li>
+<p><a href="task-ejbtimerservice.html">Configurare il servizio timer EJB</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

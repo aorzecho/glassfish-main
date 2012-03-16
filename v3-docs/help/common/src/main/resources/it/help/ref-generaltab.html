@@ -1,63 +1,99 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-generaltab"></a><h4>General Information</h4>
-<a name="indexterm-141"></a><a name="indexterm-142"></a><p>Nella pagina General Information &#232; possibile verificare le impostazioni di GlassFish Server
-e visualizzare i dati delle macchine virtuali Java.</p>
+<p><a id="ref-generaltab" name="ref-generaltab"></a><a id="GHCOM00058" name="GHCOM00058"></a></p>
 
-<p>La pagina General Information contiene le seguenti informazioni.</p>
-
-<dl><dt>Stop Button</dt>
-<dd><p>Fare clic sul pulsante Stop per arrestare GlassFish Server.</p>
-
+<h4><a id="sthref247" name="sthref247"></a><a id="sthref248" name="sthref248"></a>Informazioni generali</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>The GlassFish Server creates one application server instance, called <code>server</code> at the time of installation. You can delete the server instance and create a new instance with a different name if you prefer.</p>
+<p>Each GlassFish Server instance has its own Java configuration, Java resources, application deployment areas, and server configuration settings. Changes to one application server instance have no effect on other application server instances. You can have one application server instance within one administrative domain.</p>
+<p>For many users, one application server instance meets their needs. However, depending upon your environment, you might want to create one or more additional application server instances. For example, in a development environment you can use different application server instances to test different GlassFish Server configurations, or to compare and test different application deployments. Because you can easily add or delete an application server instance, you can use them to create temporary "sandbox" areas to experiment with while developing.</p>
+<p>In addition, for each application server instance you can also create virtual servers. Within a single installed application server instance you can offer companies or individuals domain names, IP Addresses, and some administration capabilities. For the users, it is almost as if they have their own web server, without the hardware and basic server maintenance. These virtual servers do not span application server instances. For more information about virtual servers, see <a href="ref-serverinstjvmgeneral.html">Impostazioni generali JVM</a>.</p>
+<p>In operational deployments, for many purposes you can use virtual servers instead of multiple application server instances. However, if virtual servers do not meet your needs, you can also use multiple application server instances.</p>
+<p>An GlassFish Server instance is not started automatically. Once you start an instance, the instance runs until you stop it. When you stop an application server instance, it stops accepting new connections, then waits for all outstanding connections to complete. If your machine crashes or is taken offline, the server quits and any requests it was servicing may be lost.</p>
+<p>Nella pagina Informazioni generali &egrave; possibile verificare le impostazioni di GlassFish Server e visualizzare i dati della Java Virtual Machine.</p>
+<p>La pagina Informazioni generali contiene le informazioni riportate di seguito.</p>
+<dl>
+<dt>Pulsante Arresta</dt>
+<dd>
+<p>Fare clic sul pulsante Arresta per arrestare GlassFish Server.</p>
 </dd>
-<dt>Restart Button</dt>
-<dd><p>Fare clic sul pulsante Restart per riavviare GlassFish Server.</p>
-
+<dt>Pulsante Riavvia</dt>
+<dd>
+<p>Fare clic sul pulsante Riavvia per riavviare GlassFish Server.</p>
 </dd>
-<dt>View Log Files Button</dt>
-<dd><p>Fare clic sul pulsante View Log Files per visualizzare i file di log per un'istanza o un cluster GlassFish Server.</p>
-
+<dt>Pulsante Visualizza file di log</dt>
+<dd>
+<p>Fare clic sul pulsante Visualizza file di log per visualizzare i file di log per un'istanza o un cluster GlassFish Server.</p>
 </dd>
-<dt>Name</dt>
-<dd><p>Nome del server.</p>
-
+<dt>Pulsante Visualizza log raw</dt>
+<dd>
+<p>Fare clic sul pulsante Visualizza log raw per visualizzare i file di log raw per il server di amministrazione (denominato <code>server</code>).</p>
+</dd>
+<dt>Pulsante Amministrazione sicura</dt>
+<dd>
+<p>Fare clic sul pulsante Amministrazione sicura per abilitare o disabilitare l'amministrazione sicura nella pagina <a href="ref-securityadmin.html">Amministrazione sicura</a>.</p>
+</dd>
+<dt>Nome</dt>
+<dd>
+<p>Nome del current server.</p>
+</dd>
+<dt>Stato</dt>
+<dd>
+<p>Stato corrente dell'istanza server. Il server pu&ograve; avere lo stato Arrestato, Avviato o In esecuzione</p>
+</dd>
+<dt>Tempo di attivit&agrave;</dt>
+<dd>
+<p>Il numero di ore e minuti in cui l'istanza server &egrave; stata in esecuzione in modo continuativo. Questo campo &egrave; di sola lettura.</p>
+</dd>
+<dt>HTTP Load Balancer</dt>
+<dd>
+<p>The name of the load balancer, if it is enabled for the server instance.</p>
 </dd>
 <dt>JVM</dt>
-<dd><p>Se si fa clic su JVM Report, viene visualizzata una finestra distinta in cui sono disponibili i rapporti relativi alla macchina virtuale Java, tra cui un rapporto di riepilogo, un rapporto di gestione memoria e recupero spazio, un rapporto sul caricamento delle classi e un dump del thread corrente.</p>
-
+<dd>
+<p>Se si fa clic su Report JVM, viene visualizzata una finestra separata in cui sono disponibili i report relativi alla Java Virtual Machine, tra cui un report di riepilogo, un report di gestione memoria e garbage collection, un report sul caricamento delle classi e un dump del thread corrente.</p>
 </dd>
-<dt>Configuration Directory</dt>
-<dd><p>Directory del computer host in cui sono memorizzati i file di configurazione, come <tt>domain.xml</tt>.</p>
-
+<dt>Directory di configurazione</dt>
+<dd>
+<p>Directory del computer host contenente i file di configurazione, ad esempio <code>domain.xml</code>.</p>
 </dd>
-<dt>Installed Version</dt>
-<dd><p>Identificatore della versione di prodotto.</p>
-
+<dt>Versione installata</dt>
+<dd>
+<p>Identificativo della versione di prodotto.</p>
+</dd>
+<dt>Amministrazione sicura</dt>
+<dd>
+<p>Stato corrente dell'amministrazione sicura. I possibili valori sono Abilitato e Non abilitato.</p>
 </dd>
 <dt>Debug</dt>
-<dd><p>Indica se il debug &#232; attivo. Se il debug &#232; attivo, viene visualizzato anche il numero di porta.</p>
-
+<dd>
+<p>Indica se il debug &egrave; abilitato. Se il debug &egrave; abilitato, viene visualizzato anche il numero di porta.</p>
 </dd>
-<dt>HTTP Port(s)</dt>
-<dd><p>Le porte correntemente configurate per richieste e risposte HTTP. </p>
-
+<dt>Porta/e HTTP</dt>
+<dd>
+<p>Porte attualmente configurate per le richieste e le risposte HTTP.</p>
 </dd>
-<dt>IIOP Port(s)</dt>
-<dd><p>Le porte correntemente configurate per richieste e risposte IIOP. </p>
-
+<dt>Porta/e IIOP</dt>
+<dd>
+<p>Porte attualmente configurate per le richieste e le risposte IIOP.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlata</h5>
-
-<ul><li><p><a href="task-generaltab.html">Visualizzare informazioni generali per il DAS</a></p>
-
+<a id="sthref249" name="sthref249"></a>
+<h5>Task correlato</h5>
+<ul>
+<li>
+<p><a href="task-generaltab.html">Visualizzare le informazioni generali per DAS</a></p>
 </li>
-<li><p><a href="task-logviewer.html">Visualizzare i file di log per il DAS</a></p>
+<li>
+<p><a href="task-logviewer.html">Visualizzare file di log per DAS</a></p>
+</li>
+<li>
+<p><a href="task-rawlogviewer.html">Visualizzare i file di log raw per DAS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,141 +1,158 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-filter-logs" name="task-filter-logs"></a><a id="GHCOM00148" name="GHCOM00148"></a></p>
 
-
-<a name="task-filter-logs"></a><h3>Filtrare i record dei log visualizzati</h3><p><b>Prima di cominciare</b></p><p>Verificare che i file di log visualizzati si riferiscano al server di
-amministrazione del dominio (DAS, Domain Administration Server), a un'istanza di GlassFish Server
-in cluster o a un'istanza standalone. Per ulteriori informazioni, vedere i seguenti
-argomenti:</p>
-
-
-<ul><li><p><a href="task-logviewer.html">Visualizzare i file di log per il DAS</a></p>
-
+<h4>Filtrare i record dei log visualizzati</h4>
+<a name="BEGIN" id="BEGIN"></a><a id="sthref29" name="sthref29"></a>
+<h5>Prima di iniziare</h5>
+<p>Verificare che i file di log visualizzati si riferiscano al server di amministrazione del dominio (DAS, Domain Administration Server), a un'istanza di GlassFish Server in cluster o a un'istanza standalone. Per ulteriori informazioni, vedere i seguenti argomenti:</p>
+<ul>
+<li>
+<p><a href="task-logviewer.html">Visualizzare file di log per DAS</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3190&id=task-view-logs-clustered-instance">To&#160;View Log Files for&#160;a Clustered GlassFish Server Instance</a></p>
-
+<li>
+<p><a href="../../../cluster/it/help/missingtopic.html">To&nbsp;View Log Files for&nbsp;a Clustered GlassFish Server Instance</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3190&id=task-view-logs-standalone-instance">To&#160;View Log Files for&#160;a Standalone GlassFish Server Instance</a></p>
-
-</li></ul>
+<li>
+<p><a href="../../../cluster/it/help/missingtopic.html">To&nbsp;View Log Files for&nbsp;a Standalone GlassFish Server Instance</a></p>
+</li>
+</ul>
 <ol>
-<li><b>Nell'area Search Criteria, filtrare i record in base a contenuto, periodo di
-tempo e livello di log.</b><ol style="list-style-type: lower-alpha">
-<li><b>Per visualizzare solo i record contenenti un testo specifico, digitare il testo
-nel campo Text Search.</b><p>La ricerca distingue tra maiuscole e minuscole.</p></li>
-<li><b>Per selezionare il periodo di tempo relativo ai record di log da
-visualizzare, utilizzare l'opzione Timestamp.</b><ul>
-<li><b>Per visualizzare i messaggi pi&#249; recenti, selezionare Most Recent (impostazione predefinita).</b></li>
-<li><b>Per visualizzare i messaggi relativi a un determinato periodo di tempo, selezionare
-Specific Range e digitare valori di data e ora nei campi From
-e To visualizzati.</b><p>Il valore Date deve essere espresso nel seguente formato:</p><pre><i>MM</i>/<i>DD</i>/<i>YY</i></pre><dl><dt><i>MM</i></dt>
-<dd><p>Numero intero compreso nell'intervallo da 1 a 12 corrispondente al mese, ad esempio 1 per gennaio o 10 per ottobre.</p>
-
-</dd>
-<dt><i>DD</i></dt>
-<dd><p>Numero intero compreso nell'intervallo da 1 a 31 corrispondente al giorno del mese.</p>
-
-</dd>
-<dt><i>YY</i></dt>
-<dd><p>Ultime due cifre dell'anno, ad esempio 11 per l'anno 2011.</p>
-
-</dd>
-</dl>
-<p>Ad esempio, per indicare la data 1 febbraio 2011, digitare <tt>2/1/11</tt> nel
-campo Date.</p><p>Il valore Time deve essere espresso nel seguente formato:</p><pre><i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i></pre><dl><dt><i>hh</i></dt>
-<dd><p>Numero intero compreso nell'intervallo da 0 a 23 indicante l'ora. Per le ore del pomeriggio, utilizzare numeri interi compresi nell'intervallo da 12 a 23, ad esempio 14 per indicare le 2 del pomeriggio.</p>
-
-</dd>
-<dt><i>mm</i></dt>
-<dd><p>Numero intero compreso nell'intervallo da 0 a 59 corrispondente al numero di minuti dopo l'ora.</p>
-
-</dd>
-<dt><i>ss</i></dt>
-<dd><p>Numero intero compreso nell'intervallo da 0 a 59 corrispondente al numero di secondi.</p>
-
-</dd>
-<dt><i>SSS</i></dt>
-<dd><p>Numero intero a tre cifre, se necessario con zeri iniziali, compreso nell'intervallo da 000 a 999 corrispondente al numero di millisecondi. </p>
-
-</dd>
-</dl>
-<p>Ad esempio, per indicare le 5:10 del pomeriggio, digitare <tt>17:10:00.000</tt> nel campo
-Time.</p><p>Se il valore incluso in From &#232; successivo al valore incluso in
-To, viene visualizzato un messaggio di errore.</p></li></ul></li>
-<li><b>Filtrare i messaggi in base al livello di log.</b><p>Per assicurare che i messaggi da visualizzare siano presenti nel log del
-server, innanzitutto <a href="task-eelogginglevels.html">impostare i livelli di log appropriati</a> nella pagina Module Log Levels.</p><p>Se si sceglie di filtrare messaggi di log in base al livello
-di log, vengono visualizzati solo i messaggi che soddisfano i criteri di
-filtro specificati. Il filtraggio non ha tuttavia effetto sui messaggi che sono
-registrati nel log del server.</p><ol style="list-style-type: lower-roman">
-<li><b>Dall'elenco a discesa Log Level, selezionare il livello di log.</b></li>
-<li><b>Per visualizzare i messaggi corrispondenti solo al livello selezionato, selezionare l'opzione Do
-Not Include More Severe Messages.</b><p>Per impostazione predefinita, vengono visualizzati tutti i messaggi del log del server
-corrispondenti al livello di log scelto e ai livelli di maggior gravit&#224;.</p></li></ol></li></ol></li>
-<li><b>Nell'area Advanced Search, filtrare i record in base al namespace del programma
-di log e selezionare la quantit&#224; di informazioni da visualizzare.</b><ol style="list-style-type: lower-alpha">
-<li><b>Fare clic sul collegamento Advanced Search.</b><p>Alla finestra Log Viewer viene aggiunta l'area Advanced Search.</p></li>
-<li><b>Per il filtraggio in base al modulo, nell'elenco a discesa Logger, selezionare
-uno o pi&#249; namespace.</b><p>Per selezionare pi&#249; namespace, fare clic su di essi tenendo premuto il
-tasto Maiusc o Ctrl.</p><p>Se si seleziona un namespace a un livello elevato vengono selezionati tutti
-i namespace di livello sottostante. Ad esempio, se si seleziona <tt>javax.enterprise.system</tt>, vengono
-selezionati anche i programmi di log per tutti i moduli in tale
-namespace, come <tt>javax.enterprise.system.core </tt>, <tt>javax.enterprise.system.tools.admin</tt> e cos&#236; via.</p></li>
-<li><b>Per visualizzare i messaggi dei programmi di log per un'applicazione particolare, nel
-campo Custom Logger digitare il nome di ogni programma di log su
-una riga separata.</b><p>Se l'applicazione &#232; costituita da diversi moduli, &#232; possibile visualizzarne alcuni o
-tutti. Ad esempio, un'applicazione potrebbe disporre dei seguenti programmi di log:</p>
-<ul><li><p><tt>com.example.myapp.module1</tt></p>
-
+<li>
+<p>Nell'area Criteri di ricerca, filtrare i record in base a contenuto, periodo di tempo e livello di log.</p>
+<ol type="a">
+<li>
+<p>Per visualizzare solo i record contenenti un testo specifico, digitare il testo nel campo Ricerca di testo.</p>
+<p>La ricerca distingue tra maiuscole e minuscole.</p>
 </li>
-<li><p><tt>com.example.myapp.module2</tt></p>
-
+<li>
+<p>Per selezionare il periodo di tempo relativo ai record di log da visualizzare, utilizzare l'opzione Indicatore orario.</p>
+<ul>
+<li>
+<p>Per visualizzare i messaggi pi&ugrave; recenti, selezionare Pi&ugrave; recente (impostazione predefinita).</p>
 </li>
-<li><p><tt>com.example.myapp.module3</tt></p>
-
-</li></ul>
-<p>Per visualizzare i messaggi di tutti i moduli dell'applicazione, digitare <tt>com.mycompany.myapp </tt>. Per
-visualizzare solo i messaggi di <tt>module2</tt>, digitare <tt> com.example.myapp.module2</tt>.</p><p>Quando si specifica uno o pi&#249; programmi di log personalizzati, i messaggi
-dei moduli GlassFish Server vengono visualizzati solo se vengono specificati esplicitamente nell'area
-Logger.</p></li>
-<li><b>Nell'elenco a discesa Display, selezionare il numero di messaggi da visualizzare.</b><p>Il numero predefinito di messaggi visualizzati &#232; 40. Altre opzioni sono 100,
-250 e 1000.</p></li>
-<li><b>Per visualizzare le tracce dello stack, deselezionare l'opzione Limit Excessively Long Messages.</b><p>Per impostazione predefinita, le tracce dello stack non vengono visualizzate nel visualizzatore.
-Per visualizzarle, fare clic sul collegamento (details) per un messaggio.</p></li>
-<li><b>Per nascondere l'area Advanced Search, fare clic sul collegamento Basic Search.</b></li></ol></li>
-<li><b>Per specificare l'istanza e il file di log associato da visualizzare, utilizzare
-l'area Modify Search.</b><ul>
-<li><b>Nell'elenco a discesa Instance, selezionare l'istanza.</b><p>L'impostazione predefinita &#232; l'istanza per la quale &#232; stata inizialmente selezionata la
-visualizzazione dei file di log. Se &#232; stata selezionata la visualizzazione dei
-file di log per il server di amministrazione del dominio (DAS, Domain
-Administration Server), l'impostazione predefinita &#232; server, che denota il DAS. </p></li>
-<li><b>Nell'elenco a discesa Log File, selezionare il file di log.</b><p>Il valore predefinito &#232; <tt>server.log</tt>. Altre opzioni dipendono dalle impostazioni di log
-per la destinazione selezionata.</p></li></ul></li>
-<li><b>Nell'area Search Results, personalizzare la visualizzazione dei messaggi del log.</b><p>L'area Search Results visualizza le 40 voci pi&#249; recenti del log del
-server, con le impostazioni specificate nelle pagine Logging Settings e Log Levels.</p><ul>
-<li><b>Per ordinare i messaggi in modo diverso, fare clic sulle frecce presenti
-nelle colonne.</b></li>
-<li><b>Per visualizzare la versione formattata di un messaggio, fare clic sul collegamento
-(details) per il messaggio.</b><p>Viene visualizzata una finestra Log Entry Detail contenente la versione formattata del
-messaggio.</p></li>
-<li><b>Per visualizzare voci precedenti o successive del file di log, fare clic
-su Records Before e Records After nella parte superiore della tabella.</b></li></ul></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-eelogging.html">Configurare impostazioni generali per il log</a></p>
-
+<li>
+<p>Per visualizzare i messaggi relativi a un determinato periodo di tempo, selezionare Intervallo specifico e digitare valori di data e ora nei campi Da e A visualizzati.</p>
+<p>Il valore di data deve essere espresso nel seguente formato:</p>
+<pre>
+<i>MM</i>/<i>DD</i>/<i>YY</i>
+</pre>
+<p><code><i>MM</i></code> &egrave; un numero intero compreso nell'intervallo da 1 a 12 corrispondente al mese, ad esempio 1 per gennaio o 10 per ottobre. <code><i>DD</i></code> &egrave; un numero intero compreso nell'intervallo da 1 a 31 corrispondente al giorno del mese. <code><i>YY</i></code> sono le ultime due cifre dell'anno, ad esempio 11 per l'anno 2011.</p>
+<p>Ad esempio, per indicare la data 1 febbraio 2011, digitare <code>2/1/11</code> nel campo Data.</p>
+<p>Il valore Ora deve essere espresso nel seguente formato:</p>
+<pre>
+<i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i>
+</pre>
+<p><code><i>hh</i></code> &egrave; un numero intero compreso nell'intervallo da 0 a 23 indicante l'ora. Per le ore del pomeriggio, utilizzare numeri interi compresi nell'intervallo da 12 a 23, ad esempio 14 per indicare le 2 del pomeriggio. <code><i>mm</i></code> &egrave; un numero intero compreso nell'intervallo da 0 a 59 corrispondente al numero di minuti dopo l'ora. <code><i>ss</i></code> &egrave; un numero intero compreso nell'intervallo da 0 a 59 corrispondente al numero di secondi. <code><i>SSS</i></code> &egrave; un numero intero a tre cifre, se necessario con zeri iniziali, compreso nell'intervallo da 000 a 999 corrispondente al numero di millisecondi.</p>
+<p>Ad esempio, per indicare le 5:10 del pomeriggio, digitare <code>17:10:00.000</code> nel campo Ora.</p>
+<p>Se il valore incluso in Da &egrave; successivo al valore incluso in A, viene visualizzato un messaggio di errore.</p>
 </li>
-<li><p><a href="task-eelogginglevels.html">Configurare i livelli di log</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-logviewer.html">Visualizzare i file di log per il DAS</a></p>
-
+<li>
+<p>Filtrare i messaggi in base al livello di log.</p>
+<p>Per assicurarsi che i messaggi da visualizzare siano presenti nel log del server, innanzitutto impostare i livelli di log appropriati nella pagina Livelli di log dei moduli. Per istruzioni, vedere <a href="task-eelogginglevels.html">Configurare i livelli di log</a>.</p>
+<p>Se si sceglie di filtrare messaggi di log in base al livello di log, vengono visualizzati solo i messaggi che soddisfano i criteri di filtro specificati. Il filtraggio non ha tuttavia effetto sui messaggi che sono registrati nel log del server.</p>
+<ol>
+<li>
+<p>Dall'elenco a discesa Livello di log, selezionare il livello di log.</p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3190&id=task-view-logs-clustered-instance">To&#160;View Log Files for&#160;a Clustered GlassFish Server Instance</a></p>
-
+<li>
+<p>Per visualizzare i messaggi corrispondenti solo al livello selezionato, selezionare l'opzione Non includere messaggi di livello SEVERE maggiore.</p>
+<p>Per impostazione predefinita, vengono visualizzati tutti i messaggi del log del server corrispondenti al livello di log scelto e ai livelli di maggior gravit&agrave;.</p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3190&id=task-view-logs-standalone-instance">To&#160;View Log Files for&#160;a Standalone GlassFish Server Instance</a></p>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Nell'area Ricerca avanzata, filtrare i record in base al namespace del programma di log e selezionare la quantit&agrave; di informazioni da visualizzare.</p>
+<ol type="a">
+<li>
+<p>Fare clic sul collegamento Ricerca avanzata.</p>
+<p>Alla finestra Visualizzatore log viene aggiunta l'area Ricerca avanzata.</p>
+</li>
+<li>
+<p>Per il filtraggio in base al modulo, nell'elenco a discesa Logger, selezionare uno o pi&ugrave; namespace.</p>
+<p>Per selezionare pi&ugrave; namespace, fare clic su di essi tenendo premuto il tasto Maiusc o Ctrl.</p>
+<p>Se si seleziona uno spazio di nomi namespace a un livello elevato vengono selezionati tutti gli spazi di nomi di livello sottostante. Ad esempio, se si seleziona <code>javax.enterprise.system</code>, vengono selezionati anche i programmi di log per tutti i moduli in tale spazio di nomi, come <code>javax.enterprise.system.core</code>, <code>javax.enterprise.system.tools.admin</code> e cos&igrave; via.</p>
+</li>
+<li>
+<p>Per visualizzare i messaggi dei programmi di log per un'applicazione particolare, nel campo Logger personalizzato digitare il nome di ogni programma di log su una riga separata.</p>
+<p>Se l'applicazione &egrave; costituita da diversi moduli, &egrave; possibile visualizzarne alcuni o tutti. Ad esempio, un'applicazione potrebbe disporre dei seguenti programmi di log:</p>
+<pre>
+com.example.myapp.module1
+com.example.myapp.module2
+com.example.myapp.module3
+</pre>
+<p>Per visualizzare i messaggi di tutti i moduli dell'applicazione, digitare <code>com.mycompany.myapp</code> . Per visualizzare solo i messaggi di <code>module2</code>, digitare <code>com.example.myapp.module2</code>.</p>
+<p>Quando si specifica uno o pi&ugrave; programmi di log personalizzati, i messaggi dei moduli GlassFish Server vengono visualizzati solo se vengono specificati esplicitamente nell'area Logger.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa Visualizza, selezionare il numero di messaggi da visualizzare.</p>
+<p>Il numero predefinito di messaggi visualizzati &egrave; 40. Altre opzioni sono 100, 250 e 1000.</p>
+</li>
+<li>
+<p>Per visualizzare gli stack trace, deselezionare l'opzione Limita messaggi troppo lunghi.</p>
+<p>Per impostazione predefinita, gli stack trace non vengono visualizzate nel visualizzatore. Per visualizzarle, fare clic sul collegamento (details) per un messaggio.</p>
+</li>
+<li>
+<p>Per nascondere l'area Ricerca avanzata, fare clic sul collegamento Ricerca di base.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Per specificare l'istanza e il file di log associato da visualizzare, utilizzare l'area Modifica ricerca.</p>
+<ul>
+<li>
+<p>Nell'elenco a discesa Istanza, selezionare l'istanza.</p>
+<p>L'impostazione predefinita &egrave; l'istanza per la quale &egrave; stata inizialmente selezionata la visualizzazione dei file di log. Se &egrave; stata selezionata la visualizzazione dei file di log per il server di amministrazione del dominio (DAS, Domain Administration Server), l'impostazione predefinita &egrave; server, che denota il DAS.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa File di log, selezionare il file di log.</p>
+<p>Il valore predefinito &egrave; <code>server.log</code>. Altre opzioni dipendono dalle impostazioni di log per la destinazione selezionata.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nell'area Risultati ricerca, personalizzare la visualizzazione dei messaggi del log.</p>
+<p>L'area Risultati ricerca visualizza le 40 voci pi&ugrave; recenti del log del server, con le impostazioni specificate nelle pagine Impostazioni log e Livelli di log.</p>
+<ul>
+<li>
+<p>Per ordinare i messaggi in modo diverso, fare clic sulle frecce presenti nelle colonne.</p>
+</li>
+<li>
+<p>Per visualizzare la versione formattata di un messaggio, fare clic sul collegamento (details) per il messaggio.</p>
+<p>Viene visualizzata una finestra Dettagli voce log contenente la versione formattata del messaggio.</p>
+</li>
+<li>
+<p>Per visualizzare voci precedenti o successive del file di log, fare clic su Record prima di e Record dopo nella parte superiore della tabella.</p>
+</li>
+</ul>
+</li>
+</ol>
+<a id="sthref30" name="sthref30"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-eelogging.html">Configurare le impostazioni di log generali</a></p>
+</li>
+<li>
+<p><a href="task-eelogginglevels.html">Configurare i livelli di log</a></p>
+</li>
+<li>
+<p><a href="task-logviewer.html">Visualizzare file di log per DAS</a></p>
+</li>
+<li>
+<p><a href="../../../cluster/it/help/missingtopic.html">To&nbsp;View Log Files for&nbsp;a Clustered GlassFish Server Instance</a></p>
+</li>
+<li>
+<p><a href="../../../cluster/it/help/missingtopic.html">To&nbsp;View Log Files for&nbsp;a Standalone GlassFish Server Instance</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

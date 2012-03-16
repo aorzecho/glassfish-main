@@ -1,120 +1,121 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-networklistenernew"></a><h4>New Network Listener</h4>
-<a name="indexterm-65"></a><p>Nella pagina New Network Listener &#232; possibile creare un nuovo listener di
-rete.</p>
+<p><a id="ref-networklistenernew" name="ref-networklistenernew"></a><a id="GHWEB00016" name="GHWEB00016"></a></p>
 
-<p>Quando si crea un listener di rete, &#232; possibile creare simultaneamente un
-protocollo per il listener di rete, oppure utilizzare un protocollo creato in
-precedenza. In genere tra un listener di rete e il protocollo associato
-viene stabilita una relazione uno-a-uno, ma non si tratta di un requisito
-obbligatorio.</p>
-
-<p>La pagina New Network Listener contiene le seguenti opzioni.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<h4><a id="sthref133" name="sthref133"></a>Nuovo listener di rete</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Nuovo listener di rete &egrave; possibile creare un nuovo listener di rete.</p>
+<p>Quando si crea un listener di rete, &egrave; possibile creare contemporaneamente un protocollo per il listener di rete oppure utilizzare un protocollo creato in precedenza. In genere, tra un listener di rete e il protocollo associato viene stabilita una relazione uno-a-uno, ma non si tratta di un requisito obbligatorio.</p>
+<p>La pagina Nuovo listener di rete contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
-<dt>Name</dt>
-<dd><p>Nome univoco del listener. I nomi di listener di rete non possono iniziare con un numero.</p>
-
+<dt>Nome</dt>
+<dd>
+<p>Nome univoco del listener. Il nome del listener di rete non pu&ograve; iniziare con un numero.</p>
 </dd>
-<dt>Protocol</dt>
-<dd><p>Protocollo associato al listener di rete. Le seguenti opzioni specificano se creare un protocollo o utilizzarne uno esistente.</p>
-
-<dl><dt>Create a New Protocol</dt>
-<dd><p>Viene creato un nuovo protocollo con impostazioni predefinite per il listener di rete. Il nome predefinito del protocollo &#232; il nome del listener di rete con l'aggiunta del suffisso <tt>-protocol</tt>, ma il valore &#232; modificabile.</p>
-
-<dl><dt>Virtual Server</dt>
-<dd><p>Server virtuale da associare a un nuovo protocollo.</p>
-
+<dt>Protocollo</dt>
+<dd>
+<p>Protocollo associato al listener di rete. Le opzioni riportate di seguito specificano se creare un protocollo o utilizzarne uno esistente.</p>
+<dl>
+<dt>Crea un nuovo protocollo</dt>
+<dd>
+<p>Viene creato un nuovo protocollo con le impostazioni predefinite per il listener di rete. Il nome predefinito del protocollo &egrave; il nome del listener di rete con l'aggiunta di <code>-protocol</code>, ma il valore &egrave; modificabile.</p>
+<dl>
+<dt>Server virtuale</dt>
+<dd>
+<p>Server virtuale da associare a un nuovo protocollo.</p>
 </dd>
 </dl>
 </dd>
-<dt>Use an Existing Protocol</dt>
-<dd><p>Viene utilizzato il protocollo selezionato.</p>
-
+<dt>Usa un protocollo esistente</dt>
+<dd>
+<p>Viene utilizzato il protocollo selezionato.</p>
 </dd>
 </dl>
 </dd>
-<dt>Status</dt>
-<dd><p>Stato del listener di rete. Il listener pu&#242; essere abilitato o disabilitato. Questa opzione &#232; abilitata per impostazione predefinita. Se il listener &#232; disabilitato, ogni tentativo di connessione al listener genera un'eccezione nel socket (<tt>java.net.ConnectException</tt>).</p>
-
-<p>Nelle versioni di GlassFish Server anteriori alla 9.1, in caso di listener con attributo Enabled impostato su False, veniva restituito un codice di risposta 404 per ogni richiesta inviata. Per ottenere questo funzionamento nella versione corrente di GlassFish Server, impostare lo stato del listener su Enabled e lo stato di ciascun server virtuale associato su OFF. I listener associati a un server virtuale vengono riportati nell'elenco a discesa Network Listeners disponibile nel server.</p>
-
+<dt>Stato</dt>
+<dd>
+<p>Stato del listener di rete. Il listener pu&ograve; essere abilitato o disabilitato. Questa opzione &egrave; abilitata per impostazione predefinita. Se il listener &egrave; disabilitato, i tentativi di connessione al listener generano un'eccezione nel socket (<code>java.net.ConnectException</code>).</p>
+<p>Nelle versioni di GlassFish Server precedenti alla 9.1, in caso di listener con attributo Enabled impostato su False, veniva restituito un codice di risposta 404 per ogni richiesta inviata. Per ottenere questo funzionamento nella versione corrente di GlassFish Server, impostare lo stato del listener su Enabled e lo stato di ciascun server virtuale associato su OFF. I listener associati a un server virtuale sono riportati nell'elenco a discesa Listener di rete disponibile nel server.</p>
 </dd>
-<dt>Security</dt>
-<dd><p>Se l'opzione &#232; selezionata viene abilitata la protezione per il protocollo utilizzato dal listener di rete. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Sicurezza</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, la sicurezza viene abilitata per il protocollo utilizzato dal listener di rete. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>JK Listener</dt>
-<dd><p>Se l'opzione &#232; selezionata, il listener supporta il protocollo <tt> mod-jk</tt> di Apache. Il protocollo <tt>mod-jk</tt> &#232; un protocollo di comunicazione/rete proprietario tra <tt>httpd</tt> (server Web) di Apache e un'istanza backend di GlassFish Server. Se il listener supporta il protocollo, tutto il contenuto statico dovrebbe essere gestito mediante <tt>httpd</tt>, mentre le richieste di risorse dinamiche (ad esempio servlet e pagine JSP) vengono reindirizzate al listener di rete abilitato <tt>mod-jk</tt> di GlassFish Server tramite il protocollo <tt>mod-jk</tt>. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Listener JK</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, il listener supporta il protocollo <code>mod-jk</code> di Apache. Il protocollo <code>mod-jk</code> &egrave; un protocollo di comunicazione/rete proprietario tra <code>httpd</code> (server Web) di Apache e un'istanza backend di GlassFish Server. Se il listener supporta questo protocollo, si presume che tutto il contenuto statico venga gestito mediante <code>httpd</code>, mentre le richieste di risorse dinamiche, ad esempio servlet e pagine JSP, vengono reindirizzate al listener di rete abilitato <code>mod-jk</code> di GlassFish Server tramite il protocollo <code>mod-jk</code>. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Port</dt>
-<dd><p>Numero della porta di attesa del listener. Sono ammessi i valori compresi tra 1 e 65535. In un sistema UNIX, per creare socket in attesa su porte comprese tra 1 e 1024 sono necessari privilegi di superutente.</p>
-
+<dt>Porta</dt>
+<dd>
+<p>Numero di porta di ascolto del listener. I valori validi sono compresi tra 1 e 65535. In un sistema UNIX, la creazione di socket che restano in ascolto sulle porte comprese tra 1 e 1024 richiede privilegi di utente privilegiato.</p>
 </dd>
-<dt>Address</dt>
-<dd><p>Indirizzo IP di attesa per il listener di rete. L'indirizzo pu&#242; essere specificato utilizzando la notazione per indirizzi IPv6 o con separazione mediante coppie di punti. &#200; possibile specificare <tt>any</tt> (per <tt> INADDR_ANY</tt>) per impostare tutti gli indirizzi IP per l'attesa. Pu&#242; essere costituito da un nome host.</p>
-
+<dt>Indirizzo</dt>
+<dd>
+<p>Indirizzo IP di ascolto del listener di rete. L'indirizzo pu&ograve; essere specificato utilizzando la notazione per indirizzi IPv6 o con separazione mediante coppie di punti. &Egrave; possibile specificare <code>any</code> (per <code>INADDR_ANY</code>) per eseguire le operazioni di ascolto su tutti gli indirizzi IP. Pu&ograve; essere costituito da un nome host.</p>
 </dd>
-<dt>Thread Pool</dt>
-<dd><p>Pool di thread associato al listener di rete. In genere si seleziona uno dei due pool di thread configurati durante l'installazione di GlassFish Server.</p>
-
+<dt>Pool di thread</dt>
+<dd>
+<p>Pool di thread associato al listener di rete. In genere, si seleziona uno dei due pool di thread configurati durante l'installazione di GlassFish Server.</p>
 </dd>
-<dt>Transport</dt>
-<dd><p>Tipo di trasporto per il listener di rete. Per impostazione predefinita, l'unica opzione &#232; <tt>tcp</tt>.</p>
-
+<dt>Trasporto</dt>
+<dd>
+<p>Tipo di trasporto per il listener di rete. Per impostazione predefinita, l'unica opzione &egrave; <code>tcp</code>.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-networklistenernew.html">Creare un listener di rete</a></p>
-
+<a id="sthref134" name="sthref134"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-networklistenernew.html">Creare un listener di rete</a></p>
 </li>
-<li><p><a href="task-networklisteneredit.html">Modificare un listener di rete</a></p>
-
+<li>
+<p><a href="task-networklisteneredit.html">Modificare un listener di rete</a></p>
 </li>
-<li><p><a href="task-networklistenerdelete.html">Eliminare un listener di rete</a></p>
-
+<li>
+<p><a href="task-networklistenerdelete.html">Eliminare un listener di rete</a></p>
 </li>
-<li><p><a href="task-protocolnew.html">Creare un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolnew.html">Creare un protocollo</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">Modificare le impostazioni SSL di un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Modificare le impostazioni SSL per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP di un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
 </li>
-<li><p><a href="task-virtualservercreate.html">Creare server virtuali</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-network-listener-1"><tt>create-network-listener</tt>(1)</a></p>
-
+<li>
+<p><a href="task-virtualservercreate.html">Creare un server virtuale</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-network-listeners-1"><tt>list-network-listeners</tt>(1)</a></p>
-
+</ul>
+<a id="sthref135" name="sthref135"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00046"><code>create-network-listener</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-network-listener-1"><tt>delete-network-listener</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00186"><code>list-network-listeners</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00098"><code>delete-network-listener</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

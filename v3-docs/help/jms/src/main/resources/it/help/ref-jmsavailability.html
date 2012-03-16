@@ -1,71 +1,67 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmsavailability"></a><h4>Disponibilit&#224; JMS</h4>
-<a name="indexterm-41"></a><a name="indexterm-42"></a><p>Nella pagina JMS Availability &#232; possibile configurare le impostazioni di disponibilit&#224; per
-il servizio JMS (Java Message Service).</p>
+<p><a id="ref-jmsavailability" name="ref-jmsavailability"></a><a id="GHJMS00009" name="GHJMS00009"></a></p>
 
-<p>La pagina JMS Availability contiene le seguenti opzioni.</p>
-
-<dl><dt>Load Defaults</dt>
-<dd><p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
-
+<h4><a id="sthref71" name="sthref71"></a><a id="sthref72" name="sthref72"></a>Disponibilit&agrave; JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Disponibilit&agrave; JMS &egrave; possibile configurare le impostazioni di disponibilit&agrave; per Java Message Service (JMS).</p>
+<p>La pagina Disponibilit&agrave; JMS contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Carica impostazioni predefinite</dt>
+<dd>
+<p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
-<dt>Availability Service</dt>
-<dd><p>Tipo di cluster Message Queue utilizzato per fornire servizi JMS a un cluster GlassFish. Se &#232; selezionata la casella di controllo Enabled, viene utilizzato un cluster Message Queue ottimizzato. In caso contrario, viene utilizzato un cluster Message Queue tradizionale.</p>
-
-<p>Se &#232; selezionata la casella di controllo Enabled, le opzioni Configuration Store Type e Message Store Type vengono ignorate.</p>
-
+<dt>Servizio disponibilit&agrave;</dt>
+<dd>
+<p>Tipo di cluster Message Queue utilizzato per fornire i servizi JMS a un cluster GlassFish. Se la casella di controllo Abilitato &egrave; selezionata, viene utilizzato un cluster Message Queue avanzato. In caso contrario, viene utilizzato un cluster Message Queue convenzionale.</p>
+<p>Se la casella di controllo Abilitato &egrave; selezionata, le opzioni Tipo di area di memorizzazione dei messaggi configurazione e Tipo di area di memorizzazione messaggi vengono ignorate.</p>
 </dd>
-<dt>Configuration Store Type</dt>
-<dd><p>Tipo di archivio dati per i dati di configurazione in un cluster Message Queue tradizionale. Il valore <tt>masterbroker</tt> specifica l'utilizzo di un broker principale per archiviare e gestire i dati di configurazione. Il valore <tt>shareddb </tt> specifica l'utilizzo di un database condiviso per archiviare i dati di configurazione.</p>
-
-<p>Se il servizio di disponibilit&#224; &#232; abilitato, l'opzione viene ignorata.</p>
-
+<dt>Tipo di area di memorizzazione configurazione</dt>
+<dd>
+<p>Tipo di datastore e per i dati di configurazione in un cluster Message Queue convenzionale. Il valore <code>masterbroker</code> specifica l'uso di un broker principale per memorizzare e gestire i dati di configurazione. Il valore <code>shareddb</code> specifica l'uso di un database condiviso per memorizzare i dati di configurazione.</p>
+<p>Questa opzione viene ignorata se il servizio disponibilit&agrave; &egrave; abilitato.</p>
 </dd>
-<dt>Message Store Type</dt>
-<dd><p>Tipo di archivio dati per i dati del messaggio nei broker in un cluster tradizionale. Il valore <tt>file</tt> specifica un archivio file. Il valore <tt> jdbc</tt> specifica un archivio JDBC.</p>
-
-<p>Se il servizio di disponibilit&#224; &#232; abilitato, l'opzione viene ignorata.</p>
-
+<dt>Tipo di area di memorizzazione messaggi</dt>
+<dd>
+<p>Tipo di datastore per i dati dei messaggi nei broker in un cluster tradizionale. Il valore <code>file</code> specifica un'area di memorizzazione file. Il valore <code>jdbc</code> specifica un'area di memorizzazione JDBC.</p>
+<p>Questa opzione viene ignorata se il servizio disponibilit&agrave; &egrave; abilitato.</p>
 </dd>
-<dt>Database Vendor</dt>
-<dt>Database User Name</dt>
-<dt>Database Password</dt>
-<dt>Database Access URL</dt>
-<dd><p>Produttore, utente, password e URL di accesso del database JDBC da utilizzare in ognuna delle situazioni seguenti:</p>
-
-
-<ul><li><p>Quando il servizio di disponibilit&#224; &#232; abilitato</p>
-
+<dt>Fornitore database</dt>
+<dt>Nome utente database</dt>
+<dt>Password database</dt>
+<dt>URL di accesso al database</dt>
+<dd>
+<p>Fornitore, utente, password e URL di accesso del database JDBC da utilizzare in una delle situazioni riportate di seguito.</p>
+<ul>
+<li>
+<p>Quando il servizio disponibilit&agrave; &egrave; abilitato.</p>
 </li>
-<li><p>Quando Configuration Store Type &#232; impostato su <tt>shareddb</tt></p>
-
+<li>
+<p>Quando il tipo di area di memorizzazione di configurazione &egrave; impostato su <code>shareddb</code>.</p>
 </li>
-<li><p>Quando Message Store Type &#232; impostato su <tt>jdbc</tt></p>
-
-</li></ul>
-<p>Per informazioni sui produttori supportati e sui formati degli URL di accesso per ciascun produttore, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=gheaz">JDBC-Based Persistence in <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide</i></a>.</p>
-
+<li>
+<p>Quando il tipo di area di memorizzazione messaggi &egrave; impostato su <code>jdbc</code>.</p>
+</li>
+</ul>
+<p>Per informazioni sui fornitori supportati e sui formati degli url di accesso per ciascun fornitore, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GMADG00244"><i>JDBC-Based Persistence</i> in <i>Oracle GlassFish Server Message Queue Administration Guide</i></a>.</p>
 </dd>
-<dt>Additional Properties</dt>
-<dd><p>Propriet&#224; aggiuntive per la disponibilit&#224; JMS.</p>
-
-<p>In GlassFish Server non &#232; predefinita alcuna propriet&#224; di disponibilit&#224; JMS aggiuntiva.</p>
-
+<dt>Propriet&agrave; aggiuntive</dt>
+<dd>
+<p>Propriet&agrave; aggiuntive per la disponibilit&agrave; JMS.</p>
+<p>In GlassFish Server non &egrave; definita alcuna propriet&agrave; aggiuntiva per la disponibilit&agrave; JMS.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-jmsservice.html">Configurare il servizio JMS</a></p>
-
-</li></ul>
+<a id="sthref73" name="sthref73"></a>
+<h5>Task correlati</h5>
+<p><a href="task-jmsservice.html">Configurare il servizio JMS</a></p>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

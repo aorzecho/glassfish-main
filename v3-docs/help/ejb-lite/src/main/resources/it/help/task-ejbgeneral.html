@@ -1,108 +1,130 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-ejbgeneral" name="task-ejbgeneral"></a><a id="GHEJL00002" name="GHEJL00002"></a></p>
 
-
-<a name="task-ejbgeneral"></a><h3>Configurare le impostazioni di EJB</h3><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
-<li><b>Nella struttura ad albero, selezionare il nodo Configuration.</b></li>
-<li><b>Selezionare il nodo EJB Container.</b><p>Viene aperta la pagina EJB (Enterprise Java Beans).</p></li>
-<li><b>Nel campo Session Store Location, digitare un nuovo valore per la posizione
-di memorizzazione della sessione.</b><p>In questo campo viene specificata la directory utilizzata per memorizzare nel file
-system i bean di sessione passivi con stato e gli stati dei
-checkpoint SFSB persistenti. Il valore predefinito &#232; <tt> ${com.sun.aas.instanceRoot}/session-store</tt>.</p><p>I bean passivi sono bean di sessione con stato il cui stato
-&#232; scritto in un file del file system. In genere i bean
-passivi sono inattivi da un determinato periodo di tempo e in essi
-non &#232; in corso l'accesso da parte dei client. Analogamente, gli stati
-dei checkpoint SFSB persistenti sono singoli bean SFSB il cui stato &#232;
-stato scritto in un file del file system.</p><p>Questa impostazione &#232; valida per gli stati dei checkpoint SFSB soltanto se
-la disponibilit&#224; del contenitore EJB &#232; disabilitata. Per disabilitare la disponibilit&#224;, vedere
-<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2956&id=task-ejbcontaineravailability">To Configure Availability Settings for the EJB Container</a>.</p></li>
-<li><b>Selezionare i pulsanti di scelta relativi all'opzione B o all'opzione C per
-impostare l'opzione Commit Option.</b><p>L'opzione Commit Option consente di specificare il tipo di memorizzazione cache da
-utilizzare nel contenitore per le istanze di bean passivi tra le transazioni.</p><ul>
-<li><b>Se si seleziona l'opzione B (impostazione predefinita), il contenitore memorizza nella cache
-un'istanza predisposta tra le transazioni.</b></li>
-<li><b>Se si seleziona l'opzione C, il contenitore non memorizza nella cache un'istanza
-predisposta tra le transazioni.</b></li></ul></li>
-<li><b>Nel campo Initial and Minimum Pool Size, digitare il numero minimo di
-bean da conservare nel pool.</b><p>Il valore predefinito &#232; 0.</p></li>
-<li><b>Nel campo Maximum Pool Size, digitare il numero massimo di bean che
-il contenitore pu&#242; conservare nel pool in una volta sola.</b><p>Il valore predefinito &#232; 32.</p></li>
-<li><b>Nel campo Pool Resize Quantity, digitare il numero di bean che verranno
-rimossi dal pool se rimangono inattivi per un periodo di tempo superiore
-a quello specificato nel campo Pool Idle Timeout.</b><p>Il valore deve essere compreso tra 0 e il valore specificato nel
-campo Maximum Pool Size. Il valore predefinito &#232; 8.</p></li>
-<li><b>Nel campo Pool Idle Timeout, digitare il tempo, in secondi, durante il
-quale un bean del pool pu&#242; rimanere inattivo prima che venga rimosso
-dal pool.</b><p>Dopo questo periodo di tempo, il bean viene eliminato. Un valore pari
-a 0 indica che un bean pu&#242; rimanere inattivo per un periodo
-di tempo indeterminato. Il valore predefinito &#232; 600.</p></li>
-<li><b>Nel campo Max Cache Size, digitare il numero massimo di bean da
-conservare nella cache.</b><p>Per evitare l'overhead di creazione e distruzione dei bean, aumentare il numero
-massimo di bean memorizzabili nella cache. Tenere tuttavia presente che se si
-aumenta la capacit&#224; della cache, il server utilizza una quantit&#224; maggiore di
-memoria e risorse. Verificare che l'ambiente operativo sia sufficiente per le impostazioni
-cache. Un valore pari a 0 indica una cache senza limiti. Il
-valore predefinito &#232; 512.</p></li>
-<li><b>Nel campo Cache Resize Quantity, digitare il numero di bean da rendere
-passivi quando la cache &#232; piena.</b><p>Quando si raggiunge il numero massimo di bean memorizzati nella cache, il
-contenitore rimuove un determinato numero di bean passivi dall'archivio di backup. Questo
-valore indica inoltre il numero di bean da creare se arriva una
-richiesta quando nel pool non sono presenti bean disponibili. Il valore deve
-essere superiore a 1 e inferiore al valore specificato nel campo Max
-Cache Size. Il valore predefinito &#232; 32.</p></li>
-<li><b>Nel campo Removal Timeout, digitare il numero di secondi al termine dei
-quali un bean passivo viene rimosso dall'archivio di sessione.</b><p>Un valore pari a 0 indica che il contenitore non rimuove automaticamente
-i bean inattivi. Se il valore di Removal Timeout &#232; inferiore o
-pari a quello di Cache Idle Timeout, i bean vengono rimossi immediatamente
-senza diventare passivi. Il valore predefinito &#232; 5400.</p></li>
-<li><b>Dall'elenco a discesa Removal Selection Policy, selezionare il criterio utilizzato dal contenitore
-per rimuovere dalla cache i bean di sessione con stato.</b><p>Di seguito sono indicate le opzioni disponibili:</p><dl><dt>Not recently used (NRU)</dt>
-<dd><p>(Impostazione predefinita) Rimuove un bean che non &#232; stato utilizzato di recente.</p>
-
+<h4><a id="sthref2" name="sthref2"></a><a id="sthref3" name="sthref3"></a>configurare le impostazioni EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione selezionare il nodo Configurazione.</p>
+</li>
+<li>
+<p>Selezionare il nodo Contenitore EJB.</p>
+<p>Viene aperta la pagina EJB (Enterprise Java Beans).</p>
+</li>
+<li>
+<p>Nel campo Posizione di memorizzazione sessione, digitare un nuovo valore per la posizione di memorizzazione della sessione.</p>
+<p>In questo campo viene specificata la directory utilizzata per memorizzare nel file system i bean passivi di sessione con conservazione dello stato e gli stati dei checkpoint SFSB persistenti. Il valore predefinito &egrave; <code>${com.sun.aas.instanceRoot}/session-store</code>.</p>
+<p>I bean passivi sono bean di sessione con conservazione dello stato il cui stato &egrave; scritto in un file del file system. In genere i bean passivi sono inattivi da un determinato periodo di tempo e in essi non &egrave; in corso l'accesso da parte dei client. Analogamente, gli stati dei checkpoint SFSB persistenti sono singoli bean SFSB il cui stato &egrave; stato scritto in un file del file system.</p>
+<p>Questa impostazione &egrave; valida per gli stati dei checkpoint SFSB soltanto se la disponibilit&agrave; del contenitore EJB &egrave; disabilitata. Per disabilitare la disponibilit&agrave;, vedere <a href="../../../ejb/it/help/missingtopic.html">To Configure Availability Settings for the EJB Container</a>.</p>
+</li>
+<li>
+<p>Selezionare i pulsanti di scelta relativi all'opzione B o all'opzione C per impostare l'opzione Opzione commit.</p>
+<p>L'opzione Opzione commit consente di specificare il tipo di memorizzazione cache da utilizzare nel contenitore per le istanze di bean passivi tra le transazioni.</p>
+<ul>
+<li>
+<p>Se si seleziona l'opzione B (impostazione predefinita), il contenitore memorizza nella cache un'istanza predisposta tra le transazioni.</p>
+</li>
+<li>
+<p>Se si seleziona l'opzione C, il contenitore non memorizza nella cache un'istanza predisposta tra le transazioni.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nel campo Dimensione pool iniziale e minima, digitare il numero minimo di bean da conservare nel pool.</p>
+<p>Il valore predefinito &egrave; 0.</p>
+</li>
+<li>
+<p>Nel campo Dimensione massima pool, digitare il numero massimo di bean che il contenitore pu&ograve; conservare nel pool in una volta sola.</p>
+<p>Il valore predefinito &egrave; 32.</p>
+</li>
+<li>
+<p>Nel campo Quantit&agrave; di ridimensionamento pool, digitare il numero di bean che verranno rimossi dal pool se rimangono inattivi per un periodo di tempo superiore a quello specificato nel campo Timeout inattivit&agrave; pool.</p>
+<p>Il valore deve essere compreso tra 0 e il valore specificato nel campo Dimensione massima pool. Il valore predefinito &egrave; 8.</p>
+</li>
+<li>
+<p>Nel campo Timeout inattivit&agrave; pool, digitare il tempo, in secondi, durante il quale un bean del pool pu&ograve; rimanere inattivo prima che venga rimosso dal pool.</p>
+<p>Dopo questo periodo di tempo, il bean viene eliminato. Un valore pari a 0 indica che un bean pu&ograve; rimanere inattivo per un periodo di tempo indeterminato. Il valore predefinito &egrave; 600.</p>
+</li>
+<li>
+<p>Nel campo Dimensione massima cache, digitare il numero massimo di bean da conservare nella cache.</p>
+<p>Per evitare l'overhead di creazione e distruzione dei bean, aumentare il sovraccarico di bean memorizzabili nella cache. Tenere tuttavia presente che se si aumenta la capacit&agrave; della cache, il server utilizza una quantit&agrave; maggiore di memoria e risorse. Verificare che l'ambiente operativo sia sufficiente per le impostazioni cache. Un valore pari a 0 indica una cache senza limiti. Il valore predefinito &egrave; 512.</p>
+</li>
+<li>
+<p>Nel campo Quantit&agrave; di ridimensionamento cache, digitare il numero di bean da rendere passivi quando la cache &egrave; piena.</p>
+<p>Quando si raggiunge il numero massimo di bean inseriti nella cache, il contenitore rimuove un determinato numero di bean passivi dall'archivio di backup. Questo valore indica inoltre il numero di bean da creare se arriva una richiesta quando nel pool non sono presenti bean disponibili. Il valore deve essere superiore a 1 e inferiore al valore specificato nel campo Dimensione massima cache. Il valore predefinito &egrave; 32.</p>
+</li>
+<li>
+<p>Nel campo Timeout di rimozione, digitare il numero di secondi al termine dei quali un bean passivo viene rimosso dall'archivio di sessione.</p>
+<p>Un valore pari a 0 indica che il contenitore non rimuove automaticamente i bean inattivi. Se il valore di Timeout di rimozione &egrave; inferiore o pari a quello di Timeout di inattivit&agrave; cache, i bean vengono rimossi immediatamente senza diventare passivi. Il valore predefinito &egrave; 5400.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Removal Selection Policy, selezionare il criterio utilizzato dal contenitore per rimuovere dalla cache i bean di sessione con conservazione dello stato.</p>
+<p>Di seguito sono indicate le opzioni disponibili:</p>
+<dl>
+<dt>Non utilizzato di recente (NRU)</dt>
+<dd>
+<p>(Impostazione predefinita) Rimuove un bean che non &egrave; stato utilizzato di recente.</p>
 </dd>
-<dt>First in, first out (FIFO)</dt>
-<dd><p>Rimuove dalla cache il bean meno recente.</p>
-
+<dt>First In First Out (FIFO)</dt>
+<dd>
+<p>Rimuove dalla cache il bean meno recente.</p>
 </dd>
-<dt>Least recently used (LRU)</dt>
-<dd><p>Rimuove il bean utilizzato meno di recente.</p>
-
+<dt>Utilizzato meno di recente (LRU)</dt>
+<dd>
+<p>Rimuove il bean utilizzato meno di recente.</p>
 </dd>
 </dl>
 </li>
-<li><b>Nel campo Cache Idle Timeout, digitare il numero massimo di secondi di
-inattivit&#224; consentiti per un bean nella cache.</b><p>Al termine di questo periodo di tempo, il contenitore pu&#242; rendere passivo
-il bean. Un valore pari a 0 indica che i bean non
-verranno mai resi passivi. Il valore predefinito &#232; 600.</p></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per il contenitore
-EJB.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario modificarne il campo Value.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<li>
+<p>Nel campo Timeout di inattivit&agrave; cache, digitare il numero massimo di secondi di inattivit&agrave; consentiti per un bean nella cache.</p>
+<p>Al termine di questo periodo di tempo, il contenitore pu&ograve; rendere passivo il bean. Un valore pari a 0 indica che i bean non verranno mai resi passivi. Il valore predefinito &egrave; 600.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>Per una descrizione delle propriet&agrave; disponibili, vedere <a href="ref-ejbgeneralproperties.html">Propriet&agrave; specifiche del contenitore EJB</a>.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li>
-<li><b>Riavviare GlassFish Server.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2956&id=task-ejbmdbpoolsettings">To Configure MDB Pool Settings</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2956&id=task-ejbtimerservice">To Configure the EJB Timer Service</a></p>
-
+<li>
+<p>Riavviare GlassFish Server.</p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2956&id=task-ejbcontaineravailability">To Configure Availability Settings for the EJB Container</a></p>
+</ol>
+<a id="sthref4" name="sthref4"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="../../../ejb/it/help/missingtopic.html">To Configure MDB Pool Settings</a></p>
+</li>
+<li>
+<p><a href="../../../ejb/it/help/missingtopic.html">To Configure the EJB Timer Service</a></p>
+</li>
+<li>
+<p><a href="../../../ejb/it/help/missingtopic.html">To Configure Availability Settings for the EJB Container</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

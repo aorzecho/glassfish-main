@@ -1,49 +1,86 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmsdestinationnew" name="task-jmsdestinationnew"></a><a id="GHJMS00023" name="GHJMS00023"></a></p>
 
-
-<a name="task-jmsdestinationnew"></a><h3>Creare una risorsa di destinazione JMS</h3><a name="indexterm-7"></a><a name="indexterm-8"></a><p>Quando si crea una risorsa di destinazione JMS, viene creata una risorsa
-oggetto amministrato per la risorsa di destinazione. &#200; possibile visualizzare questa risorsa
-nel nodo Connectors.</p>
-
+<h4><a id="sthref11" name="sthref11"></a><a id="sthref12" name="sthref12"></a>Creare una risorsa di destinazione JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Quando si crea una risorsa di destinazione JMS, viene creata una risorsa oggetto amministrato per la risorsa di destinazione. &Egrave; possibile visualizzare questa risorsa nel nodo Connettori.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Resources.</b></li>
-<li><b>Nel nodo Resources espandere il nodo JMS Resources.</b></li>
-<li><b>Nel nodo JMS Resources selezionare il nodo JMS Destination Resources.</b><p>Viene visualizzata la pagina JMS Destination Resources.</p></li>
-<li><b>Nella pagina JMS Destination Resources fare clic su New.</b><p>Viene visualizzata la pagina New JMS Destination Resource.</p></li>
-<li><b>Nel campo JNDI Name digitare il nome JNDI della risorsa.</b><p>Si consiglia di utilizzare il prefisso di sottocontesto di denominazione <tt>jms/</tt> per
-risorse JMS, ad esempio <tt>jms/Queue</tt>.</p></li>
-<li><b>Nel campo Physical Destination Name digitare il nome della destinazione fisica da
-associare alla risorsa.</b><p>In caso di necessit&#224;, la destinazione fisica viene creata automaticamente ed eliminata
-al momento dell'eliminazione della risorsa di destinazione.</p></li>
-<li><b>Dall'elenco a discesa Resource Type, selezionare <tt>javax.jms.Topic </tt> o <tt>javax.jms.Queue</tt>.</b></li>
-<li><b>Nel campo Description, digitare una descrizione della risorsa di destinazione.</b></li>
-<li><b>Selezionare la casella di controllo Status Enabled per abilitare la risorsa in
-fase di runtime.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
-<li>(Opzionale) <b>Nell'area Additional Properties, specificare le propriet&#224; aggiuntive per la risorsa di destinazione.
-</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per le risorse
-di destinazione JMS.</p><p>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</p></li>
-<li><b>Fare clic su OK.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-jmsconnectionnew.html">Creare una risorsa factory di connessione JMS </a></p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Risorse.</p>
 </li>
-<li><p><a href="task-jmsconnectionedit.html">Modificare una risorsa factory di connessione JMS</a></p>
-
+<li>
+<p>Nel nodo Risorse espandere il nodo Risorse JMS.</p>
 </li>
-<li><p><a href="task-jmsconnectiondelete.html">Eliminare una risorsa factory di connessione JMS</a></p>
-
+<li>
+<p>Nel nodo Risorse JMS selezionare il nodo Risorse di destinazione JMS.</p>
+<p>Viene visualizzata la pagina Risorse di destinazione JMS.</p>
 </li>
-<li><p><a href="task-jmsdestinationedit.html">Modificare una risorsa di destinazione JMS</a></p>
-
+<li>
+<p>Nella pagina Risorse di destinazione JMS fare clic su Nuovo.</p>
+<p>Viene visualizzata la pagina Nuova risorsa di destinazione JMS.</p>
 </li>
-<li><p><a href="task-jmsdestinationdelete.html">Eliminare una risorsa di destinazione JMS</a></p>
+<li>
+<p>Nel campo Nome JNDI digitare il nome JNDI della risorsa.</p>
+<p>Si consiglia di utilizzare il prefisso del contesto secondario di denominazione <code>jms/</code> per risorse JMS. Ad esempio: <code>jms/Queue</code>.</p>
+</li>
+<li>
+<p>Nel campo Nome destinazione fisica digitare il nome della destinazione fisica da associare alla risorsa.</p>
+<p>In caso di necessit&agrave;, la destinazione fisica viene creata automaticamente ed eliminata al momento dell'eliminazione della risorsa di destinazione.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Tipo di risorsa, selezionare <code>javax.jms.Topic</code> o <code>javax.jms.Queue</code>.</p>
+</li>
+<li>
+<p>Nel campo Descrizione, digitare una descrizione della risorsa di destinazione.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Stato abilitato per abilitare la risorsa in fase di esecuzione.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nell'area Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive per la risorsa di destinazione.</p>
+<p>In GlassFish Server non &egrave; definita alcuna propriet&agrave; aggiuntiva per le risorse di destinazione JMS.</p>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>In the Targets area, do the following:</p>
+<ol type="a">
+<li>
+<p>From the Available column, select the target or targets to which applications that use the resource will be deployed.</p>
+<p>The available targets include the available clusters and server instances, as well as the default server instance, <code>server</code>.</p>
+</li>
+<li>
+<p>Click Add to move the target to the Selected column.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Fare clic su OK.</p>
+</li>
+</ol>
+<a id="sthref13" name="sthref13"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-jmsconnectionnew.html">Creare una risorsa Connection Factory JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsconnectionedit.html">Modificare una risorsa Connection Factory JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsconnectiondelete.html">Eliminare una risorsa Connection Factory JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsdestinationedit.html">Creare una risorsa di destinazione JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsdestinationdelete.html">Eliminare una risorsa di destinazione JMS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

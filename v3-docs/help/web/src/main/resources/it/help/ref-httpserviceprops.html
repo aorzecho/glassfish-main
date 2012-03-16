@@ -1,37 +1,37 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-httpserviceprops"></a><h4>Propriet&#224; specifiche del servizio HTTP</h4>
-<a name="indexterm-57"></a><a name="indexterm-58"></a><p>Per il servizio HTTP sono disponibili le seguenti propriet&#224; aggiuntive. Se specificate,
-queste propriet&#224; vengono applicate a tutti i <a href="ref-group-networklisteners.html">Network Listeners</a>.</p>
+<p><a id="ref-httpserviceprops" name="ref-httpserviceprops"></a><a id="GHWEB00009" name="GHWEB00009"></a></p>
 
-<dl><dt><tt>ssl-cache-entriese</tt></dt>
-<dd><p>Numero di sessioni SSL da memorizzare nella cache. Il valore predefinito &#232; 10.000.</p>
-
+<h4><a id="sthref108" name="sthref108"></a><a id="sthref109" name="sthref109"></a>Propriet&agrave; specifiche del servizio HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Per il servizio HTTP sono disponibili le propriet&agrave; aggiuntive riportate di seguito. Se specificate, queste propriet&agrave; vengono applicate a tutti i <a href="ref-group-networklisteners.html">Listener di rete</a>.</p>
+<dl>
+<dt><code>ssl-cache-entriese</code></dt>
+<dd>
+<p>Numero di sessioni SSL da inserire nella cache. Il valore predefinito &egrave; 10.000.</p>
 </dd>
-<dt><tt>ssl3-session-timeout</tt></dt>
-<dd><p>Intervallo durante il quale le sessioni SSL3 vengono memorizzate nella cache. Il valore predefinito &#232; 86.400.</p>
-
+<dt><code>ssl3-session-timeout</code></dt>
+<dd>
+<p>Intervallo durante il quale le sessioni SSL3 vengono inserite nella cache. Il valore predefinito &egrave; 86.400.</p>
 </dd>
-<dt><tt>ssl-session-timeout</tt></dt>
-<dd><p>Intervallo durante il quale le sessioni SSL2 vengono memorizzate nella cache. Il valore predefinito &#232; 100.</p>
-
+<dt><code>ssl-session-timeout</code></dt>
+<dd>
+<p>Intervallo durante il quale le sessioni SSL2 vengono inserite nella cache. Il valore predefinito &egrave; 100.</p>
 </dd>
-<dt><tt>proxyHandler</tt></dt>
-<dd><p>Nome completo di un'implementazione personalizzata della classe astratta <tt>com.sun.appserv.ProxyHandler</tt>, che consente di recuperare informazioni relative alla richiesta client originale intercettata da un server proxy di terminazione SSL (ad esempio, un servizio di bilanciamento del carico) tramite un'istanza backend di GlassFish Server. Con l'implementazione di questa classe astratta, una richiesta specifica viene sottoposta ad esame allo scopo di individuare le intestazioni di richiesta personalizzate tramite cui il server proxy comunica le informazioni sulla richiesta client originale all'istanza di Enterprise Server, quindi tali informazioni vengono restituite al rispettivo chiamante.</p>
-
-<p>L'implementazione predefinita legge l'indirizzo IP del client da un'intestazione di richiesta HTTP denominata <tt>Proxy-ip</tt>, il valore <tt>keysize</tt> di SSL da un'intestazione di richiesta HTTP denominata <tt>Proxy-keysize</tt> e la catena di certificati client SSL da un'intestazione di richiesta HTTP denominata <tt>Proxy-auth-cert </tt>. Il valore <tt>Proxy-auth-cert</tt> deve contenere la catena di certificati client con codifica BASE-64 senza i limiti <tt>BEGIN CERTIFICATE</tt> e <tt> END CERTIFICATE</tt> e con <tt>\n</tt> sostituito da <tt>% d% a</tt>.</p>
-
-<p>Questa impostazione viene utilizzata soltanto se la casella di controllo Auth Pass Through relativa alla pagina HTTP del protocollo dei listener di rete &#232; impostata su true.</p>
-
+<dt><code>proxyHandler</code></dt>
+<dd>
+<p>Nome completamente qualificato di un'implementazione personalizzata della classe astratta <code>com.sun.appserv.ProxyHandler</code>, che consente a un'istanza backend di GlassFish Server di recuperare informazioni relative alla richiesta client originale intercettata da un server proxy di terminazione SSL, ad esempio un load balancer. L'implementazione di questa classe astratta consente di ispezionare una richiesta specifica per individuare le intestazioni di richiesta personalizzate tramite le quali il server proxy comunica le informazioni sulla richiesta client originale all'istanza di Enterprise Server, quindi di restituire tali informazioni al chiamante.</p>
+<p>L'implementazione predefinita legge l'indirizzo IP del client da un'intestazione di richiesta HTTP denominata <code>Proxy-ip</code>, il valore <code>keysize</code> di SSL da un'intestazione di richiesta HTTP denominata <code>Proxy-keysize</code> e la catena di certificati client SSL da un'intestazione di richiesta HTTP denominata <code>Proxy-auth-cert</code> . Il valore <code>Proxy-auth-cert</code> deve contenere la catena di certificati client con codifica BASE-64 senza i limiti <code>BEGIN CERTIFICATE</code> ed <code>END CERTIFICATE</code> e con <code>\n</code> sostituito da <code>% d% a</code>.</p>
+<p>Questa impostazione viene utilizzata soltanto se la casella di controllo Autenticazione pass-through relativa alla pagina HTTP del protocollo dei listener di rete &egrave; impostata su true.</p>
 </dd>
-<dt><tt>connectionTimeout</tt></dt>
-<dd><p>Specifica il numero di secondi di attesa dei listener di rete per la visualizzazione della riga URI di richiesta in seguito all'accettazione di una connessione. Il valore predefinito &#232; 30.</p>
-
+<dt><code>connectionTimeout</code></dt>
+<dd>
+<p>Specifica il numero di secondi che il listener di rete deve attendere, dopo l'accettazione di una connessione, per la visualizzazione della riga URI di richiesta. Il valore predefinito &egrave; 30.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

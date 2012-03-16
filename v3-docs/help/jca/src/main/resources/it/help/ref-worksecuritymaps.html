@@ -1,73 +1,63 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-worksecuritymaps"></a><h4>Work Security Maps</h4>
-<a name="indexterm-55"></a><a name="indexterm-56"></a><p>Nella pagina Work Security Maps &#232; possibile configurare le mappe di sicurezza
-operativa per adattatori di risorsa.</p>
+<p><a id="ref-worksecuritymaps" name="ref-worksecuritymaps"></a><a id="GHJCA00053" name="GHJCA00053"></a></p>
 
-<p>Una mappa di sicurezza operativa per un connettore esegue il mapping dell'ID
-chiamante dell'operazione inviata da identit&#224; EIS o gruppi utenti EIS di un
-adattatore di risorsa su un'identit&#224; o gruppo utenti idoneo presente nel dominio
-di protezione di GlassFish Server. A un adattatore di risorsa &#232; possibile
-associare una o pi&#249; mappe di sicurezza operativa. La configurazione delle mappe
-di sicurezza operativa del connettore supporta l'utilizzo dell'asterisco come carattere speciale (<tt>*</tt>)
-per indicare tutti gli utenti o i gruppi di utenti.</p>
-
-<p>Una mappa di sicurezza operativa &#232; diversa da una mappa di sicurezza
-per un pool di connessione del connettore, che esegue il mapping dell'identit&#224;
-ricevuta durante l'autenticazione di servlet o EJB sulle credenziali accettate dal sistema
-EIS. Per informazioni sulle mappe di sicurezza per i pool di connessione
-del connettore, vedere <a href="ref-connectorsecuritymaps.html">Connector Connection Pool Security Maps</a>.</p>
-
-<p>Per sistemi EIS (Enterprise Information Software) si intendono tutti i sistemi che
-consentono la gestione dei dati di un'organizzazione. Possono essere rappresentati da mainframe,
-sistemi di messaggistica, sistemi di database o applicazioni.</p>
-
-<p>Per ogni mappa di sicurezza operativa vengono fornite le seguenti informazioni.</p>
-
-<dl><dt>Name</dt>
-<dd><p>Nome della mappa di sicurezza operativa.</p>
-
+<h4><a id="sthref106" name="sthref106"></a> <a id="sthref107" name="sthref107"></a></h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Mappe di sicurezza lavoro &egrave; possibile configurare le mappe di sicurezza lavoro per i Resource Adapter.</p>
+<p>Una mappa di sicurezza lavoro del connettore esegue il mapping tra l'identit&agrave; del chiamante del lavoro inviato da un principal o un gruppo di utenti EIS del Resource Adapter e un principal o un gruppo di utenti adeguato nel dominio di sicurezza di GlassFish Server. &Egrave; possibile associare una o pi&ugrave; mappe di sicurezza lavoro a uno o pi&ugrave; Resource Adapter. La configurazione delle mappe di sicurezza lavoro del connettore supporta l'utilizzo dell'asterisco come carattere speciale (<code>*</code>) per indicare tutti gli utenti o i gruppi di utenti.</p>
+<p>Una mappa di sicurezza lavoro &egrave; diversa da una mappa di sicurezza per un connection pool del connettore, che esegue il mapping tra il principal ricevuto durante l'autenticazione EJB o del servlet e le credenziali accettate dal sistema EIS. Per informazioni sulle mappe di sicurezza per i connection pool del connettore, vedere <a href="ref-connectorsecuritymaps.html">Mappe di sicurezza connection pool connettore</a>.</p>
+<p>Un sistema EIS (Enterprise Information System) &egrave; un sistema che contiene i dati di un'organizzazione. Pu&ograve; essere rappresentato da un mainframe, un sistema di messaggistica, un sistema di database o un'applicazione.</p>
+<p>Per ogni mappa di sicurezza lavoro vengono fornite le informazioni riportate di seguito.</p>
+<dl>
+<dt>Nome</dt>
+<dd>
+<p>Nome della mappa di sicurezza lavoro.</p>
 </dd>
 </dl>
-<p>La tabella Work Security Maps contiene inoltre le seguenti opzioni.</p>
-
-<dl><dt>New</dt>
-<dd><p>Pulsante che consente di creare una nuova mappa di sicurezza operativa.</p>
-
+<p>La tabella Mappe di sicurezza lavoro contiene inoltre le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nuovo</dt>
+<dd>
+<p>Pulsante che consente di creare una nuova mappa di sicurezza lavoro.</p>
 </dd>
-<dt>Delete</dt>
-<dd><p>Pulsante che consente di eliminare una o pi&#249; mappe di sicurezza operativa selezionate.</p>
-
+<dt>Elimina</dt>
+<dd>
+<p>Pulsante che consente di eliminare una o pi&ugrave; mappe di sicurezza lavoro selezionate.</p>
 </dd>
 </dl>
-<a name="gkonb"></a><h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-worksecuritymapnew.html">Creare una mappa di sicurezza operativa</a></p>
-
+<a id="sthref108" name="sthref108"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-worksecuritymapnew.html">Creare una mappa di sicurezza lavoro</a></p>
 </li>
-<li><p><a href="task-worksecuritymapedit.html">Modificare una mappa di sicurezza operativa</a></p>
-
+<li>
+<p><a href="task-worksecuritymapedit.html">Modificare una mappa di sicurezza lavoro</a></p>
 </li>
-<li><p><a href="task-worksecuritymapdelete.html">Eliminare una mappa di sicurezza operativa</a></p>
-
-</li></ul>
-<a name="gkolk"></a><h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-work-security-map-1"><tt>create-connector-work-security-map</tt>(1)</a></p>
-
+<li>
+<p><a href="task-worksecuritymapdelete.html">Eliminare una mappa di sicurezza lavoro</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-work-security-maps-1"><tt>list-connector-work-security-maps</tt>(1)</a></p>
-
+</ul>
+<a id="sthref109" name="sthref109"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00021"><code>create-connector-work-security-map</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-work-security-map-1"><tt>delete-connector-work-security-map</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00160"><code>list-connector-work-security-maps</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-connector-work-security-map-1"><tt>update-connector-work-security-map</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00073"><code>delete-connector-work-security-map</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00253"><code>update-connector-work-security-map</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,67 +1,53 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-configreq-respolicy"></a><h4>Configurazioni di criteri di richiesta e risposta</h4>
-<a name="indexterm-237"></a><p>Se l'origine dell'autenticazione &#232; <tt>sender</tt>, il messaggio conterr&#224; un'intestazione <tt>wsse:Security</tt> con un
-<tt>wsse:UsernameToken</tt> (con password). Se l'origine dell'autenticazione &#232; il contenuto, il contenuto del
-corpo del messaggio SOAP verr&#224; firmato e il messaggio conterr&#224; un'intestazione <tt>wsse:Security</tt>
-con la firma del corpo del messaggio di tipo <tt>ds</tt>:<tt> Signature</tt>.</p>
+<p><a id="ref-configreq-respolicy" name="ref-configreq-respolicy"></a><a id="GHCOM00125" name="GHCOM00125"></a></p>
 
-<p>Se il destinatario dell'autenticazione &#232; <tt>before-content</tt> o <tt> after-content</tt>, il contenuto del corpo
-del messaggio SOAP viene codificato e sostituito con i <tt>xend:EncryptedData</tt> risultanti. Il
-messaggio contiene un'intestazione <tt>a wsse:Security</tt> con una chiave <tt> xenc:EncryptedKey</tt>. La chiave <tt>xenc:EncryptedKey</tt> contiene
-la chiave utilizzata per codificare il messaggio SOAP. La chiave viene codificata
-nella chiave pubblica del destinatario.</p>
-
-<p>Se i campi Authenticate Source e Authenticate Recipient vengono lasciati vuoti, non
-verr&#224; specificato alcun criterio di sicurezza e i moduli non eseguiranno operazioni
-di protezione. </p>
-
-<p>Nella seguente tabella sono indicate le configurazioni di criteri di sicurezza per
-i messaggi e le conseguenti operazioni di protezione dei messaggi eseguite dai
-provider di sicurezza dei messaggi WS-Security SOAP per tale configurazione.</p>
-
-<a name="gbutq"></a><p><b>Tabella&#160;1 Criteri di sicurezza dei messaggi basati sull'operazione di protezione dei messaggi WS-Security SOAP </b></p><table><col width="33%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"></th>
-<th align="left" valign="top" scope="column"><p>Destinatario dell'autenticazione <tt>before-content</tt></p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>Destinatario
-dell'autenticazione <tt>after-content</tt></p>
-
-</th>
+<h4><a id="sthref440" name="sthref440"></a>Configurazione dei criteri di richiesta e risposta</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Se l'origine dell'autenticazione &egrave; <code>sender</code>, il messaggio contiene un'intestazione <code>wsse:Security</code> con un <code>wsse:UsernameToken</code> (con password). Se l'origine dell'autenticazione &egrave; content, il contenuto del corpo del messaggio SOAP viene firmato e il messaggio contiene un'intestazione <code>wsse:Security</code> con la firma del corpo del messaggio di tipo <code>ds</code>: <code>Signature</code>.</p>
+<p>Se il destinatario dell'autenticazione &egrave; <code>before-content</code> o <code>after-content</code>, il contenuto del corpo del messaggio SOAP viene cifrato e sostituito con i <code>xend:EncryptedData</code> risultanti. Il messaggio contiene un'intestazione <code>a wsse:Security</code> con una chiave <code>xenc:EncryptedKey</code>. La chiave <code>xenc:EncryptedKey</code> contiene la chiave utilizzata per cifrare il corpo del messaggio SOAP. La chiave viene cifrata nella chiave pubblica del destinatario.</p>
+<p>Se i campi Autenticazione origine e Autenticazione destinatario vengono lasciati vuoti, non viene specificato alcun criterio di sicurezza e i moduli non eseguiranno operazioni di sicurezza.</p>
+<p>Nella tabella riportata di seguito vengono illustrate le configurazioni dei criteri di sicurezza per i messaggi e le operazioni di sicurezza dei messaggi risultati eseguite dai provider di sicurezza dei messaggi WS-Security SOAP per tale configurazione.</p>
+<a id="sthref441" name="sthref441"></a><a id="gbutq" name="gbutq"></a>
+<p><b>Criteri di protezione dei messaggi basati sull'operazione di sicurezza dei messaggi WS-Security SOAP</b></p>
+<table  title="Criteri di protezione dei messaggi basati sull'operazione di sicurezza dei messaggi WS-Security SOAP" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="20%" />
+<col width="*" />
+<col width="40%" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t11"><br /></th>
+<th align="left" valign="bottom" id="r1c2-t11">Autenticazione destinatario <code>before-content</code></th>
+<th align="left" valign="bottom" id="r1c3-t11">Autenticazione destinatario <code>after-content</code></th>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p>Origine dell'autenticazione <tt>sender</tt></p>
-
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t11" headers="r1c1-t11">
+<p>Autenticazione origine <code>sender</code></p>
 </td>
-<td colspan="2" align="left" valign="top" scope="row"><p>Il contenuto del corpo del messaggio SOAP viene codificato
-e sostituito con i dati <tt>xend:EncryptedData</tt> risultanti. Il messaggio contiene un'intestazione <tt> a wsse:Security</tt>
-con un <tt>wsse:UsernameToken (with password)</tt> e una chiave <tt>xenc:EncryptedKey</tt>. La chiave <tt>xenc:EncryptedKey</tt> contiene la
-chiave utilizzata per codificare il messaggio SOAP. La chiave viene codificata nella
-chiave pubblica del destinatario.</p>
-
+<td align="left" headers="r2c1-t11 r1c2-t11 r1c3-t11" colspan="2">
+<p>Il contenuto del corpo del messaggio SOAP viene cifrato e sostituito con i dati <code>xend:EncryptedData</code> risultanti. Il messaggio contiene un'intestazione <code>a wsse:Security</code> con un <code>wsse:UsernameToken (with password)</code> e una chiave <code>xenc:EncryptedKey</code>. La chiave <code>xenc:EncryptedKey</code> contiene la chiave utilizzata per cifrare il corpo del messaggio SOAP. La chiave viene cifrata nella chiave pubblica del destinatario.</p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p>Origine dell'autenticazione <tt>content</tt></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t11" headers="r1c1-t11">
+<p>Autenticazione origine <code>content</code></p>
 </td>
-<td align="left" valign="top" scope="row"><p>Il contenuto del corpo del messaggio SOAP
-viene codificato e sostituito con i dati <tt>xend:EncryptedData</tt> risultanti. Viene applicata la
-firma a <tt>xenc:EncryptedData</tt>. Il messaggio contiene un'intestazione <tt>a wsse:Security</tt> con una chiave <tt>xenc:EncryptedKey</tt>
-e una <tt>ds:Signature </tt>. La chiave <tt>xenc:EncryptedKey</tt> contiene la chiave utilizzata per codificare
-il messaggio SOAP. La chiave viene codificata nella chiave pubblica del destinatario.</p>
-
+<td align="left" headers="r3c1-t11 r1c2-t11">
+<p>Il contenuto del corpo del messaggio SOAP viene cifrato e sostituito con i dati <code>xend:EncryptedData</code> risultanti. Viene applicata la firma a <code>xenc:EncryptedData</code>. Il messaggio contiene un'intestazione <code>a wsse:Security</code> con una chiave <code>xenc:EncryptedKey</code> e una <code>ds:Signature</code> . La chiave <code>xenc:EncryptedKey</code> contiene la chiave utilizzata per cifrare il corpo del messaggio SOAP. La chiave viene cifrata nella chiave pubblica del destinatario.</p>
 </td>
-<td align="left" valign="top" scope="row"><p>Il
-contenuto del corpo del messaggio SOAP viene firmato, quindi codificato e sostituito
-con i dati <tt>xend:EncryptedData</tt> risultanti. Il messaggio contiene un'intestazione <tt>a wsse:Security</tt> con una
-chiave <tt>xenc:EncryptedKey</tt> e una <tt>ds:Signature </tt>. La chiave <tt>xenc:EncryptedKey</tt> contiene la chiave utilizzata
-per codificare il messaggio SOAP. La chiave viene codificata nella chiave pubblica
-del destinatario.</p>
-
+<td align="left" headers="r3c1-t11 r1c3-t11">
+<p>Il contenuto del corpo del messaggio SOAP viene firmato, quindi cifrato e sostituito con i dati <code>xend:EncryptedData</code> risultanti. Il messaggio contiene un'intestazione <code>a wsse:Security</code> con una chiave <code>xenc:EncryptedKey</code> e una <code>ds:Signature</code> . La chiave <code>xenc:EncryptedKey</code> contiene la chiave utilizzata per cifrare il corpo del messaggio SOAP. La chiave viene cifrata nella chiave pubblica del destinatario.</p>
 </td>
 </tr>
+</tbody>
 </table>
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

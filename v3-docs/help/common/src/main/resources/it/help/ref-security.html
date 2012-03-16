@@ -1,150 +1,152 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-security"></a><h4>Security</h4>
-<a name="indexterm-198"></a><a name="indexterm-199"></a><p>Nella pagina Security &#232; possibile impostare le propriet&#224; di sicurezza per l'istanza
-o il cluster GlassFish Server selezionato.</p>
+<p><a id="ref-security" name="ref-security"></a><a id="GHCOM00096" name="GHCOM00096"></a></p>
 
-<p>La pagina Security contiene le seguenti opzioni.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<h4><a id="sthref362" name="sthref362"></a><a id="sthref363" name="sthref363"></a>Sicurezza</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Sicurezza &egrave; possibile impostare le propriet&agrave; di sicurezza per l'istanza o il cluster GlassFish Server selezionato.</p>
+<p>La pagina Sicurezza contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
 <dt>Security Manager</dt>
-<dd><p>Se l'opzione &#232; selezionata viene abilitato il gestore della sicurezza per il dominio. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
-<p>Quando questa opzione &#232; abilitata, l'opzione JVM <tt>-Djava.security.manager</tt> viene aggiunta alle impostazioni JVM di GlassFish Server. Vedere <a href="task-jvmoptions.html">Configurare le opzioni JVM</a>. Per rendere effettiva questa modifica &#232; necessario riavviare il server. </p>
-
-<p>Verificare di aver impostato le autorizzazioni necessarie per tutte le applicazioni. &#200; possibile disattivare il gestore della sicurezza per migliorare le prestazioni. </p>
-
+<dd>
+<p>Se questa opzione &egrave; selezionata, viene abilitato il Security Manager per il dominio. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+<p>Quando questa opzione &egrave; abilitata, l'opzione JVM <code>-Djava.security.manager</code> viene aggiunta alle impostazioni JVM di GlassFish Server. Vedere <a href="task-jvmoptions.html">Configurare le opzioni JVM</a>. Per abilitare questa modifica, &egrave; necessario riavviare il server.</p>
+<p>Assicurarsi di disporre delle autorizzazioni corrette per tutte le applicazioni. &Egrave; possibile disattivare il Security Manager per migliorare le prestazioni.</p>
 </dd>
-<dt>Audit Logging</dt>
-<dd><p>Se questa opzione &#232; abilitata, il server carica ed esegue tutti i moduli di revisione specificati nell'impostazione Audit Modules. Se l'opzione &#232; disabilitata, il server non accede ai moduli di revisione. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Log di audit</dt>
+<dd>
+<p>Se questa opzione &egrave; abilitata, il server carica ed esegue tutti i moduli di audit specificati nell'impostazione Moduli di audit. Se l'opzione &egrave; disabilitata, il server non accede ai moduli di audit. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Default Realm</dt>
-<dd><p>Settore (predefinito) attivo che il server utilizza per l'autenticazione. Le applicazioni utilizzeranno tale settore, salvo se il descrittore di distribuzione specifica un settore diverso. Tutti i settori configurati sono visibili nell'elenco. Il valore predefinito &#232; <tt>file</tt>.</p>
-
+<dt>Realm predefinito</dt>
+<dd>
+<p>Realm (predefinito) attivo utilizzato dal server per l'autenticazione. Le applicazioni utilizzano questo realm a meno che il descrittore di distribuzione non specifica un realm differente. Tutti i realm configurati vengono visualizzati nella lista. Il valore predefinito &egrave; <code>file</code>.</p>
 </dd>
-<dt>Default Principal</dt>
-<dd><p>Specifica il nome utente predefinito. Se non &#232; specificata nessun'altra identit&#224;, il server utilizza questo nome utente. Se si digita un valore in questo campo, &#232; necessario digitare la password corrispondente nel campo Default Principal Password.</p>
-
-<p>Un'identit&#224; predefinita non &#232; obbligatoria per il normale funzionamento del server.</p>
-
+<dt>Principal predefinito</dt>
+<dd>
+<p>Specifica il nome utente predefinito. Il server utilizza questo nome utente se non viene fornito un altro principal. Se si digita un valore in questo campo, digitare la password corrispondente nel campo Password principal predefinito.</p>
+<p>Un principal predefinito non &egrave; richiesto per il normale funzionamento del server.</p>
 </dd>
-<dt>Default Principal Password</dt>
-<dd><p>Password dell'identit&#224; predefinita specificata nel campo Default Principal. Un'identit&#224; predefinita non &#232; obbligatoria per il normale funzionamento del server.</p>
-
+<dt>Password principal predefinito</dt>
+<dd>
+<p>Password del principal predefinito specificata nel campo Principal predefinito. Un principal predefinito non &egrave; richiesto per il normale funzionamento del server.</p>
 </dd>
 <dt>JACC</dt>
-<dd><p>Nome della classe di un provider JACC configurato. Il valore predefinito &#232; <tt>default</tt>.</p>
-
+<dd>
+<p>Nome classe di un provider JACC configurato. Il valore predefinito &egrave; <code>default</code>.</p>
 </dd>
-<dt>Audit Modules</dt>
-<dd><p>Moduli del provider di revisione che verranno utilizzati dal sottosistema di revisione se viene abilitato il log di revisione. Per impostazione predefinita il server utilizza un modulo di revisione denominato <tt>default</tt>. Per informazioni sulla creazione di nuovi moduli di revisione, vedere <a href="task-auditmodulenew.html">Creare un modulo di revisione</a>.</p>
-
+<dt>Moduli di audit</dt>
+<dd>
+<p>Moduli del provider di audit che verranno utilizzati dal sottosistema di audit se &egrave; abilitato il log di audit. Per impostazione predefinita, il server utilizza un modulo di audit denominato <code>default</code>. Per informazioni sulla creazione di nuovi moduli di audit, vedere <a href="task-auditmodulenew.html">Creare un modulo di audit</a>.</p>
 </dd>
-<dt>Default Principal To Role Mapping Enabled</dt>
-<dd><p>Se l'opzione &#232; selezionata, il mapping identit&#224;-ruolo predefinito viene applicato a tutte le applicazioni per le quali non &#232; definito un mapping specifico.</p>
-
+<dt>Mapping principal/ruolo predefinito abilitato</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, il mapping principal/ruolo predefinito viene applicato a tutte le applicazioni per le quali non &egrave; definito un mapping specifico.</p>
 </dd>
-<dt>Mapped Principal Class</dt>
-<dd><p>Specifica un'implementazione personalizzata della classe <tt>java.security.Principal</tt> utilizzata nel mapping identit&#224;-ruolo predefinito, se &#232; abilitato il mapping identit&#224;-ruolo predefinito.</p>
-
+<dt>Classe principal mappata</dt>
+<dd>
+<p>Specifica un'implementazione personalizzata della classe <code>java.security.Principal</code> utilizzata nel mapping principal/ruolo predefinito se &egrave; abilitato il mapping principal/ruolo predefinito.</p>
 </dd>
-<dt>Additional Properties</dt>
-<dd><p>Propriet&#224; di sicurezza aggiuntive per il server.</p>
-
-<p>Le propriet&#224; valide dipendono dal tipo di settore selezionato nel campo Default Realm e vengono in genere specificate quando si modifica un settore. Per informazioni dettagliate, vedere i seguenti argomenti:</p>
-
-
-<ul><li><p><a href="ref-editfile-adminrealm.html">Propriet&#224; specifiche della classe <tt> FileRealm</tt></a></p>
-
+<dt>Propriet&agrave; aggiuntive</dt>
+<dd>
+<p>Propriet&agrave; di sicurezza aggiuntive per il server.</p>
+<p>Le propriet&agrave; valide dipendono dal tipo di realm selezionato nel campo Realm predefinito e vengono in genere specificate quando si modifica un realm. Per informazioni dettagliate, vedere i seguenti argomenti:</p>
+<ul>
+<li>
+<p><a href="ref-editfile-adminrealm.html">Propriet&agrave; specifiche della classe <code>FileRealm</code></a></p>
 </li>
-<li><p><a href="ref-editcertrealm.html">Propriet&#224; specifiche della classe <tt>CertificateRealm </tt></a></p>
-
+<li>
+<p><a href="ref-editcertrealm.html">Propriet&agrave; specifiche della classe <code>CertificateRealm</code></a></p>
 </li>
-<li><p><a href="ref-editjdbcrealm.html">Propriet&#224; specifiche della classe <tt>JDBCRealm </tt></a></p>
-
+<li>
+<p><a href="ref-editjdbcrealm.html">Propriet&agrave; specifiche della classe <code>JDBCRealm</code></a></p>
 </li>
-<li><p><a href="ref-ldaprealmprop.html">Propriet&#224; specifiche della classe <tt>LDAPRealm </tt></a></p>
-
+<li>
+<p><a href="ref-ldaprealmprop.html">Propriet&agrave; specifiche della classe <code>LDAPRealm</code></a></p>
 </li>
-<li><p><a href="ref-solarisrealmprop.html">Propriet&#224; specifiche della classe <tt>SolarisRealm </tt></a></p>
-
+<li>
+<p><a href="ref-solarisrealmprop.html">Propriet&agrave; specifiche della classe <code>SolarisRealm</code></a></p>
 </li>
-<li><p><a href="ref-pamrealmprop.html">Propriet&#224; specifiche della classe <tt>PamRealm </tt></a></p>
-
-</li></ul>
+<li>
+<p><a href="ref-pamrealmprop.html">Propriet&agrave; specifiche della classe <code>PamRealm</code></a></p>
+</li>
+</ul>
 </dd>
 </dl>
-<a name="gkoon"></a><h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-securitysettings.html">Configurare le impostazioni di sicurezza</a></p>
-
+<a id="sthref364" name="sthref364"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-securitysettings.html">Configurare le impostazioni di sicurezza</a></p>
 </li>
-<li><p><a href="task-auditmodulenew.html">Creare un modulo di revisione</a></p>
-
+<li>
+<p><a href="task-auditmodulenew.html">Creare un modulo di audit</a></p>
 </li>
-<li><p><a href="task-changeadminpasswd.html">Modificare la password di un utente nel settore Admin</a></p>
-
+<li>
+<p><a href="task-changeadminpasswd.html">Modificare la password per un utente nel realm di amministrazione</a></p>
 </li>
-<li><p><a href="task-accessadmintools.html">Consentire l'accesso agli strumenti di amministrazione</a></p>
-
-</li></ul>
-<a name="gkokv"></a><h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=change-admin-password-1"><tt>change-admin-password</tt>(1)</a></p>
-
+<li>
+<p><a href="task-accessadmintools.html">Concedere l'accesso agli strumenti di amministrazione</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-auth-realm-1"><tt>create-auth-realm</tt>(1)</a></p>
-
+</ul>
+<a id="sthref365" name="sthref365"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00004"><code>change-admin-password</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-file-user-1"><tt>create-file-user</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00015"><code>create-auth-realm</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00024"><code>create-file-user</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-password-alias-1"><tt>create-password-alias</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00034"><code>create-jacc-provider</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-auth-realm-1"><tt>delete-auth-realm</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00049"><code>create-password-alias</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-file-user-1"><tt>delete-file-user</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00066"><code>delete-auth-realm</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00076"><code>delete-file-user</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-password-alias-1"><tt>delete-password-alias</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00086"><code>delete-jacc-provider</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-auth-realms-1"><tt>list-auth-realms</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00101"><code>delete-password-alias</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-file-groups-1"><tt>list-file-groups</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00150"><code>list-auth-realms</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-file-users-1"><tt>list-file-users</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00164"><code>list-file-groups</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00165"><code>list-file-users</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-password-aliases-1"><tt>list-password-aliases</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00171"><code>list-jacc-providers</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-file-user-1"><tt>update-file-user</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00190"><code>list-password-aliases</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=update-password-alias-1"><tt>update-password-alias</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00254"><code>update-file-user</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00257"><code>update-password-alias</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

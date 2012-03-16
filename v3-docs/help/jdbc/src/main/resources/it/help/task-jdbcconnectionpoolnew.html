@@ -1,146 +1,180 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jdbcconnectionpoolnew" name="task-jdbcconnectionpoolnew"></a><a id="GHJDB00036" name="GHJDB00036"></a></p>
 
-
-<a name="task-jdbcconnectionpoolnew"></a><h3>Creare un pool di connessione JDBC</h3><a name="indexterm-7"></a><a name="indexterm-8"></a><a name="indexterm-9"></a><p>Quando si crea un pool di connessione con Administration Console, si definiscono
-gli aspetti di una connessione a un database specifico.</p>
-
-<p><b>Prima di cominciare</b></p><p>Per poter creare un pool di connessione, &#232; necessario installare e integrare
-un driver che supporti l'API JDBC (driver JDBC). Vedere <a href="task-integratejdbcdriver.html">Integrare un driver JDBC</a>.</p>
-
-<p>Per la creazione del pool di connessione JDBC sono necessari i seguenti
-dati. Raccogliere i dati prima di procedere:</p>
-
-
-<ul><li><p>Nome del produttore del database</p>
-
+<h4><a id="sthref14" name="sthref14"></a>Creare un connection pool JDBC</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Quando si crea un connection pool con Console di amministrazione, si definiscono gli aspetti di una connessione a un database specifico.</p>
+<a id="sthref15" name="sthref15"></a>
+<h5>Prima di iniziare</h5>
+<p>Per creare un connection pool, &egrave; necessario innanzi tutto installare e integrare un driver che supporti l'API JDBC (driver JDBC). Vedere <a href="task-integratejdbcdriver.html">Integrare un driver JDBC</a>.</p>
+<p>Per la creazione del connection pool JDBC sono necessari i seguenti dati. Raccogliere i dati prima di procedere:</p>
+<ul>
+<li>
+<p>Nome del fornitore del driver del database</p>
 </li>
-<li><p>Tipo di risorsa, ad esempio <tt>javax.sql.DataSource</tt> (solo transazioni locali), <tt>java.sql.ConnectionPoolDataSource</tt> (transazioni locali, possibili miglioramenti delle prestazioni), <tt>javax.sql.XADataSource </tt> (transazioni globali) e <tt>java.sql.Driver</tt>.</p>
-
+<li>
+<p>Tipo di risorsa, ad esempio <code>javax.sql.DataSource</code> (solo transazioni locali), <code>java.sql.ConnectionPoolDataSource</code> (transazioni locali, possibili miglioramenti delle prestazioni), <code>javax.sql.XADataSource</code> (transazioni globali) e <code>java.sql.Driver</code>.</p>
 </li>
-<li><p>Nome classe dell'origine dati</p>
-
+<li>
+<p>Nome classe dell'origine dati</p>
 </li>
-<li><p>Propriet&#224; obbligatorie, quali il nome del database (URL), il nome utente e la password</p>
-
-</li></ul>
+<li>
+<p>Propriet&agrave; obbligatorie, quali il nome del database (URL), il nome utente e la password</p>
+</li>
+</ul>
 <ol>
-<li><b>Nella struttura ad albero, selezionare il nodo Common Tasks.</b><p>Viene visualizzata la pagina Common Tasks.</p></li>
-<li><b>Fare clic sul pulsante Create New JDBC Connection Pool.</b><p>Viene visualizzata la pagina New JDBC Connection Pool (Step 1 of 2).</p>
-<hr><p><b>Nota - </b>&#200; possibile accedere alla pagina New JDBC Connection Pool anche espandendo il
-nodo Resources e il nodo JDBC, quindi selezionando il nodo Connection Pools.
-Quindi, nella pagina Connection Pools, fare clic su New per creare un
-nuovo pool di connessione.</p>
-
+<li>
+<p>Nell'albero di navigazione selezionare il nodo Task comuni.</p>
+<p>Viene visualizzata la pagina Task comuni.</p>
+</li>
+<li>
+<p>Fare clic sul pulsante Crea nuovo connection pool JDBC alla pagina Task comuni.</p>
+<p>Viene visualizzata la pagina Nuovo connection pool JDBC (Passo 1 di 2).</p>
 
 <hr>
-</li>
-<li><b>Nel campo Pool Name, digitare un nome per il nuovo pool di
-connessione.</b><p>Questo campo &#232; obbligatorio.</p></li>
-<li><b>Dall'elenco a discesa Resource Type, selezionare un tipo di risorsa.</b><p>Le opzioni disponibili includono <tt>javax.sql.XADataSource</tt> (transazioni globali), <tt>java.sql.ConnectionPoolDataSource</tt> (transazioni locali, possibili miglioramenti
-delle prestazioni), <tt>javax.sql.DataSource </tt> (solo transazioni locali) e <tt>java.sql.Driver</tt>.</p></li>
-<li><b>Specificare un produttore di database effettuando una delle seguenti operazioni:</b><ul>
-<li><b>Dall'elenco a discesa Database Vendor, selezionare un produttore di database.</b></li>
-<li><b>Se il produttore desiderato non viene visualizzato nell'elenco, digitarne il nome nel
-campo di testo Database Vendor.</b></li></ul></li>
-<li><b>Fare clic su Next.</b><p>Viene visualizzata la pagina New JDBC Connection Pool (Step 2 of 2).</p></li>
-<li><b>Nel campo Datasource Classname, digitare il nome della classe specifica del produttore
-che implementa l'API <tt>DataSource </tt>, <tt>ConnectionPoolDataSource</tt> o <tt>XADataSource</tt>.</b><p>Se &#232; stata selezionata una risorsa di tipo origine dati, nel campo
-in genere viene inserito automaticamente il nome classe associato al tipo di
-risorsa e al produttore di database scelti. Se &#232; stato selezionato il
-tipo di risorsa <tt>java.sql.Driver </tt>, il campo &#232; disabilitato.</p></li>
-<li><b>Nel campo Driver Classname, digitare il nome della classe specifica del produttore
-che implementa l'API <tt>java.sql.Driver</tt>.</b><p>Se &#232; stato selezionato il tipo di risorsa <tt>java.sql.Driver</tt>, nel campo in
-genere viene inserito automaticamente il nome classe associato al tipo di risorsa
-e al produttore di database scelti. Se &#232; stata selezionata una risorsa
-di tipo origine dati, il campo &#232; disabilitato.</p></li>
-<li><b>Selezionare la casella di controllo Ping Enabled per eseguire automaticamente il ping
-durante il processo di creazione o riconfigurazione del pool al fine di
-identificare e segnalare valori errati degli attributi.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Nel campo Description, digitare una breve descrizione per il pool di connessione.</b></li>
-<li><b>Nel campo Initial and Minimum Pool Size, digitare il numero minimo di
-connessioni per il pool.</b><p>Questo valore determina inoltre il numero di connessioni inserite nel pool al
-momento della sua creazione o all'avvio di GlassFish Server. Il valore predefinito
-&#232; 8.</p></li>
-<li><b>Nel campo Maximum Pool Size, digitare il numero massimo di connessioni per
-il pool.</b><p>Il valore predefinito &#232; 32.</p></li>
-<li><b>Nel campo Pool Resize Quantity, digitare il numero di connessioni da includere
-in ogni batch di ridimensionamento del pool.</b><p>Quando le dimensioni del pool aumentano o diminuiscono, le variazioni avvengono in
-batch. Questo valore determina il numero di connessioni presenti nel batch. Se
-il valore &#232; troppo grande pu&#242; generare ritardi nella creazione e nella
-riattivazione delle connessioni, mentre se &#232; troppo piccolo pu&#242; ridurre le prestazioni
-complessive. Il valore predefinito &#232; 2.</p></li>
-<li><b>Nel campo Idle Timeout, digitare il numero massimo di secondi durante i
-quali una connessione pu&#242; rimanere inattiva nel pool.</b><p>Una volta trascorso tale numero di secondi, la connessione viene rimossa dal
-pool. Il valore predefinito &#232; 300.</p></li>
-<li><b>Nel campo Max Wait Time, digitare il tempo massimo di attesa (in
-millisecondi) per la richiesta di connessione da parte di un'applicazione prima che
-si verifichi il timeout della connessione.</b><p>Il valore predefinito &#232; 60.000.</p></li>
-<li><b>Selezionare la casella di controllo Non Transactional Connections Enabled per restituire connessioni
-non transazionali.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Nell'elenco a discesa Transaction Isolation Level, selezionare un livello di isolamento delle
-transazioni per il pool di connessione corrente.</b><p>Se il livello non &#232; specificato, le connessioni funzionano con i livelli
-di isolamento predefiniti forniti dal driver JDBC. Per impostazione predefinita, per questa
-opzione non viene specificato alcun valore.</p></li>
-<li><b>Selezionare la casella di controllo Isolation Level Guaranteed per garantire che tutte
-le connessioni del pool presentino lo stesso livello di isolamento.</b><p>Ad esempio, se il livello di isolamento della connessione viene modificato attraverso
-il codice (mediante <tt>con.setTransactionIsolation</tt>) al momento dell'ultimo utilizzo, questa funzione riporta lo
-stato al livello di isolamento specificato. Questa opzione &#232; abilitata per impostazione
-predefinita.</p><p>Questa opzione pu&#242; essere implementata soltanto se &#232; stato specificato un livello
-di isolamento.</p></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>Alcuni esempi di propriet&#224; obbligatorie sono il nome del database (URL), il
-nome utente e la password. La tabella in genere contiene le propriet&#224;
-utilizzate dal produttore del database. Per informazioni su alcune delle propriet&#224; disponibili,
-vedere <a href="ref-jdbc-properties.html">Propriet&#224; specifiche per i pool di connessione JDBC</a>.</p><p>Se non si specifica un valore per una propriet&#224;, questa viene rimossa
-dalla tabella al termine della creazione del pool di connessione. Se anzich&#233;
-impostare il valore di una propriet&#224; in questa fase si preferisce conservare
-la propriet&#224; nella tabella in modo da impostare il valore in un
-secondo momento, digitare due parentesi vuote nel campo Value:</p><pre>()</pre><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
-della propriet&#224;.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Finish.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-setdbaccess.html">Impostare l'accesso al database</a></p>
+<p><b>Nota:</b></p>
+&Egrave; possibile accedere alla pagina Nuovo connection pool JDBC anche espandendo il nodo Risorse e il nodo JDBC, quindi selezionando il nodo Connection pool. Quindi, nella pagina Connection pool, fare clic su Nuovo per creare un nuovo connection pool.
+<hr>
 
 </li>
-<li><p><a href="task-integratejdbcdriver.html">Integrare un driver JDBC</a></p>
-
+<li>
+<p>Nel campo Nome pool, digitare un nome per il nuovo connection pool.</p>
+<p>Questo campo &egrave; obbligatorio.</p>
 </li>
-<li><p><a href="task-jdbcresourcenew.html">Creare una risorsa JDBC</a></p>
-
+<li>
+<p>Dall'elenco a discesa Tipo di risorsa, selezionare un tipo di risorsa.</p>
+<p>Le opzioni disponibili includono <code>javax.sql.XADataSource</code> (transazioni globali), <code>java.sql.ConnectionPoolDataSource</code> (transazioni locali, possibili miglioramenti delle prestazioni), <code>javax.sql.DataSource</code> (solo transazioni locali) e <code>java.sql.Driver</code>.</p>
 </li>
-<li><p><a href="task-jdbcresourcesedit.html">Modificare una risorsa JDBC</a></p>
-
+<li>
+<p>Specificare un fornitore del database.</p>
+<ol type="a">
+<li>
+<p>Dall'elenco a discesa Fornitore database, selezionare un fornitore del database.</p>
 </li>
-<li><p>&#60;para&#62;&#60;olink targetptr="task-jdbcresourcetargets"&#62;To Edit JDBC Resource Targets &#60;/olink&#62;&#60;/para&#62;</p>
-
+<li>
+<p>Se il fornitore desiderato non viene visualizzato nella lista, digitarne il nome nel campo di testo Fornitore database.</p>
 </li>
-<li><p><a href="task-jdbcresourcesdelete.html">Eliminare una risorsa JDBC</a></p>
-
+</ol>
 </li>
-<li><p><a href="task-jdbcconnectionpooledit.html">Modificare le impostazioni generali del pool di connessione JDBC</a></p>
-
+<li>
+<p>Selezionare la casella di controllo Analisi introspezione abilitata per eseguire l'introspezione del driver di database basata sull'origine dati o i nomi classe di implementazione del driver.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">Modificare gli attributi avanzati del pool di connessione JDBC</a></p>
-
+<li>
+<p>Fare clic su Successivo.</p>
+<p>Viene visualizzata la pagina Nuovo connection pool JDBC (Passo 2 di 2).</p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">Verificare le impostazioni del pool di connessione</a></p>
-
+<li>
+<p>Nel campo Nome classe origine dati, digitare il nome della classe specifica del fornitore che implementa l'API <code>DataSource</code>, <code>ConnectionPoolDataSource</code> o <code>XADataSource</code>.</p>
+<p>Se &egrave; stata selezionata una risorsa di tipo origine dati, nel campo in genere viene inserito automaticamente il nome classe associato al tipo di risorsa e al fornitore di database scelti. Se &egrave; stato selezionato il tipo di risorsa <code>java.sql.Driver</code> , il campo &egrave; disabilitato.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">Modificare le propriet&#224; del pool di connessione JDBC</a></p>
-
+<li>
+<p>Nel campo Nome classe driver, digitare il nome della classe specifica del fornitore che implementa l'API <code>java.sql.Driver</code>.</p>
+<p>Se &egrave; stato selezionato il tipo di risorsa <code>java.sql.Driver</code>, nel campo in genere viene inserito automaticamente il nome classe associato al tipo di risorsa e al fornitore di database scelti. Se &egrave; stata selezionata una risorsa di tipo origine dati, il campo &egrave; disabilitato.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">Eliminare un pool di connessione JDBC</a></p>
+<li>
+<p>Selezionare la casella di controllo Ping abilitato per eseguire automaticamente il ping durante il processo di creazione o riconfigurazione del pool al fine di identificare e segnalare valori errati degli attributi.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Descrizione, digitare una breve descrizione per il connection pool.</p>
+</li>
+<li>
+<p>Nel campo Dimensione pool iniziale e minima, digitare il numero minimo di connessioni per il pool.</p>
+<p>Questo valore determina inoltre il numero di connessioni inserite nel pool al momento della sua creazione o all'avvio di GlassFish Server. Il valore predefinito &egrave; 8.</p>
+</li>
+<li>
+<p>Nel campo Dimensione massima pool, digitare il numero massimo di connessioni per il pool.</p>
+<p>Il valore predefinito &egrave; 32.</p>
+</li>
+<li>
+<p>Nel campo Quantit&agrave; di ridimensionamento pool, digitare il numero di connessioni da includere in ogni batch di ridimensionamento del pool.</p>
+<p>Quando le dimensioni del pool aumentano o diminuiscono, le variazioni avvengono in batch. Questo valore determina il numero di connessioni presenti nel batch. Se il valore &egrave; troppo grande pu&ograve; generare ritardi nella creazione e nella riattivazione delle connessioni, mentre se &egrave; troppo piccolo pu&ograve; ridurre le prestazioni complessive. Il valore predefinito &egrave; 2.</p>
+</li>
+<li>
+<p>Nel campo Timeout inattivit&agrave;, digitare il numero massimo di secondi durante i quali una connessione pu&ograve; rimanere inattiva nel pool.</p>
+<p>Una volta trascorso tale numero di secondi, la connessione viene rimossa dal pool. Il valore predefinito &egrave; 300.</p>
+</li>
+<li>
+<p>Nel campo Tempo massimo di attesa, digitare il tempo massimo di attesa (in millisecondi) per la richiesta di connessione da parte di un'applicazione prima che si verifichi il timeout della connessione.</p>
+<p>Il valore predefinito &egrave; 60.000.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Connessioni non transazionali abilitate per restituire connessioni non transazionali.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa Livello di isolamento della transazione, selezionare un livello isolamento transazione per il connection pool corrente.</p>
+<p>Se il livello non &egrave; specificato, le connessioni funzionano con i livelli di isolamento predefiniti forniti dal driver JDBC. Per impostazione predefinita, per questa opzione non viene specificato alcun valore.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Livello di isolamento garantito per garantire che tutte le connessioni del pool presentino lo stesso livello di isolamento.</p>
+<p>Ad esempio, se il livello di isolamento della connessione viene modificato a livello di programmazione (mediante <code>con.setTransactionIsolation</code>) al momento dell'ultimo utilizzo, questa funzione riporta lo stato al livello di isolamento specificato. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+<p>Questa opzione pu&ograve; essere implementata soltanto se &egrave; stato specificato un livello isolamento transazione.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>Alcuni esempi di propriet&agrave; obbligatorie sono il nome del database (URL), il nome utente e la password. La tabella in genere contiene le propriet&agrave; utilizzate dal fornitore del database. Per informazioni su alcune delle propriet&agrave; disponibili, vedere <a href="ref-jdbc-properties.html">Propriet&agrave; specifiche dei connection pool JDBC</a>.</p>
+<p>Se non si specifica un valore per una propriet&agrave;, questa viene rimossa dalla tabella al termine della creazione del connection pool. Se anzich&eacute; impostare il valore di una propriet&agrave; in questa fase si preferisce conservare la propriet&agrave; nella tabella in modo da impostare il valore in un secondo momento, digitare due parentesi vuote nel campo Valore:</p>
+<pre>
+()
+</pre>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Fine.</p>
+</li>
+</ol>
+<a id="sthref16" name="sthref16"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-setdbaccess.html">Impostare l'accesso al database</a></p>
+</li>
+<li>
+<p><a href="task-integratejdbcdriver.html">Integrare un driver JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcenew.html">Creare una risorsa JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcesedit.html">Modificare una risorsa JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcetargets.html">Modificare le destinazioni di una risorsa JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcesdelete.html">Eliminare una risorsa JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooledit.html">Modificare le impostazioni generali dei connection pool JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">Modificare gli attributi avanzati dei connection pool JDBC</a></p>
+</li>
+<li>
+<p><a href="task-verifyconnpoolsettings.html">Verificare le impostazioni del connection pool</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">Modificare le propriet&agrave; del connection pool JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">Eliminare un connection pool JDBC</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

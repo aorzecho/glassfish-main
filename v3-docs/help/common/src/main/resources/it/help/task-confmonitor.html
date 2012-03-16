@@ -1,47 +1,71 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-confmonitor" name="task-confmonitor"></a><a id="GHCOM00213" name="GHCOM00213"></a></p>
 
-
-<a name="task-confmonitor"></a><h3>Configurare il servizio di monitoraggio</h3><a name="indexterm-119"></a><ol>
-<li><b>Nel nodo Configurations, espandere la configurazione dell'istanza server o del cluster per
-cui si desidera configurare il monitoraggio.</b></li>
-<li><b>Espandere il nodo Monitoring.</b><p>Viene visualizzata la pagina Monitoring Service.</p></li>
-<li><b>Selezionare la casella di controllo Monitoring Service Enabled per abilitare il monitoraggio
-per GlassFish Server o deselezionarla per disabilitare il monitoraggio.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo Monitoring MBeans Enabled per distribuire tutti gli
-elementi MBeans necessari per il monitoraggio o deselezionare la casella per annullare
-la distribuzione degli elementi MBeans.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p><p>Se la casella di controllo non &#232; selezionata non &#232; possibile visualizzare
-i dati di monitoraggio in Administration Console, anche se &#232; selezionata la
-casella di controllo Monitoring Service. In tal caso per visualizzare i dati
-di monitoraggio &#232; necessario utilizzare la riga di comando. Se si deseleziona
-la casella di controllo, l'utilizzo di memoria di GlassFish Server risulter&#224; ridotto.</p></li>
-<li><b>Selezionare la casella di controllo DTrace Enabled per abilitare l'utilizzo della risorsa
-Solaris DTrace.</b><p>Per utilizzare Solaris DTrace &#232; necessario disporre anche di Oracle Enterprise Manager
-DTrace Monitoring. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Nella tabella procedere in uno dei seguenti modi.</b><ul>
-<li><b>Nella colonna Monitoring Level, selezionare LOW o HIGH dall'elenco a discesa per
-uno o pi&#249; componenti della colonna Component, in modo da abilitare il
-monitoraggio per i componenti corrispondenti.</b></li>
-<li><b>Selezionare le caselle di controllo in corrispondenza di uno o pi&#249; componenti,
-quindi selezionare LOW o HIGH nell'elenco a discesa Level nella parte superiore
-della tabella e fare clic sul pulsante Change Level per impostare il
-livello di monitoraggio sul valore desiderato per tutti i componenti.</b></li></ul><p>Nella release corrente i livelli di monitoraggio ottenibili con le opzioni LOW
-e HIGH non presentano differenze. Per disabilitare il monitoraggio per uno o
-pi&#249; componenti, selezionare OFF. Il valore predefinito &#232; OFF.</p><p>Prima di configurare il monitoraggio di un'applicazione, un componente o un servizio,
-&#232; necessario eseguirne la distribuzione.</p></li>
-<li><b>Fare clic su Save.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-appmonitoringdata.html">Visualizzare i dati di monitoraggio delle applicazioni</a></p>
-
+<h4><a id="sthref206" name="sthref206"></a>Configurare il servizio di monitoraggio</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Per aprire la pagina Servizio di monitoraggio, effettuare una delle operazioni riportate di seguito.</p>
+<ul>
+<li>
+<p>Selezionare il nodo Dati di monitoraggio e fare clic sul collegamento Configura monitoraggio per l'istanza del server per il quale si desidera configurare il monitoraggio. Per configurare il monitoraggio per un cluster, scegliere qualsiasi istanza nel cluster.</p>
 </li>
-<li><p><a href="task-servermonitoringdata.html">Visualizzare i dati di monitoraggio dei server</a></p>
-
+</ul>
+<ul>
+<li>
+<p>Nel nodo Configurazioni espandere la configurazione dell'istanza server o del cluster per cui si desidera configurare il monitoraggio, quindi espandere il nodo Monitoraggio.</p>
 </li>
-<li><p><a href="task-resourcemonitoringdata.html">Visualizzare i dati di monitoraggio delle risorse</a></p>
+</ul>
+<p>Viene visualizzata la pagina Servizio di monitoraggio.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Servizio di monitoraggio abilitato per abilitare il monitoraggio per GlassFish Server o deselezionarla per disabilitare il monitoraggio.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo MBean di monitoraggio abilitati per distribuire tutti gli elementi MBean necessari per il monitoraggio o deselezionare la casella per annullare la distribuzione degli elementi MBean.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+<p>Se la casella di controllo non &egrave; selezionata non &egrave; possibile visualizzare i dati di monitoraggio in Console di amministrazione, anche se &egrave; selezionata la casella di controllo Servizio di monitoraggio. In tal caso per visualizzare i dati di monitoraggio &egrave; necessario utilizzare la riga di comando. Se si deseleziona la casella di controllo, l'utilizzo di memoria di GlassFish Server risulter&agrave; ridotto.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo DTrace abilitato per abilitare l'utilizzo della risorsa Solaris DTrace.</p>
+<p>Per utilizzare Solaris DTrace &egrave; necessario disporre anche di Oracle Monitoraggio Enterprise Manager Dtrace. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nella tabella procedere in uno dei seguenti modi.</p>
+<ul>
+<li>
+<p>Nella colonna Livello di monitoraggio, selezionare LOW o HIGH dall'elenco a discesa per uno o pi&ugrave; componenti della colonna Componente, in modo da abilitare il monitoraggio per i componenti corrispondenti.</p>
+</li>
+<li>
+<p>Selezionare le caselle di controllo in corrispondenza di uno o pi&ugrave; componenti, quindi selezionare LOW o HIGH nell'elenco a discesa Livello nella parte superiore della tabella e fare clic sul pulsante Cambia livello per impostare il livello di monitoraggio sul valore desiderato per tutti i componenti.</p>
+</li>
+</ul>
+<p>Nella release corrente i livelli di monitoraggio ottenibili con le opzioni LOW e HIGH non presentano differenze. Per disabilitare il monitoraggio per uno o pi&ugrave; componenti, selezionare OFF. Il valore predefinito &egrave; OFF.</p>
+<p>Prima di configurare il monitoraggio di un'applicazione, un componente o un servizio, &egrave; necessario eseguirne la distribuzione.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+</ol>
+<a id="sthref207" name="sthref207"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-appmonitoringdata.html">Visualizzare i dati di monitoraggio delle applicazioni</a></p>
+</li>
+<li>
+<p><a href="task-servermonitoringdata.html">Visualizzare i dati di monitoraggio dei server virtuali</a></p>
+</li>
+<li>
+<p><a href="task-resourcemonitoringdata.html">Visualizzare i dati di monitoraggio delle risorse</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

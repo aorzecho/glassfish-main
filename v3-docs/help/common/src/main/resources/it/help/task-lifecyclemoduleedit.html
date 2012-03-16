@@ -1,43 +1,61 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-lifecyclemoduleedit" name="task-lifecyclemoduleedit"></a><a id="GHCOM00170" name="GHCOM00170"></a></p>
 
-
-<a name="task-lifecyclemoduleedit"></a><h3>Modificare un modulo del ciclo di vita</h3><a name="indexterm-59"></a><ol>
-<li><b>Nella struttura ad albero, selezionare il nodo Lifecycle Modules.</b><p>Viene visualizzata la pagina Lifecycle Modules.</p></li>
-<li><b>Nella pagina Lifecycle Modules fare clic sul nome del modulo del ciclo
-di vita modificare.</b><p>Viene visualizzata la pagina Edit Lifecycle Module.</p></li>
-<li><b>Nel campo Class Name digitare il nome completo del file di classe
-del modulo.</b><p>La classe deve implementare l'interfaccia <tt> com.sun.appserv.server.LifecycleListener</tt>.</p></li>
-<li><b>Nel campo Classpath digitare il classpath per il modulo del ciclo di
-vita.</b><p>Il classpath specifica la posizione del modulo del ciclo di vita. Il
-valore predefinito &#232; <tt></tt><i>domain-dir</i><tt>/applications</tt>. Se il modulo si trova gi&#224; in questa
-directory (ossia nel classpath del server) il campo pu&#242; essere lasciato vuoto.</p></li>
-<li><b>Nel campo Load Order, digitare un valore per specificare l'ordine di caricamento
-del modulo del ciclo di vita all'avvio.</b><p>I moduli con i numeri di ordine di caricamento pi&#249; bassi verranno
-caricati per primi. Il valore pu&#242; essere compreso tra 101 e il
-valore <tt>MAXINT</tt> del sistema operativo. I valori compresi tra 1 e 100
-sono riservati.</p></li>
-<li><b>Nel campo Description, digitare una descrizione del modulo del ciclo di vita.</b></li>
-<li><b>Selezionare la casella di controllo Status Enabled per abilitare il modulo del
-ciclo di vita.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo On Load Failure Prevent Instance Startup per
-impostare l'arresto del server in caso di mancato caricamento del modulo del
-ciclo di vita.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Viene visualizzata la scheda Targets se esistono cluster o istanze server standalone
-oltre all'istanza server predefinita (<tt>server</tt>). Selezionare la scheda Targets per visualizzare le
-destinazioni in cui &#232; stato abilitato il modulo del ciclo di vita.
-Per ulteriori informazioni su come abilitare o disabilitare un modulo del ciclo
-di vita in una o pi&#249; destinazioni, vedere <a href="task-appviewtargets.html">Visualizzare le destinazioni di un'applicazione</a>.</b></li>
-<li><b>Fare clic su Save.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-lifecyclemodulenew.html">Creare un modulo del ciclo di vita</a></p>
-
+<h4><a id="sthref106" name="sthref106"></a>Modificare un modulo del ciclo di vita</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione selezionare il nodo Moduli del ciclo di vita.</p>
+<p>Viene visualizzata la pagina Moduli del ciclo di vita.</p>
 </li>
-<li><p><a href="task-lifecyclemoduledelete.html">Eliminare un modulo del ciclo di vita</a></p>
+<li>
+<p>Nella pagina Moduli del ciclo di vita fare clic sul nome del modulo del ciclo di vita modificare.</p>
+<p>Viene visualizzata la pagina Modifica modulo ciclo di vita.</p>
+</li>
+<li>
+<p>Nel campo Nome classe digitare il nome completo del file di classe del modulo del ciclo di vita.</p>
+<p>La classe deve implementare l'interfaccia <code>com.sun.appserv.server.LifecycleListener</code>.</p>
+</li>
+<li>
+<p>Nel campo Classpath digitare il classpath per il modulo del ciclo di vita.</p>
+<p>Il classpath specifica la posizione del modulo del ciclo di vita. Il valore predefinito &egrave; <i>domain-dir</i><code>/applications</code>. Se il modulo si trova gi&agrave; in questa directory (ossia nel classpath del server) il campo pu&ograve; essere lasciato vuoto.</p>
+</li>
+<li>
+<p>Nel campo Ordine di caricamento, digitare un valore per specificare l'ordine di caricamento del modulo del ciclo di vita all'avvio.</p>
+<p>I moduli con i numeri di ordine di caricamento pi&ugrave; bassi verranno caricati per primi. Il valore pu&ograve; essere compreso tra 101 e il valore <code>MAXINT</code> del sistema operativo. I valori compresi tra 1 e 100 sono riservati.</p>
+</li>
+<li>
+<p>Nel campo Descrizione, digitare una descrizione del modulo del ciclo di vita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Stato abilitato per abilitare il modulo del ciclo di vita.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo In caso di errore di caricamento: Impedisci avvio istanza per impostare l'arresto del server in caso di mancato caricamento del modulo del ciclo di vita.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Viene visualizzata la scheda Destinazioni se esistono cluster o istanze server standalone oltre all'istanza server predefinita (<code>server</code>). Selezionare la scheda Destinazioni per visualizzare le destinazioni in cui &egrave; stato abilitato il modulo del ciclo di vita. Per ulteriori informazioni su come abilitare o disabilitare un modulo del ciclo di vita in una o pi&ugrave; destinazioni, vedere <a href="task-appviewtargets.html">Visualizzare le destinazioni di un'applicazione</a>.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+</ol>
+<a id="sthref107" name="sthref107"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-lifecyclemodulenew.html">Creare un modulo del ciclo di vita</a></p>
+</li>
+<li>
+<p><a href="task-lifecyclemoduledelete.html">Eliminare un modulo del ciclo di vita</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

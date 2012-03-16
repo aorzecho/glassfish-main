@@ -1,58 +1,87 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jndiexternalresourcecreate" name="task-jndiexternalresourcecreate"></a><a id="GHJML00018" name="GHJML00018"></a></p>
 
-
-<a name="task-jndiexternalresourcecreate"></a><h3>Creare una risorsa JNDI esterna</h3><a name="indexterm-14"></a><a name="indexterm-15"></a><a name="indexterm-16"></a><p>Le risorse JNDI esterne accedono a repository JNDI esterni, ad esempio server
-LDAP.</p>
-
+<h4><a id="sthref21" name="sthref21"></a><a id="sthref22" name="sthref22"></a>Creare una risorsa JNDI esterna</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Le risorse JNDI esterne accedono a repository JNDI esterni, ad esempio server LDAP.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Resources.</b></li>
-<li><b>Nel nodo Resources, espandere il nodo JNDI.</b></li>
-<li><b>Nel nodo JNDI, selezionare External Resources.</b><p>Viene visualizzata la pagina External Resources.</p></li>
-<li><b>Nella pagina External Resources, fare clic su New.</b><p>Viene visualizzata la pagina New External Resource.</p></li>
-<li><b>Nel campo JNDI Name, digitare un nome univoco.</b><p>Il nome verr&#224; registrato nel servizio di denominazione JNDI. Il nome JNDI
-consente di organizzare e individuare i componenti all'interno di un ambiente di
-elaborazione distribuito, in modo analogo agli schedari in una biblioteca, con cui
-viene organizzata e rappresentata la posizione dei libri. Di conseguenza il nome
-JNDI diventa un metodo importante per l'accesso alla risorsa.</p></li>
-<li><b>Nel campo Resource Type procedere in uno dei seguenti modi.</b><ul>
-<li><b>Dall'elenco a discesa, selezionare una definizione di tipo.</b></li>
-<li><b>Selezionare il secondo pulsate di scelta e digitare una definizione di tipo
-completa, con il formato <tt><i>xxx</i>.<i> xxx</i></tt>.</b></li></ul></li>
-<li><b>Nel campo Factory Class, digitare un repository esterno di classe di factory
-JNDI per la risorsa esterna da creare.</b><p>Factory Class &#232; il nome specificato dall'utente per la classe di factory,
-ad esempio <tt>com.sun.jndi.ldap </tt>. Questa classe implementa l'interfaccia <tt>javax.naming.spi.InitialContextFactory</tt>.</p></li>
-<li><b>Nel campo JNDI Lookup, digitare il valore JNDI per eseguire ricerche nel
-repository esterno.</b><p>Ad esempio, quando si crea una risorsa esterna da collegare a un
-repository esterno, per testare una classe di bean, la funzione JNDI Lookup
-pu&#242; avere l'aspetto seguente: <tt>cn=<i> testmybean</i></tt>.</p></li>
-<li><b>Nel campo Description, digitare una breve descrizione della risorsa.</b><p>La descrizione &#232; un valore stringa e non pu&#242; superare i 250
-caratteri di lunghezza.</p></li>
-<li><b>Selezionare la casella di controllo Status Enabled per abilitare la risorsa.</b><p>Per impostazione predefinita la risorsa &#232; abilitata, ossia disponibile dal momento in
-cui viene creata.</p></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive per la risorsa esterna.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per le risorse
-esterne.</p><p>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</p></li>
-<li><b>Fare clic su OK.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-jndicustomresourcenew.html">Creare una risorsa JNDI personalizzata</a></p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Risorse.</p>
 </li>
-<li><p><a href="task-jndicustomresourceedit.html">Modificare una risorsa JNDI personalizzata</a></p>
-
+<li>
+<p>Nel nodo Risorse, espandere il nodo JNDI.</p>
 </li>
-<li><p><a href="task-jndicustomresourcedelete.html">Eliminare una risorsa JNDI personalizzata</a></p>
-
+<li>
+<p>Nel nodo JNDI, selezionare Risorse esterne.</p>
+<p>Viene visualizzata la pagina Risorse esterne.</p>
 </li>
-<li><p><a href="task-jndiexternalresourceedit.html">Modificare una risorsa JNDI esterna</a></p>
-
+<li>
+<p>Nella pagina Risorse esterne, fare clic su Nuovo.</p>
+<p>Viene visualizzata la pagina Nuova risorsa esterna.</p>
 </li>
-<li><p><a href="task-jndiexternalresourcedelete.html">Eliminare una risorsa JNDI esterna</a></p>
+<li>
+<p>Nel campo Nome JNDI, digitare un nome univoco.</p>
+<p>Il nome verr&agrave; registrato nel servizio di denominazione JNDI. Il nome JNDI consente di organizzare e individuare i componenti all'interno di un ambiente di elaborazione distribuito, in modo analogo agli schedari in una biblioteca, con cui viene organizzata e rappresentata la posizione dei libri. Di conseguenza il nome JNDI diventa un metodo importante per l'accesso alla risorsa.</p>
+</li>
+<li>
+<p>Nel campo Tipo di risorsa procedere in uno dei seguenti modi.</p>
+<ul>
+<li>
+<p>Dall'elenco a discesa, selezionare una definizione di tipo.</p>
+</li>
+<li>
+<p>Selezionare il secondo pulsante di scelta e digitare una definizione di tipo completamente qualificata, nel formato .<i>xxx</i>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nel campo Classe factory, digitare un repository esterno di classe factory JNDI per la risorsa esterna da creare.</p>
+<p>Classe factory &egrave; il nome specificato per la classe di factory, ad esempio <code>com.sun.jndi.ldap</code>. Questa classe implementa l'interfaccia <code>javax.naming.spi.InitialContextFactory</code>.</p>
+</li>
+<li>
+<p>Nel campo Ricerca JNDI, digitare il valore JNDI per eseguire ricerche nel repository esterno.</p>
+<p>Ad esempio, quando si crea una risorsa esterna da collegare a un repository esterno, per eseguire test su una classe di bean, la funzione Ricerca JNDI pu&ograve; avere l'aspetto seguente: <code>cn=</code><i>testmybean</i>.</p>
+</li>
+<li>
+<p>Nel campo Descrizione, digitare una breve descrizione della risorsa.</p>
+<p>La descrizione &egrave; un valore stringa e non pu&ograve; superare i 250 caratteri di lunghezza.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Stato abilitato per abilitare la risorsa.</p>
+<p>Per impostazione predefinita la risorsa &egrave; abilitata, ossia disponibile dal momento in cui viene creata.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive per la risorsa esterna.</p>
+<p>In GlassFish Server non &egrave; definita alcuna propriet&agrave; aggiuntiva per le risorse esterne.</p>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Fare clic su OK.</p>
+</li>
+</ol>
+<a id="sthref23" name="sthref23"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-jndicustomresourcenew.html">Creare una risorsa JNDI personalizzata</a></p>
+</li>
+<li>
+<p><a href="task-jndicustomresourceedit.html">Modificare una risorsa JNDI personalizzata</a></p>
+</li>
+<li>
+<p><a href="task-jndicustomresourcedelete.html">Eliminare una risorsa JNDI personalizzata</a></p>
+</li>
+<li>
+<p><a href="task-jndiexternalresourceedit.html">Modificare una risorsa JNDI esterna</a></p>
+</li>
+<li>
+<p><a href="task-jndiexternalresourcedelete.html">Eliminare una risorsa JNDI esterna</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,117 +1,117 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-messagesecurityproviderconfignew"></a><h4>New Provider Configuration</h4>
-<a name="indexterm-233"></a><p>Nella pagina New Provider Configuration &#232; possibile creare una nuova configurazione di
-provider di sicurezza dei messaggi.</p>
+<p><a id="ref-messagesecurityproviderconfignew" name="ref-messagesecurityproviderconfignew"></a><a id="GHCOM00122" name="GHCOM00122"></a></p>
 
-<p>La pagina New Provider Configuration contiene le seguenti opzioni.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<h4><a id="sthref432" name="sthref432"></a>Nuova configurazione provider</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Nuova configurazione provider &egrave; possibile creare una nuova configurazione di provider di sicurezza dei messaggi.</p>
+<p>La pagina Nuova configurazione provider contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
-<dt>Provider ID</dt>
-<dd><p>Nome del provider di sicurezza dei messaggi.</p>
-
+<dt>ID provider</dt>
+<dd>
+<p>Nome del provider di sicurezza dei messaggi.</p>
 </dd>
-<dt>Default Provider</dt>
-<dd><p>Se questa opzione &#232; selezionata, questo provider &#232; il provider predefinito. Il provider predefinito verr&#224; chiamato per tutte le applicazioni che non identificano un provider specifico. Con l'opzione Provider Type &#232; possibile impostare il provider come provider client predefinito, provider server predefinito o entrambi.</p>
-
+<dt>Provider predefinito</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, questo provider &egrave; il provider predefinito. Il provider predefinito verr&agrave; richiamato per le applicazioni che non identificano un provider specifico. L'opzione Tipo di provider consente di determinare se il provider &egrave; il provider client predefinito, il provider server predefinito o entrambi.</p>
 </dd>
-<dt>Provider Type</dt>
-<dd><p>Specifica il tipo di provider. Sono disponibili le seguenti opzioni:</p>
-
-<dl><dt><tt>client</tt></dt>
-<dd><p>Specifica che il provider &#232; il provider di autenticazione client.</p>
-
+<dt>Tipo di provider</dt>
+<dd>
+<p>Specifica il tipo di provider. Sono disponibili le opzioni riportate di seguito.</p>
+<dl>
+<dt><code>client</code></dt>
+<dd>
+<p>Specifica che il provider &egrave; il provider di autenticazione client.</p>
 </dd>
-<dt><tt>server</tt></dt>
-<dd><p>Specifica che il provider &#232; il provider di autenticazione server.</p>
-
+<dt><code>server</code></dt>
+<dd>
+<p>Specifica che il provider &egrave; il provider di autenticazione server.</p>
 </dd>
-<dt><tt>client-server</tt></dt>
-<dd><p>Specifica che il provider &#232; un provider di autenticazione sia client sia server.</p>
-
-</dd>
-</dl>
-</dd>
-<dt>Class Name</dt>
-<dd><p>Nome della classe di implementazione Java del provider. I provider di autenticazione client devono implementare l'interfaccia <tt>com.sun.enterprise.security.jauth.ClientAuthModule</tt> . I provider del lato server devono implementare l'interfaccia <tt>com.sun.enterprise.security.jauth.ServerAuthModule</tt> . I provider client/server devono implementare entrambe le interfacce.</p>
-
-</dd>
-<dt>Authenticate Source (for Request Policy)</dt>
-<dd><p>Tipo di autenticazione necessaria per il criterio di richiesta. Il criterio di richiesta determina l'elaborazione di richiesta implementata dal provider di autenticazione. I campi del criterio di richiesta sono facoltativi, ma se non vengono specificati il provider di autenticazione non autentica i messaggi di richiesta.</p>
-
-<p>Selezionare <tt>sender</tt> per specificare l'autenticazione del mittente di livello messaggio (ad esempio nome utente e password) per i messaggi di richiesta. Selezionare <tt>content</tt> per specificare l'autenticazione del contenuto (ad esempio firma digitale) per i messaggi di richiesta. Lasciare il campo vuoto per non autenticare l'origine delle richieste. Per impostazione predefinita non &#232; selezionato alcun tipo di autenticazione.</p>
-
-<p>Per la descrizione delle operazioni eseguite dai provider di sicurezza dei messaggi SOAP, vedere <a href="ref-configreq-respolicy.html">Configurazioni di criteri di richiesta e risposta</a>.</p>
-
-</dd>
-<dt>Authenticate Recipient (for Request Policy)</dt>
-<dd><p>Specifica se eseguire l'autenticazione del destinatario prima o dopo l'autenticazione del contenuto per il criterio di richiesta.</p>
-
-<p>Selezionare <tt>before-content</tt> o <tt> after-content</tt> per richiedere l'autenticazione di livello messaggio del destinatario del messaggio di richiesta nei confronti del mittente (mediante crittografia XML). Se il valore non viene specificato, l'impostazione predefinita &#232; <tt>after-content</tt>. I criteri vengono espressi nell'ordine definito dal mittente, pertanto <tt>after-content</tt> indica che il destinatario decifra il messaggio prima di convalidare la firma.</p>
-
-</dd>
-<dt>Authenticate Source (for Response Policy)</dt>
-<dd><p>Tipo di autenticazione necessaria per il criterio di risposta. Il criterio di risposta determina l'elaborazione di risposta implementata dal provider di autenticazione. I campi del criterio di risposta sono facoltativi, ma se non vengono specificati, ai messaggi di risposta non viene applicata alcuna autenticazione.</p>
-
-<p>Selezionare <tt>sender</tt> per specificare l'autenticazione del mittente di livello messaggio (ad esempio nome utente e password) per i messaggi di risposta. Selezionare <tt>content</tt> per specificare l'autenticazione a livello di contenuto (ad esempio firma digitale) per i messaggi di risposta. Lasciare il campo vuoto per non autenticare le origini delle risposte. Per impostazione predefinita non &#232; selezionato alcun tipo di autenticazione.</p>
-
-<p>Per la descrizione delle operazioni eseguite dai provider di sicurezza dei messaggi SOAP, vedere <a href="ref-configreq-respolicy.html">Configurazioni di criteri di richiesta e risposta</a>.</p>
-
-</dd>
-<dt>Authenticate Recipient (for Response Policy)</dt>
-<dd><p>Specifica se eseguire l'autenticazione del destinatario prima o dopo l'autenticazione del contenuto per il criterio di risposta.</p>
-
-<p>Selezionare <tt>before-content</tt> o <tt> after-content</tt> per definire il requisito per l'autenticazione di livello messaggio del destinatario del messaggio di risposta nei confronti del mittente (mediante crittografia XML). Se il valore non viene specificato, l'impostazione predefinita &#232; <tt>after-content</tt>. I criteri vengono espressi nell'ordine definito dal mittente, pertanto <tt>after-content</tt> indica che il destinatario decifra il messaggio prima di convalidare la firma.</p>
-
-</dd>
-<dt>Additional Properties</dt>
-<dd><p>Propriet&#224; aggiuntive per la configurazione di provider di sicurezza dei messaggi. Per la descrizione delle propriet&#224; aggiuntive disponibili per le configurazioni dei provider, vedere <a href="ref-messagesecurityproviderconfigprops.html">Propriet&#224; specifiche delle configurazioni di provider di sicurezza dei messaggi</a>.</p>
-
+<dt><code>client-server</code></dt>
+<dd>
+<p>Specifica che il provider &egrave; un provider di autenticazione sia client sia server.</p>
 </dd>
 </dl>
-<a name="gkony"></a><h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-configmsgsecproviders.html">Configurare le risorse di GlassFish Server utilizzate dai provider di sicurezza dei messaggi</a></p>
-
+</dd>
+<dt>Nome classe</dt>
+<dd>
+<p>Nome della classe di implementazione Java del provider. I provider di autenticazione client devono implementare l'interfaccia <code>com.sun.enterprise.security.jauth.ClientAuthModule</code>. I provider lato server devono implementare l'interfaccia <code>com.sun.enterprise.security jauth.ServerAuthModule</code>. I provider client-server devono implementare entrambe le interfacce.</p>
+</dd>
+<dt>Autenticazione origine (per i criteri di richiesta)</dt>
+<dd>
+<p>Tipo di autenticazione necessaria per i criteri di richiesta. I criteri di richiesta determinano l'elaborazione delle richieste eseguite dal provider di autenticazione. I campi dei criteri di richiesta sono facoltativi, ma se non vengono specificati il provider di autenticazione non autentica i messaggi di richiesta.</p>
+<p>Selezionare <code>sender</code> per specificare l'autenticazione del mittente nel layer di messaggio, ad esempio nome utente e password, per i messaggi di richiesta. Selezionare <code>content</code> per specificare l'autenticazione del contenuto, ad esempio firma digitale, per i messaggi di richiesta. Lasciare il campo vuoto per non autenticare l'origine delle richieste. Per impostazione predefinita, non &egrave; selezionato alcun tipo di autenticazione.</p>
+<p>Per la descrizione delle azioni eseguite dai provider di sicurezza dei messaggi SOAP, vedere <a href="ref-configreq-respolicy.html">Configurazione dei criteri di richiesta e risposta</a>.</p>
+</dd>
+<dt>Autenticazione destinatario (per i criteri di richiesta)</dt>
+<dd>
+<p>Specifica se eseguire l'autenticazione del destinatario prima o dopo l'autenticazione del contenuto per i criteri di richiesta.</p>
+<p>Selezionare <code>before-content</code> o <code>after-content</code> per richiedere l'autenticazione nel layer di messaggio del destinatario del messaggio di richiesta nei confronti del mittente (mediante cifratura XML). Se il valore non viene specificato, l'impostazione predefinita &egrave; <code>after-content</code>. I criteri vengono espressi nell'ordine definito dal mittente, pertanto <code>after-content</code> indica che il destinatario decifra il messaggio prima di convalidare la firma.</p>
+</dd>
+<dt>Autenticazione origine (per i criteri di risposta)</dt>
+<dd>
+<p>Tipo di autenticazione necessaria per i criteri di risposta. I criteri di risposta determinano l'elaborazione di risposta eseguita dal provider di autenticazione. I campi dei criteri di risposta sono facoltativi, ma se non vengono specificati, ai messaggi di risposta non viene applicata alcuna autenticazione.</p>
+<p>Selezionare <code>sender</code> per specificare l'autenticazione del mittente nel layer di messaggio, ad esempio nome utente e password, per i messaggi di risposta. Selezionare <code>content</code> per specificare l'autenticazione nel layer di contenuto, ad esempio firma digitale, per i messaggi di risposta. Lasciare il campo vuoto per non autenticare le origini delle risposte. Per impostazione predefinita, non &egrave; selezionato alcun tipo di autenticazione.</p>
+<p>Per la descrizione delle azioni eseguite dai provider di sicurezza dei messaggi SOAP, vedere <a href="ref-configreq-respolicy.html">Configurazione dei criteri di richiesta e risposta</a>.</p>
+</dd>
+<dt>Autenticazione destinatario (per i criteri di risposta)</dt>
+<dd>
+<p>Specifica se eseguire l'autenticazione del destinatario prima o dopo l'autenticazione del contenuto per i criteri di risposta.</p>
+<p>Selezionare <code>before-content</code> o <code>after-content</code> per definire un requisito per l'autenticazione nel layer di messaggio del destinatario del messaggio di risposta nei confronti del mittente (mediante cifratura XML). Se il valore non viene specificato, l'impostazione predefinita &egrave; <code>after-content</code>. I criteri vengono espressi nell'ordine definito dal mittente, pertanto <code>after-content</code> indica che il destinatario decifra il messaggio prima di convalidare la firma.</p>
+</dd>
+<dt>Propriet&agrave; aggiuntive</dt>
+<dd>
+<p>Propriet&agrave; aggiuntive per la configurazione di provider di sicurezza dei messaggi. Per la descrizione delle propriet&agrave; aggiuntive disponibili per le configurazioni dei provider, vedere <a href="ref-messagesecurityproviderconfigprops.html">Propriet&agrave; specifiche delle configurazioni di provider di sicurezza dei messaggi</a>.</p>
+</dd>
+</dl>
+<a id="sthref433" name="sthref433"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-configmsgsecproviders.html">Configurare le funzioni di GlassFish Server per l'utilizzo dai parte dei provider di sicurezza dei messaggi</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfignew.html">Creare una configurazione per la sicurezza dei messaggi</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfignew.html">Creare una configurazione di sicurezza dei messaggi</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigedit.html">Modificare una configurazione per la sicurezza dei messaggi</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigedit.html">Modificare una configurazione di sicurezza dei messaggi</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigdelete.html">Eliminare una configurazione per la sicurezza dei messaggi</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigdelete.html">Eliminare una configurazione di sicurezza dei messaggi</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfignew.html">Creare una configurazione per il provider di sicurezza dei messaggi</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfignew.html">Creare una configurazione provider di sicurezza dei messaggi</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigedit.html">Modificare una configurazione per il provider di sicurezza dei messaggi</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigedit.html">Modificare una configurazione provider di sicurezza dei messaggi</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigdelete.html">Eliminare una configurazione per il provider di sicurezza dei messaggi</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigdelete.html">Eliminare una configurazione provider di sicurezza dei messaggi</a></p>
 </li>
-<li><p><a href="task-enablemesec4appclients.html">Abilitare la sicurezza dei messaggi per i client dell'applicazione</a></p>
-
-</li></ul>
-<a name="gkooq"></a><h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-message-security-provider-1"><tt>create-message-security-provider</tt>(1)</a></p>
-
+<li>
+<p><a href="task-enablemesec4appclients.html">Abilitare la sicurezza dei messaggi per i client applicazione</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-message-security-providers-1"><tt>list-message-security-providers</tt>(1)</a></p>
-
+</ul>
+<a id="sthref434" name="sthref434"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00045"><code>create-message-security-provider</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-message-security-provider-1"><tt>delete-message-security-provider</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00184"><code>list-message-security-providers</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00097"><code>delete-message-security-provider</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

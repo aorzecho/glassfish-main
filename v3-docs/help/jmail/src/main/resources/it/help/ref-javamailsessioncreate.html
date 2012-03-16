@@ -1,115 +1,119 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-javamailsessioncreate"></a><h4>New JavaMail Session</h4>
-<a name="indexterm-22"></a><p>Nella pagina New JavaMail Session &#232; possibile creare una nuova risorsa di
-sessione JavaMail.</p>
+<p><a id="ref-javamailsessioncreate" name="ref-javamailsessioncreate"></a><a id="GHJML00002" name="GHJML00002"></a></p>
 
-<p>La pagina New JavaMail Session contiene le seguenti opzioni.</p>
-
-<dl><dt>JNDI Name</dt>
-<dd><p>Nome univoco che identifica la sessione di posta elettronica. Utilizzare il prefisso di sottocontesto di denominazione <tt>mail/</tt> per risorse JavaMail, ad esempio <tt> mail/MySession</tt>. Il nome pu&#242; contenere solo caratteri alfanumerici, caratteri di sottolineatura, trattini e punti.</p>
-
+<h4><a id="sthref33" name="sthref33"></a>Nuova sessione JavaMail</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Nuova sessione JavaMail &egrave; possibile creare una nuova risorsa sessione JavaMail.</p>
+<p>La pagina Nuova sessione JavaMail contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome JNDI</dt>
+<dd>
+<p>Nome univoco che identifica la sessione di posta. Utilizzare il prefisso del contesto secondario di denominazione <code>mail/</code> per le risorse JavaMail. Ad esempio: <code>mail/MySession</code>. Il nome pu&ograve; contenere solo caratteri alfanumerici, caratteri di sottolineatura, trattini o punti.</p>
 </dd>
-<dt>Mail Host</dt>
-<dd><p>Nome host del server di posta elettronica predefinito. Se non viene fornita una propriet&#224; host specifica per un protocollo, i metodi di connessione degli oggetti Store e Transport utilizzano questo valore. Il nome deve essere risolvibile in un nome host reale.</p>
-
+<dt>Host posta</dt>
+<dd>
+<p>Nome host del server di posta predefinito. Se non viene fornita una propriet&agrave; host specifica del protocollo, i metodi di connessione degli oggetti area di memorizzazione e trasporto utilizzano questo valore. Il nome deve essere risolvibile in un nome host effettivo.</p>
 </dd>
-<dt>Default User</dt>
-<dd><p>Nome utente da specificare al momento della connessione a un server di posta elettronica. Se non viene fornita una propriet&#224; nome utente specifica per un protocollo, i metodi di connessione degli oggetti Store e Transport utilizzano questo valore. Il nome utente pu&#242; contenere solo caratteri alfanumerici, caratteri di sottolineatura, trattini e punti.</p>
-
+<dt>Utente predefinito</dt>
+<dd>
+<p>Nome utente da fornire durante la connessione a un server di posta. Se non viene fornita una propriet&agrave; nome utente specifica del protocollo, i metodi di connessione degli oggetti area di memorizzazione e trasporto utilizzano questo valore. Il nome utente pu&ograve; contenere solo caratteri alfanumerici, caratteri di sottolineatura, trattini o punti.</p>
 </dd>
-<dt>Default Sender Address</dt>
-<dd><p>Indirizzo di posta elettronica dell'utente predefinito. Il formato &#232; <i> username</i><tt>@</tt><i>host</i>.<i> domain</i>.</p>
-
+<dt>Indirizzo mittente predefinito</dt>
+<dd>
+<p>Indirizzo di posta elettronica dell'utente predefinito. Il formato &egrave; <i>nomeutente</i><code>@</code><i>host</i>.<i>dominio</i>.</p>
 </dd>
-<dt>Description</dt>
-<dd><p>Descrizione della sessione di posta elettronica.</p>
-
+<dt>Descrizione</dt>
+<dd>
+<p>Descrizione della sessione di posta corrente.</p>
 </dd>
-<dt>Status</dt>
-<dd><p>Status della sessione di posta elettronica. La sessione di posta elettronica pu&#242; essere abilitata o disabilitata. Il valore predefinito &#232; Enabled.</p>
-
+<dt>Stato</dt>
+<dd>
+<p>Stato della sessione di posta. La sessione di posta pu&ograve; essere abilitata o disabilitata. Il valore predefinito &egrave; Abilitato.</p>
 </dd>
-<dt>Store Protocol</dt>
-<dd><p>Servizio del protocollo di memorizzazione con cui viene eseguita la connessione a un server di posta elettronica, il recupero dei messaggi e il salvataggio dei messaggi in una o pi&#249; cartelle. I valori consentiti sono <tt>imap</tt>, <tt>pop3</tt>, <tt>imaps</tt> e <tt>pop3s</tt>. Il valore predefinito &#232; <tt>imap</tt>.</p>
-
+<dt>Protocollo di memorizzazione</dt>
+<dd>
+<p>Servizio del protocollo di memorizzazione che consente la connessione a un server di posta, il recupero dei messaggi e il salvataggio dei messaggi in una o pi&ugrave; cartelle. I valori consentiti sono <code>imap</code>, <code>pop3</code>, <code>imaps</code> e <code>pop3s</code>. Il valore predefinito &egrave; <code>imap</code>.</p>
 </dd>
-<dt>Store Protocol Class</dt>
-<dd><p>Classe di implementazione del provider di servizi per la memorizzazione. I valori consentiti sono:</p>
-
-
-<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
-
+<dt>Classe protocollo di memorizzazione</dt>
+<dd>
+<p>Classe di implementazione del provider di servizi per la memorizzazione. I valori consentiti sono:</p>
+<ul>
+<li>
+<p><code>com.sun.mail.imap.IMAPStore</code></p>
 </li>
-<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
-
+<li>
+<p><code>com.sun.mail.pop3.POP3Store</code></p>
 </li>
-<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
-
+<li>
+<p><code>com.sun.mail.imap.IMAPSSLStore</code></p>
 </li>
-<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
-
-</li></ul>
-<p>Il valore predefinito &#232; <tt>com.sun.mail.imap.IMAPStore</tt>.</p>
-
+<li>
+<p><code>com.sun.mail.pop3.POP3SSLStore</code></p>
+</li>
+</ul>
+<p>Il valore predefinito &egrave; <code>com.sun.mail.imap.IMAPStore</code>.</p>
 </dd>
-<dt>Transport Protocol</dt>
-<dd><p>Servizio del protocollo di trasporto, che invia messaggi. I valori consentiti sono <tt>smtp</tt> e <tt>smtps</tt>. Il valore predefinito &#232; <tt>smtp</tt>.</p>
-
+<dt>Protocollo di trasporto</dt>
+<dd>
+<p>Servizio del protocollo di trasporto, che invia messaggi. I valori consentiti sono <code>smtp</code> e <code>smtps</code>. Il valore predefinito &egrave; <code>smtp</code>.</p>
 </dd>
-<dt>Transport Protocol Class</dt>
-<dd><p>Classe di implementazione del provider di servizi per il trasporto. I valori consentiti sono:</p>
-
-
-<ul><li><p><tt>com.sun.mail.smtp.SMTPTransport</tt></p>
-
+<dt>Classe protocollo di trasporto</dt>
+<dd>
+<p>Classe di implementazione del provider di servizi per il trasporto. I valori consentiti sono:</p>
+<ul>
+<li>
+<p><code>com.sun.mail.smtp.SMTPTransport</code></p>
 </li>
-<li><p><tt>com.sun.mail.smtp.SMTPSSLTransport</tt></p>
-
-</li></ul>
-<p>Il valore predefinito &#232; <tt>com.sun.mail.smtp.SMTPTransport</tt>.</p>
-
+<li>
+<p><code>com.sun.mail.smtp.SMTPSSLTransport</code></p>
+</li>
+</ul>
+<p>Il valore predefinito &egrave; <code>com.sun.mail.smtp.SMTPTransport</code>.</p>
 </dd>
 <dt>Debug</dt>
-<dd><p>Se l'opzione &#232; selezionata, il debugging per la risorsa &#232; abilitato. Se il livello del log JavaMail &#232; impostato su <tt>FINE</tt> o su un valore superiore, l'output di debugging viene generato e incluso nel file del log di sistema. Per informazioni sull'impostazione del livello del log, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3030&id=task-eelogginglevels">To Configure Log Levels</a>.</p>
-
+<dd>
+<p>Se questa opzione &egrave; selezionata, il debug per la risorsa corrente &egrave; abilitato. Se il livello del log JavaMail &egrave; impostato su <code>FINE</code> o FINER, l'output di debug viene generato e incluso nel file di log di sistema. Per informazioni sull'impostazione dei livelli del log, vedere <a href="../../../common/it/help/missingtopic.html">To Configure Log Levels</a>.</p>
 </dd>
-<dt>Additional Properties</dt>
-<dd><p>Propriet&#224; aggiuntive per la sessione JavaMail. Per un elenco di propriet&#224; disponibili, vedere la <a href="http://java.sun.com/products/javamail/javadocs/index.html">documentazione dell'API JavaMail</a>. Le propriet&#224; aggiuntive devono iniziare con <tt>mail-</tt> e come separatori devono utilizzare trattini, e non punti. Ad esempio, <tt>mail-debug</tt> &#232; una propriet&#224; corretta, mentre <tt>mail.debug</tt> non lo &#232;. Il back-end di GlassFish Server converte i trattini nei punti previsti per l'API JavaMail.</p>
-
+<dt>Propriet&agrave; aggiuntive</dt>
+<dd>
+<p>Propriet&agrave; aggiuntive per la sessione JavaMail. Per una lista delle propriet&agrave; disponibili, consultare la documentazione dell'API JavaMail (<code><a href="http://java.sun.com/products/javamail/javadocs/index.html">http://java.sun.com/products/javamail/javadocs/index.html</a></code>). Le propriet&agrave; aggiuntive devono iniziare con <code>mail-</code> e come separatori devono utilizzare trattini e non punti. Ad esempio, <code>mail-debug</code> &egrave; una propriet&agrave; corretta, mentre <code>mail.debug</code> non lo &egrave;. Il processo backend di GlassFish Server converte i trattini nei punti previsti dall'API JavaMail.</p>
 </dd>
-<dt>Targets</dt>
-<dd><p>Cluster e istanze standalone per la sessione JavaMail. Per spostare le destinazioni desiderate nella colonna Selected Targets, utilizzare i pulsanti Add e Add All. Per spostare le destinazioni non necessarie nella colonna Available Targets, utilizzare i pulsanti Remove e Remove All.</p>
-
+<dt>Destinazioni</dt>
+<dd>
+<p>Cluster e istanze standalone per la sessione JavaMail. Per spostare le destinazioni desiderate nella colonna Destinazioni selezionate, utilizzare i pulsanti Aggiungi e Aggiungi tutto. Per spostare le destinazioni non necessarie nella colonna Destinazioni disponibili, utilizzare i pulsanti Rimuovi e Rimuovi tutto.</p>
 <p>Questa opzione viene visualizzata solo se nel dominio sono stati creati cluster o istanze standalone.</p>
-
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-javamailsessioncreate.html">Creare una sessione JavaMail</a></p>
-
+<a id="sthref34" name="sthref34"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-javamailsessioncreate.html">Creare una sessione JavaMail</a></p>
 </li>
-<li><p><a href="task-javamailsessionsedit.html">Modificare una sessione JavaMail</a></p>
-
+<li>
+<p><a href="task-javamailsessionsedit.html">Modificare una sessione JavaMail</a></p>
 </li>
-<li><p><a href="task-javamailsessionsdelete.html">Eliminare una sessione JavaMail</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-javamail-resource-1"><tt>create-javamail-resource</tt>(1)</a></p>
-
+<li>
+<p><a href="task-javamailsessionsdelete.html">Eliminare una sessione JavaMail</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-javamail-resources-1"><tt>list-javamail-resources</tt>(1)</a></p>
-
+</ul>
+<a id="sthref35" name="sthref35"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00035"><code>create-javamail-resource</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-javamail-resource-1"><tt>delete-javamail-resource</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00172"><code>list-javamail-resources</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00087"><code>delete-javamail-resource</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

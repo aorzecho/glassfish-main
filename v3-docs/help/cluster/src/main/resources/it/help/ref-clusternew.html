@@ -1,115 +1,110 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-clusternew"></a><h4>Nuovo cluster</h4>
-<a name="indexterm-162"></a><a name="indexterm-163"></a><p>Nella pagina New Cluster &#232; possibile creare un cluster.</p>
+<p><a id="ref-clusternew" name="ref-clusternew"></a><a id="GHCLU00002" name="GHCLU00002"></a></p>
 
-<p>La pagina New Cluster contiene le seguenti opzioni.</p>
-
-<dl><dt>Cluster Name</dt>
-<dd><p>Nome del cluster.</p>
-
+<h4><a id="sthref247" name="sthref247"></a><a id="sthref248" name="sthref248"></a>Nuovo Cluster</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Nuovo cluster &egrave; possibile creare un cluster.</p>
+<p>La pagina Nuovo cluster contiene le seguenti opzioni.</p>
+<dl>
+<dt>Nome cluster</dt>
+<dd>
+<p>Nome del cluster.</p>
 <p>Il nome deve soddisfare i seguenti requisiti:</p>
-
-
-<ul><li><p>Il nome pu&#242; contenere solo caratteri ASCII.</p>
-
+<ul>
+<li>
+<p>Il nome pu&ograve; contenere solo caratteri ASCII.</p>
 </li>
-<li><p>Il nome deve iniziare con una lettera, un numero o un carattere di sottolineatura.</p>
-
+<li>
+<p>Il nome deve iniziare con una lettera, un numero o un carattere di sottolineatura.</p>
 </li>
-<li><p>Il nome pu&#242; contenere solo i seguenti caratteri:</p>
-
-
-<ul><li><p>Lettere minuscole</p>
-
+<li>
+<p>Il nome pu&ograve; contenere solo i seguenti caratteri:</p>
+<ul>
+<li>
+<p>Lettere minuscole</p>
 </li>
-<li><p>Lettere maiuscole</p>
-
+<li>
+<p>Lettere maiuscole</p>
 </li>
-<li><p>Numeri</p>
-
+<li>
+<p>Numeri</p>
 </li>
-<li><p>Trattino</p>
-
+<li>
+<p>Trattino</p>
 </li>
-<li><p>Punto</p>
-
+<li>
+<p>Punto</p>
 </li>
-<li><p>Carattere di sottolineatura</p>
-
-</li></ul>
+<li>
+<p>Carattere di sottolineatura</p>
 </li>
-<li><p>Il nome deve essere univoco nel dominio e non deve essere il nome di un altro cluster, di una configurazione con nome, di un'istanza di GlassFish Server o di un nodo.</p>
-
+</ul>
 </li>
-<li><p>Il nome non deve essere <tt>domain</tt>, <tt>server</tt> n&#233; nessun'altra parola chiave riservata per GlassFish Server.</p>
-
-</li></ul>
+<li>
+<p>Il nome deve essere univoco nel dominio e non deve essere il nome di un altro cluster, di una configurazione denominata, di un'istanza di GlassFish Server o di un nodo.</p>
+</li>
+<li>
+<p>Il nome non deve essere <code>domain</code>, <code>server</code> n&eacute; nessun'altra parola chiave riservata per GlassFish Server.</p>
+</li>
+</ul>
 </dd>
-<dt>Configuration</dt>
-<dd><p>Elenco discesa di configurazioni con nome esistenti utilizzabili dal cluster. Un cluster richiede una configurazione con nome per la definizione della configurazione di tutte le istanze che vengono aggiunte al cluster. &#200; necessario selezionare una configurazione dall'elenco. Il cluster utilizzer&#224; la configurazione selezionata al momento della creazione del cluster.</p>
-
+<dt>Configurazione</dt>
+<dd>
+<p>Elenco a discesa di configurazioni denominate esistenti utilizzabili dal cluster. Un cluster richiede una configurazione denominata per la definizione della configurazione di tutte le istanze che vengono aggiunte al cluster. &Egrave; necessario selezionare una configurazione dalla lista. Il cluster utilizzer&agrave; la configurazione selezionata al momento della creazione del cluster.</p>
 </dd>
-<dt>Make a Copy of the Selected Configuration</dt>
-<dd><p>Se l'opzione &#232; selezionata, la configurazione selezionata viene copiata al momento della creazione del cluster. Alla copia della configurazione viene assegnato il nome <tt><i>cluster-name</i>-config</tt>, in cui <i>cluster-name</i> &#232; il nome del cluster digitato nel campo Cluster Name.</p>
-
-<p>&#200; necessario selezionare tale opzione se nell'elenco a discesa Configuration &#232; selezionato <tt>default-config</tt>. La configurazione <tt>default-config</tt> pu&#242; essere copiata ma non utilizzata come riferimento.</p>
-
+<dt>Crea una copia della configurazione selezionata</dt>
+<dd>
+<p>Se l'opzione &egrave; selezionata, la configurazione selezionata viene copiata al momento della creazione del cluster. Alla copia della configurazione viene assegnato il nome <i>cluster-name</i><code>-config</code>, dove <i>cluster-name</i> &egrave; il nome del cluster come digitato nel campo Nome cluster.</p>
+<p>&Egrave; necessario selezionare tale opzione se nell'elenco a discesa Configurazione &egrave; selezionato <code>default-config</code>. La configurazione <code>default-config</code> pu&ograve; essere copiata ma non utilizzata come riferimento.</p>
 </dd>
-<dt>Reference the Selected Configuration </dt>
-<dd><p>Se l'opzione &#232; selezionata, il cluster utilizza la configurazione con nome esistente specificata.</p>
-
-<p>L'opzione <b>non</b> deve essere selezionata se nell'elenco a discesa Configuration &#232; selezionato <tt>default-config</tt>. La configurazione <tt>default-config</tt> non pu&#242; essere utilizzata come riferimento, ma solo copiata.</p>
-
+<dt>Crea riferimento alla configurazione selezionata</dt>
+<dd>
+<p>Se l'opzione &egrave; selezionata, il cluster utilizza la configurazione con nome esistente specificata.</p>
+<p>L'opzione <i>non</i> deve essere selezionata se nell'elenco a discesa Configurazione &egrave; selezionato <code>default-config</code>. La configurazione <code>default-config</code> non pu&ograve; essere utilizzata come riferimento, ma solo copiata.</p>
 </dd>
-<dt>Server Instances to be Created</dt>
-<dd><p>Elenco di istanze di &#38;ProductName da creare al momento della creazione del cluster. Per ogni istanza vengono fornite le seguenti informazioni.</p>
-
-<dl><dt>Instance Name</dt>
-<dd><p>Nome dell'istanza.</p>
-
+<dt>Istanze server da creare</dt>
+<dd>
+<p>Lista di istanze di &amp;ProductName da creare al momento della creazione del cluster. Per ogni istanza vengono fornite le seguenti informazioni.</p>
+<dl>
+<dt>Nome istanza</dt>
+<dd>
+<p>Nome dell'istanza.</p>
 </dd>
-<dt>Weight</dt>
-<dd><p>Numero intero che rappresenta il peso per il bilanciamento del carico dell'istanza.</p>
-
-<p>Il peso per il bilanciamento del carico determina la proporzione di tutte le richieste inviate al cluster che l'istanza dovrebbe elaborare.</p>
-
-<p>Ad esempio, in un cluster a due istanze pu&#242; essere necessaria un'istanza per elaborare una di quattro richieste e un'altra istanza per elaborarne tre di quattro. In questa situazione, impostare su 1 il peso dell'istanza che elabora una delle quattro richieste e su 3 il peso dell'altra istanza. Se si preferisce utilizzare valori percentuali, impostare i pesi delle istanze rispettivamente su 25 e 75.</p>
-
-<p>Il peso predefinito &#232; 100. </p>
-
+<dt>Fattore ponderale</dt>
+<dd>
+<p>Numero intero che rappresenta il fattore ponderale per il bilanciamento del carico dell'istanza.</p>
+<p>Il fattore ponderale per il bilanciamento del carico determina la proporzione di tutte le richieste inviate al cluster che l'istanza dovrebbe elaborare.</p>
+<p>Ad esempio, in un cluster a due istanze pu&ograve; essere necessaria un'istanza per elaborare una di quattro richieste e un'altra istanza per elaborarne tre di quattro. In questa situazione, impostare su 1 il fattore ponderale dell'istanza che elabora una delle quattro richieste e su 3 il fattore ponderale dell'altra istanza. Se si preferisce utilizzare valori percentuali, impostare i fattori ponderali delle istanze rispettivamente su 25 e 75.</p>
+<p>Il fattore ponderale predefinito &egrave; 100.</p>
 </dd>
-<dt>Node</dt>
-<dd><p>Elenco discesa di nodi esistenti in cui pu&#242; essere posizionata l'istanza. &#200; necessario selezionare un nodo dall'elenco. L'istanza verr&#224; posizionata nel nodo selezionato al momento della creazione del cluster.</p>
-
+<dt>Nodo</dt>
+<dd>
+<p>Elenco a discesa di nodi esistenti in cui pu&ograve; risiedere l'istanza. &Egrave; necessario selezionare un nodo dalla lista. L'istanza risieder&agrave; nel nodo selezionato al momento della creazione del cluster.</p>
 </dd>
 </dl>
-<p>La tabella Server Instances to be Created contiene inoltre le seguenti opzioni.</p>
-
-<dl><dt>New</dt>
-<dd><p>Pulsante che consente di creare un'istanza. Se si fa clic su questo pulsante, viene aggiunta una riga alla tabella Server Instances to be Created.</p>
-
+<p>La tabella Istanze server da creare contiene inoltre le seguenti opzioni.</p>
+<dl>
+<dt>Nuovo</dt>
+<dd>
+<p>Pulsante che consente di creare un'istanza. Se si fa clic su questo pulsante, viene aggiunta una riga alla tabella Istanze server da creare.</p>
 </dd>
-<dt>Delete</dt>
-<dd><p>Pulsante che consente di eliminare un'istanza.</p>
-
+<dt>Elimina</dt>
+<dd>
+<p>Pulsante che consente di eliminare un'istanza.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-create-cluster.html">Creare un cluster</a></p>
-
-</li></ul>
-<h5>Comando secondario <tt>asadmin</tt> equivalente</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-cluster-1"><tt>create-cluster</tt>(1)</a></p>
-
-</li></ul>
+<a id="sthref249" name="sthref249"></a>
+<h5>Task correlati</h5>
+<p><a href="task-create-cluster.html">Creare un cluster</a></p>
+<a id="sthref250" name="sthref250"></a>
+<h5>Comando secondario asadmin equivalente</h5>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00017"><code>create-cluster</code>(1)</a></p>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,188 +1,180 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-accesslog"></a><h4>HTTP Service</h4>
-<a name="indexterm-55"></a><a name="indexterm-56"></a><p>Nella pagina HTTP Service &#232; possibile specificare i criteri generali del log
-di accesso per applicazioni Web.</p>
+<p><a id="ref-accesslog" name="ref-accesslog"></a><a id="GHWEB00008" name="GHWEB00008"></a></p>
 
-<p>Il servizio HTTP fornisce gli strumenti per la distribuzione di applicazioni Web
-e per consentire l'accesso alle applicazioni Web distribuite da parte di client
-HTTP, nonch&#233; server virtuali, pool di thread e funzionalit&#224; di configurazione di
-rete.</p>
-
-<p>GlassFish Server utilizza il log di accesso al servizio HTTP per abilitare
-e configurare la rotazione per i log di accesso di server virtuali.
-Questi log si trovano nella directory <tt><i>domain-dir</i>/logs/access</tt> e i relativi nomi hanno
-il seguente formato: <tt><i>virtual_server_name</i>_access_log.<i> yyyyMMdd</i>-<i>HH</i>h<i>mm</i>m<i> ss</i>s.txt</tt></p>
-
-<p>La pagina HTTP Service contiene le seguenti opzioni.</p>
-
-<dl><dt>Load Defaults</dt>
-<dd><p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
-
+<h4><a id="sthref104" name="sthref104"></a><a id="sthref105" name="sthref105"></a>Servizio HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Servizio HTTP &egrave; possibile specificare i criteri generali del log degli accessi per le applicazioni Web.</p>
+<p>Il servizio HTTP fornisce le funzioni per la distribuzione delle applicazioni Web e per consentire l'accesso alle applicazioni Web distribuite da parte di client HTTP, server virtuali, pool di thread e funzionalit&agrave; di configurazione di rete.</p>
+<p>GlassFish Server usa il log degli accessi al servizio HTTP per abilitare e configurare la rotazione dei log degli accessi dei server virtuali. Questi log si trovano nella directory <i>domain-dir</i><code>/logs/access</code> e sono denominati come riportato di seguito: <i>nome_server_virtuale</i><code>log_degli_accessi.</code><i>aaaaMMgg</i><code>-</code><i>HH</i><code>h</code><i>mm</i><code>m</code><i>ss</i><code>s.txt</code></p>
+<p>La pagina Servizio HTTP contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Carica impostazioni predefinite</dt>
+<dd>
+<p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
 <dt>SSO</dt>
-<dd><p>Identifica se per impostazione predefinita &#232; stato abilitato un sistema SSO per tutte le applicazioni Web in tutti i server virtuali di questo server configurate per lo stesso settore. Se l'opzione non &#232; selezionata, per impostazione predefinita il sistema SSO viene disabilitato per tutti i server virtuali e gli utenti devono eseguire singolarmente le autenticazioni per ogni applicazione in ciascun server virtuale. &#200; possibile sovrascrivere questa impostazione per un singolo server virtuale. L'autenticazione SSO pu&#242; essere abilitata o disabilitata. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dd>
+<p>Indica se, per impostazione predefinita, il Single Sign-On &egrave; abilitato per tutte le applicazioni Web in tutti i server virtuali di questo server configurate per lo stesso realm. Se questa opzione non &egrave; abilitata, per impostazione predefinita il Single Sign-On &egrave; disabilitato per tutti i server virtuali e gli utenti devono eseguire l'autenticazione per ogni applicazione in ciascun server virtuale. &Egrave; possibile sostituire questa impostazione per un singolo server virtuale. Il Single Sign-On pu&ograve; essere abilitato o disabilitato. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Access Logging</dt>
-<dd><p>Se l'opzione &#232; selezionata, la registrazione degli accessi viene abilitata per tutti i sottoelementi di server virtuali in cui non &#232; specificata tale propriet&#224;. Se non &#232; selezionata, questa opzione disabilita la registrazione degli accessi per tutti i sottoelementi di server virtuali in cui non &#232; specificata tale propriet&#224;. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Log degli accessi</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, il log degli accessi &egrave; abilitato per tutti i sottoelementi di server virtuali in cui non &egrave; specificata questa propriet&agrave;. Se non &egrave; selezionata, questa opzione disabilita il log degli accessi per tutti i sottoelementi di server virtuali in cui non &egrave; specificata questa propriet&agrave;. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Rotation</dt>
-<dd><p>Se questa opzione &#232; selezionata viene abilitata la rotazione dei file di log. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dt>Rotazione</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, la rotazione dei file di log &egrave; abilitata. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
-<dt>Rotation Policy</dt>
-<dd><p>L'unico criterio di rotazione disponibile &#232; <tt>time</tt>.</p>
-
+<dt>Criteri di rotazione</dt>
+<dd>
+<p>L'unico criterio di rotazione disponibile &egrave; <code>time</code>.</p>
 </dd>
-<dt>Rotation Interval</dt>
-<dd><p>I minuti che intercorrono tra le rotazioni del log di accesso. Questo campo &#232; valido solo se il criterio di rotazione &#232; <tt>time</tt>. Il valore predefinito &#232; 1.440 minuti (24 ore).</p>
-
+<dt>Intervallo di rotazione</dt>
+<dd>
+<p>Numero di minuti che intercorrono tra le rotazioni del log degli accessi. Questo campo &egrave; valido solo se il criterio di rotazione &egrave; <code>time</code>. Il valore predefinito &egrave; 1.440 minuti (24 ore).</p>
 </dd>
-<dt>Rotation Suffix</dt>
-<dd><p>Valore stringa da aggiungere alla fine del nome del file di log in seguito alla rotazione. Il valore predefinito &#232; <tt>yyyy-MM-dd</tt>.</p>
-
-<p>Verificare che il suffisso di rotazione contenga valori sufficienti per la creazione di un suffisso univoco per ogni rotazione di log. Ad esempio, se il log di accesso viene ruotato pi&#249; di una volta al giorno, includere l'ora nel suffisso di rotazione.</p>
-
-<p>Il suffisso univoco consente di assicurare che venga eseguita la rotazione del file del log di accesso a ogni scadenza dell'intervallo di rotazione. Se il suffisso di rotazione del nuovo file del log di accesso &#232; identico al suffisso di rotazione del file del log di accesso esistente, la rotazione del file non viene eseguita.</p>
-
+<dt>Suffisso rotazione</dt>
+<dd>
+<p>Valore di stringa da aggiungere alla fine del nome del file di log dopo la rotazione. Il valore predefinito &egrave; <code>aaaa-MM-gg</code>.</p>
+<p>Assicurarsi che il suffisso di rotazione contenga valori sufficienti per la creazione di un suffisso univoco per ogni rotazione dei log. Ad esempio, se il log degli accessi viene ruotato pi&ugrave; di una volta al giorno, includere l'ora nel suffisso di rotazione.</p>
+<p>Un suffisso univoco &egrave; necessario per assicurare che venga eseguita la rotazione del file del log degli accessi a ogni scadenza dell'intervallo di rotazione. Se il suffisso di rotazione del nuovo file di log degli accessi &egrave; identico al suffisso di rotazione del file di log degli accessi esistente, la rotazione del file non viene eseguita.</p>
 </dd>
-<dt>Max File Count</dt>
-<dd><p>Numero massimo di file del log di accesso ruotati da conservare. Un valore negativo indica che il numero dei file &#232; illimitato. Il valore predefinito &#232; -1.</p>
-
+<dt>Numero massimo di file</dt>
+<dd>
+<p>Numero massimo di file di log degli accessi ruotati da conservare. Un valore negativo indica che il numero di file &egrave; illimitato. Il valore predefinito &egrave; -1.</p>
 </dd>
-<dt>Buffer Size</dt>
-<dd><p>Dimensioni, in byte, del buffer del log di accesso, oppure un valore inferiore o pari a 0 per log di accesso senza buffer. Il valore predefinito &#232; 32768.</p>
-
+<dt>Dimensione buffer</dt>
+<dd>
+<p>Dimensione, in byte, del buffer del log degli accessi oppure un valore inferiore o uguale a 0 per i log degli accessi non inseriti in un buffer. Il valore predefinito &egrave; 32768.</p>
 </dd>
-<dt>Write Interval</dt>
-<dd><p>Numero di secondi precedenti alla scrittura del log sul disco. Il log di accesso viene scritto quando il buffer &#232; pieno o allo scadere dell'intervallo. Se il valore &#232; inferiore o pari a 0, il buffer viene sempre scritto, anche se non &#232; pieno. Ogni volta che si accede al server, i messaggi del log vengono pertanto memorizzati direttamente nel file. Il valore predefinito &#232; 300.</p>
-
+<dt>Intervallo di scrittura</dt>
+<dd>
+<p>Numero di secondi prima della scrittura del log sul disco. Il log degli accessi viene scritto quando il buffer &egrave; pieno o allo scadere dell'intervallo. Se il valore &egrave; inferiore o uguale a 0, il buffer viene sempre scritto, anche se non &egrave; pieno. Ci&ograve; significa che ogni volta che si accede al server, i messaggi del log vengono memorizzati direttamente nel file. Il valore predefinito &egrave; 300.</p>
 </dd>
-<dt>Format</dt>
-<dd><p>Valore stringa che specifica le informazioni da catturare nel log di accesso e l'ordine in cui vengono catturate. Il valore predefinito &#232; il seguente:</p>
-
-<pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>I seguenti valori possono essere inclusi nella stringa di formato:</p>
-
-<dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
-<dd><p>Registra il valore (mediante la chiamata al rispettivo metodo <tt>toString</tt>) dell'attributo della richiesta con il <i>name</i> specificato.</p>
-
+<dt>Formato</dt>
+<dd>
+<p>Valore di stringa che specifica le informazioni da acquisire nel log degli accessi e l'ordine in cui vengono acquisite. Il valore predefinito &egrave; il seguente:</p>
+<pre>
+%client.name% %auth-user-name% %datetime% %request% %status% %response.length%
+</pre>
+<p>I seguenti valori possono essere inclusi nella stringa di formato:</p>
+<dl>
+<dt><code>%attribute.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Registra il valore (mediante la chiamata al metodo <code>toString</code> corrispondente) dell'attributo della richiesta con il <i>name</i> specificato</p>
 </dd>
-<dt><tt>%auth-user-name%</tt></dt>
-<dd><p>Nome dell'utente autorizzato</p>
-
+<dt><code>%auth-user-name%</code></dt>
+<dd>
+<p>Nome dell'utente autorizzato</p>
 </dd>
-<dt><tt>%client.name%</tt></dt>
-<dd><p>Nome host client</p>
-
+<dt><code>%client.name%</code></dt>
+<dd>
+<p>Nome host del client</p>
 </dd>
-<dt><tt>%client.dns%</tt></dt>
-<dd><p>DNS client </p>
-
+<dt><code>%client.dns%</code></dt>
+<dd>
+<p>DNS del client</p>
 </dd>
-<dt><tt>%cookie.<i>nome</i>%</tt></dt>
-<dd><p>Valore del cookie di richiesta con il valore <i>nome</i> specificato</p>
-
+<dt><code>%cookie.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Valore del cookie di richiesta con il valore <i>nome</i> specificato</p>
 </dd>
-<dt><tt>%cookie.value%</tt></dt>
-<dd><p>Valore del primo cookie trovato nella richiesta</p>
-
+<dt><code>%cookie.value%</code></dt>
+<dd>
+<p>Valore del primo cookie trovato nella richiesta</p>
 </dd>
-<dt><tt>%datetime%</tt></dt>
-<dd><p>Data di sistema</p>
-
+<dt><code>%datetime%</code></dt>
+<dd>
+<p>Data di sistema</p>
 </dd>
-<dt><tt>%request%</tt></dt>
-<dd><p>Riga di richiesta HTTP completa</p>
-
+<dt><code>%request%</code></dt>
+<dd>
+<p>Riga di richiesta HTTP completa</p>
 </dd>
-<dt><tt>%status%</tt></dt>
-<dd><p>Stato</p>
-
+<dt><code>%status%</code></dt>
+<dd>
+<p>Stato</p>
 </dd>
-<dt><tt>%response.length%</tt></dt>
-<dd><p>Lunghezza contenuto risposta</p>
-
+<dt><code>%response.length%</code></dt>
+<dd>
+<p>Lunghezza contenuto risposta</p>
 </dd>
-<dt><tt>%header.referer%</tt></dt>
-<dd><p>Intestazione Referer</p>
-
+<dt><code>%header.referer%</code></dt>
+<dd>
+<p>Intestazione provenienza</p>
 </dd>
-<dt><tt>%header.user-agent%</tt></dt>
-<dd><p>Intestazione User-Agent</p>
-
+<dt><code>%header.user-agent%</code></dt>
+<dd>
+<p>Intestazione User Agent</p>
 </dd>
-<dt><tt>%http-method%</tt></dt>
-<dd><p>Metodo HTTP</p>
-
+<dt><code>%http-method%</code></dt>
+<dd>
+<p>Metodo HTTP</p>
 </dd>
-<dt><tt>%http-uri%</tt></dt>
-<dd><p>URI HTTP</p>
-
+<dt><code>%http-uri%</code></dt>
+<dd>
+<p>URI HTTP</p>
 </dd>
-<dt><tt>%query-str%</tt></dt>
-<dd><p>Stringa query HTTP </p>
-
+<dt><code>%query-str%</code></dt>
+<dd>
+<p>Stringa query HTTP</p>
 </dd>
-<dt><tt>%http-version%</tt></dt>
-<dd><p>Versione protocollo HTTP</p>
-
+<dt><code>%http-version%</code></dt>
+<dd>
+<p>Versione protocollo HTTP</p>
 </dd>
-<dt><tt>%header.accept%</tt></dt>
-<dd><p>Intestazione Accept</p>
-
+<dt><code>%header.accept%</code></dt>
+<dd>
+<p>Intestazione accettazione</p>
 </dd>
-<dt><tt>%header.date%</tt></dt>
-<dd><p>Intestazione Date</p>
-
+<dt><code>%header.date%</code></dt>
+<dd>
+<p>Intestazione data</p>
 </dd>
-<dt><tt>%header.if-mod-since%</tt></dt>
-<dd><p>Intestazione If-Modified-Since</p>
-
+<dt><code>%header.if-mod-since%</code></dt>
+<dd>
+<p>Intestazione If-Modified-Since</p>
 </dd>
-<dt><tt>%header.auth%</tt></dt>
-<dd><p>Intestazione Authorization</p>
-
+<dt><code>%header.auth%</code></dt>
+<dd>
+<p>Intestazione autorizzazione</p>
 </dd>
-<dt><tt>%header.<i>any</i>%</tt></dt>
-<dd><p>Qualsiasi valore di intestazione HTTP valido definito nella RFC 2616 (anche <tt>any</tt> &#232; un valore di intestazione valido; qui &#232; specificato come variabile)</p>
-
+<dt><code>%header.</code><i>any</i><code>%</code></dt>
+<dd>
+<p>Qualsiasi valore di intestazione HTTP valido definito nella specifica RFC 2616 (anche <code>any</code> &egrave; un valore di intestazione valido; qui &egrave; specificato come variabile)</p>
 </dd>
-<dt><tt>%session.<i>name</i>%</tt></dt>
-<dd><p>Valore dell'attributo di sessione con nome <i>name </i> o <tt>NULL-SESSION-ATTRIBUTE-<i>name</i></tt> se l'attributo con nome non esiste nella sessione o <tt>NULL-SESSION</tt> se la sessione non esiste.</p>
-
+<dt><code>%session.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Valore dell'attributo di sessione con il nome <i>name</i>o <code>NULL-SESSION-ATTRIBUTE-</code><i>name</i> se l'attributo denominato non esiste nella sessione oppure <code>NULL-SESSION</code> se non esiste alcuna sessione</p>
 </dd>
-<dt><tt>%time-taken%</tt></dt>
-<dd><p>Tempo (in millisecondi) necessario per eseguire ogni richiesta</p>
-
+<dt><code>%time-taken%</code></dt>
+<dd>
+<p>Tempo, in millisecondi, necessario per eseguire ciascuna richiesta</p>
 </dd>
-<dt><tt>%vs.id%</tt></dt>
-<dd><p>ID server virtuale</p>
-
-</dd>
-</dl>
-</dd>
-<dt>Additional Properties</dt>
-<dd><p>Propriet&#224; aggiuntive per il servizio HTTP. Per una descrizione delle propriet&#224; disponibili, vedere <a href="ref-httpserviceprops.html">Propriet&#224; specifiche del servizio HTTP</a>.</p>
-
+<dt><code>%vs.id%</code></dt>
+<dd>
+<p>ID server virtuale</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-accesslog.html">Configurare il servizio HTTP</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
+</dd>
+<dt>Propriet&agrave; aggiuntive</dt>
+<dd>
+<p>Propriet&agrave; aggiuntive per il servizio HTTP. Per una descrizione delle propriet&agrave; disponibili, vedere <a href="ref-httpserviceprops.html">Propriet&agrave; specifiche del servizio HTTP</a>.</p>
+</dd>
+</dl>
+<a id="sthref106" name="sthref106"></a>
+<h5>Task correlati</h5>
+<p><a href="task-accesslog.html">Configurare il servizio HTTP</a></p>
+<a id="sthref107" name="sthref107"></a>
+<h5>Comandi asadmin correlati</h5>
 <p>Nessuno.</p>
 
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

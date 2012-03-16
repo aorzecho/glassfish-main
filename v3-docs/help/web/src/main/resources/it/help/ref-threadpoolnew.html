@@ -1,64 +1,70 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-threadpoolnew"></a><h4>New Thread Pool</h4>
-<a name="indexterm-81"></a><p>Nella pagina New Thread Pool &#232; possibile creare un pool di thread.</p>
+<p><a id="ref-threadpoolnew" name="ref-threadpoolnew"></a><a id="GHWEB00028" name="GHWEB00028"></a></p>
 
-<p>La pagina New Thread Pool contiene le seguenti opzioni.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<h4><a id="sthref173" name="sthref173"></a>Nuovo pool di thread</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Nuovo pool di thread &egrave; possibile creare un pool di thread.</p>
+<p>La pagina Nuovo pool di thread contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
-<dt>Name</dt>
-<dd><p>Nome del pool di thread.</p>
-
+<dt>Nome</dt>
+<dd>
+<p>Nome del pool di thread.</p>
 </dd>
-<dt>Class Name</dt>
-<dd><p>Nome completo della classe che implementa il pool di thread. Il valore predefinito &#232; <tt>com.sun.grizzly.http.StatsThreadPool</tt>.</p>
-
+<dt>Nome classe</dt>
+<dd>
+<p>Nome completamente qualificato della classe che implementa il pool di thread. Il valore predefinito &egrave; <code>com.sun.grizzly.http.StatsThreadPool</code>.</p>
 </dd>
-<dt>Max Queue Size</dt>
-<dd><p>Numero massimo di messaggi che &#232; possibile accodare fino a quando non sono disponibili i thread per elaborarli. Un valore pari a -1 indica una dimensione illimitata della coda. Il valore predefinito &#232; 4096.</p>
-
+<dt>Dimensione massima coda</dt>
+<dd>
+<p>Numero massimo di messaggi che &egrave; possibile accodare fino a quando non sono disponibili i thread per elaborarli. Un valore pari a -1 che non sono impostati limiti alla dimensione della coda. Il valore predefinito &egrave; 4096.</p>
 </dd>
-<dt>Max Thread Pool Size</dt>
-<dd><p>Numero massimo di thread nel pool di thread. Il valore predefinito &#232; 5. Questo &#232; il valore consigliato per i pool di thread di listener di rete.</p>
-
+<dt>Dimensione massima pool di thread</dt>
+<dd>
+<p>Numero massimo di thread nel pool di thread. Il valore predefinito &egrave; 5. Questo &egrave; il valore consigliato per i pool di thread dei listener di rete.</p>
 </dd>
-<dt>Min Thread Pool Size</dt>
-<dd><p>Numero minimo di thread nel pool di thread. Il valore predefinito &#232; 2.</p>
-
+<dt>Dimensione minima pool di thread</dt>
+<dd>
+<p>Numero minimo di thread nel pool di thread. Il valore predefinito &egrave; 2.</p>
 </dd>
-<dt>Idle Thread Timeout</dt>
-<dd><p>Numero massimo di secondi durante i quali un thread pu&#242; rimanere inattivo nel pool. Una volta trascorso tale numero di secondi, il thread viene rimosso dal pool. Il valore predefinito &#232; 900.</p>
-
+<dt>Timeout thread inattivo</dt>
+<dd>
+<p>Quantit&agrave; massima di tempo, in secondi, durante la quale un thread pu&ograve; rimanere inattivo nel pool. Allo scadere di questo periodo, il thread viene rimosso dal pool. Il valore predefinito &egrave; 900.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-threadpoolnew.html">Creare un pool di thread</a></p>
-
+<a id="sthref174" name="sthref174"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-threadpoolnew.html">Creare un pool di thread</a></p>
 </li>
-<li><p><a href="task-threadpooledit.html">Modificare un pool di thread</a></p>
-
+<li>
+<p><a href="task-threadpooledit.html">Modificare un pool di thread</a></p>
 </li>
-<li><p><a href="task-threadpooldelete.html">Eliminare un pool di thread</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-threadpool-1"><tt>create-threadpool</tt>(1)</a></p>
-
+<li>
+<p><a href="task-threadpooldelete.html">Eliminare un pool di thread</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-threadpools-1"><tt>list-threadpools</tt>(1)</a></p>
-
+</ul>
+<a id="sthref175" name="sthref175"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00060"><code>create-threadpool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-threadpool-1"><tt>delete-threadpool</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00204"><code>list-threadpools</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00111"><code>delete-threadpool</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

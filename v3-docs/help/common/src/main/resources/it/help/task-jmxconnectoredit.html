@@ -1,51 +1,63 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmxconnectoredit" name="task-jmxconnectoredit"></a><a id="GHCOM00211" name="GHCOM00211"></a></p>
 
-
-<a name="task-jmxconnectoredit"></a><h3>Modificare il connettore JMX</h3><a name="indexterm-114"></a><a name="indexterm-115"></a><p>Utilizzare il servizio Admin per configurare il connettore JMX remoto conforme allo
-standard JSR 160.</p>
-
-<p>Il connettore JMX remoto conforme allo standard JSR 160 gestisce le comunicazioni
-tra i client JMX quali JConsole e il servizio JMX per la
-gestione dei domini.</p>
-
+<h4><a id="sthref199" name="sthref199"></a>Modificare il connettore JMX</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilizzare il servizio di amministrazione per configurare il connettore JMX remoto conforme allo standard JSR 160.</p>
+<p>Il connettore JMX remoto conforme allo standard JSR 160 gestisce le comunicazioni tra i client JMX quali JConsole e il servizio JMX per la gestione dei domini.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Nel nodo Configuration, selezionare il nodo Admin Service.</b><p>Viene visualizzata la pagina Edit JMX Connector.</p></li>
-<li><b>Selezionare la casella di controllo Security Enabled per impostare la crittografia delle
-comunicazioni JMX.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Nel campo Address digitare l'indirizzo IP del servizio di denominazione in cui
-&#232; registrato lo stub del server del connettore JMX.</b><p>Non si tratta della porta del socket server che esegue la comunicazione
-JMX effettiva, bens&#236; dell'indirizzo dell'interfaccia di rete in cui viene avviato il
-registro RMI. Se il sistema &#232; dotato di pi&#249; interfacce di rete,
-&#232; possibile modificare questo valore in modo da selezionare solo un'interfaccia specifica.
-Il valore predefinito &#232; <tt>0.0.0.0</tt>.</p></li>
-<li><b>Nel campo Port, digitare il numero della porta su cui il servizio
-di denominazione (registro RMI) resta in attesa delle connessioni client RMI.</b><p>L'uso del servizio di denominazione &#232; esclusivamente destinato al download degli stub
-RMI. Se la porta predefinita &#232; occupata, viene utilizzata una porta libera.
-Sono consentiti valori compresi tra 1 e 65535. In sistemi UNIX, per
-creare socket in attesa su porte comprese tra 1 e 1024 sono
-necessari privilegi di superutente. Il valore predefinito &#232; 8686.</p></li>
-<li><b>Nel campo Realm Name, digitare il nome che rappresenta il settore amministrativo
-speciale</b><p>in cui viene interamente gestita l'autenticazione. Il valore predefinito &#232; <tt>admin-realm </tt>.</p></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>In GlassFish Server varie propriet&#224; vengono specificate per impostazione predefinita.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
-della propriet&#224;.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b></li>
-<li><b>Se &#232; stata selezionata la casella di controllo Security Enabled, attenersi alla
-procedura descritta in <a href="task-jmxconnectorssledit.html">Modificare le impostazioni SSL del connettore JMX</a>.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-jmxconnectorssledit.html">Modificare le impostazioni SSL del connettore JMX</a></p>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione, selezionare il nodo Servizio di amministrazione.</p>
+<p>Viene visualizzata la pagina Modifica connettore JMX.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Sicurezza abilitata per impostare la cifratura delle comunicazioni JMX.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Indirizzo digitare l'indirizzo IP del servizio di denominazione in cui &egrave; registrato lo stub del server del connettore JMX.</p>
+<p>Non si tratta della porta del socket server che esegue la comunicazione JMX effettiva, bens&igrave; dell'indirizzo dell'interfaccia di rete in cui viene avviato il registro RMI. Se il sistema &egrave; dotato di pi&ugrave; interfacce di rete, &egrave; possibile modificare questo valore in modo da selezionare solo un'interfaccia specifica. Il valore predefinito &egrave; <code>0.0.0.0</code>.</p>
+</li>
+<li>
+<p>Nel campo Porta, digitare il numero della porta su cui il servizio di denominazione (registro RMI) resta in attesa delle connessioni client RMI.</p>
+<p>Questo servizio di denominazione viene utilizzato esclusivamente per lo scaricamento degli stub RMI. Se la porta predefinita &egrave; occupata, viene utilizzata una porta libera. Sono consentiti valori compresi tra 1 e 65535. Nei sistemi UNIX, per creare socket in ascolto sulle porte comprese tra 1 e 1024 sono necessari privilegi di utente privilegiato. Il valore predefinito &egrave; 8686.</p>
+</li>
+<li>
+<p>Nel campo Nome realm, digitare il nome che rappresenta il realm amministrativo speciale</p>
+<p>in cui viene interamente gestita l'autenticazione. Il valore predefinito &egrave; <code>admin-realm</code> .</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>In GlassFish Server varie propriet&agrave; vengono specificate per impostazione predefinita.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+<li>
+<p>Se si seleziona la casella di controllo Sicurezza abilitata, seguire le indicazioni riportate in <a href="task-jmxconnectorssledit.html">Modificare le impostazioni SSL per il connettore JMX</a>.</p>
+</li>
+</ol>
+<a id="sthref200" name="sthref200"></a>
+<h5>Vedere anche</h5>
+<p><a href="task-jmxconnectorssledit.html">Modificare le impostazioni SSL per il connettore JMX</a></p>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

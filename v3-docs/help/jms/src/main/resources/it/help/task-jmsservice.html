@@ -1,114 +1,157 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmsservice" name="task-jmsservice"></a><a id="GHJMS00026" name="GHJMS00026"></a></p>
 
-
-<a name="task-jmsservice"></a><h3>Configurare il servizio JMS</h3><a name="indexterm-13"></a><p>Nella pagina JMS Service &#232; possibile configurare le impostazioni da utilizzare con
-tutte le connessioni JMS.</p>
-
-<p>Per ulteriori informazioni sulla configurazione del servizio JMS, vedere il <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob">Capitolo 16, Using the Java Message Service in <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p>
-
+<h4><a id="sthref20" name="sthref20"></a>Configurare il servizio JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Servizio JMS &egrave; possibile configurare le impostazioni da utilizzare con tutte le connessioni JMS.</p>
+<p>Per ulteriori informazioni sulla configurazione del servizio JMS, vedere il <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDVG00020">Chapter 19, <i>Using the Java Message Service,</i> in <i>Oracle GlassFish Server Application Development Guide</i></a>.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Nel nodo Configuration, selezionare il nodo Java Message Service.</b><p>Viene visualizzata la pagina JMS Service.</p></li>
-<li><b>Nell'elenco a discesa Type:</b><ul>
-<li><b>Selezionare EMBEDDED per accedere al servizio JMS sull'host locale.</b><p>Il servizio JMS viene avviato nello stesso computer JVM in cui &#232;
-installato GlassFish Server. Il broker integrato predefinito viene avviato con un'inizializzazione lenta
-al primo accesso dei servizi JMS anzich&#233; all'avvio di GlassFish Server. Rappresenta
-il tipo predefinito per il servizio JMS.</p></li>
-<li><b>Selezionare LOCAL per accedere al servizio JMS sull'host locale.</b><p>Il servizio JMS viene avviato insieme a GlassFish Server.</p></li>
-<li><b>Selezionare REMOTE per accedere al servizio JMS su un altro sistema.</b><p>Se si sceglie REMOTE, il servizio JMS non viene avviato all'avvio successivo
-del server; viene bens&#236; avviato e gestito in Message Queue, pertanto &#232;
-necessario avviare il broker Message Queue separatamente. Per informazioni sull'avvio del broker,
-vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby">Starting Brokers in <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide</i></a>. Se si sceglie questo valore e si utilizza un host
-remoto, per specificarne il nome seguire le istruzioni in <a href="task-jmshostedit.html">Modificare un host JMS</a>.</p></li></ul></li>
-<li><b>Nel campo Startup Timeout immettere il numero di secondi di attesa di
-attesa per l'avvio del servizio JMS in GlassFish Server prima dell'interruzione. </b><p>In caso di sistemi lenti o sovraccarichi, specificare un valore superiore rispetto
-a quello predefinito. Il valore predefinito &#232; 60.</p></li>
-<li><b>Nel campo Start Arguments digitare argomenti per la personalizzazione dell'avvio del servizio
-di JMS.</b><p>&#200; possibile utilizzare tutti gli argomenti disponibili tramite il comando <tt><i>as-install-parent</i>/mq/bin/imqbrokerd</tt>.</p></li>
-<li><b>Selezionare la casella di controllo Reconnect Enabled per impostare nel servizio JMS
-l'esecuzione di nuovi tentativi di collegamento a un server di messaggi (o
-all'elenco di indirizzi di AddressList) quando si perde la connessione.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
-<li><b>Nel campo Reconnect Interval, digitare il numero di secondi tra i tentativi
-di riconnessione.</b><p>L'intervallo viene applicato ai tentativi per ciascun indirizzo in AddressList e per
-gli indirizzi successivi nell'elenco. Se l'intervallo &#232; troppo breve, il broker non
-riesce a eseguire il ripristino. Se l'intervallo &#232; troppo lungo, si potrebbe
-verificare un ritardo eccessivo per la riconnessione. Il valore predefinito &#232; 5
-secondi.</p></li>
-<li><b>Nel campo Reconnect Attempts, digitare il numero di tentativi di connessione (o
-riconnessione) per ogni indirizzo di AddressList prima che il runtime del client
-esegua un tentativo con il successivo indirizzo dell'elenco.</b><p>Un valore pari a -1 indica un numero di tentativi di connessione
-illimitato (il runtime del client tenta di connettersi al primo indirizzo fino
-a quando il tentativo non riesce). Il valore predefinito &#232; 3.</p></li>
-<li><b>Nell'elenco a discesa Default JMS Host, selezionare il nome dell'host JMS predefinito.</b><p>Il valore predefinito &#232; <tt>default_JMS_host</tt>.</p></li>
-<li><b>Nell'elenco a discesa Address List Behavior, selezionare l'ordine dei tentativi di connessione.</b><ul>
-<li><b><tt>random</tt> indica la seleziona casuale di un indirizzo da AddressList.</b><p>Se molti client tentano di connettersi utilizzando la stessa factory di connessione,
-specificare <tt>random</tt> per evitarne la connessione allo stesso indirizzo. Questa &#232; l'opzione
-predefinita.</p></li>
-<li><b><tt>priority</tt> indica che il tentativo di riconnessione viene sempre eseguito con il
-primo indirizzo server disponibile in AddressList quindi, se il primo broker non
-&#232; disponibile, con un altro indirizzo.</b></li></ul></li>
-<li><b>Nel campo Address List Iterations, digitare il numero di ripetizioni del servizio
-JMS in AddressList nel tentativo di stabilire o ristabilire una connessione.</b><p>Un valore pari a -1 indica un numero di tentativi illimitato. Il
-valore predefinito &#232; 3.</p></li>
-<li><b>Nei campi MQ Scheme e MQ Service digitare il nome dello schema
-di indirizzo Message Queue e il nome del servizio di connessione Message
-Queue, nel caso sia necessario utilizzare uno schema o un servizio non
-predefinito. </b><p>Per informazioni sulla sintassi, vedere <a href="ref-mqschemeservice.html">Sintassi di indirizzi MQ Scheme e MQ Service</a>.</p></li>
-<li>(Opzionale) <b>Nell'area Additional Properties, specificare le propriet&#224; aggiuntive per il servizio JMS.</b><p>Per informazioni sulle propriet&#224; disponibili, vedere <a href="ref-jmsservice-additional-props.html">Propriet&#224; specifiche del servizio JMS</a>.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
-della propriet&#224;.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Ping per verificare che il servizio JMS sia in
-esecuzione sull'host JMS predefinito.</b><p>Il servizio JMS &#232; attivo e in funzione; un messaggio notifica che
-il ping &#232; stato eseguito correttamente.</p></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
+</li>
+<li>
+<p>Select the instance to configure:</p>
+<ul>
+<li>
+<p>To configure a particular instance, select the instance's config node. For example, for the default instance, <code>server</code>, select the <code>server-config</code> node.</p>
+</li>
+<li>
+<p>To configure the default settings for future instances that use a copy of <code>default-config</code>, select the <code>default-config</code> node.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nel nodo Configurazione, selezionare il nodo Java Message Service.</p>
+<p>Viene visualizzata la pagina Servizio JMS.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa Tipo:</p>
+<ul>
+<li>
+<p>Selezionare EMBEDDED per accedere al servizio JMS sull'host locale.</p>
+<p>Il servizio JMS viene avviato nello stesso computer JVM in cui &egrave; installato GlassFish Server. Il broker integrato predefinito viene avviato con un'inizializzazione lenta al primo accesso dei servizi JMS anzich&eacute; all'avvio di GlassFish Server. Rappresenta il tipo predefinito per il servizio JMS.</p>
+</li>
+<li>
+<p>Selezionare LOCAL per accedere al servizio JMS sull'host locale.</p>
+<p>Il servizio JMS viene avviato insieme a GlassFish Server.</p>
+</li>
+<li>
+<p>Selezionare REMOTE per accedere al servizio JMS su un altro sistema or on a cluster.</p>
+<p>Se si sceglie REMOTE, il servizio JMS non viene avviato all'avvio successivo del server; viene bens&igrave; avviato e gestito in Message Queue, pertanto &egrave; necessario avviare il broker Message Queue separatamente. Per informazioni sull'avvio del broker, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GMADG00227"><i>Starting Brokers</i> in <i>Oracle GlassFish Server Message Queue Administration Guide</i></a>. Se si sceglie questo valore e si utilizza un host remoto, per specificarne il nome seguire le istruzioni in <a href="task-jmshostedit.html">Modificare un host JMS</a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nel campo Timeout avvio immettere il numero di secondi di attesa di attesa per l'avvio del servizio JMS in GlassFish Server prima dell'interruzione.</p>
+<p>In caso di sistemi lenti o sovraccarichi, specificare un valore superiore rispetto a quello predefinito. Il valore predefinito &egrave; 60.</p>
+</li>
+<li>
+<p>Nel campo Argomenti di avvio digitare argomenti per la personalizzazione dell'avvio del servizio di JMS.</p>
+<p>Utilizzare qualsiasi argomento disponibile mediante il comando <i>as-install-parent</i><code>/mq/bin/imqbrokerd</code>.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Riconnessione abilitata per impostare nel servizio JMS l'esecuzione di nuovi tentativi di collegamento a un server di messaggi (o alla lista di indirizzi di AddressList) quando si perde la connessione.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Intervallo di riconnessione, digitare il numero di secondi tra i tentativi di riconnessione.</p>
+<p>L'intervallo viene applicato ai tentativi per ciascun indirizzo in AddressList e per gli indirizzi successivi nella lista. Se l'intervallo &egrave; troppo breve, il broker non riesce a eseguire il recupero. Se l'intervallo &egrave; troppo lungo, si potrebbe verificare un ritardo eccessivo per la riconnessione. Il valore predefinito &egrave; 5 secondi.</p>
+</li>
+<li>
+<p>Nel campo Tentativi di riconnessione, digitare il numero di tentativi di connessione (o riconnessione) per ogni indirizzo di AddressList prima che la fase di esecuzione del client esegua un tentativo con il successivo indirizzo della lista.</p>
+<p>Un valore pari a -1 indica un numero di tentativi di connessione illimitato (la fase di esecuzione del client tenta di connettersi al primo indirizzo fino a quando il tentativo non riesce). Il valore predefinito &egrave; 3.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa Host JMS predefinito, selezionare il nome dell'host JMS predefinito.</p>
+<p>Il valore predefinito &egrave; <code>default_JMS_host</code>.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa Funzionamento lista di indirizzi, selezionare l'ordine dei tentativi di connessione.</p>
+<ul>
+<li>
+<p><code>random</code> indica la seleziona casuale di un indirizzo da AddressList.</p>
+<p>Se molti client tentano di connettersi utilizzando la stessa Connection Factory, specificare <code>random</code> per evitarne la connessione allo stesso indirizzo. Questa &egrave; l'opzione predefinita.</p>
+</li>
+<li>
+<p><code>priority</code> indica che il tentativo di riconnessione viene sempre eseguito con il primo indirizzo server disponibile in AddressList quindi, se il primo broker non &egrave; disponibile, con un altro indirizzo.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nel campo Iterazioni lista di indirizzi, digitare il numero di ripetizioni del servizio JMS in AddressList nel tentativo di stabilire o ristabilire una connessione.</p>
+<p>Un valore pari a -1 indica un numero di tentativi illimitato. Il valore predefinito &egrave; 3.</p>
+</li>
+<li>
+<p>Nei campi Schema MQ e Servizio MQ digitare il nome dello schema di indirizzo Message Queue e il nome del servizio di connessione Message Queue, nel caso sia necessario utilizzare uno schema o un servizio non predefinito.</p>
+<p>Per informazioni sulla sintassi, vedere <a href="ref-mqschemeservice.html">Sintassi degli indirizzi dello schema MQ e del servizio MQ</a>.</p>
+</li>
+<li>
+<p>Nell'area Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive per il servizio JMS.</p>
+<p>Per informazioni sulle propriet&agrave; disponibili, vedere <a href="ref-jmsservice-additional-props.html">Propriet&agrave; specifiche del servizio JMS</a>.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Ping per verificare che il servizio JMS sia in esecuzione sull'host JMS predefinito.</p>
+<p>Il servizio JMS &egrave; attivo e in funzione; un messaggio notifica che il ping &egrave; stato eseguito correttamente.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li></ol><p><b>Altre informazioni<br>Accesso a server remoti</b></p><p>Se vengono modificati il provider e l'host in un sistema remoto, tutte
-le applicazioni JMS vengono eseguite nel server remoto. Per utilizzare il server
-locale e uno o pi&#249; server remoti, creare una risorsa factory di
-connessione con la propriet&#224; <tt>AddressList </tt> per creare connessioni con accesso ai server
-remoti. Vedere <a href="task-jmsconnectionnew.html">Creare una risorsa factory di connessione JMS </a>.</p>
-
-Comando asadmin equivalente</b></p><p><tt>jms-ping</tt></p>
-
-<p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-jmshostnew.html">Creare un host JMS</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-jmshostedit.html">Modificare un host JMS</a></p>
-
+</ol>
+<a id="sthref21" name="sthref21"></a>
+<h5>Accesso a server remoti</h5>
+<p>Se vengono modificati il provider e l'host in un sistema remoto, tutte le applicazioni JMS vengono eseguite nel server remoto. Per utilizzare il server locale e uno o pi&ugrave; server remoti, creare una risorsa Connection Factory con la propriet&agrave; <code>AddressList</code> per creare connessioni con accesso ai server remoti. Vedere <a href="task-jmsconnectionnew.html">Creare una risorsa Connection Factory JMS</a>.</p>
+<a id="sthref22" name="sthref22"></a>
+<h5>Comando asadmin equivalente</h5>
+<p><code>jms-ping</code></p>
+<a id="sthref23" name="sthref23"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-jmshostnew.html">Creare un host JMS</a></p>
 </li>
-<li><p><a href="task-jmshostdelete.html">Eliminare un host JMS</a></p>
-
+<li>
+<p><a href="task-jmshostedit.html">Modificare un host JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestnew.html">Creare una destinazione fisica JMS</a></p>
-
+<li>
+<p><a href="task-jmshostdelete.html">Eliminare un host JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestedit.html">Modificare una destinazione fisica JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestnew.html">Creare una destinazione fisica JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestdelete.html">Eliminare una destinazione fisica JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestedit.html">Modificare una destinazione fisica JMS</a></p>
 </li>
-<li><p><a href="task-jmsflushmessages.html">Rimuovere messaggi da una destinazione fisica JMS </a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestdelete.html">Eliminare una destinazione fisica JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldeststats.html">Visualizzare statistiche per una destinazione fisica JMS</a></p>
+<li>
+<p><a href="task-jmsflushmessages.html">Rimuovere i messaggi da una destinazione fisica JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldeststats.html">Visualizzare le statistiche per una destinazione fisica JMS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

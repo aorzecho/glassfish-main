@@ -1,132 +1,141 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-redeploy"></a><h4>Redeploy Applications or Modules</h4>
-<a name="indexterm-186"></a><a name="indexterm-187"></a><p>Nella pagina Redeploy Applications or Modules &#232; possibile ridistribuire un'applicazione gi&#224; distribuita
-in precedenza.</p>
+<p><a id="ref-redeploy" name="ref-redeploy"></a><a id="GHCOM00078" name="GHCOM00078"></a></p>
 
-<p>La pagina Redeploy Applications or Modules contiene le seguenti opzioni.</p>
-
-<dl><dt>Location</dt>
-<dd><p>Posizione del nuovo archivio per l'applicazione da ridistribuire.</p>
-
-<p>Le seguenti opzioni consentono di specificare la posizione da cui &#232; accessibile l'archivio e se si tratta di un file o di una directory.</p>
-
-<dl><dt>Packaged File to Be Uploaded to the Server</dt>
-<dd><p>L'archivio si trova in un file del computer client o &#232; accessibile da tale computer.</p>
-
-<p>Il computer client &#232; l'host in cui viene visualizzata Administration Console tramite un browser.</p>
-
+<h4><a id="sthref323" name="sthref323"></a><a id="sthref324" name="sthref324"></a>Ridistribuisci applicazioni o moduli</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Ridistribuisci applicazioni o moduli &egrave; possibile ridistribuire un'applicazione distribuita in precedenza.</p>
+<p>La pagina Ridistribuisci applicazioni o moduli contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Posizione</dt>
+<dd>
+<p>Posizione del nuovo archivio per l'applicazione da ridistribuire.</p>
+<p>Le opzioni riportate di seguito consentono di specificare la posizione da cui &egrave; accessibile l'archivio e se si tratta di un file o di una directory.</p>
+<dl>
+<dt>File incluso in un package da caricare sul server</dt>
+<dd>
+<p>L'archivio si trova in un file che risiede sul computer client o &egrave; accessibile da tale computer.</p>
+<p>Il computer client &egrave; l'host sul quale viene visualizzata la Console di amministrazione tramite un browser.</p>
 </dd>
-<dt>Local Packaged File or Directory That Is Accessible From the GlassFish Server</dt>
-<dd><p>L'archivio &#232; un file che si trova in un computer server o &#232; un'applicazione decompressa in una directory esplosa.</p>
-
-<p>Il computer server &#232; l'host in cui &#232; in esecuzione il server di amministrazione del dominio di GlassFish Server. </p>
-
+<dt>Directory o file locale incluso in un package accessibile da GlassFish Server</dt>
+<dd>
+<p>L'archivio &egrave; un file che risiede sul computer server o &egrave; un'applicazione decompressa in una directory esplosa.</p>
+<p>Il computer server &egrave; l'host sul quale &egrave; in esecuzione il server di amministrazione del dominio di GlassFish Server.</p>
 </dd>
 </dl>
 </dd>
-<dt>Application Name</dt>
-<dd><p>Campo di sola lettura in cui viene visualizzato il nome dell'applicazione da ridistribuire.</p>
-
-<p>Il nome pu&#242; includere un identificatore di versione opzionale, che segue il nome ed &#232; separato da questo da due punti (<tt>:</tt>). Per ulteriori informazioni sulle versioni di moduli e applicazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions in <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p>
-
+<dt>Nome applicazione</dt>
+<dd>
+<p>Campo di sola lettura in cui viene visualizzato il nome dell'applicazione da ridistribuire.</p>
+<p>Il nome pu&ograve; includere un identificativo di versione opzionale, che segue il nome ed &egrave; separato da questo da due punti (<code>:</code>). Per ulteriori informazioni sulle versioni di moduli e applicazioni, vedere <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00324"><i>Module and Application Versions</i> in <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
 </dd>
-<dt>Precompile JSPs</dt>
-<dd><p>Se questa opzione &#232; selezionata, i file JSP (JavaServer Pages ) vengono precompilati. Se l'opzione &#232; disabilitata, i file JSP vengono compilati in fase di runtime al primo accesso. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Disponibilit&agrave;</dt>
+<dd>
+<p>Se la casella di controllo Abilitato &egrave; selezionata, l'alta disponibilit&agrave; &egrave; abilitata per le sessioni Web e per la definizione di checkpoint e la passivazione potenziale dei bean di sessione con conservazione dello stato (SFSB). Se questa opzione &egrave; impostata su false (valore predefinito), il salvataggio delle sessioni Web e la definizione di checkpoint SFSB vengono disabilitati per l'applicazione, l'applicazione Web o il modulo EJB specificato. Se questa opzione &egrave; impostata su true, l'applicazione o il modulo specificato viene abilitato per l'alta disponibilit&agrave;. Impostare questa opzione su true solo se l'alta disponibilit&agrave; &egrave; configurata e abilitata ai livelli superiori, ad esempio a livello di server e di contenitore.</p>
+<p>Questa opzione viene visualizzata se esistono cluster o istanze server standalone oltre all'istanza server predefinita (<code>server</code>).</p>
 </dd>
-<dt>Run Verifier</dt>
-<dd><p>Se questa opzione &#232; selezionata, prima della distribuzione vengono verificati i descrittori di distribuzione. Se la verifica non riesce, la distribuzione non viene eseguita. Il verificatore esamina la struttura e il contenuto dei descrittori di distribuzione. La verifica di applicazioni di grandi dimensioni richiede spesso tempi lunghi. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
-<p>I pacchetti di verifica devono essere installati tramite l'utility Update Tool; in caso contrario verr&#224; registrato un avviso e l'opzione verr&#224; ignorata.</p>
-
+<dt>Precompila JSP</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, i file JSP (JavaServer Pages) vengono precompilati. Se questa opzione &egrave; disabilitata, i file JSP vengono compilati in fase di esecuzione al primo accesso. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</dd>
+<dt>Esegui verificatore</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, i descrittori di distribuzione vengono verificati prima della distribuzione. Se la verifica non riesce, la distribuzione non viene eseguita. Il verificatore esamina la struttura e il contenuto dei descrittori di distribuzione. La verifica di applicazioni di grandi dimensioni richiede spesso tempi lunghi. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+<p>I package del verificatore devono essere installati tramite la utility Strumento di aggiornamento; in caso contrario, viene registrata un'avvertenza e l'opzione viene ignorata.</p>
 </dd>
 <dt>Java Web Start</dt>
-<dd><p>Se l'opzione &#232; selezionata, l'accesso Java Web Start &#232; consentito per un modulo del client dell'applicazione. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dd>
+<p>Se questa opzione &egrave; selezionata, l'accesso a Java Web Start &egrave; consentito per un modulo client applicazione. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Keep State</dt>
-<dd><p>Questa opzione determina se le sessioni Web, le istanze SFSB e i timer EJB creati in modo persistente vengono conservati tra le ridistribuzioni.</p>
-
-<p>Questa opzione &#232; disabilitata per impostazione predefinita. &#200; supportata solo nell'istanza server predefinita, denominata <tt>server</tt>. Non &#232; supportata e viene ignorata per qualsiasi altra destinazione.</p>
-
-<p>Alcune modifiche apportate a un'applicazione tra le ridistribuzioni impediscono a questa funzione di operare correttamente. Ad esempio, non modificare l'insieme di variabili delle istanze nella classe bean SFSB.</p>
-
-<p>Per le applicazioni Web, questa funzione &#232; applicabile solo se nel file <tt>glassfish-web-app.xml </tt> l'attributo <tt>persistence-type</tt> dell'elemento<tt> session-manager</tt> &#232; <tt>file</tt>.</p>
-
-<p>Per le istanze di bean di sessione con stato, il tipo di persistenza senza alta disponibilit&#224; viene impostato nel server (opzione SFSB Persistence Type) e deve essere impostato su <tt>file</tt>, che &#232; il valore predefinito e consigliato.</p>
-
-<p>Se un elemento attivo quale una sessione Web, un'istanza SFSB o un timer EJB non viene preservato o ripristinato, <b>nessuno</b> di tali elementi sar&#224; disponibile una volta completata la ridistribuzione. La ridistribuzione viene tuttavia proseguita e viene registrato un avviso.</p>
-
-<p>Per preservare i dati con stato attivo, GlassFish Server li serializza e li salva nella memoria. Per ripristinare i dati, il classloader dell'applicazione appena ridistribuita deserializza i dati precedentemente salvati.</p>
-
+<dt>Mantieni stato</dt>
+<dd>
+<p>Questa opzione controlla se le sessioni Web, le istanze SFSB e i timer EJB creati in modo persistente vengono mantenuti tra le ridistribuzioni.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita. &Egrave; supportata solo nell'istanza server predefinita, denominata <code>server</code>. Non &egrave; supportata e viene ignorata per qualsiasi altra destinazione.</p>
+<p>Alcune modifiche apportate a un'applicazione tra le ridistribuzioni impediscono il corretto funzionamento di questa funzione. Ad esempio, non modificare il set di variabili di istanza nella classe di bean SFSB.</p>
+<p>Per le applicazioni Web, questa funzione &egrave; applicabile solo se nel file <code>glassfish-web-app.xml</code> l'attributo <code>persistence-type</code> dell'elemento <code>session-manager</code> &egrave; <code>file</code>.</p>
+<p>Per le istanze di bean di sessione con conservazione dello stato, il tipo di persistenza senza alta disponibilit&agrave; viene impostato nel server (opzione Tipo di persistenza SFSB) e deve essere impostato su <code>file</code>, che &egrave; il valore predefinito e consigliato.</p>
+<p>Se un elemento attivo, quale una sessione Web, un'istanza SFSB o un timer EJB, non viene preservato o ripristinato, <i>nessuno</i> di tali elementi sar&agrave; disponibile una volta completata la ridistribuzione. La ridistribuzione viene tuttavia proseguita e viene registrata un'avvertenza.</p>
+<p>Per preservare i dati con stato attivo, GlassFish Server li serializza e li salva nella memoria. Per ripristinare i dati, il classloader dell'applicazione appena ridistribuita deserializza i dati salvati in precedenza.</p>
 </dd>
-<dt>Preserve Application Scoped Resources</dt>
-<dd><p>Se l'opzione &#232; selezionata, le risorse con ambito a livello di applicazione vengono preservate e ripristinate durante la ridistribuzione. Questa opzione non &#232; selezionata per impostazione predefinita.</p>
-
+<dt>Conserva risorse con ambito applicazione</dt>
+<dd>
+<p>Se l'opzione &egrave; selezionata, le risorse con ambito a livello di applicazione vengono conservate e ripristinate durante la ridistribuzione. Questa opzione non &egrave; selezionata per impostazione predefinita.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-appredeploy.html">Ridistribuire un'applicazione distribuita</a></p>
-
+<a id="sthref325" name="sthref325"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-appredeploy.html">Ridistribuire un'applicazione distribuita</a></p>
 </li>
-<li><p><a href="task-applistdeployed.html">Visualizzare un elenco di applicazioni distribuite</a></p>
-
+<li>
+<p><a href="task-applistdeployed.html">Visualizzare una lista di applicazioni distribuite</a></p>
 </li>
-<li><p><a href="task-appdeployweb.html">Distribuire un'applicazione Web</a></p>
-
+<li>
+<p><a href="task-appdeployweb.html">Distribuire un'applicazione Web</a></p>
 </li>
-<li><p><a href="task-deployentapp.html">Distribuire un'applicazione enterprise</a></p>
-
+<li>
+<p><a href="task-deployentapp.html">Distribuire un'applicazione enterprise</a></p>
 </li>
-<li><p><a href="task-appdeployclient.html">Distribuire un client dell'applicazione</a></p>
-
+<li>
+<p><a href="task-appdeployclient.html">Distribuire un client dell'applicazione</a></p>
 </li>
-<li><p><a href="task-appdeployconn.html">Distribuire un modulo connettore</a></p>
-
+<li>
+<p><a href="task-appdeployconn.html">Distribuire un modulo connettore</a></p>
 </li>
-<li><p><a href="task-appdeployejb.html">Distribuire un file JAR EJB</a></p>
-
+<li>
+<p><a href="task-appdeployejb.html">Distribuire un file JAR EJB</a></p>
 </li>
-<li><p><a href="task-appedit.html">Modificare un'applicazione distribuita</a></p>
-
+<li>
+<p><a href="task-appedit.html">Modificare un'applicazione distribuita</a></p>
 </li>
-<li><p><a href="task-appviewdesc.html">Visualizzare i descrittori di un'applicazione</a></p>
-
+<li>
+<p><a href="task-appviewdesc.html">Visualizzare i descrittori di un'applicazione</a></p>
 </li>
-<li><p><a href="task-endpoint.html">Visualizzare informazioni su endpoint per servizi Web</a></p>
-
+<li>
+<p><a href="task-endpoint.html">Visualizzare le informazioni sull'endpoint per un servizio Web</a></p>
 </li>
-<li><p><a href="task-applaunch.html">Avviare un'applicazione</a></p>
-
+<li>
+<p><a href="task-applaunch.html">Avviare un'applicazione</a></p>
 </li>
-<li><p><a href="task-appclientlaunch.html">Avviare un client dell'applicazione</a></p>
-
+<li>
+<p><a href="task-appclientlaunch.html">Avviare un client dell'applicazione</a></p>
 </li>
-<li><p><a href="task-apprestart.html">Ricaricare un'applicazione distribuita</a></p>
-
+<li>
+<p><a href="task-appclientstubs.html">Scaricare gli stub dei client dell'applicazione</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2956&id=task-ejbcontaineravailability">To Configure Availability Settings for the EJB Container</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=deploy-1"><tt>deploy</tt>(1)</a></p>
-
+<li>
+<p><a href="task-apprestart.html">Ricaricare un'applicazione distribuita</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=redeploy-1"><tt>redeploy</tt>(1)</a></p>
-
+<li>
+<p><a href="ref-appscopedresourcesview.html">Visualizzare le risorse con ambito applicazione</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-applications-1"><tt>list-applications</tt>(1)</a></p>
-
+<li>
+<p><a href="ref-appscopedresourcesedit.html">Modificare le risorse con ambito applicazione</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-modules-1"><tt>list-modules</tt>(1)</a></p>
+<li>
+<p><a href="../../../ejb/it/help/missingtopic.html">To Configure Availability Settings for the EJB Container</a></p>
+</li>
+</ul>
+<a id="sthref326" name="sthref326"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00114"><code>deploy</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00217"><code>redeploy</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00148"><code>list-applications</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00185"><code>list-modules</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

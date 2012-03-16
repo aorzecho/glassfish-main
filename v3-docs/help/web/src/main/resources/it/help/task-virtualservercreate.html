@@ -1,55 +1,87 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-virtualservercreate" name="task-virtualservercreate"></a><a id="GHWEB00036" name="GHWEB00036"></a></p>
 
-
-<a name="task-virtualservercreate"></a><h3>Creare server virtuali</h3><a name="indexterm-18"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Nel nodo Configuration, selezionare il nodo Virtual Servers.</b><p>Viene visualizzata la pagina Virtual Servers.</p></li>
-<li><b>Nella pagina Virtual Servers, fare clic su New.</b><p>Viene visualizzata la pagina Virtual Server.</p></li>
-<li><b>Nel campo ID, digitare un valore per individuare il server virtuale internamente.
-</b><p>I client HTTP non visualizzano questo valore. I nomi host visibili ai
-client HTTP devono essere specificati nel campo Hosts.</p></li>
-<li><b>Nel campo Hosts, immettere i nomi host o gli indirizzi IP per
-il computer in cui &#232; in esecuzione il server.</b><p>Utilizzare i nomi reali o i nomi virtuali registrati con il server
-DNS per la rete (e in un sistema UNIX nel file <tt>/etc/hosts</tt>).</p><p>Il valore predefinito &#232; il valore della propriet&#224; di sistema <tt>${com.sun.aas.hostName} </tt>.</p></li>
-<li><b>Selezionare un'opzione State per il nuovo server virtuale.</b><p>Il server virtuale pu&#242; essere On (ovvero attivo), Off o Disabled. Il
-valore predefinito &#232; On.</p></li>
-<li><b>Selezionare un'opzione SSO per il nuovo server virtuale.</b><p>Per impostazione predefinita, un server virtuale utilizza le impostazioni SSO del servizio
-HTTP. Selezionare Enabled o Disabled per sovrascrivere l'impostazione del servizio HTTP attivando
-o disattivando l'autorizzazione SSO per questo server virtuale.</p><p>L'autorizzazione SSO nelle applicazioni di GlassFish Server &#232; supportata da servlet e
-file JSP. Questa funzionalit&#224; consente la condivisione di informazioni SSO utente tra
-pi&#249; applicazioni che le richiedono, anzich&#233; l'accesso separato dei singoli utenti per
-ogni applicazione. </p></li>
-<li><b>Dall'elenco a discesa Network Listeners, selezionare uno o pi&#249; listener di rete
-o lasciare il campo vuoto.</b></li>
-<li><b>Dall'elenco a discesa Default Web Module, selezionare il modulo da utilizzare per
-rispondere a tutte le richieste di cui non &#232; possibile eseguire il
-mapping agli altri moduli Web distribuiti nel server virtuale.</b><p>Se non viene specificato un modulo Web predefinito, viene utilizzato il modulo
-Web con una root di contesto vuota. Se non sono disponibili moduli
-Web con una root di contesto vuota, viene creato e utilizzato un
-modulo Web predefinito per il sistema.</p></li>
-<li><b>Nel campo Log File, digitare il nome del percorso del file in
-cui visualizzare i messaggi di log provenienti da questo server virtuale.</b><p>Per impostazione predefinita i messaggi di log vengono inviati al log del
-server predefinito <tt></tt><i>domain-dir</i><tt>/logs/server.log</tt>.</p></li>
-<li><b>Nel campo Docroot, immettere il percorso completo della directory di documenti root
-per il server.</b><p>Se il campo &#232; vuoto, verr&#224; utilizzato <tt></tt><i>domain-dir</i><tt>/docroot</tt>.</p></li>
-<li><b>Selezionare un'opzione Access Logging per abilitare o disabilitare la registrazione degli accessi.</b><p>In alternativa &#232; possibile specificare se la registrazione degli accessi proviene dal
-servizio HTTP. Per impostazione predefinita, viene ereditata dal servizio HTTP.</p></li>
-<li><b>Nel campo Directory, immettere il percorso completo della directory dei log di
-accesso del server.</b><p>Il valore predefinito &#232; <tt></tt><i>domain-dir</i><tt>/logs/access</tt>.</p></li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive per il server virtuale.</b><p>Per informazioni sulle propriet&#224; disponibili, vedere <a href="ref-virtualserverprops.html">Propriet&#224; specifiche dei server virtuali</a>.</p><p>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</p></li>
-<li><b>Fare clic su OK.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-virtualserveredit.html">Modificare un server virtuale</a></p>
-
+<h4><a id="sthref35" name="sthref35"></a>Creare un server virtuale</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
 </li>
-<li><p><a href="task-virtualserverdelete.html">Eliminare un server virtuale</a></p>
+<li>
+<p>Select the configuration that you are changing.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione, selezionare il nodo Server virtuali.</p>
+<p>Viene visualizzata la pagina Server virtuali.</p>
+</li>
+<li>
+<p>Nella pagina Server virtuali, fare clic su Nuovo.</p>
+<p>Viene visualizzata la pagina Server virtuale.</p>
+</li>
+<li>
+<p>Nel campo ID, digitare un valore per individuare il server virtuale internamente.</p>
+<p>I client HTTP non visualizzano questo valore. I nomi host visibili ai client HTTP devono essere specificati nel campo Host.</p>
+</li>
+<li>
+<p>Nel campo Host, immettere i nomi host o gli indirizzi IP per il computer in cui &egrave; in esecuzione il server.</p>
+<p>Utilizzare i nomi reali o i nomi virtuali registrati con il server DNS per la rete (e, in un sistema UNIX, nel file <code>/etc/hosts</code>).</p>
+<p>Il valore predefinito &egrave; il valore della propriet&agrave; di sistema <code>${com.sun.aas.hostName}</code>.</p>
+</li>
+<li>
+<p>Selezionare un'opzione Stato per il nuovo server virtuale.</p>
+<p>Il server virtuale pu&ograve; essere On (ovvero attivo), Off o Disabilitato. Il valore predefinito &egrave; On.</p>
+</li>
+<li>
+<p>Selezionare un'opzione SSO per il nuovo server virtuale.</p>
+<p>Per impostazione predefinita, un server virtuale utilizza le impostazioni SSO del servizio HTTP. Selezionare Abilitato o Disabilitato per sovrascrivere l'impostazione del servizio HTTP abilitando o disabilitando l'autorizzazione SSO per questo server virtuale.</p>
+<p>L'autorizzazione SSO nelle applicazioni di GlassFish Server &egrave; supportata da servlet e file JSP. Questa funzione consente la condivisione di informazioni SSO utente tra pi&ugrave; applicazioni che le richiedono, anzich&eacute; l'accesso separato dei singoli utenti per ogni applicazione.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Listener di rete, selezionare uno o pi&ugrave; listener di rete o lasciare il campo vuoto.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Modulo Web predefinito, selezionare il modulo da utilizzare per rispondere a tutte le richieste di cui non &egrave; possibile eseguire il mapping agli altri moduli Web distribuiti nel server virtuale.</p>
+<p>Se non viene specificato un modulo Web predefinito, viene utilizzato il modulo Web con una radice contesto vuota. Se non sono disponibili moduli Web con una radice contesto vuota, viene creato e utilizzato un modulo Web predefinito per il sistema.</p>
+</li>
+<li>
+<p>Nel campo File di log, digitare il nome del percorso del file in cui visualizzare i messaggi di log provenienti da questo server virtuale.</p>
+<p>Per impostazione predefinita i messaggi di log vengono inviati al log del server predefinito, <i>domain-dir</i><code>/logs/server.log</code>.</p>
+</li>
+<li>
+<p>Nel campo Docroot, digitare il percorso assoluto della directory radice dei documenti per il server.</p>
+<p>Se il campo viene lasciato vuoto, verr&agrave; utilizzata la directory <i>domain-dir</i><code>/docroot</code>.</p>
+</li>
+<li>
+<p>Selezionare un'opzione Log degli accessi per abilitare o disabilitare la registrazione degli accessi.</p>
+<p>In alternativa &egrave; possibile specificare se la registrazione degli accessi proviene dal servizio HTTP. Per impostazione predefinita, viene ereditata dal servizio HTTP.</p>
+</li>
+<li>
+<p>Nel campo Directory, immettere il percorso completo della directory dei log di accesso del server.</p>
+<p>Il valore predefinito &egrave; <i>domain-dir</i><code>/logs/server.log</code>.</p>
+</li>
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive per il server virtuale.</p>
+<p>Per informazioni sulle propriet&agrave; disponibili, vedere <a href="ref-virtualserverprops.html">Propriet&agrave; specifiche dei server virtuali</a>.</p>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Fare clic su OK.</p>
+</li>
+</ol>
+<a id="sthref36" name="sthref36"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-virtualserveredit.html">Creare un server virtuale</a></p>
+</li>
+<li>
+<p><a href="task-virtualserverdelete.html">Eliminare un server virtuale</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

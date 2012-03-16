@@ -1,68 +1,76 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-gmscluster" name="task-gmscluster"></a><a id="GHCLU00079" name="GHCLU00079"></a></p>
 
-
-<a name="task-gmscluster"></a><h3>Configurare le impostazioni del servizio di gestione gruppi per un cluster</h3><a name="indexterm-152"></a><p>Il servizio GMS (Group Management Service) &#232; un servizio in-process che offre
-monitoraggio del cluster, appartenenza del cluster e servizi di comunicazione di gruppo.
-Esegue le funzioni seguenti:</p>
-
-
-<ul><li><p>Notifica ai moduli registrati in un'istanza di GlassFish Server l'aggiunta o la rimozione di una o pi&#249; istanze membro da un cluster oppure un errore sospetto o confermato di tali istanze.</p>
-
+<h4><a id="sthref220" name="sthref220"></a>Configurare le impostazioni di GMS per un cluster</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Il servizio GMS (Group Management Service) &egrave; un servizio in-process che offre monitoraggio del cluster, appartenenza del cluster e servizi di comunicazione di gruppo. Esegue le funzioni seguenti:</p>
+<ul>
+<li>
+<p>Notifica ai moduli registrati in un'istanza di GlassFish Server l'aggiunta o la rimozione di una o pi&ugrave; istanze membro da un cluster oppure un errore sospetto o confermato di tali istanze.</p>
 </li>
-<li><p>Consente di inviare e ricevere messaggi tra processi di un gruppo.</p>
-
-</li></ul>
+<li>
+<p>Consente di inviare e ricevere messaggi tra processi di un gruppo.</p>
+</li>
+</ul>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Clusters.</b></li>
-<li><b>Selezionare il cluster per il quale configurare le impostazioni del servizio GMS.</b><p>Viene visualizzata la pagina General Information per il cluster.</p></li>
-<li><b>Selezionare la casella di controllo GMS Enabled per abilitare il servizio GMS
-per il cluster.</b><p>Questa opzione &#232; selezionata per impostazione predefinita. Per disabilitare il servizio GMS
-per il cluster, rimuovere il segno di spunta dalla casella di controllo
-GMS Enabled.</p><p>Il servizio GMS, se abilitato, &#232; avviato in ogni istanza del server
-nel cluster e nel server di amministrazione del dominio (DAS, Domain Administration
-Server). Il DAS partecipa a ciascun cluster con GMS abilitato.</p></li>
-<li><b>Nel campo Multicast Port immettere la porta utilizzata dal servizio GMS per
-restare in attesa degli eventi di gruppo.</b><p>Specificare un numero di porta UDP standard nell'intervallo compreso tra 2048 e
-32000. Il valore predefinito &#232; un valore generato automaticamente in questo intervallo.</p></li>
-<li><b>Nel campo Multicast Port immettere l'indirizzo utilizzato dal servizio di gestione gruppi
-per restare in attesa degli eventi di gruppo.</b><p>Specificare un indirizzo multicast IP classe D. Gli indirizzi IP di classe
-D rientrano nell'intervallo compreso tra <tt>224.0.0.0</tt> e <tt> 239.255.255.255</tt> inclusi. L'indirizzo <tt>224.0.0.0</tt> &#232;
-riservato e non deve essere utilizzato. L'impostazione predefinita &#232; 228.9.<i>XX</i>.<i> YY</i>, in cui
-<i>XX</i> e <i>YY </i> rappresentano valori indipendenti generati automaticamente inclusi tra 0 e
-255.</p></li>
-<li><b>Nel campo Bind Interface Address immettere l'indirizzo dell'interfaccia di rete per il
-servizio GMS se sono disponibili pi&#249; interfacce di rete.</b><p>L'impostazione consente di configurare l'interfaccia di rete da utilizzare per il servizio
-GMS se ne &#232; presente pi&#249; di una su uno dei computer
-host delle istanze del server nel cluster. Il valore deve essere un
-indirizzo IP di interfaccia di rete locale. Per impostazione predefinita vengono utilizzati
-tutti gli indirizzi di interfaccia di rete pubblici.</p><p>Per specificare un indirizzo valido per tutte le istanze di GlassFish Server
-nel cluster, utilizzare una propriet&#224; di sistema per impostare l'indirizzo singolarmente per
-ciascuna istanza.</p><p>Ad esempio, creare la propriet&#224; di sistema <tt>GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i></tt> nel DAS, quindi impostare
-l'opzione Bind Interface Address in <tt>${GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i>}</tt> per specificare la propriet&#224; di sistema.
-Infine, per ogni istanza nel cluster, impostare la propriet&#224; di sistema <tt>GMS-BIND-INTERFACE-ADDRESS-<i> cluster-name</i></tt>
-per l'indirizzo dell'interfaccia di rete necessario nel computer dell'istanza.</p></li>
-<li>(Opzionale) <b>Per specificare propriet&#224; aggiuntive, selezionare la scheda Properties e la sottoscheda Cluster
-Properties.</b><p>In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per il servizio
-GMS.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
-della propriet&#224;.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-gmsenable.html">Abilitare il servizio GMS</a></p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Cluster.</p>
 </li>
-<li><p><a href="task-gms.html">Configurare il servizio GMS</a></p>
+<li>
+<p>Selezionare il cluster per il quale configurare le impostazioni del servizio GMS.</p>
+<p>Viene visualizzata la pagina Informazioni generali per il cluster.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo GMS abilitato per abilitare il servizio GMS per il cluster.</p>
+<p>Questa opzione &egrave; selezionata per impostazione predefinita. Per disabilitare il servizio GMS per il cluster, rimuovere il segno di spunta dalla casella di controllo GMS abilitato.</p>
+<p>Il servizio GMS, se abilitato, &egrave; avviato in ogni istanza del server nel cluster e nel server di amministrazione del dominio (DAS, Domain Administration Server). Il DAS partecipa a ciascun cluster con GMS abilitato.</p>
+</li>
+<li>
+<p>Nel campo Porta multicast immettere la porta utilizzata dal servizio GMS per restare in attesa degli eventi di gruppo.</p>
+<p>Specificare un numero di porta UDP standard nell'intervallo compreso tra 2048 e 32000. Il valore predefinito &egrave; un valore generato automaticamente in questo intervallo.</p>
+</li>
+<li>
+<p>Nel campo Porta multicast immettere l'indirizzo utilizzato dal servizio Group Management Service per restare in attesa degli eventi di gruppo.</p>
+<p>Specificare un indirizzo multicast IP classe D. Gli indirizzi IP di classe D rientrano nell'intervallo compreso tra <code>224.0.0.0</code> e <code>239.255.255.255</code> inclusi. L'indirizzo <code>224.0.0.0</code> &egrave; riservato e non deve essere utilizzato. L'impostazione predefinita &egrave; 228.9.<i>XX</i>. <i>YY</i>, dove <i>XX</i> e <i>YY</i> rappresentano valori indipendenti generati automaticamente inclusi tra 0 e 255.</p>
+</li>
+<li>
+<p>Nel campo Associa indirizzo di interfaccia immettere l'indirizzo dell'interfaccia di rete per il servizio GMS se sono disponibili pi&ugrave; interfacce di rete.</p>
+<p>L'impostazione consente di configurare l'interfaccia di rete da utilizzare per il servizio GMS se ne &egrave; presente pi&ugrave; di una su uno dei computer host delle istanze del server nel cluster. Il valore deve essere un indirizzo IP di interfaccia di rete locale. Per impostazione predefinita vengono utilizzati tutti gli indirizzi di interfaccia di rete pubblici.</p>
+<p>Per specificare un indirizzo valido per tutte le istanze di GlassFish Server nel cluster, utilizzare una propriet&agrave; di sistema per impostare l'indirizzo singolarmente per ciascuna istanza.</p>
+<p>Ad esempio, creare la propriet&agrave; di sistema <code>GMS-BIND-INTERFACE-ADDRESS-</code><i>cluster-name</i> in DAS. Quindi impostare l'opzione Associa indirizzo di interfaccia su <code>${GMS-BIND-INTERFACE-ADDRESS-</code><i>cluster-name</i><code>}</code> per specificare la propriet&agrave; di sistema. Infine, per ogni istanza nel cluster, impostare la propriet&agrave; di sistema <code>GMS-BIND-INTERFACE-ADDRESS-</code><i>cluster-name</i> per l'indirizzo dell'interfaccia di rete necessario nel computer dell'istanza.</p>
+</li>
+<li>
+<p>Per specificare propriet&agrave; aggiuntive, selezionare la scheda Propriet&agrave; e la scheda secondaria Propriet&agrave; cluster.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+</ol>
+<a id="sthref221" name="sthref221"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-gmsenable.html">Abilitare GMS</a></p>
+</li>
+<li>
+<p><a href="task-gms.html">Configurare GMS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

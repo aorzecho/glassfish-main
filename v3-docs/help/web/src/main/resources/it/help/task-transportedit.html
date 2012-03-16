@@ -1,92 +1,127 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-transportedit" name="task-transportedit"></a><a id="GHWEB00049" name="GHWEB00049"></a></p>
 
-
-<a name="task-transportedit"></a><h3>Modificare un trasporto</h3><a name="indexterm-34"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Nel nodo Configuration, espandere il nodo Network Config.</b></li>
-<li><b>Nel nodo Network Config, selezionare il nodo Transports.</b><p>Viene visualizzata la pagina Transports.</p></li>
-<li><b>Nella pagina Transports, fare clic sul nome del trasporto da modificare.</b><p>Viene visualizzata la pagina Edit Transport.</p></li>
-<li><b>Nel campo Classname, digitare il nome della classe dell'implementazione del trasporto.</b><p>Il valore predefinito &#232; <tt>com.sun.grizzly.TCPSelectorHandler</tt>.</p></li>
-<li><b>Nel campo Selection Key Handler, digitare il nome della classe del gestore
-dei tasti di selezione.</b><p>Nome della classe del gestore dei tasti di selezione. Per gestore di
-tasti di selezione si intende una classe astratta che gestisce il ciclo
-di vita dei tasti di selezione. Se non si specifica un valore
-viene utilizzata un'implementazione predefinita.</p></li>
-<li><b>Dall'elenco a discesa Byte Buffer Type, selezionare il tipo di <tt> ByteBuffer</tt> da
-utilizzare.</b><p>Le opzioni disponibili sono <tt>HEAP</tt> e <tt>DIRECT</tt>. Il valore predefinito &#232; <tt>HEAP</tt>.</p></li>
-<li><b>Nel campo Acceptor Threads, digitare il numero di processori presenti nel computer.</b><p>Un valore pari a -1 indica che il calcolo dei thread accettori
-viene eseguito solo tramite Grizzly, sulla base del numero dei processori presenti
-nel computer. Il valore predefinito &#232; 1.</p><p>Per impostare il numero dei thread di elaborazione della richiesta, specificare il
-valore Max Thread Pool Size del pool di thread utilizzato da un
-listener di rete che utilizza questo trasporto.</p></li>
-<li><b>Nel campo Max Connections Count, digitare il numero massimo di connessioni in
-attesa su un listener di rete che utilizza questo trasporto.</b><p>Il valore predefinito &#232; 4096.</p></li>
-<li><b>Nel campo Buffer Size, digitare le dimensioni, in byte, del buffer da
-fornire per i flussi di input creati da un listener di rete
-che utilizza questo trasporto.</b><p>Il valore predefinito &#232; 8192.</p></li>
-<li><b>Nel campo Idle Key Timeout, digitare il numero di secondi al termine
-dei quali un tasto inattivo viene annullato e il canale viene chiuso.</b><p>Il valore predefinito &#232; 30.</p></li>
-<li><b>Nel campo Read Timeout, digitare il numero di millisecondi di attesa di
-GlassFish Server durante la fase di analisi di intestazione e corpo del
-testo di un'operazione di lettura.</b><p>Il valore predefinito &#232; 30.000.</p></li>
-<li><b>Nel campo Selector Poll Timeout, digitare il numero di millisecondi al termine
-dei quali viene bloccata l'attesa di eventi (richieste utenti) mediante un selettore
-NIO.</b><p>Il valore predefinito &#232; 1000.</p></li>
-<li><b>Nel campo Write Timeout, digitare il numero di millisecondi di attesa di
-GlassFish Server prima che venga considerata terminata la connessione del client remoto
-durante la scrittura della risposta.</b><p>Il valore predefinito &#232; 30.000.</p></li>
-<li><b>Selezionare la casella di controllo Display Configuration Enabled per scaricare la configurazione
-interna di Grizzly nei log del server.</b><p>Questa opzione potrebbe fornire informazioni utili per il debugging. Questa opzione &#232;
-disabilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo Snoop Enabled per eseguire il dump delle
-informazioni di richiesta/risposta nel log del server.</b><p>Questa opzione potrebbe fornire informazioni utili per il debugging, tuttavia causa un
-peggioramento significativo delle prestazioni. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo TCP No Delay per abilitare TCP_NODELAY (noto
-anche come algoritmo di Nagle).</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<h4><a id="sthref69" name="sthref69"></a>Modificare un trasporto</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione, espandere il nodo Configurazione di rete.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione di rete, selezionare il nodo Trasporti.</p>
+<p>Viene visualizzata la pagina Trasporti.</p>
+</li>
+<li>
+<p>Nella pagina Trasporti, fare clic sul nome del trasporto da modificare.</p>
+<p>Viene visualizzata la pagina Modifica trasporto.</p>
+</li>
+<li>
+<p>Nel campo Nome classe, digitare il nome della classe dell'implementazione del trasporto.</p>
+<p>Il valore predefinito &egrave; <code>com.sun.grizzly.TCPSelectorHandler</code>.</p>
+</li>
+<li>
+<p>Nel campo Handler chiavi di selezione, digitare il nome della classe del gestore dei tasti di selezione.</p>
+<p>Nome della classe del gestore dei tasti di selezione. Per gestore di tasti di selezione si intende una classe astratta che gestisce il ciclo di vita dei tasti di selezione. Se non si specifica un valore viene utilizzata un'implementazione predefinita.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Tipo di buffer di byte, selezionare il tipo di <code>buffer di byte</code> da utilizzare.</p>
+<p>Le opzioni disponibili sono <code>HEAP</code> e <code>DIRECT</code>. Il valore predefinito &egrave; <code>HEAP</code>.</p>
+</li>
+<li>
+<p>Nel campo Thread processo di accettazione, digitare il numero di processori presenti nel computer.</p>
+<p>Un valore pari a -1 indica che il calcolo dei thread di processo di accettazione viene eseguito tramite Grizzly, sulla base del numero di processori presenti nel computer. Il valore predefinito &egrave; 1.</p>
+<p>Per impostare il numero dei thread di elaborazione della richiesta, specificare il valore Dimensione massima pool di thread del pool di thread utilizzato da un listener di rete che utilizza questo trasporto.</p>
+</li>
+<li>
+<p>Nel campo Numero massimo connessioni, digitare il numero massimo di connessioni in sospeso su un listener di rete che utilizza questo trasporto.</p>
+<p>Il valore predefinito &egrave; 4096.</p>
+</li>
+<li>
+<p>Nel campo Dimensione buffer, digitare le dimensioni, in byte, del buffer da fornire per i flussi di input creati da un listener di rete che utilizza questo trasporto.</p>
+<p>Il valore predefinito &egrave; 8192.</p>
+</li>
+<li>
+<p>Nel campo Timeout chiave inattiva, digitare il numero di secondi al termine dei quali un tasto inattivo viene annullato e il canale viene chiuso.</p>
+<p>Il valore predefinito &egrave; 30.</p>
+</li>
+<li>
+<p>Nel campo Timeout di lettura, digitare il numero di millisecondi di attesa di GlassFish Server durante la fase di analisi di intestazione e corpo del testo di un'operazione di lettura.</p>
+<p>Il valore predefinito &egrave; 30.000.</p>
+</li>
+<li>
+<p>Nel campo Timeout di polling del selettore, digitare il numero di millisecondi al termine dei quali viene bloccata l'attesa di eventi (richieste utenti) mediante un selettore NIO.</p>
+<p>Il valore predefinito &egrave; 1000.</p>
+</li>
+<li>
+<p>Nel campo Timeout di scrittura, digitare il numero di millisecondi di attesa di GlassFish Server prima che venga considerata terminata la connessione del client remoto durante la scrittura della risposta.</p>
+<p>Il valore predefinito &egrave; 30.000.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Visualizza configurazione abilitato per scaricare la configurazione interna di Grizzly nei log del server.</p>
+<p>Questa opzione potrebbe fornire informazioni utili per il debugging. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Snooping abilitato per eseguire il dump delle informazioni di richiesta/risposta nel log del server.</p>
+<p>Questa opzione potrebbe fornire informazioni utili per il debugging, tuttavia causa un peggioramento significativo delle prestazioni. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo TCP senza ritardo per abilitare TCP_NODELAY (noto anche come algoritmo di Nagle).</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-networklistenernew.html">Creare un listener di rete</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-networklisteneredit.html">Modificare un listener di rete</a></p>
-
+</ol>
+<a id="sthref70" name="sthref70"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-networklistenernew.html">Creare un listener di rete</a></p>
 </li>
-<li><p><a href="task-networklistenerdelete.html">Eliminare un listener di rete</a></p>
-
+<li>
+<p><a href="task-networklisteneredit.html">Modificare un listener di rete</a></p>
 </li>
-<li><p><a href="task-protocolnew.html">Creare un protocollo</a></p>
-
+<li>
+<p><a href="task-networklistenerdelete.html">Eliminare un listener di rete</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolnew.html">Creare un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">Modificare le impostazioni SSL di un protocollo</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP di un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Modificare le impostazioni SSL per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
 </li>
-<li><p><a href="task-transportnew.html">Creare un trasporto</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
 </li>
-<li><p><a href="task-transportdelete.html">Eliminare un trasporto</a></p>
+<li>
+<p><a href="task-transportnew.html">Creare un trasporto</a></p>
+</li>
+<li>
+<p><a href="task-transportdelete.html">Eliminare un trasporto</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

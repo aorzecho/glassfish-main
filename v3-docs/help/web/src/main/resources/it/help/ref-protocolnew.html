@@ -1,236 +1,241 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-protocolnew"></a><h4>New Protocol</h4>
-<a name="indexterm-68"></a><p>Nella pagina New Protocol &#232; possibile creare un nuovo protocollo di rete.</p>
+<p><a id="ref-protocolnew" name="ref-protocolnew"></a><a id="GHWEB00019" name="GHWEB00019"></a></p>
 
-<p>Dopo aver creato un protocollo, in genere si procede alla creazione di
-un listener di rete con lo stesso nome e si associa il
-listener di rete al protocollo. In alternativa &#232; possibile creare un listener
-di rete: contemporaneamente viene creato un protocollo con le impostazioni predefinite.</p>
-
-<p>La pagina New Protocol contiene le seguenti opzioni.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<h4><a id="sthref142" name="sthref142"></a>Nuovo protocollo</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Nuovo protocollo &egrave; possibile creare un nuovo protocollo di rete.</p>
+<p>Dopo aver creato un protocollo, in genere si procede alla creazione di un listener di rete con lo stesso nome e si associa il listener di rete al protocollo. In alternativa, &egrave; possibile creare un listener di rete e contemporaneamente fare in modo che venga creato in modo automatico un protocollo con le impostazioni predefinite.</p>
+<p>La pagina Nuovo protocollo contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
-<dt>Name</dt>
-<dd><p>Nome univoco del protocollo. I nomi di protocolli non possono iniziare con un numero.</p>
-
+<dt>Nome</dt>
+<dd>
+<p>Nome univoco del protocollo. Un nome di protocollo non pu&ograve; iniziare con un numero.</p>
 </dd>
-<dt>Security</dt>
-<dd><p>Se l'opzione &#232; selezionata, per il protocollo viene abilitata la protezione. Questa opzione &#232; disabilitata per impostazione predefinita. Se si abilita la protezione &#232; possibile utilizzare la scheda SSL della pagina Edit Protocol per modificare le impostazioni di protezione.</p>
-
+<dt>Sicurezza</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, la sicurezza viene abilitata per il protocollo. Questa opzione &egrave; disabilitata per impostazione predefinita. Se si abilita la sicurezza, &egrave; possibile utilizzare la scheda SSL della pagina Modifica protocollo per modificare le impostazioni di sicurezza.</p>
 </dd>
-<dt>Status</dt>
-<dd><p>Se l'opzione &#232; selezionata viene abilitata la cache di file. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dt>Stato</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, viene abilitata la cache di file. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
-<dt>Max Age</dt>
-<dd><p>Durata massima in secondi per una voce della cache valida.</p>
-
-<p>Questo parametro definisce il tempo di utilizzo dei dati memorizzati nella cache dopo la creazione di un file. Le voci di durata superiore a quella massima vengono sostituite con nuove voci per lo stesso file. Se il contenuto cambia sporadicamente, impostare un valore pi&#249; elevato per ottimizzare le prestazioni.</p>
-
-<p>La durata massima ottimale dipende dalla frequenza con cui si modificano i file esistenti. Ad esempio, se i file vengono modificati quattro volte al giorno a intervalli regolari, si consiglia di impostare una durata massima di 21.600 secondi (6 ore). &#200; altrimenti possibile impostare una durata massima corrispondente al periodo pi&#249; lungo durante il quale si desidera utilizzare la versione precedente di un file dopo che il file &#232; stato modificato.</p>
-
-<p>Il valore predefinito &#232; 30.</p>
-
+<dt>Durata massima</dt>
+<dd>
+<p>Durata massima, in secondi, per una voce della cache valida.</p>
+<p>Questo parametro controlla il tempo di utilizzo delle informazioni inserite nella cache dopo l'inserimento di un file nella cache. Le voci di durata superiore a quella massima vengono sostituite con nuove voci per lo stesso file. Se il contenuto cambia sporadicamente, impostare un valore pi&ugrave; elevato per migliorare le prestazioni.</p>
+<p>La durata massima ottimale dipende dalla frequenza con cui si modificano i file esistenti. Ad esempio, se i file vengono modificati quattro volte al giorno a intervalli regolari, si consiglia di impostare una durata massima di 21.600 secondi (6 ore). &Egrave; altrimenti possibile impostare una durata massima corrispondente al periodo pi&ugrave; lungo durante il quale si desidera utilizzare la versione precedente di un file dopo che il file &egrave; stato modificato.</p>
+<p>Il valore predefinito &egrave; 30.</p>
 </dd>
-<dt>Max Cache Size</dt>
-<dd><p>Dimensioni massime totali (in byte) della cache di file sul disco. Il valore predefinito &#232; 10485760.</p>
-
+<dt>Dimensione massima cache</dt>
+<dd>
+<p>Dimensione massima totale (in byte) della cache di file sul disco. Il valore predefinito &egrave; 10485760.</p>
 </dd>
-<dt>Max File Count</dt>
-<dd><p>Numero massimo di file che &#232; possibile memorizzare nella cache di file.</p>
-
-<p>Se il valore &#232; eccessivamente alto, il server memorizza nella cache i file utilizzati meno di recente al fine di evitare sprechi di memoria. Se il valore &#232; eccessivamente basso, l'utilizzo della cache non presenta alcun vantaggio. Provare a specificare valori differenti per l'attributo fino a quando non si ottiene la soluzione ottimale per le specifiche applicazioni.</p>
-
-<p>Il valore predefinito &#232; 1024.</p>
-
+<dt>Numero massimo di file</dt>
+<dd>
+<p>Numero massimo di file che &egrave; possibile memorizzare nella cache di file.</p>
+<p>Se il valore &egrave; eccessivamente alto, il server inserisce nella cache i file utilizzati meno di recente al fine di evitare sprechi di memoria. Se il valore &egrave; eccessivamente basso, l'inserimento nella cache non presenta alcun vantaggio. Provare a specificare valori differenti per l'attributo fino a quando non si ottiene la soluzione ottimale per le specifiche applicazioni.</p>
+<p>Il valore predefinito &egrave; 1024.</p>
 </dd>
-<dt>Server Name</dt>
-<dd><p>Nome host da utilizzare negli URL che il server invia al client. Se il server utilizza un alias, questo nome corrisponde al nome alias. Se il server non utilizza un alias, lasciare vuoto questo campo.</p>
-
-<p>Questo valore ha effetto sugli URL generati automaticamente dal server ma non sugli URL relativi a directory e file memorizzati nel server. Se il server utilizza un alias, il nome del server deve corrispondere al nome alias. Se vengono aggiunti i due punti e il numero della porta, tale porta viene utilizzata negli URL che il server invia al client.</p>
-
+<dt>Nome server</dt>
+<dd>
+<p>Nome host da utilizzare negli URL che il server invia al client. Se il server utilizza un alias, questo nome corrisponde al nome alias. Se il server non utilizza un alias, lasciare vuoto questo campo.</p>
+<p>Questo valore ha effetto sugli URL generati automaticamente dal server, ma non sugli URL relativi a directory e file memorizzati nel server. Se il server utilizza un alias, il nome del server deve corrispondere al nome alias. Se vengono aggiunti due punti e il numero di porta, tale porta viene utilizzata negli URL che il server invia al client.</p>
 </dd>
-<dt>Default Virtual Server</dt>
-<dd><p>Server virtuale da associare a questo protocollo. Nella pagina Virtual Servers &#232; possibile definire server virtuali.</p>
-
+<dt>Server virtuale predefinito</dt>
+<dd>
+<p>Server virtuale da associare a questo protocollo. Nella pagina Server virtuali &egrave; possibile definire server virtuali.</p>
 </dd>
-<dt>Redirect Port</dt>
-<dd><p>Valore di porta che reindirizza una richiesta a un'altra porta. La richiesta viene reindirizzata automaticamente se si verificano le due condizioni seguenti:</p>
-
-
-<ul><li><p>Il listener di rete che fa riferimento a questo protocollo supporta richieste non SSL.</p>
-
+<dt>Porta di reindirizzamento</dt>
+<dd>
+<p>Valore della porta che reindirizza una richiesta a un'altra porta. GlassFish Server reindirizza automaticamente la richiesta se si verificano le due condizioni riportate di seguito.</p>
+<ul>
+<li>
+<p>Il listener di rete che fa riferimento a questo protocollo supporta richieste non SSL.</p>
 </li>
-<li><p>Viene ricevuta una richiesta per la quale un vincolo di protezione corrispondente richiede trasporto SSL.</p>
-
-</li></ul>
-<p>Se non si specifica una porta di reindirizzamento, viene utilizzato il numero di porta specificato nella richiesta originale. Per impostazione predefinita non &#232; specificata alcuna porta.</p>
-
+<li>
+<p>Viene ricevuta una richiesta per la quale un vincolo di sicurezza corrispondente richiede il trasporto SSL.</p>
+</li>
+</ul>
+<p>Se non si specifica una porta di reindirizzamento, GlassFish Server utilizza il numero di porta specificato nella richiesta originale. Per impostazione predefinita, non &egrave; specificata alcuna porta.</p>
 </dd>
-<dt>Max Connections</dt>
-<dd><p>Specifica il numero massimo di richieste che &#232; possibile trasmettere fino a quando la connessione non viene chiusa dal server. Il sottosistema Keep-Alive esegue regolarmente il polling delle connessioni inattive. Il valore predefinito &#232; 256.</p>
-
-<p>Impostare questa priorit&#224; su 1 per disabilitare le attivit&#224; di keep-alive HTTP/1.0, keep-alive HTTP/1.1 e pipelining. Un valore pari a 0 indica che le richieste verranno sempre rifiutate. Un valore pari a -1 indica un numero illimitato di connessioni keep-alive.</p>
-
+<dt>Numero massimo di connessioni</dt>
+<dd>
+<p>Specifica il numero massimo di richieste che &egrave; possibile trasmettere fino a quando la connessione non viene chiusa dal server. Il sottosistema di controllo attivit&agrave; esegue periodicamente il polling delle connessioni inattive. Il valore predefinito &egrave; 256.</p>
+<p>Impostare questa propriet&agrave; su 1 per disabilitare il controllo attivit&agrave; HTTP/1.0, nonch&eacute; il pipeline e il controllo attivit&agrave; HTTP/1.1. Un valore pari a 0 indica che le richieste verranno sempre rifiutate. Un valore pari a -1 imposta un numero illimitato di connessioni di controllo attivit&agrave;.</p>
 </dd>
 <dt>Timeout</dt>
-<dd><p>Numero massimo di secondi durante i quali una connessione pu&#242; essere considerata inattiva e mantenuta nello stato keep-alive. Un valore inferiore o pari a 0 indica che le connessioni keep-alive sono mantenute aperte a tempo indeterminato. Il valore predefinito &#232; 30 secondi.</p>
-
+<dd>
+<p>Numero massimo di secondi durante i quali una connessione pu&ograve; essere considerata inattiva e mantenuta nello stato controllo attivit&agrave;. Un valore inferiore o pari a 0 indica che le connessioni di controllo attivit&agrave; sono mantenute aperte a tempo indeterminato. Il valore predefinito &egrave; 30 secondi.</p>
 </dd>
-<dt>Upload Timeout</dt>
-<dd><p>Se l'opzione &#232; selezionata, la connessione per un servlet che legge byte lentamente viene chiusa una volta raggiunto il limite Connection Upload Timeout. Se l'opzione non &#232; selezionata, non si verifica alcun timeout per le connessioni del servlet. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Timeout di caricamento</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, la connessione per un servlet che legge byte lentamente viene chiusa dopo il raggiungimento del timeout di caricamento della connessione. Se questa opzione &egrave; disabilitata, non si verifica il timeout per le connessioni del servlet. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Connection Upload Timeout</dt>
-<dd><p>Timeout per i caricamenti, in millisecondi. Questo campo &#232; valido solo se &#232; selezionata la casella Upload Timeout Enabled. Il valore predefinito &#232; 300000 millisecondi.</p>
-
+<dt>Timeout di caricamento connessione</dt>
+<dd>
+<p>Timeout relativo ai caricamenti, espresso in millisecondi. Questo campo &egrave; valido solo se la casella di controllo Timeout di caricamento abilitato &egrave; selezionata. Il valore predefinito &egrave; 300000 millisecondi.</p>
 </dd>
-<dt>Request Timeout</dt>
-<dd><p>Numero di secondi precedenti al timeout di una richiesta. Se la richiesta non viene elaborata prima che sia raggiunto il valore di timeout, la richiesta viene ignorata. Il valore predefinito &#232; 30 secondi.</p>
-
+<dt>Timeout richieste</dt>
+<dd>
+<p>Numero di secondi prima del timeout di una richiesta. Se la richiesta non viene elaborata prima del raggiungimento del valore di timeout, la richiesta viene ignorata. Il valore predefinito &egrave; 30 secondi.</p>
 </dd>
-<dt>Send Buffer Size</dt>
-<dd><p>Dimensioni in byte del buffer di invio. Il valore predefinito &#232; 8192 byte.</p>
-
+<dt>Dimensione buffer di invio</dt>
+<dd>
+<p>Dimensione in byte del buffer di invio. Il valore predefinito &egrave; 8192 byte.</p>
 </dd>
-<dt>Header Buffer Length</dt>
-<dd><p>Dimensioni in byte del buffer utilizzato dai thread di elaborazione della richiesta per leggere i dati della richiesta. Il valore predefinito &#232; 8192 byte.</p>
-
+<dt>Lunghezza buffer intestazione</dt>
+<dd>
+<p>Dimensione in byte del buffer utilizzato dai thread di elaborazione delle richieste per la lettura dei dati delle richieste. Il valore predefinito &egrave; 8192 byte.</p>
 </dd>
-<dt>Max Post Size</dt>
-<dd><p>Dimensioni massime in byte di azioni POST. Il valore predefinito &#232; 2097152 byte.</p>
-
+<dt>Dimensione massima POST</dt>
+<dd>
+<p>Dimensione massima in byte delle azioni POST. Il valore predefinito &egrave; 2097152 byte.</p>
 </dd>
-<dt>URI Encoding</dt>
-<dd><p>Nome del set di caratteri utilizzato per decodificare gli URI della richiesta ricevuti. Il valore deve essere un nome del set di caratteri IANA valido. Il valore predefinito &#232; UTF-8.</p>
-
+<dt>Codifica URI</dt>
+<dd>
+<p>Nome del set di caratteri utilizzato per decodificare gli URI delle richieste ricevuti. Il valore deve essere un nome di set di caratteri IANA valido. Il valore predefinito &egrave; UTF-8.</p>
 </dd>
-<dt>Version</dt>
-<dd><p>Versione del protocollo HTTP utilizzato. Il valore predefinito &#232; HTTP/1.1.</p>
-
+<dt>Versione</dt>
+<dd>
+<p>Versione del protocollo HTTP in uso. Il valore predefinito &egrave; HTTP/1.1.</p>
 </dd>
-<dt>Compression</dt>
-<dd><p>Specifica la compressione HTTP/1.1 GZIP da utilizzare per salvare la larghezza di banda del server. Sono disponibili le seguenti opzioni:</p>
-
-<dl><dt><tt>on</tt></dt>
-<dd><p>Comprime i dati.</p>
-
+<dt>Compressione</dt>
+<dd>
+<p>Specifica l'uso della compressione GZIP HTTP/ 1.1 per risparmiare l'ampiezza di banda del server. Sono disponibili le opzioni riportate di seguito.</p>
+<dl>
+<dt><code>on</code></dt>
+<dd>
+<p>Comprime i dati.</p>
 </dd>
-<dt><tt>off</tt></dt>
-<dd><p>Disabilita la compressione.</p>
-
+<dt><code>off</code></dt>
+<dd>
+<p>Disabilita la compressione.</p>
 </dd>
-<dt><tt>force</tt></dt>
-<dd><p>Forza la compressione dei dati in tutti i casi.</p>
-
+<dt><code>force</code></dt>
+<dd>
+<p>Forza la compressione dei dati in tutti i casi.</p>
 </dd>
 </dl>
-<p>Il valore predefinito &#232; <tt>off</tt>.</p>
-
+<p>Il valore predefinito &egrave; <code>off</code>.</p>
 </dd>
-<dt>Compressible Mime Types</dt>
-<dd><p>Elenco separato da virgole di tipi MIME per cui viene utilizzata la compressione HTTP. Il valore predefinito &#232; <tt>text/html,text/xml,text/plain</tt>.</p>
-
+<dt>Tipi MIME comprimibili</dt>
+<dd>
+<p>Lista di valori separati da virgole di tipi MIME per i quali si utilizza la compressione HTTP. Il valore predefinito &egrave; <code>text/html,text/xml,text/plain</code>.</p>
 </dd>
-<dt>Compression Minimum Size</dt>
-<dd><p>Dimensioni minime di un file quando viene applicata la compressione. &#200; necessario specificare questo valore se la compressione &#232; impostata su <tt>on</tt> o <tt>force</tt>. Il valore predefinito &#232; 2048 byte.</p>
-
+<dt>Dimensione minima di compressione</dt>
+<dd>
+<p>Dimensione minima di un file quando vi si applica la compressione. &Egrave; necessario impostare questo valore se la compressione &egrave; impostata su <code>on</code> o su <code>force</code> . Il valore predefinito &egrave; 2048 byte.</p>
 </dd>
-<dt>No-Compression User Agents</dt>
-<dd><p>Elenco separato da virgole di espressioni regolari corrispondenti ad agenti utente di client HTTP per cui non si desidera utilizzare la compressione. Per impostazione predefinita questo valore &#232; una stringa vuota.</p>
-
+<dt>User Agent senza compressione</dt>
+<dd>
+<p>Lista di valori separati da virgole di espressioni regolari corrispondenti agli User Agent dei client HTTP per i quali non &egrave; consigliabile usare la compressione. Per impostazione predefinita, questo valore &egrave; una stringa vuota.</p>
 </dd>
-<dt>Restricted User Agent</dt>
-<dd><p>Elenco di agenti utenti con restrizioni a cui viene applicata la compressione HTTP. Se non vengono specificati agenti utente, la compressione HTTP viene applicata a tutti gli agenti utente. Per impostazione predefinita non vengono specificati agenti utente.</p>
-
+<dt>User Agent con limitazioni</dt>
+<dd>
+<p>Lista di User Agent con limitazioni su cui &egrave; applicata la compressione HTTP. Se non vengono specificati User Agent, la compressione HTTP viene applicata a tutti gli User Agent. Per impostazione predefinita, non vengono specificati User Agent.</p>
 </dd>
-<dt>Default Response Type</dt>
-<dd><p>Stringa che specifica il tipo di risposta predefinita. Il formato &#232; una stringa delimitata da punti e virgola composta da tipo di contenuto, codifica, lingua e insieme di caratteri. Il valore predefinito &#232; <tt>text/html; charset=iso-8859-1</tt>.</p>
-
+<dt>Tipo di risposta predefinito</dt>
+<dd>
+<p>Stringa che specifica il tipo di risposta predefinito. Il formato &egrave; una stringa delimitata da punto e virgola e costituita da content-type, codifica, lingua e set di caratteri. Il valore predefinito &egrave; <code>text/html; charset=iso-8859-1</code>.</p>
 </dd>
-<dt>Forced Response Type</dt>
-<dd><p>Stringa che specifica il tipo di richiesta utilizzato se non &#232; disponibile un mapping MIME con la stessa estensione del file. Il formato &#232; una stringa delimitata da punti e virgola composta da tipo di contenuto, codifica, lingua e insieme di caratteri. Il valore predefinito &#232; <tt>text/html; charset=iso-8859-1</tt>.</p>
-
+<dt>Tipo di risposta forzata</dt>
+<dd>
+<p>Stringa che specifica il tipo di richiesta utilizzato se non &egrave; disponibile un mapping MIME con la stessa estensione del file. Il formato &egrave; una stringa delimitata da punto e virgola e costituita da content-type, codifica, lingua e set di caratteri. Il valore predefinito &egrave; <code>text/html; charset=iso-8859-1</code>.</p>
 </dd>
-<dt>Adapter</dt>
-<dd><p>Nome della classe dell'adattatore di risorse statiche. Il valore predefinito &#232; <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p>
-
+<dt>Adattatore</dt>
+<dd>
+<p>Nome classe del Resource Adapter statico. Il valore predefinito &egrave; <code>com.sun.grizzly.tcp.StaticResourcesAdapter</code>.</p>
 </dd>
-<dt>Comet Support</dt>
-<dd><p>Se l'opzione &#232; selezionata, il supporto Comet viene abilitato per il listener di rete che fa riferimento a questo protocollo. Questa opzione &#232; disabilitata per impostazione predefinita. Se il servlet o la pagina JSP utilizza la tecnologia Comet, verificare che ne venga eseguita l'inizializzazione durante l'avvio di GlassFish Server mediante l'aggiunta dell'elemento <tt>load-on-startup </tt> al file <tt>web.xml</tt>. Ad esempio:</p>
-
-<pre>&#60;servlet>
-&#60;servlet-name>CheckIn&#60;/servlet-name>
-&#60;servlet-class>CheckInServlet&#60;/servlet-class>
-&#60;load-on-startup>0&#60;/load-on-startup>
-&#60;/servlet></pre></dd>
-<dt>DNS Lookup</dt>
-<dd><p>Se l'opzione &#232; selezionata viene abilitata la ricerca DNS. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Supporto Comet</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, il supporto Comet viene abilitato per il listener di rete che fa riferimento a questo protocollo. Questa opzione &egrave; disabilitata per impostazione predefinita. Se il servlet o la pagina JSP utilizza la tecnologia Comet, assicurarsi che ne venga eseguita l'inizializzazione durante l'avvio di GlassFish Server mediante l'aggiunta dell'elemento <code>load-on-startup</code> al file <code>web.xml</code>. Ad esempio:</p>
+<pre>
+&lt;servlet&gt;
+&lt;servlet-name&gt;CheckIn&lt;/servlet-name&gt;
+&lt;servlet-class&gt;CheckInServlet&lt;/servlet-class&gt;
+&lt;load-on-startup&gt;0&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+</pre></dd>
+<dt>Ricerca DNS</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, viene abilitata la ricerca DNS. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>DNS Lookup</dt>
-<dd><p>Se l'opzione &#232; selezionata viene abilitata la ricerca DNS. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Ricerca DNS</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, viene abilitata la ricerca DNS. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>RCM Support</dt>
-<dd><p>Se l'opzione &#232; selezionata viene abilitato RCM (Resource Configuration Management). Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Supporto RCM</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, viene abilitato il supporto RCM (Resource Configuration Management). Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
 <dt>Trace</dt>
-<dd><p>Se l'opzione &#232; selezionata viene abilitata l'operazione TRACE. Se l'opzione &#232; disabilitata, GlassFish Server &#232; meno soggetto ad attacchi con script da altri siti. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dd>
+<p>Se questa opzione &egrave; selezionata, viene abilitata l'operazione TRACE. Se questa opzione &egrave; disabilitata, GlassFish Server &egrave; meno soggetto ad attacchi di tipo XSS (Cross-Site Scripting). Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
-<dt>Auth Pass Through</dt>
-<dd><p>Se l'opzione &#232; selezionata, indica che il listener di rete che utilizza questo protocollo riceve il traffico da un server proxy con terminazione SSL. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Autenticazione pass-through</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, indica che il listener di rete che utilizza questo protocollo riceve il traffico da un server proxy con terminazione SSL. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Chunking</dt>
-<dd><p>Se l'opzione &#232; selezionata viene abilitata la suddivisione in blocchi della risposta HTTP. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dt>Creazione chunk</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, viene abilitata la creazione di chunk di risposta HTTP. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
 <dt>XPowered By</dt>
-<dd><p>Se l'opzione &#232; selezionata, GlassFish Server utilizza le intestazioni <tt>X-Powered-By </tt> conformemente alle specifiche Java Servlet 3.0 e Java Server Pages 2.0. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dd>
+<p>Se questa opzione &egrave; selezionata, vengono utilizzate le intestazioni <code>X-Powered-By</code> in base alle specifiche Java Servlet 3.0 e Java Server Pages 2.0. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</dd>
+<dt>Barra codificata</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, gli URL possono contenere barre codificate. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</dd>
+<dt>Supporto socket Web</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, il protocollo WebSockets &egrave; supportato. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-protocolnew.html">Creare un protocollo</a></p>
-
+<a id="sthref143" name="sthref143"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-protocolnew.html">Creare un protocollo</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">Modificare le impostazioni SSL di un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Modificare le impostazioni SSL per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP di un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
-
+</ul>
+<a id="sthref144" name="sthref144"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00051"><code>create-protocol</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00195"><code>list-protocols</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00103"><code>delete-protocol</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

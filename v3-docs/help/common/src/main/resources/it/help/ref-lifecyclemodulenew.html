@@ -1,71 +1,75 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-lifecyclemodulenew"></a><h4>New Lifecycle Module</h4>
-<a name="indexterm-189"></a><p>Nella pagina New Lifecycle Module &#232; possibile definire un nuovo modulo del
-ciclo di vita.</p>
+<p><a id="ref-lifecyclemodulenew" name="ref-lifecyclemodulenew"></a><a id="GHCOM00080" name="GHCOM00080"></a></p>
 
-<p>La pagina New Lifecycle Module contiene le seguenti opzioni.</p>
-
-<dl><dt>Name</dt>
-<dd><p>Nome del modulo del ciclo di vita.</p>
-
+<h4><a id="sthref332" name="sthref332"></a>Nuovo modulo ciclo di vita</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Nuovo modulo ciclo di vita &egrave; possibile definire un nuovo modulo del ciclo di vita.</p>
+<p>La pagina Nuovo modulo ciclo di vita contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome</dt>
+<dd>
+<p>Nome del modulo del ciclo di vita.</p>
 </dd>
-<dt>Class Name</dt>
-<dd><p>Nome completo del file di classe del modulo del ciclo di vita. La classe deve implementare l'interfaccia <tt> com.sun.appserv.server.LifecycleListener</tt>.</p>
-
+<dt>Nome classe</dt>
+<dd>
+<p>Nome completamente qualificato del file di classe del modulo del ciclo di vita. La classe deve implementare l'interfaccia <code>com.sun.appserv.server.LifecycleListener</code>.</p>
 </dd>
 <dt>Classpath</dt>
-<dd><p>Classpath per il modulo del ciclo di vita. Il classpath specifica la posizione del modulo del ciclo di vita. Il valore predefinito &#232; <tt></tt><i>domain-dir</i><tt>/applications</tt>. Se il modulo si trova gi&#224; in questa directory (ossia nel classpath del server) il campo pu&#242; essere lasciato vuoto.</p>
-
+<dd>
+<p>Classpath per il modulo del ciclo di vita. Il classpath specifica la posizione del modulo del ciclo di vita. Il valore predefinito &egrave; <i>domain-dir</i><code>/applications</code>. Se il modulo si trova gi&agrave; in questa directory, ovvero nel classpath del server, il campo pu&ograve; essere lasciato vuoto.</p>
 </dd>
-<dt>Load Order</dt>
-<dd><p>Ordine di caricamento del modulo del ciclo di vita all'avvio. I moduli con i numeri di ordine di caricamento pi&#249; bassi verranno caricati per primi. Il valore pu&#242; essere compreso tra 101 e il valore <tt>MAXINT</tt> del sistema operativo. I valori compresi tra 1 e 100 sono riservati.</p>
-
+<dt>Ordine di caricamento</dt>
+<dd>
+<p>Ordine in cui viene caricato questo modulo del ciclo di vita all'avvio. I moduli con valori interi pi&ugrave; bassi vengono caricati per primi. Il valore pu&ograve; essere compreso tra 101 e il valore <code>MAXINT</code> del sistema operativo. I valori compresi tra 1 e 100 sono riservati.</p>
 </dd>
-<dt>Description</dt>
-<dd><p>Descrizione del modulo del ciclo di vita.</p>
-
+<dt>Descrizione</dt>
+<dd>
+<p>Descrizione del modulo del ciclo di vita.</p>
 </dd>
-<dt>Status</dt>
-<dd><p>Se l'opzione &#232; selezionata, il modulo del ciclo di vita &#232; abilitato. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dt>Stato</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, il modulo del ciclo di vita &egrave; abilitato. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
-<dt>On Load Failure</dt>
-<dd><p>Se l'opzione &#232; selezionata, il server viene arrestato se il modulo del ciclo di vita non viene caricato correttamente. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>In caso di errore di caricamento</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, il server viene chiuso se il caricamento del modulo del ciclo di vita non riesce. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Targets</dt>
-<dd><p>Cluster e istanze standalone per il modulo del ciclo di vita. Per spostare le destinazioni desiderate nella colonna Selected Targets, utilizzare i pulsanti Add e Add All. Per spostare le destinazioni non necessarie nella colonna Available Targets, utilizzare i pulsanti Remove e Remove All.</p>
-
+<dt>Destinazioni</dt>
+<dd>
+<p>Cluster e istanze standalone per il modulo del ciclo di vita. Per spostare le destinazioni desiderate nella colonna Destinazioni selezionate, utilizzare i pulsanti Aggiungi e Aggiungi tutto. Per spostare le destinazioni non necessarie nella colonna Destinazioni disponibili, utilizzare i pulsanti Rimuovi e Rimuovi tutto.</p>
 <p>Questa opzione viene visualizzata solo se nel dominio sono stati creati cluster o istanze standalone.</p>
-
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-lifecyclemodulenew.html">Creare un modulo del ciclo di vita</a></p>
-
+<a id="sthref333" name="sthref333"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-lifecyclemodulenew.html">Creare un modulo del ciclo di vita</a></p>
 </li>
-<li><p><a href="task-lifecyclemoduleedit.html">Modificare un modulo del ciclo di vita</a></p>
-
+<li>
+<p><a href="task-lifecyclemoduleedit.html">Modificare un modulo del ciclo di vita</a></p>
 </li>
-<li><p><a href="task-lifecyclemoduledelete.html">Eliminare un modulo del ciclo di vita</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-lifecycle-module-1"><tt>create-lifecycle-module</tt>(1)</a></p>
-
+<li>
+<p><a href="task-lifecyclemoduledelete.html">Eliminare un modulo del ciclo di vita</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-lifecycle-modules-1"><tt>list-lifecycle-modules</tt>(1)</a></p>
-
+</ul>
+<a id="sthref334" name="sthref334"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00043"><code>create-lifecycle-module</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-lifecycle-module-1"><tt>delete-lifecycle-module</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00181"><code>list-lifecycle-modules</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00095"><code>delete-lifecycle-module</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,76 +1,74 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jaccproviders"></a><h4>JACC Providers</h4>
-<a name="indexterm-224"></a><p>Nella pagina JACC Providers &#232; possibile configurare provider JACC (Java Authorization Contract
-for Containers) per l'istanza o il cluster GlassFish Server selezionato.</p>
+<p><a id="ref-jaccproviders" name="ref-jaccproviders"></a><a id="GHCOM00114" name="GHCOM00114"></a></p>
 
-<p>I provider JACC possono essere utilizzati da moduli di autorizzazione di terze
-parti per applicazioni in esecuzione su GlassFish Server. Nell'installazione predefinita di GlassFish
-Server sono inclusi due provider JACC, denominati <tt>default</tt> e <tt>simple </tt>. Tali provider
-predefiniti implementano un motore di autorizzazione semplice, basato su file e conforme
-alla specifica JACC. &#200; inoltre possibile creare provider JACC personalizzati. Vedere <a href="task-jaccprovidernew.html">Creare un provider JACC</a>.</p>
-
-<p>Per informazioni su come scrivere le classi di implementazione per un provider
-JACC, vedere la specifica JACC all'indirizzo <a href="http://jcp.org/en/jsr/detail?id=115">http://jcp.org/en/jsr/detail?id=115</a>.</p>
-
-<p>Per ogni provider JACC vengono fornite le seguenti informazioni.</p>
-
-<dl><dt>Name</dt>
-<dd><p>Nome del provider JACC. Questo nome viene utilizzato per fare riferimento all'elemento <tt>jacc-provider</tt> nel file <tt>domain.xml</tt>.</p>
-
+<h4><a id="sthref409" name="sthref409"></a>Provider JACC</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Provider JACC &egrave; possibile configurare provider JACC (Java Authorization Contract for Containers) per l'istanza o il cluster GlassFish Server selezionato.</p>
+<p>I provider JACC possono essere usati dai moduli di autorizzazione di terze parti per applicazioni in esecuzione su GlassFish Server. Nell'installazione predefinita di GlassFish Server sono inclusi due provider JACC, denominati <code>default</code> e <code>simple</code>. Tali provider predefiniti implementano un motore di autorizzazione semplice, basato su file e conforme alla specifica JACC. &Egrave; inoltre possibile creare provider JACC personalizzati. Vedere <a href="task-jaccprovidernew.html">Creare un provider JACC</a>.</p>
+<p>Per informazioni su come scrivere le classi di implementazione per un provider JACC, vedere la specifica JACC all'indirizzo <code><a href="http://jcp.org/en/jsr/detail?id=115">http://jcp.org/en/jsr/detail?id=115</a></code>.</p>
+<p>Per ogni provider JACC vengono fornite le informazioni riportate di seguito.</p>
+<dl>
+<dt>Nome</dt>
+<dd>
+<p>Nome del provider JACC. Questo nome viene utilizzato per fare riferimento all'elemento <code>jacc-provider</code> nel file <code>domain.xml</code>.</p>
 </dd>
-<dt>Policy Configuration</dt>
-<dd><p>Nome di classe completo per <tt>javax.security.jacc.PolicyConfigurationFactory.provider </tt> che implementa la classe <tt>javax.security.jacc.PolicyConfigurationFactory </tt> specifica del provider.</p>
-
+<dt>Configurazione criteri</dt>
+<dd>
+<p>Nome di classe completamente qualificato per <code>javax.security.jacc.PolicyConfigurationFactory.provider</code> che implementa la classe <code>javax.security.jacc.PolicyConfigurationFactory</code> specifica del provider.</p>
 </dd>
-<dt>Policy Provider</dt>
-<dd><p>Nome di classe completo per <tt>javax.security.jacc.policy.provider </tt> che implementa <tt>java.security.Policy</tt>.</p>
-
+<dt>Provider criteri</dt>
+<dd>
+<p>Nome di classe completamente qualificato per <code>javax.security.jacc.policy.provider</code> che implementa <code>java.security.Policy</code>.</p>
 </dd>
 </dl>
-<p>I provider JACC predefiniti supportano inoltre la seguente propriet&#224;.</p>
-
-<dl><dt>repository</dt>
-<dd><p>Directory contenente il file dei criteri JACC. Per il provider JACC <tt>default </tt>di GlassFish Server la directory predefinita &#232; <tt>${com.sun.aas.instanceRoot}/generated/policy </tt>. Per il provider JACC <tt>simple</tt> di GlassFish Server questa propriet&#224; non &#232; definita per impostazione predefinita.</p>
-
+<p>I provider JACC predefiniti supportano inoltre la propriet&agrave; riportata di seguito.</p>
+<dl>
+<dt>repository</dt>
+<dd>
+<p>Directory contenente il file dei criteri JACC. Per il provider JACC <code>predefiniti</code> di GlassFish Server la directory predefinita &egrave; <code>${com.sun.aas.instanceRoot}/generated/policy</code>. Per il provider JACC <code>semplici</code> di GlassFish Server questa propriet&agrave; non &egrave; definita per impostazione predefinita.</p>
 </dd>
 </dl>
-<p>La tabella JACC Providers contiene le seguenti opzioni.</p>
-
-<dl><dt>New</dt>
-<dd><p>Pulsante che consente di creare un nuovo provider JACC.</p>
-
+<p>La tabella Provider JACC contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nuovo</dt>
+<dd>
+<p>Pulsante che consente di creare un nuovo provider JACC.</p>
 </dd>
-<dt>Delete</dt>
-<dd><p>Pulsante che consente di eliminare uno o pi&#249; provider JACC selezionati.</p>
-
+<dt>Elimina</dt>
+<dd>
+<p>Pulsante che consente di eliminare uno o pi&ugrave; provider JACC selezionati.</p>
 </dd>
 </dl>
-<a name="gkokq"></a><h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-jaccprovidernew.html">Creare un provider JACC</a></p>
-
+<a id="sthref410" name="sthref410"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-jaccprovidernew.html">Creare un provider JACC</a></p>
 </li>
-<li><p><a href="task-jaccprovideredit.html">Modificare un provider JACC</a></p>
-
+<li>
+<p><a href="task-jaccprovideredit.html">Modificare un provider JACC</a></p>
 </li>
-<li><p><a href="task-jaccproviderdelete.html">Eliminare un provider JACC</a></p>
-
-</li></ul>
-<a name="gkomu"></a><h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jaccproviderdelete.html">Eliminare un provider JACC</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
-
+</ul>
+<a id="sthref411" name="sthref411"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00034"><code>create-jacc-provider</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00086"><code>delete-jacc-provider</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00171"><code>list-jacc-providers</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,44 +1,61 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-accessadmintools" name="task-accessadmintools"></a><a id="GHCOM00182" name="GHCOM00182"></a></p>
 
-
-<a name="task-accessadmintools"></a><h3>Consentire l'accesso agli strumenti di amministrazione</h3><a name="indexterm-79"></a><p>Soltanto gli utenti del gruppo <tt>asadmin</tt> possono accedere a Administration Console e
-all'utility della riga di comando <tt>asadmin</tt>. Per garantire agli utenti l'accesso a
-questi strumenti di amministrazione, aggiungerli al gruppo <tt>asadmin </tt> nel settore <tt>admin-realm</tt>.</p>
-
+<h4><a id="sthref137" name="sthref137"></a>Concedere l'accesso agli strumenti di amministrazione</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Soltanto gli utenti del gruppo <code>asadmin</code> possono accedere a Console di amministrazione e alla utility della riga di comando <code>asadmin</code>. Per garantire agli utenti l'accesso a questi strumenti di amministrazione, aggiungerli al gruppo <code>asadmin</code> nel realm <code>admin-realm</code>.</p>
 <ol>
-<li><b>Nel nodo Configurations, espandere la configurazione dell'istanza server o del cluster per
-cui si desidera configurare i privilegi di accesso per l'amministrazione.</b></li>
-<li><b>Espandere il nodo Security.</b></li>
-<li><b>Espandere il nodo Realms.</b></li>
-<li><b>Selezionare il nodo <tt>admin-realm</tt>.</b><p>Viene visualizzata la pagina Edit Realm.</p></li>
-<li><b>Nella pagina Edit Realm, fare clic sul pulsante Manage Users.</b><p>Viene visualizzata la pagina Admin Users.</p><p>Subito dopo l'installazione, il nome utente e la password di amministratore immessi
-durante l'installazione vengono elencati in un file denominato <tt>admin-keyfile</tt>. Per impostazione predefinita
-tale utente fa parte del gruppo <tt>asadmin</tt>, ossia dispone dei diritti per
-la modifica di GlassFish Server. Assegnare utenti a questo gruppo solo se
-si desidera concedere loro privilegi di amministratore per la specifica istanza o
-cluster GlassFish Server.</p><p>Se si aggiungono utenti al settore <tt>admin-realm</tt> assegnandoli a un gruppo diverso
-da <tt>asadmin</tt>, le informazioni sugli utenti verranno comunque salvate nel file <tt>admin-keyfile</tt>,
-ma gli utenti non avranno accesso agli strumenti o alle applicazioni di
-amministrazione nel settore <tt>file</tt>.</p></li>
-<li><b>Nella pagina Admin Users, fare clic su New per aggiungere un nuovo
-utente al settore <tt>admin-realm</tt>.</b><p>Viene visualizzata la pagina New File Realm User.</p></li>
-<li><b>Nel campo User ID digitare il nuovo nome utente.</b></li>
-<li><b>Nel campo Group List digitare i nomi dei gruppi di appartenenza dell'utente.</b><p>Per autorizzare un utente ad apportare modifiche a GlassFish Server, includere <tt>asadmin</tt>
-nell'elenco Group List.</p></li>
-<li><b>Nei campi New Password e Confirm New Password digitare la password per
-il nuovo utente.</b></li>
-<li><b>Fare clic su OK per aggiungere questo utente al settore <tt>admin-realm</tt>, oppure
-su Cancel per uscire senza salvare.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-securitysettings.html">Configurare le impostazioni di sicurezza</a></p>
-
+<li>
+<p>Nel nodo Configurazioni, espandere la configurazione dell'istanza server o del cluster per cui si desidera configurare i privilegi di accesso per l'amministrazione.</p>
 </li>
-<li><p><a href="task-changeadminpasswd.html">Modificare la password di un utente nel settore Admin</a></p>
+<li>
+<p>Espandere il nodo Sicurezza.</p>
+</li>
+<li>
+<p>Espandere il nodo Realm.</p>
+</li>
+<li>
+<p>Selezionare il nodo <code>admin-realm</code>.</p>
+<p>Viene visualizzata la pagina Modifica realm.</p>
+</li>
+<li>
+<p>Nella pagina Modifica realm, fare clic sul pulsante Gestisci utenti.</p>
+<p>Viene visualizzata la pagina Utenti amministratori.</p>
+<p>Subito dopo l'installazione, il nome utente e la password di amministratore immessi durante l'installazione vengono elencati in un file denominato <code>admin-keyfile</code>. Per impostazione predefinita tale utente fa parte del gruppo <code>asadmin</code>, ossia dispone dei diritti per la modifica di GlassFish Server. Assegnare utenti a questo gruppo solo se si desidera concedere loro privilegi di amministratore per la specifica istanza o cluster GlassFish Server.</p>
+<p>Se si aggiungono utenti al realm <code>admin-realm</code> assegnandoli a un gruppo diverso da <code>asadmin</code>, le informazioni sugli utenti verranno comunque salvate nel file <code>admin-keyfile</code>, ma gli utenti non avranno accesso agli strumenti o alle applicazioni di amministrazione nel realm <code>file</code>.</p>
+</li>
+<li>
+<p>Nella pagina Utenti amministratori, fare clic su Nuovo per aggiungere un nuovo utente al realm <code>admin-realm</code>.</p>
+<p>Viene visualizzata la pagina Nuovo utente realm.</p>
+</li>
+<li>
+<p>Nel campo ID utente digitare il nuovo nome utente.</p>
+</li>
+<li>
+<p>Nel campo Lista gruppi digitare i nomi dei gruppi di appartenenza dell'utente.</p>
+<p>Per autorizzare un utente ad apportare modifiche a GlassFish Server, includere <code>asadmin</code> in Lista gruppi.</p>
+</li>
+<li>
+<p>Nei campi Nuova password e Conferma nuova password digitare la password per il nuovo utente.</p>
+</li>
+<li>
+<p>Fare clic su OK per aggiungere questo utente al realm <code>admin-realm</code>, oppure su Annulla per uscire senza salvare.</p>
+</li>
+</ol>
+<a id="sthref138" name="sthref138"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-securitysettings.html">Configurare le impostazioni di sicurezza</a></p>
+</li>
+<li>
+<p><a href="task-changeadminpasswd.html">Modificare la password per un utente nel realm di amministrazione</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

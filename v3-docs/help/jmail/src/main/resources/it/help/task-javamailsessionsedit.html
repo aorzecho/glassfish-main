@@ -1,67 +1,98 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-javamailsessionsedit" name="task-javamailsessionsedit"></a><a id="GHJML00012" name="GHJML00012"></a></p>
 
-
-<a name="task-javamailsessionsedit"></a><h3>Modificare una sessione JavaMail</h3><a name="indexterm-2"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Resources.</b></li>
-<li><b>Nel nodo Resources, selezionare JavaMail Sessions.</b><p>Viene visualizzata la pagina JavaMail Sessions.</p></li>
-<li><b>Nella pagina JavaMail Sessions fare clic sul nome della sessione da modificare.</b><p>Viene visualizzata la pagina Edit JavaMail Session.</p></li>
-<li><b>Nel campo Mail Host specificare il nome host del server di posta
-elettronica predefinito.</b><p>Se non viene fornita una propriet&#224; host specifica per un protocollo, i
-metodi di connessione degli oggetti Store e Transport utilizzano questo valore. Il
-nome deve essere risolvibile in un nome host reale.</p></li>
-<li><b>Nel campo Default User digitare un altro nome utente da fornire per
-la connessione a un server di posta elettronica.</b><p>Se non viene fornita una propriet&#224; nome utente specifica per un protocollo,
-i metodi di connessione degli oggetti Store e Transport utilizzano questo valore.
-Il nome utente pu&#242; contenere solo caratteri alfanumerici, caratteri di sottolineatura, trattini
-e punti.</p></li>
-<li><b>Nel campo Default Sender Address, digitare l'indirizzo di posta elettronica dell'utente predefinito.</b><p>Il formato &#232; <i> username</i><tt>@</tt><i>host</i>.<i> domain</i>.</p></li>
-<li><b>Nel campo Description modificare la descrizione per la sessione di posta elettronica.</b></li>
-<li><b>Selezionare la casella di controllo Status Enabled per abilitare la sessione di
-posta elettronica.</b><p>Il valore predefinito &#232; Enabled.</p></li>
-<li><b>Nel campo Store Protocol definire il metodo di comunicazione oggetto Store da
-utilizzare.</b><p>Per impostazione predefinita lo Store Protocol &#232; <tt>imap</tt>.</p></li>
-<li><b>Nel campo Store Protocol Class specificare la classe del metodo di comunicazione
-Store che implementa il protocollo Store desiderato.</b><p>Per impostazione predefinita la Store Protocol Class &#232; <tt>com.sun.mail.imap.IMAPStore</tt>.</p></li>
-<li><b>Nel campo Transport Protocol, specificare il metodo di comunicazione di trasporto.</b><p>Per impostazione predefinita, il Transport Protocol &#232; <tt>smtp</tt>.</p></li>
-<li><b>Nel campo Transport Protocol Class specificare il metodo di comunicazione per la
-classe Transport.</b><p>Per impostazione predefinita la Transport Protocol Class &#232; <tt>com.sun.mail.smtp.SMTPTransport</tt>.</p></li>
-<li><b>Selezionare la casella di controllo Debug per abilitare output di debugging aggiuntivo,
-che include una traccia di protocollo per la sessione di posta elettronica
-corrente.</b><p>Se il livello del log JavaMail &#232; impostato su <tt>FINE</tt> o su
-un valore superiore, l'output di debugging viene generato e incluso nel file
-del log di sistema. Per informazioni sull'impostazione del livello del log, vedere
-<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3030&id=task-eelogginglevels">To Configure Log Levels</a>.</p></li>
-<li>(Opzionale) <b>Nella tabella Additional Properties, specificare le propriet&#224; aggiuntive necessarie per le applicazioni,
-ad esempio una propriet&#224; host o nome utente specifica del protocollo.</b><p>Per un elenco di propriet&#224; disponibili, vedere la <a href="http://java.sun.com/products/javamail/javadocs/index.html">documentazione dell'API JavaMail</a>. Le propriet&#224; aggiuntive
-devono iniziare con <tt>mail-</tt> e come separatori devono utilizzare trattini, e non
-punti. Ad esempio <tt>mail-debug</tt> &#232; una propriet&#224; corretta, mentre <tt>mail.debug </tt> non lo
-&#232;. Il back-end di GlassFish Server converte i trattini nei punti previsti
-per l'API JavaMail.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
-della propriet&#224;.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<h4><a id="sthref4" name="sthref4"></a>Modificare una sessione JavaMail</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Risorse.</p>
+</li>
+<li>
+<p>Nel nodo Risorse, selezionare Sessioni JavaMail.</p>
+<p>Viene visualizzata la pagina Sessioni JavaMail.</p>
+</li>
+<li>
+<p>Nella pagina Sessioni JavaMail fare clic sul nome della sessione da modificare.</p>
+<p>Viene visualizzata la pagina Modifica sessione JavaMail.</p>
+</li>
+<li>
+<p>Nel campo Host posta specificare il nome host del server di posta elettronica predefinito.</p>
+<p>Se non viene fornita una propriet&agrave; host specifica per un protocollo, i metodi di connessione degli oggetti Store e Transport utilizzano questo valore. Il nome deve essere risolvibile in un nome host reale.</p>
+</li>
+<li>
+<p>Nel campo Utente predefinito digitare un altro nome utente da fornire per la connessione a un server di posta elettronica.</p>
+<p>Se non viene fornita una propriet&agrave; nome utente specifica per un protocollo, i metodi di connessione degli oggetti Store e Transport utilizzano questo valore. Il nome utente pu&ograve; contenere solo caratteri alfanumerici, caratteri di sottolineatura, trattini e punti.</p>
+</li>
+<li>
+<p>Nel campo Indirizzo mittente predefinito, digitare l'indirizzo di posta elettronica dell'utente predefinito.</p>
+<p>Il formato &egrave; <i>nome utente</i><code>@</code><i>host</i>.<i>dominio</i>.</p>
+</li>
+<li>
+<p>Nel campo Descrizione modificare la descrizione per la sessione di posta elettronica.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Stato abilitato per abilitare la sessione di posta elettronica.</p>
+<p>Il valore predefinito &egrave; Abilitato.</p>
+</li>
+<li>
+<p>Nel campo Protocollo di memorizzazione definire il metodo di comunicazione oggetto Store da utilizzare.</p>
+<p>Per impostazione predefinita il protocollo di memorizzazione &egrave; <code>imap</code>.</p>
+</li>
+<li>
+<p>Nel campo Classe protocollo di memorizzazione specificare la classe del metodo di comunicazione Store che implementa il protocollo Store desiderato.</p>
+<p>Per impostazione predefinita la classe protocollo di memorizzazione &egrave; <code>com.sun.mail.imap.IMAPStore</code>.</p>
+</li>
+<li>
+<p>Nel campo Protocollo di trasporto, specificare il metodo di comunicazione di trasporto.</p>
+<p>Per impostazione predefinita, il protocollo di trasporto &egrave; <code>smtp</code>.</p>
+</li>
+<li>
+<p>Nel campo Classe protocollo di trasporto specificare il metodo di comunicazione per la classe Transport.</p>
+<p>Per impostazione predefinita la classe protocollo di trasporto &egrave; <code>com.sun.mail.smtp.SMTPTransport</code>.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Debug per abilitare output di debugging aggiuntivo, che include una traccia di protocollo per la sessione di posta elettronica corrente.</p>
+<p>Se il livello del log JavaMail &egrave; impostato su <code>FINE</code> o su un valore superiore, l'output di debugging viene generato e incluso nel file di log di sistema. Per informazioni sull'impostazione del livello del log, vedere <a href="../../../common/it/help/missingtopic.html">To Configure Log Levels</a>.</p>
+</li>
+<li>
+<p>Nella tabella Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive necessarie per le applicazioni, ad esempio una propriet&agrave; host o nome utente specifica del protocollo.</p>
+<p>Per una lista delle propriet&agrave; disponibili, vedere la documentazione dell'API JavaMail (<code><a href="http://java.sun.com/products/javamail/javadocs/index.html">http://java.sun.com/products/javamail/javadocs/index.html</a></code>). Le propriet&agrave; aggiuntive devono iniziare con <code>mail-</code> e come separatori devono utilizzare trattini, e non punti. Ad esempio, <code>mail-debug</code> &egrave; una propriet&agrave; corretta, mentre <code>mail.debug</code> non lo &egrave;. Il back-end di GlassFish Server converte i trattini nei punti previsti per l'API JavaMail.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-javamailsessioncreate.html">Creare una sessione JavaMail</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-javamailsessionsdelete.html">Eliminare una sessione JavaMail</a></p>
+</ol>
+<a id="sthref5" name="sthref5"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-javamailsessioncreate.html">Creare una sessione JavaMail</a></p>
+</li>
+<li>
+<p><a href="task-javamailsessionsdelete.html">Eliminare una sessione JavaMail</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

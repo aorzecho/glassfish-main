@@ -1,68 +1,73 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-eelogging"></a><h4>Logger Settings</h4>
-<a name="indexterm-195"></a><p>Nella pagina Logger Settings &#232; possibile configurare la registrazione del log per
-l'istanza o il cluster GlassFish Server selezionato.</p>
+<p><a id="ref-eelogging" name="ref-eelogging"></a><a id="GHCOM00094" name="GHCOM00094"></a></p>
 
-<p>La pagina Logger Settings contiene le seguenti opzioni.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<h4><a id="sthref355" name="sthref355"></a>Impostazioni logger</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Impostazioni logger &egrave; possibile configurare il log per l'istanza o il cluster GlassFish Server selezionato.</p>
+<p>La pagina Impostazioni logger contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
-<dt>Write to System Log</dt>
-<dd><p>Se l'opzione &#232; selezionata, l'output di log viene inviato alla risorsa <tt> syslog</tt> oltre al log del server. Questa caratteristica &#232; disponibile soltanto nei sistemi Solaris e Linux. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Scrivi nel log di sistema</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, l'output di log viene inviato alla risorsa <code>syslog</code> oltre al log del server. Questa funzione &egrave; disponibile solo nei sistemi Solaris e Linux. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Log File</dt>
-<dd><p>Nome alternativo o posizione del file di log del server. La posizione predefinita &#232; <tt>glassfish/domains/domain1/logs/server.log</tt>.</p>
-
+<dt>File di log</dt>
+<dd>
+<p>Nome o posizione alternativa del file di log del server. La posizione predefinita &egrave; <i>domain-dir</i><code>/logs/server.log</code>.</p>
 </dd>
-<dt>Log Handler</dt>
-<dd><p>Nome classe assoluto di un gestore del log personalizzato. Un gestore del log personalizzato consente di inviare log a una destinazione diversa da <tt>server.log</tt> o <tt>syslog</tt>. L'handler di sistema deve estendere la classe <tt>java.util.logging.Handler</tt> (un'API conforme allo standard JSR 047). Inserire la classe handler nel classpath di GlassFish Server, in modo che l'handler venga installato durante l'avvio del server.</p>
-
+<dt>Handler di log</dt>
+<dd>
+<p>Nome classe assoluto di un handler di log personalizzato. Un handler di log personalizzato consente di inviare log a una destinazione diversa da <code>server.log</code> o <code>syslog</code>. L'handler personalizzato deve estendere la classe <code>java.util.logging.Handler</code> (un'API conforme allo standard JSR 047). Inserire la classe handler nel classpath di GlassFish Server in modo che l'handler venga installato durante l'avvio del server.</p>
 </dd>
-<dt>File Rotation Limit</dt>
-<dd><p>Dimensione che il file di log del server deve raggiungere per essere sottoposto a rotazione. Quando il log del server raggiunge la dimensione specificata, in GlassFish Server viene creato un nuovo file vuoto denominato <tt>server.log</tt> e il file precedente viene rinominato <tt>server.log_</tt><i>date</i>, dove <i> date</i> corrisponde alla data e all'ora di rotazione del file. Il valore predefinito &#232; 2 MB. Il valore limite minimo &#232; 500 KB; se si specifica un valore inferiore, il file verr&#224; sottoposto a rotazione una volta raggiunti i 500 KB. Per disattivare la rotazione del file di log impostare il valore su 0.</p>
-
+<dt>Limite di rotazione file</dt>
+<dd>
+<p>Dimensione in byte che il file di log del server deve raggiungere prima di essere ruotato. Quando il log del server raggiunge la dimensione specificata, GlassFish Server crea un nuovo file vuoto denominato <code>server.log</code> e rinomina il file precedente <code>server.log_</code><i>data</i>, dove <i>data</i> corrisponde alla data e all'ora di rotazione del file. Il valore predefinito &egrave; 2 MB. Il valore limite minimo &egrave; 500 KB; se si specifica un valore inferiore, il file viene ruotato quando raggiunge 500 KB. Per disattivare la rotazione del file di log, impostare il valore su 0.</p>
 </dd>
-<dt>File Rotation Time Limit</dt>
-<dd><p>Numero di minuti al termine dei quali si desidera eseguire la rotazione del log del server. Il valore predefinito &#232; 0. Indica che il file viene sottoposto a rotazione quando raggiunge la dimensione specificata nel campo File Rotation Limit. Se si specificano uno o pi&#249; minuti, il limite di tempo ottiene la precedenza sul limite di dimensione specificato nel campo File Rotation Limit.</p>
-
+<dt>Limite di tempo rotazione file</dt>
+<dd>
+<p>Numero di minuti al termine dei quali il server deve essere ruotato. Il valore predefinito &egrave; 0. Indica che il file viene ruotato quando raggiunge la dimensione specificata nel campo Limite di rotazione file. Se si specificano uno o pi&ugrave; minuti, il limite di tempo ha la precedenza sul limite di dimensione specificato nel campo Limite di rotazione file.</p>
 </dd>
-<dt>Flush Frequency</dt>
-<dd><p>Numero massimo di messaggi scrivibili contemporaneamente dalla coda al log del server. Il valore predefinito &#232; 1.</p>
-
+<dt>Frequenza flush</dt>
+<dd>
+<p>Numero massimo di messaggi che possono essere scritti contemporaneamente dalla coda al log del server. Il valore predefinito &egrave; 1.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-eelogging.html">Configurare impostazioni generali per il log</a></p>
-
+<a id="sthref356" name="sthref356"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-eelogging.html">Configurare le impostazioni di log generali</a></p>
 </li>
-<li><p><a href="task-eelogginglevels.html">Configurare i livelli di log</a></p>
-
+<li>
+<p><a href="task-eelogginglevels.html">Configurare i livelli di log</a></p>
 </li>
-<li><p><a href="task-logviewer.html">Visualizzare i file di log per il DAS</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=collect-log-files-1"><tt>collect-log-files</tt>(1)</a></p>
-
+<li>
+<p><a href="task-logviewer.html">Visualizzare file di log per DAS</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-log-levels-1"><tt>list-log-levels</tt>(1)</a></p>
-
+</ul>
+<a id="sthref357" name="sthref357"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00007"><code>collect-log-files</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=rotate-log-1"><tt>rotate-log</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00183"><code>list-log-levels</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-log-levels-1"><tt>set-log-levels</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00224"><code>rotate-log</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00228"><code>set-log-levels</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

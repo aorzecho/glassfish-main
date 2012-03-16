@@ -1,100 +1,105 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-connectorconnectionpooladvance"></a><h4>Modifica degli attributi avanzati del pool di connessione del connettore</h4>
-<a name="indexterm-43"></a><p>Nella pagina Edit Connector Connection Pool Advanced Attributes &#232; possibile modificare le
-impostazioni avanzate di un pool di connessione del connettore.</p>
+<p><a id="ref-connectorconnectionpooladvance" name="ref-connectorconnectionpooladvance"></a><a id="GHJCA00045" name="GHJCA00045"></a></p>
 
-<p>La pagina Edit Connector Connection Pool Advanced Attributes contiene le opzioni seguenti.</p>
-
-<dl><dt>Load Defaults</dt>
-<dd><p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
-
+<h4><a id="sthref78" name="sthref78"></a>Modifica attributi avanzati del connection pool connettore</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Modifica attributi avanzati del connection pool connettore &egrave; possibile modificare le impostazioni avanzate per un connection pool del connettore.</p>
+<p>La pagina Modifica attributi avanzati del connection pool connettore contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Carica impostazioni predefinite</dt>
+<dd>
+<p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
 </dd>
-<dt>Validate At Most Once</dt>
-<dd><p>Specifica l'intervallo di tempo espresso in secondi tra richieste successive di convalida di una connessione (al massimo una volta). Il valore predefinito &#232; 0 e implica che l'attributo non sia abilitato.</p>
-
+<dt>Convalida al massimo una volta</dt>
+<dd>
+<p>Specifica l'intervallo di tempo, in secondi, tra richieste successive di convalida di una connessione (al massimo una volta). Il valore predefinito &egrave; 0, che indica che l'attributo non &egrave; abilitato.</p>
 </dd>
-<dt>Leak Timeout</dt>
-<dd><p>Numero di secondi necessari per rilevare le perdite di connessione in un pool di connessione. Un valore pari a 0 indica che il rilevamento delle perdite di connessione &#232; disabilitato. Il valore predefinito &#232; 0.</p>
-
+<dt>Timeout perdite</dt>
+<dd>
+<p>Quantit&agrave; di tempo, in secondi, necessaria per eseguire il trace delle perdite di connessione in un connection pool. Un valore pari a 0 indica che il trace delle perdite di connessione &egrave; disabilitato. Il valore predefinito &egrave; 0.</p>
 </dd>
-<dt>Leak Reclaim</dt>
-<dd><p>Se l'opzione &#232; selezionata, le connessioni perse verranno ristabilite nel pool al termine del rilevamento delle perdite di connessione. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Recupero perdite</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, le connessioni perse verranno ripristinate nel pool al termine del trace delle perdite di connessione. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Creation Retry Attempts</dt>
-<dd><p>Numero di tentativi da effettuare in caso di errore durante la creazione di una nuova connessione. Un valore pari a 0 indica che non sono consentiti tentativi per ricreare la connessione. Il valore predefinito &#232; 0.</p>
-
+<dt>Numero di nuovi tentativi di creazione</dt>
+<dd>
+<p>Numero di tentativi che verranno eseguiti in caso di errore durante la creazione di una nuova connessione. Un valore pari a 0 indica che non verranno eseguiti nuovi tentativi di creazione della connessione. Il valore predefinito &egrave; 0.</p>
 </dd>
-<dt>Retry Interval</dt>
-<dd><p>L'intervallo, in secondi, tra due tentativi di creare una connessione. Questo attributo viene utilizzato solo se il valore di Creation Retry Attempts &#232; maggiore di 0. Il valore predefinito &#232; 10 secondi.</p>
-
+<dt>Intervallo tentativi</dt>
+<dd>
+<p>L'intervallo, in secondi, tra due tentativi di creazione di una connessione. Questo attributo viene utilizzato solo se il valore di Numero di nuovi tentativi di creazione &egrave; maggiore di 0. Il valore predefinito &egrave; 10 secondi.</p>
 </dd>
 <dt>Pooling</dt>
-<dd><p>Consente il raggruppamento delle connessioni per il pool. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dd>
+<p>Abilita il connection pooling per il pool. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
-<dt>Lazy Association</dt>
-<dd><p>Se l'opzione &#232; selezionata, le connessioni verranno associate lentamente quando vengono utilizzate in un'operazione. Le connessioni vengono disassociate quando la transazione &#232; completa e viene terminato un metodo del componente. In tal modo il riutilizzo delle connessioni fisiche risulta pi&#249; agevole. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Associazione ritardata</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, le connessioni verranno associate in modo ritardato quando vi si esegue un'operazione. Ne viene annullata l'associazione quando la transazione &egrave; completa e un metodo di un componente termina, in modo da facilitare il riutilizzo delle connessioni fisiche. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Lazy Connection Enlistment</dt>
-<dd><p>Se l'opzione &#232; selezionata, una risorsa viene integrata nella transazione solo quando &#232; effettivamente utilizzata in un metodo. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Partecipazione alla transazione connessioni ritardate</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, una risorsa viene integrata nella transazione solo quando &egrave; effettivamente utilizzata in un metodo. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Associate with Thread</dt>
-<dd><p>Se l'opzione &#232; selezionata, una connessione viene associata a un thread. Quando lo stesso thread richiede una connessione, pu&#242; riutilizzare la connessione gi&#224; associata a esso, senza cos&#236; provocare l'overhead per ottenere una connessione dal pool. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Associa a thread</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, una connessione viene associata a un thread. Quando lo stesso thread richiede una connessione, pu&ograve; riutilizzare la connessione gi&agrave; associata a esso, senza cos&igrave; provocare il sovraccarico per ottenere una connessione dal pool. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Match Connections</dt>
-<dd><p>Se l'opzione &#232; selezionata, per il pool viene abilitata la corrispondenza tra connessioni. Questa opzione pu&#242; essere disabilitata se si &#232; certi che le connessioni nel pool saranno sempre omogenee e che la connessione ottenuta dal pool non debba pertanto corrispondere all'adattatore di risorsa. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dt>Corrispondenza connessioni</dt>
+<dd>
+<p>Se questa opzione &egrave; selezionata, la corrispondenza delle connessioni &egrave; abilitata per il pool. &Egrave; possibile disabilitare questa opzione se si sa che le connessioni nel pool saranno sempre omogenee e che quindi non &egrave; necessario che una connessione selezionata dal pool debba essere abbinata dal Resource Adapter. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
-<dt>Match Connection Usage</dt>
-<dd><p>Numero consentito di riutilizzi di una connessione da parte del pool. Una volta che una connessione viene riutilizzata per il numero di volte specificato, viene chiusa. Un valore pari a 0 indica che questo attributo non &#232; abilitato. Il valore predefinito &#232; 0.</p>
-
+<dt>Uso corrispondenza connessioni</dt>
+<dd>
+<p>Numero di volte che una connessione deve essere riutilizzata dal pool. Una volta che una connessione viene riutilizzata per il numero di volte specificato, viene chiusa. Un valore pari a 0 indica che questo attributo non &egrave; abilitato. Il valore predefinito &egrave; 0.</p>
 </dd>
 </dl>
-<a name="gkomp"></a><h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-connectorconnectionpoolnew.html">Creare un pool di connessione del connettore</a></p>
-
+<a id="sthref79" name="sthref79"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-connectorconnectionpoolnew.html">Creare un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooledit.html">Modificare un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooledit.html">Modificare un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooladvance.html">Modificare gli attributi avanzati del pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooladvance.html">Modificare gli attributi avanzati dei connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpoolproperty.html">Modificare le propriet&#224; del pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpoolproperty.html">Modificare le propriet&agrave; del connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapnew.html">Creare una mappa di sicurezza per un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapnew.html">Creare una mappa di sicurezza per un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapedit.html">Modificare una mappa di sicurezza per un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapedit.html">Modificare una mappa di sicurezza per un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapdel.html">Eliminare una mappa di sicurezza per un pool di connessione del connettore</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapdel.html">Eliminare una mappa di sicurezza per un connection pool del connettore</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooldel.html">Eliminare un pool di connessione del connettore</a></p>
-
-</li></ul>
-<a name="gkonj"></a><h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooldel.html">Eliminare un connection pool del connettore</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
-
+</ul>
+<a id="sthref80" name="sthref80"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00018"><code>create-connector-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00157"><code>list-connector-connection-pools</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00070"><code>delete-connector-connection-pool</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

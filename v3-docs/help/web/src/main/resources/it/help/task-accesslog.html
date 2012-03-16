@@ -1,171 +1,201 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-accesslog" name="task-accesslog"></a><a id="GHWEB00035" name="GHWEB00035"></a></p>
 
-
-<a name="task-accesslog"></a><h3>Configurare il servizio HTTP</h3><a name="indexterm-16"></a><a name="indexterm-17"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Nel nodo Configuration, selezionare il nodo HTTP Service.</b><p>Viene visualizzata la pagina HTTP Service.</p></li>
-<li><b>Selezionare la casella di controllo SSO Enabled per abilitare il sistema SSO
-per impostazione predefinita per tutte le applicazioni Web in tutti i server
-virtuali di questo server configurate per lo stesso settore.</b><p>&#200; possibile sovrascrivere questa impostazione per un singolo server virtuale. Questa opzione
-&#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo Access Logging Enabled per abilitare la registrazione
-degli accessi per tutti i sottoelementi del server virtuale in cui non
-&#232; specificata tale propriet&#224;. </b><p>Se la casella di controllo Access Logging Enabled &#232; deselezionata, viene disabilitata
-la registrazione degli accessi per tutti i sottoelementi del server virtuale in
-cui non &#232; specificata tale propriet&#224;. Questa opzione &#232; disabilitata per impostazione
-predefinita.</p></li>
-<li><b>Selezionare la casella di controllo Rotation Enabled per abilitare la rotazione dei
-file di log.</b><p>Questa opzione &#232; abilitata per impostazione predefinita.</p></li>
-<li><b>Dall'elenco a discesa Rotation Policy, selezionare un criterio di rotazione.</b><p>L'unico criterio di rotazione disponibile &#232; <tt>time</tt>.</p></li>
-<li><b>Nel campo Rotation Interval, digitare il numero di minuti che intercorrono tra
-le rotazioni del log di accesso. </b><p>Questo campo &#232; valido solo se il criterio di rotazione &#232; <tt>time</tt>.
-Il valore predefinito &#232; 1.440 minuti (24 ore).</p></li>
-<li><b>Nel campo Rotation Suffix, digitare il valore di stringa da aggiungere alla
-fine del nome file del log in seguito alla rotazione.</b><p>Il valore predefinito &#232; <tt>yyyy-MM-dd</tt>.</p><p>Verificare che il suffisso di rotazione contenga valori sufficienti per la creazione
-di un suffisso univoco per ogni rotazione di log. Ad esempio, se
-il log di accesso viene ruotato pi&#249; di una volta al giorno,
-includere l'ora nel suffisso di rotazione.</p><p>Il suffisso univoco consente di assicurare che venga eseguita la rotazione del
-file del log di accesso a ogni scadenza dell'intervallo di rotazione. Se
-il suffisso di rotazione del nuovo file del log di accesso &#232;
-identico al suffisso di rotazione del file del log di accesso esistente,
-la rotazione del file non viene eseguita.</p></li>
-<li><b>Nel campo Max File Count, digitare il numero massimo di file del
-log di accesso ruotati da salvare.</b><p>Un valore negativo indica che il numero dei file &#232; illimitato. Il
-valore predefinito &#232; -1.</p></li>
-<li><b>Nel campo Buffer Size, digitare le dimensioni in byte del buffer del
-log di accesso.</b><p>Un valore inferiore o pari a 0 consente di disabilitare il buffering
-del log di accesso. Il valore predefinito &#232; 32768.</p></li>
-<li><b>Nel campo Write Interval, digitare il numero di secondi al termine dei
-quali il log viene scritto sul disco.</b><p>Il log di accesso viene scritto quando il buffer &#232; pieno o
-allo scadere dell'intervallo. Se il valore &#232; inferiore o pari a 0,
-il buffer viene sempre scritto, anche se non &#232; pieno. Ogni volta
-che si accede al server, i messaggi del log vengono pertanto memorizzati
-direttamente nel file. Il valore predefinito &#232; 300.</p></li>
-<li><b>Nel campo Format, digitare il valore di stringa per specificare le seguenti
-propriet&#224; del log di accesso:</b>
-<ul><li><p>Informazioni da catturare nel log di accesso</p>
-
+<h4><a id="sthref21" name="sthref21"></a><a id="sthref22" name="sthref22"></a>Configurare il servizio HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
 </li>
-<li><p>Ordine in base al quale le informazioni vengono catturate</p>
-
-</li></ul>
-<p>Il valore predefinito &#232; il seguente:</p><pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>I seguenti valori possono essere inclusi nella stringa di formato:</p><dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
-<dd><p>Registra il valore (mediante la chiamata al rispettivo metodo <tt>toString</tt>) dell'attributo della richiesta con il <i>name</i> specificato.</p>
-
+<li>
+<p>Select the configuration that you are changing.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione, selezionare il nodo Servizio HTTP.</p>
+<p>Viene visualizzata la pagina Servizio HTTP.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo SSO abilitato per abilitare il sistema SSO per impostazione predefinita per tutte le applicazioni Web in tutti i server virtuali di questo server configurate per lo stesso realm.</p>
+<p>&Egrave; possibile sovrascrivere questa impostazione per un singolo server virtuale. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Log degli accessi abilitato per abilitare la registrazione degli accessi per tutti i sottoelementi del server virtuale in cui non &egrave; specificata tale propriet&agrave;.</p>
+<p>Se la casella di controllo Log degli accessi abilitato &egrave; deselezionata, viene disabilitata la registrazione degli accessi per tutti i sottoelementi del server virtuale in cui non &egrave; specificata tale propriet&agrave;. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Rotazione abilitata per abilitare la rotazione dei file di log.</p>
+<p>Questa opzione &egrave; abilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Criteri di rotazione, selezionare un criterio di rotazione.</p>
+<p>L'unico criterio di rotazione disponibile &egrave; <code>time</code>.</p>
+</li>
+<li>
+<p>Nel campo Intervallo di rotazione, digitare il numero di minuti che intercorrono tra le rotazioni del log di accesso.</p>
+<p>Questo campo &egrave; valido solo se il criterio di rotazione &egrave; <code>time</code>. Il valore predefinito &egrave; 1.440 minuti (24 ore).</p>
+</li>
+<li>
+<p>Nel campo Suffisso rotazione, digitare il valore di stringa da aggiungere alla fine del nome file di log in seguito alla rotazione.</p>
+<p>Il valore predefinito &egrave; <code>yyyy-MM-dd</code>.</p>
+<p>Verificare che il suffisso di rotazione contenga valori sufficienti per la creazione di un suffisso univoco per ogni rotazione di log. Ad esempio, se il log di accesso viene ruotato pi&ugrave; di una volta al giorno, includere l'ora nel suffisso di rotazione.</p>
+<p>Il suffisso univoco consente di assicurare che venga eseguita la rotazione del file di log di accesso a ogni scadenza dell'intervallo di rotazione. Se il suffisso di rotazione del nuovo file di log di accesso &egrave; identico al suffisso di rotazione del file di log di accesso esistente, la rotazione del file non viene eseguita.</p>
+</li>
+<li>
+<p>Nel campo Numero massimo di file, digitare il numero massimo di file di log di accesso ruotati da salvare.</p>
+<p>Un valore negativo indica che il numero dei file &egrave; illimitato. Il valore predefinito &egrave; -1.</p>
+</li>
+<li>
+<p>Nel campo Dimensione buffer, digitare le dimensioni in byte del buffer del log di accesso.</p>
+<p>Un valore inferiore o pari a 0 consente di disabilitare il buffering del log di accesso. Il valore predefinito &egrave; 32768.</p>
+</li>
+<li>
+<p>Nel campo Intervallo di scrittura, digitare il numero di secondi al termine dei quali il log viene scritto sul disco.</p>
+<p>Il log di accesso viene scritto quando il buffer &egrave; pieno o allo scadere dell'intervallo. Se il valore &egrave; inferiore o pari a 0, il buffer viene sempre scritto, anche se non &egrave; pieno. Ogni volta che si accede al server, i messaggi del log vengono pertanto memorizzati direttamente nel file. Il valore predefinito &egrave; 300.</p>
+</li>
+<li>
+<p>Nel campo Formato, digitare il valore di stringa per specificare le seguenti propriet&agrave; del log di accesso:</p>
+<ul>
+<li>
+<p>Informazioni da catturare nel log di accesso</p>
+</li>
+<li>
+<p>Ordine in base al quale le informazioni vengono catturate</p>
+</li>
+</ul>
+<p>Il valore predefinito &egrave; il seguente:</p>
+<pre>
+%client.name% %auth-user-name% %datetime% %request% %status% %response.length%
+</pre>
+<p>I seguenti valori possono essere inclusi nella stringa di formato:</p>
+<dl>
+<dt><code>%attribute.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Registra il valore (mediante la chiamata al rispettivo metodo <code>toString</code>) dell'attributo della richiesta con il valore <i>name</i> specificato.</p>
 </dd>
-<dt><tt>%auth-user-name%</tt></dt>
-<dd><p>Nome dell'utente autorizzato</p>
-
+<dt><code>%auth-user-name%</code></dt>
+<dd>
+<p>Nome dell'utente autorizzato</p>
 </dd>
-<dt><tt>%client.name%</tt></dt>
-<dd><p>Nome host client</p>
-
+<dt><code>%client.name%</code></dt>
+<dd>
+<p>Nome host client</p>
 </dd>
-<dt><tt>%client.dns%</tt></dt>
-<dd><p>DNS client </p>
-
+<dt><code>%client.dns%</code></dt>
+<dd>
+<p>DNS client</p>
 </dd>
-<dt><tt>%cookie.<i>nome</i>%</tt></dt>
-<dd><p>Valore del cookie di richiesta con il valore <i>nome</i> specificato</p>
-
+<dt><code>%cookie.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Valore del cookie di richiesta con il valore <i>name</i> specificato</p>
 </dd>
-<dt><tt>%cookie.value%</tt></dt>
-<dd><p>Valore del primo cookie trovato nella richiesta</p>
-
+<dt><code>%cookie.value%</code></dt>
+<dd>
+<p>Valore del primo cookie trovato nella richiesta</p>
 </dd>
-<dt><tt>%datetime%</tt></dt>
-<dd><p>Data di sistema</p>
-
+<dt><code>%datetime%</code></dt>
+<dd>
+<p>Data di sistema</p>
 </dd>
-<dt><tt>%request%</tt></dt>
-<dd><p>Riga di richiesta HTTP completa</p>
-
+<dt><code>%request%</code></dt>
+<dd>
+<p>Riga di richiesta HTTP completa</p>
 </dd>
-<dt><tt>%status%</tt></dt>
-<dd><p>Stato</p>
-
+<dt><code>%status%</code></dt>
+<dd>
+<p>Stato</p>
 </dd>
-<dt><tt>%response.length%</tt></dt>
-<dd><p>Lunghezza contenuto risposta</p>
-
+<dt><code>%response.length%</code></dt>
+<dd>
+<p>Lunghezza contenuto risposta</p>
 </dd>
-<dt><tt>%header.referer%</tt></dt>
-<dd><p>Intestazione Referer</p>
-
+<dt><code>%header.referer%</code></dt>
+<dd>
+<p>Intestazione Referer</p>
 </dd>
-<dt><tt>%header.user-agent%</tt></dt>
-<dd><p>Intestazione User-Agent</p>
-
+<dt><code>%header.user-agent%</code></dt>
+<dd>
+<p>Intestazione User-Agent</p>
 </dd>
-<dt><tt>%http-method%</tt></dt>
-<dd><p>Metodo HTTP</p>
-
+<dt><code>%http-method%</code></dt>
+<dd>
+<p>Metodo HTTP</p>
 </dd>
-<dt><tt>%http-uri%</tt></dt>
-<dd><p>URI HTTP</p>
-
+<dt><code>%http-uri%</code></dt>
+<dd>
+<p>URI HTTP</p>
 </dd>
-<dt><tt>%query-str%</tt></dt>
-<dd><p>Stringa query HTTP </p>
-
+<dt><code>%query-str%</code></dt>
+<dd>
+<p>Stringa query HTTP</p>
 </dd>
-<dt><tt>%http-version%</tt></dt>
-<dd><p>Versione protocollo HTTP</p>
-
+<dt><code>%http-version%</code></dt>
+<dd>
+<p>Versione protocollo HTTP</p>
 </dd>
-<dt><tt>%header.accept%</tt></dt>
-<dd><p>Intestazione Accept</p>
-
+<dt><code>%header.accept%</code></dt>
+<dd>
+<p>Intestazione Accept</p>
 </dd>
-<dt><tt>%header.date%</tt></dt>
-<dd><p>Intestazione Date</p>
-
+<dt><code>%header.date%</code></dt>
+<dd>
+<p>Intestazione Date</p>
 </dd>
-<dt><tt>%header.if-mod-since%</tt></dt>
-<dd><p>Intestazione If-Modified-Since</p>
-
+<dt><code>%header.if-mod-since%</code></dt>
+<dd>
+<p>Intestazione If-Modified-Since</p>
 </dd>
-<dt><tt>%header.auth%</tt></dt>
-<dd><p>Intestazione Authorization</p>
-
+<dt><code>%header.auth%</code></dt>
+<dd>
+<p>Intestazione Authorization</p>
 </dd>
-<dt><tt>%header.<i>any</i>%</tt></dt>
-<dd><p>Qualsiasi valore di intestazione HTTP valido definito nella RFC 2616 (anche <tt>any</tt> &#232; un valore di intestazione valido; qui &#232; specificato come variabile)</p>
-
+<dt><code>%header.</code><i>any</i><code>%</code></dt>
+<dd>
+<p>Qualsiasi valore di intestazione HTTP valido definito nella RFC 2616 (anche <code>any</code> &egrave; un valore di intestazione valido; qui &egrave; specificato come variabile)</p>
 </dd>
-<dt><tt>%session.<i>name</i>%</tt></dt>
-<dd><p>Valore dell'attributo di sessione con nome <i>name </i> o <tt>NULL-SESSION-ATTRIBUTE-<i>name</i></tt> se l'attributo con nome non esiste nella sessione o <tt>NULL-SESSION</tt> se la sessione non esiste.</p>
-
+<dt><code>%session.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Valore dell'attributo di sessione con nome <i>name</i> o <code>NULL-SESSION-ATTRIBUTE-</code><i>name</i> se l'attributo denominato non esiste nella sessione o <code>NULL-SESSION</code> se la sessione non esiste</p>
 </dd>
-<dt><tt>%time-taken%</tt></dt>
-<dd><p>Tempo (in millisecondi) necessario per eseguire ogni richiesta</p>
-
+<dt><code>%time-taken%</code></dt>
+<dd>
+<p>Tempo (in millisecondi) necessario per eseguire ogni richiesta</p>
 </dd>
-<dt><tt>%vs.id%</tt></dt>
-<dd><p>ID server virtuale</p>
-
+<dt><code>%vs.id%</code></dt>
+<dd>
+<p>ID server virtuale</p>
 </dd>
 </dl>
 </li>
-<li>(Opzionale) <b>Nella sezione Additional Properties, specificare le propriet&#224; aggiuntive.</b><p>Per una descrizione delle propriet&#224; disponibili, vedere <a href="ref-httpserviceprops.html">Propriet&#224; specifiche del servizio HTTP</a>.</p><ul>
-<li><b>Per aggiungere una propriet&#224;, fare clic sul pulsante Add Property. Nella riga
-vuota visualizzata, digitare il nome della propriet&#224; nel campo Name e il
-valore della propriet&#224; nel campo Value.</b></li>
-<li><b>Per modificare una propriet&#224;, &#232; necessario cambiare il valore del campo Value
-della propriet&#224;.</b></li>
-<li><b>Per eliminare una propriet&#224;, selezionare la casella di controllo a sinistra del
-campo Name relativo alla propriet&#224; da eliminare, quindi fare clic sul pulsante
-Delete Properties.</b></li></ul></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<li>
+<p>Nella sezione Propriet&agrave; aggiuntive, specificare le propriet&agrave; aggiuntive.</p>
+<p>Per una descrizione delle propriet&agrave; disponibili, vedere <a href="ref-httpserviceprops.html">Propriet&agrave; specifiche del servizio HTTP</a>.</p>
+<ul>
+<li>
+<p>Per aggiungere una propriet&agrave;, fare clic sul pulsante Aggiungi propriet&agrave;. Nella riga vuota visualizzata, digitare il nome della propriet&agrave; nel campo Nome e il valore della propriet&agrave; nel campo Valore.</p>
+</li>
+<li>
+<p>Per modificare una propriet&agrave;, &egrave; necessario modificare il valore del campo Valore della propriet&agrave;.</p>
+</li>
+<li>
+<p>Per eliminare una propriet&agrave;, selezionare la casella di controllo a sinistra del campo Nome relativo alla propriet&agrave; da eliminare, quindi fare clic sul pulsante Elimina propriet&agrave;.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li></ol>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+</li>
+</ol>
+
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

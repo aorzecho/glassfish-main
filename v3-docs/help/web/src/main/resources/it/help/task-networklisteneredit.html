@@ -1,85 +1,100 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-networklisteneredit" name="task-networklisteneredit"></a><a id="GHWEB00040" name="GHWEB00040"></a></p>
 
-
-<a name="task-networklisteneredit"></a><h3>Modificare un listener di rete</h3><a name="indexterm-22"></a><ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Nel nodo Configuration, espandere il nodo Network Config.</b></li>
-<li><b>Nel nodo Network Config, selezionare il nodo Network Listeners.</b><p>Viene visualizzata la pagina Network Listeners.</p></li>
-<li><b>Nella pagina Network Listeners, fare clic sul nome del listener di rete
-da modificare.</b><p>Viene visualizzata la pagina Edit Network Listener.</p></li>
-<li><b>Selezionare o deselezionare la casella di controllo Status Enabled per modificare lo
-stato del listener di rete.</b><p>Il listener pu&#242; essere abilitato o disabilitato. Questa opzione &#232; abilitata per
-impostazione predefinita. Se il listener &#232; disabilitato, ogni tentativo di connessione al
-listener genera un'eccezione nel socket (<tt>java.net.ConnectException</tt>).</p></li>
-<li><b>Selezionare la casella di controllo Security Enabled per abilitare la protezione per
-il protocollo utilizzato dal listener di rete.</b><p>Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Selezionare la casella di controllo JK Listener Enabled per impostare nel listener
-il supporto del protocollo <tt>mod-jk</tt> di Apache.</b><p>Il protocollo <tt>mod-jk</tt> &#232; un protocollo di comunicazione/rete proprietario tra <tt>httpd</tt> (server
-Web) di Apache e un'istanza backend di GlassFish Server. Se il listener
-supporta il protocollo, tutto il contenuto statico dovrebbe essere gestito mediante <tt>httpd</tt>,
-mentre le richieste di risorse dinamiche (ad esempio servlet e pagine JSP)
-vengono reindirizzate al listener di rete abilitato <tt>mod-jk</tt> di GlassFish Server tramite
-il protocollo <tt>mod-jk</tt>. Questa opzione &#232; disabilitata per impostazione predefinita.</p></li>
-<li><b>Nel campo Port, digitare il numero della porta di attesa desiderato per
-il listener di rete.</b><p>Sono ammessi i valori compresi tra 1 e 65535. In un sistema
-UNIX, per creare socket in attesa su porte comprese tra 1 e
-1024 sono necessari privilegi di superutente.</p></li>
-<li><b>Nel campo Address, digitare l'indirizzo IP di attesa desiderato per il listener
-di rete.</b><p>L'indirizzo pu&#242; essere specificato utilizzando la notazione per indirizzi IPv6 o con
-separazione mediante coppie di punti. &#200; possibile specificare <tt>any</tt> (per <tt> INADDR_ANY</tt>) per
-impostare tutti gli indirizzi IP per l'attesa. Pu&#242; essere costituito da un
-nome host.</p></li>
-<li><b>Dall'elenco a discesa Thread Pool, selezionare il pool di thread da associare
-al listener di rete.</b></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<h4><a id="sthref45" name="sthref45"></a>Modificare un listener di rete</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione, espandere il nodo Configurazione di rete.</p>
+</li>
+<li>
+<p>Nel nodo Configurazione di rete, selezionare il nodo Listener di rete.</p>
+<p>Viene visualizzata la pagina Listener di rete.</p>
+</li>
+<li>
+<p>Nella pagina Listener di rete, fare clic sul nome del listener di rete da modificare.</p>
+<p>Viene visualizzata la pagina Modifica listener di rete.</p>
+</li>
+<li>
+<p>Selezionare o deselezionare la casella di controllo Stato abilitato per modificare lo stato del listener di rete.</p>
+<p>Il listener pu&ograve; essere abilitato o disabilitato. Questa opzione &egrave; abilitata per impostazione predefinita. Se il listener &egrave; disabilitato, ogni tentativo di connessione al listener genera un'eccezione nel socket (<code>java.net.ConnectException</code>).</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Sicurezza abilitata per abilitare la sicurezza per il protocollo utilizzato dal listener di rete.</p>
+<p>Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Selezionare la casella di controllo Listener JK abilitato per impostare nel listener il supporto del protocollo <code>mod-jk</code> di Apache.</p>
+<p>Il protocollo <code>mod-jk</code> &egrave; un protocollo di comunicazione/rete proprietario tra <code>httpd</code> (server Web) di Apache e un'istanza backend di &amp;ProductName. Se il listener supporta il protocollo, tutto il contenuto statico dovrebbe essere gestito mediante <code>httpd</code>, mentre le richieste di risorse dinamiche (ad esempio servlet e pagine JSP) vengono reindirizzate al listener di rete abilitato <code>mod-jk</code> di GlassFish Server tramite il protocollo <code>mod-jk</code>. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</li>
+<li>
+<p>Nel campo Porta, digitare il numero della porta di attesa desiderato per il listener di rete.</p>
+<p>Sono ammessi i valori compresi tra 1 e 65535. In un sistema UNIX, per creare socket in ascolto sulle porte comprese tra 1 e 1024 sono necessari i privilegi di utente privilegiato.</p>
+</li>
+<li>
+<p>Nel campo Indirizzo, digitare l'indirizzo IP di attesa desiderato per il listener di rete.</p>
+<p>L'indirizzo pu&ograve; essere specificato utilizzando la notazione per indirizzi IPv6 o con separazione mediante coppie di punti. &Egrave; possibile specificare <code>any</code> (per <code>INADDR_ANY</code>) per impostare tutti gli indirizzi IP per l'ascolto. Pu&ograve; essere costituito da un nome host.</p>
+</li>
+<li>
+<p>Dall'elenco a discesa Pool di thread, selezionare il pool di thread da associare al listener di rete.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li></ol><p></b>Procedura successiva</b></p><p>&#200; possibile utilizzare le schede SSL, HTTP e File Cache per modificare
-le impostazioni del protocollo associato al listener di rete. La scheda SSL
-risulta fondamentale solo se per il listener di rete &#232; stata abilitata
-la protezione.</p>
-
-<p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-networklistenernew.html">Creare un listener di rete</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-networklistenerdelete.html">Eliminare un listener di rete</a></p>
-
+</ol>
+<a id="sthref46" name="sthref46"></a>
+<h5>Passi successivi</h5>
+<p>&Egrave; possibile utilizzare le schede SSL, HTTP e Cache di file per modificare le impostazioni del protocollo associato al listener di rete. La scheda SSL risulta fondamentale solo se per il listener di rete &egrave; stata abilitata la sicurezza.</p>
+<a id="sthref47" name="sthref47"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-networklistenernew.html">Creare un listener di rete</a></p>
 </li>
-<li><p><a href="task-protocolnew.html">Creare un protocollo</a></p>
-
+<li>
+<p><a href="task-networklistenerdelete.html">Eliminare un listener di rete</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolnew.html">Creare un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">Modificare le impostazioni SSL di un protocollo</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Modificare un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP di un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Modificare le impostazioni SSL per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">Modificare le impostazioni HTTP per un protocollo</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Modificare le impostazioni della cache di file per un protocollo</a></p>
 </li>
-<li><p><a href="task-transportnew.html">Creare un trasporto</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Eliminare un protocollo</a></p>
 </li>
-<li><p><a href="task-transportedit.html">Modificare un trasporto</a></p>
-
+<li>
+<p><a href="task-transportnew.html">Creare un trasporto</a></p>
 </li>
-<li><p><a href="task-transportdelete.html">Eliminare un trasporto</a></p>
+<li>
+<p><a href="task-transportedit.html">Modificare un trasporto</a></p>
+</li>
+<li>
+<p><a href="task-transportdelete.html">Eliminare un trasporto</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

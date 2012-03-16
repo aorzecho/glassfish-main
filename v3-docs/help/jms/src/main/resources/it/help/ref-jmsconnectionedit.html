@@ -1,112 +1,115 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmsconnectionedit"></a><h4>Edit JMS Connection Factory</h4>
-<a name="indexterm-31"></a><a name="indexterm-32"></a><p>Nella pagina Edit JMS Connection Factory &#232; possibile modificare le impostazioni per
-una factory di JMS.</p>
+<p><a id="ref-jmsconnectionedit" name="ref-jmsconnectionedit"></a><a id="GHJMS00004" name="GHJMS00004"></a></p>
 
-<p>La pagina Edit JMS Connection Factory include le seguenti opzioni.</p>
-
-<dl><dt>Load Defaults</dt>
-<dd><p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
-
+<h4><a id="sthref53" name="sthref53"></a><a id="sthref54" name="sthref54"></a>Modifica Connection Factory JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Modifica Connection Factory JMS &egrave; possibile modificare le impostazioni per una Connection Factory JMS.</p>
+<p>La pagina Modifica Connection Factory JMS include le opzioni riportate di seguito.</p>
+<dl>
+<dt>Carica impostazioni predefinite</dt>
+<dd>
+<p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
 </dd>
-<dt>Pool Name</dt>
-<dd><p>Nome univoco del pool di connessione del connettore creato per la factory di connessione. Tale nome corrisponde inoltre al nome JNDI della factory di connessione. Il campo relativo al nome del pool &#232; di sola lettura.</p>
-
+<dt>Nome pool</dt>
+<dd>
+<p>Nome univoco del connection pool del connettore creato per la Connection Factory. Questo nome corrisponde inoltre al nome JNDI della Connection Factory. Il campo relativo al nome del pool &egrave; di sola lettura.</p>
 </dd>
-<dt>Resource Type</dt>
-<dd><p>Tipo della factory di connessione. Il campo Resource Type &#232; di sola lettura. &#200; possibile specificare il tipo di risorsa solo quando si crea una nuova factory JMS di connessione.</p>
-
+<dt>Tipo di risorsa</dt>
+<dd>
+<p>Tipo di Connection Factory. Il campo Tipo di risorsa &egrave; di sola lettura. &Egrave; possibile specificare il tipo di risorsa solo quando si crea una nuova Connection Factory JMS.</p>
 </dd>
-<dt>Description</dt>
-<dd><p>Descrizione della factory di connettore.</p>
-
+<dt>Descrizione</dt>
+<dd>
+<p>Descrizione della Connection Factory.</p>
 </dd>
-<dt>Status</dt>
-<dd><p>Stato della factory di connessione. La factory di connessione pu&#242; essere abilitata o disabilitata. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dt>Stato</dt>
+<dd>
+<p>Stato della Connection Factory. La Connection Factory pu&ograve; essere abilitata o disabilitata. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
-<dt>Initial and Minimum Pool Size</dt>
-<dd><p>Numero minimo di connessioni nel pool per la factory di connessione. Il valore predefinito &#232; 8.</p>
-
+<dt>Dimensione pool iniziale e minima</dt>
+<dd>
+<p>Numero minimo di connessioni nel pool per la Connection Factory. Il valore predefinito &egrave; 8.</p>
 </dd>
-<dt>Maximum Pool Size</dt>
-<dd><p>Numero massimo di connessioni per il pool. Il valore predefinito &#232; 32.</p>
-
+<dt>Dimensione massima pool</dt>
+<dd>
+<p>Numero massimo di connessioni nel pool. Il valore predefinito &egrave; 32.</p>
 </dd>
-<dt>Pool Resize Quantity</dt>
-<dd><p>Numero di connessioni da rimuovere allo scadere del timeout di inattivit&#224; del pool. Il valore predefinito &#232; 2.</p>
-
+<dt>Quantit&agrave; di ridimensionamento pool</dt>
+<dd>
+<p>Numero di connessioni da rimuovere allo scadere del timeout di inattivit&agrave; del pool. Il valore predefinito &egrave; 2.</p>
 </dd>
-<dt>Idle Timeout</dt>
-<dd><p>Numero massimo di secondi durante i quali una connessione pu&#242; rimanere inattiva nel pool. Il valore predefinito &#232; 300.</p>
-
+<dt>Timeout inattivit&agrave;</dt>
+<dd>
+<p>Tempo massimo, in secondi, durante il quale una connessione pu&ograve; rimanere inattiva nel pool. Il valore predefinito &egrave; 300.</p>
 </dd>
-<dt>Max Wait Time</dt>
-<dd><p>Tempo di attesa per una richiesta di connessione da parte dell'applicazione prima che si verifichi di un timeout. Il valore predefinito &#232; 60000.</p>
-
+<dt>Tempo massimo di attesa</dt>
+<dd>
+<p>Quantit&agrave; di tempo che l'applicazione che richiede la connessione attende prima che si verifichi il timeout della connessione. Il valore predefinito &egrave; 60000.</p>
 </dd>
-<dt>On Any Failure</dt>
-<dd><p>Se la casella di controllo Close All Connections &#232; selezionata, in GlassFish Server tutte le connessioni del pool vengono chiuse e quindi ristabilite in caso di errore di una singola connessione. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>In caso di qualsiasi errore</dt>
+<dd>
+<p>Se la casella di controllo Chiudi tutte le connessioni &egrave; selezionata, GlassFish Server chiude tutte le connessioni nel pool e le ristabilisce se una singola connessione non riesce. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Transaction Support</dt>
-<dd><p>Il valore pu&#242; essere uno qualsiasi dei seguenti:</p>
-
-<dl><dt>XATransaction</dt>
-<dd><p>La risorsa pu&#242; essere utilizzata per transazioni che implicano l'uso di pi&#249; risorse nell'ambito della transazione. &#200; il valore predefinito per una factory di connessione JMS. </p>
-
-<p>Ad esempio &#232; possibile che in una transazione sia necessario utilizzare questa risorsa in abbinamento a una risorsa JDBC, una risorsa del connettore o un'altra risorsa della factory di connessione JMS. Questo valore offre la massima flessibilit&#224;. Una risorsa configurata come XATransaction verr&#224; utilizzata in operazioni di commit a due fasi.</p>
-
+<dt>Supporto transazioni</dt>
+<dd>
+<p>Il valore pu&ograve; essere uno dei seguenti:</p>
+<dl>
+<dt>XATransaction</dt>
+<dd>
+<p>&Egrave; possibile utilizzare la risorsa per le transazioni che implicano l'uso di pi&ugrave; risorse nell'ambito della transazione. Questo &egrave; il valore predefinito per una Connection Factory JMS.</p>
+<p>Ad esempio, &egrave; possibile che le transazioni implichino l'uso di questa risorsa insieme a una risorsa JDBC, una risorsa connettore o un'altra risorsa Connection Factory JMS. Questo valore offre la massima flessibilit&agrave;. Una risorsa configurata come XATransaction verr&agrave; utilizzata in operazioni di commit a due fasi.</p>
 </dd>
 <dt>LocalTransaction</dt>
-<dd><p>&#200; possibile utilizzare la risorsa in transazioni che prevedono l'uso di una sola risorsa o come ultimo agente in una transazione distribuita che prevede l'uso di pi&#249; risorse XA.</p>
-
-<p>Il valore offre prestazioni decisamente migliori. Le risorse configurate come LocalTransaction non vengono utilizzate in operazioni di commit a due fasi.</p>
-
+<dd>
+<p>&Egrave; possibile utilizzare la risorsa per le transazioni che implicano l'uso di una sola risorsa nell'ambito della transazione o come ultimo agente in una transazione distribuita che prevede l'uso di pi&ugrave; risorse XA.</p>
+<p>Questo valore consente prestazioni decisamente migliori. Una risorsa configurata come LocalTransaction non verr&agrave; utilizzata in operazioni di commit a due fasi.</p>
 </dd>
 <dt>NoTransaction</dt>
-<dd><p>La risorsa non pu&#242; mai partecipare alle transazioni. L'impostazione &#232; di uso limitato in applicazioni JMS.</p>
-
+<dd>
+<p>La risorsa non pu&ograve; mai essere utilizzata nelle transazioni. Questa impostazione &egrave; di uso limitato nelle applicazioni JMS.</p>
 </dd>
 </dl>
 </dd>
-<dt>Connection Validation</dt>
-<dd><p>Se la casella di controllo Required &#232; selezionata, le connessioni vengono convalidate prima di essere fornite all'applicazione. Se la convalida non viene eseguita, la risorsa viene eliminata. Viene creata e restituita una risorsa nuova. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
+<dt>Convalida connessione</dt>
+<dd>
+<p>Se la casella di controllo Richiesta &egrave; selezionata, le connessioni vengono convalidate prima di essere fornite all'applicazione. Se la convalida di una risorsa non riesce, la risorsa viene eliminata e viene creata e restituita una nuova risorsa. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
 </dd>
-<dt>Additional Properties</dt>
-<dd><p>Propriet&#224; aggiuntive per la factory di connessione.</p>
-
-<p>Per informazioni sulle propriet&#224; disponibili, vedere <a href="ref-jmsconnectionproperties.html">Propriet&#224; specifiche delle factory di connessione JMS</a>.</p>
-
+<dt>Propriet&agrave; aggiuntive</dt>
+<dd>
+<p>Propriet&agrave; aggiuntive per la Connection Factory.</p>
+<p>Per informazioni sulle propriet&agrave; disponibili, vedere <a href="ref-jmsconnectionproperties.html">Propriet&agrave; specifiche delle Connection Factory JMS</a>.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-jmsconnectionnew.html">Creare una risorsa factory di connessione JMS </a></p>
-
+<a id="sthref55" name="sthref55"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-jmsconnectionnew.html">Creare una risorsa Connection Factory JMS</a></p>
 </li>
-<li><p><a href="task-jmsconnectionedit.html">Modificare una risorsa factory di connessione JMS</a></p>
-
+<li>
+<p><a href="task-jmsconnectionedit.html">Modificare una risorsa Connection Factory JMS</a></p>
 </li>
-<li><p><a href="task-jmsconnectiondelete.html">Eliminare una risorsa factory di connessione JMS</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jms-resource-1"><tt>create-jms-resource</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jmsconnectiondelete.html">Eliminare una risorsa Connection Factory JMS</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jms-resources-1"><tt>list-jms-resources</tt>(1)</a></p>
-
+</ul>
+<a id="sthref56" name="sthref56"></a>
+<h5>Comandi asadmin correlati</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00040"><code>create-jms-resource</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jms-resource-1"><tt>delete-jms-resource</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00177"><code>list-jms-resources</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00092"><code>delete-jms-resource</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

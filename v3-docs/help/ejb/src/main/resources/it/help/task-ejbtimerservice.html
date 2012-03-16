@@ -1,50 +1,67 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-ejbtimerservice" name="task-ejbtimerservice"></a><a id="GHEJB00005" name="GHEJB00005"></a></p>
 
-
-<a name="task-ejbtimerservice"></a><h3>Configurare EJB Timer Service</h3><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>Il servizio timer &#232; un servizio di notifica persistente e transazionale che
-viene fornito dal contenitore bean enterprise e viene utilizzato per pianificare notifiche
-o eventi utilizzati dai bean enterprise. Tutti i bean enterprise possono ricevere
-notifiche dal servizio timer, a eccezione dei bean di sessione con stato.
-I timer persistenti impostati dal servizio non vengono eliminati quando il server
-viene arrestato o riavviato.</p>
-
+<h4><a id="sthref6" name="sthref6"></a> <a id="sthref7" name="sthref7"></a> <a id="sthref8" name="sthref8"></a>Configurare il servizio timer EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Il servizio timer &egrave; un servizio di notifica persistente e transazionale che viene fornito dal contenitore bean enterprise e viene utilizzato per pianificare notifiche o eventi utilizzati dai bean enterprise. Tutti i bean enterprise possono ricevere notifiche dal servizio timer, a eccezione dei bean di sessione con conservazione dello stato. I timer persistenti impostati dal servizio non vengono eliminati quando il server viene arrestato o riavviato.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Selezionare il nodo EJB Container.</b><p>Viene aperta la pagina EJB (Enterprise Java Beans).</p></li>
-<li><b>Fare clic sulla scheda EJB Timer Service.</b><p>Viene visualizzata la pagina EJB Timer Service.</p></li>
-<li><b>Nel campo Minimum Delivery Interval, digitare il numero minimo di millisecondi consentito
-per l'attivazione di un timer prima dello scadere del tempo impostato nel
-timer successivo. </b><p>L'impostazione di tale intervallo su valori eccessivamente bassi pu&#242; causare il sovraccarico
-del server. Il valore predefinito &#232; 1000.</p></li>
-<li><b>Nel campo Maximum Redeliveries, digitare il numero massimo di tentativi consentiti al
-servizio timer per riattivare la scadenza di un timer a causa di
-un'eccezione o un rollback.</b><p>Il valore predefinito &#232; 1.</p></li>
-<li><b>Nel campo Redelivery Interval digitare l'intervallo, in millisecondi, tra i tentativi di
-riattivazione.</b><p>Il valore predefinito &#232; 5000.</p></li>
-<li><b>Nel campo Timer Datasource, digitare il nome JNDI della risorsa JDBC che
-verr&#224; utilizzata come sorgente dati del timer.</b><p>Se specificato, questo valore sovrascrive il valore predefinito di <tt> jdbc/__TimerPool</tt> per l'applicazione
-del sistema di servizio timer.</p></li>
-<li><b>Fare clic su Save.</b>
-<hr><p><b>Suggerimento - </b>Per tornare alle impostazioni predefinite, fare clic sul pulsante Load Defaults, quindi
-su Save.</p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
+</li>
+<li>
+<p>Selezionare il nodo Contenitore EJB.</p>
+<p>Viene aperta la pagina EJB (Enterprise Java Beans).</p>
+</li>
+<li>
+<p>Fare clic sulla scheda Servizio timer EJB.</p>
+<p>Viene visualizzata la pagina Servizio timer EJB.</p>
+</li>
+<li>
+<p>Nel campo Intervallo minimo di consegna, digitare il numero minimo di millisecondi consentito per l'attivazione di un timer prima dello scadere del tempo impostato nel timer successivo.</p>
+<p>L'impostazione di tale intervallo su valori eccessivamente bassi pu&ograve; causare il sovraccarico del server. Il valore predefinito &egrave; 1000.</p>
+</li>
+<li>
+<p>Nel campo N. massimo ripetizioni consegna, digitare il numero massimo di tentativi consentiti al servizio timer per riattivare la scadenza di un timer a causa di un'eccezione o un rollback.</p>
+<p>Il valore predefinito &egrave; 1.</p>
+</li>
+<li>
+<p>Nel campo Intervallo tra tentativi di consegna digitare l'intervallo, in millisecondi, tra i tentativi di riattivazione.</p>
+<p>Il valore predefinito &egrave; 5000.</p>
+</li>
+<li>
+<p>Nel campo Origine dati timer, digitare il nome JNDI della risorsa JDBC che verr&agrave; utilizzata come sorgente dati del timer.</p>
+<p>Se specificato, questo valore sovrascrive il valore predefinito di <code>jdbc/__TimerPool</code> per l'applicazione del sistema di servizio timer.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
 
 <hr>
-</li>
-<li><b>Riavviare GlassFish Server.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2965&id=task-ejbgeneral">To Configure EJB Settings</a></p>
+<p><b>Suggerimento:</b></p>
+Per tornare alle impostazioni predefinite, fare clic sul pulsante Carica impostazioni predefinite, quindi su Salva.
+<hr>
 
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">Configurare le impostazioni del pool di MDB</a></p>
-
+<li>
+<p>Riavviare GlassFish Server.</p>
 </li>
-<li><p><a href="task-ejbcontaineravailability.html">Configurare le impostazioni di disponibilit&#224; per il contenitore EJB</a></p>
+</ol>
+<a id="sthref9" name="sthref9"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="../../../ejb-lite/it/help/missingtopic.html">To Configure EJB Settings</a></p>
+</li>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">Configurare le impostazioni del pool MDB</a></p>
+</li>
+<li>
+<p><a href="task-ejbcontaineravailability.html">Configurare le impostazioni di disponibilit&agrave; per il contenitore EJB</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,53 +1,58 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-connectionservice"></a><h4>Servizio connettore</h4>
-<a name="indexterm-62"></a><p>Nella pagina Connector Service &#232; possibile modificare le impostazioni generali del servizio
-connettore, che controlla gli adattatori di risorsa.</p>
+<p><a id="ref-connectionservice" name="ref-connectionservice"></a><a id="GHJCA00059" name="GHJCA00059"></a></p>
 
-<p>La pagina Connector Service contiene le seguenti opzioni.</p>
-
-<dl><dt>Load Defaults</dt>
-<dd><p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
-
+<h4><a id="sthref125" name="sthref125"></a>Servizio connettore</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Servizio connettore &egrave; possibile modificare le impostazioni generali per il servizio connettore, che gestisce i Resource Adapter.</p>
+<p>La pagina Servizio connettore contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Carica impostazioni predefinite</dt>
+<dd>
+<p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>Nome della configurazione a cui vengono applicate le impostazioni in questa pagina. Il campo &#232; di sola lettura.</p>
-
+<dt>Nome configurazione</dt>
+<dd>
+<p>Nome della configurazione a cui vengono applicate le impostazioni definite in questa pagina. Questo campo &egrave; di sola lettura.</p>
 </dd>
-<dt>Shutdown Timeout</dt>
-<dd><p>Numero massimo di secondi consentito durante l'arresto di GlassFish Server per il completamento del metodo <tt>ResourceAdapter.stop</tt> dell'istanza di un modulo connettore. Gli adattatori di risorsa che richiedono tempi di arresto pi&#249; prolungati vengono ignorati e si prosegue con l'arresto di GlassFish Server. Il valore predefinito &#232; 30 secondi.</p>
-
+<dt>Timeout chiusura</dt>
+<dd>
+<p>Numero massimo di secondi consentito durante la chiusura di GlassFish Server per il completamento del metodo <code>ResourceAdapter.stop</code> di un'istanza di modulo connettore. I Resource Adapter che richiedono tempi di chiusura pi&ugrave; lunghi vengono ignorati e si prosegue con la chiusura di GlassFish Server. Il valore predefinito &egrave; 30 secondi.</p>
 </dd>
-<dt>Connector Classloading Policy</dt>
-<dd><p>Criterio da utilizzare per il caricamento delle classi. Sono disponibili le seguenti opzioni:</p>
-
-<dl><dt><tt>derived</tt></dt>
-<dd><p>Indica che gli adattatori di risorsa vengono forniti in base ai riferimenti di un'applicazione a qualsiasi risorsa dell'adattatore di risorsa. Questo &#232; il criterio predefinito.</p>
-
+<dt>Criteri di caricamento classi del connettore</dt>
+<dd>
+<p>Criteri da utilizzare per il caricamento delle classi. Sono disponibili le opzioni riportate di seguito.</p>
+<dl>
+<dt><code>derived</code></dt>
+<dd>
+<p>Indica che i Resource Adapter vengono forniti in base ai riferimenti di un'applicazione a qualsiasi risorsa del Resource Adapter. Questo &egrave; il criterio predefinito.</p>
 </dd>
-<dt><tt>global</tt></dt>
-<dd><p>Indica che tutti gli adattatori di risorsa saranno visibili a tutte le applicazioni.</p>
-
-</dd>
-</dl>
-<p>Questo criterio non &#232; valido per l'adattatore di risorsa di sistema JMS preinstallato, <tt> jmsra</tt>, che &#232; sempre visibile a tutte le applicazioni.</p>
-
+<dt><code>global</code></dt>
+<dd>
+<p>Indica che tutti i Resource Adapter saranno visibili a tutte le applicazioni.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-connectionservice.html">Configurare il servizio connettore</a></p>
-
+<p>Questo criterio non &egrave; valido per il Resource Adapter di sistema JMS preinstallato, <code>jmsra</code>, che &egrave; sempre visibile a tutte le applicazioni.</p>
+</dd>
+</dl>
+<a id="sthref126" name="sthref126"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-connectionservice.html">Configurare il servizio connettore</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3030&id=task-appdeployconn">To Deploy a Connector Module</a></p>
-
-</li></ul>
-<h5>Comandi <tt>asadmin</tt> correlati</h5>
+<li>
+<p><a href="../../../common/it/help/missingtopic.html">To Deploy a Connector Module</a></p>
+</li>
+</ul>
+<a id="sthref127" name="sthref127"></a>
+<h5>Comandi asadmin correlati</h5>
 <p>Nessuno.</p>
 
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,51 +1,52 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-logging-max-logfiles" name="task-logging-max-logfiles"></a><a id="GHCOM00179" name="GHCOM00179"></a></p>
 
-
-<a name="task-logging-max-logfiles"></a><h3>Cambiare il numero limite dei file di log sottoposti a rotazione</h3><a name="indexterm-70"></a><a name="indexterm-71"></a><a name="indexterm-72"></a><p>Quando in GlassFish Server un file di log viene sottoposto a rotazione,
-si crea un nuovo file vuoto denominato <tt>server.log</tt> e il file precedente
-viene rinominato come <tt>server.log_ </tt><i>date</i>, dove <i>date</i> indica la data e ora di
-rotazione del file.</p>
-
-<p>Per impostazione predefinita, il numero di file di log sottoposti a rotazione
-&#232; limitato a 10. Quando viene raggiunto tale limite, il file di
-log meno recente viene sovrascritto alla successiva rotazione.</p>
-
-<p>Se necessario &#232; possibile modificare il numero limite di file sottoposti a
-rotazione. Il nuovo limite sar&#224; valido per la rotazione di file di
-log relativi sia alla registrazione degli accessi sia al log del server.</p>
-
+<h4><a id="sthref125" name="sthref125"></a><a id="sthref126" name="sthref126"></a><a id="sthref127" name="sthref127"></a>Modificare il limite nel numero di file di log sottoposti a rotazione</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Quando in GlassFish Server un file di log viene sottoposto a rotazione, viene creato un nuovo file vuoto denominato <code>server.log</code> e il file precedente viene rinominato come <code>server.log_</code><i>date</i>, dove <i>date</i> indica data e ora di rotazione del file.</p>
+<p>Per impostazione predefinita, il numero di file di log di &amp;ProductName sottoposti a rotazione &egrave; limitato a 10. Quando viene raggiunto tale limite, il file di log meno recente viene sovrascritto alla successiva rotazione.</p>
+<p>Se necessario &egrave; possibile modificare il numero limite di file di log sottoposti a rotazione. Il nuovo limite sar&agrave; valido per la rotazione di file di log relativi sia alla registrazione degli accessi sia al log del server.</p>
+<ol>
+<li>
+<p>Impostare la propriet&agrave; di sistema <code>com.sun.enterprise.server.logging.max_history_files</code> sul numero massimo di file di log sottoposti a rotazione da conservare.</p>
+<p>Per informazioni su come impostare una propriet&agrave; di sistema vedere <a href="task-systemproperties.html">Gestire le propriet&agrave; di sistema</a>.</p>
+<p>Di seguito &egrave; indicato il funzionamento della propriet&agrave; di sistema <code>com.sun.enterprise.server.logging.max_history_files</code>.</p>
 <ul>
-<li><b>Impostare la propriet&#224; <tt>com.sun.enterprise.server.logging.max_history_files </tt> sul numero massimo di file di log sottoposti
-a rotazione da conservare.</b><p>Per informazioni su come impostare una propriet&#224; di sistema vedere <a href="task-systemproperties.html">Gestire le propriet&#224; di sistema</a>.</p><p>Di seguito &#232; indicato il funzionamento della propriet&#224; di sistema <tt>com.sun.enterprise.server.logging.max_history_files</tt>:</p>
-<ul><li><p>Se la propriet&#224; non &#232; impostata, vengono conservati non oltre 10 file di log sottoposti a rotazione.</p>
-
+<li>
+<p>Se la propriet&agrave; non &egrave; impostata, vengono conservati non oltre 10 file di log sottoposti a rotazione.</p>
 </li>
-<li><p>Se la propriet&#224; &#232; impostata su un numero non valido o su un valore nullo, vengono conservati non oltre 10 file di log sottoposti a rotazione.</p>
-
+<li>
+<p>Se la propriet&agrave; &egrave; impostata su un numero non valido o su un valore nullo, vengono conservati non oltre 10 file di log sottoposti a rotazione.</p>
 </li>
-<li><p>Se la propriet&#224; &#232; impostata su 0, non viene conservato alcun file di log sottoposto a rotazione.</p>
-
-</li></ul>
-</li></ul><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-eelogging.html">Configurare impostazioni generali per il log</a></p>
-
+<li>
+<p>Se la propriet&agrave; &egrave; impostata su 0, non viene conservato alcun file di log sottoposto a rotazione.</p>
 </li>
-<li><p><a href="task-eelogginglevels.html">Configurare i livelli di log</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-logviewer.html">Visualizzare i file di log per il DAS</a></p>
-
+</ol>
+<a id="sthref128" name="sthref128"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-eelogging.html">Configurare le impostazioni di log generali</a></p>
 </li>
-<li><p><a href="task-logging-collectlogfiles.html">Creare un archivio ZIP di tutti i file di log</a></p>
-
+<li>
+<p><a href="task-eelogginglevels.html">Configurare i livelli di log</a></p>
 </li>
-<li><p><a href="task-systemproperties.html">Gestire le propriet&#224; di sistema</a></p>
+<li>
+<p><a href="task-logviewer.html">Visualizzare file di log per DAS</a></p>
+</li>
+<li>
+<p><a href="task-logging-collectlogfiles.html">Creare un archivio ZIP di tutti i file di log</a></p>
+</li>
+<li>
+<p><a href="task-systemproperties.html">Gestire le propriet&agrave; di sistema</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,87 +1,89 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-serverinstappsconfig"></a><h4>Applications Configuration</h4>
-<a name="indexterm-130"></a><a name="indexterm-131"></a><a name="indexterm-132"></a><a name="indexterm-133"></a><a name="indexterm-134"></a><p>Nella pagina Applications Configuration &#232; possibile impostare propriet&#224; per assicurare che vengano
-eseguiti il rilevamento delle modifiche apportate alle applicazioni distribuite e il ricaricamento
-delle classi modificate.</p>
+<p><a id="ref-serverinstappsconfig" name="ref-serverinstappsconfig"></a><a id="GHCOM00053" name="GHCOM00053"></a></p>
 
-<p>La pagina Applications Configuration contiene le seguenti opzioni.</p>
-
-<dl><dt>Load Defaults</dt>
-<dd><p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate. </p>
-
+<h4><a id="sthref227" name="sthref227"></a><a id="sthref228" name="sthref228"></a><a id="sthref229" name="sthref229"></a><a id="sthref230" name="sthref230"></a><a id="sthref231" name="sthref231"></a>Configurazione applicazioni</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Nella pagina Configurazione applicazioni &egrave; possibile impostare propriet&agrave; per assicurare che vengano rilevate le modifiche apportate alle applicazioni distribuite e che vengano ricaricate le classi modificate.</p>
+<p>La pagina Configurazione applicazioni contiene le opzioni riportate di seguito.</p>
+<dl>
+<dt>Carica impostazioni predefinite</dt>
+<dd>
+<p>Pulsante che consente di ripristinare i valori predefiniti delle impostazioni che dispongono di tali valori. Le impostazioni prive di valori predefiniti restano invariate.</p>
 </dd>
-<dt>Reload</dt>
-<dd><p>Se questa opzione &#232; abilitata, le classi modificate vengono ricaricate dinamicamente. Il server controlla periodicamente la presenza di eventuali modifiche nella directory di distribuzione e ridistribuisce l'applicazione, automaticamente e dinamicamente, con le modifiche. Tale caratteristica risulta utile in un ambiente di sviluppo, in quanto consente di sottoporre a test rapidi le modifiche al software. In un ambiente di produzione, il ricaricamento dinamico pu&#242; tuttavia compromettere le prestazioni. Inoltre, ogni volta che viene eseguito un ricaricamento, le sessioni eseguite al momento del transito diventano non valide. Il client deve riavviare la sessione. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dt>Ricarica</dt>
+<dd>
+<p>Se questa opzione &egrave; abilitata, le classi modificate vengono ricaricate dinamicamente. Il server controlla periodicamente la presenza di eventuali modifiche nella directory di distribuzione e ridistribuisce l'applicazione, in modo automatico e dinamico, con le modifiche. Ci&ograve; risulta utile in un ambiente di sviluppo, in quanto consente di verificare rapidamente le modifiche al codice. In un ambiente di produzione, tuttavia, il ricaricamento dinamico pu&ograve; compromettere le prestazioni. Inoltre, ogni volta che viene eseguito un ricaricamento, le sessioni eseguite al momento del transito diventano non valide. Il client deve riavviare la sessione. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
-<dt>Reload Poll Interval</dt>
-<dd><p>Identifica la frequenza con cui si desidera che il server controlli l'eventuale presenza di modifiche al codice in applicazioni e moduli distribuiti. Il valore predefinito &#232; 2.</p>
-
+<dt>Intervallo di polling ricaricamento</dt>
+<dd>
+<p>Indica la frequenza con cui si desidera che il server controlli l'eventuale presenza di modifiche al codice in applicazioni e moduli distribuiti. Il valore predefinito &egrave; 2.</p>
 </dd>
-<dt>Admin Session Timeout</dt>
-<dd><p>Indica il numero di minuti di inattivit&#224; prima che si verifichi il timeout di Administration Console e che sia necessario rieseguire l'accesso. Il valore predefinito &#232; 60.</p>
-
+<dt>Timeout sessione di amministrazione</dt>
+<dd>
+<p>Indica il numero di minuti di inattivit&agrave; prima che si verifichi il timeout di Console di amministrazione e che sia necessario eseguire nuovamente il login. Il valore predefinito &egrave; 60.</p>
 </dd>
-<dt>Auto Deploy</dt>
-<dd><p>Se l'opzione &#232; abilitata, le applicazioni nella directory di distribuzione automatica vengono distribuite automaticamente. Questa opzione &#232; abilitata per impostazione predefinita.</p>
-
+<dt>Distribuzione automatica</dt>
+<dd>
+<p>Se questa opzione &egrave; abilitata, le applicazioni nella directory di distribuzione automatica vengono distribuite automaticamente. Questa opzione &egrave; abilitata per impostazione predefinita.</p>
 </dd>
-<dt>Auto Deploy Poll Interval</dt>
-<dd><p>Specifica la frequenza con cui si desidera che il server controlli l'eventuale presenza di modifiche all'applicazione o al modulo nella directory di distribuzione automatica. Le modifiche dell'intervallo di polling non influiscono sul tempo necessario per la distribuzione di un'applicazione o un modulo. Il valore predefinito &#232; 2.</p>
-
+<dt>Intervallo di polling distribuzione automatica</dt>
+<dd>
+<p>Specifica la frequenza con cui si desidera che il server controlli l'eventuale presenza di modifiche all'applicazione o al modulo nella directory di distribuzione automatica. Le modifiche dell'intervallo di polling non influiscono sul tempo necessario per la distribuzione di un'applicazione o un modulo. Il valore predefinito &egrave; 2.</p>
 </dd>
-<dt>Auto Deploy Retry Timeout</dt>
-<dd><p>Specifica il numero di secondi durante i quali la dimensione di un file copiato parzialmente pu&#242; rimanere invariata prima che si verifichi un errore. Il valore predefinito &#232; 4.</p>
-
-<p>Se un file viene copiato lentamente nella directory di distribuzione automatica, &#232; possibile che venga visualizzato prima che ne venga terminata completamente la copia. Di conseguenza, il tentativo di distribuire automaticamente l'applicazione non riesce. Se un tentativo di distribuzione automatica di un'applicazione non riesce per questo motivo, GlassFish Server tenta di ridistribuire l'applicazione. Se la dimensione del file copiato parzialmente non cambia per il periodo di tempo specificato, si verifica un errore.</p>
-
+<dt>Timeout tentativi distribuzione automatica</dt>
+<dd>
+<p>Specifica il numero di secondi durante i quali la dimensione di un file copiato parzialmente pu&ograve; rimanere invariata prima che si verifichi un errore. Il valore predefinito &egrave; 4.</p>
+<p>Se un file viene copiato lentamente nella directory di distribuzione automatica, &egrave; possibile che venga visualizzato prima che ne venga terminata completamente la copia. Di conseguenza, il tentativo di distribuire automaticamente l'applicazione non riesce. Se un tentativo di distribuzione automatica di un'applicazione non riesce per questo motivo, GlassFish Server tenta di ridistribuire l'applicazione. Se la dimensione del file copiato parzialmente non cambia per il periodo di tempo specificato, si verifica un errore.</p>
 </dd>
-<dt>Auto Deploy Directory</dt>
-<dd><p>Identifica la directory per monitorare la distribuzione automatica delle applicazioni. Il valore predefinito &#232; <tt></tt><i>domain-dir</i><tt>/autodeploy</tt>.</p>
-
+<dt>Directory di distribuzione automatica</dt>
+<dd>
+<p>Indica la directory per monitorare la distribuzione automatica delle applicazioni. Il valore predefinito &egrave; <i>domain-dir</i><code>/autodeploy</code>.</p>
 </dd>
-<dt>XML Validation</dt>
-<dd><p>Specifica il tipo di convalida XML da eseguire su descrittori di distribuzione standard e di GlassFish Server. Di seguito sono indicati i tipi disponibili:</p>
-
-<dl><dt>Full</dt>
-<dd><p>Se la convalida XML non riesce, non riesce neanche la distribuzione. Questo &#232; il valore predefinito.</p>
-
+<dt>Convalida XML</dt>
+<dd>
+<p>Specifica il tipo di convalida XML da eseguire su descrittori di distribuzione standard e di GlassFish Server. Di seguito sono indicati i tipi disponibili.</p>
+<dl>
+<dt>Completo</dt>
+<dd>
+<p>Se la convalida XML non riesce, non riesce neanche la distribuzione. Questo &egrave; il valore predefinito.</p>
 </dd>
-<dt>Parsing</dt>
-<dd><p>Vengono segnalati errori della convalida XML, ma la distribuzione viene eseguita.</p>
-
+<dt>Analisi</dt>
+<dd>
+<p>Vengono segnalati errori di convalida XML, ma la distribuzione viene eseguita.</p>
 </dd>
-<dt>None</dt>
-<dd><p>La convalida XML non viene eseguita.</p>
-
-</dd>
-</dl>
-</dd>
-<dt>Verifier</dt>
-<dd><p>Se l'opzione &#232; selezionata, il verificatore viene eseguito prima della distribuzione automatica. Se la verifica non riesce, la distribuzione non viene eseguita. Il verificatore esamina la struttura e il contenuto del file. La verifica di applicazioni di grandi dimensioni richiede spesso tempi lunghi. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
-</dd>
-<dt>Precompile</dt>
-<dd><p>Se l'opzione &#232; abilitata, i file JSP (JavaServer Pages ) vengono precompilati. Se l'opzione &#232; disabilitata, i file JSP vengono compilati in fase di runtime al primo accesso. Questa opzione &#232; disabilitata per impostazione predefinita.</p>
-
-</dd>
-<dt>Additional Properties</dt>
-<dd><p>Propriet&#224; aggiuntive per applicazioni. In GlassFish Server non &#232; definita alcuna propriet&#224; aggiuntiva per le applicazioni.</p>
-
+<dt>Nessuno</dt>
+<dd>
+<p>La convalida XML non viene eseguita.</p>
 </dd>
 </dl>
-<h5>Attivit&#224; correlate</h5>
-
-<ul><li><p><a href="task-setadvanceappconfig.html">Impostare la configurazione delle applicazioni</a></p>
-
+</dd>
+<dt>Verificatore</dt>
+<dd>
+<p>Se questa opzione &egrave; abilitata, il verificatore viene eseguito prima della distribuzione automatica. Se la verifica non riesce, la distribuzione non viene eseguita. Il verificatore esamina la struttura e il contenuto del file. La verifica di applicazioni di grandi dimensioni richiede spesso tempi lunghi. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</dd>
+<dt>Precompila</dt>
+<dd>
+<p>Se questa opzione &egrave; abilitata, i file JSP (JavaServer Pages) vengono precompilati. Se questa opzione &egrave; disabilitata, i file JSP vengono compilati in fase di esecuzione al primo accesso. Questa opzione &egrave; disabilitata per impostazione predefinita.</p>
+</dd>
+<dt>Propriet&agrave; aggiuntive</dt>
+<dd>
+<p>Propriet&agrave; aggiuntive per le applicazioni. In GlassFish Server non &egrave; definita alcuna propriet&agrave; aggiuntiva per le applicazioni.</p>
+</dd>
+</dl>
+<a id="sthref232" name="sthref232"></a>
+<h5>Task correlati</h5>
+<ul>
+<li>
+<p><a href="task-setadvanceappconfig.html">Impostare la configurazione delle applicazioni</a></p>
 </li>
-<li><p><a href="task-setadvancedomainattributes.html">Impostare gli attributi di dominio</a></p>
+<li>
+<p><a href="task-setadvancedomainattributes.html">Impostare gli attributi del dominio</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

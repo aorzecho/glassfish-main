@@ -1,145 +1,168 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-create-standalone-instance" name="task-create-standalone-instance"></a><a id="GHCLU00056" name="GHCLU00056"></a></p>
 
-
-<a name="task-create-standalone-instance"></a><h3>Creare un'istanza standalone di GlassFish Server</h3><a name="indexterm-83"></a><a name="indexterm-84"></a><a name="indexterm-85"></a><p>Le istanze di GlassFish Server formano la base della distribuzione dell'applicazione. Un'istanza
-standalone non fa parte di un cluster. Ogni istanza appartiene a un
-dominio singolo e presenta la propria struttura di directory, la propria configurazione
-e le proprie applicazioni distribuite. Ogni istanza include inoltre il contenitore Web
-Java EE (Enterprise Edition) Platform e il contenitore di tecnologia EJB (Enterprise
-JavaBeans). Ogni nuova istanza deve contenere un riferimento a un nodo che
-definisce l'host in cui collocare l'istanza.</p>
-
-
-<hr><p><b>Nota - </b>Per creare un'istanza in un nodo di tipo CONFIG che rappresenta un
-host remoto, &#232; necessario utilizzare il comando secondario <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a>. Per questa operazione
-non &#232; possibile utilizzare Administration Console.</p>
-
+<h4><a id="sthref122" name="sthref122"></a><a id="sthref123" name="sthref123"></a><a id="sthref124" name="sthref124"></a>Creare un'istanza di GlassFish Server standalone</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Le istanze di GlassFish Server formano la base della distribuzione dell'applicazione. Un'istanza standalone non fa parte di un cluster. Ogni istanza appartiene a un dominio singolo e presenta la propria struttura di directory, la propria configurazione e le proprie applicazioni distribuite. Ogni istanza include inoltre il contenitore Web Java Platform, Enterprise Edition (Java EE) e il contenitore di tecnologia EJB (Enterprise JavaBeans). Ogni nuova istanza deve contenere un riferimento a un nodo che definisce l'host in cui risieder&agrave; l'istanza.</p>
 
 <hr>
-<p><b>Prima di cominciare</b></p><p>Verificare che <a href="task-createnode.html">il nodo in cui collocare l'istanza</a> esista.</p>
+<p><b>Nota:</b></p>
+Per creare un'istanza in un nodo di tipo CONFIG che rappresenta un host remoto, &egrave; necessario utilizzare il comando secondario <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00044"><code>create-local-instance</code>(1)</a>. Per questa operazione non &egrave; possibile utilizzare Console di amministrazione.
+<hr>
 
+<a id="sthref125" name="sthref125"></a>
+<h5>Prima di iniziare</h5>
+<p>Verificare che il nodo in cui deve risiedere l'istanza esista. Per istruzioni, vedere <a href="task-createnode.html">Creare un nodo</a>.</p>
 <ol>
-<li><b>Nella struttura ad albero selezionare il nodo Standalone Instances.</b><p>Viene visualizzata la pagina Standalone Server Instances.</p></li>
-<li><b>Nella pagina Standalone Server Instances, fare clic su New.</b><p>Viene visualizzata la pagina New Standalone Server Instance.</p></li>
-<li><b>Nel campo Name digitare il nome per l'istanza.</b><p>Il nome deve soddisfare i seguenti requisiti:</p>
-<ul><li><p>Il nome pu&#242; contenere solo caratteri ASCII.</p>
-
+<li>
+<p>Nella struttura ad albero di navigazione selezionare il nodo Istanze standalone.</p>
+<p>Viene visualizzata la pagina Istanze server standalone.</p>
 </li>
-<li><p>Il nome deve iniziare con una lettera, un numero o un carattere di sottolineatura.</p>
-
+<li>
+<p>Nella pagina Istanze server standalone, fare clic su Nuovo.</p>
+<p>Viene visualizzata la pagina Nuova istanza server standalone.</p>
 </li>
-<li><p>Il nome pu&#242; contenere solo i seguenti caratteri:</p>
-
-
-<ul><li><p>Lettere minuscole</p>
-
+<li>
+<p>Nel campo Nome digitare il nome per l'istanza.</p>
+<p>Il nome deve soddisfare i seguenti requisiti:</p>
+<ul>
+<li>
+<p>Il nome pu&ograve; contenere solo caratteri ASCII.</p>
 </li>
-<li><p>Lettere maiuscole</p>
-
+<li>
+<p>Il nome deve iniziare con una lettera, un numero o un carattere di sottolineatura.</p>
 </li>
-<li><p>Numeri</p>
-
+<li>
+<p>Il nome pu&ograve; contenere solo i seguenti caratteri:</p>
+<ul>
+<li>
+<p>Lettere minuscole</p>
 </li>
-<li><p>Trattino</p>
-
+<li>
+<p>Lettere maiuscole</p>
 </li>
-<li><p>Punto</p>
-
+<li>
+<p>Numeri</p>
 </li>
-<li><p>Carattere di sottolineatura</p>
-
-</li></ul>
+<li>
+<p>Trattino</p>
 </li>
-<li><p>Il nome deve essere univoco nel dominio e non deve essere il nome di un'altra istanza di GlassFish Server, di un cluster, di una configurazione con nome o di un nodo.</p>
-
+<li>
+<p>Punto</p>
 </li>
-<li><p>Il nome non deve essere <tt>domain</tt>, <tt>server</tt> n&#233; nessun'altra parola chiave riservata per GlassFish Server.</p>
-
-</li></ul>
+<li>
+<p>Carattere di sottolineatura</p>
 </li>
-<li><b>Nell'elenco a discesa Node selezionare il nodo in cui collocare l'istanza.</b></li>
-<li><b>Nell'elenco a discesa Configuration selezionare la configurazione con nome che verr&#224; utilizzata
-dall'istanza.</b>
-<hr><p><b>Nota - </b>Se si seleziona <tt>default-config</tt>, &#232; necessario specificare nel passaggio successivo che la
-configurazione <b>non</b> &#232; condivisa. La configurazione <tt>default-config</tt> non pu&#242; essere condivisa.</p>
-
+</ul>
+</li>
+<li>
+<p>Il nome deve essere univoco nel dominio e non deve essere il nome di un'altra istanza di GlassFish Server, di un cluster, di una configurazione denominata o di un nodo.</p>
+</li>
+<li>
+<p>Il nome non deve essere <code>domain</code>, <code>server</code> n&eacute; nessun'altra parola chiave riservata per GlassFish Server.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Nell'elenco a discesa Nodo selezionare il nodo in cui risieder&agrave; l'istanza.</p>
+</li>
+<li>
+<p>Nell'elenco a discesa Configurazione selezionare la configurazione con nome che verr&agrave; utilizzata dall'istanza.</p>
 
 <hr>
-</li>
-<li><b>Specificare se si desidera condividere la configurazione utilizzata dall'istanza.</b><ul>
-<li><b>Se la configurazione non &#232; condivisa, lasciare selezionata l'opzione Make a Copy
-of the Selected Configuration. </b><p>La configurazione selezionata viene copiata al momento della creazione dell'istanza. Alla copia
-della configurazione viene assegnato il nome <tt><i>instance-name</i>-config</tt>, dove <i>instance-name</i> &#232; il nome
-dell'istanza da creare.</p></li>
-<li><b>Se la configurazione &#232; condivisa, selezionare l'opzione Reference the Selected Configuration.</b><p>L'istanza utilizzer&#224; la configurazione con nome esistente specificata.</p></li></ul></li>
-<li><b>Fare clic su OK.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-delete-standalone-instances.html">Eliminare istanze standalone di GlassFish Server</a></p>
+<p><b>Nota:</b></p>
+Se si seleziona <code>default-config</code>, &egrave; necessario specificare nel passo successivo che la configurazione <i>non</i> &egrave; condivisa. La configurazione <code>default-config</code> non pu&ograve; essere condivisa.
+<hr>
 
 </li>
-<li><p><a href="task-start-standalone-instances.html">Avviare istanze standalone di GlassFish Server </a></p>
-
+<li>
+<p>Specificare se si desidera condividere la configurazione utilizzata dall'istanza.</p>
+<ul>
+<li>
+<p>Se la configurazione non &egrave; condivisa, lasciare selezionata l'opzione Crea una copia della configurazione selezionata.</p>
+<p>La configurazione selezionata viene copiata al momento della creazione dell'istanza. Alla copia della configurazione viene assegnato il nome instance-name<code>-config</code>, dove <i>instance-name</i> &egrave; il nome dell'istanza da creare.</p>
 </li>
-<li><p><a href="task-stop-standalone-instances.html">Arrestare istanze standalone di GlassFish Server</a></p>
-
+<li>
+<p>Se la configurazione &egrave; condivisa, selezionare l'opzione Crea riferimento alla configurazione selezionata.</p>
+<p>L'istanza utilizzer&agrave; la configurazione con nome esistente specificata.</p>
 </li>
-<li><p><a href="task-view-logs-standalone-instance.html">Visualizzare i file di log per un'istanza standalone di GlassFish Server</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-recovertransactions-standalone-instance.html">Ripristinare transazioni per un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p>Fare clic su OK.</p>
 </li>
-<li><p><a href="task-standalone-instance-app-deploy.html">Distribuire un'applicazione in un'istanza standalone di GlassFish Server</a></p>
-
+</ol>
+<a id="sthref126" name="sthref126"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-delete-standalone-instances.html">Eliminare le istanze standalone di GlassFish Server</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-list.html">Visualizzare un elenco di applicazioni distribuite in un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-start-standalone-instances.html">Avviare le istanze standalone di GlassFish Server</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-undeploy.html">Annullare la distribuzione di applicazioni da un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-stop-standalone-instances.html">Arrestare le istanze standalone di &amp;ProductName</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-remove.html">Rimuovere applicazioni da un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-view-logs-standalone-instance.html">Visualizzare i file di log per un'istanza standalone di GlassFish Server</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-edit.html">Modificare un'applicazione distribuita a un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-recovertransactions-standalone-instance.html">Recuperare le transazioni per un'istanza standalone di GlassFish Server</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-enable-disable.html">Abilitare o disabilitare un'applicazione distribuita a un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-deploy.html">Distribuire un'applicazione in un'istanza standalone di GlassFish Server</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">Abilitare o disabilitare il bilanciamento del carico per un'applicazione distribuita a un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-list.html">Elencare le applicazioni distribuite in un'istanza standalone di GlassFish Server</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-create.html">Creare una risorsa per un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-undeploy.html">Annullare la distribuzione delle applicazioni in un'istanza standalone di GlassFish Server</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-display.html">Visualizzare l'elenco di risorse per un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-remove.html">Rimuovere le applicazioni da un'istanza standalone di &amp;ProductName</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-enable-disable.html">Abilitare o disabilitare una risorsa per un'istanza standalone di GlassFish Server </a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-edit.html">Modificare un'applicazione distribuita in un'istanza standalone di &amp;ProductName</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-edit.html">Modificare una risorsa per un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-enable-disable.html">Abilitare o disabilitare un'applicazione distribuita in un'istanza standalone di GlassFish Server</a></p>
 </li>
-<li><p><a href="task-change-standalone-instance-ports.html">Modificare i numeri di porta di un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-lb-enable-disable.html">Abilitare o disabilitare il bilanciamento del carico per un'applicazione distribuita in un'istanza standalone di GlassFish Server</a></p>
 </li>
-<li><p><a href="task-set-props-standalone-instance.html">Impostare propriet&#224; specifiche dell'istanza per un'istanza standalone di GlassFish Server </a></p>
-
+<li>
+<p><a href="task-standalone-instance-resource-create.html">Creare una risorsa per un'istanza standalone di ProductName;</a></p>
 </li>
-<li><p><a href="task-mon-app-standalone-instance.html">Visualizzare dati di monitoraggio dell'applicazione per un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-standalone-instance-resource-display.html">Elencare le risorse per un'istanza standalone di ProductName</a></p>
 </li>
-<li><p><a href="task-mon-server-standalone-instance.html">Visualizzare dati di monitoraggio del server virtuale per un'istanza standalone di GlassFish Server</a></p>
-
+<li>
+<p><a href="task-standalone-instance-resource-enable-disable.html">Abilitare o disabilitare una risorsa per un'istanza standalone di &amp;ProductName</a></p>
 </li>
-<li><p><a href="task-mon-resource-standalone-instance.html">Visualizzare i dati di monitoraggio della risorsa per un'istanza standalone di GlassFish Server </a></p>
+<li>
+<p><a href="task-standalone-instance-resource-edit.html">Modificare una risorsa per un'istanza standalone di ProductName</a></p>
+</li>
+<li>
+<p><a href="task-change-standalone-instance-ports.html">Modificare i numeri di porta di un'istanza standalone di GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-set-props-standalone-instance.html">Impostare le propriet&agrave; di sola istanza per un'istanza standalone di GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-mon-app-standalone-instance.html">Visualizzare i dati di monitoraggio delle applicazioni per un'istanza standalone di GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-mon-server-standalone-instance.html">Visualizzare i dati di monitoraggio dei server virtuali per un'istanza standalone di GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-mon-resource-standalone-instance.html">Visualizzare i dati di monitoraggio delle risorse per un'istanza standalone di GlassFish Server</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

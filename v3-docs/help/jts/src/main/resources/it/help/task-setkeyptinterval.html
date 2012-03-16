@@ -1,43 +1,57 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-setkeyptinterval" name="task-setkeyptinterval"></a><a id="GHJTS00008" name="GHJTS00008"></a></p>
 
-
-<a name="task-setkeyptinterval"></a><h3>Impostare l'intervallo keypoint</h3><a name="indexterm-6"></a><a name="indexterm-7"></a><p>Le operazioni keypoint determinano la compressione del file di log delle transazioni.
-L'intervallo keypoint rappresenta il numero di transazioni tra un'operazione keypoint e l'altra
-nel log. Le operazioni keypoint possono ridurre le dimensioni dei file di
-log delle transazioni. Con un valore di intervallo keypoint pi&#249; elevato si
-ottengono file di log delle transazioni di dimensioni maggiori con un numero
-minore di operazioni keypoint e prestazioni potenzialmente migliori. Con un valore di
-intervallo keypoint pi&#249; basso, ad esempio 256, si ottengono file di log
-di dimensioni minori con prestazioni di livello leggermente inferiore a causa della
-maggiore frequenza di operazioni keypoint.</p>
-
+<h4><a id="sthref11" name="sthref11"></a><a id="sthref12" name="sthref12"></a>Impostare l'intervallo dei punti chiave</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Le operazioni punti chiave determinano la compressione del file di log delle transazioni. L'intervallo punti chiave rappresenta il numero di transazioni tra un'operazione punto chiave e l'altra nel log. Le operazioni punti chiave possono ridurre le dimensioni dei file di log delle transazioni. Con un valore di intervallo punti chiave pi&ugrave; elevato si ottengono file di log delle transazioni di dimensioni maggiori con un numero minore di operazioni punti chiave e prestazioni potenzialmente migliori. Con un valore di intervallo punti chiave pi&ugrave; basso, ad esempio 256, si ottengono file di log di dimensioni minori con prestazioni di livello leggermente inferiore a causa della maggiore frequenza di operazioni punti chiave.</p>
 <ol>
-<li><b>Nella struttura ad albero, espandere il nodo Configuration.</b></li>
-<li><b>Selezionare l'istanza da configurare:</b><ul>
-<li><b>Per configurare una particolare istanza, selezionare il nodo config dell'istanza. Ad esempio,
-per l'istanza predefinita <tt>server</tt>, selezionare il nodo <tt>server-config</tt>.</b></li>
-<li><b>Per configurare le impostazioni predefinite per tutte le istanze, selezionare il nodo
-<tt>default-config</tt>.</b></li></ul></li>
-<li><b>Selezionare il nodo Transaction Service.</b><p>Viene visualizzata la pagina Transaction Service.</p></li>
-<li><b>Nel campo Keypoint Interval, digitare il numero di transazioni tra un'operazione keypoint
-e l'altra.</b><p>Il valore predefinito &#232; 65.536.</p></li>
-<li><b>Fare clic su Save.</b></li></ol><p></b>Vedere anche</b></p>
-<ul><li><p><a href="task-configtransservice.html">Configurare Transaction Service</a></p>
-
+<li>
+<p>Nell'albero di navigazione espandere il nodo Configurazione.</p>
 </li>
-<li><p><a href="task-configtransrecovery.html">Configurare la modalit&#224; di ripristino delle transazioni in GlassFish Server</a></p>
-
+<li>
+<p>Selezionare l'istanza da configurare:</p>
+<ul>
+<li>
+<p>Per configurare un'istanza specifica, selezionare il nodo di configurazione dell'istanza. Ad esempio, per l'istanza predefinita <code>server</code>, selezionare il nodo <code>server-config</code>.</p>
 </li>
-<li><p><a href="task-settranstimeout.html">Impostare un valore di timeout per le transazioni</a></p>
-
+<li>
+<p>Per configurare le impostazioni predefinite per tutte le istanze, selezionare il nodo <code>default-config</code>.</p>
 </li>
-<li><p><a href="task-settranslog.html">Impostare la posizione dei log delle transazioni</a></p>
+</ul>
+</li>
+<li>
+<p>Selezionare il nodo Servizio transazioni.</p>
+<p>Viene visualizzata la pagina Servizio transazioni.</p>
+</li>
+<li>
+<p>Nel campo Intervallo punti chiave, digitare il numero di transazioni tra un'operazione punto chiave e l'altra.</p>
+<p>Il valore predefinito &egrave; 65.536.</p>
+</li>
+<li>
+<p>Fare clic su Salva.</p>
+</li>
+</ol>
+<a id="sthref13" name="sthref13"></a>
+<h5>Vedere anche</h5>
+<ul>
+<li>
+<p><a href="task-configtransservice.html">Configurare il servizio transazioni</a></p>
+</li>
+<li>
+<p><a href="task-configtransrecovery.html">Configurare le modalit&agrave; di recupero delle transazioni da parte di GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-settranstimeout.html">Impostare un valore di timeout per le transazioni</a></p>
+</li>
+<li>
+<p><a href="task-settranslog.html">Impostare la posizione dei log delle transazioni</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/o relative consociate. Tutti i diritti riservati. <a href="docinfo.html">Nota legale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
