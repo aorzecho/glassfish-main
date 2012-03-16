@@ -1,96 +1,99 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jdbcconnectionpools"></a><h4>连接池</h4>
-<a name="indexterm-20"></a><p>JDBC 连接池包含一组 JDBC 连接，它们是在注册连接池时创建的。连接池使用 JDBC 驱动程序来创建物理数据库连接。应用程序从池中借用连接并使用此连接，然后关闭连接以将其返还给该池。要创建 JDBC 资源，请指定关联的连接池。多个 JDBC 资源可以指定一个连接池。</p>
+<p><a id="ref-jdbcconnectionpools" name="ref-jdbcconnectionpools"></a><a id="GHJDB00023" name="GHJDB00023"></a></p>
 
-<p>连接池是用于特定数据库的一组可重复使用的连接。由于每创建一个新的物理连接都会耗费时间，因此服务器维护可用连接池来提高性能。应用程序请求连接时可以从池中获取一个连接。应用程序关闭连接时，连接将返回到池中。</p>
-
-<p>使用管理控制台创建连接池时，您是在定义到特定数据库的连接的各个方面。</p>
-
-<p>使用&#8220;JDBC 连接池&#8221;页面可以配置 JDBC 连接池。</p>
-
-<p>对于每个连接池，将提供以下信息。</p>
-
-<dl><dt>池名称</dt>
-<dd><p>连接池的名称。</p>
-
+<h4><a id="sthref38" name="sthref38"></a>&#36830;&#25509;&#27744;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>JDBC &#36830;&#25509;&#27744;&#21253;&#21547;&#19968;&#32452; JDBC &#36830;&#25509;&#65292;&#23427;&#20204;&#26159;&#22312;&#27880;&#20876;&#36830;&#25509;&#27744;&#26102;&#21019;&#24314;&#30340;&#12290;&#36830;&#25509;&#27744;&#20351;&#29992; JDBC &#39537;&#21160;&#31243;&#24207;&#26469;&#21019;&#24314;&#29289;&#29702;&#25968;&#25454;&#24211;&#36830;&#25509;&#12290;&#24212;&#29992;&#31243;&#24207;&#20174;&#27744;&#20013;&#20511;&#29992;&#36830;&#25509;&#24182;&#20351;&#29992;&#27492;&#36830;&#25509;&#65292;&#28982;&#21518;&#20851;&#38381;&#36830;&#25509;&#20197;&#23558;&#20854;&#36820;&#36824;&#32473;&#35813;&#27744;&#12290;&#35201;&#21019;&#24314; JDBC &#36164;&#28304;&#65292;&#35831;&#25351;&#23450;&#20851;&#32852;&#30340;&#36830;&#25509;&#27744;&#12290;&#22810;&#20010; JDBC &#36164;&#28304;&#21487;&#20197;&#25351;&#23450;&#19968;&#20010;&#36830;&#25509;&#27744;&#12290;</p>
+<p>&#36830;&#25509;&#27744;&#26159;&#29992;&#20110;&#29305;&#23450;&#25968;&#25454;&#24211;&#30340;&#19968;&#32452;&#21487;&#37325;&#22797;&#20351;&#29992;&#30340;&#36830;&#25509;&#12290;&#30001;&#20110;&#27599;&#21019;&#24314;&#19968;&#20010;&#26032;&#30340;&#29289;&#29702;&#36830;&#25509;&#37117;&#20250;&#32791;&#36153;&#26102;&#38388;&#65292;&#22240;&#27492;&#26381;&#21153;&#22120;&#32500;&#25252;&#21487;&#29992;&#36830;&#25509;&#27744;&#26469;&#25552;&#39640;&#24615;&#33021;&#12290;&#24212;&#29992;&#31243;&#24207;&#35831;&#27714;&#36830;&#25509;&#26102;&#21487;&#20197;&#20174;&#27744;&#20013;&#33719;&#21462;&#19968;&#20010;&#36830;&#25509;&#12290;&#24212;&#29992;&#31243;&#24207;&#20851;&#38381;&#36830;&#25509;&#26102;&#65292;&#36830;&#25509;&#23558;&#36820;&#22238;&#21040;&#27744;&#20013;&#12290;</p>
+<p>&#20351;&#29992;&#31649;&#29702;&#25511;&#21046;&#21488;&#21019;&#24314;&#36830;&#25509;&#27744;&#26102;&#65292;&#24744;&#26159;&#22312;&#23450;&#20041;&#19982;&#29305;&#23450;&#25968;&#25454;&#24211;&#30340;&#36830;&#25509;&#30340;&#21508;&#20010;&#26041;&#38754;&#12290;</p>
+<p>&#20351;&#29992;&ldquo;JDBC &#36830;&#25509;&#27744;&rdquo;&#39029;&#21487;&#20197;&#37197;&#32622; JDBC &#36830;&#25509;&#27744;&#12290;</p>
+<p>&#23545;&#20110;&#27599;&#20010;&#36830;&#25509;&#27744;&#65292;&#23558;&#25552;&#20379;&#20197;&#19979;&#20449;&#24687;&#65306;</p>
+<dl>
+<dt>&#27744;&#21517;&#31216;</dt>
+<dd>
+<p>&#36830;&#25509;&#27744;&#30340;&#21517;&#31216;&#12290;</p>
 </dd>
-<dt>资源类型</dt>
-<dd><p>连接池的资源类型。</p>
-
+<dt>&#36164;&#28304;&#31867;&#22411;</dt>
+<dd>
+<p>&#36830;&#25509;&#27744;&#30340;&#36164;&#28304;&#31867;&#22411;&#12290;</p>
 </dd>
-<dt>类名</dt>
-<dd><p>实现 <tt>javax.sql.XADataSource</tt>、<tt>java.sql.ConnectionPoolDataSource</tt>、<tt>javax.sql.DataSource</tt> 或 <tt>java.sql.Driver</tt> API 的特定于供应商的类名。</p>
-
+<dt>&#31867;&#21517;</dt>
+<dd>
+<p>&#23454;&#29616; <code>javax.sql.XADataSource</code>&#12289;<code>java.sql.ConnectionPoolDataSource</code>&#12289;<code>javax.sql.DataSource</code> &#25110; <code>java.sql.Driver</code> API &#30340;&#29305;&#23450;&#20110;&#25552;&#20379;&#26041;&#30340;&#31867;&#21517;&#31216;&#12290;</p>
 </dd>
-<dt>说明</dt>
-<dd><p>连接池的简短说明。</p>
-
-</dd>
-</dl>
-<p>&#8220;池&#8221;表还包含以下选项。</p>
-
-<dl><dt>新建</dt>
-<dd><p>用于创建新连接池的按钮。</p>
-
-</dd>
-<dt>删除</dt>
-<dd><p>用于删除一个或多个选定连接池的按钮。</p>
-
+<dt>&#35828;&#26126;</dt>
+<dd>
+<p>&#36830;&#25509;&#27744;&#30340;&#31616;&#30701;&#35828;&#26126;&#12290;</p>
 </dd>
 </dl>
-<a name="gkond"></a><h5>相关任务</h5>
-
-<ul><li><p><a href="task-setdbaccess.html">设置数据库访问</a></p>
-
+<p>&ldquo;&#27744;&rdquo;&#34920;&#36824;&#21253;&#21547;&#20197;&#19979;&#36873;&#39033;&#65306;</p>
+<dl>
+<dt>&#26032;&#24314;</dt>
+<dd>
+<p>&#29992;&#20110;&#21019;&#24314;&#26032;&#36830;&#25509;&#27744;&#30340;&#25353;&#38062;&#12290;</p>
+</dd>
+<dt>&#21024;&#38500;</dt>
+<dd>
+<p>&#29992;&#20110;&#21024;&#38500;&#19968;&#20010;&#25110;&#22810;&#20010;&#25152;&#36873;&#36830;&#25509;&#27744;&#30340;&#25353;&#38062;&#12290;</p>
+</dd>
+</dl>
+<a id="sthref39" name="sthref39"></a>
+<h5>&#30456;&#20851;&#20219;&#21153;</h5>
+<ul>
+<li>
+<p><a href="task-setdbaccess.html">&#35774;&#32622;&#25968;&#25454;&#24211;&#35775;&#38382;&#26435;&#38480;</a></p>
 </li>
-<li><p><a href="task-integratejdbcdriver.html">集成 JDBC 驱动程序</a></p>
-
+<li>
+<p><a href="task-integratejdbcdriver.html">&#38598;&#25104; JDBC &#39537;&#21160;&#31243;&#24207;</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">创建 JDBC 连接池</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">&#21019;&#24314; JDBC &#36830;&#25509;&#27744;</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooledit.html">编辑 JDBC 连接池常规设置</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooledit.html">&#32534;&#36753; JDBC &#36830;&#25509;&#27744;&#24120;&#35268;&#35774;&#32622;</a></p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">验证连接池设置</a></p>
-
+<li>
+<p><a href="task-verifyconnpoolsettings.html">&#39564;&#35777;&#36830;&#25509;&#27744;&#35774;&#32622;</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">编辑 JDBC 连接池高级属性</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">&#32534;&#36753; JDBC &#36830;&#25509;&#27744;&#39640;&#32423;&#23646;&#24615;</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">编辑 JDBC 连接池属性</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">&#32534;&#36753; JDBC &#36830;&#25509;&#27744;&#23646;&#24615;</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">删除 JDBC 连接池</a></p>
-
-</li></ul>
-<a name="gkolr"></a><h5>相关的 <tt>asadmin</tt> 命令</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=add-resources-1"><tt>add-resources</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">&#21024;&#38500; JDBC &#36830;&#25509;&#27744;</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jdbc-connection-pool-1"><tt>create-jdbc-connection-pool</tt>(1)</a></p>
-
+</ul>
+<a id="sthref40" name="sthref40"></a>
+<h5>&#30456;&#20851;&#30340; asadmin &#21629;&#20196;</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00001"><code>add-resources</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jdbc-connection-pool-1"><tt>delete-jdbc-connection-pool</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00036"><code>create-jdbc-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jdbc-connection-pools-1"><tt>list-jdbc-connection-pools</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00088"><code>delete-jdbc-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=ping-connection-pool-1"><tt>ping-connection-pool</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00173"><code>list-jdbc-connection-pools</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-database-1"><tt>start-database</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00214"><code>ping-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-database-1"><tt>stop-database</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00234"><code>start-database</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00239"><code>stop-database</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

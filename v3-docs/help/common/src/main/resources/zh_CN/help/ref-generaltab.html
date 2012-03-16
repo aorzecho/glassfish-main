@@ -1,62 +1,99 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-generaltab"></a><h4>常规信息</h4>
-<a name="indexterm-141"></a><a name="indexterm-142"></a><p>使用&#8220;常规信息&#8221;页面可以验证 GlassFish Server 设置以及查看 Java 虚拟机数据。</p>
+<p><a id="ref-generaltab" name="ref-generaltab"></a><a id="GHCOM00058" name="GHCOM00058"></a></p>
 
-<p>&#8220;常规信息&#8221;页面包含以下信息：</p>
-
-<dl><dt>&#8220;停止&#8221;按钮</dt>
-<dd><p>单击&#8220;停止&#8221;按钮以停止 GlassFish Server。</p>
-
+<h4><a id="sthref247" name="sthref247"></a><a id="sthref248" name="sthref248"></a>&#19968;&#33324;&#20449;&#24687;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>The GlassFish Server creates one application server instance, called <code>server</code> at the time of installation. You can delete the server instance and create a new instance with a different name if you prefer.</p>
+<p>Each GlassFish Server instance has its own Java configuration, Java resources, application deployment areas, and server configuration settings. Changes to one application server instance have no effect on other application server instances. You can have one application server instance within one administrative domain.</p>
+<p>For many users, one application server instance meets their needs. However, depending upon your environment, you might want to create one or more additional application server instances. For example, in a development environment you can use different application server instances to test different GlassFish Server configurations, or to compare and test different application deployments. Because you can easily add or delete an application server instance, you can use them to create temporary "sandbox" areas to experiment with while developing.</p>
+<p>In addition, for each application server instance you can also create virtual servers. Within a single installed application server instance you can offer companies or individuals domain names, IP Addresses, and some administration capabilities. For the users, it is almost as if they have their own web server, without the hardware and basic server maintenance. These virtual servers do not span application server instances. For more information about virtual servers, see <a href="ref-serverinstjvmgeneral.html">JVM &#24120;&#35268;&#35774;&#32622;</a>.</p>
+<p>In operational deployments, for many purposes you can use virtual servers instead of multiple application server instances. However, if virtual servers do not meet your needs, you can also use multiple application server instances.</p>
+<p>An GlassFish Server instance is not started automatically. Once you start an instance, the instance runs until you stop it. When you stop an application server instance, it stops accepting new connections, then waits for all outstanding connections to complete. If your machine crashes or is taken offline, the server quits and any requests it was servicing may be lost.</p>
+<p>&#20351;&#29992;&ldquo;&#19968;&#33324;&#20449;&#24687;&rdquo;&#39029;&#21487;&#20197;&#39564;&#35777; GlassFish Server &#35774;&#32622;&#20197;&#21450;&#26597;&#30475; Java &#34394;&#25311;&#26426;&#25968;&#25454;&#12290;</p>
+<p>&ldquo;&#19968;&#33324;&#20449;&#24687;&rdquo;&#39029;&#21253;&#21547;&#20197;&#19979;&#20449;&#24687;&#65306;</p>
+<dl>
+<dt>&ldquo;&#20572;&#27490;&rdquo;&#25353;&#38062;</dt>
+<dd>
+<p>&#21333;&#20987;&ldquo;&#20572;&#27490;&rdquo;&#25353;&#38062;&#20197;&#20572;&#27490; GlassFish Server&#12290;</p>
 </dd>
-<dt>&#8220;重新启动&#8221;按钮</dt>
-<dd><p>单击&#8220;重新启动&#8221;按钮以重新启动 GlassFish Server。</p>
-
+<dt>&ldquo;&#37325;&#26032;&#21551;&#21160;&rdquo;&#25353;&#38062;</dt>
+<dd>
+<p>&#21333;&#20987;&ldquo;&#37325;&#26032;&#21551;&#21160;&rdquo;&#25353;&#38062;&#20197;&#37325;&#26032;&#21551;&#21160; GlassFish Server&#12290;</p>
 </dd>
-<dt>&#8220;查看日志文件&#8221;按钮</dt>
-<dd><p>单击&#8220;查看日志文件&#8221;按钮可查看 GlassFish Server 实例或群集的日志文件。</p>
-
+<dt>&ldquo;&#26597;&#30475;&#26085;&#24535;&#25991;&#20214;&rdquo;&#25353;&#38062;</dt>
+<dd>
+<p>&#21333;&#20987;&ldquo;&#26597;&#30475;&#26085;&#24535;&#25991;&#20214;&rdquo;&#25353;&#38062;&#21487;&#26597;&#30475; GlassFish Server &#23454;&#20363;&#25110;&#38598;&#32676;&#30340;&#26085;&#24535;&#25991;&#20214;&#12290;</p>
 </dd>
-<dt>名称</dt>
-<dd><p>服务器名称。</p>
-
+<dt>&ldquo;&#26597;&#30475;&#21407;&#22987;&#26085;&#24535;&rdquo;&#25353;&#38062;</dt>
+<dd>
+<p>&#21333;&#20987;&ldquo;&#26597;&#30475;&#21407;&#22987;&#26085;&#24535;&rdquo;&#25353;&#38062;&#21487;&#26597;&#30475;&#31649;&#29702;&#26381;&#21153;&#22120; (&#21517;&#20026; <code>server</code>) &#30340;&#21407;&#22987;&#26085;&#24535;&#25991;&#20214;&#12290;</p>
+</dd>
+<dt>&ldquo;&#23433;&#20840;&#31649;&#29702;&rdquo;&#25353;&#38062;</dt>
+<dd>
+<p>&#21333;&#20987;&ldquo;&#23433;&#20840;&#31649;&#29702;&rdquo;&#25353;&#38062;&#21487;&#22312;&ldquo;<a href="ref-securityadmin.html">&#23433;&#20840;&#31649;&#29702;</a>&rdquo;&#39029;&#19978;&#21551;&#29992;&#25110;&#31105;&#29992;&#23433;&#20840;&#31649;&#29702;&#12290;</p>
+</dd>
+<dt>&#21517;&#31216;</dt>
+<dd>
+<p>&#26381;&#21153;&#22120;&#30340; current &#21517;&#31216;&#12290;</p>
+</dd>
+<dt>&#29366;&#24577;</dt>
+<dd>
+<p>&#26381;&#21153;&#22120;&#23454;&#20363;&#30340;&#24403;&#21069;&#29366;&#24577;&#12290;&#26381;&#21153;&#22120;&#21487;&#33021;&#24050;&#20572;&#27490;&#12289;&#24050;&#21551;&#21160;&#25110;&#27491;&#22312;&#36816;&#34892;&#12290;</p>
+</dd>
+<dt>&#27491;&#24120;&#36816;&#34892;&#26102;&#38388;</dt>
+<dd>
+<p>&#26381;&#21153;&#22120;&#23454;&#20363;&#24050;&#36830;&#32493;&#36816;&#34892;&#30340;&#23567;&#26102;&#21644;&#20998;&#38047;&#25968;&#12290;&#36825;&#26159;&#21482;&#35835;&#20449;&#24687;&#12290;</p>
+</dd>
+<dt>HTTP Load Balancer</dt>
+<dd>
+<p>The name of the load balancer, if it is enabled for the server instance.</p>
 </dd>
 <dt>JVM</dt>
-<dd><p>如果单击&#8220;JVM 报告&#8221;，则会打开一个单独的窗口，此窗口显示有关 Java 虚拟机的报告，包括摘要报告、内存管理和垃圾收集报告、类装入报告和当前线程转储。</p>
-
+<dd>
+<p>&#22914;&#26524;&#21333;&#20987;&ldquo;JVM &#25253;&#21578;&rdquo;&#65292;&#21017;&#20250;&#25171;&#24320;&#19968;&#20010;&#21333;&#29420;&#30340;&#31383;&#21475;&#65292;&#27492;&#31383;&#21475;&#26174;&#31034;&#26377;&#20851; Java &#34394;&#25311;&#26426;&#30340;&#25253;&#21578;&#65292;&#21253;&#25324;&#27010;&#35201;&#25253;&#21578;&#12289;&#20869;&#23384;&#31649;&#29702;&#21644;&#22403;&#22334;&#25910;&#38598;&#25253;&#21578;&#12289;&#31867;&#21152;&#36733;&#25253;&#21578;&#21644;&#24403;&#21069;&#32447;&#31243;&#36716;&#20648;&#12290;</p>
 </dd>
-<dt>配置目录</dt>
-<dd><p>主机上包含配置文件（例如 <tt>domain.xml</tt>）的目录。</p>
-
+<dt>&#37197;&#32622;&#30446;&#24405;</dt>
+<dd>
+<p>&#20027;&#26426;&#19978;&#21253;&#21547;&#37197;&#32622;&#25991;&#20214; (&#20363;&#22914; <code>domain.xml</code>) &#30340;&#30446;&#24405;&#12290;</p>
 </dd>
-<dt>安装版本</dt>
-<dd><p>产品版本标识符。</p>
-
+<dt>&#24050;&#23433;&#35013;&#30340;&#29256;&#26412;</dt>
+<dd>
+<p>&#20135;&#21697;&#29256;&#26412;&#26631;&#35782;&#31526;&#12290;</p>
 </dd>
-<dt>调试</dt>
-<dd><p>标识是否已启用调试。如果已启用调试，则还会显示端口号。</p>
-
+<dt>&#23433;&#20840;&#31649;&#29702;</dt>
+<dd>
+<p>&#23433;&#20840;&#31649;&#29702;&#30340;&#24403;&#21069;&#29366;&#24577;&#12290;&#21487;&#33021;&#30340;&#20540;&#20026;&ldquo;&#24050;&#21551;&#29992;&rdquo;&#25110;&ldquo;&#26410;&#21551;&#29992;&rdquo;&#12290;</p>
 </dd>
-<dt>HTTP 端口</dt>
-<dd><p>当前配置的用于 HTTP 请求和响应的端口。</p>
-
+<dt>&#35843;&#35797;</dt>
+<dd>
+<p>&#26631;&#35782;&#26159;&#21542;&#24050;&#21551;&#29992;&#35843;&#35797;&#12290;&#22914;&#26524;&#24050;&#21551;&#29992;&#35843;&#35797;&#65292;&#21017;&#36824;&#20250;&#26174;&#31034;&#31471;&#21475;&#21495;&#12290;</p>
 </dd>
-<dt>IIOP 端口</dt>
-<dd><p>当前配置的用于 IIOP 请求和响应的端口。</p>
-
+<dt>HTTP &#31471;&#21475;</dt>
+<dd>
+<p>&#24403;&#21069;&#37197;&#32622;&#30340;&#29992;&#20110; HTTP &#35831;&#27714;&#21644;&#21709;&#24212;&#30340;&#31471;&#21475;&#12290;</p>
+</dd>
+<dt>IIOP &#31471;&#21475;</dt>
+<dd>
+<p>&#24403;&#21069;&#37197;&#32622;&#30340;&#29992;&#20110; IIOP &#35831;&#27714;&#21644;&#21709;&#24212;&#30340;&#31471;&#21475;&#12290;</p>
 </dd>
 </dl>
-<h5>相关任务</h5>
-
-<ul><li><p><a href="task-generaltab.html">查看 DAS 的常规信息</a></p>
-
+<a id="sthref249" name="sthref249"></a>
+<h5>&#30456;&#20851;&#20219;&#21153;</h5>
+<ul>
+<li>
+<p><a href="task-generaltab.html">&#26597;&#30475; DAS &#30340;&#19968;&#33324;&#20449;&#24687;</a></p>
 </li>
-<li><p><a href="task-logviewer.html">查看 DAS 的日志文件</a></p>
+<li>
+<p><a href="task-logviewer.html">&#26597;&#30475; DAS &#30340;&#26085;&#24535;&#25991;&#20214;</a></p>
+</li>
+<li>
+<p><a href="task-rawlogviewer.html">&#26597;&#30475; DAS &#30340;&#21407;&#22987;&#26085;&#24535;&#25991;&#20214;</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

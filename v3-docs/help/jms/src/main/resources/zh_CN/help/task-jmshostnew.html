@@ -1,44 +1,87 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmshostnew" name="task-jmshostnew"></a><a id="GHJMS00027" name="GHJMS00027"></a></p>
 
-
-<a name="task-jmshostnew"></a><h3>创建 JMS 主机</h3><a name="indexterm-14"></a><ol>
-<li><b>在导航树中，展开&#8220;配置&#8221;节点。</b></li>
-<li><b>在&#8220;配置&#8221;节点下，展开&#8220;Java 消息服务&#8221;节点。</b></li>
-<li><b>在&#8220;Java 消息服务&#8221;节点下，选择&#8220;JMS 主机&#8221;节点。</b><p>此时将打开&#8220;JMS 主机&#8221;页面。</p></li>
-<li><b>在&#8220;JMS 主机&#8221;页面中，单击&#8220;新建&#8221;。</b><p>此时将显示&#8220;新建 JMS 主机&#8221;页面。</p></li>
-<li><b>在&#8220;名称&#8221;字段中，键入主机的名称。</b><p>例如：</p><pre>NewJmsHost</pre></li>
-<li><b>在&#8220;主机&#8221;字段中，键入将运行 JMS 主机的系统的名称或 Internet 协议 (Internet Protocol, IP) 地址（<tt>localhost</tt> 或者本地或远程系统的名称）。</b></li>
-<li><b>在&#8220;端口&#8221;字段中，键入 JMS 服务的端口号。</b><p>仅当使用的 JMS 服务在非默认端口上运行时，才需要更改此字段。默认端口为 7676。</p></li>
-<li><b>在&#8220;管理用户名&#8221;和&#8220;管理密码&#8221;字段中，键入 Message Queue 代理用户名和密码。</b><p>该用户名和密码与 GlassFish Server 的用户名和密码不同。仅当已使用 <tt><i>as-install-parent</i>/mq/bin/imqusermgr</tt> 命令更改了 Message Queue 代理值时，才需要编辑这些字段。默认值为 <tt>admin</tt> 和 <tt>admin</tt>。</p></li>
-<li><b>单击&#8220;确定&#8221;。</b></li></ol><p></b>另请参见</b></p>
-<ul><li><p><a href="task-jmsservice.html">配置 JMS 服务</a></p>
-
+<h4><a id="sthref24" name="sthref24"></a>&#21019;&#24314; JMS &#20027;&#26426;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>&#22312;&#23548;&#33322;&#26641;&#20013;&#65292;&#23637;&#24320;&ldquo;&#37197;&#32622;&rdquo;&#33410;&#28857;&#12290;</p>
 </li>
-<li><p><a href="task-jmshostedit.html">编辑 JMS 主机</a></p>
-
+<li>
+<p>Select the instance to configure:</p>
+<ul>
+<li>
+<p>To configure a particular instance, select the instance's config node. For example, for the default instance, <code>server</code>, select the <code>server-config</code> node.</p>
 </li>
-<li><p><a href="task-jmshostdelete.html">删除 JMS 主机</a></p>
-
+<li>
+<p>To configure the default settings for future instances that use a copy of <code>default-config</code>, select the <code>default-config</code> node.</p>
 </li>
-<li><p><a href="task-jmsphysicaldestnew.html">创建 JMS 物理目的地</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-jmsphysicaldestedit.html">编辑 JMS 物理目的地</a></p>
-
+<li>
+<p>&#22312;&ldquo;&#37197;&#32622;&rdquo;&#33410;&#28857;&#19979;&#65292;&#23637;&#24320;&ldquo;Java &#28040;&#24687;&#26381;&#21153;&rdquo;&#33410;&#28857;&#12290;</p>
 </li>
-<li><p><a href="task-jmsphysicaldestdelete.html">删除 JMS 物理目的地</a></p>
-
+<li>
+<p>&#22312;&ldquo;Java &#28040;&#24687;&#26381;&#21153;&rdquo;&#33410;&#28857;&#19979;&#65292;&#36873;&#25321;&ldquo;JMS &#20027;&#26426;&rdquo;&#33410;&#28857;&#12290;</p>
+<p>&#27492;&#26102;&#23558;&#25171;&#24320;&ldquo;JMS &#20027;&#26426;&rdquo;&#39029;&#12290;</p>
 </li>
-<li><p><a href="task-jmsflushmessages.html">从 JMS 物理目的地删除消息</a></p>
-
+<li>
+<p>&#22312;&ldquo;JMS &#20027;&#26426;&rdquo;&#39029;&#20013;&#65292;&#21333;&#20987;&ldquo;&#26032;&#24314;&rdquo;&#12290;</p>
+<p>&#27492;&#26102;&#23558;&#26174;&#31034;&ldquo;&#26032;&#24314; JMS &#20027;&#26426;&rdquo;&#39029;&#12290;</p>
 </li>
-<li><p><a href="task-jmsphysicaldeststats.html">查看 JMS 物理目的地的统计信息</a></p>
+<li>
+<p>&#22312;&ldquo;&#21517;&#31216;&rdquo;&#23383;&#27573;&#20013;&#65292;&#38190;&#20837;&#20027;&#26426;&#30340;&#21517;&#31216;&#12290;</p>
+<p>&#20363;&#22914;&#65306;</p>
+<pre>
+NewJmsHost
+</pre></li>
+<li>
+<p>&#22312;&ldquo;&#20027;&#26426;&rdquo;&#23383;&#27573;&#20013;&#65292;&#38190;&#20837;&#23558;&#36816;&#34892; JMS &#20027;&#26426;&#30340;&#31995;&#32479;&#30340;&#21517;&#31216;&#25110; Internet &#21327;&#35758; (IP) &#22320;&#22336; (<code>localhost</code> &#25110;&#32773;&#26412;&#22320;&#25110;&#36828;&#31243;&#31995;&#32479;&#30340;&#21517;&#31216;)&#12290;</p>
+</li>
+<li>
+<p>&#22312;&ldquo;&#31471;&#21475;&rdquo;&#23383;&#27573;&#20013;&#65292;&#38190;&#20837; JMS &#26381;&#21153;&#30340;&#31471;&#21475;&#21495;&#12290;</p>
+<p>&#20165;&#24403;&#20351;&#29992;&#30340; JMS &#26381;&#21153;&#22312;&#38750;&#40664;&#35748;&#31471;&#21475;&#19978;&#36816;&#34892;&#26102;&#65292;&#25165;&#38656;&#35201;&#26356;&#25913;&#27492;&#23383;&#27573;&#12290;&#40664;&#35748;&#31471;&#21475;&#20026; 7676&#12290;</p>
+</li>
+<li>
+<p>&#22312;&ldquo;&#31649;&#29702;&#21592;&#29992;&#25143;&#21517;&rdquo;&#21644;&ldquo;&#31649;&#29702;&#21592;&#21475;&#20196;&rdquo;&#23383;&#27573;&#20013;&#65292;&#38190;&#20837;&#28040;&#24687;&#38431;&#21015;&#20013;&#20171;&#29992;&#25143;&#21517;&#21644;&#21475;&#20196;&#12290;</p>
+<p>&#35813;&#29992;&#25143;&#21517;&#21644;&#21475;&#20196;&#19982; GlassFish Server &#30340;&#29992;&#25143;&#21517;&#21644;&#21475;&#20196;&#19981;&#21516;&#12290;&#20165;&#24403;&#24050;&#20351;&#29992; <i>as-install-parent</i><code>/mq/bin/imqusermgr</code> &#21629;&#20196;&#26356;&#25913;&#20102;&#28040;&#24687;&#38431;&#21015;&#20013;&#20171;&#20540;&#26102;&#65292;&#25165;&#38656;&#35201;&#32534;&#36753;&#36825;&#20123;&#23383;&#27573;&#12290;&#40664;&#35748;&#20540;&#20026; <code>admin</code> &#21644; <code>admin</code>&#12290;</p>
+</li>
+<li>
+<p>&#21333;&#20987;&ldquo;&#30830;&#23450;&rdquo;&#12290;</p>
+</li>
+</ol>
+<a id="sthref25" name="sthref25"></a>
+<h5>&#21478;&#35831;&#21442;&#38405;</h5>
+<ul>
+<li>
+<p><a href="task-jmsservice.html">&#37197;&#32622; JMS &#26381;&#21153;</a></p>
+</li>
+<li>
+<p><a href="task-jmshostedit.html">&#32534;&#36753; JMS &#20027;&#26426;</a></p>
+</li>
+<li>
+<p><a href="task-jmshostdelete.html">&#21024;&#38500; JMS &#20027;&#26426;</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestnew.html">&#21019;&#24314; JMS &#29289;&#29702;&#30446;&#26631;</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestedit.html">&#32534;&#36753; JMS &#29289;&#29702;&#30446;&#26631;</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestdelete.html">&#21024;&#38500; JMS &#29289;&#29702;&#30446;&#26631;</a></p>
+</li>
+<li>
+<p><a href="task-jmsflushmessages.html">&#20174; JMS &#29289;&#29702;&#30446;&#26631;&#21024;&#38500;&#28040;&#24687;</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldeststats.html">&#26597;&#30475; JMS &#29289;&#29702;&#30446;&#26631;&#30340;&#32479;&#35745;&#20449;&#24687;</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

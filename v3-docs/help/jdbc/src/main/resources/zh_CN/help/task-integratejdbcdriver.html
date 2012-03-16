@@ -1,60 +1,91 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-integratejdbcdriver" name="task-integratejdbcdriver"></a><a id="GHJDB00031" name="GHJDB00031"></a></p>
 
-
-<a name="task-integratejdbcdriver"></a><h3>集成 JDBC 驱动程序</h3><a name="indexterm-3"></a><p>支持 JDBC API 的驱动程序（JDBC 驱动程序）将应用程序的 JDBC 调用转换为数据库服务器的协议。</p>
-
+<h4><a id="sthref4" name="sthref4"></a>&#38598;&#25104; JDBC &#39537;&#21160;&#31243;&#24207;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>&#25903;&#25345; JDBC API &#30340;&#39537;&#21160;&#31243;&#24207; (JDBC &#39537;&#21160;&#31243;&#24207;) &#23558;&#24212;&#29992;&#31243;&#24207;&#30340; JDBC &#35843;&#29992;&#36716;&#25442;&#20026;&#25968;&#25454;&#24211;&#26381;&#21153;&#22120;&#30340;&#21327;&#35758;&#12290;</p>
+<p>&#35201;&#23558; JDBC &#39537;&#21160;&#31243;&#24207;&#38598;&#25104;&#21040; GlassFish Server &#22495;&#20013;&#65292;&#35831;&#25191;&#34892;&#20197;&#19979;&#25805;&#20316;&#20043;&#19968;&#65306;</p>
 <ul>
-<li><b>要将 JDBC 驱动程序集成到 GlassFish Server 域中，请执行以下操作之一：</b><ul>
-<li><b>使通用类加载器可以访问该驱动程序。</b><ol style="list-style-type: lower-alpha">
-<li><b>将驱动程序的 JAR 和 ZIP 文件复制到 <i>domain-dir</i><tt>/lib</tt> 目录中。</b>
-<hr><p><b>注 - </b>此规则有一个例外。如果您使用 Oracle JDBC 驱动程序，并希望利用可用来与 Oracle 数据库搭配使用的 EclipseLink 扩展，则必须将 Oracle JDBC 驱动程序的 JAR
-文件放在 <i>domain-dir</i><tt>/lib/ext</tt> 目录中。</p>
-
+<li>
+<p>&#20351;&#36890;&#29992;&#31867;&#21152;&#36733;&#22120;&#21487;&#20197;&#35775;&#38382;&#35813;&#39537;&#21160;&#31243;&#24207;&#12290;</p>
+<ol>
+<li>
+<p>&#23558;&#39537;&#21160;&#31243;&#24207;&#30340; JAR &#21644; ZIP &#25991;&#20214;&#22797;&#21046;&#21040; <i>domain-dir</i><code>/lib</code> &#30446;&#24405;&#20013;&#12290;</p>
 
 <hr>
-</li>
-<li><b>重新启动域。</b></li></ol></li>
-<li><b>使系统类加载器可以访问驱动程序。</b><ol style="list-style-type: lower-alpha">
-<li><b>在导航树中，展开&#8220;配置&#8221;节点。</b></li>
-<li><b>在&#8220;配置&#8221;节点下，选择&#8220;JVM 设置&#8221;节点。</b><p>此时将打开&#8220;JVM 常规设置&#8221;页面。</p></li>
-<li><b>在&#8220;JVM 常规设置&#8221;页面上，单击&#8220;路径设置&#8221;选项卡。</b></li>
-<li><b>在&#8220;类路径后缀&#8221;字段中，键入驱动程序 JAR 文件的全限定路径名。</b></li>
-<li><b>单击&#8220;保存&#8221;。</b></li>
-<li><b>重新启动服务器。</b></li></ol></li></ul></li></ul><p></b>另请参见</b></p>
-<ul><li><p><a href="task-setdbaccess.html">设置数据库访问</a></p>
+<p><b>&#27880;:</b></p>
+&#27492;&#35268;&#21017;&#26377;&#19968;&#20010;&#20363;&#22806;&#12290;&#22914;&#26524;&#24744;&#20351;&#29992; Oracle JDBC &#39537;&#21160;&#31243;&#24207;&#65292;&#24182;&#24076;&#26395;&#21033;&#29992;&#21487;&#29992;&#26469;&#19982; Oracle &#25968;&#25454;&#24211;&#25645;&#37197;&#20351;&#29992;&#30340; EclipseLink &#25193;&#23637;&#65292;&#21017;&#24517;&#39035;&#23558; Oracle JDBC &#39537;&#21160;&#31243;&#24207;&#30340; JAR &#25991;&#20214;&#25918;&#22312; <i>domain-dir</i><code>/lib/ext</code> &#30446;&#24405;&#20013;&#12290;
+<hr>
 
 </li>
-<li><p><a href="task-jdbcresourcenew.html">创建 JDBC 资源</a></p>
-
+<li>
+<p>&#37325;&#26032;&#21551;&#21160;&#22495;&#12290;</p>
 </li>
-<li><p><a href="task-jdbcresourcesedit.html">编辑 JDBC 资源</a></p>
-
+</ol>
 </li>
-<li><p><a href="task-jdbcresourcesdelete.html">删除 JDBC 资源</a></p>
-
+<li>
+<p>&#20351;&#31995;&#32479;&#31867;&#21152;&#36733;&#22120;&#21487;&#20197;&#35775;&#38382;&#39537;&#21160;&#31243;&#24207;&#12290;</p>
+<ol>
+<li>
+<p>&#22312;&#23548;&#33322;&#26641;&#20013;&#65292;&#23637;&#24320;&ldquo;&#37197;&#32622;&rdquo;&#33410;&#28857;&#12290;</p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">创建 JDBC 连接池</a></p>
-
+<li>
+<p>&#22312;&ldquo;&#37197;&#32622;&rdquo;&#33410;&#28857;&#19979;&#65292;&#36873;&#25321;&ldquo;JVM &#35774;&#32622;&rdquo;&#33410;&#28857;&#12290;</p>
+<p>&#27492;&#26102;&#23558;&#25171;&#24320;&ldquo;JVM &#24120;&#35268;&#35774;&#32622;&rdquo;&#39029;&#12290;</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooledit.html">编辑 JDBC 连接池常规设置</a></p>
-
+<li>
+<p>&#22312;&ldquo;JVM &#24120;&#35268;&#35774;&#32622;&rdquo;&#39029;&#19978;&#65292;&#21333;&#20987;&ldquo;&#36335;&#24452;&#35774;&#32622;&rdquo;&#36873;&#39033;&#21345;&#12290;</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">编辑 JDBC 连接池高级属性</a></p>
-
+<li>
+<p>&#22312;&ldquo;&#31867;&#36335;&#24452;&#21518;&#32512;&rdquo;&#23383;&#27573;&#20013;&#65292;&#38190;&#20837;&#39537;&#21160;&#31243;&#24207; JAR &#25991;&#20214;&#30340;&#20840;&#38480;&#23450;&#36335;&#24452;&#21517;&#12290;</p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">验证连接池设置</a></p>
-
+<li>
+<p>&#21333;&#20987;&ldquo;&#20445;&#23384;&rdquo;&#12290;</p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">编辑 JDBC 连接池属性</a></p>
-
+<li>
+<p>&#37325;&#26032;&#21551;&#21160;&#26381;&#21153;&#22120;&#12290;</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">删除 JDBC 连接池</a></p>
+</ol>
+</li>
+</ul>
+<a id="sthref5" name="sthref5"></a>
+<h5>&#21478;&#35831;&#21442;&#38405;</h5>
+<ul>
+<li>
+<p><a href="task-setdbaccess.html">&#35774;&#32622;&#25968;&#25454;&#24211;&#35775;&#38382;&#26435;&#38480;</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcenew.html">&#21019;&#24314; JDBC &#36164;&#28304;</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcesedit.html">&#32534;&#36753; JDBC &#36164;&#28304;</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcesdelete.html">&#21024;&#38500; JDBC &#36164;&#28304;</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">&#21019;&#24314; JDBC &#36830;&#25509;&#27744;</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooledit.html">&#32534;&#36753; JDBC &#36830;&#25509;&#27744;&#24120;&#35268;&#35774;&#32622;</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">&#32534;&#36753; JDBC &#36830;&#25509;&#27744;&#39640;&#32423;&#23646;&#24615;</a></p>
+</li>
+<li>
+<p><a href="task-verifyconnpoolsettings.html">&#39564;&#35777;&#36830;&#25509;&#27744;&#35774;&#32622;</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">&#32534;&#36753; JDBC &#36830;&#25509;&#27744;&#23646;&#24615;</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">&#21024;&#38500; JDBC &#36830;&#25509;&#27744;</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,54 +1,75 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-enablemesec4appclients" name="task-enablemesec4appclients"></a><a id="GHCOM00210" name="GHCOM00210"></a></p>
 
-
-<a name="task-enablemesec4appclients"></a><h3>启用应用程序客户机的消息安全性</h3><a name="indexterm-113"></a><p>客户机提供者必须同与其进行交互的服务器端提供者具有相同的消息保护策略。在安装 GlassFish Server 时配置（但未启用）的提供者也符合此情况。</p>
-
-<p>要启用应用程序客户机的消息安全性，请修改应用程序客户机容器特定于 GlassFish Server 的配置。</p>
-
+<h4><a id="sthref197" name="sthref197"></a>&#20026;&#24212;&#29992;&#31243;&#24207;&#23458;&#25143;&#26426;&#21551;&#29992;&#28040;&#24687;&#23433;&#20840;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>&#23458;&#25143;&#26426;&#25552;&#20379;&#26041;&#24517;&#39035;&#21516;&#19982;&#20854;&#36827;&#34892;&#20132;&#20114;&#30340;&#26381;&#21153;&#22120;&#31471;&#25552;&#20379;&#26041;&#20855;&#26377;&#30456;&#21516;&#30340;&#28040;&#24687;&#20445;&#25252;&#31574;&#30053;&#12290;&#22312;&#23433;&#35013; GlassFish Server &#26102;&#37197;&#32622; (&#20294;&#26410;&#21551;&#29992;) &#30340;&#25552;&#20379;&#26041;&#20063;&#31526;&#21512;&#27492;&#24773;&#20917;&#12290;</p>
+<p>&#35201;&#21551;&#29992;&#24212;&#29992;&#31243;&#24207;&#23458;&#25143;&#26426;&#30340;&#28040;&#24687;&#23433;&#20840;&#65292;&#35831;&#20462;&#25913;&#24212;&#29992;&#31243;&#24207;&#23458;&#25143;&#26426;&#23481;&#22120;&#29305;&#23450;&#20110; GlassFish Server &#30340;&#37197;&#32622;&#12290;</p>
 <ol>
-<li><b>停止所有取决于客户机容器描述符的客户机应用程序。</b></li>
-<li><b>在文本编辑器中打开 Sun 应用程序客户机容器描述符（位于 <i>domain-dir</i><tt>/config/sun-acc.xml</tt> 中）。</b></li>
-<li><b>要启用应用程序客户机中的默认客户机提供者，请将元素的 <tt>default-client-provider</tt> 属性添加到 <tt>message-security-config</tt> 元素中。 </b><p>将显示上下文的相关代码，可能会与您的安装稍有不同。请勿对其进行更改。</p><pre>&#60;client-container>
-  &#60;target-server name="<i>your-host</i>" address="<i>your-host</i>"
-      port="<i>your-port</i>"/>
-  &#60;log-service file="" level="WARNING"/>
-  &#60;message-security-config auth-layer="SOAP"
-      <b>default-client-provider="ClientProvider"</b>>
-    &#60;provider-config
+<li>
+<p>&#20572;&#27490;&#25152;&#26377;&#21462;&#20915;&#20110;&#23458;&#25143;&#26426;&#23481;&#22120;&#25551;&#36848;&#31526;&#30340;&#23458;&#25143;&#26426;&#24212;&#29992;&#31243;&#24207;&#12290;</p>
+</li>
+<li>
+<p>&#22312;&#25991;&#26412;&#32534;&#36753;&#22120;&#20013;&#25171;&#24320; Sun &#24212;&#29992;&#31243;&#24207;&#23458;&#25143;&#26426;&#23481;&#22120;&#25551;&#36848;&#31526; (&#20301;&#20110; <i>domain-dir</i><code>/config/sun-acc.xml</code> &#20013;)&#12290;</p>
+</li>
+<li>
+<p>&#35201;&#21551;&#29992;&#24212;&#29992;&#31243;&#24207;&#23458;&#25143;&#26426;&#20013;&#30340;&#40664;&#35748;&#30340;&#23458;&#25143;&#26426;&#25552;&#20379;&#26041;&#65292;&#35831;&#23558;&#20803;&#32032;&#30340; <code>default-client-provider</code> &#23646;&#24615;&#28155;&#21152;&#21040; <code>message-security-config</code> &#20803;&#32032;&#20013;&#12290;</p>
+<p>&#23558;&#26174;&#31034;&#19978;&#19979;&#25991;&#30340;&#30456;&#20851;&#20195;&#30721;&#65292;&#21487;&#33021;&#20250;&#19982;&#24744;&#30340;&#23433;&#35013;&#31245;&#26377;&#19981;&#21516;&#12290;&#35831;&#21247;&#23545;&#20854;&#36827;&#34892;&#26356;&#25913;&#12290;</p>
+<pre>
+&lt;client-container&gt;
+  &lt;target-server name="<i>your-host</i>" address="<i>your-host</i>"
+      port="<i>your-port</i>"/&gt;
+  &lt;log-service file="" level="WARNING"/&gt;
+  &lt;message-security-config auth-layer="SOAP"
+      <b>default-client-provider="ClientProvider"</b>&gt;
+    &lt;provider-config
         class-name="com.sun.enterprise.security.jauth.ClientAuthModule"
-        provider-id="ClientProvider" provider-type="client">
-      &#60;request-policy auth-source="sender"/>
-      &#60;response-policy/>
-        &#60;property name="security.config"
-          value="C:/Sun/AppServer/lib/appclient/wss-client-config.xml"/>
-    &#60;/provider-config>
-  &#60;/message-security-config>
-&#60;/client-container></pre><p>客户机容器中配置的消息安全性提供者必须具有对私钥和信任证书的访问权限。要为消息安全性提供者提供访问权限，请为应用程序客户机启动脚本中的以下系统属性设置相应的值：</p><pre>-Djavax.net.ssl.keyStore</pre><pre>-Djavax.net.ssl.trustStore</pre></li></ol><p></b>另请参见</b></p>
-<ul><li><p><a href="task-configmsgsecproviders.html">配置 GlassFish Server 工具以供消息安全性提供者使用</a></p>
+        provider-id="clientprovider" provider-type="client"&gt;
+      &lt;request-policy auth-source="sender"/&gt;
+      &lt;response-policy/&gt;
+        &lt;property name="security.config"
+          value="C:/Sun/AppServer/lib/appclient/wss-client-config.xml"/&gt;
+    &lt;/provider-config&gt;
+  &lt;/message-security-config&gt;
+&lt;/client-container&gt;
+</pre>
+<p>&#23458;&#25143;&#26426;&#23481;&#22120;&#20013;&#37197;&#32622;&#30340;&#28040;&#24687;&#23433;&#20840;&#25552;&#20379;&#26041;&#24517;&#39035;&#20855;&#26377;&#23545;&#31169;&#26377;&#23494;&#38053;&#21644;&#20449;&#20219;&#35777;&#20070;&#30340;&#35775;&#38382;&#26435;&#38480;&#12290;&#35201;&#20026;&#28040;&#24687;&#23433;&#20840;&#25552;&#20379;&#26041;&#25552;&#20379;&#35775;&#38382;&#26435;&#38480;&#65292;&#35831;&#20026;&#24212;&#29992;&#31243;&#24207;&#23458;&#25143;&#26426;&#21551;&#21160;&#33050;&#26412;&#20013;&#30340;&#20197;&#19979;&#31995;&#32479;&#23646;&#24615;&#35774;&#32622;&#30456;&#24212;&#30340;&#20540;&#65306;</p>
+<pre>
+-Djavax.net.ssl.keyStore
 
+-Djavax.net.ssl.trustStore
+</pre></li>
+</ol>
+<a id="sthref198" name="sthref198"></a>
+<h5>&#21478;&#35831;&#21442;&#38405;</h5>
+<ul>
+<li>
+<p><a href="task-configmsgsecproviders.html">&#37197;&#32622;&#20379;&#28040;&#24687;&#23433;&#20840;&#25552;&#20379;&#26041;&#20351;&#29992;&#30340; GlassFish Server &#24037;&#20855;</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfignew.html">创建消息安全性配置</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfignew.html">&#21019;&#24314;&#28040;&#24687;&#23433;&#20840;&#37197;&#32622;</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigedit.html">编辑消息安全性配置</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigedit.html">&#32534;&#36753;&#28040;&#24687;&#23433;&#20840;&#37197;&#32622;</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigdelete.html">删除消息安全性配置</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigdelete.html">&#21024;&#38500;&#28040;&#24687;&#23433;&#20840;&#37197;&#32622;</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfignew.html">创建消息安全性提供者配置</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfignew.html">&#21019;&#24314;&#28040;&#24687;&#23433;&#20840;&#25552;&#20379;&#26041;&#37197;&#32622;</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigedit.html">编辑消息安全性提供者配置</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigedit.html">&#32534;&#36753;&#28040;&#24687;&#23433;&#20840;&#25552;&#20379;&#26041;&#37197;&#32622;</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigdelete.html">删除消息安全性提供者配置</a></p>
+<li>
+<p><a href="task-messagesecurityproviderconfigdelete.html">&#21024;&#38500;&#28040;&#24687;&#23433;&#20840;&#25552;&#20379;&#26041;&#37197;&#32622;</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>版权所有 &#169; 2005, 2011, Oracle 和/或其附属公司。 保留所有权利。 <a href="docinfo.html">法律声明</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
