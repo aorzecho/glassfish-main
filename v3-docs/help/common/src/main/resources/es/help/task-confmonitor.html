@@ -1,49 +1,71 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-confmonitor" name="task-confmonitor"></a><a id="GHCOM00213" name="GHCOM00213"></a></p>
 
-
-<a name="task-confmonitor"></a><h3>C&#243;mo configurar el servicio de supervisi&#243;n</h3><a name="indexterm-119"></a><ol>
-<li><b>En el nodo Configuraciones, ampl&#237;e la configuraci&#243;n de instancia o cl&#250;ster del
-servidor para el que desee configurar la supervisi&#243;n.</b></li>
-<li><b>Ampl&#237;e el nodo Supervisi&#243;n.</b><p>Se abrir&#225; la p&#225;gina Servicio de supervisi&#243;n.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Servicio de supervisi&#243;n habilitado para habilitar la
-supervisi&#243;n para Servidor GlassFish, o anule la selecci&#243;n de la casilla de
-verificaci&#243;n para deshabilitar la supervisi&#243;n. </b><p>Esta opci&#243;n se habilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n MBean de supervisi&#243;n habilitados para implementar todos
-los MBean necesarios para la supervisi&#243;n, o anule la selecci&#243;n de la
-casilla de verificaci&#243;n para anular la implementaci&#243;n de estos MBean. </b><p>Esta opci&#243;n se habilita por defecto.</p><p>Si la casilla de verificaci&#243;n no est&#225; seleccionada, no podr&#225; ver datos
-de supervisi&#243;n en la Consola de administraci&#243;n incluso si la casilla de verificaci&#243;n
-Servicio de supervisi&#243;n est&#225; seleccionada. En su lugar, debe utilizar la l&#237;nea
-de comandos para ver los datos de supervisi&#243;n. Si anula la selecci&#243;n
-de la casilla de verificaci&#243;n, la huella de memoria de Servidor GlassFish
-se reduce. </p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n DTrace activado para habilitar el uso de
-la utilidad DTrace de Solaris. </b><p>Para poder utilizar la utilidad DTrace deSolaris tambi&#233;n debe tener la supervisi&#243;n
-DTrace Manager Enterprise de Oracle. Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>En la tabla, realice una de las siguientes acciones.</b><ul>
-<li><b>En la columna Nivel de supervisi&#243;n, seleccione BAJO o ALTO en la
-lista desplegable para uno o m&#225;s componentes de la columna Componentes para
-habilitar la supervisi&#243;n para esos componentes.</b></li>
-<li><b>Seleccione las casillas de verificaci&#243;n junto a uno o m&#225;s componentes y,
-a continuaci&#243;n, seleccione BAJO o ALTO en la lista desplegable en la
-parte superior de la tabla y haga clic en el bot&#243;n Cambiar
-nivel para ajustar el nivel de supervisi&#243;n en ese nivel para todos
-esos componentes.</b></li></ul><p>No existe diferencia alguna entre los niveles de supervisi&#243;n que ofrecen las
-opciones BAJO y ALTO de esta versi&#243;n. Para deshabilitar la supervisi&#243;n de
-uno o m&#225;s componentes, seleccione DESACTIVADO. El valor predeterminado es DESACTIVADO.</p><p>Debe implementar una aplicaci&#243;n, componente o servicio antes de configurar su supervisi&#243;n. </p></li>
-<li><b>Haga clic en Guardar.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-appmonitoringdata.html">Visualizaci&#243;n de datos de supervisi&#243;n de la aplicaci&#243;n</a></p>
-
+<h4><a id="sthref206" name="sthref206"></a>Configurar el Servicio de Supervisi&oacute;n</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Para abrir la p&aacute;gina Servicio de Supervisi&oacute;n, haga una de estas acciones:</p>
+<ul>
+<li>
+<p>Seleccione el nodo Datos de Supervisi&oacute;n y haga clic en el enlace Configurar Supervisi&oacute;n para la instancia de servidor para la que desee configurar la supervisi&oacute;n. Para configurar la supervisi&oacute;n para un cluster, elija cualquier instancia del cluster.</p>
 </li>
-<li><p><a href="task-servermonitoringdata.html">Visualizaci&#243;n de datos de supervisi&#243;n del servidor</a></p>
-
+</ul>
+<ul>
+<li>
+<p>En el nodo Configuraciones, ampl&iacute;e la configuraci&oacute;n de la instancia de servidor o del cluster para la que desee configurar la supervisi&oacute;n y ampl&iacute;e el nodo Supervisi&oacute;n.</p>
 </li>
-<li><p><a href="task-resourcemonitoringdata.html">Para ver los datos de supervisi&#243;n de recursos</a></p>
+</ul>
+<p>Se abrir&aacute; la p&aacute;gina Servicio de Supervisi&oacute;n.</p>
+</li>
+<li>
+<p>Active la casilla de control Servicio de Supervisi&oacute;n Activado para activar la supervisi&oacute;n para Servidor GlassFish o desactive la casilla de control para desactivar la supervisi&oacute;n.</p>
+<p>Esta opci&oacute;n est&aacute; activada por defecto.</p>
+</li>
+<li>
+<p>Active la casilla de control MBeans de Supervisi&oacute;n Activados para desplegar todos los MBean necesarios para la supervisi&oacute;n o desactive la casilla de control para anular el despliegue de estos MBeans.</p>
+<p>Esta opci&oacute;n est&aacute; activada por defecto.</p>
+<p>Si la casilla de control no est&aacute; activada, no podr&aacute; ver datos de supervisi&oacute;n en la Consola de Administraci&oacute;n incluso si la casilla de control Servicio de Supervisi&oacute;n est&aacute; activada. En su lugar, debe utilizar la l&iacute;nea de comandos para ver los datos de supervisi&oacute;n. Si desactiva la casilla de control, la huella de memoria de Servidor GlassFish se reduce.</p>
+</li>
+<li>
+<p>Active la casilla de control DTrace Activado para activar el uso de la utilidad DTrace de Solaris.</p>
+<p>Para poder utilizar la utilidad DTrace de Solaris tambi&eacute;n debe tener la supervisi&oacute;n DTrace Manager Enterprise de Oracle. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
+</li>
+<li>
+<p>En la tabla, realice una de las siguientes acciones.</p>
+<ul>
+<li>
+<p>En la columna Nivel de Supervisi&oacute;n, seleccione BAJO o ALTO en la lista desplegable para uno o m&aacute;s componentes de la columna Componente para activar la supervisi&oacute;n para esos componentes.</p>
+</li>
+<li>
+<p>Active las casillas de control junto a uno o m&aacute;s componentes y, a continuaci&oacute;n, seleccione LOW o HIGH en la lista desplegable Nivel en la parte superior de la tabla y haga clic en el bot&oacute;n Cambiar Nivel para definir el nivel de supervisi&oacute;n en ese nivel para todos esos componentes.</p>
+</li>
+</ul>
+<p>No existe diferencia alguna entre los niveles de supervisi&oacute;n que ofrecen las opciones LOW y HIGH de esta versi&oacute;n. Para desactivar la supervisi&oacute;n de uno o m&aacute;s componentes, seleccione OFF. El valor por defecto es OFF.</p>
+<p>Debe desplegar una aplicaci&oacute;n, componente o servicio antes de configurar su supervisi&oacute;n.</p>
+</li>
+<li>
+<p>Haga clic en Guardar.</p>
+</li>
+</ol>
+<a id="sthref207" name="sthref207"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-appmonitoringdata.html">Ver Datos de Supervisi&oacute;n de Aplicaci&oacute;n</a></p>
+</li>
+<li>
+<p><a href="task-servermonitoringdata.html">Ver Datos de Supervisi&oacute;n de Servidor</a></p>
+</li>
+<li>
+<p><a href="task-resourcemonitoringdata.html">Ver Datos de Supervisi&oacute;n de Recurso</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,53 +1,87 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmshostnew" name="task-jmshostnew"></a><a id="GHJMS00027" name="GHJMS00027"></a></p>
 
-
-<a name="task-jmshostnew"></a><h3>Para crear un host JMS</h3><a name="indexterm-14"></a><ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, amplie el nodo Configuraci&#243;n.</b></li>
-<li><b>En el nodo Configuraci&#243;n, seleccione y expanda el nodo Java Message Service.</b></li>
-<li><b>En el nodo Java Message Service, seleccione el nodo Hosts JMS.</b><p>Se abrir&#225; la p&#225;gina Hosts JMS.</p></li>
-<li><b>En la p&#225;gina Host JMS, haga clic en Nuevo.</b><p>Se mostrar&#225; la p&#225;gina Nuevo host JMS.</p></li>
-<li><b>En el campo Nombre, introduzca el nombre del host.</b><p>Por ejemplo:</p><pre>NewJmsHost</pre></li>
-<li><b>En el campo Host, introduzca el nombre o la direcci&#243;n IP (Internet
-Protocol) del sistema donde se ejecutar&#225; el host JMS (<tt>localhost </tt> o el
-nombre del sistema local o remoto).</b></li>
-<li><b>En el campo Puerto, introduzca el n&#250;mero de puerto del servicio JMS.</b><p>Modifique este campo s&#243;lo si el servicio JMS que va a utilizar
-se ejecuta en un puerto que no es el predeterminado. El puerto
-predeterminado es 7676.</p></li>
-<li><b>En los campos Nombre de usuario de administraci&#243;n y Contrase&#241;a de administraci&#243;n,
-introduzca el nombre de usuario y la contrase&#241;a del agente de Message
-Queue.</b><p>&#201;stos son diferentes del nombre de usuario y la contrase&#241;a de Servidor
-GlassFish. Edite estos campos solamente si los valores del agente intermediario de
-Message Queue se han modificado mediante el comando <tt><i>as-install-parent</i>/mq/bin/imqusermgr</tt>. Los valores predeterminados
-son <tt>admin</tt> y <tt> admin</tt>.</p></li>
-<li><b>Haga clic en Aceptar.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-jmsservice.html">C&#243;mo configurar el servicio JMS</a></p>
-
+<h4><a id="sthref24" name="sthref24"></a>Crear un Host JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Configuraci&oacute;n.</p>
 </li>
-<li><p><a href="task-jmshostedit.html">Para editar un host JMS</a></p>
-
+<li>
+<p>Select the instance to configure:</p>
+<ul>
+<li>
+<p>To configure a particular instance, select the instance's config node. For example, for the default instance, <code>server</code>, select the <code>server-config</code> node.</p>
 </li>
-<li><p><a href="task-jmshostdelete.html">Para eliminar un host JMS</a></p>
-
+<li>
+<p>To configure the default settings for future instances that use a copy of <code>default-config</code>, select the <code>default-config</code> node.</p>
 </li>
-<li><p><a href="task-jmsphysicaldestnew.html">Para crear un destino f&#237;sico JMS</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-jmsphysicaldestedit.html">Para editar un destino f&#237;sico JMS</a></p>
-
+<li>
+<p>En el nodo Configuraci&oacute;n, ampl&iacute;e el nodo Java Message Service.</p>
 </li>
-<li><p><a href="task-jmsphysicaldestdelete.html">Para eliminar un destino f&#237;sico JMS</a></p>
-
+<li>
+<p>En el nodo Java Message Service, seleccione el nodo Hosts JMS.</p>
+<p>Se abrir&aacute; la p&aacute;gina Hosts JMS.</p>
 </li>
-<li><p><a href="task-jmsflushmessages.html">Para retirar mensajes de un destino f&#237;sico JMS</a></p>
-
+<li>
+<p>En la p&aacute;gina Hosts JMS, haga clic en Nuevo.</p>
+<p>Se mostrar&aacute; la p&aacute;gina Nuevo Host JMS.</p>
 </li>
-<li><p><a href="task-jmsphysicaldeststats.html">Para ver las estad&#237;sticas para un destino f&#237;sico JMS</a></p>
+<li>
+<p>En el campo Nombre, introduzca el nombre del host.</p>
+<p>Por ejemplo:</p>
+<pre>
+NewJmsHost
+</pre></li>
+<li>
+<p>En el campo Host, introduzca el nombre o la direcci&oacute;n IP (Internet Protocol) del sistema donde se ejecutar&aacute; el host JMS (<code>localhost</code> o el nombre del sistema local o remoto).</p>
+</li>
+<li>
+<p>En el campo Puerto, introduzca el n&uacute;mero de puerto del servicio JMS.</p>
+<p>Modifique este campo s&oacute;lo si el servicio JMS que va a utilizar se ejecuta en un puerto que no es el que se usa por defecto. El puerto por defecto es 7676.</p>
+</li>
+<li>
+<p>En los campos Nombre de Usuario Administrador y Contrase&ntilde;a de Administrador, introduzca el nombre de usuario y la contrase&ntilde;a del broker de Message Queue.</p>
+<p>&Eacute;stos son diferentes del nombre de usuario y la contrase&ntilde;a de Servidor GlassFish. Edite estos campos solamente si los valores del broker de Message Queue se han modificado mediante el comando <i>as-install-parent</i><code>/mq/bin/imqusermgr</code>. Los valores por defecto son <code>admin</code> y <code>admin</code>.</p>
+</li>
+<li>
+<p>Haga clic en Aceptar.</p>
+</li>
+</ol>
+<a id="sthref25" name="sthref25"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-jmsservice.html">Configurar el Servicio JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmshostedit.html">Editar un Host JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmshostdelete.html">Suprimir un Host JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestnew.html">Crear un Destino F&iacute;sico JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestedit.html">Editar un Destino F&iacute;sico JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestdelete.html">Suprimir un Destino F&iacute;sico JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsflushmessages.html">Eliminar Mensajes de un Destino F&iacute;sico JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldeststats.html">Ver Estad&iacute;sticas de un Destino F&iacute;sico JMS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

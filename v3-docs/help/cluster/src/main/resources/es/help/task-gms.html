@@ -1,52 +1,80 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-gms" name="task-gms"></a><a id="GHCLU00080" name="GHCLU00080"></a></p>
 
-
-<a name="task-gms"></a><h3>Para configurar los Servicios de administraci&#243;n de grupos</h3><a name="indexterm-153"></a><p>Los Servicios de administraci&#243;n de grupos (GMS) son servicios en curso que
-proporcionan supervisi&#243;n del cl&#250;ster, pertenencia al cl&#250;ster y servicios de comunicaci&#243;n de
-grupos. Los GMS realizan las funciones siguientes:</p>
-
-
-<ul><li><p>Notifican los m&#243;dulos registrados en una instancia de Servidor GlassFish cuando se a&#241;aden o eliminan una o varias instancias en un cl&#250;ster, o cuando se sospecha o se confirma que han fallado.</p>
-
+<h4><a id="sthref222" name="sthref222"></a>Configurar el Servicio de Gesti&oacute;n de Grupos</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>El Servicio de Gesti&oacute;n de Grupos (GMS) es un servicio en curso que proporciona supervisi&oacute;n del cluster, pertenencia al cluster y servicios de comunicaci&oacute;n de grupos. Los GMS realizan las funciones siguientes:</p>
+<ul>
+<li>
+<p>Notifican los m&oacute;dulos registrados en una instancia de GlassFish Server cuando se agregan o eliminan una o varias instancias en un cluster, o cuando se sospecha o se confirma que han fallado.</p>
 </li>
-<li><p>Permiten enviar y recibir mensajes entre un grupo de procesos.</p>
-
-</li></ul>
+<li>
+<p>Permiten enviar y recibir mensajes entre un grupo de procesos.</p>
+</li>
+</ul>
 <ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraci&#243;n.</b></li>
-<li><b>Seleccione la configuraci&#243;n para el cl&#250;ster que vaya a cambiar.</b></li>
-<li><b>En el nodo Configuraci&#243;n, seleccione el nodo Servicios de administraci&#243;n de grupos.</b><p>Se abrir&#225; la p&#225;gina Servicios de administraci&#243;n de grupos.</p></li>
-<li><b>En el campo Maximum Missed Heartbeats (M&#225;ximo de latidos descartados), especifique el
-n&#250;mero m&#225;ximo de intentos de supervisi&#243;n antes de que los GMS confirmen
-la sospecha de un error.</b><p>El valor predeterminado es 3.</p></li>
-<li><b>En el campo Heartbeat Frequency (Frecuencia de latido), indique el periodo de
-tiempo que transcurrir&#225; entre los intentos de supervisi&#243;n.</b><p>El valor predeterminado es 2.000 milisegundos.</p></li>
-<li><b>En el campo Group Discovery Timeout (Tiempo de espera de detecci&#243;n de
-grupos), indique el tiempo que esperar&#225;n los GMS para detectar otros miembros
-del cl&#250;ster.</b><p>El valor predeterminado es 5.000 milisegundos.</p></li>
-<li><b>En el campo Failure Verification Wait Time (Tiempo de espera para la
-verificaci&#243;n de errores), indique el tiempo que transcurrir&#225; para que un presunto
-error se marque como comprobado.</b><p>El valor predeterminado es 1.500 milisegundos.</p></li>
-<li><b>Para restablecer los valores predeterminados, haga clic en el bot&#243;n Cargar predeterminados.</b></li>
-<li>(Opcional) <b>En la secci&#243;n Propiedades adicionales, especifique las propiedades adicionales.</b><p>Servidor GlassFish no define propiedades adicionales para los GMS.</p><ul>
-<li><b>Para a&#241;adir una propiedad, haga clic en el bot&#243;n A&#241;adir propiedad. En
-la fila vac&#237;a escriba el nombre de la propiedad en el campo
-Nombre y el valor de la propiedad en el campo Valor.</b></li>
-<li><b>Para modificar una propiedad, edite su campo Valor.</b></li>
-<li><b>Para eliminar una propiedad, marque la casilla de verificaci&#243;n situada a la
-izquierda del campo Nombre de la propiedad que quiera eliminar y, a
-continuaci&#243;n, haga clic en el bot&#243;n Eliminar propiedades.</b></li></ul></li>
-<li><b>Haga clic en Guardar.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-gmsenable.html">Para habilitar los Servicios de administraci&#243;n de grupos</a></p>
-
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Configuraci&oacute;n.</p>
 </li>
-<li><p><a href="task-gmscluster.html">Para configurar los Servicios de administraci&#243;n de grupos para un cl&#250;ster</a></p>
+<li>
+<p>Seleccione la configuraci&oacute;n para el cluster que vaya a cambiar.</p>
+</li>
+<li>
+<p>En el nodo de configuraci&oacute;n, seleccione el nodo Servicio de Gesti&oacute;n de Grupos.</p>
+<p>Se abre la p&aacute;gina Servicio de Gesti&oacute;n de Grupos.</p>
+</li>
+<li>
+<p>En el campo N&uacute;mero M&aacute;ximo de Latidos que Faltan, especifique el n&uacute;mero m&aacute;ximo de intentos de supervisi&oacute;n antes de que los GMS confirmen la sospecha de un error.</p>
+<p>El valor por defecto es 3.</p>
+</li>
+<li>
+<p>En el campo Frecuencia de Latidos, indique el periodo de tiempo que transcurrir&aacute; entre los intentos de supervisi&oacute;n.</p>
+<p>El valor por defecto es 2.000 milisegundos.</p>
+</li>
+<li>
+<p>En el campo Timeout de Detecci&oacute;n de Grupos, indique el tiempo que esperar&aacute;n los GMS para detectar otros miembros del cluster.</p>
+<p>El valor por defecto es 5.000 milisegundos.</p>
+</li>
+<li>
+<p>En el campo Tiempo de Espera para la Verificaci&oacute;n de Fallos, indique el tiempo que transcurrir&aacute; para que un presunto error se marque como comprobado.</p>
+<p>El valor por defecto es 1.500 milisegundos.</p>
+</li>
+<li>
+<p>Para restaurar los valores por defecto, haga clic en el bot&oacute;n Cargar Valores por Defecto.</p>
+</li>
+<li>
+<p>En la secci&oacute;n Propiedades Adicionales, especifique las propiedades adicionales.</p>
+<ul>
+<li>
+<p>Para agregar una propiedad, haga clic en el bot&oacute;n Agregar Propiedad. En la fila en blanco que aparece, escriba el nombre de propiedad en el campo Nombre y escriba el valor de propiedad en el campo Valor.</p>
+</li>
+<li>
+<p>Para modificar una propiedad, edite su campo Valor.</p>
+</li>
+<li>
+<p>Para suprimir una propiedad, seleccione la casilla de verificaci&oacute;n a la izquierda del campo Nombre de la propiedad que est&aacute; suprimiendo y, a continuaci&oacute;n, haga clic en el bot&oacute;n Suprimir Propiedades.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Haga clic en Guardar.</p>
+</li>
+</ol>
+<a id="sthref223" name="sthref223"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-gmsenable.html">Activar el Servicio de Gesti&oacute;n de Grupos</a></p>
+</li>
+<li>
+<p><a href="task-gmscluster.html">Configurar Opciones del Servicio de Gesti&oacute;n de Grupos para un Cluster</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

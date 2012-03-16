@@ -1,91 +1,125 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmsphysicaldestnew" name="task-jmsphysicaldestnew"></a><a id="GHJMS00030" name="GHJMS00030"></a></p>
 
-
-<a name="task-jmsphysicaldestnew"></a><h3>Para crear un destino f&#237;sico JMS</h3><a name="indexterm-17"></a><a name="indexterm-18"></a><p>Normalmente, no es necesario crear destinos f&#237;sicos, ya que se especifica un
-nombre de destino f&#237;sico al crear un recurso de destino JMS y
-Servidor GlassFish crea autom&#225;ticamente el destino f&#237;sico cuando hace falta.</p>
-
+<h4><a id="sthref30" name="sthref30"></a><a id="sthref31" name="sthref31"></a>Crear un Destino F&iacute;sico JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Normalmente, no es necesario crear destinos f&iacute;sicos, ya que se especifica un nombre de destino f&iacute;sico al crear un recurso de destino JMS y Servidor GlassFish crea autom&aacute;ticamente el destino f&iacute;sico cuando hace falta.</p>
 <ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, amplie el nodo Configuraci&#243;n.</b></li>
-<li><b>En el nodo Configuraci&#243;n, seleccione y expanda el nodo Java Message Service.</b></li>
-<li><b>En el nodo Java Message Service, seleccione el nodo Destinos f&#237;sicos.</b><p>Se abrir&#225; la p&#225;gina Destinos f&#237;sicos.</p></li>
-<li><b>En la p&#225;gina Destinos f&#237;sicos, haga clic en Nuevo.</b><p>Se abrir&#225; la p&#225;gina Nuevo destino f&#237;sico.</p></li>
-<li><b>En el campo Nombre, introduzca el nombre del destino f&#237;sico.</b></li>
-<li><b>En la lista desplegable Tipo, seleccione <tt> javax.jms.Topic</tt> o <tt>javax.jms.Queue</tt>.</b></li>
-<li><b>En el campo N&#250;mero m&#225;ximo de mensajes no consumidos, escriba el n&#250;mero
-m&#225;ximo de mensajes no consumidos permitido para el destino.</b><p>Un valor de -1 indica que no hay l&#237;mite para el n&#250;mero
-de mensajes no consumidos. El valor predeterminado es -1.</p></li>
-<li><b>En el campo Tama&#241;o m&#225;ximo de mensaje, especifique el tama&#241;o m&#225;ximo en
-bytes que puede tener un mensaje.</b><p>Un valor de -1 indica un tama&#241;o de mensaje ilimitado. El valor predeterminado
-es -1.</p></li>
-<li><b>En el campo Total m&#225;ximo de memoria, escriba la cantidad total de
-memoria destinada a los mensajes no consumidos, en bytes.</b><p>Un valor de -1 indica que no hay l&#237;mite para el tama&#241;o
-de memoria destinado a los mensajes no consumidos. El valor predeterminado es
--1.</p></li>
-<li><b>En la lista desplegable Comportamiento de umbral l&#237;mite, seleccione el comportamiento que
-ha de observar el agente intermediario cuando se alcance el umbral del
-l&#237;mite de la memoria.</b><ul>
-<li><b><tt>Rechazar los mensajes m&#225;s recientes</tt> le indica al agente intermediario que debe rechazar los mensajes m&#225;s
-recientes y notific&#225;rselo al cliente que los produzca mediante una excepci&#243;n, esto
-&#250;ltimo solamente si el mensaje es persistente.</b><p><tt>Rechazar los mensajes m&#225;s recientes</tt> es el valor predeterminado.</p></li>
-<li><b><tt>Ralentizar productores</tt> indica al agente intermediario que reduzca la velocidad y la frecuencia
-con que env&#237;an mensajes los productores.</b></li>
-<li><b><tt>Eliminar los m&#225;s antiguos</tt> indica al agente intermediario que descarte los mensajes m&#225;s antiguos.</b></li>
-<li><b><tt>Eliminar los mensajes con prioridad m&#225;s baja</tt> indica al agente intermediario que descarte los mensajes con la prioridad m&#225;s
-baja.</b></li></ul><p>Si el valor es<tt>Eliminar los m&#225;s antiguos</tt> o <tt>Eliminar los mensajes con la prioridad m&#225;s baja</tt> y Utilizar la cola de mensajes
-inactivos se establecen en "True", los mensajes que superen el l&#237;mite se
-mueven a la cola de mensajes inactivos.</p></li>
-<li><b>En el campo N&#250;mero m&#225;ximo de productores, escriba el n&#250;mero m&#225;ximo de productores
-de mensajes que se pueden asociar a este destino f&#237;sico.</b><p>Cuando se alcanza este l&#237;mite, no se pueden crear nuevos productores. Un
-valor de -1 indica un n&#250;mero ilimitado de productores.  El valor predeterminado
-es 100.</p></li>
-<li><b>En el campo Recuento m&#225;x. de mensajes de entrega por lotes, escriba
-el n&#250;mero m&#225;ximo de mensajes que se pueden entregar a los usuarios
-en un s&#243;lo lote.</b><p>Un valor de -1 indica un n&#250;mero ilimitado de mensajes.  El valor
-predeterminado es 1.000.</p></li>
-<li><b>Desde la lista desplegable Utilizar la cola de mensajes inactivos, seleccione "True"
-para colocar los mensajes inactivos en la cola de mensajes inactivos.</b><p>Si el valor se establece en "False", los mensajes inactivos se descartar&#225;n.
-De manera predeterminada, esta opci&#243;n est&#225; establecida en "True".</p></li>
-<li><b>Desde la lista desplegable Validar el esquema XML habilitado, seleccione "True" para
-habilitar la validaci&#243;n del esquema XML para el destino.</b><p>Si el valor se establece en "True", el tiempo de ejecuci&#243;n del
-cliente de Message Queue intentar&#225; validar un mensaje de XML en comparaci&#243;n
-con las definiciones del esquema XML especificadas (o compar&#225;ndolo con el DTD,
-si es que no se especifica XSD) antes de enviarlo al agente
-intermediario. Si el esquema especificado no se puede localizar o no es
-posible validar el mensaje, &#233;ste &#250;ltimo no se enviar&#225; y aparecer&#225; una
-excepci&#243;n. De forma predeterminada, esta opci&#243;n est&#225; establecida en "False".</p></li>
-<li><b>En el campo Lista URI del esquema XML, escriba una lista separada
-por espacios de cadenas URI de definici&#243;n de esquema XML (XSD).</b><p>Si est&#225; habilitada la validaci&#243;n del esquema XML, las URI indican la
-ubicaci&#243;n de uno o m&#225;s XSD que se emplear&#225;n para la validaci&#243;n
-del esquema XML.</p></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-jmsservice.html">C&#243;mo configurar el servicio JMS</a></p>
-
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Configuraci&oacute;n.</p>
 </li>
-<li><p><a href="task-jmshostnew.html">Para crear un host JMS</a></p>
-
+<li>
+<p>Select the instance to configure:</p>
+<ul>
+<li>
+<p>To configure a particular instance, select the instance's config node. For example, for the default instance, <code>server</code>, select the <code>server-config</code> node.</p>
 </li>
-<li><p><a href="task-jmshostedit.html">Para editar un host JMS</a></p>
-
+<li>
+<p>To configure the default settings for future instances that use a copy of <code>default-config</code>, select the <code>default-config</code> node.</p>
 </li>
-<li><p><a href="task-jmshostdelete.html">Para eliminar un host JMS</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-jmsphysicaldestedit.html">Para editar un destino f&#237;sico JMS</a></p>
-
+<li>
+<p>En el nodo Configuraci&oacute;n, ampl&iacute;e el nodo Java Message Service.</p>
 </li>
-<li><p><a href="task-jmsphysicaldestdelete.html">Para eliminar un destino f&#237;sico JMS</a></p>
-
+<li>
+<p>En el nodo Java Message Service, seleccione el nodo Destinos F&iacute;sicos.</p>
+<p>Se abrir&aacute; la p&aacute;gina Destinos F&iacute;sicos.</p>
 </li>
-<li><p><a href="task-jmsflushmessages.html">Para retirar mensajes de un destino f&#237;sico JMS</a></p>
-
+<li>
+<p>En la p&aacute;gina Destinos F&iacute;sicos, haga clic en Nuevo.</p>
+<p>Se abrir&aacute; la p&aacute;gina Nuevo Destino F&iacute;sico.</p>
 </li>
-<li><p><a href="task-jmsphysicaldeststats.html">Para ver las estad&#237;sticas para un destino f&#237;sico JMS</a></p>
+<li>
+<p>En el campo Nombre, introduzca el nombre del destino f&iacute;sico.</p>
+</li>
+<li>
+<p>En la lista desplegable Tipo, seleccione <code>javax.jms.Topic</code> o <code>javax.jms.Queue</code>.</p>
+</li>
+<li>
+<p>En el campo N&uacute;mero M&aacute;ximo de Mensajes no Consumidos, escriba el n&uacute;mero m&aacute;ximo de mensajes no consumidos permitido para el destino.</p>
+<p>Un valor de -1 indica que no hay l&iacute;mite para el n&uacute;mero de mensajes no consumidos. El valor por defecto es -1.</p>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o M&aacute;ximo de Mensaje, especifique el tama&ntilde;o m&aacute;ximo en bytes que puede tener un mensaje.</p>
+<p>Un valor de -1 indica un tama&ntilde;o de mensaje ilimitado. El valor por defecto es -1.</p>
+</li>
+<li>
+<p>En el campo Memoria M&aacute;xima Total, escriba la cantidad total de memoria destinada a los mensajes no consumidos, en bytes.</p>
+<p>Un valor de -1 indica que no hay l&iacute;mite para el tama&ntilde;o de memoria destinado a los mensajes no consumidos. El valor por defecto es -1.</p>
+</li>
+<li>
+<p>En la lista desplegable Comportamiento L&iacute;mite de Umbral, seleccione el comportamiento que ha de observar el broker intermediario cuando se alcance el umbral del l&iacute;mite de la memoria.</p>
+<ul>
+<li>
+<p><code>Rechazar los mensajes m&aacute;s recientes</code> le indica al broker que debe rechazar los mensajes m&aacute;s recientes y notific&aacute;rselo al cliente que los produzca mediante una excepci&oacute;n, esto &uacute;ltimo solamente si el mensaje es persistente.</p>
+<p><code>Rechazar los mensajes m&aacute;s recientes</code> es el valor por defecto.</p>
+</li>
+<li>
+<p><code>Ralentizar productores</code> indica al broker que reduzca la velocidad y la frecuencia con que env&iacute;an mensajes los productores.</p>
+</li>
+<li>
+<p><code>Rechazar los m&aacute;s antiguos</code> indica al broker que descarte los mensajes m&aacute;s antiguos.</p>
+</li>
+<li>
+<p><code>Rechazar los mensajes con prioridad m&aacute;s baja</code> indica al broker que descarte los mensajes con la prioridad m&aacute;s baja.</p>
+</li>
+</ul>
+<p>Si el valor es<code>Rechazar los m&aacute;s antiguos</code> o <code>Rechazar los mensajes con prioridad m&aacute;s baja</code> y Usar Cola de Mensajes Inoperativos se establecen en "True", los mensajes que superen el l&iacute;mite se mueven a la cola de mensajes inoperativos.</p>
+</li>
+<li>
+<p>En el campo N&uacute;mero M&aacute;ximo de Productores, escriba el n&uacute;mero m&aacute;ximo de productores de mensajes que se pueden asociar a este destino f&iacute;sico.</p>
+<p>Cuando se alcanza este l&iacute;mite, no se pueden crear nuevos productores. El valor -1 indica un n&uacute;mero ilimitado de productores. El valor por defecto es 100.</p>
+</li>
+<li>
+<p>En el campo Recuento M&aacute;ximo de Mensajes de Entrega de Lotes, escriba el n&uacute;mero m&aacute;ximo de mensajes que se pueden entregar a los usuarios en un solo lote.</p>
+<p>Un valor de -1 indica un n&uacute;mero ilimitado de mensajes. El valor por defecto es 1.000.</p>
+</li>
+<li>
+<p>Desde la lista desplegable Usar Cola de Mensajes Inoperativos, seleccione "True" para colocar los mensajes inoperativos en la cola de mensajes inoperativos.</p>
+<p>Si el valor se establece en "False", los mensajes inoperativos se descartar&aacute;n. Por defecto, esta opci&oacute;n est&aacute; establecida en "True".</p>
+</li>
+<li>
+<p>Desde la lista desplegable de activaci&oacute;n de Validar Esquema XML, seleccione "True" para activar la validaci&oacute;n del esquema XML para el destino.</p>
+<p>Si el valor se establece en "True", el tiempo de ejecuci&oacute;n del cliente de Message Queue intentar&aacute; validar un mensaje de XML en comparaci&oacute;n con las definiciones del esquema XML especificadas (o compar&aacute;ndolo con el DTD, si es que no se especifica XSD) antes de enviarlo al broker. Si el esquema especificado no se puede localizar o no es posible validar el mensaje, &eacute;ste no se enviar&aacute; y aparecer&aacute; una excepci&oacute;n. Por defecto, esta opci&oacute;n est&aacute; establecida en "False".</p>
+</li>
+<li>
+<p>En el campo Lista URI de Esquema XML, escriba una lista separada por espacios de cadenas URI de definici&oacute;n de esquema XML (XSD).</p>
+<p>Si est&aacute; activada la validaci&oacute;n del esquema XML, las URI indican la ubicaci&oacute;n de uno o m&aacute;s XSD que se emplear&aacute;n para la validaci&oacute;n del esquema XML.</p>
+</li>
+</ol>
+<a id="sthref32" name="sthref32"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-jmsservice.html">Configurar el Servicio JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmshostnew.html">Crear un Host JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmshostedit.html">Editar un Host JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmshostdelete.html">Suprimir un Host JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestedit.html">Editar un Destino F&iacute;sico JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldestdelete.html">Suprimir un Destino F&iacute;sico JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsflushmessages.html">Eliminar Mensajes de un Destino F&iacute;sico JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldeststats.html">Ver Estad&iacute;sticas de un Destino F&iacute;sico JMS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

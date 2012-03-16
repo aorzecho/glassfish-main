@@ -1,51 +1,65 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-lifecyclemodulenew" name="task-lifecyclemodulenew"></a><a id="GHCOM00169" name="GHCOM00169"></a></p>
 
-
-<a name="task-lifecyclemodulenew"></a><h3>Creaci&#243;n de un m&#243;dulo de ciclo de vida</h3><a name="indexterm-58"></a><ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, seleccione el nodo M&#243;dulos de ciclo de
-vida.</b><p>Se abrir&#225; la p&#225;gina M&#243;dulos de ciclo de vida.</p></li>
-<li><b>En la p&#225;gina M&#243;dulos de ciclo de vida, haga clic en Nuevo.</b><p>Se abrir&#225; la p&#225;gina Nuevo m&#243;dulo de ciclo de vida.</p></li>
-<li><b>En el campo Nombre, introduzca un nombre para m&#243;dulo de ciclo de
-vida.</b></li>
-<li><b>En el campo Nombre de clase, escriba el nombre completo del archivo
-de clase del m&#243;dulo de ciclo de vida.</b><p>La clase debe implementar la interfaz <tt>com.sun.appserv.server.LifecycleListener</tt>.</p></li>
-<li><b>En el campo ruta de clase, introduzca la ruta de clase para
-el m&#243;dulo de ciclo de vida.</b><p>La ruta de clase especifica d&#243;nde est&#225; ubicado el m&#243;dulo de ciclo
-de vida. El valor predeterminado es <tt></tt><i>dir_dominio</i><tt>/applications</tt>. Si el m&#243;dulo ya se
-encuentra en este directorio (es decir, en la ruta de clase del
-servidor), este campo puede dejarse en blanco.</p></li>
-<li><b>En el campo Orden de carga, introduzca un valor que especifique el
-orden en que este m&#243;dulo de ciclo de vida se cargar&#225; en
-el arranque.</b><p>Los m&#243;dulos con valores de orden de carga inferiores se cargar&#225;n antes.
-El valor puede estar entre 101 y el <tt>MAXINT</tt> del sistema operativo.
-Los valores de 0 a 100 est&#225;n reservados.</p></li>
-<li><b>En el campo Descripci&#243;n, introduzca una descripci&#243;n del m&#243;dulo de ciclo de
-vida.</b></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Estado habilitado para habilitar el m&#243;dulo de
-ciclo de vida.</b><p>Esta opci&#243;n est&#225; habilitada por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Arranque de instancia para impedir fallo en
-la carga para especificar que el servidor debe apagarse si se produce
-un error en la carga del m&#243;dulo de ciclo de vida.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Para agregar instancias de servidor y cl&#250;steres de destino en los que
-habilitar el m&#243;dulo de ciclo de vida, selecci&#243;nelos en la lista Destinos
-disponibles y utilice el bot&#243;n Agregar para moverlos a la lista Destinos
-seleccionados.</b><p>La opci&#243;n Destino aparece si existen cl&#250;steres o instancias independientes del servidor
-aparte de la instancia de servidor predeterminada (<tt>server</tt>). De manera predeterminada, el
-m&#243;dulo de ciclo de vida est&#225; habilitado en la instancia de servidor
-predeterminada, denominada <tt>server</tt>. Utilice el bot&#243;n Agregar todos para implementar en todos
-los destinos. Utilice los botones Eliminar y Eliminar todos para eliminar destinos
-de la lista Destinos seleccionados.</p></li>
-<li><b>Haga clic en Aceptar.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-lifecyclemoduleedit.html">Edici&#243;n de un m&#243;dulo de ciclo de vida</a></p>
-
+<h4><a id="sthref104" name="sthref104"></a>Crear un M&oacute;dulo de Ciclo de Vida</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, seleccione el nodo M&oacute;dulos de Ciclo de Vida.</p>
+<p>Se abrir&aacute; la p&aacute;gina M&oacute;dulos de Ciclo de Vida.</p>
 </li>
-<li><p><a href="task-lifecyclemoduledelete.html">Eliminaci&#243;n de un m&#243;dulo de ciclo de vida</a></p>
+<li>
+<p>En la p&aacute;gina M&oacute;dulos de Ciclo de Vida, haga clic en Nuevo.</p>
+<p>Se abrir&aacute; la p&aacute;gina Nuevo M&oacute;dulo de Ciclo de Vida.</p>
+</li>
+<li>
+<p>En el campo Nombre, introduzca un nombre para el m&oacute;dulo de ciclo de vida.</p>
+</li>
+<li>
+<p>En el campo Nombre de Clase, escriba el nombre completo del archivo de clase del m&oacute;dulo de ciclo de vida.</p>
+<p>La clase debe implantar la interfaz <code>com.sun.appserv.server.LifecycleListener</code>.</p>
+</li>
+<li>
+<p>En el campo Classpath, introduzca la classpath para el m&oacute;dulo de ciclo de vida.</p>
+<p>La classpath especifica la ubicaci&oacute;n del m&oacute;dulo de ciclo de vida. El valor por defecto es <i>domain-dir</i><code>/applications</code>. Si el m&oacute;dulo ya se encuentra en este directorio (es decir, en la Classpath del servidor), este campo puede dejarse en blanco.</p>
+</li>
+<li>
+<p>En el campo Orden de Carga, introduzca un valor que especifique el orden en que este m&oacute;dulo de ciclo de vida se cargar&aacute; al inicio.</p>
+<p>Los m&oacute;dulos con valores de orden de carga enteros inferiores se cargar&aacute;n antes. El valor puede estar entre 101 y el <code>MAXINT</code> del sistema operativo. Los valores de 0 a 100 est&aacute;n reservados.</p>
+</li>
+<li>
+<p>En el campo Descripci&oacute;n, introduzca una descripci&oacute;n del m&oacute;dulo de ciclo de vida.</p>
+</li>
+<li>
+<p>Active la casilla de control Estado Activado para activar el m&oacute;dulo de ciclo de vida.</p>
+<p>Esta opci&oacute;n est&aacute; activada por defecto.</p>
+</li>
+<li>
+<p>Active la casilla de control Ante Fallo de Carga: Evitar Inicio de Instancia para especificar que el servidor debe apagarse si se produce un fallo en la carga del m&oacute;dulo de ciclo de vida.</p>
+<p>Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
+</li>
+<li>
+<p>Para agregar instancias de servidor y clusters de destino en los que activar el m&oacute;dulo de ciclo de vida, selecci&oacute;nelos en la lista Destinos Disponibles y utilice el bot&oacute;n Agregar para moverlos a la lista Destinos Seleccionados.</p>
+<p>La opci&oacute;n Destino aparece si existen clusters o instancias de servidor independientes aparte de la instancia de servidor por defecto (<code>server</code>). Por defecto, el m&oacute;dulo de ciclo de vida est&aacute; activado en la instancia de servidor por defecto, denominada <code>server</code>. Utilice el bot&oacute;n Agregar Todos para desplegar en todos los destinos. Utilice los botones Eliminar y Eliminar Todos para eliminar destinos de la lista Destinos Seleccionados.</p>
+</li>
+<li>
+<p>Haga clic en Aceptar.</p>
+</li>
+</ol>
+<a id="sthref105" name="sthref105"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-lifecyclemoduleedit.html">Editar un M&oacute;dulo de Ciclo de Vida</a></p>
+</li>
+<li>
+<p><a href="task-lifecyclemoduledelete.html">Suprimir un M&oacute;dulo de Ciclo de Vida</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,36 +1,62 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-migrate-ejb-timers" name="task-migrate-ejb-timers"></a><a id="GHCLU00085" name="GHCLU00085"></a></p>
 
-
-<a name="task-migrate-ejb-timers"></a><h3>Para migrar temporizadores EJB</h3><a name="indexterm-158"></a><a name="indexterm-159"></a><a name="indexterm-160"></a><p>Si se detiene una instancia de Servidor GlassFish, los temporizadores EJB (Enterprise
-JavaBeans) instalados en dicha instancia tambi&#233;n se detendr&#225;n. Si la instancia se
-ha detenido de forma anormal o inesperada, puede activar los temporizadores. Para
-ello, ejec&#250;telos mientras la instancia est&#233; detenida y m&#237;grelos a una instancia
-de servidor en ejecuci&#243;n del cl&#250;ster.</p>
-
+<h4><a id="sthref240" name="sthref240"></a> <a id="sthref241" name="sthref241"></a> <a id="sthref242" name="sthref242"></a>Migrar Temporizadores EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Si se para una instancia de GlassFish Server, los temporizadores EJB (Enterprise JavaBeans) instalados en dicha instancia tambi&eacute;n se parar&aacute;n. Si la instancia se ha parado de forma anormal o inesperada, puede activar los temporizadores. Para ello, ejec&uacute;telos mientras la instancia est&eacute; parada y m&iacute;grelos a una instancia de servidor en ejecuci&oacute;n del cluster.</p>
 <ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, expanda el nodo Cl&#250;steres.</b></li>
-<li><b>En el nodo Cl&#250;steres del &#225;rbol de navegaci&#243;n, seleccione el cl&#250;ster.</b><p>Se abrir&#225; la p&#225;gina Informaci&#243;n general para el cl&#250;ster.</p></li>
-<li><b>En la p&#225;gina Informaci&#243;n general, haga clic en Migrar temporizadores EJB.</b><p>Se abrir&#225; la p&#225;gina Migrar temporizadores EJB.</p>
-<hr><p><b>Nota - </b>Si todas las instancias del cl&#250;ster est&#225;n en ejecuci&#243;n, el bot&#243;n Migrar
-temporizadores EJB estar&#225; desactivado.</p>
-
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Clusters.</p>
+</li>
+<li>
+<p>En el nodo Clusters del &aacute;rbol de navegaci&oacute;n, seleccione el cluster.</p>
+<p>Se abre la p&aacute;gina Informaci&oacute;n General para el cluster.</p>
+</li>
+<li>
+<p>En la p&aacute;gina Informaci&oacute;n General, haga clic en Migrar Temporizadores EJB.</p>
+<p>Se abre la p&aacute;gina Migrar Temporizadores EJB.</p>
 
 <hr>
-</li>
-<li><b>En la p&#225;gina Migrar temporizadores EJB, seleccione la instancia a la que
-se migrar&#225;n los temporizadores y desde la cual se migrar&#225;n.</b><ol style="list-style-type: lower-alpha">
-<li><b>En la lista desplegable Origen, seleccione la instancia detenida desde la cual
-se migrar&#225;n los temporizadores.</b></li>
-<li>(Opcional) <b>En la lista desplegable Destino, seleccione la instancia en ejecuci&#243;n a la
-que se migrar&#225;n los temporizadores. </b></li>
-<li><b>Haga clic en Aceptar.</b></li></ol></li>
-<li><b>Detenga y reinicie la instancia a la cual se han migrado los
-temporizadores EJB.</b><p>Si la instancia de origen se est&#225; ejecutando o la instancia de
-destino no se est&#225; ejecutando, la Consola de administraci&#243;n mostrar&#225; un mensaje
-de error.</p></li></ol>
+<p><b>Nota:</b></p>
+Si todas las instancias del cluster se est&aacute;n ejecutando, el bot&oacute;n Migrar Temporizadores EJB estar&aacute; desactivado.
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<p>Para ayudarle en la migraci&oacute;n de temporizadores, la p&aacute;gina Migrar Temporizadores EJB contiene una tabla de temporizadores EJB con la informaci&oacute;n siguiente.</p>
+<dl>
+<dt>Nombre de Servidor</dt>
+<dd>
+<p>Lista de instancias de GlassFish Server en el cluster.</p>
+</dd>
+<dt>Recuento de Temporizadores</dt>
+<dd>
+<p>N&uacute;mero de temporizadores persistentes en cada instancia.</p>
+</dd>
+</dl>
+</li>
+<li>
+<p>En la p&aacute;gina Migrar Temporizadores EJB, seleccione la instancia a la que se migrar&aacute;n los temporizadores y desde la cual se migrar&aacute;n.</p>
+<ol type="a">
+<li>
+<p>En la lista desplegable Origen, seleccione la instancia parada desde la cual se migrar&aacute;n los temporizadores.</p>
+</li>
+<li>
+<p>En la lista desplegable Destino, seleccione la instancia en ejecuci&oacute;n a la que se migrar&aacute;n los temporizadores.</p>
+</li>
+<li>
+<p>Haga clic en Aceptar.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Pare y reinicie la instancia a la cual se han migrado los temporizadores EJB.</p>
+<p>Si la instancia de origen se est&aacute; ejecutando o la instancia de destino no se est&aacute; ejecutando, la Consola de Administraci&oacute;n mostrar&aacute; un mensaje de error.</p>
+</li>
+</ol>
+
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

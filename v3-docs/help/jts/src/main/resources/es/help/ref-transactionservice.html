@@ -1,70 +1,72 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-transactionservice"></a><h4>Servicio de transacci&#243;n</h4>
-<a name="indexterm-8"></a><p>Utilice la p&#225;gina Servicio de transacci&#243;n para configurar la recuperaci&#243;n, tiempos de
-espera y registro de la transacci&#243;n.</p>
+<p><a id="ref-transactionservice" name="ref-transactionservice"></a><a id="GHJTS00002" name="GHJTS00002"></a></p>
 
-<p>La p&#225;gina Servicio de transacci&#243;n contiene las siguientes opciones.</p>
-
-<dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
-
+<h4><a id="sthref14" name="sthref14"></a>Servicio de Transacci&oacute;n</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Servicio de Transacci&oacute;n para configurar la recuperaci&oacute;n, timeouts y registro de la transacci&oacute;n.</p>
+<p>La p&aacute;gina Servicio de Transacci&oacute;n contiene las siguientes opciones.</p>
+<dl>
+<dt>Cargar Valores por Defecto</dt>
+<dd>
+<p>Bot&oacute;n para restaurar la configuraci&oacute;n que tiene valores por defecto a sus valores por defecto. La configuraci&oacute;n que no tiene valores por defecto no se modifica.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
-<dt>En el reinicio</dt>
-<dd><p>Si se selecciona la casilla de verificaci&#243;n Habilitado, Servidor GlassFish intenta recuperar las transacciones incompletas cuando se reinicia el servidor. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dt>Al Reiniciar</dt>
+<dd>
+<p>Si se selecciona la casilla de verificaci&oacute;n Activado, Servidor GlassFish intenta recuperar las transacciones incompletas cuando se reinicia el servidor. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>Tiempo de espera de la transacci&#243;n</dt>
-<dd><p>N&#250;mero se segundos que espera un servidor antes de anular una transacci&#243;n que no se haya completado. El valor predeterminado es cero, lo que supone que el servidor espera indefinidamente para que se complete la transacci&#243;n.</p>
-
+<dt>Timeout de Transacci&oacute;n</dt>
+<dd>
+<p>N&uacute;mero se segundos que espera un servidor antes de anular una transacci&oacute;n que no se haya completado. El valor por defecto es cero, lo que supone que el servidor espera indefinidamente para que se complete la transacci&oacute;n.</p>
 </dd>
-<dt>Volver a intentar tiempo de espera</dt>
-<dd><p>N&#250;mero de segundos durante los cuales Servidor GlassFish intenta conectarse a un servidor inaccesible. El valor predeterminado es 600 (10 minutos).</p>
-
+<dt>Timeout de Reintentos</dt>
+<dd>
+<p>N&uacute;mero de segundos durante los cuales Servidor GlassFish intenta conectarse a un servidor inaccesible. El valor por defecto es 600 (10 minutos).</p>
 </dd>
-<dt>Ubicaci&#243;n del registro de transacci&#243;n</dt>
-<dd><p>El directorio en el que se mantienen los registros del servidor. Los registros de transacciones se guardan en el subdirectorio <tt>tx</tt> del directorio especificado en el campo. El valor predeterminado es el directorio especificado en el campo Ra&#237;z de registro de la p&#225;gina Atributos de dominio, que est&#225; ubicada en la ficha Avanzado del nodo Servidor GlassFish.</p>
-
+<dt>Ubicaci&oacute;n de Log de Transacciones</dt>
+<dd>
+<p>El directorio en el que se mantienen los logs del servidor. Los logs de transacciones se guardan en el subdirectorio <code>tx</code> del directorio especificado en el campo. El valor por defecto es el directorio especificado en el campo Ra&iacute;z de Log de la p&aacute;gina Atributos de Dominio, que est&aacute; ubicada en el separador Avanzado del nodo Servidor GlassFish.</p>
 </dd>
-<dt>Decisi&#243;n heur&#237;stica</dt>
-<dd><p>Si las transacciones que implican servidores inaccesibles se confirman o se anulan. El valor predeterminado es Anulaci&#243;n. La confirmaci&#243;n de transacciones indeterminadas puede poner en peligro la integridad de los datos de la aplicaci&#243;n.</p>
-
+<dt>Decisi&oacute;n Heur&iacute;stica</dt>
+<dd>
+<p>Si las transacciones que implican servidores inaccesibles se confirman o se anulan. El valor por defecto es Realizar Rollback. La confirmaci&oacute;n de transacciones indeterminadas puede poner en peligro la integridad de los datos de la aplicaci&oacute;n.</p>
 </dd>
-<dt>Intervalo de puntos clave</dt>
-<dd><p>El n&#250;mero de transacciones entre las operaciones de puntos clave, que comprimen la transacci&#243;n del archivo de registro. El valor predeterminado es 65536.</p>
-
+<dt>Intervalo de Punto Clave</dt>
+<dd>
+<p>El n&uacute;mero de transacciones entre las operaciones de puntos clave, que comprimen la transacci&oacute;n del archivo log. El valor por defecto es 65536.</p>
 </dd>
-<dt>Propiedades adicionales</dt>
-<dd><p>Propiedades adicionales del Servicio de transacci&#243;n.</p>
-
-<p>Para obtener una descripci&#243;n de las propiedades disponibles, consulte <a href="ref-transactionsvcproperties.html">Propiedades espec&#237;ficas del servicio de transacci&#243;n</a>.</p>
-
+<dt>Propiedades Adicionales</dt>
+<dd>
+<p>Propiedades adicionales del Servicio de Transacci&oacute;n.</p>
+<p>Para obtener una descripci&oacute;n de las propiedades disponibles, consulte <a href="ref-transactionsvcproperties.html">Propiedades Espec&iacute;ficas del Servicio de Transacci&oacute;n</a>.</p>
 </dd>
 </dl>
-<a name="ginkt"></a><h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-configtransservice.html">C&#243;mo configurar el servicio de transacciones</a></p>
-
+<a id="sthref15" name="sthref15"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-configtransservice.html">Configurar el Servicio de Transacci&oacute;n</a></p>
 </li>
-<li><p><a href="task-configtransrecovery.html">C&#243;mo configurar la forma en que Servidor GlassFish recupera transacciones</a></p>
-
+<li>
+<p><a href="task-configtransrecovery.html">Configurar el Modo en el que Servidor GlassFish Recupera Transacciones</a></p>
 </li>
-<li><p><a href="task-settranstimeout.html">C&#243;mo establecer un valor de tiempo de espera para las transacciones</a></p>
-
+<li>
+<p><a href="task-settranstimeout.html">Definir un Valor de Timeout de Transacci&oacute;n</a></p>
 </li>
-<li><p><a href="task-settranslog.html">C&#243;mo establecer la ubicaci&#243;n de los registros de transacciones</a></p>
-
+<li>
+<p><a href="task-settranslog.html">Definir la Ubicaci&oacute;n de los Logs de Transacciones</a></p>
 </li>
-<li><p><a href="task-setkeyptinterval.html">C&#243;mo establecer el intervalo de puntos clave</a></p>
+<li>
+<p><a href="task-setkeyptinterval.html">Definir Intervalo de Punto Clave</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

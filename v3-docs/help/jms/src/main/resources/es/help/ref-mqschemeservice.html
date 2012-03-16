@@ -1,133 +1,78 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-mqschemeservice"></a><h4>Sintaxis de las direcciones de esquema MQ y servicio MQ</h4>
-<p>La sintaxis completa para una direcci&#243;n del servicio de mensajes es</p>
+<p><a id="ref-mqschemeservice" name="ref-mqschemeservice"></a><a id="GHJMS00011" name="GHJMS00011"></a></p>
 
-<pre><i>scheme</i>://<i>address-syntax</i></pre><p>donde <i>scheme</i> y <i>address-syntax </i> se describen en la tabla siguiente.</p>
+<h4>Sintaxis de las Direcciones de Esquema MQ y Servicio MQ</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La sintaxis completa para una direcci&oacute;n del servicio de mensajes es</p>
+<pre>
+<i>scheme</i>://<i>address-syntax</i>
+</pre>
+<p>donde <i>scheme</i> y <i>address-syntax</i> se describen en la tabla siguiente.</p>
+<p>Esquema MQ y Servicio MQ son los valores mostrados en las dos primeras columnas de la siguiente tabla.</p>
 
-<p>Esquema MQ y Servicio MQ son los valores mostrados en las dos
-primeras columnas de la siguiente tabla.</p>
-
-<table><col width="16%"><col width="16%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"><p>Nombre de esquema</p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>Servicio de conexi&#243;n</p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>Descripci&#243;n</p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>Sintaxis de direcci&#243;n</p>
-
-</th>
+<table  summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="9%" />
+<col width="13%" />
+<col width="36%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t2">Nombre de Esquema</th>
+<th align="left" valign="bottom" id="r1c2-t2">Servicio de Conexi&oacute;n</th>
+<th align="left" valign="bottom" id="r1c3-t2">Descripci&oacute;n</th>
+<th align="left" valign="bottom" id="r1c4-t2">Sintaxis de Direcci&oacute;n</th>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>mq</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>jms</tt>
-y <tt>ssljms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>El tiempo de ejecuci&#243;n del cliente Message Queue realiza una conexi&#243;n
-al asignador de puertos MQ en el host y puerto especificados. El
-asignador de puertos suministra una lista de los puertos de servicio de
-conexi&#243;n establecidos de forma din&#225;mica y, a continuaci&#243;n, el tiempo de ejecuci&#243;n
-del cliente Message Queue realiza una conexi&#243;n al puerto que aloja el
-servicio de conexi&#243;n especificado.</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>[</tt><i>hostName</i><tt>][:</tt><i> port</i><tt>][/</tt><i>serviceName</i><tt> ]</tt></p>
-
-<p>Valores predeterminados: <i>hostName</i> = <tt>localhost</tt>, <i>port</i> = <tt>7676</tt>, <i>serviceName </i>
-= <tt>jms</tt></p>
-
-<p>Los valores predeterminados s&#243;lo se aplican al servicio de conexi&#243;n <tt>jms</tt>.
-Para la conexi&#243;n de servicio <tt>ssljms</tt>, es necesario especificar todas las variables.</p>
-
-<p>Ejemplo:
-<tt>mq:MyHost:7677/ssljms</tt></p>
-
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t2" headers="r1c1-t2"><code>mq</code></td>
+<td align="left" headers="r2c1-t2 r1c2-t2"><code>jms</code> y <code>ssljms</code></td>
+<td align="left" headers="r2c1-t2 r1c3-t2">El tiempo de ejecuci&oacute;n del cliente Message Queue realiza una conexi&oacute;n al asignador de puertos MQ en el host y puerto especificados. El asignador de puertos suministra una lista de los puertos de servicio de conexi&oacute;n establecidos de forma din&aacute;mica y, a continuaci&oacute;n, el tiempo de ejecuci&oacute;n del cliente Message Queue realiza una conexi&oacute;n al puerto que aloja el servicio de conexi&oacute;n especificado.</td>
+<td align="left" headers="r2c1-t2 r1c4-t2"><code>[</code><i>hostName</i><code>][:</code><i>port</i><code>][/</code><i>serviceName</i><code>]</code>
+<p>Valores por defecto: <i>hostName</i> = <code>localhost</code>, <i>port</i> = <code>7676</code>, <i>serviceName</i> = <code>jms</code></p>
+<p>Los valores por defecto s&oacute;lo se aplican al servicio de conexi&oacute;n <code>jms</code>. Para el servicio de la conexi&oacute;n <code>ssljms</code>, es necesario especificar todas las variables.</p>
+<p>Ejemplo: <code>mq:MyHost:7677/ssljms</code></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>mqtcp</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>jms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>El tiempo de ejecuci&#243;n del cliente Message Queue realiza una conexi&#243;n TCP
-al host y puerto especificados (ignorando el asignador de puertos MQ) para
-establecer una conexi&#243;n.</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /jms</tt></p>
-
-<p>Ejemplo: <tt>mqtcp:localhost:7676/jms</tt></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t2" headers="r1c1-t2"><code>mqtcp</code></td>
+<td align="left" headers="r3c1-t2 r1c2-t2"><code>jms</code></td>
+<td align="left" headers="r3c1-t2 r1c3-t2">El tiempo de ejecuci&oacute;n del cliente Message Queue realiza una conexi&oacute;n TCP al host y puerto especificados (ignorando el asignador de puertos MQ) para establecer una conexi&oacute;n.</td>
+<td align="left" headers="r3c1-t2 r1c4-t2"><i>hostName</i><code>:</code><i>port</i><code>/jms</code>
+<p>Ejemplo: <code>mqtcp:localhost:7676/jms</code></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>mqssl</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>ssljms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>El tiempo de ejecuci&#243;n del cliente Message Queue realiza
-una conexi&#243;n SSL segura al host y puerto especificados (ignorando el asignador
-de puertos MQ) para establecer una conexi&#243;n.</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /ssljms</tt></p>
-
-<p>Ejemplo: <tt>mqssl:localhost:7676/ssljms</tt></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t2" headers="r1c1-t2"><code>mqssl</code></td>
+<td align="left" headers="r4c1-t2 r1c2-t2"><code>ssljms</code></td>
+<td align="left" headers="r4c1-t2 r1c3-t2">El tiempo de ejecuci&oacute;n del cliente Message Queue realiza una conexi&oacute;n SSL segura al host y puerto especificados (ignorando el Asignador de Puertos MQ) para establecer una conexi&oacute;n.</td>
+<td align="left" headers="r4c1-t2 r1c4-t2"><i>hostName</i><code>:</code><i>port</i><code>/ssljms</code>
+<p>Ejemplo: <code>mqssl:localhost:7676/ssljms</code></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>http</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>httpjms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>El tiempo de ejecuci&#243;n del
-cliente Message Queue realiza una conexi&#243;n HTTP a un servlet de t&#250;nel
-Message Queue en la URL especificada. (El agente se debe configurar para
-acceder al servlet de t&#250;nel de HTTP, seg&#250;n se describe en la
-<b>Gu&#237;a del administrador</b> de Message Queue.)</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
-
-<p>Si varias instancias del agente utilizan el mismo servlet
-de t&#250;nel, la sintaxis para conectar a una instancia de agente espec&#237;fica
-(en vez de hacerlo a una seleccionada de forma aleatoria) es: <tt>http://</tt><i>nombrehost</i><tt> :</tt><i>puerto</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>nombreservidor</i><tt>=</tt><i>nombrehost</i><tt>:</tt><i> nombreinstancia</i></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t2" headers="r1c1-t2"><code>http</code></td>
+<td align="left" headers="r5c1-t2 r1c2-t2"><code>httpjms</code></td>
+<td align="left" headers="r5c1-t2 r1c3-t2">El tiempo de ejecuci&oacute;n del cliente Message Queue realiza una conexi&oacute;n HTTP a un servlet de Tunnel Message Queue en la URL especificada. (El broker se debe configurar para acceder al servlet de Tunnel HTTP, seg&uacute;n se describe en la <i>Gu&iacute;a del administrador</i> de Message Queue.)</td>
+<td align="left" headers="r5c1-t2 r1c4-t2"><i>hostName</i><code>:</code><i>port</i><code>/</code><i>contextRoot</i><code>/tunnel</code>
+<p>Si varias instancias del broker utilizan el mismo servlet de tunnel, la sintaxis para conectar a una instancia de broker espec&iacute;fica (en vez de hacerlo a una seleccionada de forma aleatoria) es: <code>http://</code><i>hostName</i><code>:</code><i>port</i><code>/</code><i>contextRoot</i><code>/tunnel?</code><i>serverName</i><code>=</code><i>hostName</i><code>:</code><i>instanceName</i></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>https</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>httpsjms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Message
-Queue realiza una conexi&#243;n HTTPS segura a la direcci&#243;n URL especificada del
-servlet de t&#250;nel de Message Queue. (El agente se debe configurar para
-acceder al servlet de t&#250;nel de HTTPS, seg&#250;n se describe en la
-<b>Gu&#237;a del administrador</b> de Message Queue.)</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
-
-<p>Si varias instancias del agente utilizan el mismo servlet
-de t&#250;nel, la sintaxis para conectar a una instancia de agente espec&#237;fica
-(en vez de hacerlo a una seleccionada de forma aleatoria) es: <tt>http://</tt><i>nombrehost</i><tt> :</tt><i>puerto</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>nombreservidor</i><tt>=</tt><i>nombrehost</i><tt>:</tt><i> nombreinstancia</i></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t2" headers="r1c1-t2"><code>https</code></td>
+<td align="left" headers="r6c1-t2 r1c2-t2"><code>httpsjms</code></td>
+<td align="left" headers="r6c1-t2 r1c3-t2">El cliente Message Queue realiza una conexi&oacute;n HTTPS segura a la direcci&oacute;n URL especificada del servlet de tunnel de Message Queue. (El broker se debe configurar para acceder al servlet de tunnel de HTTPS, seg&uacute;n se describe en la <i>Gu&iacute;a del administrador</i> de Message Queue.)</td>
+<td align="left" headers="r6c1-t2 r1c4-t2"><i>hostName</i><code>:</code><i>port</i><code>/</code><i>contextRoot</i><code>/tunnel</code>
+<p>Si varias instancias del broker utilizan el mismo servlet de tunnel, la sintaxis para conectar a una instancia de broker espec&iacute;fica (en vez de hacerlo a una seleccionada de forma aleatoria) es: <code>http://</code><i>hostName</i><code>:</code><i>port</i><code>/</code><i>contextRoot</i><code>/tunnel?</code><i>serverName</i><code>=</code><i>hostName</i><code>:</code><i>instanceName</i></p>
 </td>
 </tr>
+</tbody>
 </table>
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

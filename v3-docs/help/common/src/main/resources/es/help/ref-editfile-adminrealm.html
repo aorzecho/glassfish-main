@@ -1,43 +1,38 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-editfile-adminrealm"></a><h4>Propiedades espec&#237;ficas de la clase <tt>FileRealm</tt></h4>
-<a name="indexterm-203"></a><a name="indexterm-204"></a><p>Las siguientes propiedades son necesarias para un dominio<tt>file</tt>.</p>
+<p><a id="ref-editfile-adminrealm" name="ref-editfile-adminrealm"></a><a id="GHCOM00100" name="GHCOM00100"></a></p>
 
-<dl><dt>Contexto JAAS</dt>
-<dd><p>El contexto JAAS (Servicio de autorizaci&#243;n y autenticaci&#243;n de Java) (el identificador para el m&#243;dulo de inicio de sesi&#243;n que se utiliza para este dominio). El &#250;nico valor v&#225;lido es <tt>fileRealm</tt></p>
-
+<h4><a id="sthref375" name="sthref375"></a><a id="sthref376" name="sthref376"></a>Propiedades espec&iacute;ficas de la clase <code>FileRealm</code></h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Las siguientes propiedades son necesarias para un dominio<code>file</code>.</p>
+<dl>
+<dt>Contexto JAAS</dt>
+<dd>
+<p>Contexto JAAS (Java Authentication and Authorization Service) (el identificador para el m&oacute;dulo de conexi&oacute;n que se utiliza para este dominio). El &uacute;nico valor v&aacute;lido es <code>fileRealm</code></p>
 </dd>
-<dt>Archivo clave</dt>
-<dd><p>Ruta completa y nombre del archivo donde el servidor almacenar&#225; toda la informaci&#243;n sobre usuarios, grupos y contrase&#241;as para este dominio. El valor predeterminado es <i>dir_dominio</i><tt>/config/keyfile</tt> para el dominio <tt>file</tt> y <i>dir_dominio</i><tt>/config/admin-keyfile</tt> para el dominio <tt>admin-realm </tt>.</p>
-
+<dt>Archivo de Claves</dt>
+<dd>
+<p>Ruta de acceso completa y nombre del archivo donde el servidor almacenar&aacute; toda la informaci&oacute;n sobre usuarios, grupos y contrase&ntilde;as para este dominio. El valor por defecto es <i>domain-dir</i><code>/config/keyfile</code> para el dominio <code>file</code> y <i>domain-dir</i><code>/config/admin-keyfile</code> para el dominio <code>admin-realm</code>.</p>
 </dd>
 </dl>
-<p>El archivo clave para el dominio <tt>file</tt> est&#225; inicialmente vac&#237;o, as&#237; que
-los usuarios deben agregarse en la p&#225;gina <a href="ref-managefilerealm.html">Usuarios de archivo</a> antes de que se
-utilice el dominio <tt>file</tt>.</p>
-
-<p>El archivo clave para el dominio <tt>admin-realm</tt> inicialmente contiene el nombre de
-usuario del administrador, la contrase&#241;a del administrador en formato cifrado, y el
-grupo al que pertenece este usuario (<tt>asadmin</tt> de forma predeterminada). Para obtener
-m&#225;s informaci&#243;n sobre la adici&#243;n de usuarios a <tt>admin-realm</tt>, consulte <a href="task-accessadmintools.html">C&#243;mo otorgar acceso a las herramientas de administraci&#243;n.</a>.</p>
-
-
-<hr><p><b>Nota - </b>Los usuarios del grupo <tt>asadmin</tt> en <tt>admin-realm </tt> est&#225;n autorizados a utilizar las
-herramientas Consola de administraci&#243;n y <tt>asadmin</tt>. Agregue s&#243;lo usuarios a este grupo
-que tiene privilegios administrativos del servidor.</p>
-
+<p>El archivo de claves para el dominio <code>file</code> est&aacute; inicialmente vac&iacute;o, as&iacute; que los usuarios deben agregarse en la p&aacute;gina <a href="ref-managefilerealm.html">Usuarios de archivos</a> antes de que se utilice el dominio <code>file</code>.</p>
+<p>El archivo de claves para el dominio <code>admin-realm</code> inicialmente contiene el nombre de usuario del administrador, la contrase&ntilde;a del administrador en formato cifrado y el grupo al que pertenece este usuario (<code>asadmin</code> por defecto). Para obtener m&aacute;s informaci&oacute;n sobre c&oacute;mo agregar usuarios a <code>admin-realm</code>, consulte <a href="task-accessadmintools.html">Otorgar Acceso a las Herramientas de Administraci&oacute;n</a>.</p>
 
 <hr>
-<p>La siguiente propiedad opcional se encuentra disponible para un dominio <tt>file</tt>.</p>
+<p><b>Nota:</b></p>
+Los usuarios del grupo <code>asadmin</code> en <code>admin-realm</code> est&aacute;n autorizados a utilizar las herramientas Consola de Administraci&oacute;n y <code>asadmin</code>. Agregue s&oacute;lo usuarios a este grupo que tengan privilegios administrativos del servidor.
+<hr>
 
-<dl><dt>Asignar grupos</dt>
-<dd><p>Una lista separada por comas de nombres de grupos. Todos los clientes que presenten certificados v&#225;lidos se asignan a estos grupos, por ejemplo, <tt>employee,manager </tt>, donde estos son los nombres de grupos de usuarios.</p>
-
+<p>La siguiente propiedad opcional se encuentra disponible para un dominio <code>file</code>.</p>
+<dl>
+<dt>Asignar Grupos</dt>
+<dd>
+<p>Lista separada por comas de nombres de grupos. Todos los clientes que presenten certificados v&aacute;lidos se asignan a estos grupos, por ejemplo, <code>employee,manager</code>, donde estos son los nombres de grupos de usuarios.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

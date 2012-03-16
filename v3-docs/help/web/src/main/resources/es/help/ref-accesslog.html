@@ -1,188 +1,180 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-accesslog"></a><h4>Servicio HTTP</h4>
-<a name="indexterm-55"></a><a name="indexterm-56"></a><p>Utilice la p&#225;gina Servicio HTTP para especificar la directiva de registro de
-acceso general de las aplicaciones web.</p>
+<p><a id="ref-accesslog" name="ref-accesslog"></a><a id="GHWEB00008" name="GHWEB00008"></a></p>
 
-<p>El servicio HTTP proporciona la posibilidad de implementar aplicaciones web y de
-que los clientes HTTP puedan acceder a las aplicaciones web implementadas, as&#237;
-como a los servidores virtuales, conjuntos de subprocesos y capacidad de configuraci&#243;n
-de red.</p>
-
-<p>Servidor GlassFish utiliza el registro de acceso del servicio HTTP para habilitar
-y configurar la rotaci&#243;n de los registros de acceso de los servidores
-virtuales. Estos registros se encuentran en el directorio <tt><i>dir_dominio</i>/logs/access</tt> y tienen los
-siguientes nombres: <tt><i> virtual_server_name</i>_access_log.<i>yyyyMMdd</i>-<i> HH</i>h<i>mm</i>m<i>ss</i>s.txt </tt></p>
-
-<p>La p&#225;gina Servicio HTTP contiene las siguientes opciones.</p>
-
-<dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
-
+<h4><a id="sthref104" name="sthref104"></a><a id="sthref105" name="sthref105"></a>Servicio HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Servicio HTTP para especificar la directiva de log de acceso general de las aplicaciones web.</p>
+<p>El servicio HTTP proporciona la posibilidad de desplegar aplicaciones web y de que los clientes HTTP puedan acceder a las aplicaciones web desplegadas, as&iacute; como a los servidores virtuales, pools de threads y capacidad de configuraci&oacute;n de red.</p>
+<p>Servidor GlassFish utiliza el Registro de Acceso de Servicio HTTP para activar y configurar la rotaci&oacute;n de los logs de acceso de los servidores virtuales. Estos logs se encuentran en el directorio <i>domain-dir</i><code>/logs/access</code> y se nombran del siguiente modo: <i>virtual_server_name</i><code>_access_log.</code><i>yyyyMMdd</i><code>-</code><i>HH</i><code>h</code><i>mm</i><code>m</code><i>ss</i><code>s.txt</code></p>
+<p>La p&aacute;gina Servicio HTTP contiene las siguientes opciones.</p>
+<dl>
+<dt>Cargar Valores por Defecto</dt>
+<dd>
+<p>Bot&oacute;n para restaurar la configuraci&oacute;n que tiene valores por defecto a sus valores por defecto. La configuraci&oacute;n que no tiene valores por defecto no se modifica.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
 <dt>SSO</dt>
-<dd><p>Identifica si se habilita el inicio de sesi&#243;n &#250;nico de forma predeterminada para todas las aplicaciones web en todos los servidores virtuales en este servidor que se han configurado para el mismo dominio. Si esta opci&#243;n no est&#225; habilitada, se ha deshabilitado el inicio de sesi&#243;n &#250;nico de forma predeterminada para todos los servidores virtuales y los usuarios se deben autenticar por separado para cada aplicaci&#243;n en cada servidor virtual. Puede cancelar este valor para un servidor virtual individual. La opci&#243;n SSO puede estar habilitada o deshabilitada. Esta opci&#243;n se encuentra deshabilitada de forma predeterminada.</p>
-
+<dd>
+<p>Identifica si se activa el single sign-on por defecto para todas las aplicaciones web en todos los servidores virtuales en este servidor que se han configurado para el mismo dominio. Si esta opci&oacute;n no est&aacute; activada, el single sign-on se encuentra desactivado defecto para todos los servidores virtuales y los usuarios se deben autenticar por separado para cada aplicaci&oacute;n en cada servidor virtual. Puede sustituir este valor para un servidor virtual individual. La opci&oacute;n SSO puede estar activada o desactivada. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>Registro de acceso</dt>
-<dd><p>Si se selecciona esta opci&#243;n, se habilita el registro de acceso para todos los sub-elementos del servidor virtual que no especifiquen esta propiedad. Si no selecciona esta opci&#243;n, se deshabilitar&#225; el registro de acceso de todos los subelementos de servidores virtuales que no tengan especificada esta propiedad. Esta opci&#243;n est&#225; deshabilitada por defecto.</p>
-
+<dt>Registro de Acceso</dt>
+<dd>
+<p>Si se selecciona esta opci&oacute;n, se activa el registro de acceso para todos los sub-elementos del servidor virtual que no especifiquen esta propiedad. Si no selecciona esta opci&oacute;n, se desactivar&aacute; el registro de acceso de todos los subelementos de servidores virtuales que no tengan especificada esta propiedad. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>Rotaci&#243;n</dt>
-<dd><p>Si selecciona esta opci&#243;n, la rotaci&#243;n del archivo de registro se activar&#225;. Esta opci&#243;n est&#225; habilitada por defecto.</p>
-
+<dt>Rotaci&oacute;n</dt>
+<dd>
+<p>Si selecciona esta opci&oacute;n, se activar&aacute; la rotaci&oacute;n del archivo log. Esta opci&oacute;n se encuentra activada por defecto.</p>
 </dd>
-<dt>Pol&#237;tica de rotaci&#243;n</dt>
-<dd><p>La &#250;nica pol&#237;tica de rotaci&#243;n disponible es <tt>time</tt>.</p>
-
+<dt>Pol&iacute;tica de Rotaci&oacute;n</dt>
+<dd>
+<p>La &uacute;nica pol&iacute;tica de rotaci&oacute;n disponible es <code>time</code>.</p>
 </dd>
-<dt>Intervalo de rotaci&#243;n</dt>
-<dd><p>N&#250;mero de minutos transcurridos entre las rotaciones del registro de acceso. Este campo s&#243;lo es v&#225;lido si la pol&#237;tica de rotaci&#243;n es <tt>time</tt>. El valor predeterminado es 1.440 minutos (24 horas).</p>
-
+<dt>Intervalo de Rotaci&oacute;n</dt>
+<dd>
+<p>N&uacute;mero de minutos transcurridos entre las rotaciones del log de acceso. Este campo s&oacute;lo es v&aacute;lido si la pol&iacute;tica de rotaci&oacute;n es <code>time</code>. El valor por defecto es 1.440 minutos (24 horas).</p>
 </dd>
-<dt>Sufijo de rotaci&#243;n</dt>
-<dd><p>Valor de la cadena que se agregar&#225; al final del nombre del archivo de registro tras la rotaci&#243;n. El valor predeterminado es <tt>aaaa-MM-dd</tt>.</p>
-
-<p>Aseg&#250;rese de que el sufijo de rotaci&#243;n contenga valores suficientes para crear un sufijo &#250;nico para cada rotaci&#243;n del registro. Por ejemplo, si el registro de acceso se rota con una frecuencia mayor de una vez al d&#237;a, incluya la hora del d&#237;a en el sufijo de rotaci&#243;n.</p>
-
-<p>Se requiere un sufijo &#250;nico para garantizar que el archivo de registro de acceso se rota cada vez que transcurre el intervalo de rotaci&#243;n. Si el sufijo de rotaci&#243;n del nuevo archivo de registro de acceso es igual que el sufijo de rotaci&#243;n del archivo de registro de acceso existente, el archivo no se rota.</p>
-
+<dt>Sufijo de Rotaci&oacute;n</dt>
+<dd>
+<p>Valor de la cadena que se agregar&aacute; al final del nombre del archivo log tras la rotaci&oacute;n. El valor por defecto es <code>aaaa-MM-dd</code>.</p>
+<p>Aseg&uacute;rese de que el sufijo de rotaci&oacute;n contenga valores suficientes para crear un sufijo &uacute;nico para cada rotaci&oacute;n del log. Por ejemplo, si el log de acceso rota m&aacute;s de una vez al d&iacute;a, se incluye la hora del d&iacute;a en el sufijo de rotaci&oacute;n.</p>
+<p>Es necesario un sufijo &uacute;nico para asegurar que el archivo log de acceso rota cada vez que transcurre el intervalo de rotaci&oacute;n. Si el sufijo de rotaci&oacute;n del nuevo archivo log de acceso es igual que el sufijo de rotaci&oacute;n del archivo log de acceso existente, el archivo no se rota.</p>
 </dd>
-<dt>Recuento m&#225;ximo de archivos</dt>
-<dd><p>El n&#250;mero m&#225;ximo de archivos de registro de acceso de rotaci&#243;n que se deben conservar. Un valor negativo indica que no hay l&#237;mite en el n&#250;mero de archivos. El valor predeterminado es -1.</p>
-
+<dt>Recuento M&aacute;ximo de Archivos</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de archivos log de acceso de rotaci&oacute;n que se deben conservar. Un valor negativo indica que no hay l&iacute;mite en el recuento de archivos. El valor por defecto es -1.</p>
 </dd>
-<dt>Tama&#241;o de b&#250;fer</dt>
-<dd><p>Tama&#241;o, en bytes, del b&#250;fer de registro de acceso, o un valor inferior o igual a cero para los registros de acceso sin b&#250;fer. El valor predeterminado es 32768.</p>
-
+<dt>Tama&ntilde;o de Buffer</dt>
+<dd>
+<p>Tama&ntilde;o en bytes del buffer de log de acceso, o un valor inferior o igual a cero para los logs de acceso sin buffer. El valor por defecto es 32768.</p>
 </dd>
-<dt>Intervalo de escritura</dt>
-<dd><p>El n&#250;mero de segundos antes de que el registro se escriba en el disco. El registro de acceso se escribe cuando el b&#250;fer est&#225; lleno o cuando caduca el intervalo. Si el valor es menor o igual a cero, el b&#250;fer siempre se escribe aunque no est&#233; lleno. Esto significa que cada vez que se accede al servidor, el mensaje de registro se almacena directamente en el archivo. El valor predeterminado es 300.</p>
-
+<dt>Intervalo de Escritura</dt>
+<dd>
+<p>El n&uacute;mero de segundos antes de que el log se escriba en el disco. El log de acceso se escribe cuando el buffer est&aacute; lleno o cuando caduca el intervalo. Si el valor es menor o igual a cero, el buffer siempre se escribe aunque no est&eacute; lleno. Esto significa que cada vez que se accede al servidor, el mensaje log se almacena directamente en el archivo. El valor por defecto es 300.</p>
 </dd>
 <dt>Formato</dt>
-<dd><p>Valor de la cadena que especifica la informaci&#243;n que hay que capturar en el registro de acceso y el orden en la que hay que capturarla. El valor predeterminado es como sigue:</p>
-
-<pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>Los valores siguientes est&#225;n disponibles para inclusi&#243;n en la cadena de formato:</p>
-
-<dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
-<dd><p>Registra el valor (mediante una llamada a su m&#233;todo <tt>toString</tt>) del atributo de la solicitud con el <i>nombre</i> indicado</p>
-
+<dd>
+<p>Valor de la cadena que especifica la informaci&oacute;n que hay que capturar en el log de acceso y el orden en el que hay que capturarla. El valor por defecto es el siguiente:</p>
+<pre>
+%client.name% %auth-user-name% %datetime% %request% %status% %response.length%
+</pre>
+<p>Los valores siguientes est&aacute;n disponibles para su inclusi&oacute;n en la cadena de formato:</p>
+<dl>
+<dt><code>%attribute.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Registra el valor (mediante una llamada a su m&eacute;todo <code>toString</code>) del atributo de la solicitud con el <i>nombre</i> indicado</p>
 </dd>
-<dt><tt>%auth-user-name%</tt></dt>
-<dd><p>Nombre de usuario autorizado</p>
-
+<dt><code>%auth-user-name%</code></dt>
+<dd>
+<p>Nombre de usuario autorizado</p>
 </dd>
-<dt><tt>%client.name%</tt></dt>
-<dd><p>Nombre de host del cliente</p>
-
+<dt><code>%client.name%</code></dt>
+<dd>
+<p>Nombre de host del cliente</p>
 </dd>
-<dt><tt>%client.dns%</tt></dt>
-<dd><p>DNS de cliente</p>
-
+<dt><code>%client.dns%</code></dt>
+<dd>
+<p>DNS de Cliente</p>
 </dd>
-<dt><tt>%cookie.<i>name</i>%</tt></dt>
-<dd><p>El valor de la cookie de la solicitud con el <i>nombre</i> indicado</p>
-
+<dt><code>%cookie.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>El valor de la cookie de la solicitud con el <i>nombre</i> indicado</p>
 </dd>
-<dt><tt>%cookie.value%</tt></dt>
-<dd><p>El valor de la primera cookie que se encuentra en la solicitud </p>
-
+<dt><code>%cookie.value%</code></dt>
+<dd>
+<p>El valor de la primera cookie que se encuentra en la solicitud</p>
 </dd>
-<dt><tt>%datetime%</tt></dt>
-<dd><p>Fecha del sistema</p>
-
+<dt><code>%datetime%</code></dt>
+<dd>
+<p>Fecha del sistema</p>
 </dd>
-<dt><tt>%request%</tt></dt>
-<dd><p>L&#237;nea de solicitud HTTP completa</p>
-
+<dt><code>%request%</code></dt>
+<dd>
+<p>L&iacute;nea de solicitud HTTP completa</p>
 </dd>
-<dt><tt>%status%</tt></dt>
-<dd><p>Estado</p>
-
+<dt><code>%status%</code></dt>
+<dd>
+<p>Estado</p>
 </dd>
-<dt><tt>%response.length%</tt></dt>
-<dd><p>Longitud del contenido de respuesta</p>
-
+<dt><code>%response.length%</code></dt>
+<dd>
+<p>Longitud del contenido de respuesta</p>
 </dd>
-<dt><tt>%header.referer%</tt></dt>
-<dd><p>Encabezado del referenciador</p>
-
+<dt><code>%header.referer%</code></dt>
+<dd>
+<p>Cabecera del referenciador</p>
 </dd>
-<dt><tt>%header.user-agent%</tt></dt>
-<dd><p>Encabezado del agente del usuario</p>
-
+<dt><code>%header.user-agent%</code></dt>
+<dd>
+<p>Cabecera del agente del usuario</p>
 </dd>
-<dt><tt>%http-method%</tt></dt>
-<dd><p>M&#233;todo HTTP</p>
-
+<dt><code>%http-method%</code></dt>
+<dd>
+<p>M&eacute;todo HTTP</p>
 </dd>
-<dt><tt>%http-uri%</tt></dt>
-<dd><p>URI de HTTP</p>
-
+<dt><code>%http-uri%</code></dt>
+<dd>
+<p>URI de HTTP</p>
 </dd>
-<dt><tt>%query-str%</tt></dt>
-<dd><p>Cadena de consulta HTTP</p>
-
+<dt><code>%query-str%</code></dt>
+<dd>
+<p>Cadena de consulta HTTP</p>
 </dd>
-<dt><tt>%http-version%</tt></dt>
-<dd><p>Versi&#243;n de protocolo HTTP</p>
-
+<dt><code>%http-version%</code></dt>
+<dd>
+<p>Versi&oacute;n de protocolo HTTP</p>
 </dd>
-<dt><tt>%header.accept%</tt></dt>
-<dd><p>Encabezado de aceptaci&#243;n</p>
-
+<dt><code>%header.accept%</code></dt>
+<dd>
+<p>Cabecera de aceptaci&oacute;n</p>
 </dd>
-<dt><tt>%header.date%</tt></dt>
-<dd><p>Encabezado de fecha</p>
-
+<dt><code>%header.date%</code></dt>
+<dd>
+<p>Cabecera de fecha</p>
 </dd>
-<dt><tt>%header.if-mod-since%</tt></dt>
-<dd><p>Encabezado si modificados desde</p>
-
+<dt><code>%header.if-mod-since%</code></dt>
+<dd>
+<p>Cabecera si modificados desde</p>
 </dd>
-<dt><tt>%header.auth%</tt></dt>
-<dd><p>Encabezado de autorizaci&#243;n</p>
-
+<dt><code>%header.auth%</code></dt>
+<dd>
+<p>Cabecera de autorizaci&oacute;n</p>
 </dd>
-<dt><tt>%header.<i>any</i>%</tt></dt>
-<dd><p>Cualquier valor de encabezado HTTP v&#225;lido definido en RFC 2616 (<tt>cualquiera</tt> tambi&#233;n es un valor de encabezado v&#225;lido; se especifica como variable aqu&#237;)</p>
-
+<dt><code>%header.</code><i>any</i><code>%</code></dt>
+<dd>
+<p>Cualquier valor de cabecera HTTP v&aacute;lido definido en RFC 2616 (<code>cualquiera</code> tambi&eacute;n es un valor de cabecera v&aacute;lido; se especifica como variable aqu&iacute;)</p>
 </dd>
-<dt><tt>%session.<i>name</i>%</tt></dt>
-<dd><p>El valor del atributo de la sesi&#243;n con el nombre <i>name</i> o <tt>NULL-SESSION-ATTRIBUTE-<i>name</i></tt> si el atributo indicado no existe en la sesi&#243;n, o <tt>NULL-SESSION</tt> si no existe sesi&#243;n </p>
-
+<dt><code>%session.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>El valor del atributo de la sesi&oacute;n con el nombre <i>name</i> o <code>NULL-SESSION-ATTRIBUTE-</code> si el atributo indicado no existe en la sesi&oacute;n, o <code>NULL-SESSION</code> si no existe ninguna sesi&oacute;n</p>
 </dd>
-<dt><tt>%time-taken%</tt></dt>
-<dd><p>Tiempo (en milisegundos) que se tard&#243; en dar servicio a cada solicitud </p>
-
+<dt><code>%time-taken%</code></dt>
+<dd>
+<p>Tiempo (en milisegundos) que se tard&oacute; en prestar servicio a cada solicitud</p>
 </dd>
-<dt><tt>%vs.id%</tt></dt>
-<dd><p>Id. de servidor virtual</p>
-
-</dd>
-</dl>
-</dd>
-<dt>Propiedades adicionales</dt>
-<dd><p>Propiedades adicionales del Servicio HTTP. Para obtener una descripci&#243;n de las propiedades disponibles, consulte <a href="ref-httpserviceprops.html">Propiedades espec&#237;ficas del servicio de transacci&#243;n HTTP</a>.</p>
-
+<dt><code>%vs.id%</code></dt>
+<dd>
+<p>ID de servidor virtual</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
+</dd>
+<dt>Propiedades Adicionales</dt>
+<dd>
+<p>Propiedades adicionales del Servicio HTTP. Para obtener una descripci&oacute;n de las propiedades disponibles, consulte <a href="ref-httpserviceprops.html">Propiedades Espec&iacute;ficas del Servicio HTTP</a>.</p>
+</dd>
+</dl>
+<a id="sthref106" name="sthref106"></a>
+<h5>Tareas Relacionadas</h5>
+<p><a href="task-accesslog.html">Configurar el Servicio HTTP</a></p>
+<a id="sthref107" name="sthref107"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<p>Ninguna.</p>
 
-<ul><li><p><a href="task-accesslog.html">Para configurar el servicio HTTP</a></p>
 
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-<p>Ninguno.</p>
-
-
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

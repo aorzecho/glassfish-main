@@ -1,101 +1,103 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-serverinstjvmpathsettings"></a><h4>Configuraci&#243;n de ruta JVM </h4>
-<a name="indexterm-192"></a><p>Utilice la p&#225;gina Configuraci&#243;n de ruta JVM para configurar la ruta de
-biblioteca nativa. La ruta de biblioteca nativa consiste en una concatenaci&#243;n de las
-rutas siguientes:</p>
+<p><a id="ref-serverinstjvmpathsettings" name="ref-serverinstjvmpathsettings"></a><a id="GHCOM00091" name="GHCOM00091"></a></p>
 
-
-<ul><li><p>El prefijo de la ruta de biblioteca nativa</p>
-
+<h4><a id="sthref346" name="sthref346"></a>Configuraci&oacute;n de Ruta de Acceso de JVM</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Configuraci&oacute;n de Ruta de Acceso de JVM para configurar la ruta de acceso de biblioteca nativa. La ruta de acceso de biblioteca nativa consiste en una concatenaci&oacute;n de las rutas de acceso siguientes:</p>
+<ul>
+<li>
+<p>El prefijo de la ruta de acceso de biblioteca nativa</p>
 </li>
-<li><p>La ruta del servidor para sus bibliotecas nativas (es decir, <tt></tt><i>instalaci&#243;n_as</i><tt>/lib</tt>) </p>
-
+<li>
+<p>La ruta de acceso del servidor para sus bibliotecas nativas (es decir, <i>as-install</i><code>/lib</code>)</p>
 </li>
-<li><p>Los directorios de biblioteca nativa de 64 bits, si procede </p>
-
+<li>
+<p>Los directorios de biblioteca nativa de 64 bits, si procede</p>
 </li>
-<li><p>El valor de la variable <tt>java.library.path</tt> para la JVM utilizada para iniciar Servidor GlassFish (este valor es distinto en diferentes sistemas operativos)</p>
-
+<li>
+<p>El valor de la variable <code>java.library.path</code> para la JVM utilizada para iniciar Servidor GlassFish (este valor es distinto en diferentes sistemas operativos)</p>
 </li>
-<li><p>Las rutas que se especifican en la p&#225;gina <a href="ref-serverinstjvmprofiler.html">Configuraci&#243;n de analizador JVM</a>, si el analizador est&#225; habilitado </p>
-
+<li>
+<p>Las rutas de acceso que se especifican en la p&aacute;gina <a href="ref-serverinstjvmprofiler.html">Configuraci&oacute;n de Analizador de Perfiles de JVM</a>, si el analizador est&aacute; activado</p>
 </li>
-<li><p>El sufijo de la ruta de biblioteca nativa</p>
-
-</li></ul>
-<p>Otros par&#225;metros de configuraci&#243;n se muestran como valores de s&#243;lo lectura para
-los dominios que se han actualizado desde una versi&#243;n anterior de Servidor GlassFish.
- No son compatibles con la versi&#243;n v3. </p>
-
-<p>La p&#225;gina Configuraci&#243;n de ruta JVM contiene las siguientes opciones.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<li>
+<p>El sufijo de la ruta de acceso de biblioteca nativa</p>
+</li>
+</ul>
+<p>Otros par&aacute;metros de configuraci&oacute;n se muestran como valores de s&oacute;lo lectura para los dominios que se han actualizado desde una versi&oacute;n anterior de Servidor GlassFish. No est&aacute;n soportados en la versi&oacute;n v3.</p>
+<p>La p&aacute;gina Configuraci&oacute;n de Ruta de Acceso de JVM contiene las siguientes opciones.</p>
+<dl>
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
-<dt>Ruta de clase de entorno</dt>
-<dd><p>Si se activa la casilla de verificaci&#243;n Ignorar, se omitir&#225; la variable de entorno <tt>CLASSPATH</tt>. La variable de entorno <tt>CLASSPATH</tt> resulta c&#243;moda para tutoriales b&#225;sicos de programaci&#243;n, pero no se recomienda en entornos de empresa. &#201;ste es un campo de s&#243;lo lectura.</p>
-
+<dt>Classpath de Entorno</dt>
+<dd>
+<p>Si se activa la casilla de control Ignorar, se omitir&aacute; la variable de entorno <code>CLASSPATH</code>. La variable de entorno <code>CLASSPATH</code> resulta c&oacute;moda para tutoriales b&aacute;sicos de programaci&oacute;n, pero no se recomienda en entornos de empresa. &Eacute;ste es un campo de s&oacute;lo lectura.</p>
 </dd>
-<dt>Ruta de clase del sistema</dt>
-<dd><p>La ruta a las clases del sistema. &#201;ste es un campo de s&#243;lo lectura. </p>
-
+<dt>Classpath del Sistema</dt>
+<dd>
+<p>Ruta de acceso a a las clases del sistema. &Eacute;ste es un campo de s&oacute;lo lectura.</p>
 </dd>
-<dt>Prefijo de ruta de clase</dt>
-<dd><p>Rutas completas a los archivos JAR que se van a anteponer a la ruta de clase del servidor, una por l&#237;nea. &#201;ste es un campo de s&#243;lo lectura.</p>
-
+<dt>Prefijo de Classpath</dt>
+<dd>
+<p>Rutas de acceso completas a los archivos JAR que se van a anteponer a classpath del servidor, una por l&iacute;nea. &Eacute;ste es un campo de s&oacute;lo lectura.</p>
 </dd>
-<dt>Sufijo de ruta de clase</dt>
-<dd><p>Rutas completas a los archivos JAR que se van a anexar a la ruta de clase del servidor, una por l&#237;nea. &#201;ste es un campo de s&#243;lo lectura.</p>
-
+<dt>Sufijo de Classpath</dt>
+<dd>
+<p>Rutas de acceso completas a los archivos JAR que se van a agregar a la classpath del servidor, una por l&iacute;nea. &Eacute;ste es un campo de s&oacute;lo lectura.</p>
 </dd>
-<dt>Prefijo de ruta de biblioteca nativa</dt>
-<dd><p>Rutas completas a los archivos JAR que se van a anteponer a la ruta de biblioteca nativa, una por l&#237;nea.</p>
-
+<dt>Prefijo de Ruta de Acceso de Biblioteca Nativa</dt>
+<dd>
+<p>Rutas de acceso completas a los archivos JAR que se van a anteponer a la ruta de acceso de biblioteca nativa, una por l&iacute;nea.</p>
 </dd>
-<dt>Sufijo de ruta de biblioteca nativa</dt>
-<dd><p>Rutas completas a los archivos JAR que se van a anexar a la ruta de biblioteca nativa, una por l&#237;nea.</p>
-
+<dt>Sufijo de Ruta de Acceso de Biblioteca Nativa</dt>
+<dd>
+<p>Rutas de acceso completas a los archivos JAR que se van a agregar a la ruta de acceso de biblioteca nativa, una por l&iacute;nea.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-jvmsettings.html">Para configurar la configuraci&#243;n de ruta de JVM</a></p>
-
+<a id="sthref347" name="sthref347"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-jvmsettings.html">Definir la Configuraci&oacute;n General de JVM</a></p>
 </li>
-<li><p><a href="task-jvmpathsettings.html">Para configurar la configuraci&#243;n de ruta de JVM</a></p>
-
+<li>
+<p><a href="task-jvmpathsettings.html">Definir la Configuraci&oacute;n de Ruta de Acceso de JVM</a></p>
 </li>
-<li><p><a href="task-jvmoptions.html">Para configurar las opciones de JVM</a></p>
-
+<li>
+<p><a href="task-jvmoptions.html">Configurar las Opciones de JVM</a></p>
 </li>
-<li><p><a href="task-securitymanagerdisable.html">Para desactivar el gestor de seguridad</a></p>
-
+<li>
+<p><a href="task-securitymanagerdisable.html">Desactivar el Gestor de Seguridad</a></p>
 </li>
-<li><p><a href="task-jvmprofilersettings.html">Para ajustar la configuraci&#243;n del analizador de JVM</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jvm-options-1"><tt>create-jvm-options</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jvmprofilersettings.html">Definir la Configuraci&oacute;n de Analizador de Perfiles de JVM</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jvm-options-1"><tt>delete-jvm-options</tt>(1)</a></p>
-
+</ul>
+<a id="sthref348" name="sthref348"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00042"><code>create-jvm-options</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jvm-options-1"><tt>list-jvm-options</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00094"><code>delete-jvm-options</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-profiler-1"><tt>create-profiler</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00180"><code>list-jvm-options</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-profiler-1"><tt>delete-profiler</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00050"><code>create-profiler</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00102"><code>delete-profiler</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

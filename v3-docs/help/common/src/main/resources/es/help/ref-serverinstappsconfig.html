@@ -1,87 +1,89 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-serverinstappsconfig"></a><h4>Configuraci&#243;n de aplicaciones</h4>
-<a name="indexterm-130"></a><a name="indexterm-131"></a><a name="indexterm-132"></a><a name="indexterm-133"></a><a name="indexterm-134"></a><p>Utilice la p&#225;gina Configuraci&#243;n de aplicaciones para definir las propiedades que ayudan
-a garantizar que se detecten los cambios en aplicaciones implementadas y que
-se vuelvan a cargar las clases modificadas.</p>
+<p><a id="ref-serverinstappsconfig" name="ref-serverinstappsconfig"></a><a id="GHCOM00053" name="GHCOM00053"></a></p>
 
-<p>La p&#225;gina Configuraci&#243;n de aplicaciones contiene las siguientes opciones.</p>
-
-<dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
-
+<h4><a id="sthref227" name="sthref227"></a><a id="sthref228" name="sthref228"></a><a id="sthref229" name="sthref229"></a><a id="sthref230" name="sthref230"></a><a id="sthref231" name="sthref231"></a>Configuraci&oacute;n de Aplicaciones</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Configuraci&oacute;n de Aplicaciones para definir las propiedades que ayudan a garantizar que se detecten los cambios en aplicaciones desplegadas y que se vuelvan a cargar las clases modificadas.</p>
+<p>La p&aacute;gina Configuraci&oacute;n de Aplicaciones contiene las siguientes opciones.</p>
+<dl>
+<dt>Cargar Valores por Defecto</dt>
+<dd>
+<p>Bot&oacute;n para restaurar la configuraci&oacute;n que tiene valores por defecto a sus valores por defecto. La configuraci&oacute;n que no tiene valores por defecto no se modifica.</p>
 </dd>
-<dt>Recargar</dt>
-<dd><p>Si esta opci&#243;n est&#225; habilitada, las clases modificadas se recargar&#225;n de forma din&#225;mica. El servidor comprueba peri&#243;dicamente los cambios realizados en el directorio de implementaci&#243;n y vuelve a implementar la aplicaci&#243;n de forma autom&#225;tica y din&#225;mica con los cambios. Esto es &#250;til en un entorno de desarrollo ya que permite poner a prueba los cambios realizados en el c&#243;digo de forma r&#225;pida. En cambio, en un entorno de producci&#243;n la recarga din&#225;mica puede hacer que disminuya el rendimiento. Adem&#225;s, cuando ha finalizado la recarga, las sesiones del periodo de transici&#243;n pierden su validez. El cliente debe reiniciar la sesi&#243;n. Esta opci&#243;n se habilita por defecto.</p>
-
+<dt>Volver a Cargar</dt>
+<dd>
+<p>Si esta opci&oacute;n est&aacute; activada, las clases modificadas se vuelven a cargar de forma din&aacute;mica. El servidor comprueba peri&oacute;dicamente los cambios realizados en el directorio de despliegue y vuelve a desplegar la aplicaci&oacute;n de forma autom&aacute;tica y din&aacute;mica con los cambios. Esto es &uacute;til en un entorno de desarrollo ya que permite poner a prueba los cambios realizados en el c&oacute;digo de forma r&aacute;pida. En cambio, en un entorno de producci&oacute;n, la nueva carga din&aacute;mica puede hacer que disminuya el rendimiento. Adem&aacute;s, cuando ha finalizado la nueva carga, las sesiones del periodo de tr&aacute;nsito pierden su validez. El cliente debe reiniciar la sesi&oacute;n. Esta opci&oacute;n est&aacute; activada por defecto.</p>
 </dd>
-<dt>Intervalo de sondeo de recarga</dt>
-<dd><p>Identifica la frecuencia con que el servidor deber&#237;a comprobar los cambios de c&#243;digo en las aplicaciones y m&#243;dulos implementados. El valor predeterminado es false.</p>
-
+<dt>Intervalo de Sondeo de Nueva Carga</dt>
+<dd>
+<p>Identifica la frecuencia con que el servidor deber&iacute;a comprobar los cambios de c&oacute;digo en las aplicaciones y m&oacute;dulos desplegados. El valor por defecto es false.</p>
 </dd>
-<dt>Tiempo de espera de sesi&#243;n de administraci&#243;n</dt>
-<dd><p>Identifica el n&#250;mero de minutos de inactividad antes de que se agote el tiempo de espera de Consola de administraci&#243;n y se deba iniciar una sesi&#243;n de nuevo. El valor predeterminado es 60.</p>
-
+<dt>Timeout de Sesi&oacute;n de Administrador</dt>
+<dd>
+<p>Identifica el n&uacute;mero de minutos de inactividad antes de que la Consola de Administraci&oacute;n sufra un timeout y se deba conectar de nuevo. El valor por defecto es 60.</p>
 </dd>
-<dt>Implementaci&#243;n autom&#225;tica</dt>
-<dd><p>Si esta opci&#243;n est&#225; habilitada, las aplicaciones del directorio de implementaci&#243;n autom&#225;tica se implementan autom&#225;ticamente. Esta opci&#243;n se habilita por defecto.</p>
-
+<dt>Despliegue Autom&aacute;tico</dt>
+<dd>
+<p>Si esta opci&oacute;n est&aacute; activada, las aplicaciones del directorio de despliegue autom&aacute;tico se despliegan autom&aacute;ticamente. Esta opci&oacute;n est&aacute; activada por defecto.</p>
 </dd>
-<dt>Intervalo de sondeo de implementaci&#243;n autom&#225;tica</dt>
-<dd><p>Especifica la frecuencia con que el servidor deber&#237;a comprobar el directorio de implementaci&#243;n autom&#225;tica para comprobar los cambios del m&#243;dulo o de la aplicaci&#243;n. Si cambia el intervalo de sondeo no quedar&#225; afectado el tiempo que se tarda en implementar una aplicaci&#243;n o un m&#243;dulo. El valor predeterminado es false.</p>
-
+<dt>Intervalo de Sondeo de Despliegue Autom&aacute;tico</dt>
+<dd>
+<p>Especifica la frecuencia con que el servidor deber&iacute;a comprobar el directorio de despliegue autom&aacute;tico para saber si hay cambios del m&oacute;dulo o de la aplicaci&oacute;n. Si cambia el intervalo de sondeo no quedar&aacute; afectado el tiempo que se tarda en desplegar una aplicaci&oacute;n o un m&oacute;dulo. El valor por defecto es false.</p>
 </dd>
-<dt>Tiempo de espera de reintento de implementaci&#243;n autom&#225;tica</dt>
-<dd><p>Especifica el n&#250;mero de segundos que el tama&#241;o de un archivo copiado parcialmente puede permanecer sin cambios antes de que se produzca un error. El valor prededeterminado es 4.</p>
-
-<p>Si se copia un archivo lentamente en el directorio de implementaci&#243;n autom&#225;tica, &#233;ste puede aparecer antes de que se copie el archivo completo. Como resultado, se produce un error al intentar implementar la aplicaci&#243;n de forma autom&#225;tica. Si se produce un error al intentar implementar una aplicaci&#243;n de forma autom&#225;tica por este motivo, Servidor GlassFish intentar&#225; implementar de nuevo la aplicaci&#243;n. Si el tama&#241;o del archivo copiado parcialmente permanece sin cambios durante el per&#237;odo de tiempo especificado, se producir&#225; un error.</p>
-
+<dt>Timeout para el Reintento de Despliegue Autom&aacute;tico</dt>
+<dd>
+<p>Especifica el n&uacute;mero de segundos que el tama&ntilde;o de un archivo copiado parcialmente puede permanecer sin cambios antes de que se produzca un error. El valor por defecto es 4.</p>
+<p>Si se copia un archivo lentamente en el directorio de despliegue autom&aacute;tico, &eacute;ste puede aparecer antes de que se copie el archivo completo. Como resultado, se produce un error al intentar desplegar la aplicaci&oacute;n de forma autom&aacute;tica. Si se produce un error al intentar desplegar una aplicaci&oacute;n de forma autom&aacute;tica por este motivo, Servidor GlassFish intentar&aacute; desplegar de nuevo la aplicaci&oacute;n. Si el tama&ntilde;o del archivo copiado parcialmente permanece sin cambios durante el per&iacute;odo de tiempo especificado, se producir&aacute; un error.</p>
 </dd>
-<dt>Directorio de implementaci&#243;n autom&#225;tica</dt>
-<dd><p>Identifica el directorio para supervisar la implementaci&#243;n autom&#225;tica de las aplicaciones. El valor predeterminado es <tt></tt><i>dir_dominio</i><tt>/autodeploy</tt>.</p>
-
+<dt>Directorio de Despliegue Autom&aacute;tico</dt>
+<dd>
+<p>Identifica el directorio para supervisar el despliegue autom&aacute;tico de las aplicaciones. El valor por defecto es <i>domain-dir</i><code>/autodeploy</code>.</p>
 </dd>
-<dt>Validaci&#243;n XML</dt>
-<dd><p>Especifica el tipo de validaci&#243;n XML que se llevar&#225; a cabo en los descriptores de implementaci&#243;n est&#225;ndar y de Servidor GlassFish. El tipo puede ser cualquiera de los siguientes:</p>
-
-<dl><dt>Completo</dt>
-<dd><p>Si se produce un error en la validaci&#243;n XML, no se realizar&#225; la implementaci&#243;n. &#201;ste es el valor predeterminado.</p>
-
+<dt>Validaci&oacute;n de XML</dt>
+<dd>
+<p>Especifica el tipo de validaci&oacute;n de XML que se llevar&aacute; a cabo en los descriptores de despliegue est&aacute;ndar y de Servidor GlassFish. El tipo puede ser cualquiera de los siguientes:</p>
+<dl>
+<dt>Completo</dt>
+<dd>
+<p>Si se produce un fallo en la validaci&oacute;n de XML, no se realizar&aacute; el despliegue. &Eacute;ste es el valor por defecto.</p>
 </dd>
-<dt>An&#225;lisis</dt>
-<dd><p>Se informa acerca de errores en la validaci&#243;n XML, pero se realiza la implementaci&#243;n.</p>
-
+<dt>An&aacute;lisis</dt>
+<dd>
+<p>Se informa acerca de errores en la validaci&oacute;n de XML, pero se realiza el despliegue.</p>
 </dd>
 <dt>Ninguno</dt>
-<dd><p>No se realiza ninguna implementaci&#243;n XML.</p>
-
+<dd>
+<p>No se realiza ninguna validaci&oacute;n de XML.</p>
 </dd>
 </dl>
 </dd>
 <dt>Verificador</dt>
-<dd><p>Si se habilita esta opci&#243;n, el verificador se ejecuta antes de la implementaci&#243;n autom&#225;tica. Si se produce un error en la verificaci&#243;n, no se realiza la implementaci&#243;n. El verificador examinar&#225; la estructura y contenido del archivo. La verificaci&#243;n de aplicaciones de gran tama&#241;o tiende a llevar mucho tiempo. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dd>
+<p>Si se activa esta opci&oacute;n, el verificador se ejecuta antes del despliegue autom&aacute;tico. Si se produce un fallo en la verificaci&oacute;n, no se realiza el despliegue. El verificador examinar&aacute; la estructura y contenido del archivo. La verificaci&oacute;n de aplicaciones de gran tama&ntilde;o tiende a llevar mucho tiempo. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
 </dd>
 <dt>Precompilar</dt>
-<dd><p>Si est&#225; habilitada esta opci&#243;n, los archivos JavaServer Pages ( JSP) se precompilar&#225;n. Si se deshabilita esta opci&#243;n, los archivos JSP se compilar&#225;n en el tiempo de ejecuci&#243;n cuando se acceda a los mismos por primera vez. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dd>
+<p>Si est&aacute; activada esta opci&oacute;n, los archivos JavaServer Pages (JSP) se precompilar&aacute;n. Si est&aacute; desactivada esta opci&oacute;n, los archivos JSP se compilar&aacute;n en tiempo de ejecuci&oacute;n cuando se acceda a los mismos por primera vez. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
 </dd>
-<dt>Propiedades adicionales</dt>
-<dd><p>Propiedades adicionales para las aplicaciones. Servidor GlassFish no define ninguna propiedad adicional para las aplicaciones.</p>
-
+<dt>Propiedades Adicionales</dt>
+<dd>
+<p>Propiedades adicionales para las aplicaciones. Servidor GlassFish no define ninguna propiedad adicional para las aplicaciones.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-setadvanceappconfig.html">C&#243;mo configurar la configuraci&#243;n de aplicaciones</a></p>
-
+<a id="sthref232" name="sthref232"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-setadvanceappconfig.html">Definir la Configuraci&oacute;n de las Aplicaciones</a></p>
 </li>
-<li><p><a href="task-setadvancedomainattributes.html">C&#243;mo configurar los atributos de dominio</a></p>
+<li>
+<p><a href="task-setadvancedomainattributes.html">Definir los Atributos de Dominio</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

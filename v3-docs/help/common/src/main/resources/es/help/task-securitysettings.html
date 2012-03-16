@@ -1,88 +1,114 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-securitysettings" name="task-securitysettings"></a><a id="GHCOM00181" name="GHCOM00181"></a></p>
 
-
-<a name="task-securitysettings"></a><h3>C&#243;mo configurar las opciones de seguridad</h3><a name="indexterm-77"></a><a name="indexterm-78"></a><p>La Consola de administraci&#243;n permite establecer varios valores de seguridad en todo
-el sistema.</p>
-
+<h4><a id="sthref134" name="sthref134"></a><a id="sthref135" name="sthref135"></a>Definir la Configuraci&oacute;n de Seguridad</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La Consola de Administraci&oacute;n permite definir varias configuraciones de seguridad en todo el sistema.</p>
 <ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraciones.</b></li>
-<li><b>En el nodo Configuraciones, haga clic en la configuraci&#243;n de instancia o
-cl&#250;ster del servidor para el que desee configurar la Seguridad.</b><p>Se abrir&#225; la p&#225;gina Configuraci&#243;n.</p></li>
-<li><b>En la p&#225;gina Configuraci&#243;n, haga clic en Seguridad. </b><p>Se abre la p&#225;gina Configuraci&#243;n de seguridad del destino de configuraci&#243;n seleccionado.</p></li>
-<li><b>Marque la casilla de verificaci&#243;n Administrador de seguridad activado para activar el
-administrador de seguridad.</b><p>Si se activa esta opci&#243;n, se agregar&#225; una opci&#243;n de JVM, <tt>-Djava.security.manager </tt>,
-a los valores de configuraci&#243;n de JVM de Servidor GlassFish. Consulte <a href="task-jvmoptions.html">Para configurar las opciones de JVM</a>.
-Debe reiniciar el servidor para habilitar este cambio.</p><p>Aseg&#250;rese de que ha otorgado los permisos correctos para todas las aplicaciones.
-Puede deshabilitar el administrador de seguridad para mejorar el rendimiento. Esta opci&#243;n
-se encuentra deshabilitada de forma predeterminada.</p></li>
-<li><b>Marque la casilla de verificaci&#243;n Registro de auditor&#237;a activado para habilitar el
-registro de auditor&#237;a.</b><p>Si esta opci&#243;n est&#225; activada, el servidor cargar&#225; y ejecutar&#225; todos los
-m&#243;dulos de auditor&#237;a seleccionados de la lista M&#243;dulos de auditor&#237;a. Si esta
-opci&#243;n est&#225; desactivada, el servidor no acceder&#225; a los m&#243;dulos de auditor&#237;a.
-Esta opci&#243;n se encuentra deshabilitada de forma predeterminada.</p></li>
-<li><b>En la lista desplegable Dominio predeterminado, seleccione un dominio activo que el
-servidor utilizar&#225; para la autenticaci&#243;n.</b><p>Las aplicaciones utilizar&#225;n este dominio siempre que el descriptor de implementaci&#243;n no
-especifique un dominio diferente. Todos los dominios configurados aparecen en la lista.
-El valor predeterminado es <tt>file</tt>.</p></li>
-<li><b>Especifique la informaci&#243;n de Principal predeterminado.</b><ol style="list-style-type: lower-alpha">
-<li><b>En el campo Principal predeterminado, introduzca el nombre de usuario predeterminado.</b><p>El servidor utilizar&#225; este nombre de usuario si no se proporciona otro
-principal.</p></li>
-<li><b>En el campo Contrase&#241;a de principal predeterminado, introduzca la contrase&#241;a del valor
-principal predeterminada especificada en el campo Principal predeterminado.</b></li></ol><p>No se requiere un principal predeterminado para el funcionamiento normal de un
-servidor.</p></li>
-<li><b>En la lista desplegable JACC, seleccione el nombre de un proveedor JACC
-configurado.</b><p>Las opciones predeterminadas son <tt>default</tt> y <tt>simple</tt>. La opci&#243;n predeterminada es <tt>default</tt>.
-Para obtener informaci&#243;n sobre c&#243;mo crear nuevos proveedores JACC, consulte ***.</p></li>
-<li><b>En la lista desplegable M&#243;dulos de auditor&#237;a, seleccione los m&#243;dulos del proveedor
-de auditor&#237;a que utilizar&#225; el subsistema de auditor&#237;a si est&#225; habilitado el
-registro de auditor&#237;a.</b><p>Por defecto el servidor utiliza un m&#243;dulo de auditor&#237;a llamado <tt>default</tt>. Para
-obtener informaci&#243;n sobre la creaci&#243;n de nuevos m&#243;dulos de auditor&#237;a, consulte <a href="task-auditmodulenew.html">C&#243;mo crear un m&#243;dulo de auditor&#237;a</a>.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Asignaci&#243;n de principal a funci&#243;n predeterminada habilitada
-para aplicar la asignaci&#243;n de principal a funci&#243;n predeterminada a las aplicaciones
-que no tengan un sistema de asignaci&#243;n espec&#237;fico.</b></li>
-<li><b>Si ha habilitado Asignaci&#243;n de principal a funci&#243;n predeterminada, en el campo
-Clases principales asignadas, introduzca el nombre de una clase de implementaci&#243;n <tt>java.security.Principal </tt>
-personalizada que se utilizar&#225; en la asignaci&#243;n de principal a funci&#243;n predeterminada.</b></li>
-<li>(Opcional) <b>En la secci&#243;n Propiedades adicionales, especifique las propiedades adicionales.</b><p>Las propiedades v&#225;lidas dependen del tipo de dominio seleccionado en el campo
-Dominio predeterminado. Consulte la entrada adecuada en la lista siguiente para el
-tipo de dominio que desea configurar.</p>
-<ul><li><p><a href="ref-editfile-adminrealm.html">Propiedades espec&#237;ficas de la clase <tt>FileRealm</tt></a></p>
-
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Configuraciones.</p>
 </li>
-<li><p><a href="ref-editcertrealm.html">Propiedades espec&#237;ficas de la clase <tt>CertificateRealm</tt></a></p>
-
+<li>
+<p>En el nodo Configuraciones, haga clic en la configuraci&oacute;n de instancia o cluster del servidor para el que desee configurar la seguridad.</p>
+<p>Se abrir&aacute; la p&aacute;gina Configuraci&oacute;n.</p>
 </li>
-<li><p><a href="ref-editjdbcrealm.html"><tt>Propiedades espec&#237;ficas de la clase JDBCRealm</tt></a></p>
-
+<li>
+<p>En la p&aacute;gina Configuraci&oacute;n, haga clic en Seguridad.</p>
+<p>Se abrir&aacute; la p&aacute;gina Configuraci&oacute;n de Seguridad del destino de configuraci&oacute;n seleccionado.</p>
 </li>
-<li><p><a href="ref-ldaprealmprop.html"><tt>Propiedades espec&#237;ficas de la clase LDAPRealm</tt></a></p>
-
+<li>
+<p>Active la casilla de control Gestor de Seguridad Activado para activar el gestor de seguridad.</p>
+<p>Si se activa esta opci&oacute;n, se agregar&aacute; una opci&oacute;n de JVM, <code>-Djava.security.manager</code> , a la configuraci&oacute;n de JVM de Servidor GlassFish. Consulte <a href="task-jvmoptions.html">Configurar las Opciones de JVM</a>. Debe reiniciar el servidor para activar este cambio.</p>
+<p>Aseg&uacute;rese de que ha otorgado los permisos correctos para todas las aplicaciones. Puede desactivar el gestor de seguridad para mejorar el rendimiento. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
 </li>
-<li><p><a href="ref-solarisrealmprop.html"><tt>Propiedades espec&#237;ficas de la clase SolarisRealm</tt></a></p>
-
+<li>
+<p>Active la casilla de control Registro de Auditor&iacute;a Activado para activar el registro de auditor&iacute;a.</p>
+<p>Si esta opci&oacute;n est&aacute; activada, el servidor cargar&aacute; y ejecutar&aacute; todos los m&oacute;dulos de auditor&iacute;a seleccionados de la lista M&oacute;dulos de Auditor&iacute;a. Si esta opci&oacute;n est&aacute; desactivada, el servidor no acceder&aacute; a los m&oacute;dulos de auditor&iacute;a. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
 </li>
-<li><p><a href="ref-pamrealmprop.html">Propiedades espec&#237;ficas de la clase <tt>PamRealm</tt></a></p>
-
-</li></ul>
+<li>
+<p>En la lista desplegable Dominio por Defecto, seleccione un dominio activo que el servidor utilizar&aacute; para la autenticaci&oacute;n.</p>
+<p>Las aplicaciones utilizar&aacute;n este dominio siempre que el descriptor de despliegue no especifique un dominio diferente. Todos los dominios configurados aparecen en la lista. El valor por defecto es <code>file</code>.</p>
+</li>
+<li>
+<p>Especifique la informaci&oacute;n del principal por defecto.</p>
+<ol type="a">
+<li>
+<p>En el campo Principal por Defecto, introduzca el nombre de usuario por defecto.</p>
+<p>El servidor utiliza este nombre de usuario cuando no se proporciona ning&uacute;n otro principal.</p>
+</li>
+<li>
+<p>En el campo Contrase&ntilde;a Principal por Defecto, introduzca la contrase&ntilde;a del principal por defecto especificado en el campo Principal por Defecto.</p>
+</li>
+</ol>
+<p>No se requiere un principal por defecto para el funcionamiento normal de un servidor.</p>
+</li>
+<li>
+<p>En la lista desplegable JACC, seleccione el nombre de un proveedor JACC configurado.</p>
+<p>Las opciones por defecto son <code>default</code> y <code>simple</code>. La opci&oacute;n por defecto es <code>default</code>. Para obtener informaci&oacute;n sobre c&oacute;mo crear nuevos proveedores JACC, consulte ***.</p>
+</li>
+<li>
+<p>En la lista desplegable M&oacute;dulos de Auditor&iacute;a, seleccione los m&oacute;dulos del proveedor de auditor&iacute;a que utilizar&aacute; el subsistema de auditor&iacute;a si est&aacute; activado el registro de auditor&iacute;a.</p>
+<p>Por defecto el servidor utiliza un m&oacute;dulo de auditor&iacute;a llamado <code>default</code>. Para obtener informaci&oacute;n sobre la creaci&oacute;n de nuevos m&oacute;dulos de auditor&iacute;a, consulte <a href="task-auditmodulenew.html">Crear un M&oacute;dulo de Auditor&iacute;a</a>.</p>
+</li>
+<li>
+<p>Active la casilla de control Asignaci&oacute;n de Principal por Defecto a Rol Activada para aplicar la asignaci&oacute;n de principal a rol por defecto a las aplicaciones que no tengan un sistema de asignaci&oacute;n espec&iacute;fico.</p>
+</li>
+<li>
+<p>Si ha activado la asignaci&oacute;n de principal a rol por defecto, en el campo Clases Principal Asignada, introduzca el nombre de una clase de implantaci&oacute;n <code>java.security.Principal</code> personalizada que se utilizar&aacute; en la asignaci&oacute;n de principal a rol por defecto.</p>
+</li>
+<li>
+<p>En la secci&oacute;n Propiedades Adicionales, especifique las propiedades adicionales.</p>
+<p>Las propiedades v&aacute;lidas dependen del tipo de dominio seleccionado en el campo Dominio por Defecto. Consulte la entrada adecuada en la lista siguiente para el tipo de dominio que desea configurar.</p>
 <ul>
-<li><b>Para a&#241;adir una propiedad, haga clic en el bot&#243;n Agregar propiedad. En
-la fila vac&#237;a escriba el nombre de la propiedad en el campo
-Nombre y el valor de la propiedad en el campo Valor.</b></li>
-<li><b>Para modificar una propiedad, edite el campo Valor de la propiedad.</b></li>
-<li><b>Para eliminar una propiedad, marque la casilla de verificaci&#243;n situada a la
-izquierda del campo Nombre de la propiedad que quiera eliminar y, a
-continuaci&#243;n, haga clic en el bot&#243;n Eliminar propiedades.</b></li></ul></li>
-<li><b>Haga clic en Guardar.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-accessadmintools.html">C&#243;mo otorgar acceso a las herramientas de administraci&#243;n.</a></p>
-
+<li>
+<p><a href="ref-editfile-adminrealm.html">Propiedades espec&iacute;ficas de la clase <code>FileRealm</code></a></p>
 </li>
-<li><p><a href="task-changeadminpasswd.html">Cambio de la contrase&#241;a de un usuario en el dominio de administrador</a></p>
+<li>
+<p><a href="ref-editcertrealm.html">Propiedades espec&iacute;ficas de la clase <code>CertificateRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-editjdbcrealm.html">Propiedades espec&iacute;ficas de la clase <code>JDBCRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-ldaprealmprop.html">Propiedades espec&iacute;ficas de la clase <code>LDAPRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-solarisrealmprop.html">Propiedades espec&iacute;ficas de la clase <code>SolarisRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-pamrealmprop.html">Propiedades espec&iacute;ficas de la clase <code>PAMRealm</code></a></p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Para agregar una propiedad, haga clic en el bot&oacute;n Agregar Propiedad. En la fila en blanco que aparece, escriba el nombre de propiedad en el campo Nombre y escriba el valor de propiedad en el campo Valor.</p>
+</li>
+<li>
+<p>Para modificar una propiedad, edite su campo Valor.</p>
+</li>
+<li>
+<p>Para suprimir una propiedad, active la casilla de control a la izquierda del campo Nombre de la propiedad que est&aacute; suprimiendo y, a continuaci&oacute;n, haga clic en el bot&oacute;n Suprimir Propiedades.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Haga clic en Guardar.</p>
+</li>
+</ol>
+<a id="sthref136" name="sthref136"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-accessadmintools.html">Otorgar Acceso a las Herramientas de Administraci&oacute;n</a></p>
+</li>
+<li>
+<p><a href="task-changeadminpasswd.html">Cambiar la Contrase&ntilde;a para un Usuario del Dominio de Administraci&oacute;n</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

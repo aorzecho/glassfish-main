@@ -1,104 +1,110 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-virtualserveredit"></a><h4>Editar servidor virtual</h4>
-<a name="indexterm-63"></a><p>Utilice la p&#225;gina Editar servidor virtual para modificar la configuraci&#243;n de un
-servidor virtual.</p>
+<p><a id="ref-virtualserveredit" name="ref-virtualserveredit"></a><a id="GHWEB00013" name="GHWEB00013"></a></p>
 
-<p>La p&#225;gina Editar servidor virtual contiene las siguientes opciones.</p>
-
-<dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
-
+<h4><a id="sthref127" name="sthref127"></a>Editar Servidor Virtual</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Editar Servidor Virtual para modificar la configuraci&oacute;n de un servidor virtual.</p>
+<p>La p&aacute;gina Editar Servidor Virtual contiene las siguientes opciones.</p>
+<dl>
+<dt>Cargar Valores por Defecto</dt>
+<dd>
+<p>Bot&oacute;n para restaurar la configuraci&oacute;n que tiene valores por defecto a sus valores por defecto. La configuraci&oacute;n que no tiene valores por defecto no se modifica.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
-<dt>Id</dt>
-<dd><p>Identificador de servidor virtual visible internamente. No se muestra a los clientes HTTP. Los nombres de host que se muestran a los clientes HTTP se deben especificar en el campo Hosts.</p>
-
+<dt>ID</dt>
+<dd>
+<p>Identificador de servidor virtual visible internamente. No se muestra a los clientes HTTP. Los nombres de host que se muestran a los clientes HTTP se deben especificar en el campo Hosts.</p>
 </dd>
 <dt>Hosts</dt>
-<dd><p>Nombre o nombres de host para el equipo en el que se ejecuta el servidor. Utilice nombres de host reales o virtuales que est&#233;n registrados en el servidor DNS de la red (y, en un sistema UNIX, en el archivo <tt>/etc/hosts</tt>). El valor predeterminado es el valor de la propiedad del sistema <tt>${com.sun.aas.hostName}</tt>. </p>
-
+<dd>
+<p>Nombre o nombres de host para el equipo en el que se ejecuta el servidor. Utilice nombres de host reales o virtuales que est&eacute;n registrados en el servidor DNS de la red (y, en un sistema UNIX, en el archivo <code>/etc/hosts</code>). El valor por defecto es el valor de la propiedad del sistema <code>${com.sun.aas.hostName}</code>.</p>
 </dd>
 <dt>Estado</dt>
-<dd><p>El estado deseado para el servidor. El valor puede ser cualquiera de los siguientes:</p>
-
-<dl><dt>Activado</dt>
-<dd><p>El servidor virtual est&#225; activo. &#201;ste es el valor predeterminado.</p>
-
+<dd>
+<p>El estado deseado para el servidor. El valor puede ser cualquiera de los siguientes:</p>
+<dl>
+<dt>Activado</dt>
+<dd>
+<p>El servidor virtual est&aacute; activo. &Eacute;ste es el valor por defecto.</p>
 </dd>
 <dt>Desactivado</dt>
-<dd><p>El servidor virtual est&#225; inactivo. Los intentos de acceder al servidor generar&#225;n el c&#243;digo de error 404 (recurso no disponible).</p>
-
+<dd>
+<p>El servidor virtual est&aacute; inactivo. Los intentos de acceder al servidor generar&aacute;n el c&oacute;digo de error 404 (recurso no disponible).</p>
 </dd>
-<dt>Deshabilitado</dt>
-<dd><p>El servidor virtual est&#225; deshabilitado. Los intentos de acceder al servidor generar&#225;n el c&#243;digo de error 403 (denegaci&#243;n de cumplir la solicitud).</p>
-
+<dt>Desactivado</dt>
+<dd>
+<p>El servidor virtual est&aacute; desactivado. Los intentos de acceder al servidor generar&aacute;n el c&oacute;digo de error 403 (denegaci&oacute;n de cumplimiento de la solicitud).</p>
 </dd>
 </dl>
 </dd>
 <dt>SSO</dt>
-<dd><p>Especifica si el comportamiento de inicio de sesi&#243;n &#250;nico se hereda del servicio HTTP, habilitado o deshabilitado. De forma predeterminada, se hereda del servicio HTTP. Si esta opci&#243;n se encuentra habilitada, el inicio de sesi&#243;n &#250;nico est&#225; habilitado para aplicaciones web que se han configurado para el mismo dominio en este servidor virtual. Si esta opci&#243;n no se encuentra habilitada, el inicio de sesi&#243;n &#250;nico est&#225; deshabilitado para este servidor virtual y los usuarios deben autenticarse por separado para cada aplicaci&#243;n del servidor virtual.</p>
-
+<dd>
+<p>Especifica si el comportamiento de single sign-on se hereda del servicio HTTP, activado o desactivado. Por defecto, se hereda del servicio HTTP. Si esta opci&oacute;n se encuentra activada, el single sign-on est&aacute; activado para aplicaciones web que se han configurado para el mismo dominio en este servidor virtual. Si esta opci&oacute;n est&aacute; desactivada, el single sign-on est&aacute; desactivado para este servidor virtual y los usuarios deben autenticarse por separado para cada aplicaci&oacute;n del servidor virtual.</p>
 </dd>
-<dt>Network Listeners</dt>
-<dd><p>La escucha o las escuchas de red asociadas a este servidor. </p>
-
+<dt>Listeners de Red</dt>
+<dd>
+<p>El listener o listeners de red asociados a este servidor.</p>
 </dd>
-<dt>M&#243;dulo web predeterminado</dt>
-<dd><p>El m&#243;dulo web implementado (si lo hay) que debe responder a todas las solicitudes que no pueden asignarse a otros m&#243;dulos web implementados en el servidor virtual. Si no se especifica un m&#243;dulo web predeterminado, se utiliza un m&#243;dulo web con una ra&#237;z de contexto vac&#237;a. Si no hay ning&#250;n m&#243;dulo web con una ra&#237;z de contexto vac&#237;a, se crea y utiliza un m&#243;dulo web predeterminado del sistema.</p>
-
+<dt>M&oacute;dulo Web por Defecto</dt>
+<dd>
+<p>El m&oacute;dulo web desplegado (si lo hay) que debe responder a todas las solicitudes que no pueden asignarse a otros m&oacute;dulos web desplegados en el servidor virtual. Si no se especifica un m&oacute;dulo web por defecto, se utiliza un m&oacute;dulo web con una ra&iacute;z de contexto vac&iacute;a. Si no hay ning&uacute;n m&oacute;dulo web con una ra&iacute;z de contexto vac&iacute;a, se crea y utiliza un m&oacute;dulo web por defecto del sistema.</p>
 </dd>
-<dt>Archivo de registro</dt>
-<dd><p>El nombre de ruta del archivo en el que se guardar&#225;n los mensajes de registro de este servidor virtual. De forma predeterminada, los mensajes de registro aparecer&#225;n en <tt></tt><i>dir_dominio</i><tt>/logs/server.log </tt>.</p>
-
+<dt>Archivo Log</dt>
+<dd>
+<p>El nombre de ruta de acceso del archivo en el que aparecer&aacute;n los mensajes de registro de este servidor virtual. Por defecto, aparecer&aacute;n mensajes de registro en <i>domain-dir</i><code>/logs/server.log</code>..</p>
 </dd>
-<dt>Docroot</dt>
-<dd><p>La ruta absoluta al directorio ra&#237;z de documentos del servidor. El valor predeterminado es <tt></tt><i>dir_dominio</i><tt>/docroot</tt>.</p>
-
+<dt>Ra&iacute;z de Documento</dt>
+<dd>
+<p>La ruta de acceso absoluta al directorio ra&iacute;z de documentos del servidor. El valor por defecto es <i>domain-dir</i><code>/docroot</code>.</p>
 </dd>
-<dt>Registro de acceso</dt>
-<dd><p>Especifica si el registro de acceso se hereda del servicio HTTP, habilitado o deshabilitado. De forma predeterminada, se hereda del servicio HTTP.</p>
-
+<dt>Registro de Acceso</dt>
+<dd>
+<p>Especifica si el registro de acceso se hereda del servicio HTTP, activado o desactivado. Por defecto, se hereda del servicio HTTP.</p>
 </dd>
 <dt>Directorio</dt>
-<dd><p>La ruta de directorio absoluta a los registros de acceso del servidor. El valor predeterminado es <i>dir_dominio</i><tt>/logs/access</tt>.</p>
-
+<dd>
+<p>La ruta de acceso de directorio absoluta a los logs de acceso del servidor. El valor por defecto es <i>domain-dir</i><code>/logs/access</code>.</p>
 </dd>
-<dt>Propiedades adicionales</dt>
-<dd><p>Propiedades adicionales para el servidor virtual.</p>
-
-<p>Para obtener informaci&#243;n sobre las propiedades disponibles, consulte <a href="ref-virtualserverprops.html">Propiedades espec&#237;ficas de los servidores virtuales</a>.</p>
-
+<dt>Propiedades Adicionales</dt>
+<dd>
+<p>Propiedades adicionales para el servidor virtual.</p>
+<p>Para obtener informaci&oacute;n sobre las propiedades disponibles, consulte <a href="ref-virtualserverprops.html">Propiedades Espec&iacute;ficas de los Servidores Virtuales</a>.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-virtualservercreate.html">Para crear un servidor virtual</a></p>
-
+<a id="sthref128" name="sthref128"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-virtualservercreate.html">Crear un Servidor Virtual</a></p>
 </li>
-<li><p><a href="task-virtualserveredit.html">Para editar un servidor virtual</a></p>
-
+<li>
+<p><a href="task-virtualserveredit.html">Editar un Servidor Virtual</a></p>
 </li>
-<li><p><a href="task-virtualserverdelete.html">Para eliminar un servidor virtual</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-virtual-server-1"><tt>create-virtual-server</tt>(1)</a></p>
-
+<li>
+<p><a href="task-virtualserverdelete.html">Suprimir un Servidor Virtual</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-virtual-servers-1"><tt>list-virtual-servers</tt>(1)</a></p>
-
+</ul>
+<a id="sthref129" name="sthref129"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00062"><code>create-virtual-server</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-virtual-server-1"><tt>delete-virtual-server</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00207"><code>list-virtual-servers</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00113"><code>delete-virtual-server</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

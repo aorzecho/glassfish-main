@@ -1,149 +1,155 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-appdeployweb" name="task-appdeployweb"></a><a id="GHCOM00156" name="GHCOM00156"></a></p>
 
-
-<a name="task-appdeployweb"></a><h3>C&#243;mo implementar una aplicaci&#243;n web</h3><a name="indexterm-29"></a><a name="indexterm-30"></a><a name="indexterm-31"></a><ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, seleccione el nodo Aplicaciones.</b><p>Se abrir&#225; la p&#225;gina Aplicaciones </p></li>
-<li><b>En la tabla Aplicaciones implementadas, haga clic en el bot&#243;n Implementar.</b><p>Se abrir&#225; la p&#225;gina Implementar aplicaciones o M&#243;dulos.</p></li>
-<li><b>Especifique la ubicaci&#243;n de la aplicaci&#243;n que quiere implementar. </b><ul>
-<li><b>Si la aplicaci&#243;n es un archivo que reside en el equipo cliente
-o al que se puede acceder desde el equipo cliente, seleccione la
-opci&#243;n Archivo comprimido que se cargar&#225; en el servidor.</b><p>La m&#225;quina cliente es el anfitri&#243;n en el que se ve Consola
-de administraci&#243;n mediante un navegador.</p><p>Haga clic en Examinar para buscar el archivo o bien escriba la
-ruta completa hasta el archivo.</p></li>
-<li><b>Si la aplicaci&#243;n es un archivo que reside en el equipo servidor
-o es una aplicaci&#243;n descomprimida desde un directorio desplegado, seleccione la opci&#243;n
-Archivo comprimido local o Directorio accesible desde Servidor GlassFish. </b><p>El equipo servidor es el host que se est&#225; ejecutando en el
-servidor de administraci&#243;n del dominio (DAS). </p><p>Haz clic en Examinar archivos para buscar un archivo o en Examinar
-carpetas para buscar un directorio. Como opci&#243;n alternativa, escriba el nombre de
-la ruta completa del archivo o directorio. Implementar desde un directorio desplegado
-es para desarrolladores avanzados y no es recomendable para entornos de producci&#243;n.</p></li></ul></li>
-<li><b>En la lista desplegable Tipo, seleccione la aplicaci&#243;n web.</b><p>Si ha especificado un Archivo empaquetado para ser cargado en el servidor
-o un Archivo empaquetado local accesible desde Servidor GlassFish,el tipo de aplicaci&#243;n
-se detectar&#225; autom&#225;ticamente. Si ha especificado un Directorio accesible desde Servidor GlassFish,debe
-especificar el tipo de manera manual.</p></li>
-<li><b>En el campo Ra&#237;z de contexto, introduzca la cadena que identifica la
-aplicaci&#243;n web.</b><p>En la URL de la aplicaci&#243;n web, la ra&#237;z de contexto aparece
-justo despu&#233;s del n&#250;mero de puerto (<tt>http://</tt><i>host</i><tt>:</tt><i>port </i><tt>/</tt><i>context-root</i><tt>/...</tt>). La ra&#237;z de contexto debe
-comenzar por una barra diagonal, por ejemplo, <tt>/hello</tt>.</p></li>
-<li><b>En el campo Nombre de la aplicaci&#243;n, puede mantener el nombre predeterminado,
-que es el nombre del directorio o el prefijo del nombre del
-archivo, o bien escribir un nombre distinto. </b><p>El nombre predeterminado aparece si decide cargar un archivo. El nombre de
-la aplicaci&#243;n debe ser &#250;nico.</p><p>El nombre puede incluir un identificador de versi&#243;n opcional, que va a
-continuaci&#243;n del nombre y est&#225; separado de &#233;l por dos puntos (<tt>:</tt>).
-El identificador de versi&#243;n debe comenzar por una letra o n&#250;mero. Puede
-contener caracteres alfanum&#233;ricos m&#225;s los caracteres de gui&#243;n bajo (<tt>_</tt>), gui&#243;n (<tt>-</tt>)
-y punto (<tt>.</tt>). Para obtener m&#225;s informaci&#243;n sobre las versiones de m&#243;dulo
-y de aplicaci&#243;n, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions de <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p></li>
-<li><b>En la lista desplegable Servidores virtuales, seleccione el servidor virtual asociado a
-esta aplicaci&#243;n.</b><p>La opci&#243;n Servidores virtuales aparece si solo existe la instancia de servidor
-predeterminada, <tt>server</tt>. Si existen cl&#250;steres u otras instancias de servidor independientes, puede
-seleccionar los servidores virtuales despu&#233;s de la implementaci&#243;n. Vaya a la p&#225;gina
-Editar aplicaci&#243;n, seleccione la ficha Destino y seleccione Administrar servidores virtuales para
-el destino que desee.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Estado habilitado para habilitar la aplicaci&#243;n.</b><p>Esta opci&#243;n est&#225; seleccionada de forma predeterminada. Si esta opci&#243;n est&#225; deshabilitada,
-la aplicaci&#243;n no estar&#225; disponible.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Disponibilidad habilitada para activar la persistencia de
-sesiones para la aplicaci&#243;n.</b><p>Si se selecciona la casilla de verificaci&#243;n Habilitada, se activa la funci&#243;n
-de alta disponibilidad para las sesiones web. Si se configura como false
-(el valor predeterminado), el guardado de sesiones web queda inhabilitado para la
-aplicaci&#243;n web especificada. Si se configura como true, la aplicaci&#243;n o m&#243;dulo
-especificados se habilita para alta disponibilidad. Establezca esta opci&#243;n como true s&#243;lo
-si se ha configurado y habilitado la alta disponibilidad en niveles superiores,
-como, por ejemplo, los niveles de servidor y contenedor. </p><p>Esta opci&#243;n aparece si existen cl&#250;steres o instancias independientes del servidor aparte
-de la instancia de servidor predeterminada (<tt>server</tt>).</p></li>
-<li><b>Marque la casilla de verificaci&#243;n Precompilar JSP para precompilar archivos  JavaServer
-Pages (JSP).</b><p>Si se deshabilita esta opci&#243;n, los archivos JSP se compilar&#225;n en el
-tiempo de ejecuci&#243;n cuando se acceda a los mismos por primera vez.
-Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Ejecutar verificador para verificar los descriptores de
-implementaci&#243;n antes de la implementaci&#243;n.</b><p>Si esta opci&#243;n est&#225; seleccionada y se produce un error en la
-verificaci&#243;n, la implementaci&#243;n no se llevar&#225; a cabo. El verificador examinar&#225; la
-estructura y el contenido de los descriptores de implementaci&#243;n. La verificaci&#243;n de
-aplicaciones de gran tama&#241;o tiende a llevar mucho tiempo. Esta opci&#243;n se
-deshabilita por defecto.</p><p>Los paquetes de verificaci&#243;n se deben haber instalado desde la Herramienta de
-actualizaci&#243;n o se registrar&#225; una advertencia y se har&#225; caso omiso de
-esta opci&#243;n.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Forzar reimplementaci&#243;n para forzar la reimplementaci&#243;n si
-ya se ha implementado la aplicaci&#243;n.</b><p>Si esta opci&#243;n no est&#225; seleccionada y se intenta implementar una aplicaci&#243;n
-que ya se haya implementado, se producir&#225; un error. Esta opci&#243;n se
-deshabilita por defecto.</p></li>
-<li><b>Seleccione la opci&#243;n Mantener estado para mantener sesiones web, instancias de SFSB
-y temporizadores EJB creados con persistencia entre reimplementaciones.</b><p>Esta opci&#243;n se deshabilita por defecto. Esta opci&#243;n s&#243;lo se admite en
-la instancia de servidor predeterminada, denominada <tt>server</tt>. No se admite para ning&#250;n
-otro destino, y se hace caso omiso de ella.</p><p>Algunos cambios efectuados en una aplicaci&#243;n entre reimplementaciones impiden que esta opci&#243;n
-funcione correctamente. Por ejemplo, no cambie el conjunto de variables de instancia
-en la clase de bean SFSB.</p><p>Para las aplicaciones web, esta opci&#243;n solo es aplicable si, en el
-archivo <tt>glassfish-web-app.xml </tt>, el atributo <tt>persistence-type</tt> del elemento <tt>session-manager</tt> es <tt>file</tt>.</p><p>Para instancias de bean de sesi&#243;n con estado, el tipo de persistencia
-sin alta disponibilidad se establece en el servidor (con la opci&#243;n Tipo
-de persistencia SFSB) y se debe configurar como <tt>file</tt>, que es el
-valor predeterminado y recomendado.</p><p>Si una sesi&#243;n web, instancia SFSB o temporizador EJB activo no se
-conserva o restablece, <b>ninguno</b> de ellos estar&#225; disponible cuando se haya completado
-la reimplementaci&#243;n. Sin embargo, la reimplementaci&#243;n proseguir&#225; y se registrar&#225; una advertencia.</p><p>Para conservar datos de estado activo, Servidor GlassFish serializa los datos y
-los guarda en la memoria. Para restaurar los datos, el cargador de
-clases de la aplicaci&#243;n que se acaba de volver a implementar deserializa
-los datos guardados anteriormente.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Conservaci&#243;n de recursos de &#225;mbito de aplicaci&#243;n
-para conservar recursos restringidos al &#225;mbito de aplicaci&#243;n y restaurarlos durante la
-reimplementaci&#243;n.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>En el campo Bibliotecas, introduzca una lista de archivos JAR separados por
-comas espec&#237;ficos de este m&#243;dulo o aplicaci&#243;n. </b><p>Las rutas pueden ser absolutas o relativas. Una ruta relativa es relativa
-a <tt></tt><i>dir_dominio</i><tt>/lib/applibs </tt>. Si la ruta es absoluta, la ruta debe ser accesible
-para el servidor de administraci&#243;n del dominio (DAS), lo que implica que
-tiene que estar en <tt></tt><i>dir_dominio</i><tt></tt>. Las bibliotecas est&#225;n disponibles para la aplicaci&#243;n
-en el orden en que est&#225;n especificadas.</p></li>
-<li><b>En el campo Descripci&#243;n, escriba una descripci&#243;n de esta aplicaci&#243;n.</b></li>
-<li><b>Para agregar instancias de servidor y cl&#250;steres de destino en los que
-implementar el m&#243;dulo o aplicaci&#243;n, en de la lista Destinos disponibles y
-utilice el bot&#243;n Agregar para moverlos a la lista Destinos seleccionados.</b><p>La opci&#243;n Destino aparece si existen cl&#250;steres o instancias independientes del servidor
-aparte de la instancia de servidor predeterminada (<tt>server</tt>). De forma predeterminada, el
-m&#243;dulo o aplicaci&#243;n se implementar&#225; en la instancia de servidor predeterminada, denominada
-<tt>server</tt>. Utilice el bot&#243;n Agregar todos para implementar en todos los destinos.
-Utilice los botones Eliminar y Eliminar todos para eliminar destinos de la
-lista Destinos seleccionados.</p></li>
-<li><b>Haga clic en Aceptar.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-applistdeployed.html">Ver una lista de aplicaciones implementadas</a></p>
-
+<h4><a id="sthref54" name="sthref54"></a><a id="sthref55" name="sthref55"></a><a id="sthref56" name="sthref56"></a>Desplegar una Aplicaci&oacute;n Web</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, seleccione el nodo Aplicaciones.</p>
+<p>Se abrir&aacute; la p&aacute;gina Aplicaciones</p>
 </li>
-<li><p><a href="task-deployentapp.html">Implementaci&#243;n de una aplicaci&#243;n empresarial</a></p>
-
+<li>
+<p>En la tabla Aplicaciones Desplegadas, haga clic en el bot&oacute;n Desplegar.</p>
+<p>Se abrir&aacute; la p&aacute;gina Desplegar Aplicaciones o M&oacute;dulos.</p>
 </li>
-<li><p><a href="task-appdeployclient.html">Implementar un cliente de aplicaciones</a></p>
-
+<li>
+<p>Especifique la ubicaci&oacute;n de la aplicaci&oacute;n que quiere desplegar.</p>
+<ul>
+<li>
+<p>Si la aplicaci&oacute;n es un archivo que reside en la m&aacute;quina cliente o al que se puede acceder desde la misma, seleccione la opci&oacute;n Archivo Empaquetado que Cargar en el Servidor.</p>
+<p>La m&aacute;quina cliente es el host en el que est&aacute; viendo la Consola de Administraci&oacute;n por medio de un explorador.</p>
+<p>Haga clic en Examinar para buscar el archivo o bien escriba la ruta de acceso completa hasta el archivo.</p>
 </li>
-<li><p><a href="task-appdeployconn.html">Implementaci&#243;n de un m&#243;dulo del conector</a></p>
-
+<li>
+<p>Si la aplicaci&oacute;n es un archivo que reside en la m&aacute;quina del servidor o es una aplicaci&oacute;n no empaquetada desde un directorio separado, seleccione la opci&oacute;n Archivo empaquietado local o directorio accesible desde Servidor GlassFish.</p>
+<p>La m&aacute;quina del servidor es el host que est&aacute; ejecutando el servidor de administraci&oacute;n de dominio (DAS).</p>
+<p>Haga clic en Examinar Archivos para buscar un archivo o en Examinar Carpetas para buscar un directorio. Como opci&oacute;n alternativa, escriba el nombre de la ruta de acceso completa al archivo o directorio. Desplegar desde un directorio separado es para desarrolladores avanzados y no es recomendable para entornos de producci&oacute;n.</p>
 </li>
-<li><p><a href="task-appdeployejb.html">Implementaci&#243;n de un JAR EJB</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-appedit.html">Para editar una aplicaci&#243;n implementada</a></p>
-
+<li>
+<p>En la lista desplegable Tipo, seleccione Aplicaci&oacute;n Web.</p>
+<p>Si ha especificado un archivo empaquetado que cargar en el servidor o un archivo empaquetado local accesible desde Servidor GlassFish,el tipo de aplicaci&oacute;n se detectar&aacute; autom&aacute;ticamente. Si ha especificado un directorio accesible desde Servidor GlassFish, debe especificar el tipo de manera manual.</p>
 </li>
-<li><p><a href="task-appviewdesc.html">C&#243;mo ver los descriptores de una aplicaci&#243;n</a></p>
-
+<li>
+<p>En el campo Ra&iacute;z de Contexto, introduzca la cadena que identifica la aplicaci&oacute;n web.</p>
+<p>En la URL de la aplicaci&oacute;n web, la ra&iacute;z de contexto sigue inmediatamente al n&uacute;mero de puerto (<code>http://</code><i>host</i>:<i>puerto</i>/<code>ra&iacute;z-contexto</code><code>/...</code>). La ra&iacute;z de contexto debe comenzar por una barra diagonal, por ejemplo, <code>/hello</code>.</p>
 </li>
-<li><p><a href="task-appviewtargets.html">C&#243;mo ver los destinos de las aplicaciones </a></p>
-
+<li>
+<p>En el campo Nombre de Aplicaci&oacute;n, puede mantener el nombre por defecto, que es el nombre del directorio o el prefijo del nombre del archivo, o bien escribir un nombre distinto.</p>
+<p>El nombre por defecto aparece si decide cargar un archivo. El nombre de la aplicaci&oacute;n debe ser &uacute;nico.</p>
+<p>El nombre puede incluir un identificador de versi&oacute;n opcional, que va a continuaci&oacute;n del nombre y est&aacute; separado de &eacute;l por dos puntos (<code>:</code>). El identificador de versi&oacute;n debe comenzar por una letra o n&uacute;mero. Puede contener caracteres alfanum&eacute;ricos m&aacute;s los caracteres de subrayado (<code>_</code>), gui&oacute;n (<code>-</code>) y punto (<code>.</code>). Para obtener m&aacute;s informaci&oacute;n sobre las versiones de m&oacute;dulo y de aplicaci&oacute;n, consulte el apartado sobre <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00324"><i>las versiones de m&oacute;dulo y de aplicaci&oacute;n</i> en <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
 </li>
-<li><p><a href="task-endpoint.html">Para ver informaci&#243;n de punto final de un servicio web </a></p>
-
+<li>
+<p>En la lista desplegable Servidores Virtuales, seleccione el servidor virtual asociado a esta aplicaci&oacute;n.</p>
+<p>La opci&oacute;n Servidores Virtuales aparece si solo existe la instancia de servidor por defecto, <code>server</code>. Si existen clusters u otras instancias de servidor independientes, puede seleccionar los servidores virtuales despu&eacute;s del despliegue. Vaya a la p&aacute;gina Editar Aplicaci&oacute;n, seleccione la ficha Destino y seleccione Gestionar Servidores Virtuales para el destino que desee.</p>
 </li>
-<li><p><a href="task-applaunch.html">C&#243;mo iniciar una aplicaci&#243;n</a></p>
-
+<li>
+<p>Active la casilla de control Estado Activado para activar la aplicaci&oacute;n.</p>
+<p>Esta opci&oacute;n est&aacute; seleccionada por defecto. Si esta opci&oacute;n est&aacute; desactivada, la aplicaci&oacute;n no estar&aacute; disponible.</p>
 </li>
-<li><p><a href="task-appclientlaunch.html">Para iniciar un cliente de aplicaciones</a></p>
-
+<li>
+<p>Active la casilla de control Disponibilidad Activada para activar la persistencia de sesiones para la aplicaci&oacute;n.</p>
+<p>Si se activa la casilla de control Activado, se activa la funci&oacute;n de alta disponibilidad para las sesiones web. Si se define en false (el valor por defecto), el guardado de sesiones web queda desactivado para la aplicaci&oacute;n web especificada. Si se define en true, la aplicaci&oacute;n web especificada se activa para alta disponibilidad. Defina esta opci&oacute;n como true s&oacute;lo si se ha configurado y activado la alta disponibilidad en niveles superiores, como, por ejemplo, los niveles de servidor y contenedor.</p>
+<p>Esta opci&oacute;n aparece si existen clusters o instancias del servidor independientes aparte de la instancia de servidor por defecto (<code>server</code>).</p>
 </li>
-<li><p><a href="task-appredeploy.html">C&#243;mo volver a implementar una aplicaci&#243;n implementada</a></p>
-
+<li>
+<p>Active la casilla de control Precompilar JSP para precompilar los archivos de JavaServer Pages (JSP).</p>
+<p>Si est&aacute; desactivada esta opci&oacute;n, los archivos JSP se compilar&aacute;n en tiempo de ejecuci&oacute;n cuando se acceda a los mismos por primera vez. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
 </li>
-<li><p><a href="task-apprestart.html">C&#243;mo recargar una aplicaci&#243;n implementada</a></p>
+<li>
+<p>Active la casilla de control Ejecutar Verificador para verificar los descriptores de despliegue antes del despliegue.</p>
+<p>Si esta opci&oacute;n est&aacute; activada y se produce un fallo en la verificaci&oacute;n, el despliegue no se llevar&aacute; a cabo. El verificador examinar&aacute; la estructura y el contenido de los descriptores de despliegue. La verificaci&oacute;n de aplicaciones de gran tama&ntilde;o tiende a llevar mucho tiempo. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
+<p>Los paquetes de verificador se deben haber instalado desde la Herramienta de Actualizaci&oacute;n o se registrar&aacute; una advertencia y se ignorar&aacute; esta opci&oacute;n.</p>
+</li>
+<li>
+<p>Active la casilla de control Forzar Nuevo Despliegue para forzar el nuevo despliegue si ya se ha desplegado la aplicaci&oacute;n.</p>
+<p>Si esta opci&oacute;n no est&aacute; seleccionada y se intenta desplegar una aplicaci&oacute;n que ya se haya desplegado, se producir&aacute; un error. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
+</li>
+<li>
+<p>Active la casilla de control Mantener Estado para mantener sesiones web, instancias de SFSB y temporizadores EJB creados con persistencia entre nuevos despliegues.</p>
+<p>Esta opci&oacute;n est&aacute; desactivada por defecto. Esta opci&oacute;n s&oacute;lo se soporta en la instancia de servidor por defecto, denominada <code>server</code>. No se soporta para ning&uacute;n otro destino y se ignorar&aacute;.</p>
+<p>Algunos cambios efectuados en una aplicaci&oacute;n entre nuevos despliegues impiden que esta opci&oacute;n funcione correctamente. Por ejemplo, no cambie el juego de variables de instancia en la clase de bean SFSB.</p>
+<p>Para las aplicaciones web, esta funci&oacute;n solo es aplicable si, en el archivo <code>glassfish-web-app.xml</code>, el atributo <code>persistence-type</code> del elemento <code>session-manager</code> es <code>file</code>.</p>
+<p>Para instancias de bean de sesi&oacute;n con estado, el tipo de persistencia sin alta disponibilidad se define en el servidor (con la opci&oacute;n Tipo de Persistencia SFSB) y se debe definir en <code>file</code>, que es el valor por defecto y recomendado.</p>
+<p>Si una sesi&oacute;n web, instancia SFSB o temporizador EJB activo no se conserva o restaura, <i>ninguno</i> de ellos estar&aacute; disponible cuando se haya completado el nuevo despliegue. Sin embargo, el nuevo despliegue proseguir&aacute; y se registrar&aacute; una advertencia.</p>
+<p>Para conservar datos de estado activo, Servidor GlassFish serializa los datos y los guarda en la memoria. Para restaurar los datos, el cargador de clases de la aplicaci&oacute;n que se acaba de volver a desplegar deserializa los datos guardados anteriormente.</p>
+</li>
+<li>
+<p>Active la casilla de control Conservar Recursos de &Aacute;mbito de Aplicaci&oacute;n para conservar recursos restringidos al &aacute;mbito de aplicaci&oacute;n y restaurarlos durante el nuevo despliegue.</p>
+<p>Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
+</li>
+<li>
+<p>En el campo Bibliotecas, introduzca una lista separada por comas de archivos JAR de biblioteca espec&iacute;ficos de este m&oacute;dulo o aplicaci&oacute;n.</p>
+<p>Las rutas de acceso pueden ser absolutas o relativas. Una ruta de acceso relativa es relativa a <i>domain-dir</i><code>/lib/applibs</code>. Si la ruta de acceso es absoluta, &eacute;sta debe ser accesible para el servidor de administraci&oacute;n de dominio (DAS), lo que implica que debe estar en <i>domain-dir</i>. Las bibliotecas est&aacute;n disponibles para la aplicaci&oacute;n en el orden en que est&aacute;n especificadas.</p>
+</li>
+<li>
+<p>En el campo Descripci&oacute;n, escriba una descripci&oacute;n de esta aplicaci&oacute;n.</p>
+</li>
+<li>
+<p>Para agregar instancias de servidor y clusters de destino en los que desplegar el m&oacute;dulo o aplicaci&oacute;n, selecci&oacute;nelos en la lista Destinos Disponibles y utilice el bot&oacute;n Agregar para moverlos a la lista Destinos Seleccionados.</p>
+<p>La opci&oacute;n Destino aparece si existen clusters o instancias de servidor independientes aparte de la instancia de servidor por defecto (<code>server</code>). Por defecto, el m&oacute;dulo o aplicaci&oacute;n se desplegar&aacute; en la instancia de servidor por defecto, denominada <code>server</code>. Utilice el bot&oacute;n Agregar Todos para desplegar en todos los destinos. Utilice los botones Eliminar y Eliminar Todos para eliminar destinos de la lista Destinos Seleccionados.</p>
+</li>
+<li>
+<p>Haga clic en Aceptar.</p>
+</li>
+</ol>
+<a id="sthref57" name="sthref57"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-applistdeployed.html">Ver una Lista de Aplicaciones Desplegadas</a></p>
+</li>
+<li>
+<p><a href="task-deployentapp.html">Desplegar una Aplicaci&oacute;n de Empresa</a></p>
+</li>
+<li>
+<p><a href="task-appdeployclient.html">Desplegar un Cliente de Aplicaciones</a></p>
+</li>
+<li>
+<p><a href="task-appdeployconn.html">Desplegar un M&oacute;dulo del Conector</a></p>
+</li>
+<li>
+<p><a href="task-appdeployejb.html">Desplegar un Archivo Jar de EJB</a></p>
+</li>
+<li>
+<p><a href="task-appedit.html">Editar una Aplicaci&oacute;n Desplegada</a></p>
+</li>
+<li>
+<p><a href="task-appviewdesc.html">Ver los Descriptores de una Aplicaci&oacute;n</a></p>
+</li>
+<li>
+<p><a href="task-appviewtargets.html">Ver los Destinos de Aplicaciones</a></p>
+</li>
+<li>
+<p><a href="task-endpoint.html">Ver Informaci&oacute;n de Punto Final para un Servicio Web</a></p>
+</li>
+<li>
+<p><a href="task-applaunch.html">Iniciar una Aplicaci&oacute;n</a></p>
+</li>
+<li>
+<p><a href="task-appclientlaunch.html">Iniciar un Cliente de Aplicaciones</a></p>
+</li>
+<li>
+<p><a href="task-appclientstubs.html">Descargar Stubs de Clientes de Aplicaciones</a></p>
+</li>
+<li>
+<p><a href="task-appredeploy.html">Volver a Desplegar una Aplicaci&oacute;n Desplegada</a></p>
+</li>
+<li>
+<p><a href="task-apprestart.html">Volver a Cargar una Aplicaci&oacute;n Desplegada</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesview.html">Ver los Recursos de &Aacute;mbito de Aplicaci&oacute;n</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesedit.html">Modificar los Recursos de &Aacute;mbito de Aplicaci&oacute;n</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

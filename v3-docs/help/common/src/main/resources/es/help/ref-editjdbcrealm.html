@@ -1,83 +1,96 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-editjdbcrealm"></a><h4><tt>Propiedades espec&#237;ficas de la clase JDBCRealm</tt></h4>
-<a name="indexterm-207"></a><a name="indexterm-208"></a><p>Para proteger sus p&#225;ginas y aplicaciones web, puede configurar la seguridad para
-que s&#243;lo puedan acceder a ellas los usuarios registrados. Esto se conoce
-como recurso de autenticaci&#243;n. Este tipo de dominio se encarga de guardar
-las credenciales de los usuarios en una base de datos. Servidor GlassFish
-utiliza la informaci&#243;n de la base de datos y la opci&#243;n de
-dominio JDBC activada dentro del archivos de configuraci&#243;n.</p>
+<p><a id="ref-editjdbcrealm" name="ref-editjdbcrealm"></a><a id="GHCOM00102" name="GHCOM00102"></a></p>
 
+<h4><a id="sthref379" name="sthref379"></a><a id="sthref380" name="sthref380"></a>Propiedades espec&iacute;ficas de la clase <code>JDBCRealm</code></h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Para proteger sus p&aacute;ginas y aplicaciones web, puede definir la seguridad para que s&oacute;lo puedan acceder a ellas los usuarios registrados. Esto se conoce como recurso de autenticaci&oacute;n. Este tipo de dominio se encarga de guardar las credenciales de los usuarios en una base de datos. Servidor GlassFish utiliza la informaci&oacute;n de la base de datos y la opci&oacute;n de dominio JDBC activada dentro del archivo de configuraci&oacute;n.</p>
 <p>Un dominio JDBC requiere las propiedades siguientes.</p>
-
-<dl><dt>Contexto JAAS</dt>
-<dd><p>El contexto JAAS (Servicio de autenticaci&#243;n y autorizaci&#243;n de Java) (mecanismo identificador para que el m&#243;dulo de entrada utilice este dominio). El &#250;nico valor v&#225;lido es <tt>jdbcRealm</tt>.</p>
-
+<dl>
+<dt>Contexto JAAS</dt>
+<dd>
+<p>Contexto JAAS (Java Authentication and Authorization Service) (el identificador para el m&oacute;dulo de conexi&oacute;n que se utiliza para este dominio). El &uacute;nico valor v&aacute;lido es <code>jdbcRealm</code>.</p>
 </dd>
 <dt>JNDI</dt>
-<dd><p>Nombre JNDI de este dominio. El valor predeterminado es <tt>jdbc/security </tt>.</p>
-
+<dd>
+<p>Nombre JNDI de este dominio. El valor por defecto es <code>jdbc/security</code>.</p>
 </dd>
-<dt>Tabla de usuarios</dt>
-<dd><p>Esta tabla contiene una lista de usuarios autorizados para este dominio. El valor predeterminado es <tt>file</tt>.</p>
-
+<dt>Tabla de Usuarios</dt>
+<dd>
+<p>Esta tabla contiene una lista de usuarios autorizados para este dominio. El valor por defecto es <code>usertable</code>.</p>
 </dd>
-<dt>Columna Nombre de usuario</dt>
-<dd><p>Nombre de la columna que contiene la lista de los usuarios incluidos en la tabla de usuarios. El valor predeterminado es <tt>file</tt>.</p>
-
+<dt>Columna de Nombres de Usuario</dt>
+<dd>
+<p>Nombre de la columna que contiene la lista de los usuarios incluidos en la tabla de usuarios. El valor por defecto es <code>userid</code>.</p>
 </dd>
-<dt>Columna de contrase&#241;as</dt>
-<dd><p>Nombre de la columna que contiene las contrase&#241;as de cada uno de los usuarios incluidos en la tabla de usuarios. El valor predeterminado es <tt>file</tt>.</p>
-
+<dt>Columna de Contrase&ntilde;as</dt>
+<dd>
+<p>Nombre de la columna que contiene las contrase&ntilde;as de cada uno de los usuarios incluidos en la tabla de usuarios. El valor por defecto es <code>password</code>.</p>
 </dd>
-<dt>Tabla de grupos</dt>
-<dd><p>El nombre de la tabla de grupo de la base de datos. El valor predeterminado es <tt>file</tt>.</p>
-
+<dt>Tabla de Grupos</dt>
+<dd>
+<p>Nombre de la tabla de grupo de la base de datos. El valor por defecto es <code>grouptable</code>.</p>
 </dd>
-<dt>Columna Nombre de grupo</dt>
-<dd><p>El nombre de la columna del nombre de grupo de la tabla del grupo de la base de datos. El valor predeterminado es <tt>file</tt>.</p>
-
+<dt>Columna de Nombres de Grupo</dt>
+<dd>
+<p>Nombre de la columna de nombres de grupo de la tabla del grupo de la base de datos. El valor por defecto es <code>groupid</code>.</p>
 </dd>
 </dl>
-<p>Las siguientes propiedades adicionales est&#225;n disponibles para un dominio JDBC.</p>
-
-<dl><dt>Asignar grupos</dt>
-<dd><p>Una lista separada por comas de nombres de grupos. A todos los clientes que presentan certificados v&#225;lidos se les asigna estos grupos, por ejemplo, <tt>employee,manager </tt>, donde estos son nombres de los grupos de usuarios.</p>
-
+<p>Las siguientes propiedades opcionales est&aacute;n disponibles para un dominio JDBC.</p>
+<dl>
+<dt>Asignar Grupos</dt>
+<dd>
+<p>Lista separada por comas de nombres de grupos. Todos los clientes que presenten certificados v&aacute;lidos se asignan a estos grupos, por ejemplo, <code>employee,manager</code>, donde estos son los nombres de grupos de usuarios.</p>
 </dd>
-<dt>Usuario de la base de datos</dt>
-<dd><p>Le permite especificar el nombre de usuario de base de datos del dominio en lugar de <tt>jdbc-connection-pool</tt>. Esto impide que otras aplicaciones bloqueen la base de datos, consigan una conexi&#243;n y exploren la tabla de usuarios. De forma predeterminada, se utiliza la configuraci&#243;n <tt>jdbc-connection-pool</tt>.</p>
-
+<dt>Usuario de Base de Datos</dt>
+<dd>
+<p>Le permite especificar el nombre de usuario de base de datos del dominio en lugar de <code>jdbc-connection-pool</code>. Esto impide que otras aplicaciones consulten la base de datos, consigan una conexi&oacute;n y exploren la tabla de usuarios. Por defecto, se utiliza la configuraci&oacute;n <code>jdbc-connection-pool</code>.</p>
 </dd>
-<dt>Contrase&#241;a de la base de datos</dt>
-<dd><p>Le permite especificar la contrase&#241;a de base de datos del dominio en lugar del <tt>jdbc-connection-pool</tt>. Esto impide que otras aplicaciones bloqueen la base de datos, consigan una conexi&#243;n y exploren la tabla de usuarios. De forma predeterminada, se utiliza la configuraci&#243;n <tt>jdbc-connection-pool</tt>.</p>
-
+<dt>Contrase&ntilde;a de Base de Datos</dt>
+<dd>
+<p>Le permite especificar la contrase&ntilde;a de base de datos del dominio en lugar del <code>jdbc-connection-pool</code>. Esto impide que otras aplicaciones consulten la base de datos, consigan una conexi&oacute;n y exploren la tabla de usuarios. Por defecto, se utiliza la configuraci&oacute;n <code>jdbc-connection-pool</code>.</p>
 </dd>
-<dt>Algoritmo de recopilaci&#243;n</dt>
-<dd><p>(Opcional) Especifica el algoritmo de recopilaci&#243;n. El valor predeterminado es <tt> SHA-256</tt>. Puede utilizar cualquier algoritmo admitido en el JDK, o ninguno.</p>
-
-
-<hr><p><b>Nota - </b>En versiones de Servidor GlassFish anteriores a la 3.1, el algoritmo predeterminado era <tt>MD5</tt>. Si tiene aplicaciones que dependan del algoritmo <tt>MD5</tt>, puede reemplazar el algoritmo predeterminado <tt>SHA-25</tt> mediante el subcomando <tt>asadmin set</tt>:</p>
-
-<pre>asadmin> <tt><b>set server.security-service.property.default-digest-algorithm=MD5</b></tt></pre><p>Puede utilizar el subcomando <tt>asadmin get</tt> para determinar qu&#233; algoritmo se est&#225; utilizando actualmente:</p>
-
-<pre>asadmin> <tt><b>get server.security-service.property.default-digest-algorithm</b></tt></pre><p>Tenga tambi&#233;n en cuenta que, para mantener la compatibilidad con versiones anteriores, si efect&#250;a una actualizaci&#243;n de Servidor GlassFish v2.<i>x</i> o v3.0.<i> x</i> a Servidor GlassFish 3.1, el algoritmo predeterminado se establece autom&#225;ticamente en <tt>MD5</tt> en los casos en que el algoritmo de recopilaci&#243;n no se haya configurado de forma expl&#237;cita en la versi&#243;n anterior de Servidor GlassFish.</p>
-
+<dt>Algoritmo de Resumen</dt>
+<dd>
+<p>(Opcional) Especifica el algoritmo de resumen. El valor por defecto es <code>SHA-256</code>. Puede utilizar cualquier algoritmo soportado en el JDK, o ninguno.</p>
 
 <hr>
-</dd>
-<dt>Codificaci&#243;n</dt>
-<dd><p>La codificaci&#243;n. Los valores permitidos son <tt>Hex</tt> y <tt> Base64</tt>. Si no se especifica <tt>digest-algorithm</tt> el valor predeterminado es <tt>Hex</tt>. Si no se especifica <tt>digest-algorithm</tt> tampoco se especifica la codificaci&#243;n de forma predeterminada.</p>
+<p><b>Nota:</b></p>
+En versiones de Servidor GlassFish anteriores a la 3.1.2, el algoritmo por defecto era <code>MD5</code>. Si tiene aplicaciones que dependan del algoritmo <code>MD5</code>, puede sustituir el algoritmo por defecto <code>SHA-25</code> mediante el subcomando <code>asadmin set</code>:
+<pre>
+asadmin&gt; <b>set server.security-service.property.default-digest-algorithm=MD5</b>
+</pre>
+<p>Puede utilizar el subcomando <code>asadmin get</code> para determinar qu&eacute; algoritmo se est&aacute; utilizando actualmente:</p>
+<pre>
+asadmin&gt; <b>get server.security-service.property.default-digest-algorithm</b>
+</pre>
+<p>Tenga tambi&eacute;n en cuenta que, para mantener la compatibilidad con versiones anteriores, si efect&uacute;a una actualizaci&oacute;n de Servidor GlassFish v2.<i>x</i> o v3.0.<i>x</i> a Servidor GlassFish 3.1.2, el algoritmo por defecto se define autom&aacute;ticamente en <code>MD5</code> en los casos en que el algoritmo de resumen no se haya definido de forma expl&iacute;cita en la versi&oacute;n anterior de Servidor GlassFish.</p>
+
+<hr>
 
 </dd>
-<dt>Conjunto de caracteres</dt>
-<dd><p>El conjunto de caracteres del algoritmo de recopilaci&#243;n. </p>
+<dt>Algoritmo de Cifrado de Contrase&ntilde;a</dt>
+<dd>
+<p>La codificaci&oacute;n. Los valores permitidos son <code>Hex</code> y <code>Base64</code>. Si se especifica <code>digest-algorithm</code>, el valor por defecto es <code>Hex</code>. Si no se especifica <code>digest-algorithm</code> tampoco se especifica la codificaci&oacute;n por defecto.</p>
+</dd>
+<dt>Codificaci&oacute;n</dt>
+<dd>
+<p>Algoritmo para cifrar contrase&ntilde;as almacenado en la base de datos.</p>
 
+<hr>
+<p><b>Nota:</b></p>
+no especificar un algoritmo de cifrado de contrase&ntilde;as supone un riesgo de seguridad.
+<hr>
+
+</dd>
+<dt>Juego de Caracteres</dt>
+<dd>
+<p>Juego de caracteres del algoritmo de resumen.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

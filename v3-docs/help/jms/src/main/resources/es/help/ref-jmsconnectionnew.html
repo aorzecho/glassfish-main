@@ -1,116 +1,117 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmsconnectionnew"></a><h4>Nueva f&#225;brica de conexi&#243;n JMS</h4>
-<a name="indexterm-29"></a><a name="indexterm-30"></a><p>Utilice la p&#225;gina de Nueva f&#225;brica de conexi&#243;n JMS para crear una
-f&#225;brica de conexi&#243;n JMS nueva.</p>
+<p><a id="ref-jmsconnectionnew" name="ref-jmsconnectionnew"></a><a id="GHJMS00003" name="GHJMS00003"></a></p>
 
-<p>La p&#225;gina Nueva f&#225;brica de conexi&#243;n JMS contiene las siguientes opciones.</p>
-
-<dl><dt>Nombre de conjunto</dt>
-<dd><p>Un nombre exclusivo que identifica la f&#225;brica de conexi&#243;n. Servidor GlassFish establece el nombre JNDI de la f&#225;brica de conexi&#243;n en este valor.</p>
-
+<h4><a id="sthref49" name="sthref49"></a><a id="sthref50" name="sthref50"></a>Nueva F&aacute;brica de Conexiones JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina de Nueva F&aacute;brica de Conexiones JMS para crear una f&aacute;brica de conexiones JMS nueva.</p>
+<p>La p&aacute;gina Nueva F&aacute;brica de Conexiones JMS contiene las siguientes opciones.</p>
+<dl>
+<dt>Nombre de Pool</dt>
+<dd>
+<p>Un nombre &uacute;nico que identifica la f&aacute;brica de conexiones. Servidor GlassFish establece el nombre JNDI de la f&aacute;brica de conexiones en este valor.</p>
 </dd>
-<dt>Tipo de recurso</dt>
-<dd><p>El tipo de la f&#225;brica de conexi&#243;n. Las opciones disponibles son <tt>javax.jms.ConnectionFactory</tt>, <tt>javax.jms.QueueConnectionFactory</tt> y <tt>javax.jms.TopicConnectionFactory</tt>.</p>
-
+<dt>Tipo de Recurso</dt>
+<dd>
+<p>El tipo de la f&aacute;brica de conexiones. Las opciones disponibles son <code>javax.jms.ConnectionFactory</code>, <code>javax.jms.QueueConnectionFactory</code> y <code>javax.jms.TopicConnectionFactory</code>.</p>
 </dd>
-<dt>Descripci&#243;n</dt>
-<dd><p>Una descripci&#243;n de la f&#225;brica de conexi&#243;n.</p>
-
+<dt>Descripci&oacute;n</dt>
+<dd>
+<p>Una descripci&oacute;n de la f&aacute;brica de conexiones.</p>
 </dd>
 <dt>Estado</dt>
-<dd><p>El estado de la f&#225;brica de conexi&#243;n. La f&#225;brica de conexi&#243;n se puede habilitar o deshabilitar. Esta opci&#243;n se habilita por defecto.</p>
-
+<dd>
+<p>El estado de la f&aacute;brica de conexiones. La f&aacute;brica de conexiones se puede activar o desactivar. Esta opci&oacute;n se encuentra activada por defecto.</p>
 </dd>
-<dt>Tama&#241;o inicial y m&#237;nimo del conjunto</dt>
-<dd><p>El n&#250;mero m&#237;nimo de conexiones del conjunto para la f&#225;brica de conexi&#243;n. El valor predeterminado es 8.</p>
-
+<dt>Tama&ntilde;o de Pool Inicial y M&iacute;nimo</dt>
+<dd>
+<p>El n&uacute;mero m&iacute;nimo de conexiones del pool para la f&aacute;brica de conexiones. El valor por defecto es 8.</p>
 </dd>
-<dt>Tama&#241;o m&#225;ximo del conjunto</dt>
-<dd><p>El n&#250;mero m&#225;ximo de conexiones del conjunto para la f&#225;brica de conexi&#243;n. El valor predeterminado es 32.</p>
-
+<dt>Tama&ntilde;o de Pool M&aacute;ximo</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de conexiones del pool para la f&aacute;brica de conexiones. El valor por defecto es 32.</p>
 </dd>
-<dt>Cantidad de cambio de tama&#241;o del conjunto</dt>
-<dd><p>El n&#250;mero de conexiones que se eliminar&#225;n cuando se llegue al l&#237;mite el tiempo de espera del conjunto. El valor predeterminado es 2.</p>
-
+<dt>Cantidad de Cambio de Tama&ntilde;o del Pool</dt>
+<dd>
+<p>El n&uacute;mero de conexiones que se pueden eliminar cuando se agota el timeout de inactividad del pool. El valor por defecto es 2.</p>
 </dd>
-<dt>Tiempo de espera inactivo</dt>
-<dd><p>El tiempo m&#225;ximo en segundos que una conexi&#243;n puede permanecer inactiva en el conjunto. El valor predeterminado es 300.</p>
-
+<dt>Timeout de Inactividad</dt>
+<dd>
+<p>El tiempo m&aacute;ximo en segundos que una conexi&oacute;n puede permanecer inactiva en el pool. El valor por defecto es 300.</p>
 </dd>
-<dt>Tiempo de espera m&#225;ximo</dt>
-<dd><p>La cantidad de tiempo que la aplicaci&#243;n que solicita una conexi&#243;n puede esperar para obtener la conexi&#243;n. El valor predeterminado es 60000.</p>
-
+<dt>Tiempo de Espera M&aacute;ximo</dt>
+<dd>
+<p>La cantidad de tiempo que la aplicaci&oacute;n que solicita una conexi&oacute;n puede esperar para obtener un mensaje de timeout de conexi&oacute;n. El valor por defecto es 60000.</p>
 </dd>
-<dt>Con cualquier fallo</dt>
-<dd><p>Si se selecciona la casilla de verificaci&#243;n Cerrar todas las conexiones, Servidor GlassFish cerrar&#225; todas las conexiones del conjunto y las restablecer&#225; con que tan s&#243;lo falle una. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dt>Ante Cualquier Fallo</dt>
+<dd>
+<p>Si se selecciona la casilla de verificaci&oacute;n Cerrar Todas las Conexiones, Servidor GlassFish cerrar&aacute; todas las conexiones del pool y las restablecer&aacute; aunque tan s&oacute;lo falle una. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>Compatibilidad de transacci&#243;n</dt>
-<dd><p>La compatibilidad de transacci&#243;n seleccionada sobrescribe el atributo de compatibilidad de transacci&#243;n en el adaptador de recursos asociado con el conjunto de conexiones de una forma descendente. Dicho de otro modo, se puede admitir un nivel de transacci&#243;n inferior o id&#233;ntico al que se especifica en el adaptador de recursos, pero no se puede indicar un nivel superior.</p>
-
+<dt>Soporte de Transacci&oacute;n</dt>
+<dd>
+<p>El soporte de transacci&oacute;n seleccionado sustituye el atributo de soporte de la transacci&oacute;n en el adaptador de recursos asociado con el pool de conexiones de forma descendente compatible. Dicho de otro modo, puede admitir un nivel de transacci&oacute;n inferior o id&eacute;ntico al que se especifica en el adaptador de recursos, pero no puede indicar un nivel superior.</p>
 <p>El valor puede ser cualquiera de los siguientes:</p>
-
-<dl><dt>XATransaction</dt>
-<dd><p>El recurso se puede utilizar para transacciones que suponen el uso de m&#225;s de un recurso dentro de un &#225;mbito de transacci&#243;n. &#201;ste es el valor predeterminado de una f&#225;brica de conexi&#243;n JMS. </p>
-
-<p>Por ejemplo, en las transacciones pueden involucrarse este recurso m&#225;s un recurso JDBC, un recurso de conector u otro recurso de f&#225;brica de conexi&#243;n JMS. Este valor ofrece la m&#225;xima flexibilidad. Un recurso que se configure como XATransaction participar&#225; en operaciones de confirmaci&#243;n de dos fases.</p>
-
+<dl>
+<dt>XATransaction</dt>
+<dd>
+<p>El recurso se puede utilizar para transacciones que suponen el uso de m&aacute;s de un recurso dentro de un &aacute;mbito de transacci&oacute;n. &Eacute;ste es el valor por defecto de una f&aacute;brica de conexiones JMS.</p>
+<p>Por ejemplo, en las transacciones puede participar este recurso m&aacute;s un recurso JDBC, un recurso de conector u otro recurso de f&aacute;brica de conexiones JMS. Este valor ofrece la m&aacute;xima flexibilidad. Un recurso que se configure como XATransaction participar&aacute; en operaciones de confirmaci&oacute;n de dos fases.</p>
 </dd>
 <dt>LocalTransaction</dt>
-<dd><p>Este recurso se puede utilizar bien para transacciones que impliquen solamente un recurso dentro del &#225;mbito de la transacci&#243;n o bien como el &#250;ltimo agente en una transacci&#243;n distribuida que involucre a m&#225;s de un recurso XA.</p>
-
-<p>Este valor ofrece un rendimiento mucho m&#225;s &#243;ptimo. Un recurso que se configura como LocalTransaction no se utilizar&#225; en operaciones de confirmaci&#243;n de dos fases.</p>
-
+<dd>
+<p>Este recurso se puede utilizar bien para transacciones que impliquen solamente un recurso dentro del &aacute;mbito de la transacci&oacute;n o bien como el &uacute;ltimo agente en una transacci&oacute;n distribuida que involucre a m&aacute;s de un recurso XA.</p>
+<p>Este valor ofrece un rendimiento mucho m&aacute;s &oacute;ptimo. Un recurso que se configura como LocalTransaction no se utilizar&aacute; en operaciones de confirmaci&oacute;n de dos fases.</p>
 </dd>
 <dt>NoTransaction</dt>
-<dd><p>Este recurso no puede participar nunca en transacciones. Esta configuraci&#243;n es de uso limitado en aplicaciones JMS.</p>
-
+<dd>
+<p>Este recurso no puede participar nunca en transacciones. Esta configuraci&oacute;n es de uso limitado en aplicaciones JMS.</p>
 </dd>
 </dl>
 </dd>
-<dt>Validaci&#243;n de la conexi&#243;n</dt>
-<dd><p>Si la casilla de verificaci&#243;n Necesaria est&#225; seleccionada, las conexiones se validar&#225;n antes de proporcion&#225;rselas a la aplicaci&#243;n. Si falla la validaci&#243;n de un recurso, &#233;ste se destruye, para a continuaci&#243;n crear y devolver un recurso nuevo. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dt>Validaci&oacute;n de Conexi&oacute;n</dt>
+<dd>
+<p>Si la casilla de verificaci&oacute;n Necesaria est&aacute; seleccionada, las conexiones se validar&aacute;n antes de proporcion&aacute;rselas a la aplicaci&oacute;n. Si falla la validaci&oacute;n de un recurso, &eacute;ste se destruye, y se crea y se devuelve un recurso nuevo. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>Propiedades adicionales</dt>
-<dd><p>Son las propiedades adicionales de la f&#225;brica de conexi&#243;n.</p>
-
-<p>Para obtener informaci&#243;n sobre las propiedades disponibles, consulte <a href="ref-jmsconnectionproperties.html">Propiedades espec&#237;ficas de las f&#225;bricas de conexi&#243;n JMS</a>.</p>
-
+<dt>Propiedades Adicionales</dt>
+<dd>
+<p>Son las propiedades adicionales de la f&aacute;brica de conexiones.</p>
+<p>Para obtener informaci&oacute;n sobre las propiedades disponibles, consulte <a href="ref-jmsconnectionproperties.html">Propiedades Espec&iacute;ficas de las F&aacute;bricas de Conexiones JMS</a>.</p>
 </dd>
 <dt>Destinos</dt>
-<dd><p>Cl&#250;steres e instancias independientes para la f&#225;brica de conexiones. Mueva los destinos seleccionados a la columna Destinos seleccionados mediante los botones Agregar y Agregar todos. Mueva cualquier destino innecesario a la columna Destinos disponibles mediante los botones Eliminar y Eliminar todos.</p>
-
-<p>Esta opci&#243;n s&#243;lo se muestra si se han creado en el dominio las instancias de cl&#250;ster o independientes.</p>
-
+<dd>
+<p>Cl&uacute;steres e instancias independientes para la f&aacute;brica de conexiones. Mueva los destinos seleccionados a la columna Destinos Seleccionados mediante los botones Agregar y Agregar Todos. Mueva los destinos que no necesite a la columna Destinos Disponibles mediante los botones Eliminar y Eliminar Todos.</p>
+<p>Esta opci&oacute;n s&oacute;lo se muestra si en el dominio se han creado instancias de cluster o independientes.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-jmsconnectionnew.html">Para crear un recurso de f&#225;brica de conexi&#243;n JMS</a></p>
-
+<a id="sthref51" name="sthref51"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-jmsconnectionnew.html">Crear un Recurso de F&aacute;bricas de Conexiones JMS</a></p>
 </li>
-<li><p><a href="task-jmsconnectionedit.html">Para editar un recurso de f&#225;brica de conexi&#243;n JMS</a></p>
-
+<li>
+<p><a href="task-jmsconnectionedit.html">Editar un Recurso de F&aacute;bricas de Conexiones JMS</a></p>
 </li>
-<li><p><a href="task-jmsconnectiondelete.html">Para eliminar un recurso de f&#225;brica de conexi&#243;n JMS</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jms-resource-1"><tt>create-jms-resource</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jmsconnectiondelete.html">Suprimir un Recurso de F&aacute;brica de Conexiones JMS</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jms-resources-1"><tt>list-jms-resources</tt>(1)</a></p>
-
+</ul>
+<a id="sthref52" name="sthref52"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00040"><code>create-jms-resource</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jms-resource-1"><tt>delete-jms-resource</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00177"><code>list-jms-resources</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00092"><code>delete-jms-resource</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

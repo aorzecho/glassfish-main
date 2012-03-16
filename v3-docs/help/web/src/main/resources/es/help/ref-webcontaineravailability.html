@@ -1,104 +1,112 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-webcontaineravailability"></a><h4>Disponibilidad de contenedor Web</h4>
-<a name="indexterm-39"></a><a name="indexterm-40"></a><p>Utilice la p&#225;gina Disponibilidad de contenedor Web para configurar las opciones de
-disponibilidad de contenedor web.</p>
+<p><a id="ref-webcontaineravailability" name="ref-webcontaineravailability"></a><a id="GHWEB00001" name="GHWEB00001"></a></p>
 
-<p>La p&#225;gina Disponibilidad de contenedor Web contiene las siguientes opciones.</p>
-
-<dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
-
+<h4><a id="sthref79" name="sthref79"></a> <a id="sthref80" name="sthref80"></a>Disponibilidad de Contenedor Web</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Disponibilidad de Contenedor Web para configurar las opciones de disponibilidad de contenedor web.</p>
+<p>La p&aacute;gina Disponibilidad de Contenedor Web contiene las siguientes opciones.</p>
+<dl>
+<dt>Cargar Valores por Defecto</dt>
+<dd>
+<p>Bot&oacute;n para restaurar la configuraci&oacute;n que tiene valores por defecto a sus valores por defecto. La configuraci&oacute;n que no tiene valores por defecto no se modifica.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
-<dt>Servicio de disponibilidad</dt>
-<dd><p>Si se selecciona la casilla de verificaci&#243;n Habilitada, se ha habilitado la disponibilidad para el contenedor web.</p>
-
+<dt>Servicio de Disponibilidad</dt>
+<dd>
+<p>Si se selecciona la casilla de verificaci&oacute;n Activado, se activa la disponibilidad para el contenedor web.</p>
 </dd>
-<dt>Tipo de persistencia</dt>
-<dd><p>El mecanismo de persistencia utilizado.</p>
-
-
-<ul><li><p>Si el Servicio de disponibilidad Habilitado <b>no</b> est&#225; activado, seleccione una de las siguientes opciones:</p>
-
-
-<ul><li><p><tt>memory</tt> para ninguna persistencia de sesi&#243;n</p>
-
+<dt>Tipo de Persistencia</dt>
+<dd>
+<p>El mecanismo de persistencia utilizado.</p>
+<ul>
+<li>
+<p>Si Servicio de Disponibilidad Activado <i>no</i> est&aacute; marcada, seleccione una de las siguientes opciones:</p>
+<ul>
+<li>
+<p><code>memory</code> para ninguna persistencia de sesi&oacute;n</p>
 </li>
-<li><p><tt>file</tt> para la persistencia de sesi&#243;n en funci&#243;n del sistema de archivos que no es de alta disponibilidad</p>
-
-</li></ul>
+<li>
+<p><code>file</code> para la persistencia de sesi&oacute;n en funci&oacute;n del sistema de archivos que no es de alta disponibilidad</p>
 </li>
-<li><p>Si el Servicio de disponibilidad Habilitado est&#225; activado, seleccione <tt>replicated </tt> para la persistencia de sesi&#243;n en funci&#243;n de la conmutaci&#243;n por error del cl&#250;ster que es de alta disponibilidad.</p>
-
-</li></ul>
+</ul>
+</li>
+<li>
+<p>Si Servicio de Disponibilidad Activado est&aacute; marcado, seleccione <code>replicated</code> para la persistencia de sesi&oacute;n en funci&oacute;n del failover del cluster que es de alta disponibilidad.</p>
+</li>
+</ul>
 </dd>
-<dt>Frecuencia de persistencia</dt>
-<dd><p>La frecuencia con la que se almacena la sesi&#243;n HTTP:</p>
-
-
-<ul><li><p><tt>web-method</tt> &#8212; El estado de la sesi&#243;n se almacena al final de cada solicitud web antes de enviar una respuesta al cliente. Este modo ofrece la mejor garant&#237;a de que el estado de la sesi&#243;n se actualizar&#225; completamente en caso de fallo. &#201;ste es el valor predeterminado.</p>
-
-</li></ul>
+<dt>Frecuencia de Persistencia</dt>
+<dd>
+<p>La frecuencia con la que se almacena la sesi&oacute;n HTTP:</p>
+<ul>
+<li>
+<p><code>web-method</code>: el estado de la sesi&oacute;n se almacena al final de cada solicitud web antes de enviar una respuesta al cliente. Este modo ofrece la mejor garant&iacute;a de que el estado de la sesi&oacute;n se actualizar&aacute; completamente en caso de fallo. &Eacute;ste es el valor por defecto.</p>
+</li>
+</ul>
 </dd>
-<dt>&#193;mbito de persistencia</dt>
-<dd><p>El &#225;mbito de los cambios de la sesi&#243;n HTTP necesarios para que se realice el almacenamiento:</p>
-
-
-<ul><li><p><tt>session</tt> &#8212; Se almacena cada vez el estado de la sesi&#243;n completo. Este modo ofrece la mejor garant&#237;a de que sus datos de sesi&#243;n se almacenan correctamente para las aplicaciones web distribuibles.</p>
-
+<dt>&Aacute;mbito de Persistencia</dt>
+<dd>
+<p>El &aacute;mbito de los cambios de la sesi&oacute;n HTTP necesarios para que se realice el almacenamiento:</p>
+<ul>
+<li>
+<p><code>session</code>: se almacena el estado de la sesi&oacute;n completo cada vez. Este modo ofrece la mejor garant&iacute;a de que sus datos de sesi&oacute;n se almacenan correctamente para las aplicaciones web distribuibles.</p>
 </li>
-<li><p><tt>modified-session</tt> &#8212; El estado de la sesi&#243;n completo se almacena si se ha modificado. Se considera que se ha modificado una sesi&#243;n si se ha realizado una llamada a <tt>HttpSession.setAttribute()</tt> o <tt>HttpSession.removeAttribute()</tt>. Debe garantizar que se llama a <tt> setAttribute()</tt> cada vez que se cambia un atributo. Esto no es un requisito de especificaci&#243;n de Java EE, pero es necesario para que este modo funcione correctamente.</p>
-
+<li>
+<p><code>modified-session</code>: el estado de la sesi&oacute;n completo se almacena si se ha modificado. Se considera que se ha modificado una sesi&oacute;n si se ha realizado una llamada a <code>HttpSession.setAttribute()</code> o <code>HttpSession.removeAttribute()</code>. Debe garantizar que se llama a <code>setAttribute()</code> cada vez que se cambia un atributo. Esto no es un requisito de especificaci&oacute;n de Java EE, pero es necesario para que este modo funcione correctamente.</p>
 </li>
-<li><p><tt>modified-attribute</tt> &#8212; S&#243;lo se almacenan los atributos de sesi&#243;n modificados. Para que este modo funcione correctamente, debe seguir estas directrices:</p>
-
-
-<ul><li><p>Llame a <tt>setAttribute</tt> cada vez que se modifique el estado de la sesi&#243;n.</p>
-
+<li>
+<p><code>modified-attribute</code>: s&oacute;lo se almacenan los atributos de sesi&oacute;n modificados. Para que este modo funcione correctamente, debe seguir estas directrices:</p>
+<ul>
+<li>
+<p>Llame a <code>setAttribute()</code> cada vez que se modifique el estado de la sesi&oacute;n.</p>
 </li>
-<li><p>Aseg&#250;rese de que no existen referencias cruzadas entre atributos. El gr&#225;fico de objetos debajo de cada clave de atributo distinto se serializa y almacena por separado. Si hay referencias cruzadas de objetos entre los objetos de cada clave diferente, no est&#225;n serializados ni deserializados correctamente.</p>
-
+<li>
+<p>Aseg&uacute;rese de que no existen referencias cruzadas entre atributos. El gr&aacute;fico de objetos debajo de cada clave de atributo distinto se serializa y almacena por separado. Si hay referencias cruzadas de objetos entre los objetos de cada clave diferente, no est&aacute;n serializados ni deserializados correctamente.</p>
 </li>
-<li><p>Distribuya el estado de la sesi&#243;n en varios atributos o por lo menos entre un atributo de s&#243;lo lectura y uno modificable.</p>
-
-</li></ul>
-</li></ul>
+<li>
+<p>Distribuya el estado de la sesi&oacute;n en varios atributos o por lo menos entre un atributo de s&oacute;lo lectura y uno modificable.</p>
+</li>
+</ul>
+</li>
+</ul>
 </dd>
-<dt>Estado de inicio de sesi&#243;n &#250;nico</dt>
-<dd><p>Si se selecciona la casilla de verificaci&#243;n Habilitado, el estado de inicio de sesi&#243;n &#250;nico estar&#225; disponible para la conmutaci&#243;n por error.</p>
-
+<dt>Estado de Single-Sign-On</dt>
+<dd>
+<p>Si se selecciona la casilla de verificaci&oacute;n Activado, el estado de single sign-on estar&aacute; disponible para el failover.</p>
 </dd>
-<dt>Propiedades adicionales</dt>
-<dd><p>Propiedades adicionales de la Disponibilidad de contenedor web.</p>
-
-<p>Servidor GlassFish no define propiedades adicionales para la disponibilidad de contenedor web.</p>
-
+<dt>Propiedades Adicionales</dt>
+<dd>
+<p>Propiedades adicionales de la Disponibilidad de Contenedor Web.</p>
+<p>Servidor GlassFish no define propiedades adicionales para Disponibilidad de Contenedor Web.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-webcontainergeneral.html">C&#243;mo configurar propiedades generales para el contenedor web</a></p>
-
+<a id="sthref81" name="sthref81"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-webcontainergeneral.html">Configurar Propiedades Generales para el Contenedor Web</a></p>
 </li>
-<li><p><a href="task-webcontainersessiontimeout.html">C&#243;mo configurar propiedades generales para el contenedor web</a></p>
-
+<li>
+<p><a href="task-webcontainersessiontimeout.html">Configurar Propiedades de Sesi&oacute;n para el Contenedor Web</a></p>
 </li>
-<li><p><a href="task-webcontainermanagerprops.html">C&#243;mo configurar propiedades de administrador para el contenedor web</a></p>
-
+<li>
+<p><a href="task-webcontainermanagerprops.html">Configurar Propiedades de Gestor para el Contenedor Web</a></p>
 </li>
-<li><p><a href="task-webcontainerstoreprops.html">C&#243;mo configurar propiedades de almacenamiento para el contenedor web</a></p>
-
+<li>
+<p><a href="task-webcontainerstoreprops.html">Configurar Propiedades de Almac&eacute;n para el Contenedor Web</a></p>
 </li>
-<li><p><a href="task-webcontaineravailability.html">C&#243;mo configurar  las opciones de disponibilidad para el contenedor web</a></p>
+<li>
+<p><a href="task-webcontaineravailability.html">Configurar Opciones de Disponibilidad para el Contenedor Web</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

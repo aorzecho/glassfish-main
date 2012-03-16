@@ -1,134 +1,138 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jdbcconnectionpooledittab"></a><h4>Editar conjunto de conexiones</h4>
-<a name="indexterm-23"></a><p>Utilice la p&#225;gina Editar conjunto de conexiones para editar las propiedades generales
-de un conjunto de conexiones JDBC.</p>
+<p><a id="ref-jdbcconnectionpooledittab" name="ref-jdbcconnectionpooledittab"></a><a id="GHJDB00026" name="GHJDB00026"></a></p>
 
-<p>La p&#225;gina Editar conjunto de conexiones contiene las siguientes opciones.</p>
-
-<dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
-
+<h4><a id="sthref47" name="sthref47"></a>Editar Pool de Conexiones</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Editar conjunto de conexiones para editar las propiedades generales de un conjunto de conexiones JDBC.</p>
+<p>La p&aacute;gina Editar conjunto de conexiones contiene las siguientes opciones.</p>
+<dl>
+<dt>Cargar valores predeterminados</dt>
+<dd>
+<p>Bot&oacute;n para restaurar la configuraci&oacute;n que tiene valores por defecto a estos valores. La configuraci&oacute;n que no tiene valores por defecto no se modifica.</p>
 </dd>
 <dt>Vaciar</dt>
-<dd><p>Bot&#243;n para reinicializar las conexiones del conjunto de conexiones. Al hacer clic en este bot&#243;n se destruyen todas las conexiones existentes, se recrean las conexiones establecidas para el conjunto y se restablece el tama&#241;o de conjunto inicial y m&#237;nimo del conjunto. </p>
-
+<dd>
+<p>Bot&oacute;n para reinicializar las conexiones del conjunto de conexiones. Al hacer clic en este bot&oacute;n se destruyen todas las conexiones existentes, se recrean las conexiones establecidas para el conjunto y se restablece el tama&ntilde;o de conjunto inicial y m&iacute;nimo del conjunto.</p>
 </dd>
 <dt>Ping</dt>
-<dd><p>Bot&#243;n para verificar que el conjunto de conexiones es utilizable. Si aparece un mensaje de error al hacer clic en este bot&#243;n, compruebe si se ha iniciado el servidor de la base de datos.</p>
-
+<dd>
+<p>Bot&oacute;n para verificar que el conjunto de conexiones es utilizable. Si aparece un mensaje de error al hacer clic en este bot&oacute;n, compruebe si se ha iniciado el servidor de la base de datos.</p>
 </dd>
 <dt>Nombre de conjunto</dt>
-<dd><p>El nombre del conjunto de conexiones. &#201;ste es un campo de solo lectura. El nombre del conjunto se puede especificar &#250;nicamente al crear un nuevo conjunto de conexiones de JDBC.</p>
-
+<dd>
+<p>El nombre del conjunto de conexiones. &Eacute;ste es un campo de solo lectura. El nombre del conjunto se puede especificar &uacute;nicamente al crear un nuevo conjunto de conexiones de JDBC.</p>
 </dd>
 <dt>Tipo de recurso</dt>
-<dd><p>Entre las opciones se incluyen javax.sql.XADataSource (transacciones globales), java.sql.ConnectionPoolDataSource (transacciones locales, posibles mejoras del rendimiento), javax.sql.DataSource  (s&#243;lo transacciones locales) y <tt>java.sql.Driver</tt>.</p>
-
+<dd>
+<p>Entre las opciones se incluyen javax.sql.XADataSource (transacciones globales), java.sql.ConnectionPoolDataSource (transacciones locales, posibles mejoras del rendimiento), javax.sql.DataSource (s&oacute;lo transacciones locales) y <code>java.sql.Driver</code>.</p>
 </dd>
 <dt>Nombre de clase de fuente de datos</dt>
-<dd><p>Nombre de clase espec&#237;fico del proveedor que implementa la fuente de datos.</p>
-
+<dd>
+<p>Nombre de clase espec&iacute;fico del proveedor que implementa la fuente de datos.</p>
 </dd>
 <dt>Nombre de clase del controlador</dt>
-<dd><p>El nombre de clase del controlador JDBC suministrado por el proveedor. Si seleccion&#243; el tipo de de recurso java.sql.Driver, este campo se suele rellenar autom&#225;ticamente con el nombre de clase asociada al controlador y al proveedor de bases de datos que hubiera elegido. Si seleccion&#243; uno de los tipos de recursos de fuente de datos ("datasource"), este campo est&#225; desactivado.</p>
-
+<dd>
+<p>El nombre de clase del controlador JDBC suministrado por el proveedor. Si seleccion&oacute; el tipo de de recurso java.sql.Driver, este campo se suele completar autom&aacute;ticamente con el nombre de clase asociada al controlador y al proveedor de bases de datos que haya elegido. Si seleccion&oacute; uno de los tipos de recursos de fuente de datos ("datasource"), este campo est&aacute; desactivado.</p>
 </dd>
 <dt>Ping</dt>
-<dd><p>Si se selecciona esta opci&#243;n, se har&#225; ping autom&#225;ticamente en el conjunto de conexiones durante la creaci&#243;n o reconfiguraci&#243;n del conjunto y para identificar y avisarle de cualquier valor de atributo incorrecto. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dd>
+<p>Si se selecciona esta opci&oacute;n, se har&aacute; ping autom&aacute;ticamente en el conjunto de conexiones durante la creaci&oacute;n o reconfiguraci&oacute;n del conjunto y para identificar y avisarle de cualquier valor de atributo incorrecto. Esta opci&oacute;n se deshabilita por defecto.</p>
 </dd>
-<dt>Descripci&#243;n</dt>
-<dd><p>Breve descripci&#243;n del conjunto de conexiones.</p>
-
+<dt>Descripci&oacute;n</dt>
+<dd>
+<p>Breve descripci&oacute;n del conjunto de conexiones.</p>
 </dd>
-<dt>Tama&#241;o de conjunto inicial y m&#237;nimo</dt>
-<dd><p>El n&#250;mero m&#237;nimo de conexiones del conjunto. Este valor tambi&#233;n determina el n&#250;mero de conexiones incluidas en el conjunto cuando se crea el conjunto por primera vez o cuando se inicia Servidor GlassFish. El valor predeterminado es 8.</p>
-
+<dt>Tama&ntilde;o de conjunto inicial y m&iacute;nimo</dt>
+<dd>
+<p>El n&uacute;mero m&iacute;nimo de conexiones del conjunto. Este valor tambi&eacute;n determina el n&uacute;mero de conexiones incluidas en el conjunto cuando se crea el conjunto por primera vez o cuando se inicia GlassFish Server. El valor predeterminado es 8.</p>
 </dd>
-<dt>Tama&#241;o de conjunto m&#225;ximo</dt>
-<dd><p>El n&#250;mero m&#225;ximo de conexiones del conjunto. El valor predeterminado es 32.</p>
-
+<dt>Tama&ntilde;o de conjunto m&aacute;ximo</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de conexiones del conjunto. El valor predeterminado es 32.</p>
 </dd>
-<dt>Cantidad de cambio de tama&#241;o del conjunto</dt>
-<dd><p>Cuando el conjunto aumenta y disminuye hacia el tama&#241;o m&#225;ximo y m&#237;nimo respectivamente, se cambia el tama&#241;o en lotes. Este valor determina el n&#250;mero de conexiones en el lote. Si este valor es demasiado grande, se retrasar&#225; la creaci&#243;n y el reciclado de las conexiones y, si es demasiado peque&#241;o, el proceso perder&#225; eficacia. El valor predeterminado es 2.</p>
-
+<dt>Cantidad de cambio de tama&ntilde;o del conjunto</dt>
+<dd>
+<p>Cuando el conjunto aumenta y disminuye hacia el tama&ntilde;o m&aacute;ximo y m&iacute;nimo respectivamente, se cambia el tama&ntilde;o en lotes. Este valor determina el n&uacute;mero de conexiones en el lote. Si este valor es demasiado grande, se retrasar&aacute; la creaci&oacute;n y el reciclado de las conexiones y, si es demasiado peque&ntilde;o, el proceso perder&aacute; eficacia. El valor predeterminado es 2.</p>
 </dd>
 <dt>Tiempo de espera inactivo</dt>
-<dd><p>El tiempo m&#225;ximo, en segundos, que una conexi&#243;n puede permanecer inactiva en el conjunto. Una vez vencido el tiempo, se elimina la conexi&#243;n del conjunto. El valor predeterminado es 300.</p>
-
+<dd>
+<p>El tiempo m&aacute;ximo, en segundos, que una conexi&oacute;n puede permanecer inactiva en el conjunto. Una vez vencido el tiempo, se elimina la conexi&oacute;n del conjunto. El valor predeterminado es 300.</p>
 </dd>
-<dt>Tiempo de espera m&#225;ximo</dt>
-<dd><p>El tiempo m&#225;ximo, en milisegundos, que esperar&#225; la aplicaci&#243;n que solicita una conexi&#243;n antes de obtener un tiempo de espera de la conexi&#243;n. El valor predeterminado es 60.000.</p>
-
+<dt>Tiempo de espera m&aacute;ximo</dt>
+<dd>
+<p>El tiempo m&aacute;ximo, en milisegundos, que esperar&aacute; la aplicaci&oacute;n que solicita una conexi&oacute;n antes de obtener un tiempo de espera de la conexi&oacute;n. El valor predeterminado es 60.000.</p>
 </dd>
 <dt>Conexiones no transaccionales</dt>
-<dd><p>Si esta opci&#243;n est&#225; habilitada, se devolver&#225;n las conexiones que no sean para transacciones. Por defecto, no se especifica esta opci&#243;n.</p>
-
+<dd>
+<p>Si esta opci&oacute;n est&aacute; habilitada, se devolver&aacute;n las conexiones que no sean para transacciones. Por defecto, no se especifica esta opci&oacute;n.</p>
 </dd>
-<dt>Aislamiento de transacci&#243;n</dt>
-<dd><p>Si se especifica un nivel de aislamiento de transacci&#243;n, las conexiones de este conjunto trabajar&#225;n en el nivel especificado. De lo contrario, las conexiones trabajar&#225;n con los niveles de aislamiento predeterminados proporcionados por el controlador JDBC. Por defecto, no se especifica esta opci&#243;n.</p>
-
+<dt>Aislamiento de transacci&oacute;n</dt>
+<dd>
+<p>Si se especifica un nivel de aislamiento de transacci&oacute;n, las conexiones de este conjunto trabajar&aacute;n en el nivel especificado. De lo contrario, las conexiones trabajar&aacute;n con los niveles de aislamiento predeterminados proporcionados por el controlador JDBC. Por defecto, no se especifica esta opci&oacute;n.</p>
 </dd>
 <dt>Nivel de aislamiento</dt>
-<dd><p>Si est&#225; seleccionada la casilla de verificaci&#243;n Garantizado, todas las conexiones tomadas del conjunto tendr&#225;n el mismo nivel de aislamiento. Por ejemplo, si el nivel de aislamiento de la conexi&#243;n se cambia de manera program&#225;tica (con <tt>con.setTransactionIsolation </tt>) cuando se utiliz&#243; por &#250;ltima vez, este mecanismo devolver&#225; el estado al nivel de aislamiento especificado.</p>
-
-<p>Este campo s&#243;lo es aplicable si se ha especificado un nivel de aislamiento de transacci&#243;n.</p>
-
+<dd>
+<p>Si est&aacute; seleccionada la casilla de control Garantizado, todas las conexiones tomadas del pool tendr&aacute;n el mismo nivel de aislamiento. Por ejemplo, si el nivel de aislamiento de la conexi&oacute;n se cambia de manera program&aacute;tica (con <code>con.setTransactionIsolation</code> ) cuando se utiliza por &uacute;ltima vez, este mecanismo devolver&aacute; el estado al nivel de aislamiento especificado.</p>
+<p>Este campo s&oacute;lo es aplicable si se ha especificado un nivel de aislamiento de transacci&oacute;n.</p>
 </dd>
 </dl>
-<a name="gkomw"></a><h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-setdbaccess.html">Para configurar el acceso a la base de datos</a></p>
-
+<a id="sthref48" name="sthref48"></a>
+<h5>Tareas relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-setdbaccess.html">Configurar el Acceso a la Base de Datos</a></p>
 </li>
-<li><p><a href="task-integratejdbcdriver.html">Para integrar un controlador JDBC</a></p>
-
+<li>
+<p><a href="task-integratejdbcdriver.html">Integrar un Controlador JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">Para crear un conjunto de conexiones JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">Crear un Pool de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooledit.html">Para editar la configuraci&#243;n general del conjunto de conexiones JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooledit.html">Editar Configuraci&oacute;n General de los Pools de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">Para verificar la configuraci&#243;n del conjunto de conexiones</a></p>
-
+<li>
+<p><a href="task-verifyconnpoolsettings.html">Verificar la Configuraci&oacute;n del Pool de Conexiones</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">Para editar atributos avanzados del conjunto de conexiones JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">Editar Atributos Avanzados de Pools de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">Editar las Propiedades de los Pools de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">Para eliminar un conjunto de conexiones JDBC</a></p>
-
-</li></ul>
-<a name="gkolc"></a><h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=add-resources-1"><tt>add-resources</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">Suprimir un Pool de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jdbc-connection-pool-1"><tt>create-jdbc-connection-pool</tt>(1)</a></p>
-
+</ul>
+<a id="sthref49" name="sthref49"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00001"><code>add-resources</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jdbc-connection-pool-1"><tt>delete-jdbc-connection-pool</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00036"><code>create-jdbc-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jdbc-connection-pools-1"><tt>list-jdbc-connection-pools</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00088"><code>delete-jdbc-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=ping-connection-pool-1"><tt>ping-connection-pool</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00173"><code>list-jdbc-connection-pools</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-database-1"><tt>start-database</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00214"><code>ping-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-database-1"><tt>stop-database</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00234"><code>start-database</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00239"><code>stop-database</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

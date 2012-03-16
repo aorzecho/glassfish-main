@@ -1,115 +1,120 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmsphysicaldestedit"></a><h4>Editar destino f&#237;sico JMS</h4>
-<a name="indexterm-53"></a><a name="indexterm-54"></a><p>Utilice la p&#225;gina Editar destino f&#237;sico JMS para modificar los par&#225;metros de
-configuraci&#243;n de un destino f&#237;sico JMS.</p>
+<p><a id="ref-jmsphysicaldestedit" name="ref-jmsphysicaldestedit"></a><a id="GHJMS00018" name="GHJMS00018"></a></p>
 
-<p>La p&#225;gina Editar destino f&#237;sico JMS contiene las siguientes opciones.</p>
-
-<dl><dt>Nombre</dt>
-<dd><p>El nombre del destino f&#237;sico. &#201;ste es un campo de solo lectura. Solamente es posible especificar el nombre cuando se crea un recurso de destino JMS o un destino f&#237;sico.</p>
-
+<h4><a id="sthref96" name="sthref96"></a><a id="sthref97" name="sthref97"></a>Editar Destino F&iacute;sico JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Editar Destino F&iacute;sico JMS para modificar la configuraci&oacute;n de un destino f&iacute;sico JMS.</p>
+<p>La p&aacute;gina Editar Destino F&iacute;sico JMS contiene las siguientes opciones.</p>
+<dl>
+<dt>Nombre</dt>
+<dd>
+<p>El nombre del destino f&iacute;sico. &Eacute;ste es un campo de s&oacute;lo lectura. Solamente es posible especificar el nombre cuando se crea un recurso de destino JMS o un destino f&iacute;sico.</p>
 </dd>
 <dt>Tipo</dt>
-<dd><p>El tipo del destino f&#237;sico. &#201;ste es un campo de solo lectura. Solamente es posible especificar el tipo cuando se crea un recurso de destino JMS o un destino f&#237;sico.</p>
-
+<dd>
+<p>El tipo del destino f&iacute;sico. &Eacute;ste es un campo de s&oacute;lo lectura. Solamente es posible especificar el tipo cuando se crea un recurso de destino JMS o un destino f&iacute;sico.</p>
 </dd>
-<dt>N&#250;mero m&#225;ximo de mensajes no consumidos</dt>
-<dd><p>El n&#250;mero m&#225;ximo de mensajes no consumidos permitido para el destino. Un valor de -1 indica que no hay l&#237;mite para el n&#250;mero de mensajes no consumidos. El valor predeterminado es -1.</p>
-
+<dt>N&uacute;mero M&aacute;ximo de Mensajes no Consumidos</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de mensajes no consumidos permitido para el destino. Un valor de -1 indica que no hay l&iacute;mite para el n&uacute;mero de mensajes no consumidos. El valor por defecto es -1.</p>
 </dd>
-<dt>Tama&#241;o m&#225;ximo de mensaje</dt>
-<dd><p>El tama&#241;o m&#225;ximo que un mensaje puede tener, en bytes. Un valor de -1 indica un tama&#241;o de mensaje ilimitado. El valor predeterminado es -1.</p>
-
+<dt>Tama&ntilde;o M&aacute;ximo de Mensaje</dt>
+<dd>
+<p>El tama&ntilde;o m&aacute;ximo que un mensaje puede tener, en bytes. Un valor de -1 indica un tama&ntilde;o de mensaje ilimitado. El valor por defecto es -1.</p>
 </dd>
-<dt>Memoria total m&#225;xima</dt>
-<dd><p>El total m&#225;ximo de memoria para mensajes no consumidos, en bytes. Un valor de -1 indica que no hay l&#237;mite para el tama&#241;o de memoria destinado a los mensajes no consumidos. El valor predeterminado es -1.</p>
-
+<dt>Memoria M&aacute;xima Total</dt>
+<dd>
+<p>El total m&aacute;ximo de memoria para mensajes no consumidos, en bytes. Un valor de -1 indica que no hay l&iacute;mite para el tama&ntilde;o de memoria destinado a los mensajes no consumidos. El valor por defecto es -1.</p>
 </dd>
-<dt>Comportamiento de umbral l&#237;mite</dt>
-<dd><p>El comportamiento que debe seguir el agente cuando se alcanza el umbral del l&#237;mite de memoria. Las opciones disponibles son:</p>
-
-<dl><dt><tt>Rechazar los mensajes m&#225;s recientes</tt></dt>
-<dd><p>Rechazar los mensajes m&#225;s recientes y notificar al cliente que los produce con una excepci&#243;n s&#243;lo si el mensaje es persistente. &#201;ste es el valor predeterminado.</p>
-
+<dt>Comportamiento L&iacute;mite de Umbral</dt>
+<dd>
+<p>El comportamiento que debe seguir el broker cuando se alcanza el umbral del l&iacute;mite de memoria. Las opciones disponibles son:</p>
+<dl>
+<dt>Rechazar los mensajes m&aacute;s recientes</dt>
+<dd>
+<p>Rechazar los mensajes m&aacute;s recientes y notificar al cliente que los produce con una excepci&oacute;n s&oacute;lo si el mensaje es persistente. &Eacute;ste es el valor por defecto.</p>
 </dd>
-<dt><tt>Ralentizar productores</tt></dt>
-<dd><p>Ralentizar la frecuencia con que los productores de mensajes los env&#237;an.</p>
-
+<dt>Ralentizar productores</dt>
+<dd>
+<p>Ralentizar la frecuencia con que los productores de mensajes los env&iacute;an.</p>
 </dd>
-<dt><tt>Eliminar los m&#225;s antiguos</tt></dt>
-<dd><p>Descartar los mensajes m&#225;s antiguos.</p>
-
+<dt>Rechazar los m&aacute;s antiguos</dt>
+<dd>
+<p>Descartar los mensajes m&aacute;s antiguos.</p>
 </dd>
-<dt><tt>Eliminar los mensajes con prioridad m&#225;s baja</tt></dt>
-<dd><p>Descartar los mensajes con la prioridad m&#225;s baja.</p>
-
-</dd>
-</dl>
-<p>Si el valor Eliminar los m&#225;s antiguos o Eliminar los mensajes con prioridad m&#225;s baja y la opci&#243;n Utilizar la cola de mensajes inactivos est&#225; establecida como "True", los mensajes que superen el l&#237;mite se mover&#225;n a la cola de mensajes inactivos.</p>
-
-</dd>
-<dt>N&#250;mero m&#225;ximo de productores</dt>
-<dd><p>El n&#250;mero m&#225;ximo de productores de mensajes que se pueden asociar a este destino f&#237;sico. Cuando se alcanza este l&#237;mite, no se pueden crear nuevos productores. El valor -1 indica un n&#250;mero ilimitado de productores. El valor predeterminado es 100.</p>
-
-</dd>
-<dt>Recuento m&#225;x. de mensajes de entrega por lotes</dt>
-<dd><p>El n&#250;mero m&#225;ximo de mensajes que pueden entregarse a los consumidores en un solo lote. Un valor de -1 indica un n&#250;mero ilimitado de mensajes. El valor predeterminado es 1.000.</p>
-
-</dd>
-<dt>Utilizar la cola de mensajes inactivos</dt>
-<dd><p>Si esta opci&#243;n est&#225; habilitada, los mensajes inactivos se colocan en la cola de mensajes inactivos. Si esta opci&#243;n est&#225; deshabilitada, los mensajes inactivos se descartan. Esta opci&#243;n se habilita por defecto.</p>
-
-</dd>
-<dt>Validar esquema XML</dt>
-<dd><p>Si esta opci&#243;n est&#225; habilitada, el tiempo de ejecuci&#243;n del cliente de Message Queue intentar&#225; validar un mensaje XML compar&#225;ndolo con las definiciones de esquema XML especificadas (o bien compar&#225;ndolo con DTD, si no hay ning&#250;n XSD especificado) antes de enviarlo al agente intermediario. Si el esquema especificado no se puede localizar o no es posible validar el mensaje, &#233;ste &#250;ltimo no se enviar&#225; y aparecer&#225; una excepci&#243;n. Esta opci&#243;n se deshabilita por defecto.</p>
-
-</dd>
-<dt>Lista URI de esquema XML</dt>
-<dd><p>Una lista separada por espacios de cadenas URI (XSD) de definici&#243;n de esquema XML. Si est&#225; habilitada la validaci&#243;n del esquema XML, las URI indican la ubicaci&#243;n de uno o m&#225;s XSD que se emplear&#225;n para la validaci&#243;n del esquema XML.</p>
-
+<dt>Rechazar los mensajes con prioridad m&aacute;s baja</dt>
+<dd>
+<p>Descartar los mensajes con la prioridad m&aacute;s baja.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-jmsservice.html">C&#243;mo configurar el servicio JMS</a></p>
-
+<p>Si el valor Rechazar los m&aacute;s antiguos o Rechazar los mensajes con prioridad m&aacute;s baja y la opci&oacute;n Usar Cola de Mensajes Inoperativos est&aacute; establecida como "True", los mensajes que superen el l&iacute;mite se mover&aacute;n a la cola de mensajes inoperativos.</p>
+</dd>
+<dt>N&uacute;mero M&aacute;ximo de Productores</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de productores de mensajes que se pueden asociar a este destino f&iacute;sico. Cuando se alcanza este l&iacute;mite, no se pueden crear nuevos productores. El valor -1 indica un n&uacute;mero ilimitado de productores. El valor por defecto es 100.</p>
+</dd>
+<dt>Recuento M&aacute;ximo de Mensajes de Entrega de Lotes</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de mensajes que pueden entregarse a los consumidores en un solo lote. Un valor de -1 indica un n&uacute;mero ilimitado de mensajes. El valor por defecto es 1.000.</p>
+</dd>
+<dt>Usar Cola de Mensajes Inoperativos</dt>
+<dd>
+<p>Si esta opci&oacute;n est&aacute; activada, los mensajes inoperativos se colocan en la cola de mensajes inoperativos. Si esta opci&oacute;n est&aacute; desactivada, los mensajes inoperativos se descartan. Esta opci&oacute;n se encuentra activada por defecto.</p>
+</dd>
+<dt>Validar Esquema XML</dt>
+<dd>
+<p>Si esta opci&oacute;n est&aacute; activada, el tiempo de ejecuci&oacute;n del cliente de Message Queue intentar&aacute; validar un mensaje XML compar&aacute;ndolo con las definiciones de esquema XML especificadas (o bien compar&aacute;ndolo con DTD, si no hay ning&uacute;n XSD especificado) antes de enviarlo al broker. Si el esquema especificado no se puede localizar o no es posible validar el mensaje, &eacute;ste no se enviar&aacute; y aparecer&aacute; una excepci&oacute;n. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
+</dd>
+<dt>Lista URI de Esquema XML</dt>
+<dd>
+<p>Una lista separada por espacios de cadenas URI (XSD) de definici&oacute;n de esquema XML. Si est&aacute; activada la validaci&oacute;n del esquema XML, las URI indican la ubicaci&oacute;n de uno o m&aacute;s XSD que se emplear&aacute;n para la validaci&oacute;n del esquema XML.</p>
+</dd>
+</dl>
+<a id="sthref98" name="sthref98"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-jmsservice.html">Configurar el Servicio JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestnew.html">Para crear un destino f&#237;sico JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestnew.html">Crear un Destino F&iacute;sico JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestedit.html">Para editar un destino f&#237;sico JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestedit.html">Editar un Destino F&iacute;sico JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestdelete.html">Para eliminar un destino f&#237;sico JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestdelete.html">Suprimir un Destino F&iacute;sico JMS</a></p>
 </li>
-<li><p><a href="task-jmsflushmessages.html">Para retirar mensajes de un destino f&#237;sico JMS</a></p>
-
+<li>
+<p><a href="task-jmsflushmessages.html">Eliminar Mensajes de un Destino F&iacute;sico JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldeststats.html">Para ver las estad&#237;sticas para un destino f&#237;sico JMS</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jmsdest-1"><tt>create-jmsdest</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldeststats.html">Ver Estad&iacute;sticas de un Destino F&iacute;sico JMS</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jmsdest-1"><tt>list-jmsdest</tt>(1)</a></p>
-
+</ul>
+<a id="sthref99" name="sthref99"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00038"><code>create-jmsdest</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jmsdest-1"><tt>delete-jmsdest</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00175"><code>list-jmsdest</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=flush-jmsdest-1"><tt>flush-jmsdest</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00090"><code>delete-jmsdest</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=jms-ping-1"><tt>jms-ping</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00136"><code>flush-jmsdest</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00144"><code>jms-ping</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

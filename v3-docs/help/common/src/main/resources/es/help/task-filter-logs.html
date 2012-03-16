@@ -1,146 +1,158 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-filter-logs" name="task-filter-logs"></a><a id="GHCOM00148" name="GHCOM00148"></a></p>
 
-
-<a name="task-filter-logs"></a><h3>C&#243;mo filtrar los mensajes de registro mostrados</h3><p><b>Antes de empezar</b></p><p>Compruebe que est&#225; viendo archivos de registro para el servidor de administraci&#243;n
-de dominio (DAS), una instancia en cl&#250;ster de Servidor GlassFish o una
-instancia independiente. Para obtener m&#225;s informaci&#243;n, consulte los temas siguientes:</p>
-
-
-<ul><li><p><a href="task-logviewer.html">C&#243;mo visualizar archivos de registro para el DAS</a></p>
-
+<h4>C&oacute;mo filtrar los mensajes de registro mostrados</h4>
+<a name="BEGIN" id="BEGIN"></a><a id="sthref29" name="sthref29"></a>
+<h5>Antes de Empezar</h5>
+<p>Compruebe que est&aacute; viendo archivos de registro para el servidor de administraci&oacute;n de dominio (DAS), una instancia en cl&uacute;ster de Servidor GlassFish o una instancia independiente. Para obtener m&aacute;s informaci&oacute;n, consulte los temas siguientes:</p>
+<ul>
+<li>
+<p><a href="task-logviewer.html">Ver Archivos Log para DAS</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3188&id=task-view-logs-clustered-instance">C&#243;mo ver archivos de registro para una instancia de Servidor GlassFish agrupada en cl&#250;ster</a></p>
-
+<li>
+<p><a href="../../../cluster/es/help/missingtopic.html">C&oacute;mo ver archivos de registro para una instancia de Servidor GlassFish agrupada en cl&uacute;ster</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3188&id=task-view-logs-standalone-instance">C&#243;mo ver archivos de registro para una instancia de Servidor GlassFish independiente</a></p>
-
-</li></ul>
+<li>
+<p><a href="../../../cluster/es/help/missingtopic.html">C&oacute;mo ver archivos de registro para una instancia de Servidor GlassFish independiente</a></p>
+</li>
+</ul>
 <ol>
-<li><b>En el &#225;rea Criterios de B&#250;squeda, filtre los registros por contenido, per&#237;odo
-de tiempo y nivel de registro.</b><ol style="list-style-type: lower-alpha">
-<li><b>Para mostrar s&#243;lo los registros que contienen un texto espec&#237;fico, escriba el
-texto en el campo B&#250;squeda de texto.</b><p>La b&#250;squeda distingue entre may&#250;sculas y min&#250;sculas.</p></li>
-<li><b>Para seleccionar el periodo de tiempo para el que se muestran los
-registros, utilice la opci&#243;n Marca de tiempo.</b><ul>
-<li><b>Para ver los mensajes m&#225;s recientes, seleccione M&#225;s reciente (el valor predeterminado).</b></li>
-<li><b>Para ver mensajes s&#243;lo de un determinado periodo de tiempo, seleccione Intervalo
-espec&#237;fico e introduzca un valor de fecha y hora en los campos
-Desde y Hasta.</b><p>El valor Fecha debe tener el formato siguiente:</p><pre><i>MM</i>/<i>DD</i>/<i>YY</i></pre><dl><dt><i>MM</i></dt>
-<dd><p>Un entero en el rango 1-12 para el n&#250;mero de mes; por ejemplo, 1 para enero o 10 para octubre. </p>
-
-</dd>
-<dt><i>DD</i></dt>
-<dd><p>Un entero en el rango 1-31 para el d&#237;a del mes.</p>
-
-</dd>
-<dt><i>AA</i></dt>
-<dd><p>Los &#250;ltimos dos d&#237;gitos del a&#241;o; por ejemplo, 11 para el a&#241;o 2011.</p>
-
-</dd>
-</dl>
-<p>Por ejemplo, para especificar la fecha 1 de febrero de 2011, escriba
-<tt>2/1/11</tt> en el campo de fecha.</p><p>El valor Hora debe tener el formato siguiente:</p><pre><i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i></pre><dl><dt><i>hh</i></dt>
-<dd><p>Un entero en el rango 0-23 para representar la hora. Para las horas por la tarde, utilice n&#250;meros enteros en el rango 12 a 23; por ejemplo, 14 para representar las 2 PM.</p>
-
-</dd>
-<dt><i>mm</i></dt>
-<dd><p>Un entero en el rango 0-59 para el n&#250;mero de minutos despu&#233;s de la hora.</p>
-
-</dd>
-<dt><i>ss</i></dt>
-<dd><p>Un entero en el rango 0-59 para el n&#250;mero de segundos.</p>
-
-</dd>
-<dt><i>SSS</i></dt>
-<dd><p>Un entero de tres d&#237;gitos, con ceros iniciales si es necesario, en el rango 000-999 para el n&#250;mero de milisegundos. </p>
-
-</dd>
-</dl>
-<p>Por ejemplo, para especificar la hora 5.10 PM, escriba <tt>17:10:00.000</tt> en el
-campo Hora.</p><p>Si el valor introducido en el campo De es posterior al valor
-introducido en el campo A, aparece un mensaje de error.</p></li></ul></li>
-<li><b>Filtrar mensajes por nivel de registro. </b><p>Para garantizar que los mensajes que quiere visualizar aparecen en el registro
-del servidor, primero <a href="task-eelogginglevels.html">defina los niveles de registro adecuados</a> en la p&#225;gina Niveles de registro del m&#243;dulo.</p><p>Si decide filtrar mensajes de registro seg&#250;n el nivel de registro, solo
-se mostrar&#225;n los mensajes que se ajusten a los criterios de filtro
-especificados. Sin embargo, este filtro no afecta a qu&#233; mensajes est&#225;n registrados
-en el registro del servidor.</p><ol style="list-style-type: lower-roman">
-<li><b>En la lista desplegable Nivel de registro, seleccione el nivel de registro.</b></li>
-<li><b>Para mostrar mensajes solo en el nivel seleccionado, seleccione la opci&#243;n No
-incluir m&#225;s mensajes graves.</b><p>De manera predeterminada, se muestran todos los mensajes del registro del servidor
-en el nivel de registro seleccionado y niveles m&#225;s graves.</p></li></ol></li></ol></li>
-<li><b>En el &#225;rea B&#250;squeda Avanzada, filtre los mensajes por espacio de nombre
-del registrador y seleccione la cantidad de informaci&#243;n que se muestra.</b><ol style="list-style-type: lower-alpha">
-<li><b>Haga clic en el enlace B&#250;squeda Avanzada.</b><p>El &#225;rea B&#250;squeda Avanzada se agrega a la ventana Visualizador de registros.</p></li>
-<li><b>Para filtrar por m&#243;dulo, seleccione uno o m&#225;s espacios de nombres en
-la lista desplegable Registrador.</b><p>Utilice May&#250;s-clic o Ctrl-clic para seleccionar varios espacios de nombres.</p><p>La selecci&#243;n de un espacio de nombre en un nivel superior selecciona
-todos los espacios de nombre existentes por debajo. Por ejemplo, al seleccionar
-<tt>javax.enterprise.system</tt> tambi&#233;n se seleccionan los registradores de todos los m&#243;dulos existentes por
-debajo de ese espacio de nombres, como <tt>javax.enterprise.system.core</tt>, <tt>javax.enterprise.system.tools.admin</tt>, etc.</p></li>
-<li><b>Para ver mensajes de los registradores para una aplicaci&#243;n en concreto, escriba
-el nombre de cada registrador en una l&#237;nea separada en el campo
-Registro personalizado.</b><p>Si la aplicaci&#243;n tiene varios m&#243;dulos, puede visualizar uno o todos ellos.
-Por ejemplo, una aplicaci&#243;n podr&#237;a tener los siguientes registradores:</p>
-<ul><li><p><tt>com.example.myapp.module1</tt></p>
-
+<li>
+<p>En el &aacute;rea Criterios de B&uacute;squeda, filtre los registros por contenido, per&iacute;odo de tiempo y nivel de registro.</p>
+<ol type="a">
+<li>
+<p>Para mostrar s&oacute;lo los registros que contienen un texto espec&iacute;fico, escriba el texto en el campo B&uacute;squeda de texto.</p>
+<p>La b&uacute;squeda distingue entre may&uacute;sculas y min&uacute;sculas.</p>
 </li>
-<li><p><tt>com.example.myapp.module2</tt></p>
-
+<li>
+<p>Para seleccionar el periodo de tiempo para el que se muestran los registros, utilice la opci&oacute;n Registro de Hora</p>
+<ul>
+<li>
+<p>Para ver los mensajes m&aacute;s recientes, seleccione M&aacute;s reciente (el valor predeterminado).</p>
 </li>
-<li><p><tt>com.example.myapp.module3</tt></p>
-
-</li></ul>
-<p>Para ver los mensajes de todos los m&#243;dulos de la aplicaci&#243;n, introduzca
-<tt>com.mycompany.myapp</tt>. Para ver solo los mensajes de <tt>module2</tt>, escriba <tt> com.example.myapp.module2</tt>.</p><p>Cuando especifica uno o varios registros personalizados, los mensajes de los m&#243;dulos
-de Servidor GlassFish aparecen s&#243;lo si los indica expl&#237;citamente en el &#225;rea
-Registro.</p></li>
-<li><b>En la lista desplegable Mostrar, seleccione el n&#250;mero de mensajes que desea
-mostrar.</b><p>El n&#250;mero predeterminado de mensajes mostrados es 40. Tambi&#233;n puede elegir 100,
-250 y 1000.</p></li>
-<li><b>Para ver seguimientos de pilas, deseleccione la casilla de verificaci&#243;n Limitar mensajes
-demasiado largos.</b><p>De forma predeterminada, los seguimientos de pilas no aparecen en el visor.
-Para ver seguimientos de pilas, haga clic en el v&#237;nculo (detalles) de
-un mensaje. </p></li>
-<li><b>Para ocultar el &#225;rea B&#250;squeda Avanzada, haga clic en el enlace B&#250;squeda
-B&#225;sica. </b></li></ol></li>
-<li><b>Para especificar la instancia y el archivo de registro asociado que desea
-ver, utilice &#225;rea Modificar b&#250;squeda.</b><ul>
-<li><b>En la lista desplegable Instancia, seleccione la instancia.</b><p>El valor predeterminado es la instancia seleccionada inicialmente para ver sus archivos
-de registro. Si ha seleccionado ver los archivos de registro del servidor
-de administraci&#243;n de dominio (DAS), el valor predeterminado es server, lo que
-indica el DAS. </p></li>
-<li><b>En la lista desplegable Archivo de registro, seleccione el archivo de registro.</b><p>El valor predeterminado es <tt>server.log</tt>. Otras opciones dependen de la configuraci&#243;n de
-registro para el destino seleccionado.</p></li></ul></li>
-<li><b>En el &#225;rea Resultados de b&#250;squeda, personalice la pantalla de mensajes de
-registro.</b><p>El &#225;rea Resultados de b&#250;squeda muestra las &#250;ltimas 40 entradas en el
-registro del servidor, con la configuraci&#243;n especificada en las p&#225;ginas Configuraci&#243;n de
-registro y Niveles de registro.</p><ul>
-<li><b>Para ordenar los mensajes de una forma distinta, haga clic en las
-flechas de las columnas.</b></li>
-<li><b>Para ver una versi&#243;n con formato de un mensaje, haga clic en
-el v&#237;nculo (detalles) del mensaje. </b><p>Se abre la ventana Detalles de entrada de registro, que contiene una
-versi&#243;n con formato del mensaje.</p></li>
-<li><b>Para ver entradas anteriores o posteriores del archivo de registro, haga clic
-en Registros anteriores a y Registros posteriores a, en la parte superior
-de la tabla.</b></li></ul></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-eelogging.html">Para configurar par&#225;metros generales de registros</a></p>
-
+<li>
+<p>Para ver mensajes s&oacute;lo de un determinado periodo de tiempo, seleccione Intervalo espec&iacute;fico e introduzca un valor de fecha y hora en los campos Desde y Hasta.</p>
+<p>El valor Fecha debe tener el formato siguiente:</p>
+<pre>
+<i>MM</i>/<i>DD</i>/<i>YY</i>
+</pre>
+<p><code><i>MM</i></code> es un entero en el rango 1-12 para el n&uacute;mero de mes; por ejemplo, 1 para enero o 10 para octubre. <code><i>DD</i></code> es un entero en el rango 1-31 para el d&iacute;a del mes. <code><i>YY</i></code> son los &uacute;ltimos dos d&iacute;gitos del a&ntilde;o; por ejemplo, 11 para el a&ntilde;o 2011.</p>
+<p>Por ejemplo, para especificar la fecha 1 de febrero de 2011, escriba <code>2/1/11</code> en el campo de fecha.</p>
+<p>El valor Hora debe tener el formato siguiente:</p>
+<pre>
+<i>hh</i>:<i>mm</i>:<i>ss</i>.<i>SSS</i>
+</pre>
+<p><code><i>hh</i></code> es un entero en el rango 0-23 para representar la hora. Para las horas por la tarde, utilice n&uacute;meros enteros en el rango 12-23; por ejemplo, 14 para representar las 2 PM. <code><i>mm</i></code> es un entero en el rango 0-59 para el n&uacute;mero de minutos despu&eacute;s de la hora. <code><i>ss</i></code> es un entero en el rango 0-59 para el n&uacute;mero de segundos. <code><i>SSS</i></code> es un entero de tres d&iacute;gitos, con ceros iniciales si es necesario, en el rango 000-999 para el n&uacute;mero de milisegundos.</p>
+<p>Por ejemplo, para especificar la hora 5:10 PM, escriba <code>17:10:00.000</code> en el campo Hora.</p>
+<p>Si el valor introducido en el campo De es posterior al valor introducido en el campo A, aparece un mensaje de error.</p>
 </li>
-<li><p><a href="task-eelogginglevels.html">Para configurar niveles de registro</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-logviewer.html">C&#243;mo visualizar archivos de registro para el DAS</a></p>
-
+<li>
+<p>Filtre los mensajes por nivel de log.</p>
+<p>Para garantizar que los mensajes que quiere visualizar aparecen en el log del servidor, primero defina los niveles de log adecuados en la p&aacute;gina Niveles de Log del M&oacute;dulo. Consulte <a href="task-eelogginglevels.html">Configurar los Niveles de Log</a> para obtener instrucciones.</p>
+<p>Si decide filtrar mensajes de log seg&uacute;n el nivel de log, solo se mostrar&aacute;n los mensajes que se ajusten a los criterios de filtro especificados. Sin embargo, este filtro no afecta a qu&eacute; mensajes est&aacute;n registrados en el log del servidor.</p>
+<ol>
+<li>
+<p>En la lista desplegable Nivel de Log, seleccione el nivel de log.</p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3188&id=task-view-logs-clustered-instance">C&#243;mo ver archivos de registro para una instancia de Servidor GlassFish agrupada en cl&#250;ster</a></p>
-
+<li>
+<p>Para mostrar mensajes solo en el nivel seleccionado, seleccione la opci&oacute;n No incluir m&aacute;s mensajes graves.</p>
+<p>Por defecto, se muestran todos los mensajes del log del servidor en el nivel de log seleccionado y niveles m&aacute;s graves.</p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3188&id=task-view-logs-standalone-instance">C&#243;mo ver archivos de registro para una instancia de Servidor GlassFish independiente</a></p>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>En el &aacute;rea B&uacute;squeda Avanzada, filtre los registros por espacio de nombres del registrador y seleccione la cantidad de informaci&oacute;n que se muestra.</p>
+<ol type="a">
+<li>
+<p>Haga clic en el enlace B&uacute;squeda Avanzada.</p>
+<p>El &aacute;rea B&uacute;squeda Avanzada se agrega a la ventana Visor de Logs.</p>
+</li>
+<li>
+<p>Para filtrar por m&oacute;dulo, seleccione uno o m&aacute;s espacios de nombres en la lista desplegable Registrador.</p>
+<p>Utilice May&uacute;s-clic o Ctrl-clic para seleccionar varios espacios de nombres.</p>
+<p>La selecci&oacute;n de un espacio de nombres en un nivel superior selecciona todos los espacios de nombre existentes por debajo. Por ejemplo, al seleccionar <code>javax.enterprise.system</code> tambi&eacute;n se seleccionan los registradores de todos los m&oacute;dulos existentes por debajo de ese espacio de nombres, como <code>javax.enterprise.system.core</code>, <code>javax.enterprise.system.tools.admin</code>, etc.</p>
+</li>
+<li>
+<p>Para ver mensajes de los registradores para una aplicaci&oacute;n en concreto, escriba el nombre de cada registrador en una l&iacute;nea separada en el campo Registrador Personalizado.</p>
+<p>Si la aplicaci&oacute;n tiene varios m&oacute;dulos, puede visualizar uno o todos ellos. Por ejemplo, una aplicaci&oacute;n podr&iacute;a tener los siguientes registradores:</p>
+<pre>
+com.example.myapp.module1
+com.example.myapp.module2
+com.example.myapp.module3
+</pre>
+<p>Para ver los mensajes de todos los m&oacute;dulos de la aplicaci&oacute;n, introduzca <code>com.mycompany.myapp</code>. Para ver solo los mensajes de <code>module2</code>, escriba <code>com.example.myapp.module2</code>.</p>
+<p>Cuando especifica uno o varios registradores personalizados, los mensajes de los m&oacute;dulos de Servidor GlassFish aparecen s&oacute;lo si los indica expl&iacute;citamente en el &aacute;rea Registrador.</p>
+</li>
+<li>
+<p>En la lista desplegable Mostrar, seleccione el n&uacute;mero de mensajes que desea mostrar.</p>
+<p>El n&uacute;mero por defecto de mensajes mostrados es 40. Tambi&eacute;n puede elegir 100, 250 y 1000.</p>
+</li>
+<li>
+<p>Para ver rastreos de pila, desactive la casilla de control Limitar mensajes demasiado largos.</p>
+<p>Por defecto, los rastreos de pila no aparecen en el visor. Para ver rastreos de pila, haga clic en el enlace (detalles) de un mensaje.</p>
+</li>
+<li>
+<p>Para ocultar el &aacute;rea B&uacute;squeda Avanzada, haga clic en el enlace B&uacute;squeda B&aacute;sica.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Para especificar la instancia y el archivo log asociado que desea ver, utilice el &aacute;rea Modificar B&uacute;squeda.</p>
+<ul>
+<li>
+<p>En la lista desplegable Instancia, seleccione la instancia.</p>
+<p>El valor por defecto es la instancia seleccionada inicialmente para ver sus archivos log. Si ha seleccionado ver los archivos log del servidor de administraci&oacute;n de dominio (DAS), el valor por defecto es el servidor, lo que indica DAS.</p>
+</li>
+<li>
+<p>En la lista desplegable Archivo Log, seleccione el archivo log.</p>
+<p>El valor por defecto es <code>server.log</code>. Otras opciones dependen de la configuraci&oacute;n de log para el destino seleccionado.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>En el &aacute;rea Resultados de B&uacute;squeda, personalice la visualizaci&oacute;n de mensajes de log.</p>
+<p>El &aacute;rea Resultados de B&uacute;squeda muestra las &uacute;ltimas 40 entradas en el log del servidor, con la configuraci&oacute;n especificada en las p&aacute;ginas Configuraci&oacute;n de Registro y Niveles de Log.</p>
+<ul>
+<li>
+<p>Para ordenar los mensajes de una forma distinta, haga clic en las flechas de las columnas.</p>
+</li>
+<li>
+<p>Para ver una versi&oacute;n con formato de un mensaje, haga clic en el enlace (detalles) del mensaje.</p>
+<p>Se abrir&aacute; la ventana Detalles de Entrada de Log, que contiene una versi&oacute;n con formato del mensaje.</p>
+</li>
+<li>
+<p>Para ver entradas anteriores o posteriores del archivo log, haga clic en Registros anteriores a y Registros posteriores a, en la parte superior de la tabla.</p>
+</li>
+</ul>
+</li>
+</ol>
+<a id="sthref30" name="sthref30"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-eelogging.html">Definir la Configuraci&oacute;n de Registro General</a></p>
+</li>
+<li>
+<p><a href="task-eelogginglevels.html">Configurar los Niveles de Log</a></p>
+</li>
+<li>
+<p><a href="task-logviewer.html">Ver Archivos Log para DAS</a></p>
+</li>
+<li>
+<p><a href="../../../cluster/es/help/missingtopic.html">Ver Archivos Log para una Instancia de Servidor GlassFish en Cluster</a></p>
+</li>
+<li>
+<p><a href="../../../cluster/es/help/missingtopic.html">Ver Archivos Log para una Instancia de Servidor GlassFish Independiente</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

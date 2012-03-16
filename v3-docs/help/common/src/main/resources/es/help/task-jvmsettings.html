@@ -1,72 +1,96 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jvmsettings" name="task-jvmsettings"></a><a id="GHCOM00172" name="GHCOM00172"></a></p>
 
-
-<a name="task-jvmsettings"></a><h3>Para configurar la configuraci&#243;n de ruta de JVM</h3><a name="indexterm-61"></a><a name="indexterm-62"></a><p>La M&#225;quina virtual Java (JVM) permiten la ejecuci&#243;n de los c&#243;digos de
-bytes de Java en una m&#225;quina f&#237;sica. Al ajustar los valores de
-configuraci&#243;n de JVM, mejora el rendimiento y se evitan errores de asignaci&#243;n
-de memoria.</p>
-
-<p>La m&#225;quina virtual de Java se incluye en la plataforma Java, Standard
-Edition (plataforma Java SE), que necesita Servidor GlassFish. La introducci&#243;n de valores
-incorrectos para la configuraci&#243;n de JVM har&#225; que no funcione el servidor,
-por lo que tiene que ir con cuidado a la hora de
-cambiar estos valores.</p>
-
-
-<hr><p><b>Nota - </b>Los t&#233;rminos &#8220;m&#225;quina virtual de Java&#8221; y &#8220;JVM&#8221; hacen referencia a una
-m&#225;quina virtual para la plataforma Java.</p>
-
+<h4><a id="sthref110" name="sthref110"></a>Definir la Configuraci&oacute;n General de JVM</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Java Virtual Machine (JVM) permite la ejecuci&oacute;n de los c&oacute;digos de bytes de Java en una m&aacute;quina f&iacute;sica. Al ajustar la configuraci&oacute;n de JVM, mejora el rendimiento y se evitan errores de asignaci&oacute;n de memoria.</p>
+<p>Java Virtual Machine se incluye en la plataforma Java, Standard Edition (plataforma Java SE), que necesita Servidor GlassFish. La introducci&oacute;n de una configuraci&oacute;n de JVM incorrecta har&aacute; que no funcione el servidor, por lo que tiene que ir con cuidado a la hora de cambiar esta configuraci&oacute;n.</p>
 
 <hr>
+<p><b>Nota:</b></p>
+Los t&eacute;rminos "Java Virtual Machine" y "JVM" se refieren a una m&aacute;quina virtual para la plataforma Java.
+<hr>
+
 <ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, seleccione el nodo Configuraci&#243;n.</b></li>
-<li><b>En el nodo Configuraci&#243;n, seleccione el nodo Configuraci&#243;n de JVM.</b><p>Se abrir&#225; la p&#225;gina Configuraci&#243;n general de JVM.</p></li>
-<li><b>En la p&#225;gina Configuraci&#243;n general de JVM, en el campo Inicio de
-Java, escriba el nombre del directorio de instalaci&#243;n del software Java SE.</b><p>Servidor GlassFish est&#225; basado en la plataforma Java SE. Para comprobar que
-la versi&#243;n del software de Java SE que ha especificado es compatible
-con esta versi&#243;n, consulte las <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2434&id=sjsaseern"><i>Oracle GlassFish Server 3.1-3.1.1 Release Notes </i></a>. Si especifica un nombre de directorio
-inexistente o el directorio de un versi&#243;n de software Java SE no
-compatible, no se iniciar&#225; Servidor GlassFish.</p></li>
-<li><b>En el campo Opciones de Javac, introduzca las opciones de l&#237;nea de
-comandos del compilador del lenguaje de programaci&#243;n Java.</b><p>Servidor GlassFish ejecuta el compilador cuando se implementan los componentes de Enterprise
-JavaBeans (EJB).</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Depuraci&#243;n habilitada para habilitar la depuraci&#243;n con
-Java Platform Debugger Architecture (JPDA).</b><p>Los desarrolladores de aplicaciones utilizan JPDA. Para obtener m&#225;s informaci&#243;n, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=sjsaseedg"><i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p></li>
-<li><b>En el campo Opciones de depuraci&#243;n, introduzca las opciones de JPDA que
-van a pasar a la JVM.</b><p>Este campo s&#243;lo ser&#225; aplicable si se ha habilitado la depuraci&#243;n en
-el paso anterior.</p></li>
-<li><b>En el campo Opciones de compilaci&#243;n RMI, introduzca las opciones de l&#237;nea
-de comandos del compilador <tt>rmic</tt>.</b><p>Servidor GlassFish ejecuta el compilador <tt>rmic</tt> si se implementan los componentes EJB.</p></li>
-<li><b>En el campo Preprocesador de c&#243;digo byte, introduzca una lista de nombres
-de clase.</b><p>Use comas para separar los nombres. Cada clase debe implementar la interfaz
-com.sun.appserv.BytecodePreprocessor . Las clases se llaman en el orden especificado.</p></li>
-<li>(Opcional) <b>En la secci&#243;n Propiedades adicionales, especifique las propiedades adicionales.</b><p>Para a&#241;adir una propiedad, haga clic en el bot&#243;n Agregar propiedad. En
-la fila vac&#237;a escriba el nombre de la propiedad en el campo
-Nombre y el valor de la propiedad en el campo Valor.</p><p>Servidor GlassFish no define ninguna propiedad adicional para JVM.</p></li>
-<li><b>Haga clic en Guardar.</b>
-<hr><p><b>Consejo - </b>Para volver a los valores de configuraci&#243;n predeterminados, haga clic en el
-bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
-
+<li>
+<p>In the navigation tree, expand the Configuration node.</p>
+</li>
+<li>
+<p>Select the configuration that you are changing.</p>
+</li>
+<li>
+<p>Select the JVM Settings node.</p>
+<p>The JVM General Settings tab page opens.</p>
+</li>
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, seleccione el nodo Configuraci&oacute;n.</p>
+</li>
+<li>
+<p>En el nodo Configuraci&oacute;n, seleccione el nodo Configuraci&oacute;n de JVM.</p>
+<p>Se abrir&aacute; la p&aacute;gina Configuraci&oacute;n General de JVM.</p>
+</li>
+<li>
+<p>En la p&aacute;gina Configuraci&oacute;n General de JVM, en el campo Directorio Ra&iacute;z de Java, escriba el nombre del directorio de instalaci&oacute;n del software Java SE.</p>
+<p>Servidor GlassFish est&aacute; basado en la plataforma Java SE. Para comprobar que la versi&oacute;n del software de Java SE que ha especificado est&aacute; soportada en esta versi&oacute;n, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRLN"><i>Notas T&eacute;cnicas sobre la Versi&oacute;n de Oracle GlassFish Server</i></a>. Si especifica un nombre de directorio inexistente o el directorio de una versi&oacute;n no soportada del software Java SE, no se iniciar&aacute; Servidor GlassFish.</p>
+</li>
+<li>
+<p>En el campo Opciones de Javac, introduzca las opciones de l&iacute;nea de comandos del compilador del lenguaje de programaci&oacute;n Java.</p>
+<p>Servidor GlassFish ejecuta el compilador cuando se despliegan los componentes de Enterprise JavaBeans (EJB).</p>
+</li>
+<li>
+<p>Active la casilla de control Depuraci&oacute;n Activada para activar la depuraci&oacute;n con Java Platform Debugger Architecture (JPDA).</p>
+<p>Los desarrolladores de aplicaciones utilizan JPDA. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDVG"><i>Gu&iacute;a de Desarrollo de la Aplicaci&oacute;n de Oracle GlassFish Server</i></a>.</p>
+</li>
+<li>
+<p>En el campo Opciones de Depuraci&oacute;n, introduzca las opciones de JPDA que van a pasar a JVM.</p>
+<p>Este campo s&oacute;lo ser&aacute; aplicable si se ha activado la depuraci&oacute;n en el paso anterior.</p>
+</li>
+<li>
+<p>En el campo Opciones de Compilaci&oacute;n RMI, introduzca las opciones de l&iacute;nea de comandos del compilador <code>rmic</code>.</p>
+<p>Servidor GlassFish ejecuta el compilador <code>rmic</code> cuando se despliegan componentes EJB.</p>
+</li>
+<li>
+<p>En el campo Preprocesador de C&oacute;digo de Byte, introduzca una lista de nombres de clase.</p>
+<p>Utilice comas para separar los nombres de clase. Cada clase debe implementar la interfaz com.sun.appserv.BytecodePreprocessor. Las clases se llaman en el orden especificado.</p>
+</li>
+<li>
+<p>En la secci&oacute;n Propiedades Adicionales, especifique las propiedades adicionales.</p>
+<p>Para agregar una propiedad, haga clic en el bot&oacute;n Agregar Propiedad. En la fila en blanco que aparece, escriba el nombre de propiedad en el campo Nombre y escriba el valor de propiedad en el campo Valor.</p>
+<p>Servidor GlassFish no define ninguna propiedad adicional para JVM.</p>
+</li>
+<li>
+<p>Haga clic en Guardar.</p>
 
 <hr>
-</li>
-<li><b>Reinicie el servidor.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-jvmpathsettings.html">Para configurar la configuraci&#243;n de ruta de JVM</a></p>
+<p><b>Sugerencia:</b></p>
+Para volver a la configuraci&oacute;n por defecto, haga clic en el bot&oacute;n Cargar Valores por Defecto y, a continuaci&oacute;n, en Guardar.
+<hr>
 
 </li>
-<li><p><a href="task-jvmoptions.html">Para configurar las opciones de JVM</a></p>
-
+<li>
+<p>Reinicie el servidor.</p>
 </li>
-<li><p><a href="task-securitymanagerdisable.html">Para desactivar el gestor de seguridad</a></p>
-
+</ol>
+<a id="sthref111" name="sthref111"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-jvmpathsettings.html">Definir la Configuraci&oacute;n de Ruta de Acceso de JVM</a></p>
 </li>
-<li><p><a href="task-jvmprofilersettings.html">Para ajustar la configuraci&#243;n del analizador de JVM</a></p>
+<li>
+<p><a href="task-jvmoptions.html">Configurar las Opciones de JVM</a></p>
+</li>
+<li>
+<p><a href="task-securitymanagerdisable.html">Desactivar el Gestor de Seguridad</a></p>
+</li>
+<li>
+<p><a href="task-jvmprofilersettings.html">Definir la Configuraci&oacute;n de Analizador de Perfiles de JVM</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

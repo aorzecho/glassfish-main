@@ -1,75 +1,82 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-eelogging" name="task-eelogging"></a><a id="GHCOM00177" name="GHCOM00177"></a></p>
 
-
-<a name="task-eelogging"></a><h3>Para configurar par&#225;metros generales de registros</h3><a name="indexterm-67"></a><ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraciones.</b></li>
-<li><b>En el nodo Configuraciones, haga clic en la configuraci&#243;n de instancia o
-cl&#250;ster del servidor para el que desee configurar la Configuraci&#243;n de registro.</b><p>Se abrir&#225; la p&#225;gina Configuraci&#243;n.</p></li>
-<li><b>En la p&#225;gina Configuraci&#243;n, haga clic en Configuraci&#243;n de registro.</b><p>Se abre la p&#225;gina Configuraci&#243;n de registro del destino de configuraci&#243;n seleccionado.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Escribir en el registro del sistema habilitado
-para enviar la salida de registro al recurso <tt>syslog</tt> adem&#225;s de al
-registro del servidor.</b><p>Esta caracter&#237;stica s&#243;lo est&#225; disponible en sistemas Solaris y Linux. Esta opci&#243;n
-se deshabilita por defecto.</p></li>
-<li><b>En el campo Archivo de registro, introduzca un nombre o ubicaci&#243;n alternativos
-para el archivo de registro del servidor.</b><p>La ubicaci&#243;n predeterminada es <tt>${com.sun.aas.instanceRoot}/logs/server.log</tt>.</p></li>
-<li><b>En el campo Controlador de registro, introduzca el nombre de clase absoluto
-de un controlador de registro personalizado.</b><p>Un controlador de registro personalizado le permite enviar registros a un destino
-distinto a <tt>server.log</tt> o <tt>syslog</tt>. El controlador personalizado debe comprender la clase
-<tt>java.util.logging.ConsoleHandler</tt> (una API compatible con JSR 047). Indique tambi&#233;n la clase de
-controlador en la ruta de clase Servidor GlassFish para que el controlador
-se instale durante el arranque del servidor.</p></li>
-<li><b>En el campo L&#237;mite de rotaci&#243;n del archivo, introduzca el tama&#241;o en
-bytes que el archivo de registro del servidor debe alcanzar antes de
-rotar.</b><p>Cuando el registro del servidor alcanza el tama&#241;o especificado, crea un nuevo
-archivo vac&#237;o llamado <tt>server.log</tt> y cambia el nombre del archivo antiguo <tt>server.log_</tt><i>date</i>,
-donde <i>date</i> es la fecha y hora en la que se produjo
-la rotaci&#243;n del archivo. El valor predeterminado es 2 megabytes. El valor
-m&#237;nimo para el l&#237;mite es 500 kilobytes; si se especifica un valor
-inferior, el archivo rota cuando alcanza el tama&#241;o de 500 KB. Para
-deshabilitar la rotaci&#243;n del archivo de registros, defina el valor en 0.</p></li>
-<li><b>En el campo L&#237;mite de tiempo para rotaci&#243;n del archivo, introduzca los
-minutos que transcurren antes de que el archivo del servidor tenga que
-rotar.</b><p>El valor predeterminado es 0, lo que significa que el archivo rota
-cuando alcanza el tama&#241;o especificado en el campo L&#237;mite de rotaci&#243;n de
-archivo.</p>
-<hr><p><b>Nota - </b>Si especifica uno o m&#225;s minutos, el l&#237;mite de tiempo tiene prioridad
-sobre el l&#237;mite de tama&#241;o especificado en el campo L&#237;mite de rotaci&#243;n
-de archivo.</p>
-
+<h4><a id="sthref120" name="sthref120"></a>Definir la Configuraci&oacute;n de Registro General</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Configuraciones.</p>
+</li>
+<li>
+<p>En el nodo Configuraciones, haga clic en la configuraci&oacute;n de instancia de servidor o cluster para el que desee definir la configuraci&oacute;n de registrador.</p>
+<p>Se abrir&aacute; la p&aacute;gina Configuraci&oacute;n.</p>
+</li>
+<li>
+<p>En la p&aacute;gina Configuraci&oacute;n, haga clic en Configuraci&oacute;n de Registrador.</p>
+<p>Se abrir&aacute; la p&aacute;gina Configuraci&oacute;n de Registrador del destino de configuraci&oacute;n seleccionado.</p>
+</li>
+<li>
+<p>Active la casilla de control Escribir en el log del sistema activado para enviar la salida de registro a la utilidad <code>syslog</code> adem&aacute;s de al log del servidor.</p>
+<p>Esta funci&oacute;n s&oacute;lo est&aacute; disponible en sistemas Solaris y Linux. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
+</li>
+<li>
+<p>En el campo Archivo Log, introduzca un nombre o ubicaci&oacute;n alternativos para el archivo log del servidor.</p>
+<p>La ubicaci&oacute;n por defecto es <code>${com.sun.aas.instanceRoot}/logs/server.log</code>.</p>
+</li>
+<li>
+<p>En el campo Manejador de Logs, introduzca el nombre de clase absoluto de un manejador de logs personalizado.</p>
+<p>Un manejador de logs personalizado le permite enviar logs a un destino distinto a <code>server.log</code> o <code>syslog</code>. El manejador personalizado debe comprender la clase <code>java.util.logging.ConsoleHandler</code> (una API compatible con JSR 047). Indique tambi&eacute;n la clase de manejador en la classpath Servidor GlassFish para que el manejador se instale durante el inicio del servidor.</p>
+</li>
+<li>
+<p>En el campo L&iacute;mite de Rotaci&oacute;n de Archivo, introduzca el tama&ntilde;o en bytes que el archivo log del servidor debe alcanzar antes de rotar.</p>
+<p>Cuando el log del servidor alcanza el tama&ntilde;o especificado, Servidor GlassFish crea un nuevo archivo vac&iacute;o llamado <code>server.log</code> y cambia el nombre del archivo antiguo <code>server.log_</code><i>date</i>, donde <i>date</i> es la fecha y hora en la que se produjo la rotaci&oacute;n del archivo. El valor por defecto es 2 megabytes. El valor m&iacute;nimo para el l&iacute;mite es 500 kilobytes; si se especifica un valor inferior, el archivo rota cuando alcanza el tama&ntilde;o de 500 KB. Para desactivar la rotaci&oacute;n del archivo log, defina el valor en 0.</p>
+</li>
+<li>
+<p>En el campo L&iacute;mite Temporal de Rotaci&oacute;n de Archivo, introduzca los minutos que transcurren antes de que el log del servidor tenga que rotar.</p>
+<p>El valor por defecto es 0, lo que significa que el archivo rota cuando alcanza el tama&ntilde;o especificado en el campo L&iacute;mite de Rotaci&oacute;n de Archivo.</p>
 
 <hr>
+<p><b>Nota:</b></p>
+Si especifica uno o m&aacute;s minutos, el l&iacute;mite de tiempo tiene prioridad sobre el l&iacute;mite de tama&ntilde;o especificado en el campo L&iacute;mite de Rotaci&oacute;n de Archivo.
+<hr>
+
 </li>
-<li><b>En el campo Frecuencia de vaciado, escriba el n&#250;mero m&#225;ximo de mensajes que
-se deben escribir desde la cola en el registro del servidor a
-la vez. </b><p>El valor predeterminado es 1. </p></li>
-<li><b>Haga clic en Guardar.</b>
-<hr><p><b>Nota - </b>Seg&#250;n la configuraci&#243;n para la que se activ&#243; la funci&#243;n de registro,
-puede ser necesario reiniciar el servidor.</p>
-
-<p>Tambi&#233;n puede ser necesario reiniciar el servidor si se cambia el nombre
-del archivo de registro por otro que no sea el valor predeterminado.
-Si es necesario reiniciar el servidor se mostrar&#225; el mensaje <tt>Reinicio necesario</tt> en
-la esquina superior derecha de la Consola de administraci&#243;n.</p>
-
+<li>
+<p>En el campo Frecuencia de Vaciado, escriba el n&uacute;mero m&aacute;ximo de mensajes que se deben escribir desde la cola en el log del servidor a la vez.</p>
+<p>El valor por defecto es 1.</p>
+</li>
+<li>
+<p>Haga clic en Guardar.</p>
 
 <hr>
-</li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-eelogginglevels.html">Para configurar niveles de registro</a></p>
+<p><b>Nota:</b></p>
+Seg&uacute;n la configuraci&oacute;n para la que se activ&oacute; la funci&oacute;n de registro, puede ser necesario reiniciar el servidor.
+<p>Tambi&eacute;n puede ser necesario reiniciar el servidor si se cambia el nombre del archivo log por otro que no sea el valor por defecto. Si es necesario reiniciar el servidor se mostrar&aacute; el mensaje <code>Es Necesario Reiniciar</code> en la esquina superior derecha de la Consola de Administraci&oacute;n.</p>
+
+<hr>
 
 </li>
-<li><p><a href="task-logging-max-logfiles.html">Para cambiar el l&#237;mite del n&#250;mero de archivos de registro rotados</a></p>
-
+</ol>
+<a id="sthref121" name="sthref121"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-eelogginglevels.html">Configurar los Niveles de Log</a></p>
 </li>
-<li><p><a href="task-logviewer.html">C&#243;mo visualizar archivos de registro para el DAS</a></p>
-
+<li>
+<p><a href="task-logging-max-logfiles.html">Cambiar el L&iacute;mite del N&uacute;mero de Archivos Log Rotados</a></p>
 </li>
-<li><p><a href="task-logging-collectlogfiles.html">C&#243;mo crear un archivo ZIP de almacenamiento de todos los archivos de registro </a></p>
+<li>
+<p><a href="task-logviewer.html">Ver Archivos Log para DAS</a></p>
+</li>
+<li>
+<p><a href="task-logging-collectlogfiles.html">Crear un Archivo ZIP de Todos los Archivos Log</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

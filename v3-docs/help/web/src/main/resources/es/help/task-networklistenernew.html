@@ -1,105 +1,123 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-networklistenernew" name="task-networklistenernew"></a><a id="GHWEB00039" name="GHWEB00039"></a></p>
 
-
-<a name="task-networklistenernew"></a><h3>C&#243;mo crear una escucha de red</h3><a name="indexterm-21"></a><p><b>Antes de empezar</b></p><p>Cuando se crea una escucha de red, es posible crear simult&#225;neamente un
-protocolo que utilizar&#225; la escucha de red o utilizar un protocolo que cree previamente.
-Normalmente, existe una relaci&#243;n de uno a uno entre una escucha de
-red y su protocolo asociado, pero no es necesario que sea as&#237;. </p>
-
+<h4><a id="sthref41" name="sthref41"></a>Crear un Listener de Red</h4>
+<a name="BEGIN" id="BEGIN"></a><a id="sthref42" name="sthref42"></a>
+<h5>Antes de Empezar</h5>
+<p>Cuando se crea un listener de red, es posible crear simult&aacute;neamente un protocolo que utilizar&aacute; el listener de red o utilizar un protocolo que cree previamente. Normalmente, existe una relaci&oacute;n de uno a uno entre un listener de red y su protocolo asociado, pero no es necesario que sea as&iacute;.</p>
 <ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraci&#243;n.</b></li>
-<li><b>En el nodo Configuraci&#243;n, expanda el nodo Configuraci&#243;n de red.</b></li>
-<li><b>En el nodo Configuraci&#243;n de red, seleccione el nodo Escuchas de red.</b><p>Se abrir&#225; la p&#225;gina Escuchas de red.</p></li>
-<li><b>En la p&#225;gina Escuchas de red, haga clic en Nuevo.</b><p>Se abrir&#225; la p&#225;gina Nueva escucha de red.</p></li>
-<li><b>En el campo Nombre, escriba un nombre para la escucha de red.</b><p>Un nombre de escucha de red no puede empezar con un n&#250;mero.</p></li>
-<li><b>En el campo Protocolo, especifique el protocolo que se va a asociar
-a la escucha de red. </b><ul>
-<li><b>Seleccione Crear un protocolo nuevo para crear un nuevo protocolo con una
-configuraci&#243;n predeterminada. Adem&#225;s, en la lista desplegable Servidor virtual predeterminado, seleccione el
-servidor virtual que se va a asociar al protocolo.</b><p>El nombre predeterminado del protocolo es el nombre de la escucha de
-red con la terminaci&#243;n <tt>-protocol</tt> a&#241;adida, pero es posible editar este valor. </p></li>
-<li><b>Seleccione Utilizar un protocolo existente y, a continuaci&#243;n, seleccione un protocolo de
-la lista desplegable.</b><p>Si selecciona esta opci&#243;n, por lo general habr&#225; creado previamente el protocolo de
-esta escucha. </p></li></ul><p>Podr&#225; especificar el protocolo &#250;nicamente si ha creado la escucha de red. No
-es posible cambiar el protocolo asociado m&#225;s adelante. </p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Estado habilitado para habilitar la escucha de
-red.</b><p>Esta opci&#243;n se habilita por defecto. Si la escucha se encuentra deshabilitada, cualquier
-intento de establecer una conexi&#243;n con ella tiene como resultado una excepci&#243;n
-de socket (<tt>java.net.ConnectException</tt>). </p><p>En las versiones anteriores a la 9.1 de Servidor GlassFish, una escucha
-cuyo atributo habilitado se hubiera definido como false devolv&#237;a un c&#243;digo de
-respuesta 404 para cualquier solicitud que se le enviaba. Para lograr este comportamiento
-en la versi&#243;n actual de Servidor GlassFish, establezca el estado de la
-escucha en habilitado y defina cada estado de servidor virtual asociado como
-desactivado. Un servidor virtual incluye sus escuchas asociadas en la lista desplegable Escuchas
-de red. </p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Seguridad habilitada para habilitar la seguridad para
-el protocolo que utiliza la escucha de red. </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de la escucha JK para
-especificar que la escucha admite el protocolo <tt>mod-jk</tt> de Apache. </b><p>El protocolo <tt>mod-jk</tt> es un protocolo de red/comunicaci&#243;n de propiedad entre <tt>httpd</tt>
-de Apache (servidor web) y una  instancia back-end de Servidor GlassFish. Si
-la escucha admite este protocolo, se supone que <tt>httpd</tt> maneja todo el
-contenido est&#225;tico, mientras que cualquier solicitud de recursos din&#225;micos (es decir, servlets
-y JSP) se direccionan a la escucha de red con el protocolo
-<tt>mod jk</tt> habilitado de Servidor GlassFish a trav&#233;s del protocolo  <tt>mod-jk</tt>. Esta opci&#243;n
-se deshabilita por defecto.</p></li>
-<li><b>En el campo Puerto, introduzca el n&#250;mero de puerto en el que
-se efectuar&#225; la escucha de red.</b><p>Los valores v&#225;lidos se encuentran entre 1 y 65535. En un sistema
-UNIX, la creaci&#243;n de sockets de escucha para puertos 1-1024 requiere privilegios
-de superusuario.</p></li>
-<li><b>En el campo Direcci&#243;n, escriba la direcci&#243;n IP en la que se
-efectuar&#225; la escucha de red.</b><p>La direcci&#243;n se puede especificar en par punteado o notaci&#243;n IPv6. Puede
-ser <tt>cualquiera</tt> (para <tt>INADDR_ANY</tt>) para recibir escuchas en todas las direcciones IP.
-Puede ser un nombre de host. </p></li>
-<li><b>En la lista desplegable Conjunto de subprocesos, seleccione el conjunto de subprocesos
-que se debe asociar a la escucha de red.</b><p>Normalmente, puede seleccionar uno de las dos conjuntos de subprocesos que est&#225;n configurados
-cuando se instala Servidor GlassFish.  </p></li>
-<li><b>En la lista desplegable Transporte, seleccione el tipo de transporte que se
-debe utilizar en la escucha de red.</b><p>De forma predeterminada, la &#250;nica alternativa es <tt>tcp</tt>. </p></li>
-<li><b>Haga clic en Aceptar.</b></li></ol><p></b>Pasos siguientes</b></p><p>Si ha habilitado la seguridad de la escucha de red, puede utilizar
-la ficha SSL para editar la configuraci&#243;n de SSL del protocolo utilizado por
-la escucha de red. </p>
-
-<p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-networklisteneredit.html">C&#243;mo editar la escucha de red</a></p>
-
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Configuraci&oacute;n.</p>
 </li>
-<li><p><a href="task-networklistenerdelete.html">C&#243;mo eliminar una escucha de red</a></p>
-
+<li>
+<p>En el nodo Configuraci&oacute;n, ampl&iacute;e el nodo Configuraci&oacute;n de Red.</p>
 </li>
-<li><p><a href="task-protocolnew.html">C&#243;mo crear un protocolo</a></p>
-
+<li>
+<p>En el nodo Configuraci&oacute;n de Red, seleccione el nodo Listeners de Red.</p>
+<p>Se abrir&aacute; la p&aacute;gina Listeners de Red.</p>
 </li>
-<li><p><a href="task-protocoledit.html">C&#243;mo editar un protocolo</a></p>
-
+<li>
+<p>En la p&aacute;gina Listeners de Red, haga clic en Nuevo.</p>
+<p>Se abrir&aacute; la p&aacute;gina Nuevo Listener de Red.</p>
 </li>
-<li><p><a href="task-protocolssledit.html">C&#243;mo editar la configuraci&#243;n SSL para un protocolo</a></p>
-
+<li>
+<p>En el campo Nombre, escriba un nombre para el listener de red.</p>
+<p>Un nombre del listener de red no puede empezar con un n&uacute;mero.</p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">C&#243;mo editar la configuraci&#243;n HTTP para un protocolo</a></p>
-
+<li>
+<p>En el campo Protocolo, especifique el protocolo que se va a asociar al listener de red.</p>
+<ul>
+<li>
+<p>Seleccione Crear un Protocolo Nuevo para crear un nuevo protocolo con una configuraci&oacute;n por defecto. Adem&aacute;s, en la lista desplegable Servidor Virtual por Defecto, seleccione el servidor virtual que se va a asociar al protocolo.</p>
+<p>El nombre por defecto del protocolo es el nombre del listener de red con la terminaci&oacute;n <code>-protocol</code> a&ntilde;adida, pero es posible editar este valor.</p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">C&#243;mo editar la cach&#233; de archivos para un protocolo</a></p>
-
+<li>
+<p>Seleccione Usar un Protocolo Existente y, a continuaci&oacute;n, seleccione un protocolo de la lista desplegable.</p>
+<p>Si selecciona esta opci&oacute;n, por lo general habr&aacute; creado previamente el protocolo de este listener.</p>
 </li>
-<li><p><a href="task-protocoldelete.html">C&#243;mo eliminar un protocolo</a></p>
-
+</ul>
+<p>Podr&aacute; especificar el protocolo &uacute;nicamente si ha creado el listener de red. No es posible cambiar el protocolo asociado m&aacute;s adelante.</p>
 </li>
-<li><p><a href="task-transportnew.html">C&#243;mo crear un transporte</a></p>
-
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n de activaci&oacute;n de Estado para activar el listener de red.</p>
+<p>Esta opci&oacute;n se encuentra activada por defecto. Si el listener se encuentra desactivado, cualquier intento de establecer una conexi&oacute;n con &eacute;l tiene como resultado una excepci&oacute;n de socket (<code>java.net.ConnectException</code>).</p>
+<p>En las versiones anteriores a la 9.1 de Servidor GlassFish, un listener cuyo atributo activado se hubiera definido como false devolv&iacute;a un c&oacute;digo de respuesta 404 para cualquier solicitud que se le enviaba. Para lograr este comportamiento en la versi&oacute;n actual de Servidor GlassFish, establezca el estado del listener en activado y defina cada estado de servidor virtual asociado como desactivado. Un servidor virtual incluye sus listeners asociados en la lista desplegable Listeners de Red.</p>
 </li>
-<li><p><a href="task-transportedit.html">C&#243;mo editar un transporte</a></p>
-
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n Seguridad Activada para activar la seguridad para el protocolo que utiliza el listener de red.</p>
+<p>Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </li>
-<li><p><a href="task-transportdelete.html">C&#243;mo eliminar un transporte</a></p>
-
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n de activaci&oacute;n de Listener JK para especificar que el listener admite el protocolo <code>mod-jk</code> de Apache.</p>
+<p>El protocolo <code>mod-jk</code> es un protocolo de red/comunicaci&oacute;n de propiedad entre <code>httpd</code> de Apache (servidor web) y una instancia back-end de Servidor GlassFish. Si el listener admite este protocolo, se supone que <code>httpd</code> maneja todo el contenido est&aacute;tico, mientras que cualquier solicitud de recursos din&aacute;micos (es decir, servlets y JSP) se direccionan al listener de red con el protocolo <code>mod jk</code> activado de Servidor GlassFish a trav&eacute;s del protocolo <code>mod-jk</code>. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </li>
-<li><p><a href="task-virtualservercreate.html">Para crear un servidor virtual</a></p>
+<li>
+<p>En el campo Puerto, introduzca el n&uacute;mero de puerto en el que actuar&aacute; el listener de red.</p>
+<p>Los valores v&aacute;lidos se encuentran entre 1 y 65535. En un sistema UNIX, la creaci&oacute;n de sockets de escucha para los puertos 1-1024 requiere privilegios de superusuario.</p>
+</li>
+<li>
+<p>En el campo Direcci&oacute;n, escriba la direcci&oacute;n IP en la que actuar&aacute; el listener de red.</p>
+<p>La direcci&oacute;n se puede especificar en par punteado o notaci&oacute;n IPv6. Puede ser <code>cualquiera</code> (para <code>INADDR/ANY</code>) para recibir escuchas en todas las direcciones IP. Puede ser un nombre de host.</p>
+</li>
+<li>
+<p>En la lista desplegable Pool de Threads, seleccione el pool de threads que se debe asociar al listener de red.</p>
+<p>Normalmente, puede seleccionar uno de los dos pools de threads que est&aacute;n configurados cuando se instala Servidor GlassFish.</p>
+</li>
+<li>
+<p>En la lista desplegable Transporte, seleccione el tipo de transporte que se debe utilizar en el listener de red.</p>
+<p>Por defecto, la &uacute;nica alternativa es <code>tcp</code>.</p>
+</li>
+<li>
+<p>Haga clic en Aceptar.</p>
+</li>
+</ol>
+<a id="sthref43" name="sthref43"></a>
+<h5>Pasos Siguientes</h5>
+<p>Si ha activado la seguridad del listener de red, puede utilizar el separador SSL para editar la configuraci&oacute;n de SSL del protocolo utilizado por el listener de red.</p>
+<a id="sthref44" name="sthref44"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-networklisteneredit.html">Editar un Listener de Red</a></p>
+</li>
+<li>
+<p><a href="task-networklistenerdelete.html">Suprimir un Listener de Red</a></p>
+</li>
+<li>
+<p><a href="task-protocolnew.html">Crear un Protocolo</a></p>
+</li>
+<li>
+<p><a href="task-protocoledit.html">Editar un Protocolo</a></p>
+</li>
+<li>
+<p><a href="task-protocolssledit.html">Editar configuraci&oacute;n de SSL para un protocolo</a></p>
+</li>
+<li>
+<p><a href="task-protocolhttpedit.html">Editar configuraci&oacute;n de HTTP para un protocolo</a></p>
+</li>
+<li>
+<p><a href="task-protocolfilecacheedit.html">Editar Configuraci&oacute;n de la Cach&eacute; de Archivos para un Protocolo</a></p>
+</li>
+<li>
+<p><a href="task-protocoldelete.html">Suprimir un Protocolo</a></p>
+</li>
+<li>
+<p><a href="task-transportnew.html">Crear un Transporte</a></p>
+</li>
+<li>
+<p><a href="task-transportedit.html">Editar un Transporte</a></p>
+</li>
+<li>
+<p><a href="task-transportdelete.html">Suprimir un Transporte</a></p>
+</li>
+<li>
+<p><a href="task-virtualservercreate.html">Crear un Servidor Virtual</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,69 +1,66 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-managerproptab"></a><h4>Propiedades de administrador</h4>
-<a name="indexterm-50"></a><a name="indexterm-51"></a><p>El administrador de sesiones proporciona los medios para configurar el modo de
-crear y destruir las sesiones, d&#243;nde se ubica el estado de sesi&#243;n
-y el n&#250;mero m&#225;ximo de sesiones disponibles.</p>
+<p><a id="ref-managerproptab" name="ref-managerproptab"></a><a id="GHWEB00006" name="GHWEB00006"></a></p>
 
-<p>Utilice la p&#225;gina Propiedades de administrador para agregar o modificar propiedades del
-administrador de sesi&#243;n para el contenedor web.</p>
-
-<p>La p&#225;gina Propiedades de administrador contiene las opciones siguientes.</p>
-
-<dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
-
+<h4><a id="sthref95" name="sthref95"></a><a id="sthref96" name="sthref96"></a>Propiedades de Gestor</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>El gestor de sesiones proporciona los medios para configurar el modo de crear y destruir las sesiones, el lugar en el que se ubica el estado de sesi&oacute;n y el n&uacute;mero m&aacute;ximo de sesiones disponibles.</p>
+<p>Utilice la p&aacute;gina Propiedades de Gestor para agregar o modificar propiedades de gestor de sesiones para el contenedor web.</p>
+<p>La p&aacute;gina Propiedades de Gestor contiene las opciones siguientes.</p>
+<dl>
+<dt>Cargar Valores por Defecto</dt>
+<dd>
+<p>Bot&oacute;n para restaurar la configuraci&oacute;n que tiene valores por defecto a sus valores por defecto. La configuraci&oacute;n que no tiene valores por defecto no se modifica.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
-<dt>Intervalo de cierre</dt>
-<dd><p>N&#250;mero de segundos que transcurren antes de que los datos de sesi&#243;n inactiva se eliminen del almac&#233;n. El valor predeterminado es 60.</p>
-
-<p>Establezca este valor de forma que sea menor que la frecuencia con la que cambian los datos de la sesi&#243;n. Por ejemplo, este valor debe ser lo m&#225;s bajo posible (1 segundo) para un servlet con contador de visitas en un sitio web con visitas frecuentes; de lo contrario, podr&#237;a perder las &#250;ltimas visitas cada vez que reinicie el servidor. </p>
-
+<dt>Intervalo de Recolecci&oacute;n</dt>
+<dd>
+<p>N&uacute;mero de segundos que transcurren antes de que los datos de sesi&oacute;n inactiva se suprimen del almac&eacute;n. El valor por defecto es 60.</p>
+<p>Establezca este valor de forma que sea menor que la frecuencia con la que cambian los datos de la sesi&oacute;n. Por ejemplo, este valor debe ser lo m&aacute;s bajo posible (1 segundo) para un servlet con contador de visitas en un sitio web con visitas frecuentes; de lo contrario, podr&iacute;a perder las &uacute;ltimas visitas cada vez que reinicie el servidor.</p>
 </dd>
-<dt>N&#250;mero m&#225;ximo de sesiones</dt>
-<dd><p>El n&#250;mero m&#225;ximo de sesiones que puede haber en la cach&#233;. Un valor de -1 indica que no hay un l&#237;mite para el n&#250;mero de sesiones. El valor predeterminado es -1. </p>
-
-<p>Una vez alcanzado el l&#237;mite, un intento de crear una nueva sesi&#243;n provoca la emisi&#243;n de una excepci&#243;n <tt>IllegalStateException</tt>. </p>
-
+<dt>N&uacute;mero M&aacute;ximo de Sesiones</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de sesiones que puede haber en la cach&eacute;. Un valor de-1 indica que no hay un l&iacute;mite para el n&uacute;mero de sesiones. El valor por defecto es -1.</p>
+<p>Una vez alcanzado el l&iacute;mite, un intento de crear una nueva sesi&oacute;n provoca la emisi&oacute;n de una excepci&oacute;n <code>IllegalStateException</code>.</p>
 </dd>
-<dt>Nombre de archivo de sesi&#243;n</dt>
-<dd><p>La ruta absoluta o relativa al directorio en el que el se conserva el estado de la sesi&#243;n entre reinicios de la aplicaci&#243;n, en caso de que sea posible conservar el estado. Si no se define esta ruta, el estado de la sesi&#243;n no se conserva. De forma predeterminada, esta ruta no se encuentra definida. </p>
-
-<p>Una ruta relativa se relaciona con el directorio temporal para esta aplicaci&#243;n web. </p>
-
+<dt>Nombre de Archivo de Sesi&oacute;n</dt>
+<dd>
+<p>La ruta de acceso absoluta o relativa al directorio en el que se conserva el estado de la sesi&oacute;n entre reinicios de la aplicaci&oacute;n, en caso de que sea posible conservar el estado. Si no se define esta ruta de acceso, el estado de la sesi&oacute;n no se conserva. Por defecto, esta de acceso no se encuentra definida.</p>
+<p>Una ruta de acceso relativa se relaciona con el directorio temporal para esta aplicaci&oacute;n web.</p>
 </dd>
-<dt>Propiedades adicionales</dt>
-<dd><p>Propiedades adicionales del administrador de sesi&#243;n. Servidor GlassFish no define ninguna propiedad adicional para el administrador de sesi&#243;n.</p>
-
+<dt>Propiedades Adicionales</dt>
+<dd>
+<p>Propiedades adicionales del gestor de sesiones. Servidor GlassFish no define ninguna propiedad adicional para el gestor de sesiones.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-webcontainergeneral.html">C&#243;mo configurar propiedades generales para el contenedor web</a></p>
-
+<a id="sthref97" name="sthref97"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-webcontainergeneral.html">Configurar Propiedades Generales para el Contenedor Web</a></p>
 </li>
-<li><p><a href="task-webcontainersessiontimeout.html">C&#243;mo configurar propiedades generales para el contenedor web</a></p>
-
+<li>
+<p><a href="task-webcontainersessiontimeout.html">Configurar Propiedades de Sesi&oacute;n para el Contenedor Web</a></p>
 </li>
-<li><p><a href="task-webcontainermanagerprops.html">C&#243;mo configurar propiedades de administrador para el contenedor web</a></p>
-
+<li>
+<p><a href="task-webcontainermanagerprops.html">Configurar Propiedades de Gestor para el Contenedor Web</a></p>
 </li>
-<li><p><a href="task-webcontainerstoreprops.html">C&#243;mo configurar propiedades de almacenamiento para el contenedor web</a></p>
-
+<li>
+<p><a href="task-webcontainerstoreprops.html">Configurar Propiedades de Almac&eacute;n para el Contenedor Web</a></p>
 </li>
-<li><p><a href="task-webcontaineravailability.html">C&#243;mo configurar  las opciones de disponibilidad para el contenedor web</a></p>
+<li>
+<p><a href="task-webcontaineravailability.html">Configurar Opciones de Disponibilidad para el Contenedor Web</a></p>
+</li>
+</ul>
+<a id="sthref98" name="sthref98"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<p>Ninguna.</p>
 
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-<p>Ninguno.</p>
 
-
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

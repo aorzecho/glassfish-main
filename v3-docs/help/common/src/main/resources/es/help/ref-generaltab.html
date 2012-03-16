@@ -1,63 +1,99 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-generaltab"></a><h4>Informaci&#243;n general</h4>
-<a name="indexterm-141"></a><a name="indexterm-142"></a><p>Consulte la p&#225;gina Informaci&#243;n general para comprobar la configuraci&#243;n de Servidor GlassFish
-y ver los datos de la M&#225;quina virtual de Java.</p>
+<p><a id="ref-generaltab" name="ref-generaltab"></a><a id="GHCOM00058" name="GHCOM00058"></a></p>
 
-<p>La p&#225;gina Informaci&#243;n general contiene la siguiente informaci&#243;n.</p>
-
-<dl><dt>Bot&#243;n Detener</dt>
-<dd><p>Haga clic en Detener para detener el Servidor GlassFish.</p>
-
+<h4><a id="sthref247" name="sthref247"></a><a id="sthref248" name="sthref248"></a>Informaci&oacute;n General</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>The Servidor GlassFish creates one application server instance, called <code>server</code> at the time of installation. You can delete the server instance and create a new instance with a different name if you prefer.</p>
+<p>Each Servidor GlassFish instance has its own Java configuration, Java resources, application deployment areas, and server configuration settings. Changes to one application server instance have no effect on other application server instances. You can have one application server instance within one administrative domain.</p>
+<p>For many users, one application server instance meets their needs. However, depending upon your environment, you might want to create one or more additional application server instances. For example, in a development environment you can use different application server instances to test different Servidor GlassFish configurations, or to compare and test different application deployments. Because you can easily add or delete an application server instance, you can use them to create temporary "sandbox" areas to experiment with while developing.</p>
+<p>In addition, for each application server instance you can also create virtual servers. Within a single installed application server instance you can offer companies or individuals domain names, IP Addresses, and some administration capabilities. For the users, it is almost as if they have their own web server, without the hardware and basic server maintenance. These virtual servers do not span application server instances. For more information about virtual servers, see <a href="ref-serverinstjvmgeneral.html">Configuraci&oacute;n General de JVM</a>.</p>
+<p>In operational deployments, for many purposes you can use virtual servers instead of multiple application server instances. However, if virtual servers do not meet your needs, you can also use multiple application server instances.</p>
+<p>An Servidor GlassFish instance is not started automatically. Once you start an instance, the instance runs until you stop it. When you stop an application server instance, it stops accepting new connections, then waits for all outstanding connections to complete. If your machine crashes or is taken offline, the server quits and any requests it was servicing may be lost.</p>
+<p>Consulte la p&aacute;gina Informaci&oacute;n General para comprobar la configuraci&oacute;n de Servidor GlassFish y ver los datos de Java Virtual Machine.</p>
+<p>La p&aacute;gina Informaci&oacute;n General contiene la siguiente informaci&oacute;n.</p>
+<dl>
+<dt>Bot&oacute;n Parar</dt>
+<dd>
+<p>Haga clic en Parar para parar Servidor GlassFish.</p>
 </dd>
-<dt>Bot&#243;n Reiniciar</dt>
-<dd><p>Haga clic en Reiniciar para reiniciar el Servidor GlassFish.</p>
-
+<dt>Bot&oacute;n Reiniciar</dt>
+<dd>
+<p>Haga clic en Reiniciar para reiniciar Servidor GlassFish.</p>
 </dd>
-<dt>Bot&#243;n Ver archivos de registro</dt>
-<dd><p>Haga clic en el bot&#243;n Visualizar archivos de registro para ver los archivos de registro para una instancia o cl&#250;ster de Servidor GlassFish.</p>
-
+<dt>Bot&oacute;n Ver Archivos Log</dt>
+<dd>
+<p>Haga clic en el bot&oacute;n Ver Archivos Log para ver los archivos log para una instancia o cluster de Servidor GlassFish.</p>
+</dd>
+<dt>Bot&oacute;n Ver Log No Procesado</dt>
+<dd>
+<p>Haga clic en el bot&oacute;n Ver Log No Procesado para ver los archivos log no procesados para el servidor de administraci&oacute;n (llamado <code>server</code>).</p>
+</dd>
+<dt>Bot&oacute;n Administraci&oacute;n Segura</dt>
+<dd>
+<p>Haga clic en el bot&oacute;n Administraci&oacute;n Segura para activar o desactivar la administraci&oacute;n segura en la p&aacute;gina <a href="ref-securityadmin.html">Administraci&oacute;n Segura</a>.</p>
 </dd>
 <dt>Nombre</dt>
-<dd><p>El nombre del servidor.</p>
-
+<dd>
+<p>Nombre del current servidor.</p>
+</dd>
+<dt>Estado</dt>
+<dd>
+<p>Estado actual de la instancia de servidor. El servidor puede estar parado, iniciado o en ejecuci&oacute;n.</p>
+</dd>
+<dt>Tiempo de Actividad</dt>
+<dd>
+<p>N&uacute;mero de horas y minutos que la instancia de servidor ha estado continuamente en ejecuci&oacute;n. Es de s&oacute;lo lectura.</p>
+</dd>
+<dt>HTTP Load Balancer</dt>
+<dd>
+<p>The name of the load balancer, if it is enabled for the server instance.</p>
 </dd>
 <dt>JVM</dt>
-<dd><p>Si hace clic sobre el Informe de JVM, se abrir&#225; una ventana independiente que muestra informes en la m&#225;quina virtual de Java, incluyendo un informe resumido, un informe sobre administraci&#243;n de la memoria y recolecci&#243;n de elementos no utilizados, otro informe sobre carga de clases y un volcado de subprocesos actuales.</p>
-
+<dd>
+<p>Si hace clic en Informe de JVM, se abrir&aacute; una ventana independiente que muestra informes sobre Java Virtual Machine, incluyendo un informe resumido, un informe sobre gesti&oacute;n de la memoria y recolecci&oacute;n de basura, otro informe sobre carga de clase y un volcado de thread actual.</p>
 </dd>
-<dt>Directorio de configuraci&#243;n</dt>
-<dd><p>Directorio del sistema anfitri&#243;n que contiene archivos de configuraci&#243;n, como <tt>domain.xml</tt>.</p>
-
+<dt>Directorio de Configuraci&oacute;n</dt>
+<dd>
+<p>Directorio de la m&aacute;quina host que contiene archivos de configuraci&oacute;n, como <code>domain.xml</code>.</p>
 </dd>
-<dt>Versi&#243;n instalada</dt>
-<dd><p>identificador de versi&#243;n del producto.</p>
-
+<dt>Versi&oacute;n Instalada</dt>
+<dd>
+<p>Identificador de versi&oacute;n del producto.</p>
+</dd>
+<dt>Administraci&oacute;n Segura</dt>
+<dd>
+<p>Estado actual de la administraci&oacute;n segura. Los valores posibles son Activada y No Activada.</p>
 </dd>
 <dt>Depurar</dt>
-<dd><p>Identifica si la depuraci&#243;n est&#225; habilitada. Si la depuraci&#243;n est&#225; habilitada, tambi&#233;n aparecer&#225; el n&#250;mero de puerto.</p>
-
+<dd>
+<p>Identifica si la depuraci&oacute;n est&aacute; activada. Si la depuraci&oacute;n est&aacute; activada, tambi&eacute;n aparecer&aacute; el n&uacute;mero de puerto.</p>
 </dd>
 <dt>Puerto(s) HTTP</dt>
-<dd><p>Puertos configurados actualmente para solicitudes y respuestas HTTP.</p>
-
+<dd>
+<p>Puertos configurados actualmente para solicitudes y respuestas HTTP.</p>
 </dd>
 <dt>Puerto(s) IIOP</dt>
-<dd><p>Puertos configurados actualmente para solicitudes y respuestas IIOP.</p>
-
+<dd>
+<p>Puertos configurados actualmente para solicitudes y respuestas IIOP.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-generaltab.html">C&#243;mo ver informaci&#243;n general para el DAS</a></p>
-
+<a id="sthref249" name="sthref249"></a>
+<h5>Tarea Relacionada</h5>
+<ul>
+<li>
+<p><a href="task-generaltab.html">Ver Informaci&oacute;n General para DAS</a></p>
 </li>
-<li><p><a href="task-logviewer.html">C&#243;mo visualizar archivos de registro para el DAS</a></p>
+<li>
+<p><a href="task-logviewer.html">Ver Archivos Log para DAS</a></p>
+</li>
+<li>
+<p><a href="task-rawlogviewer.html">Ver Archivos Log No Procesados para DAS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

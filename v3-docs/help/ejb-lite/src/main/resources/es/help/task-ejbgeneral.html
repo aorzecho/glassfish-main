@@ -1,113 +1,130 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-ejbgeneral" name="task-ejbgeneral"></a><a id="GHEJL00002" name="GHEJL00002"></a></p>
 
-
-<a name="task-ejbgeneral"></a><h3>Para configurar las opciones de EJB</h3><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, seleccione el nodo Configuraci&#243;n.</b></li>
-<li><b>Seleccione el nodo Contenedor EJB.</b><p>Se abre la p&#225;gina de Enterprise Java Beans (EJB). </p></li>
-<li><b>En el campo Ubicaci&#243;n del almacenamiento de sesi&#243;n, escriba un valor nuevo
-para la ubicaci&#243;n de almacenamiento de la sesi&#243;n.</b><p>Este campo especifica el directorio en el que las sesiones de beans
-pasivos y los estados de punto de comprobaci&#243;n SFSB que siguen activos
-se almacenan en el sistema de archivos. El valor predeterminado es <tt>${com.sun.aas.instanceRoot}/session-store</tt>.</p><p>Los beans en estado pasivo son beans de sesi&#243;n cuyo estado se
-ha escrito en un archivo del sistema de archivos. En general, los
-beans pasivos han estado inactivos durante un periodo de tiempo y en
-la actualidad los clientes no tienen acceso a ellos. Asimismo, los estados
-de punto de comprobaci&#243;n SFSB que contin&#250;an activos son SFSB individuales cuyo
-estado se ha escrito en un archivo del sistema de archivos.</p><p>Este valor se aplica a estados de punto de comprobaci&#243;n SFSB s&#243;lo
-si la disponibilidad del contenedor EJB est&#225; deshabilitada. Para deshabilitar la disponibilidad,
-consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2954&id=task-ejbcontaineravailability">To Configure Availability Settings for the EJB Container</a>.</p></li>
-<li><b>Seleccione el bot&#243;n Opci&#243;n B u Opci&#243;n C para definir Opci&#243;n de
-confirmaci&#243;n.</b><p>Opci&#243;n de confirmaci&#243;n especifica la forma en que el contenedor almacena en
-cach&#233; las instancias de beans pasivos entre transacciones.</p><ul>
-<li><b>Si selecciona la Opci&#243;n B (valor predeterminado), el contenedor almacena en cach&#233;
-una instancia preparada entre transacciones.</b></li>
-<li><b>Si selecciona la Opci&#243;n C, el contenedor no almacena en cach&#233; una
-instancia preparada entre transacciones.</b></li></ul></li>
-<li><b>En el campo Tama&#241;o de conjunto inicial y m&#237;nimo, escriba la cantidad
-m&#237;nima de beans que se mantendr&#225;n en el conjunto.</b><p>El valor predeterminado es 0.</p></li>
-<li><b>En el campo Tama&#241;o de conjunto m&#225;ximo, escriba la cantidad m&#225;xima de
-beans que el contenedor puede mantener en el conjunto a la vez.</b><p>El valor predeterminado es 32.</p></li>
-<li><b>En el campo Cantidad de cambio de tama&#241;o del conjunto, escriba la
-cantidad de beans que se quitar&#225;n del conjunto si permanecen en estado
-inactivo durante un tiempo superior al especificado en el campo Tiempo de
-espera de inactividad de conjunto.</b><p>El valor debe ser 0 como m&#237;nimo e inferior al valor de
-Tama&#241;o de conjunto m&#225;ximo. El valor predeterminado es 8.</p></li>
-<li><b>En el campo Tiempo de espera de inactividad de conjunto, escriba la
-cantidad de segundos que un bean del conjunto puede estar inactivo antes
-de que se quite del conjunto.</b><p>Una vez transcurrido dicho intervalo de tiempo, el bean se destruye. Un
-valor de 0 significa que un bean puede permanecer inactivo indefinidamente. El
-valor predeterminado es 600.</p></li>
-<li><b>En el campo Tama&#241;o de cach&#233; m&#225;ximo, escriba el n&#250;mero m&#225;ximo de
-beans que se mantendr&#225;n en la memoria cach&#233;.</b><p>Incremente la cantidad m&#225;xima de beans que puede haber en la memoria
-cach&#233; para eliminar la carga indirecta de crear y destruir. Ahora bien,
-si la memoria cach&#233; se incrementa, el servidor consume m&#225;s memoria y
-recursos. Compruebe que el sistema operativo admita esa configuraci&#243;n de cach&#233;. El
-valor 0 indica una memoria cach&#233; ilimitada. El valor predeterminado es 512.</p></li>
-<li><b>En el campo Cantidad de cambio de tama&#241;o de cach&#233;, escriba la
-cantidad de beans que colocar en estado pasivo cuando la memoria cach&#233;
-est&#233; llena.</b><p>Si se llega al n&#250;mero m&#225;ximo de beans en cach&#233;, el contenedor
-quita del almac&#233;n de copia de seguridad una determinada cantidad de beans
-en estado pasivo. Este valor especifica tambi&#233;n el n&#250;mero de beans que
-se deben crear si llega una solicitud y en ese momento el conjunto
-no dispone de beans. El valor debe ser mayor que 1 y
-menor que el valor de Tama&#241;o de cach&#233; m&#225;ximo. El valor predeterminado
-es 32.</p></li>
-<li><b>En el campo Tiempo de espera de eliminaci&#243;n, escriba el n&#250;mero de
-segundos despu&#233;s de los cuales un bean en estado pasivo se quita
-del almac&#233;n de la sesi&#243;n.</b><p>Un valor de 0 significa que el contenedor no quita los beans
-inactivos autom&#225;ticamente. Si el valor de Tiempo de espera de eliminaci&#243;n es
-menor o igual al de Tiempo de espera de inactividad de cach&#233;,
-los beans se quitan inmediatamente sin ponerse en estado pasivo. El valor
-predeterminado es 5400.</p></li>
-<li><b>En la lista desplegable Directiva de selecci&#243;n de eliminaci&#243;n, seleccione la directiva
-que el contenedor utiliza para quitar beans de sesi&#243;n con estado de
-la memoria cach&#233;.</b><p>Las opciones son las siguientes:</p><dl><dt>No utilizados recientemente</dt>
-<dd><p>(Valor predeterminado) Quita un bean que no se haya utilizado de forma reciente.</p>
-
+<h4><a id="sthref2" name="sthref2"></a><a id="sthref3" name="sthref3"></a>Definir Configuraci&oacute;n de EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, seleccione el nodo Configuraci&oacute;n.</p>
+</li>
+<li>
+<p>Seleccione el nodo Contenedor EJB.</p>
+<p>Se abre la p&aacute;gina de Enterprise Java Beans (EJB).</p>
+</li>
+<li>
+<p>En el campo Ubicaci&oacute;n del almacenamiento de sesi&oacute;n, escriba un valor nuevo para la ubicaci&oacute;n de almacenamiento de la sesi&oacute;n.</p>
+<p>Este campo especifica el directorio en el que las sesiones de beans pasivos y los estados de punto de comprobaci&oacute;n SFSB que siguen activos se almacenan en el sistema de archivos. El valor por defecto es <code>${com.sun.aas.instanceRoot}/session-store</code>.</p>
+<p>Los beans en estado pasivo son beans de sesi&oacute;n cuyo estado se ha escrito en un archivo del sistema de archivos. En general, los beans pasivos han estado inactivos durante un periodo de tiempo y en la actualidad los clientes no tienen acceso a ellos. Asimismo, los estados de punto de comprobaci&oacute;n SFSB que contin&uacute;an activos son SFSB individuales cuyo estado se ha escrito en un archivo del sistema de archivos.</p>
+<p>Este valor se aplica a estados de punto de comprobaci&oacute;n SFSB s&oacute;lo si la disponibilidad del contenedor EJB est&aacute; deshabilitada. Para deshabilitar la disponibilidad, consulte <a href="../../../ejb/es/help/missingtopic.html">To Configure Availability Settings for the EJB Container</a>.</p>
+</li>
+<li>
+<p>Seleccione el bot&oacute;n Opci&oacute;n B u Opci&oacute;n C para definir Opci&oacute;n de confirmaci&oacute;n.</p>
+<p>Opci&oacute;n de confirmaci&oacute;n especifica la forma en que el contenedor almacena en cach&eacute; las instancias de beans pasivos entre transacciones.</p>
+<ul>
+<li>
+<p>Si selecciona la Opci&oacute;n B (valor predeterminado), el contenedor almacena en cach&eacute; una instancia preparada entre transacciones.</p>
+</li>
+<li>
+<p>Si selecciona la Opci&oacute;n C, el contenedor no almacena en cach&eacute; una instancia preparada entre transacciones.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o de conjunto inicial y m&iacute;nimo, escriba la cantidad m&iacute;nima de beans que se mantendr&aacute;n en el conjunto.</p>
+<p>El valor predeterminado es 0.</p>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o de conjunto m&aacute;ximo, escriba la cantidad m&aacute;xima de beans que el contenedor puede mantener en el conjunto a la vez.</p>
+<p>El valor predeterminado es 32.</p>
+</li>
+<li>
+<p>En el campo Cantidad de cambio de tama&ntilde;o del conjunto, escriba la cantidad de beans que se quitar&aacute;n del conjunto si permanecen en estado inactivo durante un tiempo superior al especificado en el campo Tiempo de espera de inactividad de conjunto.</p>
+<p>El valor debe ser 0 como m&iacute;nimo e inferior al valor de Tama&ntilde;o de conjunto m&aacute;ximo. El valor predeterminado es 8.</p>
+</li>
+<li>
+<p>En el campo Tiempo de espera de inactividad de conjunto, escriba la cantidad de segundos que un bean del conjunto puede estar inactivo antes de que se quite del conjunto.</p>
+<p>Una vez transcurrido dicho intervalo de tiempo, el bean se destruye. Un valor de 0 significa que un bean puede permanecer inactivo indefinidamente. El valor predeterminado es 600.</p>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o de cach&eacute; m&aacute;ximo, escriba el n&uacute;mero m&aacute;ximo de beans que se mantendr&aacute;n en la memoria cach&eacute;.</p>
+<p>Incremente la cantidad m&aacute;xima de beans que puede haber en la memoria cach&eacute; para eliminar la carga indirecta de crear y destruir. Ahora bien, si la memoria cach&eacute; se incrementa, el servidor consume m&aacute;s memoria y recursos. Compruebe que el sistema operativo admita esa configuraci&oacute;n de cach&eacute;. El valor 0 indica una memoria cach&eacute; ilimitada. El valor predeterminado es 512.</p>
+</li>
+<li>
+<p>En el campo Cantidad de cambio de tama&ntilde;o de cach&eacute;, escriba la cantidad de beans que colocar en estado pasivo cuando la memoria cach&eacute; est&eacute; llena.</p>
+<p>Si se llega al n&uacute;mero m&aacute;ximo de beans en cach&eacute;, el contenedor quita del almac&eacute;n de copia de seguridad una determinada cantidad de beans en estado pasivo. Este valor especifica tambi&eacute;n el n&uacute;mero de beans que se deben crear si llega una solicitud y en ese momento el conjunto no dispone de beans. El valor debe ser mayor que 1 y menor que el valor de Tama&ntilde;o de cach&eacute; m&aacute;ximo. El valor predeterminado es 32.</p>
+</li>
+<li>
+<p>En el campo Tiempo de espera de eliminaci&oacute;n, escriba el n&uacute;mero de segundos despu&eacute;s de los cuales un bean en estado pasivo se quita del almac&eacute;n de la sesi&oacute;n.</p>
+<p>Un valor de 0 significa que el contenedor no quita los beans inactivos autom&aacute;ticamente. Si el valor de Tiempo de espera de eliminaci&oacute;n es menor o igual al de Tiempo de espera de inactividad de cach&eacute;, los beans se quitan inmediatamente sin ponerse en estado pasivo. El valor predeterminado es 5400.</p>
+</li>
+<li>
+<p>En la lista desplegable Directiva de selecci&oacute;n de eliminaci&oacute;n, seleccione la directiva que el contenedor utiliza para quitar beans de sesi&oacute;n con estado de la memoria cach&eacute;.</p>
+<p>Las opciones son las siguientes:</p>
+<dl>
+<dt>No utilizados recientemente</dt>
+<dd>
+<p>(Valor por defecto) Elimina un bean que no se haya utilizado de forma reciente.</p>
 </dd>
 <dt>Primero en entrar, primero en salir</dt>
-<dd><p>Quita el bean m&#225;s antiguo de la memoria cach&#233;.</p>
-
+<dd>
+<p>Quita el bean m&aacute;s antiguo de la memoria cach&eacute;.</p>
 </dd>
 <dt>Menos utilizado recientemente</dt>
-<dd><p>Quita el bean que menos se haya utilizado recientemente.</p>
-
+<dd>
+<p>Quita el bean que menos se haya utilizado recientemente.</p>
 </dd>
 </dl>
 </li>
-<li><b>En el campo Tiempo de espera de inactividad de cach&#233;, escriba el
-n&#250;mero m&#225;ximo de segundos que un bean puede permanecer inactivo en la
-memoria cach&#233;.</b><p>Una vez transcurrido ese tiempo, el contenedor puede colocar este bean en
-estado pasivo. Un valor de 0 especifica que los beans nunca se convierten
-en candidatos a tener el estado pasivo.  El valor predeterminado es 600.</p></li>
-<li>(Opcional) <b>En la secci&#243;n Propiedades adicionales, especifique las propiedades adicionales.</b><p>Servidor GlassFish no define ninguna propiedad adicional para el contenedor EJB.</p><ul>
-<li><b>Para a&#241;adir una propiedad, haga clic en el bot&#243;n A&#241;adir propiedad. En
-la fila vac&#237;a escriba el nombre de la propiedad en el campo
-Nombre y el valor de la propiedad en el campo Valor.</b></li>
-<li><b>Para modificar una propiedad, edite su campo Valor.</b></li>
-<li><b>Para eliminar una propiedad, marque la casilla de verificaci&#243;n situada a la
-izquierda del campo Nombre de la propiedad que quiera eliminar y, a
-continuaci&#243;n, haga clic en el bot&#243;n Eliminar propiedades.</b></li></ul></li>
-<li><b>Haga clic en Guardar.</b>
-<hr><p><b>Consejo - </b>Para volver a los valores de configuraci&#243;n predeterminados, haga clic en el
-bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
-
+<li>
+<p>En el campo Tiempo de espera de inactividad de cach&eacute;, escriba el n&uacute;mero m&aacute;ximo de segundos que un bean puede permanecer inactivo en la memoria cach&eacute;.</p>
+<p>Una vez transcurrido ese tiempo, el contenedor puede colocar este bean en estado pasivo. Un valor de 0 especifica que los beans nunca se convierten en candidatos a tener el estado pasivo. El valor predeterminado es 600.</p>
+</li>
+<li>
+<p>En la secci&oacute;n Propiedades adicionales, especifique las propiedades adicionales.</p>
+<p>Para obtener una descripci&oacute;n de las propiedades disponibles, consulte <a href="ref-ejbgeneralproperties.html">Propiedades Espec&iacute;ficas del Contenedor EJB</a>.</p>
+<ul>
+<li>
+<p>Para agregar una propiedad, haga clic en el bot&oacute;n Agregar Propiedad. En la fila en blanco que aparece, escriba el nombre de propiedad en el campo Nombre y escriba el valor de propiedad en el campo Valor.</p>
+</li>
+<li>
+<p>Para modificar una propiedad, edite su campo Valor.</p>
+</li>
+<li>
+<p>Para suprimir una propiedad, active la casilla de control a la izquierda del campo Nombre de la propiedad que est&aacute; suprimiendo y, a continuaci&oacute;n, haga clic en el bot&oacute;n Suprimir Propiedades.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Haga clic en Guardar.</p>
 
 <hr>
-</li>
-<li><b>Reinicie Servidor GlassFish.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2954&id=task-ejbmdbpoolsettings">Para configurar las opciones de conjuntos MDB</a></p>
+<p><b>Sugerencia:</b></p>
+Para volver a los valores de configuraci&oacute;n predeterminados, haga clic en el bot&oacute;n Cargar predeterminados y, a continuaci&oacute;n, en Guardar.
+<hr>
 
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2954&id=task-ejbtimerservice">Para configurar el servicio de temporizador de EJB</a></p>
-
+<li>
+<p>Reinicie GlassFish Server.</p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2954&id=task-ejbcontaineravailability">To Configure Availability Settings for the EJB Container</a></p>
+</ol>
+<a id="sthref4" name="sthref4"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="../../../ejb/es/help/missingtopic.html">Para configurar las opciones de conjuntos MDB</a></p>
+</li>
+<li>
+<p><a href="../../../ejb/es/help/missingtopic.html">Para configurar el servicio de temporizador de EJB</a></p>
+</li>
+<li>
+<p><a href="../../../ejb/es/help/missingtopic.html">To Configure Availability Settings for the EJB Container</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

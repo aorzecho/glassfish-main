@@ -1,44 +1,62 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-threadpoolnew" name="task-threadpoolnew"></a><a id="GHWEB00051" name="GHWEB00051"></a></p>
 
-
-<a name="task-threadpoolnew"></a><h3>C&#243;mo crear un conjunto de subprocesos</h3><a name="indexterm-36"></a><p>Los conjuntos de subprocesos los utilizan las escuchas de red y el
-ORB. Normalmente, una escucha de red utiliza uno de los dos conjuntos de
-subprocesos que se crean al instalar Servidor GlassFish y ORB utiliza el otro.
-Puede editar cualquiera de estos conjuntos de subprocesos predeterminados para especificar la configuraci&#243;n
-adecuada para sus aplicaciones o sistemas de hardware, o bien puede crear
-y utilizar un conjunto de subprocesos con esta configuraci&#243;n. </p>
-
+<h4><a id="sthref73" name="sthref73"></a>Crear un Pool de Threads</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Los pools de threads los utilizan los listeners de red y el ORB. Normalmente, un listener de red utiliza uno de los dos pools de threads que se crean al instalar Servidor GlassFish y ORB utiliza el otro. Puede editar cualquiera de estos pools de threads por defecto para especificar la configuraci&oacute;n adecuada para sus aplicaciones o sistemas de hardware, o bien puede crear y utilizar un pool de threads con esta configuraci&oacute;n.</p>
 <ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraci&#243;n.</b></li>
-<li><b>En el nodo Configuraci&#243;n, seleccione el nodo Conjuntos de subprocesos.</b><p>Se abrir&#225; la p&#225;gina Conjuntos de subprocesos.</p></li>
-<li><b>En la p&#225;gina Conjuntos de subprocesos, haga clic en Nuevo.</b><p>Se abrir&#225; la p&#225;gina Nuevo conjunto de subprocesos.</p></li>
-<li><b>En el campo Nombre, escriba un nombre para el conjunto de subprocesos.</b></li>
-<li><b>En el campo Nombre de clase, escriba el nombre completo de la
-clase que implementa el conjunto de subprocesos.</b><p>El valor predeterminado es <tt>com.sun.grizzly.http.StatsThreadPool </tt>.</p></li>
-<li><b>En el campo Tama&#241;o de cola m&#225;ximo, escriba el n&#250;mero m&#225;ximo de
-mensajes que pueden ponerse en cola hasta que haya subprocesos disponibles para procesarlos.
-</b><p>Un valor de -1 indica que no hay l&#237;mite en el tama&#241;o de
-la cola. El valor predeterminado es 4096.</p></li>
-<li><b>En el campo Tama&#241;o m&#225;ximo del conjunto de subprocesos, introduzca el n&#250;mero
-m&#225;ximo de subprocesos que puede existir en un conjunto.</b><p>El valor predeterminado es 5. &#201;ste es el valor recomendado de los
-conjuntos de subprocesos de escucha de red.</p></li>
-<li><b>En el campo Tama&#241;o m&#237;nimo del conjunto de subprocesos, introduzca el n&#250;mero
-m&#237;nimo de subprocesos que puede existir en un conjunto.</b><p>Estos subprocesos se crean cuando se instancia el conjunto de subprocesos. El
-valor predeterminado es 2.</p></li>
-<li><b>En el campo Tiempo de espera de subproceso inactivo, introduzca el tiempo
-m&#225;ximo, en segundos, que un subproceso puede permanecer inactivo en el conjunto.</b><p>Cuando expire este tiempo, el subproceso quedar&#225; eliminado del conjunto. El valor
-predeterminado es 900.</p></li>
-<li><b>Haga clic en Aceptar.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-threadpooledit.html">C&#243;mo editar un conjunto de subprocesos</a></p>
-
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Configuraci&oacute;n.</p>
 </li>
-<li><p><a href="task-threadpooldelete.html">C&#243;mo eliminar un conjunto de subprocesos</a></p>
+<li>
+<p>En el nodo Configuraci&oacute;n, seleccione el nodo Pools de Threads.</p>
+<p>Se abrir&aacute; la p&aacute;gina Pools de Threads.</p>
+</li>
+<li>
+<p>En la p&aacute;gina Pools de Threads, haga clic en Nuevo.</p>
+<p>Se abrir&aacute; la p&aacute;gina Nuevo Pool de Threads.</p>
+</li>
+<li>
+<p>En el campo Nombre, escriba un nombre para el pool de threads.</p>
+</li>
+<li>
+<p>En el campo Nombre de Clase, escriba el nombre de clase completo que implementa el pool de threads.</p>
+<p>El valor por defecto es <code>com.sun.grizzly.http.StatsThreadPool</code> .</p>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o de Cola M&aacute;ximo, escriba el n&uacute;mero m&aacute;ximo de mensajes que pueden ponerse en cola hasta que haya threads disponibles para procesarlos.</p>
+<p>Un valor de -1 indica que no hay l&iacute;mite en el tama&ntilde;o de la cola. El valor por defecto es 4096.</p>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o M&aacute;ximo del Pool de Threads, introduzca el n&uacute;mero m&aacute;ximo de threads que puede existir en un pool.</p>
+<p>El valor por defecto es 5. &Eacute;ste es el valor recomendado de los pools de threads de listener de red.</p>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o M&iacute;nimo de Pool de Threads, introduzca el n&uacute;mero m&iacute;nimo de threads que puede existir en un pool.</p>
+<p>Estos threads se crean cuando se instancia el pool de threads. El valor por defecto es 2.</p>
+</li>
+<li>
+<p>En el campo Timeout de Thread Inactivo, introduzca el tiempo m&aacute;ximo en segundos que un thread puede permanecer inactivo en el pool.</p>
+<p>Cuando transcurra este tiempo, el thread quedar&aacute; eliminado del pool. El valor por defecto es 900.</p>
+</li>
+<li>
+<p>Haga clic en Aceptar.</p>
+</li>
+</ol>
+<a id="sthref74" name="sthref74"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-threadpooledit.html">Editar un Pool de Threads</a></p>
+</li>
+<li>
+<p><a href="task-threadpooldelete.html">Suprimir un Pool de Threads</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

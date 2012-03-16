@@ -1,134 +1,164 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-connectorconnectionpoolnew" name="task-connectorconnectionpoolnew"></a><a id="GHJCA00063" name="GHJCA00063"></a></p>
 
-
-<a name="task-connectorconnectionpoolnew"></a><h3>Para crear un conjunto de conexiones de conector</h3><a name="indexterm-4"></a><p><b>Antes de empezar</b></p><p>Antes de crear el conjunto, implemente el m&#243;dulo del conector (adaptador de
-recursos) asociado al conjunto. Los valores que se especifican para el nuevo
-conjunto dependen del m&#243;dulo de conector que se implemente.</p>
-
+<h4><a id="sthref9" name="sthref9"></a>Crear un Pool de Conexiones de Conector</h4>
+<a name="BEGIN" id="BEGIN"></a><a id="sthref10" name="sthref10"></a>
+<h5>Antes de Empezar</h5>
+<p>Antes de crear el conjunto, implemente el m&oacute;dulo del conector (adaptador de recursos) asociado al conjunto. Los valores que se especifican para el nuevo conjunto dependen del m&oacute;dulo de conector que se implemente.</p>
 <ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Recursos.</b></li>
-<li><b>Expanda el nodo Conectores.</b></li>
-<li><b>En el nodo Configuraci&#243;n, seleccione el nodo Conjuntos de conexiones de conectores.</b><p>Se abrir&#225; la p&#225;gina Conjuntos de conexiones de conectores.</p></li>
-<li><b>En la p&#225;gina Conjuntos de conexiones del conector, haga clic en Nuevo.</b><p>Se abrir&#225; la p&#225;gina Nuevo conjunto de conexiones de conectores (paso 1
-de 2).</p></li>
-<li><b>En el campo Nombre de conjunto, asigne un nombre exclusivo al conjunto.</b><p>Especifique este nombre cuando cree un recurso de conector.</p></li>
-<li><b>En la lista desplegable Adaptador de recursos, haga una selecci&#243;n en la
-lista de adaptadores de recursos implementados (m&#243;dulos de conector). </b></li>
-<li><b>En la lista desplegable Definici&#243;n de conexi&#243;n, seleccione la definici&#243;n de conexi&#243;n para
-el conjunto de conexiones del conector. </b><p>Las opciones de la lista dependen del adaptador de recursos seleccionado. La
-definici&#243;n de conexi&#243;n identifica un elemento <tt>connection-definition</tt> del adaptador de recursos en
-el archivo <tt>ra.xml</tt>.</p></li>
-<li><b>Haga clic en Siguiente.</b><p>Se abrir&#225; la p&#225;gina Nuevo conjunto de conexiones de conectores (paso 2
-de 2).</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Ping habilitado para realizar un ping en
-el conjunto de conexiones durante la creaci&#243;n o reconfiguraci&#243;n para identificar los
-valores err&#243;neos de sus atributos y avisar de ellos. </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>En el campo Descripci&#243;n, introduzca una descripci&#243;n del conjunto de conexiones.</b></li>
-<li><b>En el campo Tama&#241;o de conjunto inicial y m&#237;nimo, introduzca el n&#250;mero
-m&#237;nimo de conexiones del conjunto.</b><p>El valor predeterminado es 8.</p></li>
-<li><b>En el campo Tama&#241;o de conjunto m&#225;ximo, introduzca el n&#250;mero m&#225;ximo de
-conexiones de este conjunto.</b><p>El valor predeterminado es 32.</p></li>
-<li><b>En el campo Cantidad de redimensionamiento del conjunto, especifique el n&#250;mero de
-conexiones que se eliminar&#225;n cuando se upere el tiempo l&#237;mite de espera de
-inactividad del conjunto.</b><p>El valor predeterminado es 2.</p></li>
-<li><b>En el campo Tiempo de espera de inactividad, indique el tiempo m&#225;ximo
-que una conexi&#243;n puede permanecer inactiva en el conjunto, en segundos.</b><p>El valor predeterminado es 300.</p></li>
-<li><b>En el campo Tiempo de espera m&#225;ximo, indique la cantidad de tiempo
-que la aplicaci&#243;n que solicita una conexi&#243;n puede esperar antes de superar
-el l&#237;mite de espera para establecer la conexi&#243;n.</b><p>El valor predeterminado es 60000.</p></li>
-<li><b>Marque la casilla de verificaci&#243;n Validaci&#243;n de conexi&#243;n necesaria para habilitar la
-validaci&#243;n de la conexi&#243;n.</b><p>Si la casilla de verificaci&#243;n Necesaria est&#225; seleccionada, las conexiones se validar&#225;n
-antes de proporcion&#225;rselas a la aplicaci&#243;n. Si falla la validaci&#243;n de un
-recurso, &#233;ste se destruye, para a continuaci&#243;n crear y devolver un recurso
-nuevo. Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Cerrar todas las conexiones en caso de
-fallo, de manera que Servidor GlassFish cerrar&#225; todas las conexiones del conjunto
-y las restablecer&#225; con que tan s&#243;lo se produzca el fallo de
-una conexi&#243;n.</b><p>Si no selecciona esta casilla de verificaci&#243;n, las conexiones individuales se restablecer&#225;n
-s&#243;lo cuando vaya a utilizarlas. Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Utilice la lista Compatibilidad de transacci&#243;n para seleccionar el tipo de compatibilidad
-de transacci&#243;n para el conjunto de conexiones.</b><p>La compatibilidad de transacci&#243;n seleccionada sobrescribe el atributo de compatibilidad de transacci&#243;n
-en el adaptador de recursos asociado con el conjunto de conexiones de
-una forma descendente. Dicho de otro modo, se puede admitir un nivel
-de transacci&#243;n inferior o id&#233;ntico al que se especifica en el adaptador
-de recursos, pero no se puede indicar un nivel superior.</p><p>Las opciones siguientes est&#225;n disponibles en la lista desplegable: </p><ul>
-<li><b>NoTransaction: indica que el adaptador de recursos no admite transacciones JTA o transacciones
-locales del administrador de recursos y no implementa las interfaces XAResource o
-LocalTransaction. </b></li>
-<li><b>LocalTransaction: indica que el adaptador de recursos admite transacciones locales mediante la
-implementaci&#243;n de la interfaz LocalTransaction. </b><p>Las transacciones locales se administran de manera interna en un administrador de
-recursos y no involucran a administradores de transacciones externos.</p></li>
-<li><b>XATransaction: indica que el adaptador de recursos admite transacciones JTA y transacciones
-locales del administrador de recursos mediante la implementaci&#243;n de las interfaces LocalTransaction y
-XAResource. </b><p>Las transacciones XA se controlan y coordinan a trav&#233;s de un administrador
-de transacciones ajeno a un administrador de recursos.</p></li></ul></li>
-<li>(Opcional) <b>En la secci&#243;n Propiedades adicionales, especifique propiedades adicionales del conjunto de conexiones
-de conectores.</b><p>Las propiedades disponibles dependen del adaptador de recursos para el conjunto de conexiones
-de conectores.</p><p>Para a&#241;adir una propiedad, haga clic en el bot&#243;n A&#241;adir propiedad. En
-la fila en blanco que aparece, escriba el nombre de propiedad en
-el campo Nombre y escriba el valor de propiedad en el campo
-Valor.</p><p>Si especifica un nombre, pero no un valor para una propiedad, &#233;ste
-se elimina de la tabla al acabar de crear el conjunto de conexiones.
-Si no desea definir un valor para una propiedad ahora, pero desea que
-la propiedad permanezca en la tabla para que el valor se pueda
-definir m&#225;s adelante, escriba un conjunto de par&#233;ntesis vac&#237;o en el campo
-Valor: </p><pre>()</pre></li>
-<li><b>Haga clic en Aceptar.</b></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-connectorresourcenew.html">Para crear un recurso de conector</a></p>
-
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Recursos.</p>
 </li>
-<li><p><a href="task-connectorresourceedit.html">Para editar un recurso de conector</a></p>
-
+<li>
+<p>Expanda el nodo Conectores.</p>
 </li>
-<li><p><a href="task-connectorresourcesdelete.html">Para borrar un recurso de conector</a></p>
-
+<li>
+<p>En el nodo Configuraci&oacute;n, seleccione el nodo Conjuntos de conexiones de conectores.</p>
+<p>Se abrir&aacute; la p&aacute;gina Conjuntos de conexiones de conectores.</p>
 </li>
-<li><p><a href="task-connectorconnectionpooledit.html">Para editar un conjunto de conexiones de conector</a></p>
-
+<li>
+<p>En la p&aacute;gina Conjuntos de conexiones del conector, haga clic en Nuevo.</p>
+<p>Se abrir&aacute; la p&aacute;gina Nuevo Pool de Conexiones del Conector (paso 1 de 2).</p>
 </li>
-<li><p><a href="task-connectorconnectionpooladvance.html">Para editar atributos avanzados del conjunto de conexiones del conector</a></p>
-
+<li>
+<p>En el campo Nombre de Pool, asigne un nombre exclusivo al pool.</p>
+<p>Especifique este nombre cuando cree un recurso de conector.</p>
 </li>
-<li><p><a href="task-connectorconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones del conector</a></p>
-
+<li>
+<p>En la lista desplegable Adaptador de recursos, haga una selecci&oacute;n en la lista de adaptadores de recursos implementados (m&oacute;dulos de conector).</p>
 </li>
-<li><p><a href="task-connectorsecuritymapnew.html">Para crear un mapa de seguridad para un conjunto de conexiones de conectores</a></p>
-
+<li>
+<p>En la lista desplegable Definici&oacute;n de Conexi&oacute;n, seleccione la definici&oacute;n de conexi&oacute;n para el pool de conexiones del conector.</p>
+<p>Las opciones de la lista dependen del adaptador de recursos seleccionado. La definici&oacute;n de conexi&oacute;n identifica un elemento <code>connection-definition</code> del adaptador de recursos en el archivo <code>ra.xml</code>.</p>
 </li>
-<li><p><a href="task-connectorsecuritymapedit.html">Para editar un mapa de seguridad para un conjunto de conexiones de conectores</a></p>
-
+<li>
+<p>Haga clic en Siguiente.</p>
+<p>Se abrir&aacute; la p&aacute;gina Nuevo Pool de Conexiones del Conector (paso 2 de 2).</p>
 </li>
-<li><p><a href="task-connectorsecuritymapdel.html">Para eliminar un mapa de seguridad para un conjunto de conexiones de conectores</a></p>
-
+<li>
+<p>Seleccione la casilla de control Ping Activado para realizar un ping en el pool de conexiones durante la creaci&oacute;n o reconfiguraci&oacute;n para identificar los valores err&oacute;neos de sus atributos y avisar de ellos.</p>
+<p>Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
 </li>
-<li><p><a href="task-connectorconnectionpooldel.html">Para eliminar un conjunto de conexiones de conector</a></p>
-
+<li>
+<p>En el campo Descripci&oacute;n, introduzca una descripci&oacute;n del pool de conexiones.</p>
 </li>
-<li><p><a href="task-setupeisaccess.html">Para configurar el acceso EIS</a></p>
-
+<li>
+<p>En el campo Tama&ntilde;o de Pool Inicial y M&iacute;nimo, introduzca el n&uacute;mero m&iacute;nimo de conexiones del pool.</p>
+<p>El valor por defecto es 8.</p>
 </li>
-<li><p><a href="task-adminobjectnew.html">Para crear un recurso de objeto administrado</a></p>
-
+<li>
+<p>En el campo Tama&ntilde;o de Pool M&aacute;ximo, introduzca el n&uacute;mero m&aacute;ximo de conexiones de este pool.</p>
+<p>El valor por defecto es 32.</p>
 </li>
-<li><p><a href="task-adminobjectedit.html">Para editar un recurso de objeto administrado</a></p>
-
+<li>
+<p>En el campo Cantidad de Cambio de Tama&ntilde;o del Pool, especifique el n&uacute;mero de conexiones que se eliminar&aacute;n cuando se supere el timeout de inactividad del pool.</p>
+<p>El valor por defecto es 2.</p>
 </li>
-<li><p><a href="task-administeredobjectresourcedelete.html">Para eliminar un recurso de objeto administrado</a></p>
-
+<li>
+<p>En el campo Tiempo de espera de inactividad, indique el tiempo m&aacute;ximo que una conexi&oacute;n puede permanecer inactiva en el conjunto, en segundos.</p>
+<p>El valor predeterminado es 300.</p>
 </li>
-<li><p><a href="task-worksecuritymapnew.html">Para crear un mapa de seguridad de tareas</a></p>
-
+<li>
+<p>En el campo Tiempo de espera m&aacute;ximo, indique la cantidad de tiempo que la aplicaci&oacute;n que solicita una conexi&oacute;n puede esperar antes de superar el l&iacute;mite de espera para establecer la conexi&oacute;n.</p>
+<p>El valor predeterminado es 60000.</p>
 </li>
-<li><p><a href="task-worksecuritymapedit.html">Para editar un mapa de seguridad de tareas</a></p>
-
+<li>
+<p>Marque la casilla de verificaci&oacute;n Validaci&oacute;n de conexi&oacute;n necesaria para habilitar la validaci&oacute;n de la conexi&oacute;n.</p>
+<p>Si la casilla de verificaci&oacute;n Necesaria est&aacute; seleccionada, las conexiones se validar&aacute;n antes de proporcion&aacute;rselas a la aplicaci&oacute;n. Si falla la validaci&oacute;n de un recurso, &eacute;ste se destruye, para a continuaci&oacute;n crear y devolver un recurso nuevo. Esta opci&oacute;n se deshabilita por defecto.</p>
 </li>
-<li><p><a href="task-worksecuritymapdelete.html">Para eliminar un mapa de seguridad de tareas</a></p>
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n Cerrar todas las conexiones en caso de fallo, de manera que GlassFish Server cerrar&aacute; todas las conexiones del conjunto y las restablecer&aacute; con que tan s&oacute;lo se produzca el fallo de una conexi&oacute;n.</p>
+<p>Si no selecciona esta casilla de verificaci&oacute;n, las conexiones individuales se restablecer&aacute;n s&oacute;lo cuando vaya a utilizarlas. Esta opci&oacute;n se deshabilita por defecto.</p>
+</li>
+<li>
+<p>Utilice la lista Soporte de Transacci&oacute;n para seleccionar el tipo de soporte de transacci&oacute;n para el pool de conexiones.</p>
+<p>La compatibilidad de transacci&oacute;n seleccionada sobrescribe el atributo de compatibilidad de transacci&oacute;n en el adaptador de recursos asociado con el conjunto de conexiones de una forma descendente. Dicho de otro modo, se puede admitir un nivel de transacci&oacute;n inferior o id&eacute;ntico al que se especifica en el adaptador de recursos, pero no se puede indicar un nivel superior.</p>
+<p>Las opciones siguientes est&aacute;n disponibles en la lista desplegable:</p>
+<ul>
+<li>
+<p>NoTransaction: indica que el adaptador de recursos no soporta transacciones JTA o transacciones locales del gestor de recursos y no implanta las interfaces XAResource o LocalTransaction.</p>
+</li>
+<li>
+<p>LocalTransaction: indica que el adaptador de recursos admite transacciones locales mediante la implementaci&oacute;n de la interfaz LocalTransaction.</p>
+<p>Las transacciones locales se administran de manera interna en un administrador de recursos y no involucran a administradores de transacciones externos.</p>
+</li>
+<li>
+<p>XATransaction: indica que el adaptador de recursos admite transacciones JTA y transacciones locales del administrador de recursos mediante la implementaci&oacute;n de las interfaces LocalTransaction y XAResource.</p>
+<p>Las transacciones XA se controlan y coordinan a trav&eacute;s de un administrador de transacciones ajeno a un administrador de recursos.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>En la secci&oacute;n Propiedades adicionales, especifique propiedades adicionales del conjunto de conexiones de conectores.</p>
+<p>Las propiedades disponibles dependen del adaptador de recursos para el conjunto de conexiones de conectores.</p>
+<p>Para agregar una propiedad, haga clic en el bot&oacute;n Agregar Propiedad. En la fila en blanco que aparece, escriba el nombre de propiedad en el campo Nombre y escriba el valor de propiedad en el campo Valor.</p>
+<p>Si especifica un nombre, pero no un valor para una propiedad, &eacute;ste se elimina de la tabla al acabar de crear el conjunto de conexiones. Si no desea definir un valor para una propiedad ahora, pero desea que la propiedad permanezca en la tabla para que el valor se pueda definir m&aacute;s adelante, escriba un conjunto de par&eacute;ntesis vac&iacute;o en el campo Valor:</p>
+<pre>
+()
+</pre></li>
+<li>
+<p>Haga clic en Aceptar.</p>
+</li>
+</ol>
+<a id="sthref11" name="sthref11"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-connectorresourcenew.html">Crear un Recurso de Conector</a></p>
+</li>
+<li>
+<p><a href="task-connectorresourceedit.html">Editar un Recurso de Conector</a></p>
+</li>
+<li>
+<p><a href="task-connectorresourcesdelete.html">Suprimir un Recurso de Conector</a></p>
+</li>
+<li>
+<p><a href="task-connectorconnectionpooledit.html">Editar un Pool de Conexiones de Conector</a></p>
+</li>
+<li>
+<p><a href="task-connectorconnectionpooladvance.html">Editar Atributos Avanzados de Pools de Conexiones de Conector</a></p>
+</li>
+<li>
+<p><a href="task-connectorconnectionpoolproperty.html">Editar Propiedades de Pools de Conexiones de Conector</a></p>
+</li>
+<li>
+<p><a href="task-connectorsecuritymapnew.html">Crear una Asignaci&oacute;n de Seguridad para Pools de Conexiones de Conector</a></p>
+</li>
+<li>
+<p><a href="task-connectorsecuritymapedit.html">Editar una Asignaci&oacute;n de Seguridad del Pool de Conexiones de Conector</a></p>
+</li>
+<li>
+<p><a href="task-connectorsecuritymapdel.html">Editar una Asignaci&oacute;n de Seguridad para un Pool de Conexiones de Conector</a></p>
+</li>
+<li>
+<p><a href="task-connectorconnectionpooldel.html">Suprimir un Pool de Conexiones de Conector</a></p>
+</li>
+<li>
+<p><a href="task-setupeisaccess.html">Configurar el Acceso EIS</a></p>
+</li>
+<li>
+<p><a href="task-adminobjectnew.html">Crear un Recurso de Objeto Administrado</a></p>
+</li>
+<li>
+<p><a href="task-adminobjectedit.html">Edici&oacute;n de un Recurso de Objeto Administrado</a></p>
+</li>
+<li>
+<p><a href="task-administeredobjectresourcedelete.html">Suprimir un Recurso de Objeto Administrado</a></p>
+</li>
+<li>
+<p><a href="task-worksecuritymapnew.html">Crear una Asignaci&oacute;n de Seguridad de Trabajo</a></p>
+</li>
+<li>
+<p><a href="task-worksecuritymapedit.html">Editar una Asignaci&oacute;n de Seguridad de Trabajo</a></p>
+</li>
+<li>
+<p><a href="task-worksecuritymapdelete.html">Suprimir una Asignaci&oacute;n de Seguridad de Trabajo</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,87 +1,93 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-editiiopssl"></a><h4>SSL</h4>
-<a name="indexterm-13"></a><a name="indexterm-14"></a><p>Consulte la p&#225;gina SSL para modificar los par&#225;metros de configuraci&#243;n de SSL
-para una escucha IIOP.</p>
+<p><a id="ref-editiiopssl" name="ref-editiiopssl"></a><a id="GHCOR00005" name="GHCOR00005"></a></p>
 
-<p>La p&#225;gina SSL contiene las siguientes opciones.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<h4><a id="sthref27" name="sthref27"></a><a id="sthref28" name="sthref28"></a>SSL</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Consulte la p&aacute;gina SSL para modificar los par&aacute;metros de configuraci&oacute;n de SSL para una escucha IIOP.</p>
+<p>La p&aacute;gina SSL contiene las siguientes opciones.</p>
+<dl>
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
 <dt>SSL3</dt>
-<dd><p>Si se selecciona esta casilla de verificaci&#243;n, se habilitar&#225; el protocolo SSL3 para la escucha IIOP. Esta opci&#243;n se habilita por defecto.</p>
-
+<dd>
+<p>Si se selecciona esta casilla de verificaci&oacute;n, se habilitar&aacute; el protocolo SSL3 para la escucha IIOP. Esta opci&oacute;n se habilita por defecto.</p>
 </dd>
 <dt>TLS</dt>
-<dd><p>Si se selecciona esta casilla de verificaci&#243;n, se habilitar&#225; el protocolo TLS para la escucha IIOP. Esta opci&#243;n se habilita por defecto.</p>
-
+<dd>
+<p>Si se selecciona esta casilla de verificaci&oacute;n, se habilitar&aacute; el protocolo TLS para la escucha IIOP. Esta opci&oacute;n se habilita por defecto.</p>
 </dd>
-<dt></dt>
-<dt>Autenticaci&#243;n de cliente</dt>
-<dd><p>Si esta casilla de verificaci&#243;n est&#225; seleccionada, los clientes deben identificarse en el servidor con cada solicitud. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dt>Autenticaci&oacute;n de Cliente</dt>
+<dd>
+<p>Si esta casilla de verificaci&oacute;n est&aacute; seleccionada, los clientes deben identificarse en el servidor con cada solicitud. Esta opci&oacute;n se deshabilita por defecto.</p>
 </dd>
 <dt>Sobrenombre del certificado</dt>
-<dd><p>Sobrenombre del certificado del servidor en la base de datos de certificados o token PKCS#11. En el certificado, el formato del nombre es <tt><i> tokenname</i>:<i>nickname</i></tt>. Incluyendo el <tt>tokenname<i>:</i></tt> parte del nombre de este atributo es opcional.</p>
-
+<dd>
+<p>Sobrenombre del certificado del servidor en la base de datos de certificados o en el token PKCS#11. En el certificado, el formato del nombre es <i>tokenname</i><code>:</code><i>nickname</i>. Incluyendo el tokenname<code>:</code> parte del nombre de este atributo es opcional.</p>
 </dd>
-<dt>Almac&#233;n de claves</dt>
-<dd><p>Nombre de archivo del almac&#233;n de claves (por ejemplo, <tt>keystore.jks</tt>).</p>
-
+<dt>Almac&eacute;n de Claves</dt>
+<dd>
+<p>Nombre de archivo del almac&eacute;n de claves (por ejemplo, <code>keystore.jks</code>).</p>
 </dd>
 <dt>Algoritmo de confianza</dt>
-<dd><p>Nombre del algoritmo de administraci&#243;n de confianza (por ejemplo, PKIX) que se utilizar&#225; para la validaci&#243;n de rutas de certificaci&#243;n.</p>
-
+<dd>
+<p>Nombre del algoritmo de administraci&oacute;n de confianza (por ejemplo, PKIX) que se utilizar&aacute; para la validaci&oacute;n de rutas de certificaci&oacute;n.</p>
 </dd>
-<dt>Longitud m&#225;xima del certificado</dt>
-<dd><p>N&#250;mero m&#225;ximo de certificados intermedios no autoemitidos que puede haber en una ruta de certificaci&#243;n. Este campo se utiliza solamente en caso de que el campo Algoritmo de confianza est&#233; configurado en PKIX. Un valor de 0 implica que la ruta &#250;nicamente puede contener un certificado. Un valor de -1 implica que la longitud de la ruta no est&#225; restringida (no hay un m&#225;ximo). La configuraci&#243;n en un valor inferior a -1 inicia una excepci&#243;n. </p>
-
+<dt>Longitud m&aacute;xima del certificado</dt>
+<dd>
+<p>N&uacute;mero m&aacute;ximo de certificados intermedios no autoemitidos que puede haber en una ruta de certificaci&oacute;n. Este campo se utiliza solamente en caso de que el campo Algoritmo de confianza est&eacute; configurado en PKIX. Un valor de 0 implica que la ruta &uacute;nicamente puede contener un certificado. Un valor de -1 implica que la longitud de la ruta no est&aacute; restringida (no hay un m&aacute;ximo). La configuraci&oacute;n en un valor inferior a -1 inicia una excepci&oacute;n.</p>
 </dd>
-<dt>Almac&#233;n de confianza</dt>
-<dd><p>Nombre de un archivo del almac&#233;n de confianza (por ejemplo, <tt>cacerts.jks</tt>).</p>
-
+<dt>Almac&eacute;n de confianza</dt>
+<dd>
+<p>Nombre de archivo del almac&eacute;n de confianza (por ejemplo, <code>cacerts.jks</code>).</p>
 </dd>
 <dt>Conjuntos de cifrado</dt>
-<dd><p>&#193;rea en la que puede a&#241;adir o eliminar conjuntos de cifrado. Si no a&#241;ade ning&#250;n conjunto de cifrado, se utilizar&#225;n todos los conjuntos de cifrado.</p>
-
+<dd>
+<p>&Aacute;rea en la que puede agregar o eliminar conjuntos de cifrado. Si no agrega ning&uacute;n conjunto de cifrado, se utilizar&aacute;n todos los conjuntos de cifrado.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-iioplistenernew.html">C&#243;mo crear una escucha IIOP</a></p>
-
+<a id="sthref29" name="sthref29"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-iioplistenernew.html">Crear un Listener IIOP</a></p>
 </li>
-<li><p><a href="task-iioplisteneredit.html">C&#243;mo editar una escucha IIOP</a></p>
-
+<li>
+<p><a href="task-iioplisteneredit.html">Edici&oacute;n de un Listener IIOP</a></p>
 </li>
-<li><p><a href="task-editiiopssl.html">C&#243;mo editar los par&#225;metros de configuraci&#243;n de SSL de una escucha IIOP segura</a></p>
-
+<li>
+<p><a href="task-editiiopssl.html">Editar Configuraci&oacute;n SSL para un Listener IIOP Seguro</a></p>
 </li>
-<li><p><a href="task-iioplistenerdelete.html">C&#243;mo eliminar una escucha IIOP</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-iiop-listener-1"><tt>create-iiop-listener</tt>(1)</a></p>
-
+<li>
+<p><a href="task-iioplistenerdelete.html">Suprimir un Listener IIOP</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-iiop-listeners-1"><tt>list-iiop-listeners</tt>(1)</a></p>
-
+</ul>
+<a id="sthref30" name="sthref30"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00032"><code>create-iiop-listener</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-iiop-listener-1"><tt>delete-iiop-listener</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00169"><code>list-iiop-listeners</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-ssl-1"><tt>create-ssl</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00084"><code>delete-iiop-listener</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-ssl-1"><tt>delete-ssl</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00058"><code>create-ssl</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00109"><code>delete-ssl</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

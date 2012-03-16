@@ -1,164 +1,214 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-protocolhttpedit" name="task-protocolhttpedit"></a><a id="GHWEB00045" name="GHWEB00045"></a></p>
 
-
-<a name="task-protocolhttpedit"></a><h3>C&#243;mo editar la configuraci&#243;n HTTP para un protocolo</h3><a name="indexterm-28"></a><a name="indexterm-29"></a><ol>
-<li><b>En el &#225;rbol de navegaci&#243;n, ampl&#237;e el nodo Configuraci&#243;n.</b></li>
-<li><b>En el nodo Configuraci&#243;n, expanda el nodo Configuraci&#243;n de red.</b></li>
-<li><b>En el nodo Configuraci&#243;n de red, seleccione el nodo Protocolos. </b><p>Se abrir&#225; la p&#225;gina Protocolos.</p></li>
-<li><b>En la p&#225;gina Protocolos, haga clic en el nombre del protocolo que
-est&#225; editando.</b><p>Se abrir&#225; la p&#225;gina Editar protocolo.</p></li>
-<li><b>En la p&#225;gina Editar protocolo, haga clic en la ficha HTTP. </b><p>Se abrir&#225; la p&#225;gina HTTP.</p></li>
-<li><b>En el campo Nombre de servidor, introduzca el nombre del host que
-se va a utilizar en las URL que el servidor env&#237;a al
-cliente.</b><p>Este nombre es el alias si el servidor hace uso de un
-nombre de alias. Si el servidor no utiliza un alias, deje vac&#237;o
-este campo.</p></li>
-<li><b>En la lista desplegable Servidor virtual predeterminado, seleccione el servidor virtual asociado
-al protocolo.</b><p>Utilice la p&#225;gina Servidores virtuales para definir los servidores virtuales.</p></li>
-<li><b>En el campo Redireccionar puerto, introduzca el valor del puerto que se
-utilizar&#225; para redireccionar una solicitud a otro puerto. </b><p>Servidor GlassFish redirecciona autom&#225;ticamente la solicitud si se dan las dos condiciones
-siguientes:</p>
-
-
-<ul><li><p>Este protocolo admite otras solicitudes que no son SSL.</p>
-
+<h4><a id="sthref59" name="sthref59"></a><a id="sthref60" name="sthref60"></a>Editar configuraci&oacute;n de HTTP para un protocolo</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>En el &aacute;rbol de navegaci&oacute;n, ampl&iacute;e el nodo Configuraci&oacute;n.</p>
 </li>
-<li><p>Se recibe una solicitud para la que una restricci&#243;n de seguridad coincidente requiere transporte SSL.</p>
-
-</li></ul>
-<p>Si no se especifica un puerto de redirecci&#243;n, Servidor GlassFish utiliza el
-n&#250;mero de puerto especificado en la solicitud original.</p></li>
-<li><b>En el campo N&#250;mero m&#225;ximo de conexiones, introduzca el n&#250;mero m&#225;ximo de
-conexiones persistentes que se van a mantener en el modo de mantenimiento.</b><p>El subsistema de mantenimiento de conexiones sondea peri&#243;dicamente las conexiones inactivas.</p></li>
-<li><b>En el campo Tiempo de espera, introduzca el tiempo m&#225;ximo en segundos
-que una conexi&#243;n puede considerarse inactiva y conservarse en estado de mantenimiento. </b><p>Un valor de 0 o menos significa que las conexiones de mantenimiento
-se mantienen abiertas de forma indefinida. El valor predeterminado es 30 segundos.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n del tiempo de espera de
-carga para que la conexi&#243;n de un servlet que lea bytes lentamente se
-cierre tras alcanzarse el l&#237;mite indicado en Tiempo de espera de carga
-de conexi&#243;n. </b><p>Si esta opci&#243;n se encuentra deshabilitada, las conexiones del servlet no agotan
-el tiempo de espera. Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>En el campo Tiempo de espera de cara de conexi&#243;n, introduzca el
-tiempo de carga, en milisegundos.  </b><p>Este campo &#250;nicamente est&#225; disponible si se ha seleccionado  la casilla de
-verificaci&#243;n destinada a deshabilitar el tiempo de carga de espera. El valor
-predeterminado es 300000 milisegundos.</p></li>
-<li><b>En el campo Tiempo de espera de solicitud, introduzca el n&#250;mero de
-segundos que deben transcurrir antes de que se agote el tiempo de
-espera de una solicitud.</b><p>Si la solicitud no se procesa antes de alcanzarse el valor de tiempo
-de espera, se ignorar&#225; la solicitud. El valor predeterminado es 30 segundos.</p></li>
-<li><b>En el campo Tama&#241;o de b&#250;fer de env&#237;o, introduzca el tama&#241;o, en
-bytes, del b&#250;fer de env&#237;o.</b><p>El valor predeterminado es 8192 bytes.</p></li>
-<li><b>En el campo Longitud del b&#250;fer de encabezado, introduzca el tama&#241;o, en
-bytes, del b&#250;fer que utilizan los subprocesos de procesamiento de solicitudes para
-leer los datos de las solicitudes.</b><p>El valor predeterminado es 8192 bytes.</p></li>
-<li><b>En el campo Tama&#241;o m&#225;ximo de publicaci&#243;n, especifique el tama&#241;o m&#225;ximo en
-bytes de las acciones POST. </b><p>El valor predeterminado es 2097152 bytes.</p></li>
-<li><b>En el campo Codificaci&#243;n de URI, escriba el nombre del conjunto de
-caracteres utilizados para descodificar los URI de solicitudes recibidos. </b><p>El valor debe ser un nombre de conjunto de caracteres IANA v&#225;lido.
-El valor predeterminado es UTF-8.</p></li>
-<li><b>En el campo Versi&#243;n, introduzca la versi&#243;n del protocolo HTTP utilizado.</b><p>El valor predeterminado es  HTTP/1.1.</p></li>
-<li><b>En la lista desplegable Compresi&#243;n, seleccione la compresi&#243;n GZIP HTTP/1.1 para ahorrar
-ancho de banda de servidor.</b><p>Las opciones disponibles son:</p><dl><dt><tt>on</tt></dt>
-<dd><p>Comprime datos.</p>
-
+<li>
+<p>En el nodo Configuraci&oacute;n, ampl&iacute;e el nodo Configuraci&oacute;n de Red.</p>
+</li>
+<li>
+<p>En el nodo Configuraci&oacute;n de Red, seleccione el nodo Protocolos.</p>
+<p>Se abrir&aacute; la p&aacute;gina Protocolos.</p>
+</li>
+<li>
+<p>En la p&aacute;gina Protocolos, haga clic en el nombre del protocolo que est&aacute; editando.</p>
+<p>Se abrir&aacute; la p&aacute;gina Editar Protocolo.</p>
+</li>
+<li>
+<p>En la p&aacute;gina Editar Protocolo, haga clic en el separador HTTP.</p>
+<p>Se abrir&aacute; la p&aacute;gina HTTP.</p>
+</li>
+<li>
+<p>En el campo Nombre de Servidor, introduzca el nombre del host que se va a utilizar en las URL que el servidor env&iacute;a al cliente.</p>
+<p>Este nombre es el nombre de alias si el servidor utiliza un alias. Si el servidor no utiliza un alias, deje vac&iacute;o este campo.</p>
+</li>
+<li>
+<p>En la lista desplegable Servidor Virtual por Defecto, seleccione el servidor virtual asociado al protocolo.</p>
+<p>Utilice la p&aacute;gina Servidores Virtuales para definir los servidores virtuales.</p>
+</li>
+<li>
+<p>En el campo Puerto de Redireccionamientos, introduzca el valor del puerto que se utilizar&aacute; para redireccionar una solicitud a otro puerto.</p>
+<p>Servidor GlassFish redirecciona autom&aacute;ticamente la solicitud si se dan las dos condiciones siguientes:</p>
+<ul>
+<li>
+<p>Este protocolo admite otras solicitudes que no son SSL.</p>
+</li>
+<li>
+<p>Se recibe una solicitud para la que una restricci&oacute;n de seguridad coincidente requiere transporte SSL.</p>
+</li>
+</ul>
+<p>Si no se especifica un Puerto de Redireccionamientos, Servidor GlassFish utiliza el n&uacute;mero de puerto especificado en la solicitud original.</p>
+</li>
+<li>
+<p>En el campo N&uacute;mero M&aacute;ximo de Conexiones, introduzca el n&uacute;mero m&aacute;ximo de conexiones persistentes que se van a mantener en el modo de mantenimiento.</p>
+<p>El subsistema de mantenimiento de conexiones sondea peri&oacute;dicamente las conexiones inactivas.</p>
+</li>
+<li>
+<p>En el campo Timeout, introduzca el tiempo m&aacute;ximo en segundos que una conexi&oacute;n puede considerarse inactiva y conservarse en estado de mantenimiento.</p>
+<p>Un valor de 0 o menos significa que las conexiones de mantenimiento se mantienen abiertas de forma indefinida. El valor por defecto es 30 segundos.</p>
+</li>
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n de activaci&oacute;n de Timeout de Carga para que la conexi&oacute;n de un servlet que lea bytes lentamente se cierre tras alcanzarse el l&iacute;mite indicado en Timeout de Carga de Conexi&oacute;n.</p>
+<p>Si esta opci&oacute;n se encuentra desactivada, las conexiones del servlet no agotan el timeout. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
+</li>
+<li>
+<p>En el campo Timeout de Carga de Conexi&oacute;n, introduzca el timeout de carga en milisegundos.</p>
+<p>Este campo &uacute;nicamente se aplica si se ha seleccionado la casilla de verificaci&oacute;n de desactivaci&oacute;n de Timeout de Carga. El valor por defecto es 300000 milisegundos.</p>
+</li>
+<li>
+<p>En el campo Timeout de Solicitud, introduzca el n&uacute;mero de segundos que deben transcurrir antes de que se agote el timeout de una solicitud.</p>
+<p>Si la solicitud no se procesa antes de alcanzarse el valor de timeout, se ignorar&aacute; la solicitud. El valor por defecto es 30 segundos.</p>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o de Buffer de Env&iacute;o, introduzca el tama&ntilde;o en bytes del buffer de env&iacute;o.</p>
+<p>El valor por defecto es 8192 bytes.</p>
+</li>
+<li>
+<p>En el campo Longitud de Buffer de Cabecera, introduzca el tama&ntilde;o en bytes del buffer que utilizan los threads de procesamiento de solicitudes para leer los datos de las solicitudes.</p>
+<p>El valor por defecto es 8192 bytes.</p>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o M&aacute;ximo de Publicaci&oacute;n, especifique el tama&ntilde;o m&aacute;ximo en bytes de las acciones POST.</p>
+<p>El valor por defecto es 2097152 bytes.</p>
+</li>
+<li>
+<p>En el campo Codificaci&oacute;n de URI, escriba el nombre del conjunto de caracteres utilizado para descodificar los URI de solicitudes recibidos.</p>
+<p>El valor debe ser un nombre de conjunto de caracteres IANA v&aacute;lido. El valor por defecto es UTF-8.</p>
+</li>
+<li>
+<p>En el campo Versi&oacute;n, introduzca la versi&oacute;n del protocolo HTTP utilizado.</p>
+<p>El valor por defecto es HTTP/1.1.</p>
+</li>
+<li>
+<p>En la lista desplegable Compresi&oacute;n, seleccione la compresi&oacute;n GZIP HTTP/1.1 para ahorrar ancho de banda de servidor.</p>
+<p>Las opciones disponibles son:</p>
+<dl>
+<dt><code>activado</code></dt>
+<dd>
+<p>Comprime datos.</p>
 </dd>
-<dt><tt>off</tt></dt>
-<dd><p>Inhabilita la compresi&#243;n.</p>
-
+<dt><code>desactivado</code></dt>
+<dd>
+<p>Desactiva la compresi&oacute;n.</p>
 </dd>
-<dt><tt>force</tt></dt>
-<dd><p>Fuerza la compresi&#243;n de datos en todos los casos.</p>
-
+<dt><code>forzar</code></dt>
+<dd>
+<p>Fuerza la compresi&oacute;n de datos en todos los casos.</p>
 </dd>
 </dl>
-<p>El valor predeterminado es <tt>off</tt>.</p></li>
-<li><b>En el campo Tipos MIME comprimibles, escriba una lista separada por comas
-de los tipos MIME para los que se utiliza la compresi&#243;n HTTP.
-</b><p>El valor predeterminado es <tt>text/html,text/xml,text/plain</tt>.</p></li>
-<li><b>En el campo Tama&#241;o m&#237;nimo de compresi&#243;n, escriba el tama&#241;o m&#237;nimo de un
-archivo cuando se le aplica compresi&#243;n. </b><p>Este valor debe configurarse si Compresi&#243;n se establece en <tt>on</tt> o <tt>force</tt>.
-El valor predeterminado es 2048 bytes.</p></li>
-<li><b>En el campo Agentes de usuario sin compresi&#243;n, escriba una lista separada
-por comas de expresiones regulares que coinciden con agentes de usuario de clientes
-HTTP para los que no se debe usar compresi&#243;n.  </b><p>De forma predeterminada, este valor es una cadena vac&#237;a. </p></li>
-<li><b>En el campo Agente de usuario restringido, escriba una lista de agentes
-de usuario restringidos a los que se les aplica compresi&#243;n HTTP. 
-</b><p>Si no se ha especificado ning&#250;n agente de usuario, se aplica la
-compresi&#243;n HTTP a todos los agentes de usuario. De forma predeterminada, no hay
-agentes de usuario especificados. </p></li>
-<li><b>En el campo Tipo de respuesta predeterminada, escriba una cadena que especifique
-el tipo de respuesta predeterminada. </b><p>El formato es una cadena separada por punto y coma que incluye
-el tipo de contenido, la codificaci&#243;n, el idioma y el conjunto de
-caracteres. El valor predeterminado es <tt>text/html; charset=iso-8859-1</tt>.</p></li>
-<li><b>En el campo Tipo de respuesta forzada, escriba una cadena que especifica
-el tipo de solicitud utilizado en caso de que no haya ninguna
-asignaci&#243;n MIME disponible que coincida con la extensi&#243;n del archivo.</b><p>El formato es una cadena separada por punto y coma que incluye
-el tipo de contenido, la codificaci&#243;n, el idioma y el conjunto de
-caracteres. El valor predeterminado es <tt>text/html; charset=iso-8859-1</tt>.</p></li>
-<li><b>En el campo Adaptador, escriba el nombre de clase del adaptador de
-recursos est&#225;tico. </b><p>El valor predeterminado es <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Asistencia Comet habilitada para habilitar la Asistencia
-Comet del protocolo.</b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de b&#250;squeda de DNS para
-habilitar la b&#250;squeda en el sistema de nombres de dominio (DNS). </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de la compatibilidad RCM para
-habilitar la administraci&#243;n de configuraci&#243;n de recursos (RCM). </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de seguimiento para habilitar la
-operaci&#243;n TRACE. </b><p>Si esta opci&#243;n se encuentra deshabilitada, Servidor GlassFish es menos susceptible de
-sufrir ataques de secuencias de comandos entre sitios. Esta opci&#243;n se habilita
-por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n Pase de autenticaci&#243;n para indicar que la
-escucha de red que utiliza este protocolo recibe tr&#225;fico  desde un servidor
-proxy con terminaci&#243;n SSL.  </b><p>Esta opci&#243;n se deshabilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n de habilitaci&#243;n de la fragmentaci&#243;n para habilitar
-la fragmentaci&#243;n de la respuesta HTTP. </b><p>Esta opci&#243;n se habilita por defecto.</p></li>
-<li><b>Seleccione la casilla de verificaci&#243;n XPowered By habilitado para indicar a Servidor
-GlassFish que utilice los encabezados de <tt>X-Powered-By</tt> conforme a las especificaciones de
-Java Servlet 3.0 y Java Server Pages 2.0.</b><p>Esta opci&#243;n se habilita por defecto.</p></li>
-<li><b>Haga clic en Guardar.</b>
-<hr><p><b>Consejo - </b>Para volver a los valores de configuraci&#243;n predeterminados, haga clic en el
-bot&#243;n Cargar predeterminados y, a continuaci&#243;n, en Guardar.</p>
-
+<p>El valor por defecto es <code>desactivado</code>.</p>
+</li>
+<li>
+<p>En el campo Tipos MIME Comprimibles, escriba una lista separada por comas de los tipos MIME para los que se utiliza la compresi&oacute;n HTTP.</p>
+<p>El valor por defecto es <code>text/html,text/xml,text/plain</code>.</p>
+</li>
+<li>
+<p>En el campo Tama&ntilde;o M&iacute;nimo de Compresi&oacute;n, escriba el tama&ntilde;o m&iacute;nimo de un archivo cuando se le aplica compresi&oacute;n.</p>
+<p>Este valor debe configurarse si Compresi&oacute;n se establece en <code>activado</code> o <code>forzar</code>. El valor por defecto es 2048 bytes.</p>
+</li>
+<li>
+<p>En el campo Agentes de Usuario sin Compresi&oacute;n, escriba una lista separada por comas de expresiones regulares que coinciden con agentes de usuario de clientes HTTP para los que no se debe usar compresi&oacute;n.</p>
+<p>Por defecto, este valor es una cadena vac&iacute;a.</p>
+</li>
+<li>
+<p>En el campo Agente de Usuario Restringido, escriba una lista de agentes de usuario restringidos a los que se les aplica compresi&oacute;n HTTP.</p>
+<p>Si no se ha especificado ning&uacute;n agente de usuario, se aplica la compresi&oacute;n HTTP a todos los agentes de usuario. Por defecto, no hay agentes de usuario especificados.</p>
+</li>
+<li>
+<p>En el campo Tipo de Respuesta por Defecto, escriba una cadena que especifique el tipo de respuesta por defecto.</p>
+<p>El formato es una cadena separada por punto y coma que incluye el tipo de contenido, la codificaci&oacute;n, el idioma y el conjunto de caracteres. El valor por defecto es <code>text/html; charset&amp;equal;iso-8859-1</code>.</p>
+</li>
+<li>
+<p>En el campo Tipo de Respuesta Forzada, escriba una cadena que especifique el tipo de solicitud utilizado en caso de que no haya ninguna asignaci&oacute;n MIME disponible que coincida con la extensi&oacute;n del archivo.</p>
+<p>El formato es una cadena separada por punto y coma que incluye el tipo de contenido, la codificaci&oacute;n, el idioma y el conjunto de caracteres. El valor por defecto es <code>text/html; charset&amp;equal;iso-8859-1</code>.</p>
+</li>
+<li>
+<p>En el campo Adaptador, escriba el nombre de clase del adaptador de recursos est&aacute;tico.</p>
+<p>El valor por defecto es <code>com.sun.grizzly.tcp.StaticResourcesAdapter</code>.</p>
+</li>
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n de activaci&oacute;n de Soporte de Comet para activar el soporte de Comet del protocolo.</p>
+<p>Esta opci&oacute;n se encuentra desactivada por defecto.</p>
+</li>
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n de activaci&oacute;n de B&uacute;squeda de DNS para activar la b&uacute;squeda en el sistema de nombres de dominio (DNS).</p>
+<p>Esta opci&oacute;n se encuentra desactivada por defecto.</p>
+</li>
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n de activaci&oacute;n de Soporte de RCM para activar la Gesti&oacute;n de Configuraci&oacute;n de Recursos (RCM).</p>
+<p>Esta opci&oacute;n se encuentra desactivada por defecto.</p>
+</li>
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n de activaci&oacute;n de Rastreo para activar la operaci&oacute;n TRACE.</p>
+<p>Si esta opci&oacute;n se encuentra desactivada, Servidor GlassFish es menos susceptible de sufrir ataques de script entre sitios. Esta opci&oacute;n se encuentra activada por defecto.</p>
+</li>
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n Traspaso de Autenticaci&oacute;n para indicar que el listener de red que utiliza este protocolo recibe tr&aacute;fico desde un servidor proxy con terminaci&oacute;n SSL.</p>
+<p>Esta opci&oacute;n se encuentra desactivada por defecto.</p>
+</li>
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n de activaci&oacute;n de Fragmentaci&oacute;n para activar la fragmentaci&oacute;n de la respuesta HTTP.</p>
+<p>Esta opci&oacute;n se encuentra activada por defecto.</p>
+</li>
+<li>
+<p>Seleccione la casilla de verificaci&oacute;n de activaci&oacute;n de XPowered By para indicar a Servidor GlassFish que utilice las cabeceras de <code>X-Powered-By</code> conforme a las especificaciones de Java Servlet 3.0 y Java Server Pages 2.0.</p>
+<p>Esta opci&oacute;n se encuentra activada por defecto.</p>
+</li>
+<li>
+<p>Haga clic en Guardar.</p>
 
 <hr>
-</li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-networklistenernew.html">C&#243;mo crear una escucha de red</a></p>
+<p><b>Sugerencia:</b></p>
+Para volver a la configuraci&oacute;n por defecto, haga clic en el bot&oacute;n Cargar Valores por Defecto y, a continuaci&oacute;n, en Guardar.
+<hr>
 
 </li>
-<li><p><a href="task-networklisteneredit.html">C&#243;mo editar la escucha de red</a></p>
-
+</ol>
+<a id="sthref61" name="sthref61"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-networklistenernew.html">Crear un Listener de Red</a></p>
 </li>
-<li><p><a href="task-networklistenerdelete.html">C&#243;mo eliminar una escucha de red</a></p>
-
+<li>
+<p><a href="task-networklisteneredit.html">Editar un Listener de Red</a></p>
 </li>
-<li><p><a href="task-protocolnew.html">C&#243;mo crear un protocolo</a></p>
-
+<li>
+<p><a href="task-networklistenerdelete.html">Suprimir un Listener de Red</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">C&#243;mo editar un protocolo</a></p>
-
+<li>
+<p><a href="task-protocolnew.html">Crear un Protocolo</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">C&#243;mo editar la configuraci&#243;n SSL para un protocolo</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Editar un Protocolo</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">C&#243;mo editar la cach&#233; de archivos para un protocolo</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Editar configuraci&oacute;n de SSL para un protocolo</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">C&#243;mo eliminar un protocolo</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Editar Configuraci&oacute;n de la Cach&eacute; de Archivos para un Protocolo</a></p>
 </li>
-<li><p><a href="task-transportnew.html">C&#243;mo crear un transporte</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Suprimir un Protocolo</a></p>
 </li>
-<li><p><a href="task-transportedit.html">C&#243;mo editar un transporte</a></p>
-
+<li>
+<p><a href="task-transportnew.html">Crear un Transporte</a></p>
 </li>
-<li><p><a href="task-transportdelete.html">C&#243;mo eliminar un transporte</a></p>
+<li>
+<p><a href="task-transportedit.html">Editar un Transporte</a></p>
+</li>
+<li>
+<p><a href="task-transportdelete.html">Suprimir un Transporte</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

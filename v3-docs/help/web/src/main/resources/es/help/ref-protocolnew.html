@@ -1,236 +1,241 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-protocolnew"></a><h4>Nuevo protocolo</h4>
-<a name="indexterm-68"></a><p>Utilice la p&#225;gina Nuevo protocolo para crear un nuevo protocolo de red.</p>
+<p><a id="ref-protocolnew" name="ref-protocolnew"></a><a id="GHWEB00019" name="GHWEB00019"></a></p>
 
-<p>Despu&#233;s de crear un protocolo, debe crear normalmente una escucha de red con
-el mismo nombre y asociarla con el protocolo. Si lo desea, tambi&#233;n puede
-crear una escucha de red y hacer que se cree un protocolo
-con configuraci&#243;n predeterminada al mismo tiempo. </p>
-
-<p>La p&#225;gina Nuevo protocolo contiene las siguientes opciones.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<h4><a id="sthref142" name="sthref142"></a>Nuevo Protocolo</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Nuevo Protocolo para crear un nuevo protocolo de red.</p>
+<p>Despu&eacute;s de crear un protocolo, debe crear normalmente un listener de red con el mismo nombre y asociarlo con el protocolo. Si lo desea, tambi&eacute;n puede crear un listener de red y hacer que se cree un protocolo con configuraci&oacute;n por defecto al mismo tiempo.</p>
+<p>La p&aacute;gina Nuevo Protocolo contiene las siguientes opciones.</p>
+<dl>
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
 <dt>Nombre</dt>
-<dd><p>El nombre &#250;nico del protocolo. Un nombre de protocolo no puede empezar con un n&#250;mero. </p>
-
+<dd>
+<p>El nombre &uacute;nico del protocolo. Un nombre de protocolo no puede empezar con un n&uacute;mero.</p>
 </dd>
-<dt>Security</dt>
-<dd><p>Si se selecciona esta opci&#243;n, se habilita la seguridad para el protocolo. Esta opci&#243;n se deshabilita por defecto. Si habilita la seguridad, puede utilizar la ficha SSL de la p&#225;gina Editar protocolo para modificar la configuraci&#243;n de seguridad. </p>
-
+<dt>Seguridad</dt>
+<dd>
+<p>Si se selecciona esta opci&oacute;n, se activa la seguridad para el protocolo. Esta opci&oacute;n se encuentra desactivada por defecto. Si activa la seguridad, puede utilizar el separador SSL de la p&aacute;gina Editar Protocolo para modificar la configuraci&oacute;n de seguridad.</p>
 </dd>
 <dt>Estado</dt>
-<dd><p>Si se selecciona esta opci&#243;n, se habilita la antememoria de archivo. Esta opci&#243;n est&#225; habilitada por defecto.</p>
-
+<dd>
+<p>Si se selecciona esta opci&oacute;n, se activa la cach&eacute; de archivos. Esta opci&oacute;n est&aacute; activada por defecto.</p>
 </dd>
-<dt>Edad m&#225;xima</dt>
-<dd><p>La edad m&#225;xima, en segundos, de una entrada en cach&#233; v&#225;lida.</p>
-
-<p>Este par&#225;metro controla c&#243;mo se utiliza la informaci&#243;n almacenada en cach&#233; despu&#233;s de que un archivo se haya almacenado en cach&#233;. Una nueva entrada sustituye a una entrada m&#225;s antigua que la edad m&#225;xima para el mismo archivo. Si el contenido no cambia con mucha frecuencia, aumente este valor para un mejor rendimiento.</p>
-
-<p>La edad m&#225;xima &#243;ptima depende de si se modifican regularmente los archivos existentes. Por ejemplo, si los archivos se han modificado cuatro veces al d&#237;a a intervalos regulares, considere establecer la edad m&#225;xima en 21.600 segundos (6 horas). De lo contrario, considere definir la edad m&#225;xima en el tiempo m&#225;s largo que desea servir la versi&#243;n anterior de un archivo despu&#233;s de que dicho archivo se haya modificado.</p>
-
-<p>El valor predeterminado es 30.</p>
-
+<dt>Antig&uuml;edad M&aacute;xima</dt>
+<dd>
+<p>La edad m&aacute;xima en segundos de una entrada en cach&eacute; v&aacute;lida.</p>
+<p>Este par&aacute;metro controla c&oacute;mo se utiliza la informaci&oacute;n almacenada en cach&eacute; despu&eacute;s de que un archivo se haya almacenado en cach&eacute;. Una entrada m&aacute;s antigua que la antig&uuml;edad m&aacute;xima se reemplaza por una nueva entrada para el mismo archivo. Si su contenido no cambia con frecuencia, aumente este valor para mejorar el rendimiento.</p>
+<p>La antig&uuml;edad m&aacute;xima &oacute;ptima depende de si los archivos existentes se modifican con regularidad. Por ejemplo, si los archivos se modifican cuatro veces al d&iacute;a en intervalos regulares, plant&eacute;ese establecer la antig&uuml;edad m&aacute;xima en 21.600 segundos (6 horas). De lo contrario, una vez que el archivo haya sido modificado, considere establecer la antig&uuml;edad m&aacute;xima en el per&iacute;odo de tiempo mayor que desee servir a la versi&oacute;n anterior de un archivo.</p>
+<p>El valor por defecto es 30.</p>
 </dd>
-<dt>Tama&#241;o de cach&#233; m&#225;ximo</dt>
-<dd><p>El tama&#241;o m&#225;ximo total (en bytes) de la cach&#233; de archivo en disco. El valor predeterminado es 10485760.</p>
-
+<dt>Tama&ntilde;o de Cach&eacute; M&aacute;ximo</dt>
+<dd>
+<p>El tama&ntilde;o m&aacute;ximo total (en bytes) de la cach&eacute; de archivos en disco. El valor por defecto es 10485760.</p>
 </dd>
-<dt>Recuento m&#225;ximo de archivos</dt>
-<dd><p>El n&#250;mero m&#225;ximo de archivos que se pueden almacenar en la cach&#233; de archivo.</p>
-
-<p>Si el valor es demasiado grande, el servidor almacena en cach&#233; los archivos menos necesarios, lo que supone un gasto de memoria. Si el valor es demasiado peque&#241;o, se pierden las ventajas del almacenamiento en cach&#233;. Pruebe distintos valores de este atributo para encontrar la soluci&#243;n &#243;ptima para aplicaciones espec&#237;ficas.</p>
-
-<p>El valor predeterminado es 1024.</p>
-
+<dt>Recuento M&aacute;ximo de Archivos</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de archivos que se pueden almacenar en la cach&eacute; de archivos.</p>
+<p>Si el valor es demasiado grande, el servidor almacena en cach&eacute; los archivos menos necesarios, lo que supone un gasto de memoria. Si el valor es demasiado peque&ntilde;o, no se aprovechan las ventajas del almacenamiento en cach&eacute;. Pruebe distintos valores de este atributo para determinar la soluci&oacute;n &oacute;ptima para aplicaciones espec&iacute;ficas.</p>
+<p>El valor por defecto es 1024.</p>
 </dd>
-<dt>Nombre de servidor</dt>
-<dd><p>El nombre de host que utilizar en las URL que el servidor env&#237;a al cliente. Este nombre es el nombre de alias si el servidor utiliza un alias. Si el servidor no utiliza un alias, deje vac&#237;o este campo.</p>
-
-<p>Este valor afecta a las URL que genera autom&#225;ticamente el servidor; no afecta a las URL de los directorios y archivos almacenados en el servidor. Si el servidor utiliza un alias, el nombre-servidor deber&#237;a ser el nombre de alias. Si se a&#241;aden dos puntos y un n&#250;mero de puerto, dicho puerto se usar&#225; en las URL que el servidor env&#237;a al cliente. </p>
-
+<dt>Nombre de Servidor</dt>
+<dd>
+<p>El nombre de host que se utiliza en las URL que el servidor env&iacute;a al cliente. Este nombre es el nombre de alias si el servidor utiliza un alias. Si el servidor no utiliza un alias, deje vac&iacute;o este campo.</p>
+<p>Este valor afecta a las URL que genera autom&aacute;ticamente el servidor; no afecta a las URL de los directorios y archivos almacenados en el servidor. Si el servidor utiliza un alias, el nombre-servidor deber&iacute;a ser el nombre de alias. Si se a&ntilde;aden dos puntos y un n&uacute;mero de puerto, dicho puerto se usar&aacute; en las URL que el servidor env&iacute;a al cliente.</p>
 </dd>
-<dt>Servidor virtual predeterminado</dt>
-<dd><p>El servidor virtual que se va a asociar con este protocolo. Utilice la p&#225;gina de Servidores virtuales para definir dichos servidores.</p>
-
+<dt>Servidor Virtual por Defecto</dt>
+<dd>
+<p>El servidor virtual que se va a asociar con este protocolo. Utilice la p&aacute;gina de Servidores Virtuales para definir dichos servidores.</p>
 </dd>
-<dt>Redirigir puerto</dt>
-<dd><p>Valor de puerto que redirige una solicitud a otro puerto. Servidor GlassFish redirige autom&#225;ticamente la solicitud si se dan estas dos condiciones:</p>
-
-
-<ul><li><p>La escucha de red que hace referencia a este protocolo admite otras solicitudes que no son SSL. </p>
-
+<dt>Puerto de Redireccionamientos</dt>
+<dd>
+<p>Valor de puerto que redirige una solicitud a otro puerto. Servidor GlassFish redirige autom&aacute;ticamente la solicitud si se dan estas dos condiciones:</p>
+<ul>
+<li>
+<p>El listener de red que hace referencia a este protocolo admite otras solicitudes que no son SSL.</p>
 </li>
-<li><p>Se recibe una solicitud para la que una restricci&#243;n de seguridad coincidente requiere transporte SSL.</p>
-
-</li></ul>
-<p>Si no se especifica un puerto de redirecci&#243;n, Servidor GlassFish utiliza el n&#250;mero de puerto especificado en la solicitud original. De forma predeterminada, no se especifica ning&#250;n puerto. </p>
-
+<li>
+<p>Se recibe una solicitud para la que una restricci&oacute;n de seguridad coincidente requiere transporte SSL.</p>
+</li>
+</ul>
+<p>Si no se especifica un puerto de redireccionamientos, Servidor GlassFish utiliza el n&uacute;mero de puerto especificado en la solicitud original. Por defecto, no se especifica ning&uacute;n puerto.</p>
 </dd>
-<dt>Conexiones m&#225;ximas</dt>
-<dd><p>Especifica el n&#250;mero m&#225;ximo de solicitudes que se pueden canalizar hasta que el servidor cierre la conexi&#243;n. El subsistema de mantenimiento de conexiones sondea peri&#243;dicamente las conexiones inactivas. El valor predeterminado es 256.</p>
-
-<p>Establezca esta propiedad en 1 para deshabilitar el mantenimiento HTTP/1.0, as&#237; como la canalizaci&#243;n y el mantenimiento HTTP/1.1. Un valor de 0 significa que las solicitudes ser&#225;n siempre rechazadas. Un valor de -1 no establece ning&#250;n l&#237;mite en cuanto al n&#250;mero de conexiones de mantenimiento. </p>
-
+<dt>N&uacute;mero M&aacute;ximo de Conexiones</dt>
+<dd>
+<p>Especifica el n&uacute;mero m&aacute;ximo de solicitudes que se pueden canalizar hasta que el servidor cierre la conexi&oacute;n. El subsistema de mantenimiento de conexiones sondea peri&oacute;dicamente las conexiones inactivas. El valor por defecto es 256.</p>
+<p>Defina esta propiedad en 1 para desactivar el mantenimiento HTTP/1.0, as&iacute; como la pipelining y el mantenimiento HTTP/1.1. Un valor de 0 significa que las solicitudes ser&aacute;n siempre rechazadas. Un valor de -1 no define ning&uacute;n l&iacute;mite en cuanto al n&uacute;mero de conexiones de mantenimiento.</p>
 </dd>
-<dt>Tiempo de espera</dt>
-<dd><p>El tiempo m&#225;ximo en segundos que una conexi&#243;n puede considerarse como inactiva y conservarse en el estado de mantenimiento. Un valor de 0 o menos significa que las conexiones de mantenimiento se mantienen abiertas de forma indefinida. El valor predeterminado es 30 segundos.</p>
-
+<dt>Timeout</dt>
+<dd>
+<p>El tiempo m&aacute;ximo en segundos que una conexi&oacute;n puede considerarse como inactiva y conservarse en el estado de mantenimiento. Un valor de 0 o inferior significa que las conexiones de mantenimiento se mantienen abiertas de forma indefinida. El valor por defecto es 30 segundos.</p>
 </dd>
-<dt>Tiempo de espera de cargar</dt>
-<dd><p>Si esta opci&#243;n se encuentra seleccionada, la conexi&#243;n a un servlet que lee bytes lentamente se cerrar&#225; tras alcanzarse el l&#237;mite del Tiempo de carga de espera de conexi&#243;n. Si esta opci&#243;n se encuentra deshabilitada, las conexiones del servlet no agotan el tiempo de espera. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dt>Timeout de Carga</dt>
+<dd>
+<p>Si esta opci&oacute;n se encuentra seleccionada, la conexi&oacute;n a un servlet que lee bytes lentamente se cerrar&aacute; tras alcanzarse el l&iacute;mite del Timeout de Carga de Conexi&oacute;n. Si esta opci&oacute;n se encuentra desactivada, las conexiones del servlet no agotan el time out. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>Tiempo de carga de espera</dt>
-<dd><p>El tiempo de carga de espera, en milisegundos. Este campo &#250;nicamente est&#225; disponible si se ha seleccionado la casilla de verificaci&#243;n destinada a habilitar el tiempo de carga de espera. El valor predeterminado es 300000 milisegundos.</p>
-
+<dt>Timeout de Carga de Conexi&oacute;n</dt>
+<dd>
+<p>El timeout para cargas, en milisegundos. Este campo &uacute;nicamente se aplica si se ha seleccionado la casilla de verificaci&oacute;n de activaci&oacute;n de Timeout de Carga. El valor por defecto es 300000 milisegundos.</p>
 </dd>
-<dt>Tiempo de espera de solicitud</dt>
-<dd><p>N&#250;mero de segundos antes de que se agote el tiempo de espera de una solicitud. Si la solicitud no se procesa antes de alcanzarse el valor de tiempo de espera, se ignorar&#225; la solicitud. El valor predeterminado es 30 segundos.</p>
-
+<dt>Timeout de Solicitud</dt>
+<dd>
+<p>N&uacute;mero de segundos antes de que se agote el tiempo de espera de una solicitud. Si la solicitud no se procesa antes de alcanzarse el valor de timeout, se ignorar&aacute; la solicitud. El valor por defecto es 30 segundos.</p>
 </dd>
-<dt>Tama&#241;o del b&#250;fer de env&#237;o</dt>
-<dd><p>El tama&#241;o en bytes del b&#250;fer de env&#237;o. El valor predeterminado es 8192 bytes.</p>
-
+<dt>Tama&ntilde;o de Buffer de Env&iacute;o</dt>
+<dd>
+<p>El tama&ntilde;o en bytes del buffer de env&iacute;o. El valor por defecto es 8192 bytes.</p>
 </dd>
-<dt>Longitud del b&#250;fer de encabezado</dt>
-<dd><p>Tama&#241;o, en bytes, del b&#250;fer utilizado por los subprocesos de procesamiento de solicitudes para leer los datos de las solicitudes. El valor predeterminado es 8192 bytes.</p>
-
+<dt>Longitud de Buffer de Cabecera</dt>
+<dd>
+<p>Tama&ntilde;o, en bytes, del buffer utilizado por los threads de procesamiento de solicitudes para leer los datos de las solicitudes. El valor por defecto es 8192 bytes.</p>
 </dd>
-<dt>Tama&#241;o m&#225;ximo de publicaci&#243;n</dt>
-<dd><p>El tama&#241;o m&#225;ximo en bytes de las acciones POST. El valor predeterminado es 2097152 bytes.</p>
-
+<dt>Tama&ntilde;o M&aacute;ximo de Publicaci&oacute;n</dt>
+<dd>
+<p>El tama&ntilde;o m&aacute;ximo en bytes de las acciones POST. El valor por defecto es 2097152 bytes.</p>
 </dd>
-<dt>Codificaci&#243;n de URI</dt>
-<dd><p>El nombre del conjunto de caracteres que se utiliza para decodificar los URI de solicitud recibidos. El valor debe ser un nombre de conjunto de caracteres IANA v&#225;lido. El valor predeterminado es UTF-8.</p>
-
+<dt>Codificaci&oacute;n de URI</dt>
+<dd>
+<p>El nombre del conjunto de caracteres que se utiliza para decodificar los URI de solicitud recibidos. El valor debe ser un nombre de conjunto de caracteres IANA v&aacute;lido. El valor por defecto es UTF-8.</p>
 </dd>
-<dt>Versi&#243;n</dt>
-<dd><p>La versi&#243;n del protocolo HTTP utilizado. El valor predeterminado es HTTP/1.1.</p>
-
+<dt>Versi&oacute;n</dt>
+<dd>
+<p>La versi&oacute;n del protocolo HTTP utilizado. El valor por defecto es HTTP/1.1.</p>
 </dd>
-<dt>Compresi&#243;n</dt>
-<dd><p>Especifica el uso de compresi&#243;n GZIP HTTP/1.1 para ahorrar ancho de banda de servidor. Las opciones disponibles son:</p>
-
-<dl><dt><tt>on</tt></dt>
-<dd><p>Comprime datos.</p>
-
+<dt>Compresi&oacute;n</dt>
+<dd>
+<p>Especifica el uso de compresi&oacute;n GZIP HTTP/1.1 para ahorrar ancho de banda de servidor. Las opciones disponibles son:</p>
+<dl>
+<dt><code>activado</code></dt>
+<dd>
+<p>Comprime datos.</p>
 </dd>
-<dt><tt>off</tt></dt>
-<dd><p>Inhabilita la compresi&#243;n.</p>
-
+<dt><code>desactivado</code></dt>
+<dd>
+<p>Desactiva la compresi&oacute;n.</p>
 </dd>
-<dt><tt>force</tt></dt>
-<dd><p>Fuerza la compresi&#243;n de datos en todos los casos.</p>
-
+<dt><code>forzar</code></dt>
+<dd>
+<p>Fuerza la compresi&oacute;n de datos en todos los casos.</p>
 </dd>
 </dl>
-<p>El valor predeterminado es <tt>off</tt>.</p>
-
+<p>El valor por defecto es <code>desactivado</code>.</p>
 </dd>
-<dt>Tipos MIME comprimibles</dt>
-<dd><p>Una lista separada por comas de los tipos MIME para los que se haya utilizado compresi&#243;n HTTP. El valor predeterminado es <tt>text/html,text/xml,text/plain</tt>.</p>
-
+<dt>Tipos MIME Comprimibles</dt>
+<dd>
+<p>Una lista separada por comas de los tipos MIME para los que se haya utilizado compresi&oacute;n HTTP. El valor por defecto es <code>text/html,text/xml,text/plain</code>.</p>
 </dd>
-<dt>Tama&#241;o m&#237;nimo de compresi&#243;n</dt>
-<dd><p>El tama&#241;o m&#237;nimo de un archivo cuando se le aplica compresi&#243;n. Este valor debe configurarse si Compresi&#243;n se establece en <tt>on</tt> o <tt>force</tt>. El valor predeterminado es 2048 bytes.</p>
-
+<dt>Tama&ntilde;o M&iacute;nimo de Compresi&oacute;n</dt>
+<dd>
+<p>El tama&ntilde;o m&iacute;nimo de un archivo cuando se le aplica compresi&oacute;n. Este valor debe configurarse si Compresi&oacute;n se establece en <code>activado</code> o <code>forzar</code>. El valor por defecto es 2048 bytes.</p>
 </dd>
-<dt>Agentes de usuario sin compresi&#243;n</dt>
-<dd><p>Una lista separada por comas de expresiones regulares que coinciden con agentes de usuario de clientes HTTP para los que no se debe usar compresi&#243;n. De forma predeterminada, este valor es una cadena vac&#237;a. </p>
-
+<dt>Agentes de Usuario sin Compresi&oacute;n</dt>
+<dd>
+<p>Una lista separada por comas de expresiones regulares que coinciden con agentes de usuario de clientes HTTP para los que no se debe usar compresi&oacute;n. Por defecto, este valor es una cadena vac&iacute;a.</p>
 </dd>
-<dt>Agente de usuario restringido</dt>
-<dd><p>Una lista de agentes de usuario restringidos a los que se les aplica compresi&#243;n HTTP. Si no se ha especificado ning&#250;n agente de usuario, se aplica la compresi&#243;n HTTP a todos los agentes de usuario. De forma predeterminada, no hay agentes de usuario especificados. </p>
-
+<dt>Agente de Usuario Restringido</dt>
+<dd>
+<p>Una lista de agentes de usuario restringidos a los que se les aplica compresi&oacute;n HTTP. Si no se ha especificado ning&uacute;n agente de usuario, se aplica la compresi&oacute;n HTTP a todos los agentes de usuario. Por defecto, no hay agentes de usuario especificados.</p>
 </dd>
-<dt>Tipo de respuesta predeterminada</dt>
-<dd><p>Una cadena que especifica el tipo de respuesta predeterminada. El formato es una cadena separada por punto y coma que incluye el tipo de contenido, la codificaci&#243;n, el idioma y el conjunto de caracteres. El valor predeterminado es <tt>text/html; charset=iso-8859-1</tt>.</p>
-
+<dt>Tipo de Respuesta por Defecto</dt>
+<dd>
+<p>Una cadena que especifica el tipo de respuesta por defecto. El formato es una cadena separada por punto y coma que incluye el tipo de contenido, la codificaci&oacute;n, el idioma y el conjunto de caracteres. El valor por defecto es <code>text/html; charset&amp;equal;iso-8859-1</code>.</p>
 </dd>
-<dt>Tipo de respuesta forzada</dt>
-<dd><p>Una cadena que especifica el tipo de solicitud utilizado en caso de que no haya ninguna asignaci&#243;n MIME disponible que coincida con la extensi&#243;n del archivo. El formato es una cadena separada por punto y coma que incluye el tipo de contenido, la codificaci&#243;n, el idioma y el conjunto de caracteres. El valor predeterminado es <tt>text/html; charset=iso-8859-1</tt>.</p>
-
+<dt>Tipo de Respuesta Forzada</dt>
+<dd>
+<p>Una cadena que especifica el tipo de solicitud utilizado en caso de que no haya ninguna asignaci&oacute;n MIME disponible que coincida con la extensi&oacute;n del archivo. El formato es una cadena separada por punto y coma que incluye el tipo de contenido, la codificaci&oacute;n, el idioma y el conjunto de caracteres. El valor por defecto es <code>text/html; charset&amp;equal;iso-8859-1</code>.</p>
 </dd>
 <dt>Adaptador</dt>
-<dd><p>El nombre de clase del adaptador de recursos est&#225;tico. El valor predeterminado es <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p>
-
+<dd>
+<p>El nombre de clase del adaptador de recursos est&aacute;tico. El valor por defecto es <code>com.sun.grizzly.tcp.StaticResourcesAdapter</code>.</p>
 </dd>
-<dt>Compatibilidad con Comet</dt>
-<dd><p>Si esta opci&#243;n se encuentra seleccionada, la compatibilidad Comet estar&#225; habilitada para la escucha de red que hace referencia a este protocolo. De forma predeterminada, esta opci&#243;n se encuentra deshabilitada. Si el servlet o la p&#225;gina JSP utiliza tecnolog&#237;a Comet, aseg&#250;rese de que se ha inicializado cuando se inicia Servidor GlassFish al a&#241;adir el elemento <tt>load-on-startup</tt> al archivo <tt>web.xml</tt>. Por ejemplo:</p>
-
-<pre>&#60;servlet>
-&#60;servlet-name>CheckIn&#60;/servlet-name>
-&#60;servlet-class>CheckInServlet&#60;/servlet-class>
-&#60;load-on-startup>0&#60;/load-on-startup>
-&#60;/servlet></pre></dd>
-<dt>B&#250;squeda de DNS</dt>
-<dd><p>Si est&#225; opci&#243;n se encuentra seleccionada, la b&#250;squeda de DNS estar&#225; habilitada. Esta opci&#243;n se encuentra deshabilitada de forma predeterminada.</p>
-
+<dt>Soporte de Comet</dt>
+<dd>
+<p>Si esta opci&oacute;n se encuentra seleccionada, el soporte de Comet estar&aacute; activado para el listener de red que hace referencia a este protocolo. Por defecto, esta opci&oacute;n se encuentra desactivada. Si el servlet o la p&aacute;gina JSP utiliza tecnolog&iacute;a Comet, aseg&uacute;rese de que se ha inicializado cuando se inicia Servidor GlassFish al a&ntilde;adir el elemento <code>load-on-startup</code> al archivo <code>web.xml</code>. Por ejemplo:</p>
+<pre>
+&lt;servlet&gt;
+&lt;servlet-name&gt;CheckIn&lt;/servlet-name&gt;
+&lt;servlet-class&gt;CheckInServlet&lt;/servlet-class&gt;
+&lt;load-on-startup&gt;0&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+</pre></dd>
+<dt>B&uacute;squeda de DNS</dt>
+<dd>
+<p>Si est&aacute; opci&oacute;n se encuentra seleccionada, la b&uacute;squeda de DNS estar&aacute; activada. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>B&#250;squeda de DNS</dt>
-<dd><p>Si est&#225; opci&#243;n se encuentra seleccionada, la b&#250;squeda de DNS estar&#225; habilitada. Esta opci&#243;n se encuentra deshabilitada de forma predeterminada.</p>
-
+<dt>B&uacute;squeda de DNS</dt>
+<dd>
+<p>Si est&aacute; opci&oacute;n se encuentra seleccionada, la b&uacute;squeda de DNS estar&aacute; activada. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>Compatibilidad de RCM</dt>
-<dd><p>Si esta opci&#243;n se encuentra seleccionada, la administraci&#243;n de configuraci&#243;n de recursos (RCM) est&#225; habilitada. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dt>Soporte de RCM</dt>
+<dd>
+<p>Si esta opci&oacute;n se encuentra seleccionada, la Gesti&oacute;n de Configuraci&oacute;n de Recursos (RCM) est&aacute; activada. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>Seguimiento</dt>
-<dd><p>Si esta opci&#243;n se encuentra seleccionada, la operaci&#243;n TRACE est&#225; habilitada. Si esta opci&#243;n se encuentra deshabilitada, Servidor GlassFish es menos susceptible de sufrir ataques de secuencias de comandos entre sitios. Esta opci&#243;n se habilita por defecto.</p>
-
+<dt>Rastreo</dt>
+<dd>
+<p>Si esta opci&oacute;n se encuentra seleccionada, la operaci&oacute;n TRACE est&aacute; activada. Si esta opci&oacute;n se encuentra desactivada, Servidor GlassFish es menos susceptible de sufrir ataques de script entre sitios. Esta opci&oacute;n se encuentra activada por defecto.</p>
 </dd>
-<dt>Pase de autenticaci&#243;n</dt>
-<dd><p>Si esta opci&#243;n se encuentra seleccionada, eso indica que la escucha de red que utiliza este protocolo recibe tr&#225;fico desde un servidor proxy con terminaci&#243;n SSL. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dt>Traspaso de Autenticaci&oacute;n</dt>
+<dd>
+<p>Si esta opci&oacute;n se encuentra seleccionada, eso indica que el listener de red que utiliza este protocolo recibe tr&aacute;fico desde un servidor proxy con terminaci&oacute;n SSL. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
-<dt>Fragmentando</dt>
-<dd><p>Si esta opci&#243;n se encuentra seleccionada, la fragmentaci&#243;n de respuesta HTTP est&#225; habilitada. Esta opci&#243;n se habilita por defecto.</p>
-
+<dt>Fragmentaci&oacute;n</dt>
+<dd>
+<p>Si esta opci&oacute;n se encuentra seleccionada, la fragmentaci&oacute;n de respuesta HTTP est&aacute; activada. Esta opci&oacute;n se encuentra activada por defecto.</p>
 </dd>
-<dt>Funciona gracias a</dt>
-<dd><p>Si est&#225; seleccionada esta opci&#243;n, Servidor GlassFish utiliza encabezados de <tt>X-Powered-By</tt> conforme a las especificaciones de Java Servlet 3.0 y Java Server Pages 2.0. Esta opci&#243;n se habilita por defecto.</p>
-
+<dt>XPowered By</dt>
+<dd>
+<p>Si est&aacute; seleccionada esta opci&oacute;n, se utilizan estas cabeceras de <code>X-Powered-By</code> conforme a las especificaciones de Java Servlet 3.0 y Java Server Pages 2.0. Esta opci&oacute;n se encuentra activada por defecto.</p>
+</dd>
+<dt>Barra Inclinada Codificada</dt>
+<dd>
+<p>Si se selecciona esta opci&oacute;n, se permite que las URI contengan barras inclinadas codificadas. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
+</dd>
+<dt>Soporte de Sockets Web</dt>
+<dd>
+<p>Si se selecciona esta opci&oacute;n, se soporta el protocolo Sockets Web. Esta opci&oacute;n se encuentra desactivada por defecto.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-protocolnew.html">C&#243;mo crear un protocolo</a></p>
-
+<a id="sthref143" name="sthref143"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-protocolnew.html">Crear un Protocolo</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">C&#243;mo editar un protocolo</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Editar un Protocolo</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">C&#243;mo editar la configuraci&#243;n SSL para un protocolo</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Editar configuraci&oacute;n de SSL para un protocolo</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">C&#243;mo editar la configuraci&#243;n HTTP para un protocolo</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">Editar configuraci&oacute;n de HTTP para un protocolo</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">C&#243;mo editar la cach&#233; de archivos para un protocolo</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Editar Configuraci&oacute;n de la Cach&eacute; de Archivos para un Protocolo</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">C&#243;mo eliminar un protocolo</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Suprimir un Protocolo</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
-
+</ul>
+<a id="sthref144" name="sthref144"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00051"><code>create-protocol</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00195"><code>list-protocols</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00103"><code>delete-protocol</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

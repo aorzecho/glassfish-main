@@ -1,109 +1,99 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jdbcconnectionpools"></a><h4>Conjuntos de conexiones</h4>
-<a name="indexterm-20"></a><p>Un conjunto de conexiones JDBC contiene un grupo de conexiones JDBC que
-se crean una vez registrado el conjunto de conexiones. Los conjuntos de
-conexiones utilizan un controlador JDBC para crear conexiones de bases de datos
-f&#237;sicas. Su aplicaci&#243;n pide prestada una conexi&#243;n al conjunto, la utiliza y,
-a continuaci&#243;n, se la devuelve al conjunto cerr&#225;ndola. Para crear un recurso
-JDBC, especifique el conjunto de conexiones asociado. Varios recursos JDBC pueden especificar
-un &#250;nico conjunto de conexiones.</p>
+<p><a id="ref-jdbcconnectionpools" name="ref-jdbcconnectionpools"></a><a id="GHJDB00023" name="GHJDB00023"></a></p>
 
-<p>Un conjunto de conexiones JDBC es un grupo de conexiones reutilizables para
-una determinada base de datos. Como la creaci&#243;n de cada nueva conexi&#243;n
-f&#237;sica lleva mucho tiempo, el servidor mantiene un conjunto de conexiones disponibles
-para mejorar el rendimiento. Cuando una aplicaci&#243;n solicita una conexi&#243;n, obtiene una
-del conjunto. Cuando una aplicaci&#243;n cierra una conexi&#243;n, &#233;sta se devuelve al
-conjunto.</p>
-
-<p>Cuando se crea un conjunto de conexiones con Consola de administraci&#243;n, est&#225;
-definiendo los aspectos de una conexi&#243;n con una base de datos espec&#237;fica.</p>
-
-<p>Utilice la p&#225;gina Conjuntos de conexiones JDBC para configurar conjuntos de conexiones
-JDBC.</p>
-
-<p>Para cada conjunto de conexiones se proporciona la siguiente informaci&#243;n.</p>
-
-<dl><dt>Nombre de conjunto</dt>
-<dd><p>El nombre del conjunto de conexiones. </p>
-
+<h4><a id="sthref38" name="sthref38"></a>Pools de Conexiones</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Un conjunto de conexiones JDBC contiene un grupo de conexiones JDBC que se crean una vez registrado el conjunto de conexiones. Los conjuntos de conexiones utilizan un controlador JDBC para crear conexiones de bases de datos f&iacute;sicas. Su aplicaci&oacute;n pide prestada una conexi&oacute;n al conjunto, la utiliza y, a continuaci&oacute;n, se la devuelve al conjunto cerr&aacute;ndola. Para crear un recurso JDBC, especifique el conjunto de conexiones asociado. Varios recursos JDBC pueden especificar un &uacute;nico conjunto de conexiones.</p>
+<p>Un conjunto de conexiones JDBC es un grupo de conexiones reutilizables para una determinada base de datos. Como la creaci&oacute;n de cada nueva conexi&oacute;n f&iacute;sica lleva mucho tiempo, el servidor mantiene un conjunto de conexiones disponibles para mejorar el rendimiento. Cuando una aplicaci&oacute;n solicita una conexi&oacute;n, obtiene una del conjunto. Cuando una aplicaci&oacute;n cierra una conexi&oacute;n, &eacute;sta se devuelve al conjunto.</p>
+<p>Cuando se crea un conjunto de conexiones con Consola de Administraci&oacute;n, est&aacute; definiendo los aspectos de una conexi&oacute;n con una base de datos espec&iacute;fica.</p>
+<p>Utilice la p&aacute;gina Conjuntos de conexiones JDBC para configurar conjuntos de conexiones JDBC.</p>
+<p>Para cada conjunto de conexiones se proporciona la siguiente informaci&oacute;n.</p>
+<dl>
+<dt>Nombre de conjunto</dt>
+<dd>
+<p>El nombre del conjunto de conexiones.</p>
 </dd>
 <dt>Tipo de recurso</dt>
-<dd><p>El tipo de recurso del conjunto de conexiones.</p>
-
+<dd>
+<p>El tipo de recurso del conjunto de conexiones.</p>
 </dd>
 <dt>Nombre de clase</dt>
-<dd><p>El nombre de clase espec&#237;fico del proveedor que implementa las API <tt>javax.sql.XADataSource</tt>, <tt>java.sql.ConnectionPoolDataSource</tt>, <tt>javax.sql.DataSource</tt> o <tt>java.sql.Driver</tt>.</p>
-
+<dd>
+<p>El nombre de clase espec&iacute;fico del proveedor que implanta las API <code>javax.sql.XADataSource</code>, <code>java.sql.ConnectionPoolDataSource</code>, <code>javax.sql.DataSource</code> o <code>java.sql.Driver</code>.</p>
 </dd>
-<dt>Descripci&#243;n</dt>
-<dd><p>Una breve descripci&#243;n del conjunto de conexiones.</p>
-
+<dt>Descripci&oacute;n</dt>
+<dd>
+<p>Una breve descripci&oacute;n del conjunto de conexiones.</p>
 </dd>
 </dl>
-<p>La tabla Conjuntos tambi&#233;n contiene las siguientes opciones.</p>
-
-<dl><dt>Nuevo</dt>
-<dd><p>Bot&#243;n para crear un nuevo conjunto de conexiones.</p>
-
+<p>La tabla Conjuntos tambi&eacute;n contiene las siguientes opciones.</p>
+<dl>
+<dt>Nuevo</dt>
+<dd>
+<p>Bot&oacute;n para crear un nuevo conjunto de conexiones.</p>
 </dd>
 <dt>Eliminar</dt>
-<dd><p>Bot&#243;n para eliminar uno o m&#225;s conjuntos de conexiones seleccionados.</p>
-
+<dd>
+<p>Bot&oacute;n para eliminar uno o m&aacute;s conjuntos de conexiones seleccionados.</p>
 </dd>
 </dl>
-<a name="gkond"></a><h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-setdbaccess.html">Para configurar el acceso a la base de datos</a></p>
-
+<a id="sthref39" name="sthref39"></a>
+<h5>Tareas relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-setdbaccess.html">Configurar el Acceso a la Base de Datos</a></p>
 </li>
-<li><p><a href="task-integratejdbcdriver.html">Para integrar un controlador JDBC</a></p>
-
+<li>
+<p><a href="task-integratejdbcdriver.html">Integrar un Controlador JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">Para crear un conjunto de conexiones JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">Crear un Pool de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooledit.html">Para editar la configuraci&#243;n general del conjunto de conexiones JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooledit.html">Editar Configuraci&oacute;n General de los Pools de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">Para verificar la configuraci&#243;n del conjunto de conexiones</a></p>
-
+<li>
+<p><a href="task-verifyconnpoolsettings.html">Verificar la Configuraci&oacute;n del Pool de Conexiones</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">Para editar atributos avanzados del conjunto de conexiones JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">Editar Atributos Avanzados de Pools de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">Editar las Propiedades de los Pools de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">Para eliminar un conjunto de conexiones JDBC</a></p>
-
-</li></ul>
-<a name="gkolr"></a><h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=add-resources-1"><tt>add-resources</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">Suprimir un Pool de Conexiones JDBC</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jdbc-connection-pool-1"><tt>create-jdbc-connection-pool</tt>(1)</a></p>
-
+</ul>
+<a id="sthref40" name="sthref40"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00001"><code>add-resources</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jdbc-connection-pool-1"><tt>delete-jdbc-connection-pool</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00036"><code>create-jdbc-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jdbc-connection-pools-1"><tt>list-jdbc-connection-pools</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00088"><code>delete-jdbc-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=ping-connection-pool-1"><tt>ping-connection-pool</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00173"><code>list-jdbc-connection-pools</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-database-1"><tt>start-database</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00214"><code>ping-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-database-1"><tt>stop-database</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00234"><code>start-database</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00239"><code>stop-database</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

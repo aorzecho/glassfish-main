@@ -1,101 +1,100 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-clusterinstances"></a><h4>Instancias de servidor agrupadas</h4>
-<a name="indexterm-173"></a><a name="indexterm-174"></a><p>Utilice la p&#225;gina Instancias de servidor agrupadas para crear y administrar instancias
-de Servidor GlassFish en el cl&#250;ster actual.</p>
+<p><a id="ref-clusterinstances" name="ref-clusterinstances"></a><a id="GHCLU00006" name="GHCLU00006"></a></p>
 
-<p>El campo Nombre de cl&#250;ster es un campo de s&#243;lo lectura que
-muestra el nombre del cl&#250;ster actual.</p>
-
-<p>La p&#225;gina Instancias de servidor agrupadas muestra una lista de las instancias
-que forman parte del cl&#250;ster actual. Para cada instancia se proporciona la
-informaci&#243;n siguiente.</p>
-
-<dl><dt>Nombre</dt>
-<dd><p>El nombre asignado a la instancia durante su creaci&#243;n. Al hacer clic en el nombre se abre la p&#225;gina <a href="ref-clusterinstanceedit.html">Informaci&#243;n general</a> para la instancia.</p>
-
+<h4><a id="sthref266" name="sthref266"></a><a id="sthref267" name="sthref267"></a>Instancias de Servidor en Cluster</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Instancias de Servidor en Cluster para crear y gestionar instancias de GlassFish Server en el cluster actual.</p>
+<p>El campo Nombre de Cluster es un campo de s&oacute;lo lectura que muestra el nombre del cluster actual.</p>
+<p>La p&aacute;gina Instancias de Servidor en Cluster muestra una lista de las instancias que son miembros del cluster actual. Para cada instancia se proporciona la informaci&oacute;n siguiente.</p>
+<dl>
+<dt>Nombre</dt>
+<dd>
+<p>Nombre que se asign&oacute; a la instancia en el momento de su creaci&oacute;n. Al hacer clic en el nombre se abrir&aacute; la p&aacute;gina <a href="ref-clusterinstanceedit.html">Informaci&oacute;n General</a> de la instancia.</p>
 </dd>
-<dt>Peso de LB</dt>
-<dd><p>Entero que representa la ponderaci&#243;n de equilibrio de carga de la instancia.</p>
-
-<p>La ponderaci&#243;n de equilibrio de carga determina la proporci&#243;n de todas las solicitudes con respecto al cl&#250;ster que debe procesar la instancia.</p>
-
-<p>Por ejemplo, en un cl&#250;ster de dos instancias, puede necesitar que una instancia procese una solicitud de cuatro, y que otra procese las otras tres. En este caso, configure la ponderaci&#243;n de la instancia que debe procesar una de las cuatro solicitudes como 1 y la ponderaci&#243;n de la otra instancia como 3. Si prefiere usar porcentajes, defina las ponderaciones de las instancias como 25 y 75, respectivamente.</p>
-
-<p>La ponderaci&#243;n predeterminada es 100. </p>
-
+<dt>Peso de Equilibrador de Carga</dt>
+<dd>
+<p>Entero que representa el peso de equilibrio de carga de la instancia.</p>
+<p>El peso de equilibrio de carga determina la proporci&oacute;n de todas las solicitudes con respecto al cluster que debe procesar la instancia.</p>
+<p>Por ejemplo, en un cluster de dos instancias, puede necesitar que una instancia procese una solicitud de cuatro, y que otra procese las otras tres. En este caso, defina el peso de la instancia que debe procesar una de las cuatro solicitudes en 1 y el peso de la otra instancia en 3. Si prefiere usar porcentajes, defina los pesos de las instancias en 25 y 75, respectivamente.</p>
+<p>El peso por defecto es 100.</p>
 </dd>
-<dt>Configuraci&#243;n</dt>
-<dd><p>la configuraci&#243;n a la que hace referencia la instancia. Al hacer clic en la configuraci&#243;n se abre la p&#225;gina <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3028&id=ref-configuration">Configuraciones</a> para la instancia.</p>
-
+<dt>Configuraci&oacute;n</dt>
+<dd>
+<p>Configuraci&oacute;n a la que hace referencia la instancia. Al hacer clic en la configuraci&oacute;n se abrir&aacute; la p&aacute;gina <a href="../../../common/es/help/missingtopic.html">Configuraciones</a> para la instancia.</p>
 </dd>
 <dt>Nodo</dt>
-<dd><p>Nombre del nodo en el que reside la instancia. Al hacer clic en el nombre se abre la p&#225;gina <a href="ref-nodeedit.html">Editar nodo</a> del nodo.</p>
-
+<dd>
+<p>Nombre del nodo en el que reside la instancia. Al hacer clic en el nombre se abrir&aacute; la p&aacute;gina <a href="ref-nodeedit.html">Editar Nodo</a> del nodo.</p>
 </dd>
 <dt>Estado</dt>
-<dd><p>Una indicaci&#243;n de si la instancia se est&#225; ejecutando, si es necesario reiniciar para que se actualice con cambios de configuraci&#243;n, o si no se est&#225; ejecutando. Este campo es de s&#243;lo lectura.</p>
-
+<dd>
+<p>Indicaci&oacute;n de si la instancia se est&aacute; ejecutando, si es necesario reiniciar para que se actualice con cambios de configuraci&oacute;n o si no se est&aacute; ejecutando. Este campo es de s&oacute;lo lectura.</p>
 </dd>
 </dl>
-<p>La tabla Instancias del servidor tambi&#233;n contiene las opciones siguientes.</p>
-
-<dl><dt>Nuevo</dt>
-<dd><p>Bot&#243;n para agregar una instancia al cl&#250;ster.</p>
-
+<p>La tabla Instancias de Servidor tambi&eacute;n contiene las opciones siguientes.</p>
+<dl>
+<dt>Nuevo</dt>
+<dd>
+<p>Bot&oacute;n para agregar una instancia al cluster.</p>
 </dd>
-<dt>Borrar</dt>
-<dd><p>Bot&#243;n para eliminar una o varias instancias seleccionadas del cl&#250;ster.</p>
-
-
-<hr><p><b>Precauci&#243;n - </b>Si utiliza un cl&#250;ster Java Message Service (JMS) con un agente maestro, no suprima la instancia asociada al agente maestro. Si esta instancia se debe suprimir, utilice el subcomando <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=change-master-broker-1"><tt>change-master-broker</tt>(1)</a> para asignar el agente maestro a una instancia diferente.</p>
-
+<dt>Suprimir</dt>
+<dd>
+<p>Bot&oacute;n para eliminar una o varias instancias seleccionadas del cluster.</p>
 
 <hr>
-</dd>
-<dt>Inicio</dt>
-<dd><p>Bot&#243;n para iniciar una o varias instancias seleccionadas en el cl&#250;ster.</p>
+<p><b>Atenci&oacute;n:</b></p>
+si utiliza un cluster Java Message Service (JMS) con un broker maestro, no suprima la instancia asociada al broker maestro. Si esta instancia se debe suprimir, utilice el subcomando <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00005"><code>change-master-broker</code>(1)</a> para asignar el broker maestro a una instancia diferente.
+<hr>
 
 </dd>
-<dt>Detener</dt>
-<dd><p>Bot&#243;n para detener una o varias instancias seleccionadas en el cl&#250;ster.</p>
-
+<dt>Iniciar</dt>
+<dd>
+<p>Bot&oacute;n para iniciar una o varias instancias seleccionadas en el cluster.</p>
+</dd>
+<dt>Parar</dt>
+<dd>
+<p>Bot&oacute;n para parar una o varias instancias seleccionadas en el cluster.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-create-clustered-instance.html">Para agregar una instancia de Servidor GlassFish a un cl&#250;ster</a></p>
-
+<a id="sthref268" name="sthref268"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-create-clustered-instance.html">Agregar una Instancia de GlassFish Server a un Cluster</a></p>
 </li>
-<li><p><a href="task-delete-clustered-instances.html">Para suprimir instancias de Servidor GlassFish agrupadas en cl&#250;ster</a></p>
-
+<li>
+<p><a href="task-delete-clustered-instances.html">Suprimir Instancias de GlassFish Server en Cluster</a></p>
 </li>
-<li><p><a href="task-start-clustered-instances.html">Para iniciar instancias de Servidor GlassFish agrupadas en cl&#250;ster</a></p>
-
+<li>
+<p><a href="task-start-clustered-instances.html">Iniciar Instancias de GlassFish Server en Cluster</a></p>
 </li>
-<li><p><a href="task-stop-clustered-instances.html">Para detener instancias de Servidor GlassFish agrupadas en cl&#250;ster</a></p>
-
-</li></ul>
-<h5>Subcomandos <tt>asadmin</tt> equivalentes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-instance-1"><tt>create-instance</tt>(1)</a></p>
-
+<li>
+<p><a href="task-stop-clustered-instances.html">Parar las Instancias de GlassFish Server en Cluster</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-instance-1"><tt>delete-instance</tt>(1)</a></p>
-
+</ul>
+<a id="sthref269" name="sthref269"></a>
+<h5>Subcomandos asadmin Equivalentes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00033"><code>create-instance</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-instances-1"><tt>list-instances</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00085"><code>delete-instance</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-instance-1"><tt>start-instance</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00170"><code>list-instances</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=stop-instance-1"><tt>stop-instance</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00236"><code>start-instance</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00241"><code>stop-instance</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

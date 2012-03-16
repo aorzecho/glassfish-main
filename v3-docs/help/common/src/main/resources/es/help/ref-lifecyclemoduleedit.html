@@ -1,65 +1,70 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-lifecyclemoduleedit"></a><h4>Editar m&#243;dulo de ciclo de vida</h4>
-<a name="indexterm-190"></a><p>Consulte la p&#225;gina Editar m&#243;dulo de ciclo de vida para modificar la
-configuraci&#243;n del m&#243;dulo de ciclo de vida.</p>
+<p><a id="ref-lifecyclemoduleedit" name="ref-lifecyclemoduleedit"></a><a id="GHCOM00081" name="GHCOM00081"></a></p>
 
-<p>La p&#225;gina Editar m&#243;dulo de ciclo de vida contiene las opciones siguientes.</p>
-
-<dl><dt>Nombre</dt>
-<dd><p>Nombre del m&#243;dulo del ciclo de vida. &#201;ste campo es de s&#243;lo lectura. &#218;nicamente puede especificar un nombre al crear un nuevo m&#243;dulo de ciclo de vida.</p>
-
+<h4><a id="sthref335" name="sthref335"></a>Editar M&oacute;dulo de Ciclo de Vida</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Consulte la p&aacute;gina Editar M&oacute;dulo de Ciclo de Vida para modificar la configuraci&oacute;n del m&oacute;dulo de ciclo de vida.</p>
+<p>La p&aacute;gina Editar M&oacute;dulo de Ciclo de Vida contiene las opciones siguientes.</p>
+<dl>
+<dt>Nombre</dt>
+<dd>
+<p>Nombre del m&oacute;dulo del ciclo de vida. Este campo es de s&oacute;lo lectura. &Uacute;nicamente puede especificar un nombre al crear un nuevo m&oacute;dulo de ciclo de vida.</p>
 </dd>
-<dt>Nombre de clase</dt>
-<dd><p>Nombre completo del archivo de clase del m&#243;dulo de ciclo de vida. La clase debe implementar la interfaz <tt>com.sun.appserv.server.LifecycleListener</tt>.</p>
-
+<dt>Nombre de Clase</dt>
+<dd>
+<p>Nombre completo del archivo de clase del m&oacute;dulo de ciclo de vida. La clase debe implementar la interfaz <code>com.sun.appserv.server.LifecycleListener</code>.</p>
 </dd>
-<dt>Ruta de clase</dt>
-<dd><p>Ruta de clase para el m&#243;dulo de ciclo de vida. La ruta de clase especifica la ubicaci&#243;n del m&#243;dulo de ciclo de vida. El valor predeterminado es <tt></tt><i>dir_dominio</i><tt>/applications</tt>. Si el m&#243;dulo ya se encuentra en este directorio (es decir, en la ruta de clase del servidor), este campo puede dejarse en blanco.</p>
-
+<dt>Classpath</dt>
+<dd>
+<p>Classpath para el m&oacute;dulo de ciclo de vida. La classpath especifica la ubicaci&oacute;n del m&oacute;dulo de ciclo de vida. El valor por defecto es <i>domain-dir</i><code>/applications</code>. Si el m&oacute;dulo ya se encuentra en este directorio (es decir, en la Classpath del servidor), este campo puede dejarse en blanco.</p>
 </dd>
-<dt>Orden de carga</dt>
-<dd><p>Orden en el que este m&#243;dulo de ciclo de vida se cargar&#225; en el arranque. Los m&#243;dulos con valores de orden de carga inferiores se cargar&#225;n antes. El valor puede estar entre 101 y el <tt>MAXINT</tt> del sistema operativo. Los valores de 0 a 100 est&#225;n reservados.</p>
-
+<dt>Orden de Carga</dt>
+<dd>
+<p>Orden en el que este m&oacute;dulo de ciclo de vida se cargar&aacute; al inicio. Los m&oacute;dulos con valores de orden de carga enteros inferiores se cargar&aacute;n antes. El valor puede estar entre 101 y el <code>MAXINT</code> del sistema operativo. Los valores de 0 a 100 est&aacute;n reservados.</p>
 </dd>
-<dt>Descripci&#243;n</dt>
-<dd><p>Descripci&#243;n del m&#243;dulo de ciclo de vida.</p>
-
+<dt>Descripci&oacute;n</dt>
+<dd>
+<p>Descripci&oacute;n del m&oacute;dulo de ciclo de vida.</p>
 </dd>
 <dt>Estado</dt>
-<dd><p>Si se selecciona esta opci&#243;n, el m&#243;dulo de ciclo de vida estar&#225; habilitado. Esta opci&#243;n est&#225; habilitada por defecto.</p>
-
+<dd>
+<p>Si se selecciona esta opci&oacute;n, el m&oacute;dulo de ciclo de vida estar&aacute; activado. Esta opci&oacute;n est&aacute; activada por defecto.</p>
 </dd>
-<dt>Error en la carga</dt>
-<dd><p>Si se selecciona esta opci&#243;n, el servidor se apagar&#225; si se produce un error en la carga del m&#243;dulo de ciclo de vida. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dt>Ante Fallo de Carga</dt>
+<dd>
+<p>Si se selecciona esta opci&oacute;n, el servidor se apagar&aacute; si se produce un fallo en la carga del m&oacute;dulo de ciclo de vida. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-lifecyclemodulenew.html">Creaci&#243;n de un m&#243;dulo de ciclo de vida</a></p>
-
+<a id="sthref336" name="sthref336"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-lifecyclemodulenew.html">Crear un M&oacute;dulo de Ciclo de Vida</a></p>
 </li>
-<li><p><a href="task-lifecyclemoduleedit.html">Edici&#243;n de un m&#243;dulo de ciclo de vida</a></p>
-
+<li>
+<p><a href="task-lifecyclemoduleedit.html">Editar un M&oacute;dulo de Ciclo de Vida</a></p>
 </li>
-<li><p><a href="task-lifecyclemoduledelete.html">Eliminaci&#243;n de un m&#243;dulo de ciclo de vida</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-lifecycle-module-1"><tt>create-lifecycle-module</tt>(1)</a></p>
-
+<li>
+<p><a href="task-lifecyclemoduledelete.html">Suprimir un M&oacute;dulo de Ciclo de Vida</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-lifecycle-modules-1"><tt>list-lifecycle-modules</tt>(1)</a></p>
-
+</ul>
+<a id="sthref337" name="sthref337"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00043"><code>create-lifecycle-module</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-lifecycle-module-1"><tt>delete-lifecycle-module</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00181"><code>list-lifecycle-modules</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00095"><code>delete-lifecycle-module</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,101 +1,79 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-threadpools"></a><h4>Conjuntos de subprocesos</h4>
-<a name="indexterm-79"></a><a name="indexterm-80"></a><p>Utilice la p&#225;gina Conjuntos de subprocesos para configurar los conjuntos de subprocesos.</p>
+<p><a id="ref-threadpools" name="ref-threadpools"></a><a id="GHWEB00027" name="GHWEB00027"></a></p>
 
-<p>Utilice los conjuntos de subprocesos para limitar un servicio a un n&#250;mero
-espec&#237;fico de subprocesos simult&#225;neos.</p>
-
-<p>Al instalar por primera vez Servidor GlassFish, existen dos conjuntos de subprocesos
-de forma predeterminada. El conjunto de subprocesos denominado <tt>http-thread-pool</tt> est&#225; configurado para que lo
-utilicen escuchas de red, mientras que el denominado <tt>thread-pool-1</tt> est&#225; configurado para
-que lo utilice el ORB para solicitudes RMI/IIOP. Es posible que necesite
-crear un conjunto de subprocesos con los distinta configuraci&#243;n para su uso por
-parte de determinados tipos de aplicaciones y determinados sistemas de hardware, o bien
-para ajustar los conjuntos de subprocesos predeterminados en funci&#243;n de sus necesidades.</p>
-
-<p>La m&#225;quina virtual de Java (JVM) puede admitir muchos subprocesos de ejecuci&#243;n
-a la vez. Para mejorar el rendimiento Servidor GlassFish tiene uno o
-m&#225;s conjuntos de subprocesos. Es posible asignar conjuntos de subprocesos espec&#237;ficos a
-servicios concretos.</p>
-
-<p>Un conjunto de subprocesos puede utilizarse para diversos servicios. Los subprocesos de
-solicitud controlan las solicitudes de los usuarios. Cuando un servidor recibe una
-solicitud, la asigna a un subproceso libre del conjunto de subprocesos. El
-subproceso ejecuta las solicitudes del cliente y devuelve los resultados. Por ejemplo,
-si la solicitud necesita utilizar un recurso de sistema que est&#225; actualmente
-ocupado, el subproceso espera hasta que el recurso est&#233; libre antes de
-permitirle utilizar dicho recurso.</p>
-
-<p>Especifique el n&#250;mero m&#237;nimo y m&#225;ximo de subprocesos que estar&#225;n reservados para
-solicitudes. El conjunto de subprocesos se ajusta din&#225;micamente entre estos dos valores.
-El tama&#241;o m&#237;nimo del conjunto de subprocesos que se especifica indica al
-servidor que asigne por lo menos este n&#250;mero de subprocesos de reserva
-para solicitudes. Ese n&#250;mero se incrementa hasta el tama&#241;o de conjunto de
-subprocesos m&#225;ximo especificado.</p>
-
-<p>El incremento del n&#250;mero de subprocesos disponibles para un proceso permite al
-proceso responder a m&#225;s solicitudes de forma simult&#225;nea.</p>
-
-<p>Para cada conjunto de subprocesos, aparece la siguiente informaci&#243;n.</p>
-
-<dl><dt>Id. del conjunto de subprocesos</dt>
-<dd><p>El nombre del conjunto de subprocesos.</p>
-
+<h4><a id="sthref169" name="sthref169"></a><a id="sthref170" name="sthref170"></a>Pools de Threads</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Pools de Threads para configurar los pools de threads.</p>
+<p>Utilice los pools de threads para limitar un servicio a un n&uacute;mero espec&iacute;fico de threads simult&aacute;neos.</p>
+<p>Al instalar por primera vez Servidor GlassFish, existen dos pools de threads por defecto. El pool de threads denominado <code>http-thread-pool</code> est&aacute; configurado para que lo utilicen listeners de red, mientras que el denominado <code>thread-pool-1</code> est&aacute; configurado para que lo utilice el ORB para solicitudes RMI/IIOP. Es posible que necesite crear un pool de threads con la distinta configuraci&oacute;n para su uso por parte de determinados tipos de aplicaciones y determinados sistemas de hardware, o bien para ajustar los pools de threads por defecto en funci&oacute;n de sus necesidades.</p>
+<p>Java Virtual Machine (JVM) puede admitir muchos threads de ejecuci&oacute;n a la vez. Para mejorar el rendimiento Servidor GlassFish tiene uno o m&aacute;s pools de threads. Es posible asignar pools de threads espec&iacute;ficos a servicios concretos.</p>
+<p>Un pool de threads puede utilizarse para diversos servicios. Los threads de solicitud manejan las solicitudes de los usuarios. Cuando un servidor recibe una solicitud, la asigna a un thread libre del pool de threads. El thread ejecuta las solicitudes del cliente y devuelve los resultados. Por ejemplo, si la solicitud necesita utilizar un recurso de sistema que est&aacute; actualmente ocupado, el thread espera hasta que el recurso est&eacute; libre antes de permitirle utilizar dicho recurso.</p>
+<p>Especifique el n&uacute;mero m&iacute;nimo y m&aacute;ximo de threads que estar&aacute;n reservados para solicitudes. El pool de threads se ajusta din&aacute;micamente entre estos dos valores. El tama&ntilde;o m&iacute;nimo del pool de threads que se especifica indica al servidor que asigne por lo menos este n&uacute;mero de threads de reserva para solicitudes. Ese n&uacute;mero se incrementa hasta el tama&ntilde;o de pool de threads m&aacute;ximo especificado.</p>
+<p>El incremento del n&uacute;mero de threads disponibles para un proceso permite al proceso responder a m&aacute;s solicitudes de forma simult&aacute;nea.</p>
+<p>Para cada pool de threads, se muestra la siguiente informaci&oacute;n.</p>
+<dl>
+<dt>ID del Pool de Threads</dt>
+<dd>
+<p>El nombre del pool de threads.</p>
 </dd>
-<dt>Tama&#241;o m&#225;ximo del conjunto de subprocesos</dt>
-<dd><p>El n&#250;mero m&#225;ximo de subprocesos del conjunto de subprocesos.</p>
-
+<dt>Tama&ntilde;o M&aacute;ximo del Pool de Threads</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de threads del pool de threads.</p>
 </dd>
-<dt>Tama&#241;o m&#237;nimo del conjunto de subprocesos</dt>
-<dd><p>El n&#250;mero m&#237;nimo de subprocesos en el conjunto de subprocesos. Estos subprocesos se crean cuando se instancia el conjunto de subprocesos.</p>
-
+<dt>Tama&ntilde;o M&iacute;nimo de Pool de Threads</dt>
+<dd>
+<p>El n&uacute;mero m&iacute;nimo de threads en el pool de threads. Estos threads se crean cuando se instancia el pool de threads.</p>
 </dd>
-<dt>Tama&#241;o de cola m&#225;ximo</dt>
-<dd><p>El n&#250;mero m&#225;ximo de mensajes que pueden ponerse en cola hasta que haya subprocesos disponibles para procesarlos. </p>
-
+<dt>Tama&ntilde;o de Cola M&aacute;ximo</dt>
+<dd>
+<p>El n&uacute;mero m&aacute;ximo de mensajes que pueden ponerse en cola hasta que haya threads disponibles para procesarlos.</p>
 </dd>
-<dt>Tiempo de espera de subproceso inactivo</dt>
-<dd><p>La cantidad de tiempo en segundos a partir de la cual se eliminar&#225;n los subprocesos inactivos del conjunto. </p>
-
+<dt>Timeout de Thread Inactivo</dt>
+<dd>
+<p>La cantidad de tiempo en segundos a partir de la cual se suprimir&aacute;n los threads inactivos del pool.</p>
 </dd>
 </dl>
-<p>La tabla Conjuntos de subprocesos contiene adem&#225;s las siguientes opciones. </p>
-
-<dl><dt>Nuevo</dt>
-<dd><p>Bot&#243;n para crear un nuevo conjunto de subprocesos. </p>
-
+<p>La tabla Pools de Threads contiene adem&aacute;s las siguientes opciones.</p>
+<dl>
+<dt>Nuevo</dt>
+<dd>
+<p>Bot&oacute;n para crear un nuevo pool de threads.</p>
 </dd>
-<dt>Borrar</dt>
-<dd><p>Bot&#243;n para eliminar uno o varios conjunto de subprocesos seleccionados. </p>
-
+<dt>Suprimir</dt>
+<dd>
+<p>Bot&oacute;n para suprimir uno o varios pool de threads seleccionados.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-threadpoolnew.html">C&#243;mo crear un conjunto de subprocesos</a></p>
-
+<a id="sthref171" name="sthref171"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-threadpoolnew.html">Crear un Pool de Threads</a></p>
 </li>
-<li><p><a href="task-threadpooledit.html">C&#243;mo editar un conjunto de subprocesos</a></p>
-
+<li>
+<p><a href="task-threadpooledit.html">Editar un Pool de Threads</a></p>
 </li>
-<li><p><a href="task-threadpooldelete.html">C&#243;mo eliminar un conjunto de subprocesos</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-threadpool-1"><tt>create-threadpool</tt>(1)</a></p>
-
+<li>
+<p><a href="task-threadpooldelete.html">Suprimir un Pool de Threads</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-threadpools-1"><tt>list-threadpools</tt>(1)</a></p>
-
+</ul>
+<a id="sthref172" name="sthref172"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00060"><code>create-threadpool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-threadpool-1"><tt>delete-threadpool</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00204"><code>list-threadpools</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00111"><code>delete-threadpool</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

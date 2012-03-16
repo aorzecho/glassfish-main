@@ -1,60 +1,74 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-setdbaccess" name="task-setdbaccess"></a><a id="GHJDB00030" name="GHJDB00030"></a></p>
 
-
-<a name="task-setdbaccess"></a><h3>Para configurar el acceso a la base de datos</h3><a name="indexterm-1"></a><a name="indexterm-2"></a><p>Para almacenar, organizar y recuperar datos, la mayor&#237;a de las aplicaciones utilizan
-bases de datos relacionales.</p>
-
-<p>Servidor GlassFish incluye una copia de la base de datos Java DB
-y se ha configurado previamente con la capacidad para acceder a esta base
-de datos.</p>
-
+<h4><a id="sthref2" name="sthref2"></a>Configurar el Acceso a la Base de Datos</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Para almacenar, organizar y recuperar datos, la mayor&iacute;a de las aplicaciones utilizan bases de datos relacionales.</p>
+<p>GlassFish Server incluye una copia de la base de datos Java DB y se ha configurado previamente con la capacidad para acceder a esta base de datos.</p>
 <ol>
-<li><b>Instale un producto de base de datos compatible. </b><p>Para obtener una lista de las bases de datos admitidas, consulte las
-<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2434&id=sjsaseern"><i>Oracle GlassFish Server 3.1-3.1.1 Release Notes </i></a>.</p></li>
-<li><b>Instale un controlador compatible con la API JDBC (controlador JDBC) de la
-base de datos.</b><p>Aseg&#250;rese de que el controlador que desea utilizar para crear conexiones de
-bases de datos est&#225; instalado en todos los servidores en los que
-va a implementar la fuente de datos.</p></li>
-<li><b>Aseg&#250;rese de que desde la instancia del servidor de dominio se puede
-acceder al archivo JAR del controlador. </b><p>Consulte <a href="task-integratejdbcdriver.html">Para integrar un controlador JDBC</a>.</p></li>
-<li><b>Cree la base de datos. </b><p>Generalmente, el proveedor de la aplicaci&#243;n suministra scripts para crear y rellenar
-la base de datos.</p></li>
-<li><b>Cree un conjunto de conexiones para la base de datos. </b><p>Consulte <a href="task-jdbcconnectionpoolnew.html">Para crear un conjunto de conexiones JDBC</a>.</p></li>
-<li><b>Cree un recurso JDBC que se&#241;ale el conjunto de conexiones. </b><p>Consulte <a href="task-jdbcresourcenew.html">Para crear un recurso JDBC</a>.</p></li></ol><p></b>V&#233;ase tambi&#233;n</b></p>
-<ul><li><p><a href="task-integratejdbcdriver.html">Para integrar un controlador JDBC</a></p>
-
+<li>
+<p>Instale un producto de base de datos compatible.</p>
+<p>Para obtener una lista de bases de datos soportadas, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRLN"><i>Notas T&eacute;cnicas sobre la Versi&oacute;n de Oracle GlassFish Server</i></a>.</p>
 </li>
-<li><p><a href="task-jdbcresourcenew.html">Para crear un recurso JDBC</a></p>
-
+<li>
+<p>Instale un controlador que soporte la API JDBC (controlador JDBC) de la base de datos.</p>
+<p>Aseg&uacute;rese de que el controlador que desea utilizar para crear conexiones de bases de datos est&aacute; instalado en todos los servidores en los que va a desplegar el origen de datos.</p>
 </li>
-<li><p><a href="task-jdbcresourcesedit.html">Para editar un recurso JDBC</a></p>
-
+<li>
+<p>Aseg&uacute;rese de que desde la instancia del servidor de dominio se pueda acceder al archivo JAR del controlador.</p>
+<p>Consulte <a href="task-integratejdbcdriver.html">Integrar un Controlador JDBC</a>.</p>
 </li>
-<li><p><a href="task-jdbcresourcesdelete.html">Para eliminar un recurso JDBC</a></p>
-
+<li>
+<p>Cree la base de datos.</p>
+<p>Generalmente, el proveedor de la aplicaci&oacute;n suministra scripts para crear y rellenar la base de datos.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">Para crear un conjunto de conexiones JDBC</a></p>
-
+<li>
+<p>Cree un conjunto de conexiones para la base de datos.</p>
+<p>Consulte <a href="task-jdbcconnectionpoolnew.html">Crear un Pool de Conexiones JDBC</a>.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooledit.html">Para editar la configuraci&#243;n general del conjunto de conexiones JDBC</a></p>
-
+<li>
+<p>Cree un recurso JDBC que apunte al pool de conexiones.</p>
+<p>Consulte <a href="task-jdbcresourcenew.html">Crear un Recurso JDBC</a>.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">Para editar atributos avanzados del conjunto de conexiones JDBC</a></p>
-
+</ol>
+<a id="sthref3" name="sthref3"></a>
+<h5>Consulte tambi&eacute;n</h5>
+<ul>
+<li>
+<p><a href="task-integratejdbcdriver.html">Integrar un Controlador JDBC</a></p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">Para verificar la configuraci&#243;n del conjunto de conexiones</a></p>
-
+<li>
+<p><a href="task-jdbcresourcenew.html">Crear un Recurso JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar las propiedades del conjunto de conexiones JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcresourcesedit.html">Editar un Recurso JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">Para eliminar un conjunto de conexiones JDBC</a></p>
+<li>
+<p><a href="task-jdbcresourcesdelete.html">Suprimir un Recurso JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">Crear un Pool de Conexiones JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooledit.html">Editar Configuraci&oacute;n General de los Pools de Conexiones JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">Editar Atributos Avanzados de Pools de Conexiones JDBC</a></p>
+</li>
+<li>
+<p><a href="task-verifyconnpoolsettings.html">Verificar la Configuraci&oacute;n del Pool de Conexiones</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">Editar las Propiedades de los Pools de Conexiones JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">Suprimir un Pool de Conexiones JDBC</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

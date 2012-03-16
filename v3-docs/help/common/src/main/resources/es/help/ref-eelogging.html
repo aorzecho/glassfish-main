@@ -1,68 +1,73 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-eelogging"></a><h4>Configuraci&#243;n de registro</h4>
-<a name="indexterm-195"></a><p>Utilice la p&#225;gina Configuraci&#243;n de registro para configurar el registro para la
-instancia o cl&#250;ster de Servidor GlassFish seleccionado.</p>
+<p><a id="ref-eelogging" name="ref-eelogging"></a><a id="GHCOM00094" name="GHCOM00094"></a></p>
 
-<p>La p&#225;gina Configuraci&#243;n de registro contiene las siguientes opciones.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<h4><a id="sthref355" name="sthref355"></a>Configuraci&oacute;n de Registrador</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina Configuraci&oacute;n de Registrador para configurar el registro para la instancia o cluster de Servidor GlassFish seleccionado.</p>
+<p>La p&aacute;gina Configuraci&oacute;n de Registrador contiene las siguientes opciones.</p>
+<dl>
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
-<dt>Escribir en el registro del sistema</dt>
-<dd><p>Si esta opci&#243;n est&#225; seleccionada, la salida de registro se env&#237;a al recurso <tt>syslog</tt> adem&#225;s de al registro del servidor. Esta caracter&#237;stica s&#243;lo est&#225; disponible en sistemas Solaris y Linux. Esta opci&#243;n se deshabilita por defecto.</p>
-
+<dt>Escribir en el log del sistema</dt>
+<dd>
+<p>Si esta opci&oacute;n est&aacute; activada, la salida de registro se env&iacute;a al recurso <code>syslog</code> adem&aacute;s de al log del servidor. Esta funci&oacute;n s&oacute;lo est&aacute; disponible en sistemas Solaris y Linux. Esta opci&oacute;n est&aacute; desactivada por defecto.</p>
 </dd>
-<dt>Archivo de registro</dt>
-<dd><p>Nombre o ubicaci&#243;n alternativa para el archivo de registro del servidor. La ubicaci&#243;n predeterminada es <tt>glassfish/domains/domain1/logs/server.log</tt>.</p>
-
+<dt>Archivo Log</dt>
+<dd>
+<p>Nombre o ubicaci&oacute;n alternativa para el archivo log del servidor. La ubicaci&oacute;n por defecto es <i>domain-dir</i><code>/logs/server.log</code>.</p>
 </dd>
-<dt>Controlador de registro</dt>
-<dd><p>Nombre de clase absoluto de un controlador de registro personalizado. Un controlador de registro personalizado le permite enviar registros a un destino diferente de <tt>server.log</tt> o <tt>syslog</tt>. El controlador personalizado debe comprender la clase <tt>java.util.logging.Handler</tt> (una API compatible con JSR 047). Indique tambi&#233;n la clase de controlador en la ruta de clase Servidor GlassFish para que el controlador se instale durante el arranque del servidor.</p>
-
+<dt>Manejador de Logs</dt>
+<dd>
+<p>Nombre de clase absoluto de un manejador de log personalizado. Un manejador de registro personalizado le permite enviar logs a un destino distinto a <code>server.log</code> o <code>syslog</code>. El manejador personalizado debe comprender la clase <code>java.util.logging.Handler</code> (una API compatible con JSR 047). Indique tambi&eacute;n la clase de manejador en la classpath Servidor GlassFish para que el manejador se instale durante el inicio del servidor.</p>
 </dd>
-<dt>L&#237;mite de rotaci&#243;n de archivo</dt>
-<dd><p>Tama&#241;o en bytes que el archivo de registro del servidor debe alcanzar antes de rotar. Cuando el registro del servidor alcanza el tama&#241;o especificado, Servidor GlassFish crea un nuevo archivo vac&#237;o llamado <tt>server.log</tt> y cambia el nombre del archivo antiguo <tt>server.log_</tt><i>date</i>, donde <i>date</i> es la fecha y hora en la que se produjo la rotaci&#243;n del archivo. El valor predeterminado es 2 megabytes. El valor m&#237;nimo para el l&#237;mite es 500 kilobytes; si se especifica un valor inferior, el archivo rota cuando alcanza el tama&#241;o de 500 KB. Para deshabilitar la rotaci&#243;n del archivo de registros, defina el valor en 0.</p>
-
+<dt>L&iacute;mite de Rotaci&oacute;n de Archivo</dt>
+<dd>
+<p>Tama&ntilde;o en bytes que el archivo log del servidor debe alcanzar antes de rotar. Cuando el log del servidor alcanza el tama&ntilde;o especificado, Servidor GlassFish crea un nuevo archivo vac&iacute;o llamado <code>server.log</code> y cambia el nombre del archivo antiguo <code>server.log_</code><i>date</i>, donde <i>date</i> es la fecha y hora en la que se produjo la rotaci&oacute;n del archivo. El valor por defecto es 2 megabytes. El valor m&iacute;nimo para el l&iacute;mite es 500 kilobytes; si se especifica un valor inferior, el archivo rota cuando alcanza el tama&ntilde;o de 500 KB. Para desactivar la rotaci&oacute;n del archivo log, defina el valor en 0.</p>
 </dd>
-<dt>L&#237;mite temporal de rotaci&#243;n de archivo</dt>
-<dd><p>Minutos que transcurren antes de que el archivo del servidor tenga que rotar. El valor predeterminado es 0, lo que significa que el archivo rota cuando alcanza el tama&#241;o especificado en el campo L&#237;mite de rotaci&#243;n de archivo. Si especifica uno o m&#225;s minutos, el l&#237;mite de tiempo tiene prioridad sobre el l&#237;mite de tama&#241;o especificado en el campo L&#237;mite de rotaci&#243;n de archivo.</p>
-
+<dt>L&iacute;mite Temporal de Rotaci&oacute;n de Archivo</dt>
+<dd>
+<p>Minutos que transcurren antes de que el log del servidor tenga que rotar. El valor por defecto es 0, lo que significa que el archivo rota cuando alcanza el tama&ntilde;o especificado en el campo L&iacute;mite de Rotaci&oacute;n de Archivo. Si especifica uno o m&aacute;s minutos, el l&iacute;mite de tiempo tiene prioridad sobre el l&iacute;mite de tama&ntilde;o especificado en el campo L&iacute;mite de Rotaci&oacute;n de Archivo.</p>
 </dd>
-<dt>Vaciar Frecuencia</dt>
-<dd><p>El n&#250;mero m&#225;ximo de mensajes que se escribir&#225;n desde la cola en el registro del servidor a la vez. El valor predeterminado es 1. </p>
-
+<dt>Frecuencia de Vaciado</dt>
+<dd>
+<p>N&uacute;mero m&aacute;ximo de mensajes que se escribir&aacute;n desde la cola en el log del servidor a la vez. El valor por defecto es 1.</p>
 </dd>
 </dl>
-<h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-eelogging.html">Para configurar par&#225;metros generales de registros</a></p>
-
+<a id="sthref356" name="sthref356"></a>
+<h5>Tareas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-eelogging.html">Definir la Configuraci&oacute;n de Registro General</a></p>
 </li>
-<li><p><a href="task-eelogginglevels.html">Para configurar niveles de registro</a></p>
-
+<li>
+<p><a href="task-eelogginglevels.html">Configurar los Niveles de Log</a></p>
 </li>
-<li><p><a href="task-logviewer.html">C&#243;mo visualizar archivos de registro para el DAS</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=collect-log-files-1"><tt>collect-log-files</tt>(1)</a></p>
-
+<li>
+<p><a href="task-logviewer.html">Ver Archivos Log para DAS</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-log-levels-1"><tt>list-log-levels</tt>(1)</a></p>
-
+</ul>
+<a id="sthref357" name="sthref357"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00007"><code>collect-log-files</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=rotate-log-1"><tt>rotate-log</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00183"><code>list-log-levels</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-log-levels-1"><tt>set-log-levels</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00224"><code>rotate-log</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00228"><code>set-log-levels</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

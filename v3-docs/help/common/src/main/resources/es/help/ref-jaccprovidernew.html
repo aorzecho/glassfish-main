@@ -1,76 +1,65 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jaccprovidernew"></a><h4>Nuevo proveedor JACC</h4>
-<a name="indexterm-225"></a><p>Consulte la p&#225;gina Nuevo proveedor JACC para crear un nuevo proveedor JACC
-(Java Authorization Contract for Containers) que cumple la especificaci&#243;n JSR-115/196 que pueden
-utilizar m&#243;dulos de autorizaci&#243;n de terceros para las aplicaciones que se ejecutan
-en Servidor GlassFish. El proveedor JACC se crea como un elemento <tt>jacc-provider</tt>
-dentro del elemento <tt>security-service</tt> el archivo <tt>domain.xml</tt> del dominio.</p>
+<p><a id="ref-jaccprovidernew" name="ref-jaccprovidernew"></a><a id="GHCOM00115" name="GHCOM00115"></a></p>
 
-<p>La instalaci&#243;n predeterminada de Servidor GlassFish incluye dos proveedores de JACC denominados
-<tt>default</tt> y <tt>simple</tt>. Los nuevos proveedores JACC que se creen se a&#241;aden
-a estos dos proveedores predeterminados. Estos proveedores JACC de Servidor GlassFish predeterminados
-implementan un motor de autorizaci&#243;n simple, basado en archivos, que cumple la
-especificaci&#243;n JACC.</p>
-
-<p>Todos los proveedores JACC de Servidor GlassFish deben utilizar la API Java
-Authentication and Authorization Service (JAAS). JAAS habilita servicios para autenticar e imponer
-controles de acceso a los usuarios. JAAS implementa una versi&#243;n de la
-tecnolog&#237;a Java del marco est&#225;ndar Pluggable Authentication Module (PAM).</p>
-
-<p>JSR 196 permite desarrollar complementos en diferentes niveles. Puede definir complementos que
-cambian la forma en que se configura el nuevo mecanismo de autenticaci&#243;n,
-como <tt>AuthConfigProvider</tt> y <tt>AuthConfigFactory</tt>. Tambi&#233;n puede definir nuevos mecanismos de autenticaci&#243;n, como
-<tt>ServerAuthModule</tt> y <tt>ClientAuthModule</tt>.</p>
-
-<p>La p&#225;gina Nuevo proveedor JACC contiene las siguientes opciones.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<h4><a id="sthref412" name="sthref412"></a>Nuevo proveedor JACC</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Consulte la p&aacute;gina Nuevo proveedor JACC para crear un nuevo proveedor JACC (Java Authorization Contract for Containers) que cumple la especificaci&oacute;n JSR-115/196 que pueden utilizar m&oacute;dulos de autorizaci&oacute;n de terceros para las aplicaciones que se ejecutan en Servidor GlassFish. El proveedor JACC se crea como un elemento <code>jacc-provider</code> dentro del elemento <code>security-service</code> el archivo <code>domain.xml</code> del dominio.</p>
+<p>La instalaci&oacute;n de Servidor GlassFish por defecto incluye dos proveedores JACC, denominados <code>default</code> y <code>simple</code>. Los nuevos proveedores JACC que se creen se agregan estos dos proveedores por defecto. Los proveedores JACC por defecto de Servidor GlassFish implementan un motor de autorizaci&oacute;n sencillo basado en archivos que cumple la especificaci&oacute;n JACC.</p>
+<p>Todos los proveedores JACC de Servidor GlassFish deben utilizar la API Java Authentication and Authorization Service (JAAS). JAAS habilita servicios para autenticar e imponer controles de acceso a los usuarios. JAAS implementa una versi&oacute;n de la tecnolog&iacute;a Java del marco est&aacute;ndar Pluggable Authentication Module (PAM).</p>
+<p>JSR 196 permite desarrollar complementos en diferentes niveles. Puede definir complementos que cambian la forma en que se configura el nuevo mecanismo de autenticaci&oacute;n, como <code>AuthConfigProvider</code> y <code>AuthConfigFactory</code>. Tambi&eacute;n puede definir nuevos mecanismos de autenticaci&oacute;n, como <code>ServerAuthModule</code> y <code>ClientAuthModule</code>.</p>
+<p>La p&aacute;gina Nuevo proveedor JACC contiene las siguientes opciones.</p>
+<dl>
+<dt>Nombre de la configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
 <dt>Nombre</dt>
-<dd><p>Nombre del proveedor JACC. Este nombre se utiliza para hacer referencia al elemento <tt>jacc-provider</tt> elemento en <tt>domain.xml</tt>. </p>
-
+<dd>
+<p>Nombre del proveedor JACC. Este nombre se utiliza para hacer referencia al elemento <code>jacc-provider</code> elemento en <code>domain.xml</code>.</p>
 </dd>
-<dt>Configuraci&#243;n de directivas</dt>
-<dd><p>El nombre de clase completo de <tt>javax.security.jacc.PolicyConfigurationFactory.provider</tt> que implementa el <tt>javax.security.jacc.PolicyConfigurationFactory</tt> espec&#237;fico del proveedor.</p>
-
+<dt>Configuraci&oacute;n de directivas</dt>
+<dd>
+<p>El nombre de clase completo de <code>javax.security.jacc.PolicyConfigurationFactory.provider</code> que implementa el <code>javax.security.jacc.PolicyConfigurationFactory</code> espec&iacute;fico del proveedor.</p>
 </dd>
 <dt>Proveedor de directivas</dt>
-<dd><p>El nombre de clase completo de <tt>javax.security.jacc.policy.provider </tt> que implementa <tt>java.security.Policy</tt>.</p>
-
+<dd>
+<p>El nombre de clase completo de <code>javax.security.jacc.policy.provider</code> que implementa <code>java.security.Policy</code>.</p>
 </dd>
 <dt>Propiedades adicionales</dt>
-<dd><p>Propiedades adicionales del proveedor JACC. Para obtener una descripci&#243;n sobre las propiedades adicionales disponibles para proveedores JACC, consulte <a href="ref-jaccproviderprop.html">Propiedades espec&#237;ficas de los proveedores JACC</a>.</p>
-
+<dd>
+<p>Propiedades adicionales del proveedor JACC. Para obtener una descripci&oacute;n sobre las propiedades adicionales disponibles para proveedores JACC, consulte <a href="ref-jaccproviderprop.html">Propiedades espec&iacute;ficas de los proveedores JACC</a>.</p>
 </dd>
 </dl>
-<a name="gkont"></a><h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-jaccprovidernew.html">Creaci&#243;n de un proveedor JACC</a></p>
-
+<a id="sthref413" name="sthref413"></a>
+<h5>Tareas relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-jaccprovidernew.html">Crear un Proveedor JACC</a></p>
 </li>
-<li><p><a href="task-jaccprovideredit.html">Edici&#243;n de un proveedor JACC</a></p>
-
+<li>
+<p><a href="task-jaccprovideredit.html">Editar un Proveedor de JACC</a></p>
 </li>
-<li><p><a href="task-jaccproviderdelete.html">Eliminaci&#243;n de un proveedor JACC</a></p>
-
-</li></ul>
-<a name="gkoov"></a><h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jaccproviderdelete.html">Suprimir un Proveedor de JACC</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
-
+</ul>
+<a id="sthref414" name="sthref414"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00034"><code>create-jacc-provider</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00086"><code>delete-jacc-provider</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00171"><code>list-jacc-providers</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

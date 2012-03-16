@@ -1,62 +1,59 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-ejbtimerservice"></a><h4>Servicio de temporizador de EJB</h4>
-<a name="indexterm-18"></a><a name="indexterm-19"></a><a name="indexterm-20"></a><p>Utilice la p&#225;gina de Servicio de temporizador EJB para configurar el servicio
-de temporizador EJB.</p>
+<p><a id="ref-ejbtimerservice" name="ref-ejbtimerservice"></a><a id="GHEJB00003" name="GHEJB00003"></a></p>
 
-<p>El servicio de temporizador consiste en un servicio de notificaciones transaccional y
-continuo proporcionado por el contenedor de Enterprise Bean. Se utiliza para planificar
-notificaciones o eventos utilizados por Enterprise Beans. El servicio de temporizador puede
-enviar notificaciones a todos los Enterprise Beans menos los beans de sesi&#243;n
-con estado. Los temporizadores continuos establecidos por el servicio no se destruyen
-si el servidor se apaga o se reinicia.</p>
-
-<p>La p&#225;gina de Servicio de temporizador EJB contiene las opciones siguientes.</p>
-
-<dl><dt>Cargar valores predeterminados</dt>
-<dd><p>Bot&#243;n para restablecer las opciones que tienen valores por defecto a estos. Las opciones que no tienen valores por defecto no se modifican.</p>
-
+<h4><a id="sthref23" name="sthref23"></a><a id="sthref24" name="sthref24"></a><a id="sthref25" name="sthref25"></a>Servicio de Termporizador EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilice la p&aacute;gina de Servicio de temporizador EJB para configurar el servicio de temporizador EJB.</p>
+<p>El servicio de temporizador consiste en un servicio de notificaciones transaccional y continuo proporcionado por el contenedor de Enterprise Bean. Se utiliza para planificar notificaciones o eventos utilizados por Enterprise Beans. El servicio de temporizador puede enviar notificaciones a todos los Enterprise Beans menos los beans de sesi&oacute;n con estado. Los temporizadores continuos establecidos por el servicio no se destruyen si el servidor se apaga o se reinicia.</p>
+<p>La p&aacute;gina de Servicio de temporizador EJB contiene las opciones siguientes.</p>
+<dl>
+<dt>Cargar valores predeterminados</dt>
+<dd>
+<p>Bot&oacute;n para restaurar la configuraci&oacute;n que tiene valores por defecto a estos valores. La configuraci&oacute;n que no tiene valores por defecto no se modifica.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>El nombre de la configuraci&#243;n a la que aplicar los valores de esta p&#225;gina. Este campo es de s&#243;lo lectura.</p>
-
+<dt>Nombre de Configuraci&oacute;n</dt>
+<dd>
+<p>Nombre de la configuraci&oacute;n a la que se aplican los valores de esta p&aacute;gina. Este campo es de s&oacute;lo lectura.</p>
 </dd>
-<dt>Intervalo m&#237;nimo de entrega</dt>
-<dd><p>Cantidad m&#237;nima de minisegundos antes de que suceda la pr&#243;xima expiraci&#243;n de temporizador de un determinado temporizador. Si se establece un intervalo demasiado bajo, el servidor se puede sobrecargar. El valor predeterminado es 1.000.</p>
-
+<dt>Intervalo m&iacute;nimo de entrega</dt>
+<dd>
+<p>Cantidad m&iacute;nima de minisegundos antes de que suceda la pr&oacute;xima expiraci&oacute;n de temporizador de un determinado temporizador. Si se establece un intervalo demasiado bajo, el servidor se puede sobrecargar. El valor predeterminado es 1.000.</p>
 </dd>
-<dt>N&#250;mero m&#225;ximo de reintentos de entrega</dt>
-<dd><p>Cantidad m&#225;xima de intentos que el servicio de temporizador efect&#250;a para entregar una expiraci&#243;n de temporizador que vence por excepci&#243;n o por una operaci&#243;n de deshacer. El valor predeterminado es 1. </p>
-
+<dt>N&uacute;mero m&aacute;ximo de reintentos de entrega</dt>
+<dd>
+<p>Cantidad m&aacute;xima de intentos que el servicio de temporizador efect&uacute;a para entregar una expiraci&oacute;n de temporizador que vence por excepci&oacute;n o por una operaci&oacute;n de deshacer. El valor predeterminado es 1.</p>
 </dd>
 <dt>Intervalo de reintento de entrega</dt>
-<dd><p>Intervalo en milisegundos entre reintentos de entrega. El valor predeterminado es 5.000.</p>
-
+<dd>
+<p>Intervalo en milisegundos entre reintentos de entrega. El valor predeterminado es 5.000.</p>
 </dd>
 <dt>Fuente de datos de temporizador</dt>
-<dd><p>El nombre JNDI del recurso de JDBC que se usar&#225; como fuente de datos de temporizador. Si se especifica, este valor, se anula el valor predeterminado de <tt>jdbc/__TimerPool</tt> para la aplicaci&#243;n del sistema de servicio de temporizador.</p>
-
+<dd>
+<p>El nombre JNDI del recurso de JDBC que se usar&aacute; como fuente de datos de temporizador. Si se especifica, este valor anula el valor por defecto de <code>jdbc/__TimerPool</code> para la aplicaci&oacute;n del sistema de servicio de temporizador.</p>
 </dd>
 </dl>
+<a id="sthref26" name="sthref26"></a>
 <h5>Tareas relacionadas</h5>
-
-<ul><li><p><a href="task-ejbtimerservice.html">Para configurar el servicio de temporizador EJB</a></p>
-
+<ul>
+<li>
+<p><a href="task-ejbtimerservice.html">Configurar el Servicio de termporizador EJB</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2963&id=task-ejbgeneral">Para configurar las opciones de EJB</a></p>
-
+<li>
+<p><a href="../../../ejb-lite/es/help/missingtopic.html">Para configurar las opciones de EJB</a></p>
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">Para configurar las opciones de conjuntos MDB</a></p>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">Definir la Configuraci&oacute;n de Pools MDB</a></p>
+</li>
+</ul>
+<a id="sthref27" name="sthref27"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00205"><code>list-timers</code>(1)</a></p>
 
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-timers-1"><tt>list-timers</tt>(1)</a></p>
-
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle y/o sus subsidiarias. Todos los derechos reservados. <a href="docinfo.html">Advertencia legal</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
