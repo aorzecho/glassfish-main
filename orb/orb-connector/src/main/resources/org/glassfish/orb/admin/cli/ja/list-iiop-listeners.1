@@ -1,0 +1,57 @@
+LIST-IIOP-LISTENER(1)                                    LIST-IIOP-LISTENER(1)
+
+名前
+       list-iiop-listeners - 既存のIIOPリスナーを一覧表示します
+
+概要
+           list-iiop-listeners [--help]
+           [target]
+
+説明
+       list-iiop-listenersサブコマンドは既存のIIOPリスナーを一覧表示します。このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+オペランド
+       target
+           このオペランドは、IIOPリスナーを一覧表示するターゲットを指定します。有効な値は次のとおりです:
+
+           server
+               デフォルトのサーバー・インスタンス
+               serverのリスナーを一覧表示します。これはデフォルト値です。
+
+           configuration_name
+               指定した構成のリスナーを一覧表示します。
+
+           cluster_name
+               指定したクラスタのリスナーを一覧表示します。
+
+           instance_name
+               特定のサーバー・インスタンスのリスナーを一覧表示します。
+
+例
+       例 1, list-iiop-listenersサブコマンドの使用
+           次のコマンドは、サーバー・インスタンスのすべてのIIOPリスナーを一覧表示します。
+
+               asadmin> list-iiop-listeners
+               orb-listener-1
+               SSL
+               SSL_MUTUALAUTH
+               sample_iiop_listener
+               Command list-iiop-listeners executed successfully.
+
+終了ステータス
+       0
+           コマンドは正常に実行されました
+
+       1
+           コマンドの実行時にエラーが発生しました
+
+関連項目
+       create-iiop-listener(1), delete-iiop-listener(1)
+
+       asadmin(1M)
+
+                                 2010年8月18日           LIST-IIOP-LISTENER(1)

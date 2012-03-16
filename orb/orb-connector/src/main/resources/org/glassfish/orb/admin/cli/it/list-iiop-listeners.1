@@ -1,0 +1,61 @@
+LIST-IIOP-LISTENER(1)                                    LIST-IIOP-LISTENER(1)
+
+NOME
+       list-iiop-listeners - elenca i listener IIOP esistenti
+
+SINTASSI
+           list-iiop-listeners [--help]
+           [target]
+
+DESCRIZIONE
+       Il comando secondario list-iiop-listeners elenca i listener IIOP
+       esistenti. Questo comando secondario è supportato solo in modalità
+       remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+OPERANDI
+       target
+           Questo operando specifica la destinazione per cui devono essere
+           elencati i listener IIOP. I valori validi sono:
+
+           server
+               Elenca i listener nell'istanza server predefinita server ed è
+               il valore predefinito.
+
+           configuration_name
+               Elenca i listener nella configurazione specificata.
+
+           cluster_name
+               Elenca i listener nel cluster specificato.
+
+           instance_name
+               Elenca i listener in un'istanza server specifica.
+
+ESEMPI
+       Esempio 1, Utilizzo del comando secondario list-iiop-listeners
+           Il seguente comando elenca tutti i listener IIOP per l'istanza
+           server:
+
+               asadmin> list-iiop-listeners
+               orb-listener-1
+               SSL
+               SSL_MUTUALAUTH
+               sample_iiop_listener
+               Command list-iiop-listeners executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-iiop-listener(1), delete-iiop-listener(1)
+
+       asadmin(1M)
+
+                                18 agosto 2010           LIST-IIOP-LISTENER(1)

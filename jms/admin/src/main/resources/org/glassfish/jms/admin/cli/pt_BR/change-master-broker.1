@@ -1,0 +1,50 @@
+CHANGE-MASTER-BROK(1)                                    CHANGE-MASTER-BROK(1)
+
+NOME
+       change-master-broker - altera o broker mestre em um cluster de Message
+       Queue, fornecendo serviços JMS para um cluster do GlassFish Server.
+
+SINOPSE
+           change-master-broker [--help]
+           clustered-instance-name
+
+DESCRIçãO
+       O subcomando change-master-broker altera o broker mestre em um cluster
+       de Message Queue que é o provedor JMS de um cluster do GlassFish
+       Server. Por default, broker mestre é aquele associado à primeira
+       instância configurada no cluster do GlassFish Server.
+
+       Esse subcomando só é suportado no modo remoto. Os subcomandos asadmin
+       remotos requerem um servidor de administração de domínios (DAS) esteja
+       em execução.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+OPERANDOS
+       clustered-instance-name
+           O nome da instância do servidor cujo broker do Message Queue deve
+           se tornar o broker master para o cluster do Message Queue. Essa
+           instância do servidor deve ser uma instância em um cluster do
+           GlassFish Server.
+
+EXEMPLOS
+       Exemplo 1, Alterando o broker master
+           O seguinte subcomando altera o broker mestre do Message Queue para
+           o utilizado pela instância clusterizada clustinst3.
+
+               asadmin> change-master-broker clustinst3
+               Command change-master-broker executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       asadmin(1M)
+
+                            11 de fevereiro de 2011      CHANGE-MASTER-BROK(1)

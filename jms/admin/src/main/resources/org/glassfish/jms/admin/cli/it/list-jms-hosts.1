@@ -1,0 +1,62 @@
+LIST-JMS-HOSTS(1)                                            LIST-JMS-HOSTS(1)
+
+NOME
+       list-jms-hosts - elenca gli host JMS esistenti
+
+SINTASSI
+           list-jms-hosts [--help]
+           [--target target]
+
+DESCRIZIONE
+       Il comando secondario list-jms-hosts elenca gli host JMS (Java Message
+       Service) per il servizio JMS.
+
+       Questo comando secondario è supportato solo in modalità remota. Per i
+       comandi secondari asadmin è necessario un server di amministrazione del
+       dominio (DAS) in esecuzione.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Limita l'elenco degli host JMS per una destinazione specifica. I
+           valori validi sono i seguenti:
+
+           server
+               Elenca gli host JMS per l'istanza server predefinita. Questo è
+               il valore predefinito.
+
+           configuration-name
+               Elenca gli host JMS per la configurazione specificata.
+
+           cluster-name
+               Elenca gli host JMS per tutte le istanze server nel cluster
+               specificato.
+
+           instance-name
+               Elenca gli host JMS per l'istanza server specificata.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco di tutti gli host JMS
+           Il seguente comando secondario elenca gli host JMS per il servizio
+           JMS.
+
+               asadmin> list-jms-hosts server-config
+               default_JMS_host
+               MyNewHost
+               Command list-jms-hosts executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-jms-host(1), delete-jms-host(1), jms-ping(1)
+
+       asadmin(1M)
+
+                                22 ottobre 2010              LIST-JMS-HOSTS(1)

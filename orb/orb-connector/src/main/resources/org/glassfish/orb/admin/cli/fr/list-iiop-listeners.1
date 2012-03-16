@@ -1,0 +1,64 @@
+LIST-IIOP-LISTENER(1)                                    LIST-IIOP-LISTENER(1)
+
+NOM
+       list-iiop-listeners - répertorie les processus d'écoute IIOP existants
+
+SYNOPSIS
+           list-iiop-listeners [--help]
+           [target]
+
+DESCRIPTION
+       La sous-commande list-iiop-listeners répertorie les processus
+       d'écoute IIOP existants. Cette sous-commande est prise en charge en
+       mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+OPÉRANDES
+       target
+           Cet opérande spécifie la cible pour laquelle les processus
+           d'écoute IIOP doivent être répertoriés. Les valeurs valides sont
+           les suivantes :
+
+           server
+               Répertorie les processus d'écoute dans l'instance de serveur
+               par défaut server et constitue la valeur par défaut.
+
+           configuration_name
+               Répertorie les processus d'écoute dans la configuration
+               spécifiée.
+
+           cluster_name
+               Répertorie les processus d'écoute dans le cluster spécifié.
+
+           instance_name
+               Répertorie les processus d'écoute dans une instance de serveur
+               donnée.
+
+EXEMPLES
+       Exemple 1, Utilisation de la sous-commande list-iiop-listeners
+           La commande suivante répertorie tous les processus d'écoute IIOP
+           pour l'instance de serveur :
+
+               asadmin> list-iiop-listeners
+               orb-listener-1
+               SSL
+               SSL_MUTUALAUTH
+               sample_iiop_listener
+               Command list-iiop-listeners executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-iiop-listener(1), delete-iiop-listener(1)
+
+       asadmin(1M)
+
+                                 18 août 2010            LIST-IIOP-LISTENER(1)

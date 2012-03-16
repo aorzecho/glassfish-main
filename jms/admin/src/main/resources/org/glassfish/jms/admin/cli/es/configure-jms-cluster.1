@@ -1,0 +1,122 @@
+CONFIGURE-JMS-CLUS(1)                                    CONFIGURE-JMS-CLUS(1)
+
+NOMBRE DE REFERENCIA
+       configure-jms-cluster - Configura el cluster de cola de mensajes
+       proporcionando servicios JMS a un cluster de GlassFish Server.
+
+SINOPSIS
+           configure-jms-cluster [--help]
+           [--clustertype={conventional|enhanced}]
+           [--configstoretype={masterbroker|shareddb}]
+           [--messagestoretype={file|jdbc}]
+           [--dbvendor database-vendor]
+           [--dbuser database-user]
+           [--dburl database-url]
+           [--property property-list]
+           cluster-name
+
+DESCRIPCIÓN
+       configure-jms-cluster configura el cluster de cola de mensajes
+       proporcionando servicios JMS a un cluster de GlassFish Server.
+
+       Este subcomando se debe utilizar antes de iniciar el cluster de
+       GlassFish Server por primera vez. De lo contrario, siga las
+       instrucciones de la sección sobre administración de Java Message
+       Service (JMS) en Oracle GlassFish Server Administration Guide.
+
+       Este subcomando sólo está soportado en modo remoto. Los subcomandos
+       asadmin remotos necesitan un servidor de administración de dominio
+       (DAS).
+
+OPCIONES
+       --help, -?
+           Muestra el texto de ayuda para el subcomando.
+
+       --clustertype
+           Tipo de cluster de cola de mensajes que se va a configurar. El
+           valor
+            conventional especifica un cluster convencional y el valor
+           enhanced especifica un cluster mejorado de alta disponibilidad.
+           Para obtener más información sobre estos tipos de cluster de cola
+           de mensajes, consulte la sección sobre clusters de broker en Oracle
+           GlassFish Server Message Queue Technical Overview.
+
+           El valor por defecto es conventional.
+
+           Si se especifica enhanced, se ignoran las opciones configstoretype
+           y
+            messagestoretype.
+
+       --configstoretype
+           Tipo de almacén de datos para datos de configuración de un cluster
+           convencional. El valor masterbroker especifica el uso de un broker
+           maestro para almacenar y gestionar los datos de configuración. El
+           valor shareddb especifica el uso de una base de datos compartida
+           para almacenar los datos de configuración.
+
+           El valor por defecto es masterbroker.
+
+           Esta opción se ignora si clustertype está definido en enhanced.
+
+       --messagestoretype
+           Tipo de almacén de datos para los datos de los mensajes en los
+           brokers de un cluster convencional. El valor file especifica un
+           almacén de archivos. El valor
+            JDBC especifica un almacén JDBC.
+
+           El valor por defecto es file.
+
+           Esta opción se ignora si clustertype está definido en enhanced.
+
+       --dbvendor, --dbuser, --dburl
+           Proveedor de la base de datos, el usuario y la URL de acceso de la
+           base de datos de JDBC que se debe utilizar en cualquiera de estas
+           situaciones:
+
+           ·   Cuando clustertype está definido en enhanced
+
+           ·   Cuando configstoretype está definido en shareddb
+
+           ·   Cuando messagestoretype está definido en jdbc
+
+           Para obtener información sobre proveedores soportados y los
+           formatos de direcciones url de acceso de cada proveedor, consulte
+           la sección sobre persistencia basada en JDBC en Oracle GlassFish
+           Server Message Queue Administration Guide.
+
+               Nota
+               ┌────────────────────────────────────────┐
+               │Nota Para especificar la contraseña del │
+               │usuario de la base de datos de JDBC,    │
+               │utilice la opción de la utilidad        │
+               │--passwordfile del comando Utilidad     │
+               │asadmin(1M) después de agregar la       │
+               │entrada AS_ADMIN_JMSDBPASSWORD al       │
+               │archivo de contraseña.                  │
+               └────────────────────────────────────────┘
+
+       --property
+           Lista de propiedades específicas del proveedor de base de datos
+           adicionales para configurar la base de datos de JDBC para que la
+           utilice el cluster de cola de mensajes. Especifica las propiedades
+           en una lista de nombres de propiedades separados por dos puntos (:)
+           y valores con el formato:
+
+               prop1name=prop1value:prop2name=prop2value
+
+OPERANDOS
+       cluster-name
+           Nombre del cluster de GlassFish Server cluster para el que el
+           cluster de cola de mensajes va a proporcionar servicios JMS.
+
+ESTADO DE SALIDA
+       0
+           Subcomando ejecutado correctamente
+
+       1
+           Error al ejecutar el subcomando
+
+CONSULTE TAMBIÉN
+       Utilidad asadmin(1M)
+
+                                  11 Feb 2011            CONFIGURE-JMS-CLUS(1)

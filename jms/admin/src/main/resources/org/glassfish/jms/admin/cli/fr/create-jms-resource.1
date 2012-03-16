@@ -1,0 +1,205 @@
+CREATE-JMS-RESOURC(1)                                    CREATE-JMS-RESOURC(1)
+
+NOM
+       create-jms-resource - crée une ressource JMS
+
+SYNOPSIS
+           create-jms-resource [--help]
+           --restype type
+           [--target target]
+           [--enabled={true|false}]
+           [--description text]
+           [--property (name=value)[:name=value]*]
+           jndi_name
+
+DESCRIPTION
+       La sous-commande create-jms-resource crée une ressource de fabrique de
+       connexions JMS (Java Message Service) ou une ressource de
+       destination JMS.
+
+       Cette sous-commande est prise en charge en mode distant uniquement. Les
+       sous-commandes asadmin distantes requièrent l'exécution d'un serveur
+       d'administration de domaine (DAS).
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --restype
+           Type de ressource JMS, qui peut être javax.jms.Topic,
+           javax.jms.Queue, javax.jms.ConnectionFactory,
+           javax.jms.TopicConnectionFactory ou
+           javax.jms.QueueConnectionFactory.
+
+       --target
+           Crée la ressource JMS uniquement pour la cible indiquée. Les
+           valeurs valides sont les suivantes :
+
+               Note
+               ┌────────────────────────────────────────┐
+               │Remarque La ressource est toujours      │
+               │créée pour le domaine dans son          │
+               │ensemble, mais l'élément <resource-ref> │
+               │de la ressource est créé uniquement     │
+               │pour l'option --target indiquée. Cela   │
+               │signifie que, bien que la ressource     │
+               │soit définie au niveau du domaine, elle │
+               │n'est active que sur l'option --target  │
+               │indiquée.                               │
+               └────────────────────────────────────────┘
+
+           server
+               Crée la ressource JMS pour l'instance de serveur par défaut.
+               Ceci est la valeur par défaut.
+
+           domain
+               Crée la ressource JMS pour le domaine.
+
+           cluster-name
+               Crée la ressource JMS pour chaque instance de serveur dans le
+               cluster indiqué.
+
+           instance-name
+               Crée la ressource JMS pour l'instance de serveur indiquée.
+
+       --enabled
+           Si la valeur est true (valeur par défaut), la ressource est activée
+           au moment de l'exécution.
+
+       --description
+           Texte de description de la ressource JMS.
+
+       --property
+           Paires nom/valeur de l'attribut facultatives pour configurer la
+           ressource JMS.
+
+           Vous pouvez spécifier les propriétés suivantes pour une ressource
+           de fabrique de connexions :
+
+           ClientId
+               ID client pour une fabrique de connexions destinée à être
+               utilisée par un abonné de manière durable.
+
+           AddressList
+               Liste d'adresses de file d'attente des messages, séparées par
+               des virgules, qui spécifient les noms d'hôte (et éventuellement
+               les numéros de port) des instances de broker de message avec
+               lesquelles votre application va communiquer. Par exemple, la
+               valeur peut être earth ou earth:7677. Spécifiez le numéro de
+               port si le broker de message est exécuté sur un autre port que
+               le port par défaut (7676). obtenue à partir des hôtes JMS
+               définis dans la configuration de service JMS du serveur. La
+               valeur par défaut est localhost et le numéro de port par défaut
+               est 7676. Le client tentera de se connecter à un broker sur le
+               port 7676 de l'hôte local.
+
+           UserName
+               Nom utilisateur pour la fabrique de connexions. La valeur par
+               défaut est guest.
+
+           Password
+               Mot de passe pour la fabrique de connexions. La valeur par
+               défaut est guest.
+
+           ReconnectEnabled
+               La valeur true indique que l'exécution du client tente de se
+               reconnecter à un serveur de messagerie (ou à la liste des
+               adresses dans AddressList) lorsqu'une connexion est perdue. La
+               valeur par défaut est false.
+
+           ReconnectAttempts
+               Nombre de tentatives de connexion (ou de reconnexion) pour
+               chaque adresse dans AddressList avant que l'exécution du client
+               tente l'adresse suivante dans la liste. La valeur -1 indique
+               que le nombre de tentatives de reconnexion est illimité (le
+               client tentera de se connecter à la première adresse jusqu'à ce
+               qu'il y parvienne). La valeur par défaut est 6.
+
+           ReconnectInterval
+               Intervalle en millisecondes entre les tentatives de
+               reconnexion. Cet intervalle s'applique aux tentatives sur
+               chaque adresse dans AddressList, ainsi qu'aux adresses
+               suivantes dans la liste. Si l'intervalle est trop court, le
+               broker n'a pas le temps nécessaire à la récupération. S'il est
+               trop long, le délai de reconnexion peut être inacceptable. La
+               valeur par défaut est 30 000 millisecondes.
+
+           AddressListBehavior
+               Indique si les tentatives de connexion doivent suivre l'ordre
+               des adresses dans AddressList (PRIORITY) ou un ordre aléatoire
+               (RANDOM).  PRIORITY signifie que le processus de reconnexion
+               tentera toujours de se connecter à la première adresse de
+               serveur dans AddressList et qu'il n'utilisera une autre adresse
+               que si le premier broker n'est pas disponible. Si un grand
+               nombre de clients tentent de se connecter en utilisant la même
+               fabrique de connexions, choisissez RANDOM pour éviter qu'ils ne
+               soient tous connectés à la même adresse. La valeur par défaut
+               est la valeur AddressListBehavior de configuration de
+               service JMS du serveur.
+
+           AddressListIterations
+               Nombre d'itérations d'exécution du client dans AddressList en
+               vue d'établir (ou de rétablir) une connexion. La valeur -1
+               indique que le nombre de tentatives est illimité. La valeur par
+               défaut est -1.
+
+           Vous pouvez spécifier les propriétés suivantes pour la ressource de
+           destination :
+
+           Name
+               Nom de la destination physique à laquelle la ressource se
+               référera. La destination physique est créée automatiquement
+               lorsque vous lancez une application qui utilise la ressource de
+               destination. Vous pouvez également créer une destination
+               physique avec la sous-commande create-jmsdest. Si vous ne
+               spécifiez pas cette propriété, le service JMS crée une
+               destination physique avec le même nom que celui de la ressource
+               de destination (en remplaçant toute barre oblique dans le
+               nom JNDI par un trait de soulignement).
+
+           Description
+               Description de la destination physique.
+
+OPÉRANDES
+       jndi_name
+           Nom JNDI de la ressource JMS à créer.
+
+EXEMPLES
+       Exemple 1, Création d'une ressource de fabrique de connexions JMS pour
+       les abonnements durables
+           La sous-commande suivante crée une ressource de fabrique de
+           connexions de type javax.jms.ConnectionFactory dont le nom JNDI est
+           jms/DurableConnectionFactory. La propriété Clientld définit un ID
+           client sur la fabrique de connexions afin qu'elle puisse être
+           utilisée pour les abonnements durables. Généralement, le nom JNDI
+           de la ressource JMS inclut le sous-contexte de dénomination jms/.
+
+               asadmin> create-jms-resource --restype javax.jms.ConnectionFactory
+               --description "connection factory for durable subscriptions"
+               --property ClientId=MyID jms/DurableConnectionFactory
+               Connector resource jms/DurableConnectionFactory created.
+               Command create-jms-resource executed successfully.
+
+       Exemple 2, Création d'une ressource de destination JMS
+           La sous-commande suivante crée une ressource de destination dont le
+           nom JNDI est jms/MyQueue. La propriété Name spécifie la destination
+           physique à laquelle la ressource se réfère.
+
+               asadmin> create-jms-resource --restype javax.jms.Queue
+               --property Name=PhysicalQueue jms/MyQueue
+               Administered object jms/MyQueue created.
+               Command create-jms-resource executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       delete-jms-resource(1), list-jms-resources(1)
+
+       asadmin(1M)
+
+                                 11 fév. 2011            CREATE-JMS-RESOURC(1)

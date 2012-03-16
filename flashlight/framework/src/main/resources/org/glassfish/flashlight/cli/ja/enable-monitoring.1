@@ -1,0 +1,88 @@
+ENABLE-MONITORING(1)                                      ENABLE-MONITORING(1)
+
+名前
+       enable-monitoring -
+       サーバーまたは特定の監視可能なモジュールの監視を有効にします
+
+概要
+           enable-monitoring [--help]
+           [--mbean={false|true}]
+           [--dtrace={true|false]
+           [--modules modules[=level][:module[=level]]*
+           [--pid pid]
+           [--options options={true|false]]
+
+説明
+       enable-monitoringサブコマンドを使用すると、実行時にGlassFish
+       Serverまたは特定のモジュールの監視を有効にすることができます。変更は動的なので、サーバーを再起動する必要はありません。
+
+       デフォルトでは監視サービスは有効になっています。つまり、monitoring-service要素のmonitoring-enabled属性がtrueに設定されています。ただし、個々のモジュールのデフォルトの監視レベルはOFFになっています。--modulesオプションを指定してこのサブコマンドを実行すると、監視レベルをHIGHまたはLOWに設定することで、特定のモジュールの監視が有効になります。サブコマンドの実行時にレベルを指定しないと、レベルはデフォルトでHIGHに設定されます。
+
+       HIGHまたはLOWの特定の意味は、個々のコンテナによって決まります。監視可能なモジュールのリストについては、このヘルプ・ページの--modulesオプションを参照してください。
+
+       監視を有効にする別の方法として、setサブコマンドを使用することもできます。この場合、変更を有効にするにはサーバーを再起動する必要があります。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --mbean
+           Mbean監視を有効にします。デフォルト値はfalseです。
+
+       --dtrace
+           DTrace監視モジュールが存在する場合にのみ使用できます。Oracle
+           Solaris DTrace監視を有効にします。デフォルト値はfalseです。
+
+       --modules
+           監視レベルを指定することで、指定されたモジュールを有効にします。有効なレベルは、OFF、HIGH、LOWです。レベルが指定されていない場合、デフォルトの設定はHIGHです。複数のモジュールの場合は、コロン(:)で区切られます。監視可能なモジュールには、connector-connection-pool、connector-service、ejb-container、http-service、jdbc-connection-pool、jersey、jpa、jms-service、jvm、security、thread-pool、transaction-service、web-container、web-services-containerがあります。getサブコマンドを使用すると、その他のモジュールを一覧表示できます。
+
+       --pid
+           GlassFish
+           ServerJVMのプロセス識別子(PID)を指定します。監視が有効な場合、指定されたPIDに基づいてbtrace-agentがアタッチされます。システムでPIDを特定できないなど、特別な場合にのみ指定する必要があります。この場合、サブコマンドによってGlassFish
+           Serverプロセスに対応するPIDの指定が要求されます。
+
+       --options
+           次のbtrace-agentオプションを設定します。
+
+           debug
+               BTraceのデバッグを有効にします。デフォルト値はfalseです。
+
+例
+       例 1, GlassFish Serverの監視サービスの有効化
+           この例では、一般的な方法としてenable-monitoringフラグをtrue(デフォルトはtrue)に設定することで、GlassFish
+           Serverの監視を有効にします。
+
+               asadmin> enable-monitoring
+               Command enable-monitoring executed successfully
+
+       例 2, WebおよびEJBコンテナの監視の有効化
+           この例では、監視レベルを設定することで、特定のコンテナの監視を有効にします。
+
+               asadmin> enable-monitoring --modules web-container=LOW:ejb-container=HIGH
+               Command enable-monitoring executed successfully
+
+       例 3, 監視のデバッグの有効化
+           この例では、デバッグを有効にします。
+
+               asadmin> enable-monitoring --options debug=true
+               Command enable-monitoring executed successfully
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       disable-monitoring(1), monitor(1), list(1), get(1), set(1)
+
+       monitoring(5ASC)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server管
+
+                                 2010年11月1日            ENABLE-MONITORING(1)

@@ -1,0 +1,79 @@
+LIST-JMSDEST(1)                                                LIST-JMSDEST(1)
+
+NOME
+       list-jmsdest - elenca le destinazioni fisiche JMS esistenti
+
+SINTASSI
+           list-jmsdest [--help]
+           [--desttype type]
+           [target]
+
+DESCRIZIONE
+       Il comando secondario list-jmsdest elenca le destinazioni fisiche JMS
+       (Java Message Service).
+
+       Questo comando secondario è supportato solo in modalità remota. Per i
+       comandi secondari asadmin è necessario un server di amministrazione del
+       dominio (DAS) in esecuzione.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --desttype
+           Tipo di destinazione JMS da elencare. I valori validi sono topic e
+           queue.
+
+OPERANDI
+       target
+           Limita l'elenco alle destinazioni fisiche per una destinazione
+           specifica. I valori validi sono i seguenti:
+
+           server
+               Elenca le destinazioni fisiche per l'istanza server
+               predefinita. Questo è il valore predefinito.
+
+           configuration-name
+               Elenca le destinazioni fisiche nella configurazione
+               specificata.
+
+           cluster-name
+               Elenca le destinazioni fisiche per tutte le istanze server nel
+               cluster specificato.
+
+           instance-name
+               Elenca le destinazioni fisiche per l'istanza server
+               specificata.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco di tutte le destinazioni fisiche
+           Il seguente comando secondario elenca tutte le destinazioni
+           fisiche.
+
+               asadmin> list-jmsdest
+               PhysicalQueue
+               PhysicalTopic
+               Command list-jmsdest executed successfully.
+
+       Esempio 2, Visualizzazione dell'elenco di tutte le destinazioni fisiche
+       di un determinato tipo
+           Il seguente comando secondario elenca tutte le destinazioni fisiche
+           di tipo topic, ovvero tutti gli argomenti fisici.
+
+               asadmin> list-jmsdest --desttype topic
+               PhysicalTopic
+               Command list-jmsdest executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-jmsdest(1), delete-jmsdest(1), flush-jmsdest(1)
+
+       asadmin(1M)
+
+                               11 febbraio 2011                LIST-JMSDEST(1)

@@ -1,0 +1,80 @@
+CREATE-JMS-HOST(1)                                          CREATE-JMS-HOST(1)
+
+NOME
+       create-jms-host - cria um host JMS
+
+SINOPSE
+           create-jms-host [--help]
+           --mqhost mq-host --mqport mq-port
+           --mquser mq-user --mqpassword mq-password
+           [--target target]
+           jms_host_name
+
+DESCRIçãO
+       Cria um host JMS (Java Message Service) dentro do serviço JMS.
+
+       Esse subcomando só é suportado no modo remoto. Os subcomandos asadmin
+       remotos requerem um servidor de administração de domínios (DAS) esteja
+       em execução.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --mqhost
+           O nome de host para o serviço JMS.
+
+       --mqport
+           O número da porta utilizado pelo serviço JMS.
+
+       --mquser
+           O nome de usuário para o serviço JMS.
+
+       --mqpassword
+           A senha para o serviço JMS.
+
+       --target
+           Cria o host JMS somente para o destino especificado. Os valores
+           válidos são:
+
+           servidor
+               Cria o host JMS para a instância de servidor default. Este é o
+               valor default.
+
+           configuration-name
+               Cria o host JMS na configuração especificada.
+
+           cluster-name
+               Cria o host JMS para cada instância do servidor no cluster
+               especificado.
+
+           instance-name
+               Cria o host JMS para a instância de servidor especificada.
+
+OPERANDOS
+       jms_host_name
+           Um identificador único para o host JMS a ser criado.
+
+EXEMPLOS
+       Exemplo 1, Criando um host JMS utilizando uma porta não-default
+           O comando a seguir cria um host JMS denominado MyNewHost no sistema
+           pigeon.
+
+               asadmin> create-jms-host --mqhost pigeon.example.com --mqport 7677
+               --mquser admin --mqpassword admin MyNewHost
+               Jms Host MyNewHost created.
+               Command create-jms-host executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       list-jms-hosts(1), delete-jms-host(1), jms-ping(1)
+
+       asadmin(1M)
+
+                            11 de fevereiro de 2011         CREATE-JMS-HOST(1)

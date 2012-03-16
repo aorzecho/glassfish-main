@@ -1,0 +1,75 @@
+FLUSH-JMSDEST(1)                                              FLUSH-JMSDEST(1)
+
+NOM
+       flush-jmsdest - purge les messages dans une destination JMS.
+
+SYNOPSIS
+           flush-jmsdest [--help]
+           --desttype {topic|queue}
+           [--target target]
+           destname
+
+DESCRIPTION
+       La sous-commande flush-jmsdest efface les messages d'une destination
+       physique désignée dans la configuration JMS (Java Message Service) du
+       serveur.
+
+       Cette sous-commande est prise en charge en mode distant uniquement. Les
+       sous-commandes asadmin distantes requièrent l'exécution d'un serveur
+       d'administration de domaine (DAS).
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --desttype
+           Cette option indique le type de destination physique duquel vous
+           voulez purger les messages. Les types de destination pris en charge
+           sont topic et queue.
+
+       --target
+           Purge les messages à partir de la destination physique uniquement
+           pour la cible spécifiée. Les valeurs valides sont les suivantes :
+
+           server
+               Purge les messages à partir de la destination physique pour
+               l'instance de serveur par défaut. Ceci est la valeur par
+               défaut.
+
+           configuration-name
+               Purge les messages à partir de la destination physique dans la
+               configuration spécifiée.
+
+           cluster-name
+               Purge les messages à partir de la destination physique pour
+               chaque instance de serveur dans le cluster spécifié.
+
+           instance-name
+               Purge les messages à partir de la destination physique pour
+               l'instance de serveur spécifiée.
+
+OPÉRANDES
+       dest_name
+           Identificateur unique de la destination JMS à purger.
+
+EXEMPLES
+       Exemple 1, Purge des messages d'une destination physique
+           La sous-commande suivante purge les messages de la file d'attente
+           nommée PhysicalQueue.
+
+               asadmin> flush-jmsdest --desttype queue PhysicalQueue
+               Command flush-jmsdest executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-jmsdest(1), list-jmsdest(1), create-jmsdest(1)
+
+       asadmin(1M)
+
+                                 11 fév. 2011                 FLUSH-JMSDEST(1)

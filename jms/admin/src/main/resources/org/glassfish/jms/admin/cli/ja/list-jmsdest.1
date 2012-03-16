@@ -1,0 +1,68 @@
+LIST-JMSDEST(1)                                                LIST-JMSDEST(1)
+
+名前
+       list-jmsdest - 既存のJMS物理宛先を一覧表示します
+
+概要
+           list-jmsdest [--help]
+           [--desttype type]
+           [target]
+
+説明
+       list-jmsdestサブコマンドは、Java Message
+       Service(JMS)物理宛先を一覧表示します。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。リモートのasadminサブコマンドを実行するには、ドメイン管理サーバー(DAS)が稼働している必要があります。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --desttype
+           一覧表示するJMS宛先のタイプ。有効な値はtopicおよびqueueです。
+
+オペランド
+       target
+           一覧表示する内容を、指定したターゲットの物理宛先に制限します。有効な値は次のとおりです:
+
+           server
+               デフォルトのサーバー・インスタンスの物理宛先を一覧表示します。この値がデフォルト値です。
+
+           configuration-name
+               指定した構成の物理宛先を一覧表示します。
+
+           cluster-name
+               指定したクラスタ内のすべてのサーバー・インスタンスの物理宛先を一覧表示します。
+
+           instance-name
+               指定したサーバー・インスタンスの物理宛先を一覧表示します。
+
+例
+       例 1, すべての物理宛先の一覧表示
+           次のサブコマンドは、すべての物理宛先を一覧表示します。
+
+               asadmin> list-jmsdest
+               PhysicalQueue
+               PhysicalTopic
+               Command list-jmsdest executed successfully.
+
+       例 2, 指定したタイプのすべての物理宛先の一覧表示
+           次のサブコマンドは、すべての物理トピックを一覧表示します。
+
+               asadmin> list-jmsdest --desttype topic
+               PhysicalTopic
+               Command list-jmsdest executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       create-jmsdest(1), delete-jmsdest(1), flush-jmsdest(1)
+
+       asadmin(1M)
+
+                                 2011年2月11日                 LIST-JMSDEST(1)

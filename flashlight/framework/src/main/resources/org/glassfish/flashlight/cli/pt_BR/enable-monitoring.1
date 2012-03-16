@@ -1,0 +1,114 @@
+ENABLE-MONITORING(1)                                      ENABLE-MONITORING(1)
+
+NOME
+       enable-monitoring - ativa o monitoramento do servidor ou de módulos
+       monitoráveis específicos
+
+SINOPSE
+           enable-monitoring [--help]
+           [--mbean={false|true}]
+           [--dtrace={true|false]
+           [--modules modules[=level][:module[=level]]*
+           [--pid pid]
+           [--options options={true|false]]
+
+DESCRIçãO
+       O subcomando enable-monitoring é utilizado para ativar o monitoramento
+       para o GlassFish Server ou para módulos em particular durante o
+       runtime. As alterações são dinâmicas, ou seja, não é necessário
+       reiniciar o servidor.
+
+       Como default, o serviço de monitoramento está ativado, ou seja, o
+       atributo monitoring-enabled do elemento monitoring-service é true. No
+       entanto, o nível de monitoramento default para módulos individuais é
+       OFF. Esse subcomando, utilizado com a opção --modules, pode ativar o
+       monitoramento para um módulo específico definindo o nível de
+       monitoramento como ALTO ou BAIXO. Se o nível não for especificado
+       durante a execução do subcomando, o nível default será ALTO.
+
+       Os significados específicos de ALTO ou BAIXO são determinados pelos
+       contêineres individuais. Para ver uma lista dos módulos que podem ser
+       monitorados, consulte a opção --modules nesta página da ajuda.
+
+       Um método alternativo para ativar o monitoramento é usar o subcomando
+       set. Nesse caso, o servidor precisa ser reiniciado para que as
+       alterações entrem em vigor.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --mbean
+           Ativa o monitoramento de Mbean. O valor default é falso.
+
+       --dtrace
+           Pode ser utilizado apenas se o módulo DTrace Monitoring estiver
+           presente. Ativa o monitoramento DTrace do Solaris. O valor default
+           é falso.
+
+       --modules
+           Ativa o módulo ou módulos especificados indicando o nível de
+           monitoramento. Níveis válidos são DESLIGADO, ALTO, BAIXO. Se o
+           nível não for especificado, a definição default é ALTO. Vários
+           módulos são separados por : (dois-pontos). Módulos monitoráveis
+           incluem connector-connection-pool, connector-service,
+            ejb-container, http-service, jdbc-connection-pool , jersey, jpa,
+           jms-service , jvm, security, thread-pool , transaction-service,
+           web-container e web-services-container. Módulos adicionais podem
+           ser listados usando o subcomando get.
+
+       --pid
+           Especifica o identificador do processo (PID) da JVM do GlassFish
+           Server. Quando o monitoramento está ativado, o btrace-agent é
+           anexado com base no PID especificado. É preciso especificar somente
+           em casos excepcionais quando o sistema não pode determinar o PID.
+           Nessa situação, o subcomando solicita o PID do processo
+           correspondente do GlassFish Server.
+
+       --options
+           Define as seguintes opções do btrace-agent:
+
+           debug
+               Ativa a depuração para BTrace. O valor default é falso.
+
+EXEMPLOS
+       Exemplo 1, Ativando o serviço de monitoramento para o GlassFish Server
+           Esse exemplo ativa o monitoramento para o GlassFish Server em geral
+           definindo o flag enable-monitoring como true (o default é true).
+
+               asadmin> enable-monitoring
+               Command enable-monitoring executed successfully
+
+       Exemplo 2, Ativando o monitoramento para os contêineres Web e EJB
+           Esse exemplo ativa o monitoramento para contêineres específicos
+           definindo seus níveis de monitoramento.
+
+               asadmin> enable-monitoring --modules web-container=LOW:ejb-container=HIGH
+               Command enable-monitoring executed successfully
+
+       Exemplo 3, Ativando a depuração para monitoramento
+           Esse exemplo ativa a depuração.
+
+               asadmin> enable-monitoring --options debug=true
+               Command enable-monitoring executed successfully
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       disable-monitoring(1), monitor(1), list(1), get(1), set(1)
+
+       monitoring(5ASC)
+
+       asadmin(1M)
+
+       "Administering the Monitoring Service" no Oracle GlassFish Server
+       Administration Guide
+
+                            01 de novembro de 2010        ENABLE-MONITORING(1)

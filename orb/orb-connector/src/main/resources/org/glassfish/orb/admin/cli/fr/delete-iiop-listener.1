@@ -1,0 +1,61 @@
+DELETE-IIOP-LISTEN(1)                                    DELETE-IIOP-LISTEN(1)
+
+NOM
+       delete-iiop-listener - enlève un processus d'écoute IIOP
+
+SYNOPSIS
+           delete-iiop-listener [--help] [--target target] listener_id
+
+DESCRIPTION
+       La sous-commande delete-iiop-listener enlève le processus d'écoute IIOP
+       spécifié. Cette sous-commande est prise en charge en mode distant
+       uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Spécifie la cible à partir de laquelle vous supprimez le processus
+           d'écoute IIOP. Les valeurs valides sont
+
+           server
+               Supprime le processus d'écoute de l'instance de serveur par
+               défaut (option server) et constitue la valeur par défaut.
+
+           configuration_name
+               Supprime le processus d'écoute de la configuration nommée.
+
+           cluster_name
+               Supprime le processus d'écoute de chaque instance de serveur du
+               cluster.
+
+           instance_name
+               Supprime le processus d'écoute d'une instance de serveur
+               spécifique.
+
+OPÉRANDES
+       listener_id
+           Identificateur unique pour le processus d'écoute IIOP à supprimer.
+
+EXEMPLES
+       Exemple 1, Suppression d'un processus d'écoute IIOP
+           La commande suivante supprime le processus d'écoute IIOP nommé
+           sample_iiop_listener :
+
+               asadmin> delete-iiop-listener sample_iiop_listener
+               Command delete-iiop-listener executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-iiop-listener(1), list-iiop-listeners(1)
+
+       asadmin(1M)
+
+                                 18 août 2010            DELETE-IIOP-LISTEN(1)

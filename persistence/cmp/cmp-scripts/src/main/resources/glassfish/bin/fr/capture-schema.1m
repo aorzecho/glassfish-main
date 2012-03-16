@@ -1,0 +1,85 @@
+CAPTURE-SCHEMA(1M)                                          CAPTURE-SCHEMA(1M)
+
+NOM
+       capture-schema - stocke les métadonnées de base de données (schéma)
+       dans un fichier à utiliser dans le mapping et l'exécution
+
+SYNOPSIS
+           capture-schema -username name -password password
+           [-dburl url] [-driver jdbc_driver_classname]
+           [-schemaname schemaname] [-table tablename]
+           -out filename]
+
+DESCRIPTION
+       Stocke les métadonnées de base de données (schéma) dans un fichier.
+
+       Exécutez capture-schema en tant que même utilisateur de base de données
+       possédant les tables et utilisez le même nom utilisateur avec l'option
+       -username (et l'option -schemaname, le cas échéant).
+
+       Lors de l'exécution de capture-schema sur une base de données Oracle,
+       vous devez accorder à l'utilisateur de la base de données qui exécute
+       la commande capture-schema le privilège ANALYZE ANY TABLE.
+
+OPTIONS
+       -username
+           nom utilisateur permettant d'authentifier l'accès à une base de
+           données.
+
+       -password
+           mot de passe permettant d'accéder à la base de données
+           sélectionnée.
+
+       -dburl
+           URL JDBC requise par le pilote pour accéder à une base de données.
+
+       -driver
+           nom de classe du pilote JDBC dans votre variable d'environnement
+           CLASSPATH.
+
+       -schemaname
+           nom du schéma utilisateur capturé. Si elle n'est pas indiquée, la
+           valeur par défaut capturera les métadonnées pour toutes les tables
+           de tous les schémas auxquels l'utilisateur a accès.
+
+           Il est fortement recommandé d'indiquer ce paramètre.  Sans cette
+           option, si l'utilisateur a accès à plusieurs schémas, plusieurs
+           tables portant le même nom peuvent être capturées, ce qui posera
+           problème lors du mapping des champs CMP avec les tables.
+
+           Le nom de schéma indiqué doit être en majuscules.
+
+       -table
+           nom d'une table ; plusieurs noms de table peuvent être indiqués. Si
+           aucune table n'est indiquée, toutes les tables de la base de
+           données ou du schéma nommé sont capturées.
+
+           Le nom de table ou les noms indiqués prennent en compte la
+           distinction majuscules/minuscules. Veillez à respecter la casse des
+           noms de table créés précédemment.
+
+       -out
+           nom du fichier de sortie. Cette option est obligatoire. Si le
+           fichier de sortie indiqué ne contient pas le suffixe .dbschema, il
+           sera ajouté au nom de fichier.
+
+EXEMPLES
+       Exemple 1, A l'aide de la commande capture-schema
+
+               capture-schema -username cantiflas -password enigma
+               -dburl jdbc:oracle:thin:@sadbuttrue:1521:ora817
+               -driver oracle.jdbc.driver.OracleDriver
+               -schemaname CANTIFLAS -out cantiflas.dbschema
+           Où : sun-acc.xml est le nom du fichier XML de la configuration
+           cliente, myclientapp.jar est le fichier .jar de l'application
+           cliente, et scott et sample sont les arguments à transmettre à
+           l'application. Si sun-acc.xml et myclientapp.jar ne se trouvent pas
+           dans le répertoire en cours, vous devez indiquer les emplacements
+           de chemin absolu. A défaut, les chemins relatifs seront utilisés.
+           Le chemin relatif est relatif au répertoire dans lequel la commande
+           est exécutée.
+
+VOIR AUSSI
+       asadmin(1M)
+
+                                  1 déc. 2011               CAPTURE-SCHEMA(1M)

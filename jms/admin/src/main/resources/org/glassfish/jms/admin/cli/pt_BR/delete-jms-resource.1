@@ -1,0 +1,84 @@
+DELETE-JMS-RESOURC(1)                                    DELETE-JMS-RESOURC(1)
+
+NOME
+       delete-jms-resource - remove um recurso JMS
+
+SINOPSE
+           delete-jms-resource [--help]
+           [--target target]
+           jndi_name
+
+DESCRIçãO
+       O subcomando delete-jms-resource remove o recurso JMS (Java Message
+       Service). Assegure-se de remover todas as referências a esse recurso
+       antes de executar o subcomando.
+
+       Esse subcomando só é suportado no modo remoto. Os subcomandos asadmin
+       remotos requerem um servidor de administração de domínios (DAS) esteja
+       em execução.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Deleta o recurso JMS somente do destino especificado. Os valores
+           válidos são:
+
+               Nota
+               ┌────────────────────────────────────────┐
+               │Observação Os recursos sempre são       │
+               │criados para um domínio como um todo,   │
+               │mas só estarão ativos para destinos     │
+               │para os quais <resource-ref> tiver sido │
+               │criado usando a opção --target durante  │
+               │a criação do recurso. Isso significa    │
+               │que a deleção de um recurso só deleta o │
+               │elemento                                │
+               │ <resource-ref> para o --target         │
+               │especificado e não deleta o recurso do  │
+               │domínio como um todo, a não ser que o   │
+               │domain seja especificado como o         │
+               │--domain para a deleção.                │
+               └────────────────────────────────────────┘
+
+           server
+               Deleta o recurso JMS da instância do servidor default. Este é o
+               valor default.
+
+           domain
+               Deleta o recurso JMS a partir do domínio.
+
+           cluster-name
+               Deleta o recurso JMS de cada instância de servidor no cluster
+               especificado.
+
+           instance-name
+               Deleta o recurso JMS da instância do servidor especificada.
+
+OPERANDOS
+       jndi_name
+           O nome JDNI do recurso JMS a ser deletado.
+
+EXEMPLOS
+       Exemplo 1, Deletando um recurso do destino JMS
+           O subcomando a seguir deleta o recurso do destino JMS denominado
+           ms/MyQueue.
+
+               asadmin> delete-jms-resource jms/MyQueue
+               Administered object jms/MyQueue deleted.
+               Command delete-jms-resource executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-jms-resource(1), list-jms-resources(1)
+
+       asadmin(1M)
+
+                            11 de fevereiro de 2011      DELETE-JMS-RESOURC(1)

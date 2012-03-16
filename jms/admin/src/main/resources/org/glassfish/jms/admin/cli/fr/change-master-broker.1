@@ -1,0 +1,53 @@
+CHANGE-MASTER-BROK(1)                                    CHANGE-MASTER-BROK(1)
+
+NOM
+       change-master-broker - modifie le broker principal dans un cluster de
+       file d'attente de messages fournissant des services JMS pour un cluster
+       GlassFish Server.
+
+SYNOPSIS
+           change-master-broker [--help]
+           clustered-instance-name
+
+DESCRIPTION
+       La sous-commande change-master-broker modifie le broker principal dans
+       un cluster de file d'attente de messages qui est le fournisseur JMS
+       pour un cluster GlassFish Server. Par défaut, le broker principal n'est
+       pas celui associé à la première instance configurée dans le cluster
+       GlassFish Server.
+
+       Cette sous-commande est prise en charge en mode distant uniquement. Les
+       sous-commandes asadmin distantes requièrent l'exécution d'un serveur
+       d'administration de domaine (DAS).
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+OPÉRANDES
+       clustered-instance-name
+           Nom de l'instance de serveur dont le broker de file d'attente de
+           messages doit devenir le broker principal du cluster de la file
+           d'attente de messages. Cette instance de serveur doit être une
+           instance dans un cluster GlassFish Server.
+
+EXEMPLES
+       Exemple 1, Modification du broker principal
+           La sous-commande suivante modifie le broker principal de la file
+           d'attente de messages en instance incluse dans un cluster
+           clustinst3.
+
+               asadmin> change-master-broker clustinst3
+               Command change-master-broker executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       asadmin(1M)
+
+                                 11 fév. 2011            CHANGE-MASTER-BROK(1)

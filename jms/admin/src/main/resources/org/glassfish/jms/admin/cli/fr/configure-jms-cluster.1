@@ -1,0 +1,119 @@
+CONFIGURE-JMS-CLUS(1)                                    CONFIGURE-JMS-CLUS(1)
+
+NOM
+       configure-jms-cluster - configure le cluster de file d'attente des
+       messages fournissant des services JMS à un cluster GlassFish Server
+
+SYNOPSIS
+           configure-jms-cluster [--help]
+           [--clustertype={conventional|enhanced}]
+           [--configstoretype={masterbroker|shareddb}]
+           [--messagestoretype={file|jdbc}]
+           [--dbvendor database-vendor]
+           [--dbuser database-user]
+           [--dburl database-url]
+           [--property property-list]
+           cluster-name
+
+DESCRIPTION
+       configure-jms-cluster configure le cluster de file d'attente des
+       messages fournissant des services JMS à un cluster GlassFish Server.
+
+       Cette sous-commande doit être utilisée avant que le cluster GlassFish
+       Server ne soit démarré pour la première fois. Sinon, suivez les
+       instructions du chapitre "Administering the Java Message Service (JMS)"
+       du manuel Oracle GlassFish Server Administration Guide.
+
+       Cette sous-commande est prise en charge en mode distant uniquement. Les
+       sous-commandes asadmin distantes requièrent l'exécution d'un serveur
+       d'administration de domaine (DAS).
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --clustertype
+           Type de cluster de file d'attente des messages à configurer. La
+           valeur conventional indique un cluster conventionnel ; la valeur
+           enhanced indique un cluster haute disponibilité amélioré. Pour plus
+           d'informations sur ces types de cluster de file d'attente de
+           messages, reportez-vous à "Broker Clusters" dans le manuel Oracle
+           GlassFish Server Message Queue Technical Overview.
+
+           La valeur par défaut est conventional.
+
+           Si enhanced est indiqué, les options configstoretype et
+           messagestoretype ne sont pas prises en compte.
+
+       --configstoretype
+           Type de banque de données pour les données de configuration dans un
+           cluster conventionnel. La valeur masterbroker indique l'utilisation
+           d'un broker principal permettant de stocker et de gérer les données
+           de configuration. La valeur shareddb indique l'utilisation d'une
+           base de données partagée permettant de stocker les données de
+           configuration.
+
+           La valeur par défaut est masterbroker.
+
+           Cette option est ignorée si clustertype a la valeur enhanced.
+
+       --messagestoretype
+           Type de banque de données pour des données de message de brokers
+           d'un cluster conventionnel. La valeur file indique un emplacement
+           de stockage de fichiers. La valeur jdbc indique un magasin JDBC.
+
+           La valeur par défaut est file.
+
+           Cette option est ignorée si clustertype a la valeur enhanced.
+
+       --dbvendor, --dbuser, --dburl
+           Fournisseur de base de données, utilisateur et URL d'accès de la
+           base de données JDBC à utiliser dans les situations suivantes :
+
+           ·   Quand clustertype a la valeur enhanced
+
+           ·   Quand configstoretype a la valeur shareddb
+
+           ·   Quand messagestoretype a la valeur jdbc
+
+           Pour plus d'informations sur les fournisseurs pris en charge et les
+           formats des URL d'accès de chaque fournisseur, reportez-vous à
+           "JDBC-Based Persistence" dans le manuel Oracle GlassFish Server
+           Message Queue Administration Guide.
+
+               Note
+               ┌────────────────────────────────────────┐
+               │Remarque Pour préciser le mot de passe  │
+               │de l'utilisateur de la base de          │
+               │données JDBC, utilisez l'option         │
+               │d'utilitaire --passwordfile de la       │
+               │commande asadmin(1M) après avoir ajouté │
+               │l'entrée AS_ADMIN_JMSDBPASSWORD au      │
+               │fichier de mots de passe.               │
+               └────────────────────────────────────────┘
+
+       --property
+           Liste des propriétés supplémentaires propres au fournisseur de
+           bases de données, permettant de configurer la base de données JDBC
+           pour une utilisation par le cluster de file d'attente de messages.
+           Indique les propriétés sous forme de liste de noms et valeurs de
+           propriété séparés par le signe deux-points (:) sous la forme :
+
+               prop1name=prop1value:prop2name=prop2value
+
+OPÉRANDES
+       cluster-name
+           Nom de GlassFish Server cluster pour lequel le cluster de file
+           d'attente de messages doit fournir des services JMS.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       asadmin(1M)
+
+                                 11 fév. 2011            CONFIGURE-JMS-CLUS(1)

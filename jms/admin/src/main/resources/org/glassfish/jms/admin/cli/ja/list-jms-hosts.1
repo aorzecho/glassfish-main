@@ -1,0 +1,56 @@
+LIST-JMS-HOSTS(1)                                            LIST-JMS-HOSTS(1)
+
+名前
+       list-jms-hosts - 既存のJMSホストを一覧表示します
+
+概要
+           list-jms-hosts [--help]
+           [--target target]
+
+説明
+       list-jms-hostsサブコマンドは、Java Message
+       Service(JMS)サービスの既存のJMSホストを一覧表示します。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。リモートのasadminサブコマンドを実行するには、ドメイン管理サーバー(DAS)が稼働している必要があります。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --target
+           一覧表示する内容を、指定したターゲットのJMSホストに制限します。有効な値は次のとおりです:
+
+           server
+               デフォルトのサーバー・インスタンスのJMSホストを一覧表示します。この値がデフォルト値です。
+
+           configuration-name
+               指定した構成のJMSホストを一覧表示します。
+
+           cluster-name
+               指定したクラスタ内のすべてのサーバー・インスタンスのJMSホストを一覧表示します。
+
+           instance-name
+               指定したサーバー・インスタンスのJMSホストを一覧表示します。
+
+例
+       例 1, すべてのJMSホストの一覧表示
+           次のサブコマンドは、JMSサービスのJMSホストを一覧表示します。
+
+               asadmin> list-jms-hosts server-config
+               default_JMS_host
+               MyNewHost
+               Command list-jms-hosts executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       create-jms-host(1), delete-jms-host(1), jms-ping(1)
+
+       asadmin(1M)
+
+                                2010年10月22日               LIST-JMS-HOSTS(1)

@@ -1,0 +1,71 @@
+LIST-JMS-RESOURCES(1)                                    LIST-JMS-RESOURCES(1)
+
+名前
+       list-jms-resources - JMSリソースを一覧表示します
+
+概要
+           list-jms-resources [--help]
+           [--restype type]
+           [target]
+
+説明
+       list-jms-resourcesサブコマンドは、既存のJava Message
+       Service(JMS)リソース(宛先リソースおよび接続ファクトリ・リソース)を一覧表示します。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。リモートのasadminサブコマンドを実行するには、ドメイン管理サーバー(DAS)が稼働している必要があります。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --restype
+           JMSリソース・タイプは、javax.jms.Topic、javax.jms.Queue、javax.jms.ConnectionFactory、javax.jms.TopicConnectionFactory、またはjavax.jms.QueueConnectionFactoryです。
+
+オペランド
+       target
+           一覧表示する内容を、指定したターゲットのリソースに制限します。有効な値は次のとおりです:
+
+           server
+               デフォルトのサーバー・インスタンスのリソースを一覧表示します。この値がデフォルト値です。
+
+           domain
+               ドメインのリソースを一覧表示します。
+
+           cluster-name
+               指定したクラスタ内のすべてのサーバー・インスタンスのリソースを一覧表示します。
+
+           instance-name
+               指定したサーバー・インスタンスのリソースを一覧表示します。
+
+例
+       例 1, すべてのJMSリソースの一覧表示
+           次のサブコマンドは、すべてのJMSリソースを一覧表示します。
+
+               asadmin> list-jms-resources
+               jms/Queue
+               jms/ConnectionFactory
+               jms/DurableConnectionFactory
+               jms/Topic
+               Command list-jms-resources executed successfully.
+
+       例 2, 指定したタイプのJMSリソースの一覧表示
+           次のサブコマンドは、すべてのjavax.jms.ConnectionFactoryリソースを一覧表示します。
+
+               asadmin> list-jms-resources --restype javax.jms.ConnectionFactory
+               jms/ConnectionFactory
+               jms/DurableConnectionFactory
+               Command list-jms-resources executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       create-jms-resource(1), delete-jms-resource(1)
+
+       asadmin(1M)
+
+                                 2011年2月11日           LIST-JMS-RESOURCES(1)
