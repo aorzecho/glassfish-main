@@ -1,0 +1,68 @@
+LIST-CUSTOM-RESOUR(1)                                    LIST-CUSTOM-RESOUR(1)
+
+NOME
+       list-custom-resources - obtém todos os recursos personalizados
+
+SINOPSE
+           list-custom-resources [--help] [target]
+
+DESCRIçãO
+       O subcomando list-custom-resources lista todos os recursos
+       personalizados.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+OPERANDOS
+       target
+           Esse operando especifica o local dos recursos personalizados. Os
+           destinos válidos são:
+
+           server
+               Lista os recursos na instância default do servidor. Este é o
+               valor default
+
+           domain
+               Lista os recursos no domínio.
+
+           cluster_name
+               Lista os recursos de cada instância de servidor no cluster.
+
+           instance_name
+               Lista os recursos de uma instância particular do servidor.
+
+EXEMPLOS
+       Exemplo 1, Listando recursos personalizados
+           Esse exemplo lista os recursos personalizados atuais.
+
+               asadmin> list-custom-resources
+               sample_custom_resource01
+               sample_custom_resource02
+               Command list-custom-resources executed successfully.
+
+       Exemplo 2, Utilizando o comando list-custom-resources com um destino
+           O exemplo a seguir mostra o uso desse comando.
+
+               asadmin> list-custom-resources --user admin --passwordfile
+               passwords.txt --host plum --port 4848 target6
+
+               sample_custom_resource03
+               sample_custom_resource04
+               Command list-custom-resources executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-custom-resource(1),delete-custom-resource(1)
+
+       asadmin(1M)
+
+                            22 de dezembro de 2010       LIST-CUSTOM-RESOUR(1)

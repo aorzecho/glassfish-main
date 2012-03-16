@@ -1,0 +1,62 @@
+DELETE-CONNECTOR-C(1)                                    DELETE-CONNECTOR-C(1)
+
+NOM
+       delete-connector-connection-pool - enlève le pool de connexions du
+       connecteur indiqué
+
+SYNOPSIS
+           delete-connector-connection-pool [--help] [--target target]
+           [--cascade={false|true}] poolname
+
+DESCRIPTION
+       La sous-commande delete-connector-connection-pool enlève le pool de
+       connexions du connecteur spécifié.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           N'indiquez pas cette option. Elle est conservée à des fins de
+           compatibilité avec les versions antérieures. Si vous indiquez cette
+           option, au lieu de générer une erreur de syntaxe, la sous-commande
+           s'exécute correctement et affiche un message d'avertissement selon
+           lequel l'option est ignorée.
+
+       --cascade
+           Lorsque l'option a la valeur true, toutes les ressources de
+           connecteur associées au pool, et le pool lui-même, sont supprimés.
+           Lorsque l'option a la valeur false, la suppression du pool échoue
+           si des ressources sont associées au pool. Vous devez supprimer la
+           ressource explicitement ou attribuer la valeur true à l'option. La
+           valeur par défaut est false.
+
+OPÉRANDES
+       poolname
+           Nom du pool de connexions à enlever.
+
+EXEMPLES
+       Exemple 1, Suppression d'un pool de connexions de connecteur
+           Dans cet exemple, le pool de connexions de connecteur nommé
+           jms/qConnPool est supprimé.
+
+               asadmin> delete-connector-connection-pool
+               --cascade=false jms/qConnPool
+               Command delete-connector-connection-pool executed successfully
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-connector-connection-pool(1),
+       list-connector-connection-pools(1), ping-connection-pool(1)
+
+       asadmin(1M)
+
+                                 14 sept. 2010           DELETE-CONNECTOR-C(1)

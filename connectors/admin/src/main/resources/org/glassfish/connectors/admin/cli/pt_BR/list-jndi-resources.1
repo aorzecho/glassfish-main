@@ -1,0 +1,62 @@
+LIST-JNDI-RESOURCE(1)                                    LIST-JNDI-RESOURCE(1)
+
+NOME
+       list-jndi-resources - lista todos os recursos da JNDI existentes
+
+SINOPSE
+           list-jndi-resources [--help] [target]
+
+DESCRIçãO
+       O subcomando list-jndi-resources identifica todos os recursos JNDI
+       existentes.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+OPERANDOS
+       target
+           O destino no qual os recursos JNDI serão listados. Os valores
+           válidos são:
+
+           servidor
+               Lista os recursos JNDI na instância de servidor default. Este é
+               o valor default.
+
+           configuration-name
+               Lista os recursos JNDI na configuração especificada.
+
+           cluster-name
+               Lista os recursos JNDI em todas as instâncias de servidor no
+               cluster especificado.
+
+           instance-name
+               Lista os recursos JNDI em uma instância de servidor
+               especificada.
+
+EXEMPLOS
+       Exemplo 1, Listando recursos JNDI
+           Este exemplo lista os recursos JNDI na instância de servidor
+           default.
+
+               asadmin> list-jndi-resources
+               jndi_resource1
+               jndi_resource2
+               jndi_resource3
+               Command list-jndi-resources executed successfully
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-jndi-resource(1), delete-jndi-resource(1)
+
+       asadmin(1M)
+
+                              21 de junho de 2011        LIST-JNDI-RESOURCE(1)

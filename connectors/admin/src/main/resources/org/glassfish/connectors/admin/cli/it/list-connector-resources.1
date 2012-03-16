@@ -1,0 +1,59 @@
+LIST-CONNECTOR-RES(1)                                    LIST-CONNECTOR-RES(1)
+
+NOME
+       list-connector-resources - recupera tutte le risorse dei connettori
+
+SINTASSI
+           list-connector-resources [--help] [target]
+
+DESCRIZIONE
+       Il comando secondario list-connector-resources elenca tutte le risorse
+       connettore.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+OPERANDI
+       target
+           Destinazione per la quale devono essere elencate le risorse
+           connettore. I valori validi sono i seguenti:
+
+           server
+               Elenca le risorse connettore dell'istanza server predefinita.
+               Questo è il valore predefinito.
+
+           domain
+               Elenca le risorse connettore per il dominio.
+
+           cluster-name
+               Elenca le risorse connettore di tutte le istanze server del
+               cluster specificato.
+
+           instance-name
+               Elenca le risorse connettore di un'istanza server specificata.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco delle risorse connettore
+           In questo esempio vengono elencate tutte le risorse connettore
+           esistenti.
+
+               asadmin> list-connector-resources
+               jms/qConnFactory
+               Command list-connector-resources executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-connector-resource(1), delete-connector-resource(1)
+
+       asadmin(1M)
+
+                                21 giugno 2011           LIST-CONNECTOR-RES(1)

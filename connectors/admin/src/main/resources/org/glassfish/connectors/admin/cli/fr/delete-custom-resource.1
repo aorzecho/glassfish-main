@@ -1,0 +1,82 @@
+DELETE-CUSTOM-RESO(1)                                    DELETE-CUSTOM-RESO(1)
+
+NOM
+       delete-custom-resource - enlève une ressource personnalisée
+
+SYNOPSIS
+           delete-custom-resource [--help] [--target target] jndi-name
+
+DESCRIPTION
+       La sous-commande delete-custom-resource enlève une ressource
+       personnalisée.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Cette option permet de spécifier l'emplacement des ressources
+           personnalisées que vous voulez supprimer. Les cibles valides sont
+           les suivantes : serveur, domaine, cluster ou instance. La valeur
+           par défaut est le serveur.
+
+               Note
+               ┌────────────────────────────────────────┐
+               │Remarque Les ressources sont toujours   │
+               │créées pour un domaine dans sa          │
+               │totalité, mais sont actives uniquement  │
+               │pour les cibles pour lesquelles un      │
+               │élément <resource-ref> a été créé à     │
+               │l'aide de l'option --target lorsque la  │
+               │ressource a été créée. Cela signifie    │
+               │que la suppression d'une ressource ne   │
+               │supprime que l'élément <resource-ref>   │
+               │pour l'option --target spécifiée et ne  │
+               │supprime pas la ressource du domaine    │
+               │dans sa totalité, à moins que la valeur │
+               │domain ne soit spécifiée pour --target  │
+               │pour la suppression.                    │
+               └────────────────────────────────────────┘
+
+           server
+               Supprime la ressource pour l'instance de serveur par défaut.
+               Ceci est la valeur par défaut.
+
+           domain
+               Supprime la ressource pour le domaine.
+
+           cluster_name
+               Supprime la ressource pour chaque instance de serveur du
+               cluster.
+
+           instance_name
+               Supprime la ressource pour une instance de serveur
+               particulière.
+
+OPÉRANDES
+       jndi-name
+           Nom JNDI de cette ressource.
+
+EXEMPLES
+       Exemple 1, Suppression d'une ressource personnalisée
+           Dans cet exemple, la ressource personnalisée nommée
+           mycustomresource est supprimée.
+
+               asadmin> delete-custom-resource mycustomresource
+               Command delete-custom-resource executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-custom-resource(1), list-custom-resources(1)
+
+       asadmin(1M)
+
+                                 22 déc. 2010            DELETE-CUSTOM-RESO(1)

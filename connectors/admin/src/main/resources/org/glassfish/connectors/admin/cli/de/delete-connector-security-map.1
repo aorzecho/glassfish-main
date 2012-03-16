@@ -1,0 +1,62 @@
+DELETE-CONNECTOR-S(1)                                    DELETE-CONNECTOR-S(1)
+
+NAME
+       delete-connector-security-map - löscht eine Security Map für den
+       angegebenen Connector Connection Pool
+
+ÜBERSICHT
+           delete-connector-security-map [--help]
+           --poolname connector_connection_pool_name [--target target] mapname
+
+BESCHREIBUNG
+       Der Unterbefehl delete-connector-security-map löscht eine Security Map
+       für den angegebenen Connector Connection Pool.
+
+       Damit dieser Unterbefehl erfolgreich ausgeführt wird, müssen Sie
+       zunächst mithilfe des Unterbefehls create-connector-connection-pool
+       einen Connector Connection Pool erstellen.
+
+       Dieser Unterbefehl wird nur im Remote-Modus unterstützt.
+
+OPTIONEN
+       --help, -?
+           Zeigt den Hilfetext für den Unterbefehl an.
+
+       --poolname
+           Gibt den Namen des Connector Connection Pools an, zu dem die
+           Security Map gehört, die gelöscht werden soll.
+
+       --target
+           Geben Sie diese Option nicht an. Diese Option ist für die
+           Kompatibilität mit früheren Releases vorbehalten. Wenn Sie diese
+           Option angeben, tritt kein Syntaxfehler auf. Stattdessen wird der
+           Unterbefehl erfolgreich ausgeführt, und es wird eine Warnmeldung
+           angezeigt, dass die Option ignoriert wird.
+
+OPERANDEN
+       mapname
+           Name der Security Map, die gelöscht werden soll.
+
+BEISPIELE
+       Beispiel 1, Löschen einer Connector Security Map
+           In diesem Beispiel wird securityMap1 für den vorhandenen Connection
+           Pool namens connector-pool1 gelöscht.
+
+               asadmin> delete-connector-security-map
+               --poolname connector-pool1 securityMap1
+               Command delete-connector-security-map executed successfully
+
+BEENDIGUNGSSTATUS
+       0
+           Unterbefehl erfolgreich ausgeführt
+
+       1
+           Fehler beim Ausführen des Unterbefehls
+
+SIEHE AUCH
+       create-connector-security-map(1), list-connector-security-maps(1),
+       update-connector-security-map(1)
+
+       asadmin(1M)
+
+                                 14. Sep. 2010           DELETE-CONNECTOR-S(1)

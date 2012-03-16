@@ -1,0 +1,59 @@
+LIST-JAVAMAIL-RESO(1)                                    LIST-JAVAMAIL-RESO(1)
+
+NOME
+       list-javamail-resources - lista os recursos de sessão JavaMail
+       existentes
+
+SINOPSE
+           list-javamail-resources [--help] [target]
+
+DESCRIçãO
+       O subcomando list-javamail-resources lista os recursos de sessão
+       JavaMail existentes.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+OPERANDOS
+       target
+           Este operando especifica o destino para o qual os recursos de
+           sessão JavaMail serão listados. Os valores válidos são:
+
+           servidor
+               Lista os recursos para as instâncias do servidor default. Este
+               é o valor default.
+
+           domain
+               Lista os recursos para o domínio.
+
+           cluster_name
+               Lista os recursos para o cluster específico.
+
+           instance_name
+               Lista os recursos de uma instância particular do servidor.
+
+EXEMPLOS
+       Exemplo 1, Listando os recursos JavaMail
+           Esse exemplo lista os recursos de sessão JavaMail para a instância
+           do servidor.
+
+               asadmin> list-javamail-resources
+               mail/MyMailSession
+               Command list-javamail-resources executed successfuly.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-javamail-resource(1), delete-javamail-resource(1)
+
+       asadmin(1M)
+
+                            22 de dezembro de 2010       LIST-JAVAMAIL-RESO(1)

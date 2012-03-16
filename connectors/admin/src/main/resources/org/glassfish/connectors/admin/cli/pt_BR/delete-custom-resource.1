@@ -1,0 +1,77 @@
+DELETE-CUSTOM-RESO(1)                                    DELETE-CUSTOM-RESO(1)
+
+NOME
+       delete-custom-resource - remove um recurso personalizado
+
+SINOPSE
+           delete-custom-resource [--help] [--target target] jndi-name
+
+DESCRIçãO
+       O subcomando delete-custom-resource remove um recurso personalizado.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Essa opção ajuda a especificar o local dos recursos personalizados
+           que você está deletando. Os destinos válidos são servidor, domínio,
+           cluster e instância. O default é servidor.
+
+               Nota
+               ┌────────────────────────────────────────┐
+               │Observação Os recursos sempre são       │
+               │criados para um domínio como um todo,   │
+               │mas só estarão ativos para destinos     │
+               │para os quais <resource-ref> tiver sido │
+               │criado usando a opção --target durante  │
+               │a criação do recurso. Isso significa    │
+               │que a deleção de um recurso só deleta o │
+               │elemento                                │
+               │ <resource-ref> para o --target         │
+               │especificado e não deleta o recurso do  │
+               │domínio como um todo, a não ser que o   │
+               │domain seja especificado como o         │
+               │--domain para a deleção.                │
+               └────────────────────────────────────────┘
+
+           servidor
+               Deleta o recurso da instância do servidor default. Este é o
+               valor default.
+
+           domain
+               Deleta o recurso do domínio.
+
+           cluster_name
+               Deleta o recurso de cada instância do servidor no cluster.
+
+           instance_name
+               Deleta o recurso de uma instância específica do servidor.
+
+OPERANDOS
+       jndi-name
+           Nome de JNDI deste recurso
+
+EXEMPLOS
+       Exemplo 1, Deletando de um recurso personalizado
+           Esse exemplo deleta um recurso personalizado de nome
+           mycustomresource.
+
+               asadmin> delete-custom-resource mycustomresource
+               Command delete-custom-resource executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-custom-resource(1), list-custom-resources(1)
+
+       asadmin(1M)
+
+                            22 de dezembro de 2010       DELETE-CUSTOM-RESO(1)

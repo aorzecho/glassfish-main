@@ -1,0 +1,89 @@
+DELETE-CONNECTOR-R(1)                                    DELETE-CONNECTOR-R(1)
+
+NOM
+       delete-connector-resource - enlève la ressource de connecteur portant
+       le nom JNDI indiqué
+
+SYNOPSIS
+           delete-connector-resource [--help] [--target target] jndi_name
+
+DESCRIPTION
+       La sous-commande delete-connector-resource enlève la ressource de
+       connecteur portant le nom JNDI spécifié.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Cette option indique la cible à partir de laquelle vous voulez
+           enlever la ressource de connecteur. Les cibles valides sont les
+           suivantes :
+
+               Note
+               ┌────────────────────────────────────────┐
+               │Remarque Les ressources sont toujours   │
+               │créées pour un domaine dans sa          │
+               │totalité, mais sont actives uniquement  │
+               │pour les cibles pour lesquelles un      │
+               │élément <resource-ref> a été créé à     │
+               │l'aide de l'option --target lorsque la  │
+               │ressource a été créée. Cela signifie    │
+               │que la suppression d'une ressource ne   │
+               │supprime que l'élément <resource-ref>   │
+               │pour l'option --target spécifiée et ne  │
+               │supprime pas la ressource du domaine    │
+               │dans sa totalité, à moins que la valeur │
+               │domain ne soit spécifiée pour --target  │
+               │pour la suppression.                    │
+               └────────────────────────────────────────┘
+
+           server
+               Supprime la ressource de connecteur de l'instance de serveur
+               par défaut. Ceci est la valeur par défaut.
+
+           domain
+               Supprime la ressource de connecteur du domaine.
+
+           cluster_name
+               Supprime la ressource de connecteur de toutes les instances de
+               serveur du cluster.
+
+           instance_name
+               Supprime la ressource de connecteur d'une instance de serveur
+               donnée.
+
+OPÉRANDES
+       jndi_name
+           Nom JNDI de cette ressource de connecteur.
+
+EXEMPLES
+       Exemple 1, Suppression d'une ressource de connecteur
+           Dans cet exemple, la ressource de connecteur nommée
+           jms/qConnFactory est supprimée.
+
+               asadmin> delete-connector-resource jms/qConnFactory
+               Command delete-connector-resource executed successfully
+
+       Exemple 2, Utilisation de la sous-commande delete-connector-resource
+           Cet exemple illustre l'utilisation de la sous-commande.
+
+               asadmin> delete-connector-resource jms/qConnFactory
+               Command delete-connector-resource executed successfully
+           Où jms/qConnFactory est la ressource de connecteur enlevée.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-connector-resource(1), list-connector-resources(1)
+
+       asadmin(1M)
+
+                                 11 fév. 2011            DELETE-CONNECTOR-R(1)

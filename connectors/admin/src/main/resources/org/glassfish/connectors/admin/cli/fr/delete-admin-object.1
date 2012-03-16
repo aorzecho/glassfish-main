@@ -1,0 +1,80 @@
+DELETE-ADMIN-OBJEC(1)                                    DELETE-ADMIN-OBJEC(1)
+
+NOM
+       delete-admin-object - enlève l'objet administré portant le nom JNDI
+       indiqué.
+
+SYNOPSIS
+           delete-admin-object [--help] [--target target] jndi_name
+
+DESCRIPTION
+       La sous-commande delete-admin-object enlève l'objet administré portant
+       le nom JNDI indiqué.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Il s'agit du nom des cibles pour lesquelles l'objet administré doit
+           être supprimé. Les valeurs valides sont les suivantes :
+
+               Note
+               ┌────────────────────────────────────────┐
+               │Remarque Les ressources sont toujours   │
+               │créées pour un domaine dans sa          │
+               │totalité, mais sont actives uniquement  │
+               │pour les cibles pour lesquelles un      │
+               │élément <resource-ref> a été créé à     │
+               │l'aide de l'option --target lorsque la  │
+               │ressource a été créée. Cela signifie    │
+               │que la suppression d'une ressource ne   │
+               │supprime que l'élément <resource-ref>   │
+               │pour l'option --target spécifiée et ne  │
+               │supprime pas la ressource du domaine    │
+               │dans sa totalité, à moins que la valeur │
+               │domain ne soit spécifiée pour --target  │
+               │pour la suppression.                    │
+               └────────────────────────────────────────┘
+
+           server
+               Supprime l'objet administré pour l'instance de serveur par
+               défaut (option server) et constitue la valeur par défaut.
+
+           configuration_name
+               Supprime l'objet administré pour la configuration spécifiée.
+
+           cluster_name
+               Supprime l'objet administré pour le cluster spécifié.
+
+           instance_name
+               Supprime l'objet administré pour une instance de serveur
+               particulière.
+
+OPÉRANDES
+       jndi_name
+           Nom JNDI de l'objet administré à supprimer.
+
+EXEMPLES
+       Exemple 1, Suppression d'un objet administré
+           Dans cet exemple, l'objet administré nommé jms/samplelqueue est
+           supprimé.
+
+               asadmin> delete-admin-object jms/samplequeue
+               Command delete-admin-object executed successfully
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-admin-object(1), list-admin-objects(1)
+
+       asadmin(1M)
+
+                                 14 sept. 2010           DELETE-ADMIN-OBJEC(1)

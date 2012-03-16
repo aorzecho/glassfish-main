@@ -1,0 +1,130 @@
+CREATE-CONNECTOR-R(1)                                    CREATE-CONNECTOR-R(1)
+
+NOM
+       create-connector-resource - enregistre la ressource du connecteur avec
+       le nom JNDI spécifié
+
+SYNOPSIS
+           create-connector-resource [--help]
+           --poolname connectorConnectionPoolName
+           [--enabled={true|false}]
+           [--description description]
+           [--objecttype ovjecttype]
+           [--property (name=value)[:name=value]*]
+           [--target target]
+           jndi_name
+
+DESCRIPTION
+       La sous-commande create-connector-resource enregistre la ressource du
+       connecteur avec le nom JNDI spécifié.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --poolname
+           Nom du pool de connexions. Quand plusieurs éléments de ressource
+           pointent vers le même élément du pool de connexions, ils utilisent
+           les mêmes connexions du pool lors de l'exécution.
+
+       --enabled
+           Cette option détermine si la ressource est activée durant
+           l'exécution. La valeur par défaut est true.
+
+       --objecttype
+           Définit le type de ressource de connecteur. La valeur par défaut
+           est user. Les valeurs autorisées sont les suivantes :
+
+           system-all
+               Ressource système pour toutes les instances de serveur et le
+               serveur d'administration de domaine (DAS).
+
+           system-admin
+               Ressource système uniquement pour le serveur DAS.
+
+           system-instance
+               Ressource système uniquement pour toutes les instances de
+               serveur.
+
+           user
+               Ressource utilisateur.
+
+       --description
+           Texte descriptif de la ressource de connecteur.
+
+       --property
+           Paires facultatives nom d'attribut/valeur permettant de configurer
+           la ressource.
+
+       --target
+           Cette option spécifie l'emplacement de destination des ressources
+           du connecteur. Les cibles valides sont les suivantes :
+
+           server
+               Crée la ressource du connecteur dans l'instance de serveur par
+               défaut. Ceci est la valeur par défaut.
+
+           domain
+               Crée la ressource de connecteur dans le domaine.
+
+           cluster_name
+               Crée la ressource de connecteur dans toutes les instances de
+               serveur du cluster.
+
+           instance_name
+               Crée la ressource de connecteur dans l'instance de serveur
+               spécifiée.
+
+               Note
+               ┌────────────────────────────────────────┐
+               │Remarque La ressource est toujours      │
+               │créée pour le domaine dans son          │
+               │ensemble, mais l'élément resource-ref   │
+               │de la ressource est créé uniquement     │
+               │pour la valeur --target indiquée. Cela  │
+               │signifie que, bien que la ressource     │
+               │soit définie au niveau du domaine, elle │
+               │n'est disponible que sur la cible       │
+               │indiquée. Utilisez la sous-commande     │
+               │create-resource-ref pour faire          │
+               │référence à la ressource dans plusieurs │
+               │cibles si nécessaire.                   │
+               └────────────────────────────────────────┘
+
+OPÉRANDES
+       jndi_name
+           Nom JNDI de cette ressource de connecteur.
+
+EXEMPLES
+       Exemple 1, Création d'une ressource de connecteur
+           Cet exemple crée une ressource de connecteur nommée
+           jms/qConnFactory.
+
+               asadmin> create-connector-resource --poolname jms/qConnPool
+               --description "sample connector resource" jms/qConnFactory
+               Command create-connector-resource executed successfully
+
+       Exemple 2, Utilisation de la sous-commande create-connector-resource
+           Cet exemple illustre l'utilisation de la sous-commande.
+
+               asadmin> create-connector-resource --target server --poolname jms/qConnPool
+               --description "sample connector resource" jms/qConnFactory
+               Command create-connector-resource executed successfully
+           Où jms/qConnFactory est l'exemple de ressource de connecteur créé.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       delete-connector-resource(1), list-connector-resources(1),
+       create-resource-ref(1)
+
+       asadmin(1M)
+
+                                 10 fév. 2011            CREATE-CONNECTOR-R(1)

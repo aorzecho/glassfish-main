@@ -1,0 +1,59 @@
+LIST-ADMIN-OBJECTS(1)                                    LIST-ADMIN-OBJECTS(1)
+
+NOME
+       list-admin-objects - obtém todos os objetos administrados
+
+SINOPSE
+           list-admin-objects [--help] [target]
+
+DESCRIçãO
+       O subcomando list-admin-objects lista todos os objetos administrados.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+OPERANDOS
+       target
+           O destino no qual os objetos administrados serão listados. Os
+           valores válidos são:
+
+           servidor
+               Lista os objetos administrados na instância de servidor
+               default. Este é o valor default.
+
+           configuration-name
+               Lista os objetos administrados na configuração especificada.
+
+           cluster-name
+               Lista os objetos administrados em todas as instâncias de
+               servidor no cluster especificado.
+
+           instance-name
+               Lista os objetos administrados em uma instância especificada de
+               servidor.
+
+EXEMPLOS
+       Exemplo 1, Listando objetos administrados
+           Este exemplo lista todos os objetos administrados.
+
+               asadmin> list-admin-objects
+               jms/samplequeue
+               jms/anotherqueue
+               Command list-admin-objects executed successfully
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-admin-object(1), delete-admin-object(1)
+
+       asadmin(1M)
+
+                              21 de junho de 2011        LIST-ADMIN-OBJECTS(1)

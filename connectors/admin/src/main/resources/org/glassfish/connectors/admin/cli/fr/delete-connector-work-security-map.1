@@ -1,0 +1,60 @@
+DELETE-CONNECTOR-W(1)                                    DELETE-CONNECTOR-W(1)
+
+NOM
+       delete-connector-work-security-map - supprime une mappe de sécurité de
+       travail pour l'adaptateur de ressource indiqué
+
+SYNOPSIS
+           delete-connector-work-security-map [--help] --raname raname
+           mapname
+
+DESCRIPTION
+       La sous-commande delete-connector-work-security-map supprime une mappe
+       de sécurité associée à l'adaptateur de ressource spécifié. Pour que
+       cette sous-commande soit exécutée, vous devez d'abord avoir créé et
+       déployé l'adaptateur de ressource spécifié.
+
+       Le système d'informations d'entreprise (EIS) constitue tout système
+       contenant des données de l'organisation. Il peut s'agir d'un mainframe,
+       d'un système de messagerie, d'un système de base de données ou d'une
+       application.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --raname
+           Indique le nom du module connecteur auquel la mappe de sécurité de
+           travail est associée.
+
+OPÉRANDES
+       mapname
+           Nom de la mappe de sécurité de travail à supprimer.
+
+EXEMPLES
+       Exemple 1, Suppression d'une mappe de sécurité de travail de connecteur
+           Dans cet exemple, la mappe de sécurité de travail nommée
+           work_security_map_name est supprimée pour l'adaptateur de ressource
+           nommé ra_name.
+
+               asadmin delete-connector-work-security-map
+               --raname ra_name work_security_map_name
+               Command delete-connector-work-security-map executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-connector-work-security-map(1),
+       list-connector-work-security-maps(1),
+       update-connector-work-security-map(1)
+
+       asadmin(1M)
+
+                                 10 fév. 2011            DELETE-CONNECTOR-W(1)

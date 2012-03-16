@@ -1,0 +1,53 @@
+LIST-RESOURCE-ADAP(1)                                    LIST-RESOURCE-ADAP(1)
+
+NOME
+       list-resource-adapter-configs - elenca i nomi delle configurazioni di
+       Resource Adapter correnti
+
+SINTASSI
+           list-resource-adapter-configs [--help] [--raname raname] [--verbose {false|true}]
+
+DESCRIZIONE
+       Questo comando elenca le informazioni di configurazione del modulo
+       connettore contenute nel file domain.xml. Elenca una voce denominata
+       resource-adapter-config contenuta nel file domain.xml. Se si specifica
+       l'opzione --raname, vengono elencate solo le configurazioni del
+       Resource Adapter del modulo connettore specificato.
+
+       Questo comando è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --raname
+           Specifica il nome del modulo connettore.
+
+       --verbose
+           Elenca le proprietà che sono configurate. Il valore predefinito è
+           false.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco delle configurazioni del
+       Resource Adapter
+           In questo esempio vengono elencate le configurazioni del Resource
+           Adapter corrente.
+
+               asadmin> list-resource-adapter-configs
+               ra1
+               ra2
+               Command list-resource-adapter-configs executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-resource-adapter-config(1), delete-resource-adapter-config(1)
+
+       asadmin(1M)
+
+                               15 settembre 2010         LIST-RESOURCE-ADAP(1)

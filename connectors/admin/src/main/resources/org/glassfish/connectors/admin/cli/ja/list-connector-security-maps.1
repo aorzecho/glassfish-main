@@ -1,0 +1,57 @@
+LIST-CONNECTOR-SEC(1)                                    LIST-CONNECTOR-SEC(1)
+
+名前
+       list-connector-security-maps -
+       指定されたコネクタ接続プールに属するセキュリティ・マップを一覧表示します
+
+概要
+           list-connector-security-maps [--help] [--securitymap securitymap]
+           [--verbose={false|true}] [--target target]
+           pool-name
+
+説明
+       list-connector-security-mapsサブコマンドは、指定されたコネクタ接続プールに属するセキュリティ・マップを一覧表示します。
+
+       このサブコマンドを正常に実行するためには、最初にcreate-connector-connection-poolサブコマンドを使用してコネクタ接続プールを作成しておく必要があります。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --securitymap
+           アイデンティティとプリンシパルを一覧表示する、コネクタ接続プール内に含まれるセキュリティ・マップの名前を指定します。このオプションでは、--verboseは冗長となります。
+
+       --verbose
+           trueに設定すると、アイデンティティ、プリンシパル、およびセキュリティ名が含まれたリストを返します。デフォルトはfalseです。
+
+       --target
+           このオプションは指定しないでください。このオプションは以前のリリースとの互換性を維持するために使用されます。このオプションを指定すると、構文エラーが発生しません。かわりに、サブコマンドは正常に実行され、オプションが無視されたという警告メッセージが表示されます。
+
+オペランド
+       pool-name
+           セキュリティ・マップを一覧表示するコネクタ接続プールの名前。
+
+例
+       例 1, コネクタ・セキュリティ・マップの一覧表示
+           この例では、connector-Pool1という名前のプールの既存のコネクタ・セキュリティ・マップを一覧表示します。
+
+               asadmin> list-connector-security-maps connector-Pool1
+               securityMap1
+               Command list-connector-security-maps executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       create-connector-security-map(1), delete-connector-security-map(1),
+       update-connector-security-map(1)
+
+       asadmin(1M)
+
+                                2010年12月22日           LIST-CONNECTOR-SEC(1)

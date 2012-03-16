@@ -1,0 +1,111 @@
+CREATE-JNDI-RESOUR(1)                                    CREATE-JNDI-RESOUR(1)
+
+NOME
+       create-jndi-resource - registra una risorsa JNDI
+
+SINTASSI
+           create-jndi-resource [--help] [--target target]
+           --restype restype --factoryclass factoryclass
+           --jndilookupname jndilookupname [--enabled={true|false}]
+           [--description description]
+           [--property (name=value)[:name=value]*]
+           jndi-name
+
+DESCRIZIONE
+       Il comando secondario create-jndi-resource registra una risorsa JNDI.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Questa opzione specifica la destinazione per cui viene registrata
+           una risorsa JNDI. I valori validi per la destinazione sono
+           descritti di seguito.
+
+               Nota
+               ┌────────────────────────────────────────┐
+               │Nota La risorsa viene sempre creata per │
+               │l'intero dominio, mentre l'elemento     │
+               │resource-ref per la risorsa viene       │
+               │creato solo per l'elemento --target     │
+               │specificato. Ciò significa che, benché  │
+               │la risorsa sia definita a livello di    │
+               │dominio, è disponibile solo per il      │
+               │livello destinazione specificato. Se    │
+               │necessario, utilizzare il comando       │
+               │secondario create-resource-ref per fare │
+               │riferimento alla risorsa in più         │
+               │destinazioni.                           │
+               └────────────────────────────────────────┘
+
+           server
+               Crea la risorsa per l'istanza server predefinita. Questo è il
+               valore predefinito.
+
+           domain
+               Crea la risorsa per il dominio.
+
+           cluster-name
+               Crea la risorsa per ogni istanza server del cluster
+
+           instance-name
+               Crea la risorsa per una particolare istanza server.
+
+       --restype
+           Tipo di risorsa JNDI. I valori validi sono topic o queue.
+
+       --factoryclass
+           Classe che crea la risorsa JNDI.
+
+       --jndilookupname
+           Nome della ricerca utilizzato dal contenitore esterno.
+
+       --enabled
+           Determina se la risorsa è abilitata in fase di esecuzione. Il
+           valore predefinito è true.
+
+       --description
+           Testo descrittivo della risorsa JNDI.
+
+       --property
+           Proprietà opzionali per la configurazione della risorsa. Ciascuna
+           proprietà è specificata come coppia nome-valore.
+
+           Le proprietà disponibili sono specifiche dell'implementazione
+           indicata dall'opzione --factoryclass e vengono utilizzate in tale
+           implementazione. GlassFish Server in quanto tale non definisce
+           nessuna proprietà per la configurazione di una risorsa JNDI.
+
+OPERANDI
+       jndi-name
+           Nome univoco della risorsa JNDI da creare.
+
+ESEMPI
+       Esempio 1, Creazione di una risorsa JNDI
+           Questo esempio crea la risorsa JNDI my-jndi-resource per l'istanza
+           server predefinita.
+
+               asadmin> create-jndi-resource
+               --restype com.example.jndi.MyResourceType
+               --factoryclass com.example.jndi.MyInitialContextFactoryClass
+               --jndilookupname remote-jndi-name
+               --description "sample JNDI resource" my-jndi-resource
+               JNDI resource my-jndi-resource created.
+               Command create-jndi-resource executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       delete-jndi-resource(1), list-jndi-resources(1), create-resource-ref(1)
+
+       asadmin(1M)
+
+                                21 giugno 2011           CREATE-JNDI-RESOUR(1)

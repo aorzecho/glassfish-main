@@ -1,0 +1,63 @@
+DELETE-CONNECTOR-C(1)                                    DELETE-CONNECTOR-C(1)
+
+NOME
+       delete-connector-connection-pool - rimuove il connection pool di
+       connettore specificato
+
+SINTASSI
+           delete-connector-connection-pool [--help] [--target target]
+           [--cascade={false|true}] poolname
+
+DESCRIZIONE
+       Il comando secondario delete-connector-connection-pool rimuove il
+       connection pool di connettore specificato.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Non è necessario specificare questa opzione, che è stata mantenuta
+           solo per motivi di compatibilità con release precedenti. Se
+           l'opzione viene specificata non si verifica un errore di sintassi.
+           Il comando secondario viene eseguito correttamente e viene
+           visualizzato un messaggio di avvertenza che indica che l'opzione
+           viene ignorata.
+
+       --cascade
+           Se si imposta true, vengono eliminati tutte le risorse connettore
+           associate al pool e il pool stesso. Se l'opzione viene impostata su
+           false, l'eliminazione del pool non riesce se al pool sono associate
+           risorse. La risorsa deve essere eliminata esplicitamente oppure
+           l'opzione deve essere impostata su true. Il valore predefinito è
+           false.
+
+OPERANDI
+       poolname
+           Nome del connection pool da rimuovere.
+
+ESEMPI
+       Esempio 1, Eliminazione di un connection pool di connettore
+           In questo esempio viene eliminato il connection pool di connettore
+           denominato jms/qConnPool.
+
+               asadmin> delete-connector-connection-pool
+               --cascade=false jms/qConnPool
+               Command delete-connector-connection-pool executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-connector-connection-pool(1),
+       list-connector-connection-pools(1), ping-connection-pool(1)
+
+       asadmin(1M)
+
+                               14 settembre 2010         DELETE-CONNECTOR-C(1)

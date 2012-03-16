@@ -1,0 +1,71 @@
+LIST-CONNECTOR-SEC(1)                                    LIST-CONNECTOR-SEC(1)
+
+NOME
+       list-connector-security-maps - elenca le mappe di sicurezza che
+       appartengono al connection pool dei connettori specificato
+
+SINTASSI
+           list-connector-security-maps [--help] [--securitymap securitymap]
+           [--verbose={false|true}] [--target target]
+           pool-name
+
+DESCRIZIONE
+       Il comando secondario list-connector-security-maps elenca le mappe di
+       sicurezza che appartengono al connection pool connettore specificato.
+
+       Affinché questo comando secondario venga eseguito correttamente è
+       necessario creare preliminarmente un connection pool connettore
+       mediante il comando secondario create-connector-connection-pool.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --securitymap
+           Specifica il nome della mappa di sicurezza contenuta nel connection
+           pool connettore da cui devono essere elencati l'ID e i principal.
+           Con questa opzione, --verbose è ridondante.
+
+       --verbose
+           Se si imposta true, viene restituito un elenco contenente l'ID, i
+           principal e il nome di sicurezza. Il valore predefinito è false.
+
+       --target
+           Non è necessario specificare questa opzione, che è stata mantenuta
+           solo per motivi di compatibilità con release precedenti. Se
+           l'opzione viene specificata non si verifica un errore di sintassi.
+           Il comando secondario viene eseguito correttamente e viene
+           visualizzato un messaggio di avvertenza che indica che l'opzione
+           viene ignorata.
+
+OPERANDI
+       pool-name
+           Nome del connection pool connettore per cui si desidera elencare le
+           mappe di sicurezza.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco delle mappe di sicurezza del
+       connettore
+           In questo esempio vengono elencate le mappe di sicurezza del
+           connettore esistenti per il pool denominato connector-Pool1.
+
+               asadmin> list-connector-security-maps connector-Pool1
+               securityMap1
+               Command list-connector-security-maps executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-connector-security-map(1), delete-connector-security-map(1),
+       update-connector-security-map(1)
+
+       asadmin(1M)
+
+                               22 dicembre 2010          LIST-CONNECTOR-SEC(1)

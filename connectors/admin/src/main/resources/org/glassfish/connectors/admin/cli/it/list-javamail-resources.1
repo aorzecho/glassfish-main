@@ -1,0 +1,59 @@
+LIST-JAVAMAIL-RESO(1)                                    LIST-JAVAMAIL-RESO(1)
+
+NOME
+       list-javamail-resources - elenca le risorse di sessione JavaMail
+       esistenti
+
+SINTASSI
+           list-javamail-resources [--help] [target]
+
+DESCRIZIONE
+       Il comando secondario list-javamail-resources elenca le risorse
+       sessione JavaMail esistenti.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+OPERANDI
+       target
+           Questo operando specifica la destinazione per cui devono essere
+           elencate le risorse sessione JavaMail. I valori validi sono:
+
+           server
+               Elenca le risorse per l'istanza server predefinita. Questo è il
+               valore predefinito.
+
+           domain
+               Elenca le risorse per il dominio.
+
+           cluster_name
+               Elenca le risorse per il cluster specificato.
+
+           instance_name
+               Elenca le risorse per una particolare istanza server.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco delle risorse JavaMail
+           In questo esempio vengono elencate le risorse sessione JavaMail
+           dell'istanza server.
+
+               asadmin> list-javamail-resources
+               mail/MyMailSession
+               Command list-javamail-resources executed successfuly.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-javamail-resource(1), delete-javamail-resource(1)
+
+       asadmin(1M)
+
+                               22 dicembre 2010          LIST-JAVAMAIL-RESO(1)

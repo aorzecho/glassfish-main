@@ -1,0 +1,116 @@
+CREATE-ADMIN-OBJEC(1)                                    CREATE-ADMIN-OBJEC(1)
+
+NOM
+       create-admin-object - ajoute l'objet administré avec le nom JNDI
+       indiqué pour un adaptateur de ressources
+
+SYNOPSIS
+           create-admin-object [--help] [--target target]
+           --restype restype
+           [--classname classname]
+           --raname raname
+           [--enabled={true|false}]
+           [--description description]
+           [--property name=value[:name=value]*]
+           jndi_name
+
+DESCRIPTION
+       La sous-commande create-admin-object crée l'objet d'administration avec
+       le nom JNDI spécifié et la définition de l'interface pour un adaptateur
+       de ressources.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Spécifie la cible sur laquelle vous créez l'objet d'administration.
+           Les valeurs valides sont les suivantes :
+
+           server
+               Crée l'objet d'administration pour l'instance de serveur par
+               défaut server et est la valeur par défaut.
+
+           configuration_name
+               Crée l'objet d'administration pour la configuration nommée.
+
+           cluster_name
+               Crée l'objet d'administration pour chaque instance de serveur
+               du cluster.
+
+           instance_name
+               Crée l'objet d'administration pour une instance de serveur
+               particulière.
+
+               Note
+               ┌────────────────────────────────────────┐
+               │Remarque La ressource est toujours      │
+               │créée pour le domaine dans son          │
+               │ensemble, mais l'élément resource-ref   │
+               │de la ressource est créé uniquement     │
+               │pour la valeur --target indiquée. Cela  │
+               │signifie que, bien que la ressource     │
+               │soit définie au niveau du domaine, elle │
+               │n'est disponible que sur la cible       │
+               │indiquée. Utilisez la sous-commande     │
+               │create-resource-ref pour faire          │
+               │référence à la ressource dans plusieurs │
+               │cibles si nécessaire.                   │
+               └────────────────────────────────────────┘
+
+       --restype
+           Spécifie la définition d'interface pour l'objet d'administration.
+           Le type de ressource doit être une définition d'interface spécifiée
+           dans le fichier ra.xml de l'adaptateur de ressources.
+
+       --classname
+           Indique le nom de classe de l'objet d'administration. Requis si
+           plusieurs objets d'administration utilisent la même définition
+           d'interface.
+
+       --raname
+           Indique le nom de l'adaptateur de ressources associé à cet objet
+           d'administration.
+
+       --enabled
+           Spécifie si cet objet est activé. La valeur par défaut est true.
+
+       --description
+           Chaîne de texte décrivant l'objet d'administration.
+
+       --property
+           Description des paires de nom/valeurs pour la configuration de la
+           ressource. Dépendant de l'adaptateur de ressources. Pour les
+           propriétés relatives aux ressources de destination JMS,
+           reportez-vous à create-jms-resource(1).
+
+OPÉRANDES
+       jndi_name
+           Nom JNDI de l'objet d'administration à créer.
+
+EXEMPLES
+       Exemple 1, Création d'un objet d'administration
+           Dans cet exemple, jmsra est un adaptateur de ressources système
+           avec les interfaces d'objet d'administration javax.jms.Queue et
+           javax.jms.Topic.
+
+               asadmin> create-admin-object --restype javax.jms.Queue
+               --raname jmsra --description "sample administered object"
+               --property Name=sample_jmsqueue jms/samplequeue
+               Command create-admin-object executed successfully
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       delete-admin-object(1), list-admin-objects(1), create-resource-ref(1)
+
+       asadmin(1M)
+
+                                 10 fév. 2011            CREATE-ADMIN-OBJEC(1)

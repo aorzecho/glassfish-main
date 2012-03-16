@@ -1,0 +1,65 @@
+LIST-CUSTOM-RESOUR(1)                                    LIST-CUSTOM-RESOUR(1)
+
+名前
+       list-custom-resources - すべてのカスタム・リソースを取得します
+
+概要
+           list-custom-resources [--help] [target]
+
+説明
+       list-custom-resourcesサブコマンドは、カスタム・リソースを一覧表示します。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+オペランド
+       target
+           このオペランドは、カスタム・リソースの場所を指定します。有効なターゲットは次のとおりです。
+
+           server
+               デフォルトのサーバー・インスタンス上のリソースを一覧表示します。この値がデフォルト値です。
+
+           domain
+               ドメイン内のリソースを一覧表示します。
+
+           cluster_name
+               クラスタ内のすべてのサーバー・インスタンスのリソースを一覧表示します。
+
+           instance_name
+               特定のサーバー・インスタンスのリソースを一覧表示します。
+
+例
+       例 1, カスタム・リソースの一覧表示
+           この例では、現在のカスタム・リソースを一覧表示します。
+
+               asadmin> list-custom-resources
+               sample_custom_resource01
+               sample_custom_resource02
+               Command list-custom-resources executed successfully.
+
+       例 2, ターゲットを指定したlist-custom-resourcesコマンドの使用
+           次の例では、このコマンドの使用方法を表示します。
+
+               asadmin> list-custom-resources --user admin --passwordfile
+               passwords.txt --host plum --port 4848 target6
+
+               sample_custom_resource03
+               sample_custom_resource04
+               Command list-custom-resources executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       create-custom-resource(1),delete-custom-resource(1)
+
+       asadmin(1M)
+
+                                2010年12月22日           LIST-CUSTOM-RESOUR(1)

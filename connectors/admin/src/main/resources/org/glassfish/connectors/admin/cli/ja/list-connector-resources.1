@@ -1,0 +1,54 @@
+LIST-CONNECTOR-RES(1)                                    LIST-CONNECTOR-RES(1)
+
+名前
+       list-connector-resources - すべてのコネクタ・リソースを一覧表示します
+
+概要
+           list-connector-resources [--help] [target]
+
+説明
+       list-connector-resourcesサブコマンドはすべてのコネクタ・リソースを一覧表示します。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+オペランド
+       target
+           コネクタ・リソースを一覧表示するターゲット。有効な値は次のとおりです:
+
+           server
+               デフォルトのサーバー・インスタンス上のコネクタ・リソースを一覧表示します。この値がデフォルト値です。
+
+           domain
+               ドメインのコネクタ・リソースを一覧表示します。
+
+           cluster-name
+               指定したクラスタ内のすべてのサーバー・インスタンス上のコネクタ・リソースを一覧表示します。
+
+           instance-name
+               指定したサーバー・インスタンス上のコネクタ・リソースを一覧表示します。
+
+例
+       例 1, コネクタ・リソースの一覧表示
+           この例では、すべての既存のコネクタ・リソースを一覧表示します。
+
+               asadmin> list-connector-resources
+               jms/qConnFactory
+               Command list-connector-resources executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       create-connector-resource(1), delete-connector-resource(1)
+
+       asadmin(1M)
+
+                                 2011年6月21日           LIST-CONNECTOR-RES(1)

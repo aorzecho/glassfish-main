@@ -1,0 +1,56 @@
+LIST-JNDI-RESOURCE(1)                                    LIST-JNDI-RESOURCE(1)
+
+參考名
+       list-jndi-resources - 列出所有現有的 JNDI 資源
+
+概要
+           list-jndi-resources [--help] [target]
+
+說明
+       list-jndi-resources 子命令會識別所有現有的 JNDI 資源。
+
+       只有遠端模式支援這個子命令。
+
+選項
+       --help, -?
+           顯示子命令的說明文字。
+
+運算元
+       目
+           要列出其 JNDI 資源的目標。有效的值如下：
+
+           server
+               列出預設伺服器實例中的 JNDI 資源。此為預設值。
+
+           configuration-name
+               列出指定組態的 JNDI 資源。
+
+           cluster-name
+               列出指定叢集中所有伺服器實例的 JNDI 資源。
+
+           instance-name
+               列出指定伺服器實例的 JNDI 資源。
+
+範例
+       範例 1, 列出 JNDI 資源
+           此範例會列出預設伺服器實例中的 JNDI 資源。
+
+               asadmin> list-jndi-resources
+               jndi_resource1
+               jndi_resource2
+               jndi_resource3
+               Command list-jndi-resources executed successfully
+
+結束狀態
+       0
+           子命令執行成功
+
+       1
+           執行子命令時發生錯誤
+
+另請參閱
+       create-jndi-resource(1), delete-jndi-resource(1)
+
+       asadmin(1M)
+
+                              2011 年 6 月 21 日         LIST-JNDI-RESOURCE(1)

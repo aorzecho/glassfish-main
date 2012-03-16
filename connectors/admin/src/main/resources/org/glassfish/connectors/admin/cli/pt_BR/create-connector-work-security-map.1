@@ -1,0 +1,95 @@
+CREATE-CONNECTOR-W(1)                                    CREATE-CONNECTOR-W(1)
+
+NOME
+       create-connector-work-security-map - cria um mapa de segurança de
+       trabalho do adaptador de recursos especificado
+
+SINOPSE
+           create-connector-work-security-map [--help] --raname raname
+           [--principalsmap eis-principal1=principal_name1[, eis-principal2=principal_name2]*
+           |--groupsmap eis-group1=server-group1[, eis-group2=server-group2]*}
+           [--description description]
+           mapname
+
+DESCRIçãO
+       O subcomandocreate-connector-work-security-map mapeia a identidade do
+       chamador do trabalho enviado pelo adaptador de recurso EIS principal ou
+       grupo de usuário EIS para um principal apropriado ou grupo de usuário
+       no GlassFish Server domínio de segurança. Um ou mais mapas de segurança
+       do trabalho podem ser associados com um adaptador de recurso. A
+       configuração do mapa de segurança de trabalho do conector suporta o uso
+       do asterisco curinga (*) para indicar todos os usuários ou grupos de
+       usuários.
+
+       O sistema de informações corporativas (EIS) é um sistema que armazena
+       os dados de uma empresa. Ele pode ser um mainframe, um sistema de
+       mensagens, um sistema de banco de dados ou uma aplicação.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --description
+           O texto fornece detalhes descritivos sobre o mapa de segurança de
+           trabalho do conector.
+
+       --groupsmap
+           Especifica um mapa do grupo de usuário EIS final para o GlassFish
+           Server grupo de usuário. Use uma lista separada por vírgulas para
+           especificar mais de um mapeamento. Utilize a opção --principalsmap
+           ou a opção --groupsmap, mas não as duas.
+
+       --principalsmap
+           Especifica um mapa de EIS final principal para o GlassFish Server
+           principal. Use uma lista separada por vírgulas para especificar
+           mais de um mapeamento. Utilize a opção --principalsmap ou a opção
+           --groupsmap, mas não as duas.
+
+       --raname
+           Indica o nome do módulo conector, o qual é o nome do adaptador de
+           recurso.
+
+OPERANDOS
+       mapname
+           O nome do mapa de segurança do trabalho a ser criado.
+
+EXEMPLOS
+       Exemplo 1, Criando um mapa de segurança do trabalho do conector
+       (Principal)
+           Esse exemplo cria o mapa de segurança do trabalho do conector
+           workSecurityMap1 que mapeia o EIS final principal para o GlassFish
+           Server principal.
+
+               asadmin create-connector-work-security-map --raname my-resource-adapter
+               --principalsmap eis-principal-1=server-principal-1,eis-principal-2
+               =server-principal-2,eis-principal-3=server-principal-1
+               workSecurityMap1
+               Command create-connector-work-security-map executed successfully.
+
+       Exemplo 2, Criando um mapa de segurança do trabalho do conector (Grupo)
+           Esse exemplo cria o mapa de segurança do trabalho do conector
+           workSecurityMap2 que mapeia o usuário de grupo EIS final para o
+           GlassFish Server usuário de grupo.
+
+               asadmin create-connector-work-security-map --raname my-resource-adapter
+               --groupsmap eis-group-1=server-group-1,eis-group-2=server-group-2,
+               eis-group-3=server-group-1 workSecurityMap2
+               Command create-connector-work-security-map executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       delete-connector-work-security-map(1),
+       list-connector-work-security-maps(1),
+       update-connector-work-security-map(1)
+
+       asadmin(1M)
+
+                            10 de fevereiro de 2011      CREATE-CONNECTOR-W(1)

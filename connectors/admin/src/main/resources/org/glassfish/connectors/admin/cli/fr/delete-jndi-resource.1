@@ -1,0 +1,79 @@
+DELETE-JNDI-RESOUR(1)                                    DELETE-JNDI-RESOUR(1)
+
+NOM
+       delete-jndi-resource - enlève une ressource JNDI
+
+SYNOPSIS
+           delete-jndi-resource [--help] [--target target] jndi_name
+
+DESCRIPTION
+       La sous-commande delete-jndi-resource enlève la ressource JNDI
+       spécifiée. Vous devez enlever toutes les associations à la
+       ressource JNDI avant d'exécuter cette sous-commande.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Les cibles valides sont décrites ci-dessous.
+
+               Note
+               ┌────────────────────────────────────────┐
+               │Remarque Les ressources sont toujours   │
+               │créées pour un domaine dans sa          │
+               │totalité, mais sont actives uniquement  │
+               │pour les cibles pour lesquelles un      │
+               │élément <resource-ref> a été créé à     │
+               │l'aide de l'option --target lorsque la  │
+               │ressource a été créée. Cela signifie    │
+               │que la suppression d'une ressource ne   │
+               │supprime que l'élément <resource-ref>   │
+               │pour l'option --target spécifiée et ne  │
+               │supprime pas la ressource du domaine    │
+               │dans sa totalité, à moins que la valeur │
+               │domain ne soit spécifiée pour --target  │
+               │pour la suppression.                    │
+               └────────────────────────────────────────┘
+
+           server
+               Supprime la ressource de l'instance de serveur par défaut. Il
+               s'agit de la valeur par défaut
+
+           domain
+               Supprime la ressource du domaine
+
+           cluster_name
+               Supprime la ressource pour chaque instance de serveur du
+               cluster
+
+           instance_name
+               Supprime la ressource de l'instance de serveur spécifiée
+
+OPÉRANDES
+       jndi_name
+           Nom de la ressource JNDI à enlever.
+
+EXEMPLES
+       Exemple 1, Suppression d'une ressource JNDI
+           Dans cet exemple, la ressource JNDI existante nommée
+           sample_jndi_resource est enlevée.
+
+               asadmin> delete-jndi-resource sample_jndi_resource
+               Command delete-jndi-resource executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-jndi-resource(1), list-jndi-resources(1)
+
+       asadmin(1M)
+
+                                 11 fév. 2011            DELETE-JNDI-RESOUR(1)

@@ -1,0 +1,71 @@
+LIST-CONNECTOR-SEC(1)                                    LIST-CONNECTOR-SEC(1)
+
+NOM
+       list-connector-security-maps - répertorie les mappes de sécurité
+       appartenant au pool de connexions de connecteur spécifié
+
+SYNOPSIS
+           list-connector-security-maps [--help] [--securitymap securitymap]
+           [--verbose={false|true}] [--target target]
+           pool-name
+
+DESCRIPTION
+       La sous-commande list-connector-security-maps répertorie les mappes de
+       sécurité appartenant au pool de connexions de connecteur spécifié.
+
+       Pour que cette sous-commande réussisse, vous devez préalablement créer
+       le pool de connexions du connecteur à l'aide de la sous-commande
+       create-connector-connection-pool.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --securitymap
+           Spécifie le nom de la mappe de sécurité contenue dans le pool de
+           connexions de connecteur à partir duquel l'identité et les
+           principaux doivent être répertoriés. Avec cette option, l'option
+           --verbose est redondante.
+
+       --verbose
+           Si l'option a la valeur true, renvoie une liste incluant
+           l'identité, les principaux et le nom de sécurité. La valeur par
+           défaut est false.
+
+       --target
+           N'indiquez pas cette option. Elle est conservée à des fins de
+           compatibilité avec les versions antérieures. Si vous indiquez cette
+           option, au lieu de générer une erreur de syntaxe, la sous-commande
+           s'exécute correctement et affiche un message d'avertissement selon
+           lequel l'option est ignorée.
+
+OPÉRANDES
+       pool-name
+           Nom du pool de connexions de connecteur pour lequel vous souhaitez
+           répertorier les mappes de sécurité.
+
+EXEMPLES
+       Exemple 1, Liste des mappes de sécurité de connecteur
+           Cet exemple répertorie les mappes de sécurité de connecteur
+           existants pour le pool nommé connector-Pool1.
+
+               asadmin> list-connector-security-maps connector-Pool1
+               securityMap1
+               Command list-connector-security-maps executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-connector-security-map(1), delete-connector-security-map(1),
+       update-connector-security-map(1)
+
+       asadmin(1M)
+
+                                 22 déc. 2010            LIST-CONNECTOR-SEC(1)

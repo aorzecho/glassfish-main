@@ -1,0 +1,61 @@
+DELETE-CONNECTOR-C(1)                                    DELETE-CONNECTOR-C(1)
+
+NOME
+       delete-connector-connection-pool - remove o pool de conexões do
+       conector especificado
+
+SINOPSE
+           delete-connector-connection-pool [--help] [--target target]
+           [--cascade={false|true}] poolname
+
+DESCRIçãO
+       O subcomando delete-connector-connection-pool remove o pool de conexões
+       do conector especificado.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Não especifique esta opção. Ela é retida para compatibilidade com
+           outras versões. Se for especificada, não ocorre erro de sintaxe. Ao
+           invés disso, o subcomando é executado com êxito e é exibida uma
+           mensagem de advertência informando que a opção é ignorada.
+
+       --cascade
+           Quando definida como verdadeira, todos os recursos de conector
+           associados com o pool, e o pool em si, são deletados. Quando
+           definida como falsa, a deleção do pool falhará, se qualquer recurso
+           estiver associado ao pool. O recurso precisa ser deletado
+           explicitamente ou a opção precisa ser definida como verdadeira. O
+           default é falso.
+
+OPERANDOS
+       poolname
+           O nome do pool de conexões a ser removido.
+
+EXEMPLOS
+       Exemplo 1, Deletando um pool de conexões do conector
+           Este exemplo deleta o pool de conexões do conector denominado
+           jms/qConnPool.
+
+               asadmin> delete-connector-connection-pool
+               --cascade=false jms/qConnPool
+               Command delete-connector-connection-pool executed successfully
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-connector-connection-pool(1),
+       list-connector-connection-pools(1), ping-connection-pool(1)
+
+       asadmin(1M)
+
+                            14 de setembro de 2010       DELETE-CONNECTOR-C(1)

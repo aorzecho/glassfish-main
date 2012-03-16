@@ -1,0 +1,63 @@
+DELETE-CONNECTOR-S(1)                                    DELETE-CONNECTOR-S(1)
+
+NOME
+       delete-connector-security-map - elimina una mappa di sicurezza per il
+       connection pool di connettore specificato
+
+SINTASSI
+           delete-connector-security-map [--help]
+           --poolname connector_connection_pool_name [--target target] mapname
+
+DESCRIZIONE
+       Il comando secondario delete-connector-security-map elimina una mappa
+       di sicurezza per il connection pool di connettore specificato.
+
+       Affinché questo comando secondario venga eseguito correttamente è
+       necessario creare preliminarmente un connection pool per il connettore
+       mediante il comando secondario create-connector-connection-pool.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --poolname
+           Specifica il nome del connection pool di connettore a cui
+           appartiene la mappa di sicurezza da eliminare.
+
+       --target
+           Non è necessario specificare questa opzione, che è stata mantenuta
+           solo per motivi di compatibilità con release precedenti. Se
+           l'opzione viene specificata non si verifica un errore di sintassi.
+           Il comando secondario viene eseguito correttamente e viene
+           visualizzato un messaggio di avvertenza che indica che l'opzione
+           viene ignorata.
+
+OPERANDI
+       mapname
+           Nome della mappa di sicurezza da eliminare.
+
+ESEMPI
+       Esempio 1, Eliminazione di una mappa di sicurezza di un connettore
+           In questo esempio viene eliminato securityMap1 per il connection
+           pool esistente denominato connector-pool1.
+
+               asadmin> delete-connector-security-map
+               --poolname connector-pool1 securityMap1
+               Command delete-connector-security-map executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-connector-security-map(1), list-connector-security-maps(1),
+       update-connector-security-map(1)
+
+       asadmin(1M)
+
+                               14 settembre 2010         DELETE-CONNECTOR-S(1)

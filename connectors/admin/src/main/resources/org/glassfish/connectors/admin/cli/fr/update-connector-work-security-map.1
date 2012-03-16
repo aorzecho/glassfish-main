@@ -1,0 +1,73 @@
+UPDATE-CONNECTOR-W(1)                                    UPDATE-CONNECTOR-W(1)
+
+NOM
+       update-connector-work-security-map - modifie une mappe de sécurité de
+       travail pour l'adaptateur de ressource indiqué
+
+SYNOPSIS
+           update-connector-work-security-map [--help] --raname raname
+           [--addprincipals eis-principal1=server-principal1[, eis-principal2=server-principal2]*]
+           [--addgroups eis-group1=server-group1[, eis-group2=server-group2]*]
+           [--removeprincipals eis-principal1[,eis-principal2]*]
+           [--removegroups eis-group1[, eis-group2]*]
+           mapname
+
+DESCRIPTION
+       La sous-commande update-connector-work-security-map modifie une mappe
+       de sécurité pour l'adaptateur de ressource spécifié.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --addgroups
+           Spécifie la liste, séparée par des virgules, des groupes EIS à
+           ajouter. Utilisez l'option --addprincipals ou l'option --addgroups,
+           mais pas les deux.
+
+       --addprincipals
+           Spécifie la liste, séparée par des virgules, des principaux propres
+           aux EIS à ajouter. Utilisez l'option --addprincipals ou l'option
+           --addgroups, mais pas les deux.
+
+       --removegroups
+           Spécifie la liste, séparée par des virgules, des groupes EIS à
+           enlever.
+
+       --removeprincipals
+           Spécifie la liste, séparée par des virgules, des principaux propres
+           aux EIS à enlever.
+
+       --raname
+           Indique le nom du module connecteur auquel la mappe de sécurité de
+           travail est associée.
+
+OPÉRANDES
+       mapname
+           Nom de la mappe de sécurité de travail à mettre à jour.
+
+EXEMPLES
+       Exemple 1, Mise à jour d'une mappe de sécurité de travail de connecteur
+           Cet exemple met à jour workSecurityMap2 en enlevant eis-group-2.
+
+               asadmin> update-connector-work-security-map
+               --raname my-resource-adapter --removegroups eis-group-2 workSecurityMap2
+               Command update-connector-work-security-map executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-connector-work-security-map(1),
+       delete-connector-work-security-map(1),
+       list-connector-work-security-maps(1)
+
+       asadmin(1M)
+
+                                 10 fév. 2011            UPDATE-CONNECTOR-W(1)

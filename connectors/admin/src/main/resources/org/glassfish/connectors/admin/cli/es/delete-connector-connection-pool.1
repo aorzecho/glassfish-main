@@ -1,0 +1,60 @@
+DELETE-CONNECTOR-C(1)                                    DELETE-CONNECTOR-C(1)
+
+NOMBRE DE REFERENCIA
+       delete-connector-connection-pool - elimina el pool de conexiones de
+       conector especificado.
+
+SINOPSIS
+           delete-connector-connection-pool [--help] [--target target]
+           [--cascade={false|true}] poolname
+
+DESCRIPCIÓN
+       El subcomando delete-connector-connection-pool elimina el pool de
+       conexiones de conector especificado.
+
+       Este subcomando sólo está soportado en modo remoto.
+
+OPCIONES
+       --help, -?
+           Muestra el texto de ayuda para el subcomando.
+
+       --target
+           No especifique esta opción. Esta opción se conserva para la
+           compatibilidad con versiones anteriores. Si se especifica, no se
+           produce un error de sintaxis, sino que el subcomando se ejecutará
+           correctamente y se ignorará la opción.
+
+       --cascade
+           Si se define en true, todos los recursos de conector asociados al
+           pool, y el propio pool, se suprimirán. Si se define en false, la
+           supresión del pool falla si hay algún recurso asociado al pool. El
+           recurso se debe suprimir explícitamente o bien la opción se debe
+           definir en true. El valor por defecto es false.
+
+OPERANDOS
+       poolname
+           Nombre del pool de conexiones que se va a eliminar.
+
+EJEMPLOS
+       Ejemplo 1, Supresión de un Pool de Conexiones de Conector
+           En este ejemplo se suprime el pool de conexiones de conector
+           denominado jms/qConnPool .
+
+               asadmin> delete-connector-connection-pool
+               --cascade=false jms/qConnPool
+               Command delete-connector-connection-pool executed successfully
+
+ESTADO DE SALIDA
+       0
+           Subcomando ejecutado correctamente
+
+       1
+           Error al ejecutar el subcomando
+
+CONSULTE TAMBIÉN
+       create-connector-connection-pool(1),
+       list-connector-connection-pools(1), ping-connection-pool(1)
+
+       Utilidad asadmin(1M)
+
+                                  14 Sep 2010            DELETE-CONNECTOR-C(1)
