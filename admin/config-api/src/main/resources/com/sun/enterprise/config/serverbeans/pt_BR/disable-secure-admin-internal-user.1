@@ -1,0 +1,53 @@
+DISABLE-SECURE-ADM(1)                                    DISABLE-SECURE-ADM(1)
+
+NOME
+       disable-secure-admin-internal-user - Instrui o DAS e instâncias do
+       GlassFish Server a não usarem o usuário admin especificado para
+       autenticarem um ao outro e autorizarem operações de administração.
+
+SINOPSE
+           disable-secure-admin-internal-user
+           [--help]
+           admin-username
+
+DESCRIçãO
+       O subcomando disable-secure-admin-internal-user desativa a
+       administração segura de usar o nome de usuário (em vez de certificados
+       SSL) para autenticar o DAS e instâncias um ao outro e autorizar
+       operações de administração.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+OPERANDOS
+       admin-username
+           O nome de usuário admin que o GlassFish Server não deve usar para
+           autenticar o DAS e instâncias um com o outro e autorizar operações
+           de administração.
+
+EXEMPLOS
+       Exemplo 1, Desativando um nome de usuário para administração segura
+           O exemplo a seguir desativa a administração segura de usar o nome
+           de usuário tester para autenticar o DAS e instâncias um ao outro e
+           autorizar operações de administração.
+
+               asadmin> disable-secure-admin-internal-user tester
+
+               Command disable-secure-admin-internal-user executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       enable-secure-admin(1)
+
+       enable-secure-admin-internal-user(1)
+
+       asadmin(1M)
+
+                              25 de junho de 2011        DISABLE-SECURE-ADM(1)

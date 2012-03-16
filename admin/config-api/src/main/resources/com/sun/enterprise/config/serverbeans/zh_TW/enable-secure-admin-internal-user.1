@@ -1,0 +1,81 @@
+ENABLE-SECURE-ADMI(1)                                    ENABLE-SECURE-ADMI(1)
+
+參考名
+       enable-secure-admin-internal-user - 指示 GlassFish Server DAS
+       與實例使用指定的管理使用者以及與密碼別名關聯的密碼，來互相認證及授權管理作業。
+
+概要
+           enable-secure-admin-internal-user
+           [--help]
+           [--passwordalias pwdaliasname]
+           admin-username
+
+說明
+       enable-secure-admin-internal-user
+       子命令會指示網域中的所有伺服器，使用現有管理使用者名稱與密碼 (而非 SSL
+       憑證) 互相認證，以及互相認證向對方送出的管理作業。這通常表示您必須：
+
+        1. 建立一個有效的管理使用者。
+
+               asadmin> create-file-user --authrealmname admin-realm --groups
+               asadmin newAdminUsername
+
+        2. 為剛才建立的密碼建立密碼別名。
+
+               asadmin> create-password-alias passwordAliasName
+
+        3. 使用該使用者名稱與密碼進行程序間認證與管理授權。
+
+               asadmin> enable-secure-admin-internal-user
+               --passwordalias passwordAliasName
+               newAdminUsername
+
+       如果 GlassFish Server
+       至少找到一個安全管理內部使用者，此時若啟用安全管理，GlassFish Server
+       程序將不會使用 SSL，而是改用使用者名稱/密碼對來互相進行認證與授權。
+
+       如果啟用安全管理，所有 GlassFish Server 程序都會繼續使用 SSL
+       加密來保護管理訊息的內容，無論它們如何互相認證。
+
+       大部分使用此子命令的使用者，只需要設定一個安全管理內部使用者。一般的做法是，內部管理通訊和管理使用者登入不應該使用相同的使用者名稱與密碼對。
+
+       如果您設定超過一個安全管理內部使用者，就不應該對於 GlassFish Server
+       將針對任何指定的管理要求選擇使用哪一組使用者名稱與密碼對做任何假設。
+
+選項
+       --help, -?
+           顯示子命令的說明文字。
+
+       --passwordalias
+           GlassFish Server 在執行 DAS 對實例以及實例對 DAS
+           的內部認證與授權時，應使用之使用者的密碼別名。
+
+運算元
+       admin-username
+           GlassFish Server 在執行 DAS 對實例以及實例對 DAS
+           的內部認證與授權時，應使用的管理使用者名稱。
+
+範例
+       範例 1, 指定安全管理的使用者名稱與密碼
+           以下範例允許安全管理利用使用者名稱與密碼別名 (而非使用憑證) 進行
+           DAS 與實例之間的認證與授權。
+
+               asadmin> enable-secure-admin-internal-user
+               --passwordalias passwordAliasName
+               newAdminUsername
+
+結束狀態
+       0
+           子命令執行成功
+
+       1
+           執行子命令時發生錯誤
+
+另請參閱
+       enable-secure-admin(1)
+
+       disable-secure-admin-internal-user(1)
+
+       asadmin(1M)
+
+                              2011 年 6 月 25 日         ENABLE-SECURE-ADMI(1)

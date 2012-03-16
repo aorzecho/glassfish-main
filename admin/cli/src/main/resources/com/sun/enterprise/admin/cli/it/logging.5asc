@@ -1,0 +1,47 @@
+LOGGING(5ASC)                                                    LOGGING(5ASC)
+
+NOME
+       logging - acquisisce informazioni sugli eventi di fase di esecuzione di
+       GlassFish Server
+
+DESCRIZIONE
+       Si definisce log il processo mediante il quale vengono catturati i dati
+       relativi agli eventi che si verificano durante il funzionamento di
+       GlassFish Server. Componenti di GlassFish Server e componenti di
+       applicazioni generano dati di log, che vengono salvarti nel log del
+       server, in genere domain-dir/logs/server.log. Il log del server è la
+       prima fonte di informazioni quando si verifica un problema in GlassFish
+       Server.
+
+       Quando il file di log del server raggiunge la dimensione in byte
+       specificata, o una volta trascorso il tempo specificato, è prevista la
+       rotazione del log. La rotazione del file può anche essere eseguita
+       manualmente, mediante il comando secondario rotate-log.
+
+       Oltre al log del server, la directory domain-dir//logs contiene altri
+       due tipi di log:
+
+       ·   Log di accesso al servizio HTTP, nella sottodirectory /access
+
+       ·   Log del servizio transazioni, nella sottodirectory /tx
+
+       I livelli di log possono essere configurati mediante Administration
+       Console o il comando secondario set-log-levels. È possibile impostare
+       proprietà aggiuntive mediante Administration Console o modificando il
+       file logging.properties. Normalmente il file predefinito
+       logging.properties si trova in domain-dir/config.
+
+       I componenti di applicazioni possono utilizzare la libreria di log
+       Apache Commons per la registrazione di messaggi, ma per una migliore
+       configurazione del log è consigliato lo standard della piattaforma JSR
+       047 API.
+
+VEDERE ANCHE
+       list-log-levels(1), rotate-log(1), set-log-levels(1)
+
+       asadmin(1M)
+
+       "Administering the Logging Service" in Oracle GlassFish Server
+       Administration Guide
+
+                                1 novembre 2010                  LOGGING(5ASC)

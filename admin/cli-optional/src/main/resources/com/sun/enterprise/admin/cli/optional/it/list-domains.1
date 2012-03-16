@@ -1,0 +1,53 @@
+LIST-DOMAINS(1)                                                LIST-DOMAINS(1)
+
+NOME
+       list-domains - elenca i domini nella directory specificata
+
+SINTASSI
+           list-domains [--help] [--domaindir domaindir]
+
+DESCRIZIONE
+       Il comando secondario list-domains consente di elencare i domini
+       contenuti nella directory dei domini specificata. Se la directory dei
+       domini non è specificata, vengono elencati i domini contenuti nella
+       directory predefinita. Se sono presenti più directory dei domini,
+       l'opzione --domaindir deve essere specificata. L'elenco include lo
+       stato di ciascun dominio.
+
+       Questo comando secondario è supportato solo in modalità locale.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --domaindir
+           La directory che contiene i domini da elencare. Se viene
+           specificata, il percorso deve essere accessibile nella radice dei
+           file. In caso contrario, vengono elencati i domini contenuti nella
+           directory radice del dominio. La posizione predefinita della
+           directory root del dominio è as-install/domains.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco dei domini
+           In questo esempio vengono elencati i domini contenuti nella
+           directory predefinita.
+
+               asadmin> list-domains
+               Name: domain1 Status: Running
+               Name: domain2 Status: Not running
+               Name: domain4 Status: Running, restart required to apply configuration changes
+               Command list-domains executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-domain(1), delete-domain(1), start-domain(1), stop-domain(1),
+
+       asadmin(1M)
+
+                                6 novembre 2009                LIST-DOMAINS(1)

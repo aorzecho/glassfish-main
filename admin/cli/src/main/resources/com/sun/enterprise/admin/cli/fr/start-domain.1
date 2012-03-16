@@ -1,0 +1,174 @@
+START-DOMAIN(1)                                                START-DOMAIN(1)
+
+NOM
+       start-domain - démarre le serveur DAS du domaine indiqué
+
+SYNOPSIS
+           start-domain [--help] [--debug={true|false}] [--domaindir domain-dir]
+           [--upgrade={true|false}] [--verbose={true|false}] [domain-name]
+
+DESCRIPTION
+       La sous-commande start-domain démarre le serveur d'administration de
+       domaine (DAS) du domaine spécifié. Si aucun domaine n'est spécifié, le
+       domaine par défaut est utilisé. Si le répertoire de domaines contient
+       au moins deux domaines, l'opérande domain-name doit être spécifié.
+
+           Note
+           ┌────────────────────────────────────────┐
+           │Remarque                                │
+           │                                        │
+           │           Sur la plate-forme Windows,  │
+           │           les processus peuvent être   │
+           │           liés au même port. Pour      │
+           │           éviter ce problème, ne       │
+           │           démarrez pas plusieurs       │
+           │           domaines avec le même numéro │
+           │           de port en même temps.       │
+           └────────────────────────────────────────┘
+
+       Cette sous-commande est prise en charge en mode local uniquement.
+
+           Note
+           ┌────────────────────────────────────────┐
+           │Remarque                                │
+           │                                        │
+           │           Dans Oracle GlassFish        │
+           │           Server, la sous-commande     │
+           │           start-domain vous invite à   │
+           │           saisir un nouveau mot de     │
+           │           passe administrateur si      │
+           │           aucun mot de passe n'a été   │
+           │           défini pour                  │
+           │           l'administrateur. De plus,   │
+           │           le mot de passe              │
+           │           administrateur ne doit pas   │
+           │           être vide si                 │
+           │           l'administration sécurisée   │
+           │           est activée ; sinon, la      │
+           │           sous-commande start-domain   │
+           │           échoue.                      │
+           │                                        │
+           │           Pour indiquer un nouveau mot │
+           │           de passe administrateur,     │
+           │           vous pouvez utiliser         │
+           │           l'option d'utilitaire        │
+           │           --passwordfile de la         │
+           │           commande asadmin(1M) après   │
+           │           avoir ajouté l'entrée        │
+           │           AS_ADMIN_NEWPASSWORD au      │
+           │           fichier de mots de passe.    │
+           └────────────────────────────────────────┘
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --debug
+           Spécifie si le domaine est démarré avec le débogueur Java Platform
+           Debugger Architecture (JPDA)
+
+           activé.
+
+           Les valeurs possibles sont les suivantes :
+
+           true
+               L'instance est démarrée avec le débogage JPDA activé. Le numéro
+               de port pour le débogage JPDA est affiché.
+
+           false
+               L'instance est démarrée avec le débogage JPDA désactivé (par
+               défaut).
+
+       --domaindir
+           Répertoire racine de domaines, qui contient le répertoire du
+           domaine à redémarrer. S'il est spécifié, le chemin doit être
+           accessible dans le système de fichiers. L'emplacement par défaut du
+           répertoire racine de domaines est as-install/domains.
+
+       --upgrade
+           Indique si la configuration du serveur d'administration de domaine
+           (DAS) est mise à niveau avec la version en cours. Normalement, si
+           la sous-commande détecte que la configuration est issue d'une
+           ancienne version de GlassFish Server, la configuration est mise à
+           jour automatiquement avant d'être démarrée. Vous ne devriez pas
+           avoir à utiliser explicitement cette option.
+
+           Les valeurs possibles sont les suivantes :
+
+           true
+               Lorsque le domaine est démarré, la configuration est modifiée
+               de façon à être compatible avec cette version de GlassFish
+               Server, et le processus de GlassFish Server s'arrête.
+
+           false
+               La configuration du serveur DAS n'est pas mise à jour (par
+               défaut).
+
+       --verbose, -v
+           Indique si des informations détaillées sur le domaine sont
+           affichées dans la fenêtre de la console dans laquelle la
+           sous-commande est exécutée.
+
+           Les valeurs possibles sont les suivantes :
+
+           true
+               Les messages de démarrage détaillés et les messages de journal
+               relatifs au domaine sont affichés dans la fenêtre de console
+               dans laquelle la sous-commande est exécutée. Si le domaine est
+               redémarré ultérieurement à l'aide de la sous-commande
+               restart-domain(1) émise à partir d'une autre fenêtre de la
+               console, les messages continuent à être affichés dans la
+               fenêtre de la console d'origine.
+
+               Vous pouvez arrêter le processus GlassFish Server en appuyant
+               sur CTRL-C dans la fenêtre de la console.
+
+               Vous pouvez arrêter le processus GlassFish Server et obtenir un
+               vidage du thread pour le serveur en appuyant sur l'une des
+               touches ou combinaisons de touches suivantes dans la fenêtre de
+               la console :
+
+               ·   CTRL-\ sur les systèmes UNIX
+
+               ·   CTRL-Break sur les systèmes Windows
+
+           false
+               Les informations détaillées ne sont pas affichées (par défaut).
+
+OPÉRANDES
+       domain-name
+           Nom unique du domaine que vous souhaitez démarrer.
+
+           Cet opérande est facultatif s'il n'existe qu'un seul domaine dans
+           l'installation de GlassFish Server.
+
+EXEMPLES
+       Exemple 1, Démarrage d'un domaine
+           Cet exemple démarre mydomain4 dans le répertoire de domaines par
+           défaut.
+
+               asadmin> start-domain mydomain4
+               Waiting for DAS to start. ...........
+               Started domain: mydomain4
+               Domain location: /myhome/glassfishv3/glassfish/domains/mydomain4
+               Log file: /myhome/glassfishv3/glassfish/domains/mydomain4/logs/server.log
+               Admin port for the domain: 4848
+               Command start-domain executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-domain(1), delete-domain(1), list-domains(1), restart-domain(1),
+       stop-domain(1)
+
+       asadmin(1M)
+
+       Java Platform Debugger Architecture (JPDA)
+       (http://java.sun.com/javase/technologies/core/toolsapis/jpda/)
+
+                                 22 oct. 2010                  START-DOMAIN(1)

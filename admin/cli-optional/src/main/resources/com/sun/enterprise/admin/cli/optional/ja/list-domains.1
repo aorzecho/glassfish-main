@@ -1,0 +1,43 @@
+LIST-DOMAINS(1)                                                LIST-DOMAINS(1)
+
+名前
+       list-domains - 指定されたディレクトリ内のドメインを一覧表示します
+
+概要
+           list-domains [--help] [--domaindir domaindir]
+
+説明
+       list-domainsサブコマンドは、指定されたドメイン・ディレクトリ内のドメインを一覧表示します。ドメインのディレクトリが指定されていない場合は、デフォルトのディレクトリにあるドメインが一覧表示されます。ドメインのディレクトリが複数存在する場合は、--domaindirオプションを指定する必要があります。各ドメインのステータスが記載されます。
+
+       このサブコマンドは、ローカル・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --domaindir
+           ドメインが一覧表示されるディレクトリ。指定した場合、ファイル・システム内でこのパスにアクセスできる必要があります。指定されない場合は、ドメイン・ルート・ディレクトリにあるドメインが一覧表示されます。ドメイン・ルート・ディレクトリのデフォルトの場所は、as-install/domainsです。
+
+例
+       例 1, ドメインの一覧表示
+           この例では、デフォルトのディレクトリにあるドメインを一覧表示します。
+
+               asadmin> list-domains
+               Name: domain1 Status: Running
+               Name: domain2 Status: Not running
+               Name: domain4 Status: Running, restart required to apply configuration changes
+               Command list-domains executed successfully
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       create-domain(1), delete-domain(1), start-domain(1), stop-domain(1),
+
+       asadmin(1M)
+
+                                 2009年11月6日                 LIST-DOMAINS(1)

@@ -1,0 +1,62 @@
+UNSET(1)                                                              UNSET(1)
+
+NOME
+       unset - rimuove una o più variabili dall'ambiente in modalità multipla
+
+SINTASSI
+           unset [--help] variable-list
+
+DESCRIZIONE
+       Il comando secondario unset consente di rimuovere una o più variabili
+       d'ambiente impostate per l'ambiente in modalità multipla. Dopo la
+       rimozione, le variabili e i valori ad esse associati non saranno più
+       applicati all'ambiente in modalità multipla.
+
+       Per generare un elenco delle variabili d'ambiente impostate, usare il
+       comando secondario export senza opzioni. Se il comando secondario
+       export non elenca alcuna variabile d'ambiente, non ne verrà impostata
+       nessuna.
+
+       Questo comando secondario è supportato solo in modalità locale.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+OPERANDI
+       variable-list
+           Elenco separato da spazi delle variabili d'ambiente da rimuovere.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco delle variabili d'ambiente
+       impostate
+           In questo esempio viene utilizzato il comando secondario export per
+           elencare le variabili d'ambiente impostate.
+
+               asadmin> export
+               AS_ADMIN_USER = admin
+               AS_ADMIN_HOST = bluestar
+               AS_ADMIN_PREFIX = server1.jms-service
+               AS_ADMIN_PORT = 8000
+               Command export executed successfully
+
+       Esempio 2, Rimozione di una variabile d'ambiente
+           In questo esempio viene rimossa la variabile d'ambiente
+           AS_ADMIN_PREFIX.
+
+               asadmin> unset AS_ADMIN_PREFIX
+               Command unset executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       export(1), multimode(1)
+
+       asadmin(1M)
+
+                               20 dicembre 2010                       UNSET(1)

@@ -1,0 +1,102 @@
+CREATE-RESOURCE-RE(1)                                    CREATE-RESOURCE-RE(1)
+
+NOME
+       create-resource-ref - crea un riferimento a una risorsa
+
+SINTASSI
+           create-resource-ref [--help] [--target target]
+           [--enabled={false|true}] reference_name
+
+DESCRIZIONE
+       Il comando secondario create-resource-ref crea un riferimento a una
+       risorsa creata precedentemente, ad esempio una risorsa JDBC creata
+       utilizzando il comando secondario create-jdbc-resource in un cluster o
+       un'istanza server non inserita in un cluster. La risorsa viene così
+       resa disponibile nella struttura JNDI dell'istanza o del cluster.
+
+       Non è necessario che l'istanza di destinazione o le istanze che
+       compongono il cluster siano in esecuzione perché questo comando
+       secondario venga eseguito correttamente. Se una o più istanze non sono
+       disponibili, riceveranno la nuova risorsa all'avvio successivo.
+
+           Nota
+           ┌───────────────────────────────────────┐
+           │Nota                                   │
+           │                                       │
+           │           È possibile creare un       │
+           │           resource-ref soltanto per   │
+           │           risorse associabili, quali  │
+           │           ad esempio jdbc-resource,   │
+           │           connector-resource ,        │
+           │           admin-object-resource,      │
+           │           mail-resource,              │
+           │            custom-resource o          │
+           │           jndi-resource.              │
+           │                                       │
+           │           Un                          │
+           │            jdbc-connection-pool o un  │
+           │           connector-connection-pool   │
+           │           non può essere utilizzato   │
+           │           come riferimento            │
+           │           direttamente dalle          │
+           │           applicazioni. È possibile,  │
+           │           invece, utilizzarlo come    │
+           │           riferimento rispettivamente │
+           │           tramite jdbc-resource o     │
+           │           connector-resource.         │
+           └───────────────────────────────────────┘
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Specifica la destinazione per cui viene creato il riferimento alla
+           risorsa. Le destinazioni valide sono le seguenti:
+
+           server
+               Crea il riferimento alla risorsa per l'istanza server
+               predefinita. Questa è la destinazione predefinita.
+
+           cluster_name
+               Crea il riferimento alla risorsa per tutte le istanze server
+               del cluster.
+
+           instance_name
+               Crea il riferimento alla risorsa per l'istanza server
+               denominata non inserita in un cluster.
+
+       --enabled
+           Indica se la risorsa deve essere abilitata. Questo valore sarà
+           effettivo solo se la risorsa è abilitata a livello globale. Il
+           valore predefinito è true.
+
+OPERANDI
+       reference_name
+           Nome o nome JNDI della risorsa.
+
+ESEMPI
+       Esempio 1, Creazione di un riferimento a una risorsa di destinazione
+       JMS
+           In questo esempio viene creato un riferimento alla risorsa di
+           destinazione JMS jms/Topic nel cluster Cluster1.
+
+               asadmin> create-resource-ref --target Cluster1 jms/Topic
+               resource-ref jms/Topic created successfully.
+               Command create-resource-ref executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       delete-resource-ref(1), list-resource-refs(1)
+
+       asadmin(1M)
+
+                                20 giugno 2011           CREATE-RESOURCE-RE(1)

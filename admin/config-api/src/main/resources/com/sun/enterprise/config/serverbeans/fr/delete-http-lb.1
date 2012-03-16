@@ -1,0 +1,54 @@
+DELETE-HTTP-LB(1)                                            DELETE-HTTP-LB(1)
+
+NOM
+       delete-http-lb - supprime un équilibreur de charge
+
+SYNOPSIS
+           delete-http-lb [--help] load_balancer_name
+
+DESCRIPTION
+       Utilisez la sous-commande delete-http-lb pour supprimer un équilibreur
+       de charge physique.
+
+           Note
+           ┌───────────────────────────────────────┐
+           │Remarque                               │
+           │                                       │
+           │           Cette sous-commande         │
+           │           s'applique uniquement à     │
+           │           Oracle GlassFish Server.    │
+           │           Cette sous-commande n'est   │
+           │           pas applicable à GlassFish  │
+           │           Server Open Source Edition. │
+           └───────────────────────────────────────┘
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+OPÉRANDES
+       load_balancer_name
+           Nom de l'équilibreur de charge à supprimer.
+
+EXEMPLES
+       Exemple 1, Suppression d'une configuration d'équilibreur de charge
+           Dans cet exemple, la configuration d'équilibreur de charge nommée
+           mylb est supprimée.
+
+               asadmin> delete-http-lb mylb
+
+               Command delete-http-lb executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-http-lb(1), list-http-lbs(1)
+
+       asadmin(1M)
+
+                                 25 oct. 2010                DELETE-HTTP-LB(1)

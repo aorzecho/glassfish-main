@@ -1,0 +1,83 @@
+MULTIMODE(1)                                                      MULTIMODE(1)
+
+NOME
+       multimode - permite a execução de vários subcomandos, preservando as
+       definições do ambiente e permanecendo no utilitário asadmin
+
+SINOPSE
+           multimode [--help] [--file filename]
+           [--printprompt={true|false}] [--encoding encode]
+
+DESCRIçãO
+       O subcomando multimode processa subcomandos asadmin sequencialmente em
+       uma única sessão. A interface de linha de comando solicita um
+       subcomando, executa esse subcomando, exibe seus resultados e, em
+       seguida, solicita para o próximo subcomando. Todas as opções asadmin
+       definidas no modo múltiplo aplicam-se aos comandos subsequentes até que
+       a sessão de modo múltiplo seja encerrada. Você sai do multimode ao
+       digitarexit,
+        quit ou Ctrl-D.
+
+       É possível utilizar o subcomando export para definir o ambiente ou
+       utilizar o subcomando unset para remover variáveis do ambiente a partir
+       do ambiente de modo múltiplo. Também é possível fornecer subcomandos ao
+       passar uma lista de subcomandos preparada previamente a partir de um
+       arquivo ou entrada padrão (duto).
+
+       É possível chamar omultimode de dentro da sessão de modo múltiplo. Ao
+       sair do segundo ambiente de modo múltiplo, você retorna ao seu ambiente
+       de modo múltiplo original.
+
+       Todas as opções de utilitários asadmin remotas podem ser fornecidas ao
+       chamar o subcomando multimode. As definições serão aplicadas como
+       defaults para todos os subcomandos executados na sessão de modo
+       múltiplo. Para ver uma lista das opções do utilitário asadmin, consulte
+       a página de ajuda asadmin(1M).
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --file, -f
+           Lê os subcomandos no arquivo especificado.
+
+       --printprompt
+           Controla a impressão do prompt asadmin. Por default, essa opção é
+           definida com o mesmo valor que a opção -interactive do utilitário
+            asadmin. Geralmente não é necessário especificar essa opção. O
+           default é verdadeiro.
+
+       --encoding
+           Especifica o conjunto de caracteres para o arquivo a ser
+           codificado. Por default, o conjunto de caracteres do sistema é
+           utilizado.
+
+EXEMPLOS
+       Exemplo 1, Iniciando uma sessão em modo múltiplo
+           Este exemplo inicia uma sessão em modo múltiplo na qual: % é o
+           prompt do sistema.
+
+               % asadmin multimode
+               asadmin>
+           É possível também iniciar uma sessão de modo múltiplo digitando
+           asadmin, sem opções ou subcomandos, ao prompt do sistema.
+
+       Exemplo 2, Executando vários comandos a partir de um arquivo
+           Este exemplo executa uma sequência de subcomandos provenientes do
+           arquivo commands_file.txt .
+
+               % asadmin multimode --file commands_file.txt
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       export(1), unset(1)
+
+       asadmin(1M)
+
+                            20 de dezembro de 2010                MULTIMODE(1)

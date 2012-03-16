@@ -1,0 +1,128 @@
+CREATE-HTTP-LB-CO(1)                                      CREATE-HTTP-LB-CO(1)
+
+NOM
+       create-http-lb-config - crée une configuration pour l'équilibreur de
+       charge
+
+SYNOPSIS
+           create-http-lb-config [--help] [--responsetimeout 60]
+            [httpsrouting=false] [--reloadinterval 60]
+            [--monitor=false] [--property (name=value)[:name=value]*]
+            --target target | config_name
+
+DESCRIPTION
+       Utilisez la sous-commande create-http-lb-config pour créer une
+       configuration d'équilibreur de charge. Cette configuration s'applique à
+       l'équilibrage de charge dans le chemin HTTP. Après avoir créé le
+       fichier de configuration de l'équilibreur de charge à l'aide de cette
+       sous-commande, exécutez create-http-lb pour créer l'équilibreur de
+       charge.
+
+       Vous devez préciser une cible ou un nom de configuration, ou les deux.
+       Si vous n'indiquez pas de cible, la configuration est créée sans cible.
+       Vous pourrez en rajouter une ultérieurement à l'aide de
+       create-http-lb-ref. Si vous n'indiquez pas de nom de configuration, un
+       nom est créé sur la base du nom de la cible. Si vous spécifiez l'un et
+       l'autre, la configuration est créée avec le nom spécifié, associé à la
+       cible spécifiée.
+
+           Note
+           ┌───────────────────────────────────────┐
+           │Remarque                               │
+           │                                       │
+           │           Cette sous-commande         │
+           │           s'applique uniquement à     │
+           │           Oracle GlassFish Server.    │
+           │           Cette sous-commande n'est   │
+           │           pas applicable à GlassFish  │
+           │           Server Open Source Edition. │
+           └───────────────────────────────────────┘
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --responsetimeout
+           Délai exprimé en secondes au cours duquel une instance de serveur
+           doit retourner une réponse. Si aucune réponse n’est reçue dans ce
+           délai, le serveur est considéré comme n'étant pas en bon état. Si
+           la valeur spécifiée est un nombre positif et que la demande est
+           idempotente, cette dernière est exécutée à nouveau. Si la demande
+           n’est pas idempotente, une page d’erreur est renvoyée. Si la valeur
+           est 0, aucune temporisation n’est utilisée. La valeur par défaut
+           est 60.
+
+       --httpsrouting
+           Si l'option a la valeur true, les demandes HTTPS adressées à
+           l'équilibreur de charge se transforment en demandes HTTPS destinées
+           à l'instance de serveur. Si l'option a la valeur false, les
+           demandes HTTPS adressées à l'équilibreur de charge se transforment
+           en demandes HTTP destinées à l'instance de serveur. La valeur par
+           défaut est false.
+
+       --reloadinterval
+           Intervalle entre chaque vérification de modifications apportées au
+           fichier de configuration de l'équilibreur de charge
+           loadbalancer.xml. Si des modifications sont détectées, le fichier
+           de configuration est rechargé. La valeur 0 désactive le
+           rechargement.
+
+       --monitor
+           Indique si la surveillance est activée. La valeur par défaut est
+           false.
+
+       --routecookie
+           Cette option est en phase d'abandon. La valeur est toujours true.
+
+       --property
+           Paires nom d'attribut/valeur facultatives pour configurer
+           l'équilibreur de charge.
+
+       --target
+           Spécifie la cible à laquelle la configuration de l'équilibreur de
+           charge s'applique. Si vous ne spécifiez pas une cible, la
+           configuration de l'équilibreur de charge est créée sans une cible.
+           Vous pouvez ultérieurement indiquer des cibles à l'aide de la
+           sous-commande create-http-lb-ref.
+
+           Les valeurs valides sont les suivantes :
+
+           ·   cluster_name : indique que les demandes concernant ce cluster
+               seront traitées par l'équilibreur de charge.
+
+           ·   stand-alone_instance_name : indique que les demandes concernant
+               cette instance autonome sont traitées par l'équilibreur de
+               charge.
+
+OPÉRANDES
+       config_name
+           Nom de la nouvelle configuration de l'équilibreur de charge. Ce nom
+           ne doit pas entrer en conflit avec celui de groupes d'équilibreurs
+           de charge, d'agents, de configurations, de clusters ou d'instances
+           de serveur du domaine. Si vous n'indiquez pas de nom de
+           configuration de l'équilibreur de charge, il sera basé sur le nom
+           cible, target_name -http-lb-config.
+
+EXEMPLES
+       Exemple 1, Création d'une configuration d'équilibreur de charge
+           Cet exemple crée une configuration d'équilibreur de charge sur une
+           cible nommée mycluster et une configuration d'équilibreur de charge
+           nommée mylbconfigname.
+
+               asadmin> create-http-lb-config --target mycluster mylbconfigname
+
+               Command create-http-lb-config executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       delete-http-lb-config(1), list-http-lb-configs(1), create-http-lb(1)
+
+       asadmin(1M)
+
+                                 25 oct. 2010             CREATE-HTTP-LB-CO(1)

@@ -1,0 +1,91 @@
+STOP-DOMAIN(1)                                                  STOP-DOMAIN(1)
+
+NOME
+       stop-domain - arresta il server di amministrazione del dominio
+       specificato
+
+SINTASSI
+           stop-domain [--help] [--domaindir domaindir]
+           [--force={true|false}] [--kill={false|true}]
+           [domain-name]
+
+DESCRIZIONE
+       Il comando secondario stop-domain arresta il server di amministrazione
+       del dominio (DAS) del dominio specificato. Se la directory dei domini
+       non è specificata, viene arrestato il dominio contenuto nella directory
+       predefinita. Se nella directory dei domini sono presenti due o più
+       domini, è necessario specificare l'operando domain-name.
+
+       Questo comando secondario è supportato in modalità locale o in modalità
+       remota. Se si specifica un nome host, il comando secondario presume che
+       si stia operando in modalità remota, pertanto è necessario autenticarsi
+       correttamente nel server remoto. In modalità locale normalmente non è
+       necessaria l'autenticazione nel server, purché il comando secondario
+       venga eseguito dallo stesso utente che ha avviato il server.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --domaindir
+           Specifica la directory del dominio da arrestare. Se viene
+           specificata, il percorso deve essere accessibile nel file system.
+           In caso contrario, viene arrestato il dominio contenuto nella
+           directory predefinita as-install/domains.
+
+       --force
+           Specifica se il dominio viene subito arrestato forzatamente.
+
+           I possibili valori sono i seguenti:
+
+           true
+               Il dominio è subito arrestato forzatamente (predefinito).
+
+           false
+               Prima di arrestare il dominio, il comando secondario rimane in
+               attesa fino a che non si esce da tutti i thread che sono
+               associati al dominio stesso.
+
+       --kill
+           Specifica se il dominio è terminato tramite la funzionalità del
+           sistema operativo per terminare il processo di dominio.
+
+           I possibili valori sono i seguenti:
+
+           false
+               Il dominio non è terminato. Il comando secondario utilizza
+               funzionalità della piattaforma Java per terminare il processo
+               del dominio (opzione predefinita).
+
+           true
+               Il dominio è terminato. Il comando secondario utilizza
+               funzionalità del sistema operativo per terminare il processo
+               del dominio.
+
+OPERANDI
+       domain-name
+           Nome del dominio da arrestare. Il valore predefinito è il nome
+           specificato durante l'installazione, di solito domain1.
+
+ESEMPI
+       Esempio 1, Arresto di un dominio
+           In questo esempio viene arrestato il dominio denominato
+           sampleDomain nella directory dei domini predefinita.
+
+               asadmin> stop-domain sampleDomain
+               Waiting for the domain to stop .................
+               Command stop-domain executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       delete-domain(1), list-domains(1), restart-domain(1), start-domain(1)
+
+       asadmin(1M)
+
+                               20 dicembre 2010                 STOP-DOMAIN(1)

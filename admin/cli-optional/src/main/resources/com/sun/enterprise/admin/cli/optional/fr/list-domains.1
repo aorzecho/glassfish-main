@@ -1,0 +1,51 @@
+LIST-DOMAINS(1)                                                LIST-DOMAINS(1)
+
+NOM
+       list-domains - répertorie les domaines dans le répertoire indiqué
+
+SYNOPSIS
+           list-domains [--help] [--domaindir domaindir]
+
+DESCRIPTION
+       La sous-commande list-domains répertorie les domaines dans le
+       répertoire de domaines spécifié. Si le répertoire de domaines n'est pas
+       spécifié, les domaines dans le répertoire par défaut sont répertoriés.
+       S'il existe plusieurs répertoires de domaines, l'option --domaindir
+       doit être spécifiée. Le statut de chaque domaine est inclus.
+
+       Cette sous-commande est prise en charge en mode local uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --domaindir
+           Répertoire dans lequel les domaines doivent être répertoriés. S'il
+           est spécifié, le chemin doit être accessible dans le radical des
+           fichiers. S'il n'est pas spécifié, les domaines dans le répertoire
+           racine de domaines sont répertoriés. L'emplacement par défaut du
+           répertoire racine de domaines est as-install/domains.
+
+EXEMPLES
+       Exemple 1, Liste des domaines
+           Cet exemple répertorie les domaines dans le répertoire par défaut.
+
+               asadmin> list-domains
+               Name: domain1 Status: Running
+               Name: domain2 Status: Not running
+               Name: domain4 Status: Running, restart required to apply configuration changes
+               Command list-domains executed successfully
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-domain(1), delete-domain(1), start-domain(1), stop-domain(1),
+
+       asadmin(1M)
+
+                                  6 nov. 2009                  LIST-DOMAINS(1)

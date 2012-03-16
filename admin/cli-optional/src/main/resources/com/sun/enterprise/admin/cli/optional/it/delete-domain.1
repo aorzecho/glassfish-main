@@ -1,0 +1,59 @@
+DELETE-DOMAIN(1)                                              DELETE-DOMAIN(1)
+
+NOME
+       delete-domain - elimina un dominio
+
+SINTASSI
+           delete-domain [--help] [--domaindir domaindir] domain-name
+
+DESCRIZIONE
+       Il comando secondario delete-domain consente di eliminare il dominio
+       specificato. Il dominio deve esistere e deve essere interrotto.
+
+       Questo comando secondario è supportato solo in modalità locale.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --domaindir
+           La directory che contiene il dominio da eliminare. Se viene
+           specificata, il percorso deve essere accessibile nel file system.
+           Se non si specifica, viene eliminato il dominio all'interno della
+           directory root del dominio che, per impostazione predefinita, è
+           as-install/domains.
+
+OPERANDI
+       domain-name
+           Nome univoco del dominio da eliminare.
+
+ESEMPI
+       Esempio 1, Eliminazione di un dominio
+           In questo esempio un dominio denominato mydomain4 viene eliminato
+           dalla directory dei domini predefinita.
+
+               asadmin> delete-domain mydomain4
+               Domain mydomain4 deleted.
+               Command delete-domain executed successfully.
+
+       Esempio 2, Eliminazione di un dominio da una diversa directory
+           In questo esempio viene eliminato il dominio denominato
+           sampleDomain dalla directory /home/someuser/domains.
+
+               asadmin> delete-domain --domaindir /home/someuser/domains sampleDomain
+               Domain sampleDomain deleted
+               Command delete-domain executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       create-domain(1), start-domain(1), stop-domain(1), list-domains(1)
+
+       asadmin(1M)
+
+                                16 ottobre 2009               DELETE-DOMAIN(1)

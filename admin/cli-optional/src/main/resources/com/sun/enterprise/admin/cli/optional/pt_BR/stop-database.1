@@ -1,0 +1,74 @@
+STOP-DATABASE(1)                                              STOP-DATABASE(1)
+
+NOME
+       stop-database - interrompe o Java DB
+
+SINOPSE
+           stop-database [--help] [--dbuser db-user]
+           [--dbhost host] [--dbport port-no]
+
+DESCRIçãO
+       O subcomando stop-database para um processo do servidor Java DB. O
+       servidor Java DB está disponível para utilização com GlassFish Server e
+       tem base no Apache Derby. O banco de dados é normalmente inicializado
+       com o subcomando start-database(1). Um único host pode possuir vários
+       processos de servidor de banco de dados executando em diferentes
+       portas. O subcomando stop-database para o processo de servidor de banco
+       de dados apenas para a porta especificada.
+
+       Esse subcomando é suportado apenas no modo local.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --dbuser
+           O nome do usuário do Java DB que deve parar o processo do servidor.
+           Esta opção é necessária somente quando a autenticação do usuário
+           Java BD está ativada.
+
+           Se esta opção for omitida, nenhum usuário é especificado. Por
+           default, a autenticação do usuário Java DB está desativada,
+           portanto, nenhum nome de usuário ou senha é necessário.
+
+       --dbhost
+           O nome de host ou endereço IP do processo de servidor do Java DB. O
+           default é o endereço IP 0.0.0.0, que denota todas as interfaces de
+           rede no host onde é executado o subcomando stop-database.
+
+       --dbport
+           O número da porta onde o servidor Java DB interpreta para conexões
+           do cliente. O default é 1527.
+
+EXEMPLOS
+       Exemplo 1, Parando o Java DB
+           Esse exemplo para o Java DB no host1 e porta 5001.
+
+               asadmin> stop-database --dbhost host1 --dbport 5001
+               Connection obtained for host: host1, port number 5001.
+               Shutdown successful.
+               Command stop-database executed successfully.
+
+STATUS DE SAíDA
+       O status de saída aplica aos erros na execução da utilidade asadmin.
+       Para obter informações de erros de banco de dados, consulte o arquivo
+       derby.log. Esse arquivo está localizado no diretório que você
+       especifica usando a opção --dbhome quando executa o subcomando
+       start-database. Se você não tiver especificado o --dbhome, o valor de
+       DERBY_INSTALL assumirá como default as-install/javadb.
+
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       start-database(1)
+
+       asadmin(1M)
+
+       "Administering Database Connectivity" no Oracle GlassFish Server
+       Administration Guide
+
+                            22 de dezembro de 2010            STOP-DATABASE(1)

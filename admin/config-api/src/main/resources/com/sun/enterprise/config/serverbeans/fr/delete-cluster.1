@@ -1,0 +1,71 @@
+DELETE-CLUSTER(1)                                            DELETE-CLUSTER(1)
+
+NOM
+       delete-cluster - supprime un cluster GlassFish Server
+
+SYNOPSIS
+           delete-cluster [--help]
+           [--autohadboverride={true|false}] [--node-agent=node-agent--name]
+           cluster-name
+
+DESCRIPTION
+       La sous-commande delete-cluster supprime un cluster GlassFish Server.
+       Un cluster peut être supprimé uniquement s'il ne contient aucune
+       instance GlassFish Server. Si vous supprimez un cluster qui contient
+       des instances, arrêtez-les et supprimez-les avant de supprimer le
+       cluster.
+
+       Si la configuration nommée du cluster a été créée automatiquement pour
+       le cluster et qu'aucun autre cluster ou aucune autre instance non
+       incluse dans un cluster ne fait référence à la configuration, celle-ci
+       est supprimée lorsque le cluster est supprimé. La configuration créée
+       automatiquement pour un cluster est nommée cluster-name-config, où
+       cluster-name est le nom du cluster.
+
+       Cette commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --autohadboverride
+           N'indiquez pas cette option. Elle est conservée à des fins de
+           compatibilité avec les versions antérieures. Si vous indiquez cette
+           option, au lieu de générer une erreur de syntaxe, la sous-commande
+           s'exécute correctement et affiche un message d'avertissement selon
+           lequel l'option est ignorée.
+
+       --nodeagent
+           N'indiquez pas cette option. Elle est conservée à des fins de
+           compatibilité avec les versions antérieures. Si vous indiquez cette
+           option, au lieu de générer une erreur de syntaxe, la sous-commande
+           s'exécute correctement et affiche un message d'avertissement selon
+           lequel l'option est ignorée.
+
+OPÉRANDES
+       cluster-name
+           Nom du cluster à supprimer.
+
+EXEMPLES
+       Exemple 1, Suppression d'un cluster GlassFish Server
+           Dans cet exemple, le cluster GlassFish Server adccluster est
+           supprimé.
+
+               asadmin> delete-cluster adccluster
+               Command delete-cluster executed successfully.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-cluster(1), delete-instance(1), delete-local-instance(1),
+       list-clusters(1), start-cluster(1), stop-instance(1),
+       stop-local-instance(1), stop-cluster(1)
+
+       asadmin(1M)
+
+                                  7 déc. 2010                DELETE-CLUSTER(1)

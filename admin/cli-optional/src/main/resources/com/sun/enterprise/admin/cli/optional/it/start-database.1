@@ -1,0 +1,149 @@
+START-DATABASE(1)                                            START-DATABASE(1)
+
+NOME
+       start-database - avvia il server Java DB
+
+SINTASSI
+           start-database [--help] [--jvmoptions jvm-options]
+           [--dbhost host] [--dbport port-no]
+           [--dbhome db-file-path]
+
+DESCRIZIONE
+       Il comando secondario start-database avvia il server Java DB
+       disponibile con GlassFish Server. Java DB è basato su Apache Derby.
+       Usare questo comando secondario solo per lavorare con le applicazioni
+       distribuite nel server.
+
+       Quando si avvia il server Java DB mediante il comando secondario
+       start-database, il server di database viene avviato in modalità server
+       di rete. I client che vi si connettono devono usare Java DB
+       ClientDriver. Per i dettagli sulla connessione al database, consultare
+       la documentazione di Apache Derby.
+
+       All'avvio del server di database, o quando un client vi si connette,
+       vengono creati i file seguenti:
+
+       ·   Il file derby.log che contiene il log dei processi del server di
+           database con il relativo output standard e informazioni sugli
+           errori standard
+
+       ·   I file del database che contengono lo schema dell'utente (ad
+           esempio, le tabelle del database)
+
+       I file vengono creati nel percorso specificato dall'opzione --dbhome.
+       Per creare i file di database in uno specifico percorso, è necessario
+       impostare l'opzione --dbhome. Se l'opzione --dbhome non è specificata,
+       il comando secondario start-database determina dove creare i file, nel
+       modo seguente:
+
+       ·   Se la directory di lavoro corrente contiene un file denominato
+            derby.log, il comando secondario start-database crea i file in
+           tale directory.
+
+       ·   In caso contrario, il comando secondario start-database crea i file
+           nella directory as-install/databases.
+
+       Il comando secondario start-database avvia il processo del database,
+       anche se non può scrivere nel file di log.
+
+       Questo comando secondario è supportato solo in modalità locale.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --jvmoptions
+           Una lista separata da spazi di opzioni di riga di comando passate
+           al launcher dell'applicazione Java quando viene avviato il
+           database. Per impostazione predefinita, non viene passata alcuna
+           opzione.
+
+           Il formato di un'opzione cambia se l'opzione ha un nome e un valore
+           oppure solo un nome.
+
+           ·   Se l'opzione presenta un nome e un valore, il formato è
+               option-name=value.
+
+           ·   Se l'opzione presenta solo un nome, il formato è option-name.
+               Ad esempio, -Xmx512m.
+
+       --dbhost
+           Nome host o indirizzo IP del processo server Java DB. Il valore
+           predefinito è l'indirizzo IP 0.0.0.0, che denota tutte le
+           interfacce di rete dell'host in cui viene eseguito il comando
+           secondario start-database.
+
+       --dbport
+           Numero della porta su cui il server Java DB resta in attesa di
+           connessioni client. La porta deve essere disponibile per il socket
+           di ricezione, altrimenti il server di database non verrà avviato.
+           Il valore predefinito è 1527.
+
+       --dbhome
+           Percorso assoluto della directory in cui vengono creati i file
+           database e il file derby.log. Se l'opzione --dbhome non è
+           specificata, il comando secondario start-database determina dove
+           creare i file, nel modo seguente:
+
+           ·   Se la directory di lavoro corrente contiene un file denominato
+                derby.log, il comando secondario start-database crea i file in
+               tale directory.
+
+           ·   In caso contrario, il comando secondario start-database crea i
+               file nella directory as-install/databases.
+
+           Per creare i file di database in uno specifico percorso, è
+           necessario impostare l'opzione --dbhome.
+
+ESEMPI
+       Esempio 1, Avvio di Java DB
+           In questo esempio viene avviato Java DB nell'host host1 e sulla
+           porta 5001.
+
+               asadmin> start-database --dbhost host1 --dbport 5001 --terse=true
+               Starting database in the background.  Log redirected to
+               /opt/SUNWappserver/databases/derby.log.
+
+       Esempio 2, Avvio di Java DB con opzioni per il launcher
+       dell'applicazione Java
+           In questo esempio viene avviato Java DB con le opzioni per
+           impostare una dimensione minima della memoria heap su 128 MB e una
+           dimensione massima della memoria heap su 512 MB.
+
+               asadmin> start-database --jvmoptions="-Xms128m -Xmx512m" --terse=true
+               Starting database in the background.
+               Log redirected to /export/glassfish3/glassfish/databases/derby.log.
+
+STATO DI USCITA
+       Lo stato di uscita si applica agli errori che si verificano durante
+       l'esecuzione dell'utility asadmin. Per informazioni sugli errori dei
+       database, vedere il file derby.log. Il file si trova nella directory
+       specificata dall'utente mediante l'opzione --dbhome al momento
+       dell'esecuzione del comando secondario start-database . Se l'opzione
+       --dbhome non viene specificata, per impostazione predefinita il valore
+       di DERBY_INSTALL è as-install/javadb.
+
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       stop-database(1)
+
+       asadmin(1M)
+
+       "Administering Database Connectivity" in Oracle GlassFish Server
+       Administration Guide
+
+       Per ulteriori informazioni sul launcher di applicazioni Java, vedere la
+       pagina di riferimento per il sistema operativo in uso:
+
+       ·   Oracle Solaris e Linux: java - launcher di applicazioni Java
+           (http://java.sun.com/javase/6/docs/technotes/tools/solaris/java.html)
+
+       ·   Windows: java - launcher di applicazioni Java
+           (http://java.sun.com/javase/6/docs/technotes/tools/windows/java.html)
+
+                                8 dicembre 2011              START-DATABASE(1)

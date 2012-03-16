@@ -1,0 +1,64 @@
+LIST-RESOURCE-REFS(1)                                    LIST-RESOURCE-REFS(1)
+
+NOM
+       list-resource-refs - répertorie les références existantes de ressource
+
+SYNOPSIS
+           list-resource-refs [--help] [target]
+
+DESCRIPTION
+       La sous-commande list-resource-refs répertorie toutes les références de
+       ressource dans un cluster ou une instance de serveur non incluse dans
+       un cluster. Elle répertorie en réalité toutes les ressources (par
+       exemple, les ressources JDBC) disponibles dans l'arborescence JNDI de
+       la cible spécifiée.
+
+       L'instance ou les instances cible du cluster n'ont pas besoin d'être en
+       cours d'exécution ou disponibles pour que cette sous-commande
+       réussisse.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+OPÉRANDES
+       target
+           Cible pour laquelle vous répertoriez les références de ressource.
+           Les cibles valides sont les suivantes :
+
+           server
+               Répertorie les références de ressource pour l'instance de
+               serveur par défaut et est la cible par défaut.
+
+           cluster_name
+               Répertorie les références de ressource pour chaque instance de
+               serveur du cluster.
+
+           instance_name
+               Répertorie les références de ressource pour l'instance de
+               serveur non incluse dans un cluster nommée.
+
+EXEMPLES
+       Exemple 1, Liste des références de ressource pour un cluster
+           Cet exemple répertorie les références de ressource pour le cluster
+           cluster1.
+
+               asadmin> list-resource-refs cluster1
+               jms/Topic
+               Command list-resource-refs executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-resource-ref(1), delete-resource-ref(1)
+
+       asadmin(1M)
+
+                                 20 juin 2011            LIST-RESOURCE-REFS(1)

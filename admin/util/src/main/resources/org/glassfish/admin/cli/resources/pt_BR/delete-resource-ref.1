@@ -1,0 +1,72 @@
+DELETE-RESOURCE-RE(1)                                    DELETE-RESOURCE-RE(1)
+
+NOME
+       delete-resource-ref - remove uma referência a um recurso
+
+SINOPSE
+           delete-resource-ref [--help] [--target target] reference_name
+
+DESCRIçãO
+       O subcomando delete-resource-ref remove uma referência a um recurso
+       (por exemplo, um recurso JDBC) de um cluster ou de uma instância de
+       servidor não clusterizado. O que resulta efetivamente na remoção do
+       recurso da árvore JNDI do cluster ou da instância de destino.
+
+       A instância ou instâncias de destino que compõem o cluster não precisam
+       estar em execução ou disponíveis para que esse subcomando seja bem
+       sucedido. Se uma ou mais instâncias não estiverem disponíveis, elas não
+       carregarão mais o recurso na árvore JNDI na próxima vez em que for
+       iniciada.
+
+       A remoção da referência não resulta na remoção do recurso a partir do
+       domínio. O recurso é removido apenas pelo subcomando delete para esse
+       recurso (por exemplo, delete-jdbc-resource).
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Especifica o destino a partir do qual você está removendo a
+           referência do recurso. Valores válidos são
+
+           servidor
+               Remove a referência do recurso da instância do servidor default
+                server e é o valor default.
+
+           cluster_name
+               Remove a referência do recurso de cada instância do servidor do
+               cluster.
+
+           instance_name
+               Remove a referência do recurso da instância do servidor não
+               clusterizado.
+
+OPERANDOS
+       reference_name
+           O nome ou nome de JNDI do recurso.
+
+EXEMPLOS
+       Exemplo 1, Removendo uma referência a um recurso
+           Este exemplo remove uma referência ao recurso de destino JMS
+           jms/Topic no cluster cluster1.
+
+               asadmin> delete-resource-ref --target cluster1 jms/Topic
+               resource-ref jms/Topic deleted successfully.
+               Command delete-resource-ref executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-resource-ref(1), list-resource-refs(1)
+
+       asadmin(1M)
+
+                              20 de junho de 2011        DELETE-RESOURCE-RE(1)

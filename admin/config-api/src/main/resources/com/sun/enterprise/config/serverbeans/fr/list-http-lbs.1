@@ -1,0 +1,52 @@
+LIST-HTTP-LBS(1)                                              LIST-HTTP-LBS(1)
+
+NOM
+       list-http-lbs - répertorie les équilibreurs de charge
+
+SYNOPSIS
+           list-http-lbs [--help]
+
+DESCRIPTION
+       Utilisez la sous-commandelist-http-lbs pour répertorier les
+       équilibreurs de charge physiques.
+
+           Note
+           ┌───────────────────────────────────────┐
+           │Remarque                               │
+           │                                       │
+           │           Cette sous-commande         │
+           │           s'applique uniquement à     │
+           │           Oracle GlassFish Server.    │
+           │           Cette sous-commande n'est   │
+           │           pas applicable à GlassFish  │
+           │           Server Open Source Edition. │
+           └───────────────────────────────────────┘
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+EXEMPLES
+       Exemple 1, Liste des équilibreurs de charge physiques d'un domaine
+           Cet exemple répertorie tous les équilibreurs de charge physiques
+           définis pour un domaine.
+
+               asadmin> list-http-lbs
+
+               lb1
+               lb2
+               Command list-http-lbs executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-http-lb(1), delete-http-lb(1)
+
+       asadmin(1M)
+
+                                 26 août 2010                 LIST-HTTP-LBS(1)

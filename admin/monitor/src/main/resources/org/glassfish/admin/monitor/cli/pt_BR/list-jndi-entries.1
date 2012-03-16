@@ -1,0 +1,74 @@
+LIST-JNDI-ENTRIES(1)                                      LIST-JNDI-ENTRIES(1)
+
+NOME
+       list-jndi-entries - procura e consulta a árvore JNDI
+
+SINOPSE
+           list-jndi-entries [--help]
+           [--context context_name]
+           [target]
+
+DESCRIçãO
+       Utilize este subcomando para procurar e consultar a árvore JDNI.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --context
+           O nome do contexto ou subcontexto JNDI. Se o contexto não for
+           especificado, todas as entradas no serviço de classificação são
+           retornadas. Se o contexto (como ejb) for especificado, todas
+           aquelas entradas são retornadas.
+
+OPERANDOS
+       target
+           Este operando especifica a árvore JNDI a ser pesquisada:
+
+           Os valores possíveis são os seguintes:
+
+           servidor
+               Pesquisa na árvore JNDI pela instância default do GlassFish
+               Server (default). A instância default é o servidor de
+               administração de domínios (DAS).
+
+           domain
+               Pesquisa na árvore JNDI pelo domínio atual.
+
+           cluster-name
+               Pesquisa na árvore JNDI pelo cluster especificado.
+
+           instance-name
+               Pesquisa na árvore JNDI pela instância do GlassFish Server
+               especificada.
+
+EXEMPLOS
+       Exemplo 1, Pesquisando a árvore JNDI
+           Este exemplo, pesquisa na árvore JNDI pela instância default do
+           GlassFish Server.
+
+               asadmin> list-jndi-entries
+               java:global: com.sun.enterprise.naming.impl.TransientContext
+               jdbc: com.sun.enterprise.naming.impl.TransientContext
+               ejb: com.sun.enterprise.naming.impl.TransientContext
+               com.sun.enterprise.container.common.spi.util.InjectionManager:
+               com.sun.enterprise.container.common.impl.util.InjectionManagerImpl
+
+               Command list-jndi-entries executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       create-jndi-resource(1), delete-jndi-resource(1),
+       list-jndi-resources(1)
+
+       asadmin(1M)
+
+                             7 de dezembro de 2010        LIST-JNDI-ENTRIES(1)

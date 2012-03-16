@@ -1,0 +1,85 @@
+ENABLE-SECURE-ADMI(1)                                    ENABLE-SECURE-ADMI(1)
+
+NOM
+       enable-secure-admin-principal - Lorsque l'administration sécurisée est
+       activée, indique à GlassFish Server d'accepter les demandes
+       d'administration des clients identifiés par le certificat SSL indiqué.
+
+SYNOPSIS
+           enable-secure-admin-principal
+           [--help]
+           --alias aliasname | DN
+
+DESCRIPTION
+       La sous-commande enable-secure-admin-principal indique à GlassFish
+       Server d'accepter les demandes d'administration accompagnées d'un
+       certificat SSL portant le nom distinctif (DN) indiqué. Si vous utilisez
+       le format "--alias aliasname", GlassFish Server recherche un certificat
+       avec l'alias indiqué dans son truststore et utilise le nom
+       distinctif (DN) associé au certificat. Sinon, GlassFish Server
+       enregistre la valeur indiquée en tant que nom distinctif (DN).
+
+       Vous devez indiquer l'option --alias ou le nom distinctif (DN).
+
+       Vous pouvez exécuter enable-secure-admin-principal plusieurs fois afin
+       que GlassFish Server accepte les demandes d'administration d'un client
+       qui envoie un certificat avec un nom distinctif (DN) que vous indiquez.
+
+       Lorsque vous exécutez enable-secure-admin, GlassFish Server enregistre
+       automatiquement les noms distinctifs (DN) de l'alias d'administration
+       et de l'alias d'instance, que vous indiquiez ces valeurs ou utilisiez
+       les valeurs par défaut. Vous n'avez pas besoin d'exécuter vous-même
+       enable-secure-admin-principal pour ces certificats. En dehors de ces
+       certificats, vous devez exécuter enable-secure-admin-principal pour
+       tout autre nom distinctif (DN) que GlassFish Server doit autoriser pour
+       envoyer des demandes d'administration. Cela inclut les noms
+       distinctifs (DN) correspondant aux certificats sécurisés (avec une
+       chaîne de certificat fournie à une autorité approuvée).
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --alias
+           Nom d'alias du certificat dans le truststore. GlassFish Server
+           recherche le certificat dans le truststore à l'aide de l'alias et,
+           s'il le trouve, stocke la validité du nom distinctif (DN)
+           correspondant pour l'administration sécurisée. La valeur alias-name
+           devant être un alias associé à un certificat actuellement dans le
+           truststore, vous le trouverez peut-être plus utile pour les
+           certificats auto-signés.
+
+OPÉRANDES
+       DN
+           Nom distinctif (DN) du certificat, indiqué sous forme de liste de
+           valeurs séparées par des virgules, entre guillemets. Par exemple,
+           "CN=system.amer.oracle.com,OU=GlassFish,O=Oracle
+           Corporation,L=Santa Clara,ST=California,C=US".
+
+EXEMPLES
+       Exemple 1, Approbation d'un nom distinctif (DN) pour l'administration
+       sécurisée
+           L'exemple suivant indique comment spécifier un nom distinctif (DN)
+           pour l'autorisation d'accès dans l'administration sécurisée.
+
+               asadmin> enable-secure-admin-principal
+               "CN=system.amer.oracle.com,OU=GlassFish,
+               O=Oracle Corporation,L=Santa Clara,ST=California,C=US"
+
+               Command enable-secure-admin-principal executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       enable-secure-admin(1)
+
+       disable-secure-admin-principal(1)
+
+       asadmin(1M)
+
+                                 25 juin 2011            ENABLE-SECURE-ADMI(1)
