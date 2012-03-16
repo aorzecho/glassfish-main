@@ -1,0 +1,77 @@
+PACKAGE-APPCLIENT(1M)                                    PACKAGE-APPCLIENT(1M)
+
+NOME
+       package-appclient - comprime le librerie e i file JAR del contenitore
+       del client dell'applicazione
+
+SINTASSI
+           package-appclient
+
+DESCRIZIONE
+       Utilizzare il comando package-appclient per inserire le librerie dei
+       contenitori del client dell'applicazione e i file JAR in un file
+       denominato appclient.jar, creato nella directory the as-install/lib del
+       computer sul quale è installato GlassFish Server. Il file appclient.jar
+       fornisce un package del contenitore di client dell'applicazione per
+       host remoti che non contengono un'installazione server.
+
+       Dopo aver copiato il file appclient.jar in un percorso remoto,
+       decomprimerlo per ottenere un insieme di librerie e file JAR nella
+       directory appclient all'interno della directory corrente.
+
+       Dopo aver decompresso il file nel client, modificare
+        appclient/glassfish/config/asenv.conf (asenv.bat per Windows) come
+       indicato di seguito:
+
+       ·   impostare AS_WEBSERVICES_LIB su path-to-appclient/appclient/lib
+
+       ·   impostare AS_IMQ_LIB su path-to-appclient/appclient/mq/lib
+
+       ·   impostare AS_INSTALL su path-to-appclient/appclient
+
+       ·   impostare AS_JAVA sulla directory della home di JDK 1.6
+
+       ·   impostare AS_ACC_CONFIG su
+           path-to-appclient/appclient/glassfish/domains/domain1/config/sun-acc.xml
+
+       Modificare appclient/glassfish/domains/domain1/config/sun-acc.xml come
+       segue:
+
+       ·   Assicurarsi che il file DOCTYPE faccia riferimento a
+           path-to-appclient/appclient/glassfish/lib/dtds
+
+       ·   Verificare che l'attributo relativo all'indirizzo di target-server
+           faccia riferimento al server.
+
+       ·   Verificare che l'attributo relativo alla porta di target-server
+           faccia rifermento alla porta ORB del computer remoto.
+
+       ·   Verificare che log-service faccia riferimento a un file di log,
+           qualora l'utente desideri registrare messaggi di log in un file di
+           log.
+
+       Per utilizzare il contenitore di client dell'applicazione appena
+       installato, è necessario effettuare le seguenti operazioni:
+
+       ·   Ottenere i file del client di applicazione per l'applicazione di
+           destinazione, incluso il file yourAppClient.jar generato.
+
+       ·   Eseguire la utility appclient:
+            appclient -client yourAppClient.jar
+
+ATTRIBUTI
+       Vedere Attributi(5) per le descrizioni degli attributi seguenti:
+
+       ┌──────────────────────┬─────────────────────────┐
+       │                      │                         │
+       │       TIPO ATTRIBUTO │        VALORE ATTRIBUTO │
+       ├──────────────────────┼─────────────────────────┤
+       │                      │                         │
+       │       Stabilità      │        Instabile        │
+       │       interfaccia    │                         │
+       └──────────────────────┴─────────────────────────┘
+
+VEDERE ANCHE
+       appclient(1M)
+
+                               17 novembre 2010          PACKAGE-APPCLIENT(1M)
