@@ -1,0 +1,65 @@
+UNFREEZE-TRANSACTIO(1)                                  UNFREEZE-TRANSACTIO(1)
+
+NOM
+       unfreeze-transaction-service - reprend toutes les transactions
+       suspendues
+
+SYNOPSIS
+           unfreeze-transaction-service [--help] [--target target]
+
+DESCRIPTION
+       La sous-commande unfreeze-transaction-service redémarre le sous-système
+       de transaction et reprend toutes les transactions en cours d'exécution.
+       Appelez cette sous-commande sur un sous-système de transaction déjà
+       bloqué. Cette sous-commande est prise en charge en mode distant
+       uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Cette option spécifie la cible sur laquelle vous débloquez le
+           service de transaction. Les valeurs valides sont les suivantes :
+
+           server
+               Débloque le service de transaction pour l'instance de serveur
+               par défaut server et constitue la valeur par défaut.
+
+           configuration_name
+               Débloque le service de transaction pour toutes les instances de
+               serveur qui utilisent la configuration nommée.
+
+           cluster_name
+               Débloque le service de transaction pour chaque instance de
+               serveur du cluster.
+
+           instance_name
+               Débloque le service de transaction pour une instance de serveur
+               donnée.
+
+EXEMPLES
+       Exemple 1, Utilisation de unfreeze-transaction-service
+
+               % asadmin unfreeze-transaction-service
+               Command unfreeze-transaction-service executed successfully
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       freeze-transaction-service(1), rollback-transaction(1),
+       recover-transactions(1)
+
+       asadmin(1M)
+
+       "Administering Transactions" dans le manuel Oracle GlassFish Server
+       Administration Guide
+
+       "Transactions" dans le manuel The Java EE 6 Tutorial
+
+                                 17 nov. 2010           UNFREEZE-TRANSACTIO(1)

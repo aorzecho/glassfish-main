@@ -1,0 +1,68 @@
+ROLLBACK-TRANSACTIO(1)                                  ROLLBACK-TRANSACTIO(1)
+
+NOM
+       rollback-transaction - annule la transaction nommée
+
+SYNOPSIS
+           rollback-transaction [--help] [--target target]
+            transaction_id
+
+DESCRIPTION
+       La sous-commande rollback-transaction annule la transaction nommée.
+
+       Avant de pouvoir annuler une transaction, vous devez effectuer les
+       opérations suivantes :
+
+        1. Activez la fonction de surveillance à l'aide de la sous-commande
+           set. Par exemple :
+
+               asadmin> set clstr1-config.monitoring-service.module-monitoring-levels.transaction-service=HIGH
+
+        2. Utilisez la sous-commande freeze-transaction-service pour arrêter
+           les transactions en cours.
+
+        3. Recherchez les transactions actives à l'aide de la sous-commande
+           get avec l'option --monitor. Par exemple :
+
+               asadmin> get --monitor inst1.server.transaction-service.activeids-current
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Cette option indique la cible sur laquelle vous annulez les
+           transactions. Les valeurs valides sont server ou toute autre
+           instance autonome ou incluse dans un cluster.
+
+OPÉRANDES
+       transaction_id
+           Identificateur de la transaction à annuler.
+
+EXEMPLES
+       Exemple 1, Utilisation de la commande rollback-transaction
+
+               % asadmin rollback-transaction 0000000000000001_00
+               Command rollback-transaction executed succeessfully
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       freeze-transaction-service(1), unfreeze-transaction-service(1),
+       recover-transactions(1)
+
+       asadmin(1M)
+
+       "Administering Transactions" dans le manuel Oracle GlassFish Server
+       Administration Guide
+
+       "Transactions" dans le manuel The Java EE 6 Tutorial
+
+                                 17 nov. 2010           ROLLBACK-TRANSACTIO(1)
