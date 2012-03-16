@@ -1,0 +1,72 @@
+DELETE-HTTP-HEALTH(1)                                    DELETE-HTTP-HEALTH(1)
+
+NOM
+       delete-http-health-checker - supprime un vérificateur d'état pour une
+       configuration d'équilibreur de charge spécifiée
+
+SYNOPSIS
+           delete-http-health-checker [--help] [--config config_name]
+            target
+
+DESCRIPTION
+       La sous-commande delete-http-health-checker supprime le vérificateur
+       d'état d'une configuration d'équilibreur de charge. Un vérificateur de
+       maintenance est unique pour la combinaison cible/configuration de
+       l'équilibreur de charge.
+
+           Note
+           ┌───────────────────────────────────────┐
+           │Remarque                               │
+           │                                       │
+           │           Cette sous-commande         │
+           │           s'applique uniquement à     │
+           │           Oracle GlassFish Server.    │
+           │           Cette sous-commande n'est   │
+           │           pas applicable à GlassFish  │
+           │           Server Open Source Edition. │
+           └───────────────────────────────────────┘
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --config
+           Configuration de l'équilibreur de charge à partir de laquelle vous
+           supprimez le vérificateur d'état.
+
+OPÉRANDES
+       target
+           Spécifie la cible à partir de laquelle vous supprimez le
+           vérificateur d'état.
+
+           Les valeurs valides sont les suivantes :
+
+           ·   cluster_name : nom d'un cluster cible.
+
+           ·   instance_name : nom d'une instance de serveur cible.
+
+EXEMPLES
+       Exemple 1, Suppression d'un vérificateur d'état d'une configuration
+       d'équilibreur de charge
+           Dans cet exemple, le vérificateur d'état de la configuration
+           d'équilibreur de charge nommée mycluster-http-lb-config sur un
+           cluster nommé mycluster est supprimé.
+
+               asadmin> delete-http-health-checker --user admin
+               --passwordfile password.txt --config mycluster-http-lb-config mycluster
+
+               Command delete-http-health-checker executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-http-health-checker(1)
+
+       asadmin(1M)
+
+                                 25 oct. 2010            DELETE-HTTP-HEALTH(1)

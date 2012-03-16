@@ -1,0 +1,61 @@
+ENABLE-HTTP-LB-AP(1)                                      ENABLE-HTTP-LB-AP(1)
+
+參考名
+       enable-http-lb-application -
+       啟用受負載平衡程式管理且之前已經停用的應用程式
+
+概要
+           enable-http-lb-application [--help] --name application_name target
+
+說明
+       enable-http-lb-application
+       子命令會為建置於獨立實例或叢集的應用程式啟用負載平衡。您可以為叢集中所有實例或單一獨立伺服器實例上的應用程式啟用負載平衡。依預設，會為應用程式啟用負載平衡。
+
+           注意
+           ┌────────────────────────────────────────┐
+           │注意                                    │
+           │                                        │
+           │           此子命令僅適用於 Oracle      │
+           │           GlassFish                    │
+           │           Server。此子命令不適用於     │
+           │           GlassFish Server Open Source │
+           │           Edition。                    │
+           └────────────────────────────────────────┘
+
+選項
+       --help, -?
+           顯示子命令的說明文字。
+
+       --name
+           要啟用的應用程式名稱。
+
+運算元
+       目
+           此運算元可指定要在哪一個伺服器實例或叢集上啟用應用程式。有效值為：
+
+           ·   cluster_name- 目標叢集名稱。
+
+           ·   instance_name- 目標伺服器實例名稱。
+
+範例
+       範例 1, 為應用程式啟用負載平衡
+           此範例可讓一個名稱為 webapps-simple 的應用程式，在一個名為
+           mycluster 的叢集上使用負載平衡。
+
+               asadmin> enable-http-lb-application --name webapps-simple mycluster
+
+               Command enable-http-lb-application executed successfully.
+
+結束狀態
+       0
+           子命令執行成功
+
+       1
+           執行子命令時發生錯誤
+
+另請參閱
+       disable-http-lb-application(1)
+
+       asadmin(1M)
+
+                              2010 年 8 月 26 日          ENABLE-HTTP-LB-AP(1)

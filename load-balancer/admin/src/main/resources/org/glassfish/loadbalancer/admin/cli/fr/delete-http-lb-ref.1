@@ -1,0 +1,90 @@
+DELETE-HTTP-LB-RE(1)                                      DELETE-HTTP-LB-RE(1)
+
+NOM
+       delete-http-lb-ref - supprime le cluster ou l'instance de serveur d'un
+       équilibreur de charge
+
+SYNOPSIS
+           delete-http-lb-ref [--help] --config config_name | --lbname load_balancer_name
+           [--force=false] target
+
+DESCRIPTION
+       Utilisez la sous-commande delete-http-lb-ref pour enlever une référence
+       à un cluster ou à une instance de serveur autonome d'une configuration
+       d'équilibreur de charge ou d'un équilibreur de charge. Pour ne pas
+       interrompre les demandes utilisateur, assurez-vous que l'instance de
+       serveur autonome ou que toutes les instances de serveur du cluster sont
+       désactivées avant de les enlever de la configuration d'équilibreur de
+       charge. Si l'option force a la valeur true, les références sont
+       supprimées même si des instances de serveur ou des clusters sont
+       activés.
+
+           Note
+           ┌───────────────────────────────────────┐
+           │Remarque                               │
+           │                                       │
+           │           Cette sous-commande         │
+           │           s'applique uniquement à     │
+           │           Oracle GlassFish Server.    │
+           │           Cette sous-commande n'est   │
+           │           pas applicable à GlassFish  │
+           │           Server Open Source Edition. │
+           └───────────────────────────────────────┘
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --config
+           Spécifie la configuration d'équilibreur de charge dont les
+           références d'instance de serveur et de cluster doivent être
+           supprimées.
+
+           Spécifiez une configuration d'équilibreur de charge ou un
+           équilibreur de charge. Spécifier les deux entraîne une erreur.
+
+       --lbname
+           Spécifie l'équilibreur de charge dont les références d'instance de
+           serveur et de cluster doivent être supprimées.
+
+           Spécifiez une configuration d'équilibreur de charge ou un
+           équilibreur de charge. Spécifier les deux entraîne une erreur.
+
+       --force
+           Si l'option force a la valeur true, les références sont supprimées
+           même si des applications ou des instances sont activées. La valeur
+           par défaut est false.
+
+OPÉRANDES
+       target
+           Spécifie le cluster ou l'instance à enlever de l'équilibreur de
+           charge. Les valeurs valides sont les suivantes :
+
+           ·   cluster_name : nom d'un cluster cible.
+
+           ·   instance_name : nom d'une instance de serveur cible.
+
+EXEMPLES
+       Exemple 1, Suppression d'une référence à un cluster d'une configuration
+       d'équilibreur de charge
+           Dans cet exemple, la référence au cluster nommé cluster2 est
+           supprimée de la configuration d'équilibreur nommée
+           mycluster-http-lb-config.
+
+               asadmin> delete-http-lb-ref --config mycluster-http-lb-config cluster2
+
+               Command delete-http-lb-ref executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-http-lb-ref(1), disable-http-lb-server(1)
+
+       asadmin(1M)
+
+                                 25 oct. 2010             DELETE-HTTP-LB-RE(1)

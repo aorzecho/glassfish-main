@@ -1,0 +1,68 @@
+ENABLE-HTTP-LB-AP(1)                                      ENABLE-HTTP-LB-AP(1)
+
+NOME
+       enable-http-lb-application - abilita un'applicazione precedentemente
+       disabilitata gestita da un load balancer
+
+SINTASSI
+           enable-http-lb-application [--help] --name application_name target
+
+DESCRIZIONE
+       Il comando secondario enable-http-lb-application abilita il
+       bilanciamento del carico per le applicazioni distribuite su un'istanza
+       o su un cluster standalone. È possibile abilitare il bilanciamento del
+       carico per un'applicazione su tutte le istanze in un cluster o su una
+       singola istanza server standalone. Per impostazione predefinita, il
+       bilanciamento del carico è abilitato per le applicazioni.
+
+           Nota
+           ┌───────────────────────────────────────┐
+           │Nota                                   │
+           │                                       │
+           │           Questo comando secondario è │
+           │           applicabile solo a Oracle   │
+           │           GlassFish Server e non è    │
+           │           applicabile a GlassFish     │
+           │           Server Open Source Edition. │
+           └───────────────────────────────────────┘
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --name
+           Nome dell'applicazione da abilitare.
+
+OPERANDI
+       target
+           Questo operando specifica l'istanza server o il cluster in cui
+           abilitare l'applicazione. I valori validi sono:
+
+           ·   cluster_name: nome di un cluster di destinazione.
+
+           ·   instance_name: nome di un'istanza server di destinazione.
+
+ESEMPI
+       Esempio 1, Abilitazione del bilanciamento del carico per
+       un'applicazione
+           In questo esempio un'applicazione denominata webapps-simple viene
+           abilitata per l'utilizzo del bilanciamento del carico in un cluster
+           denominato mycluster.
+
+               asadmin> enable-http-lb-application --name webapps-simple mycluster
+
+               Command enable-http-lb-application executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       disable-http-lb-application(1)
+
+       asadmin(1M)
+
+                                26 agosto 2010            ENABLE-HTTP-LB-AP(1)

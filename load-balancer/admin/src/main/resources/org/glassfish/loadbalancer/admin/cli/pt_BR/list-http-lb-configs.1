@@ -1,0 +1,73 @@
+LIST-HTTP-LB-CONF(1)                                      LIST-HTTP-LB-CONF(1)
+
+NOME
+       list-http-lb-configs - lista configurações do balanceador de carga
+
+SINOPSE
+           list-http-lb-configs [--help] [target]
+
+DESCRIçãO
+       O subcomando list-http-lb-configs lista as configurações do balanceador
+       de carga. Listar todos ou listá-los pelo cluster ou instância do
+       servidor que referenciam.
+
+           Nota
+           ┌──────────────────────────────────────┐
+           │Observação                            │
+           │                                      │
+           │           Este subcomando pode ser   │
+           │           aplicado apenas ao Oracle  │
+           │           GlassFish Server. Esse     │
+           │           subcomando não é aplicável │
+           │           ao GlassFish Server Open   │
+           │           Source Edition.            │
+           └──────────────────────────────────────┘
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+OPERANDOS
+       target
+           Lista os balanceadores de carga por destino. Os valores válidos
+           são:
+
+           ·   cluster_name- O nome de um cluster de destino.
+
+           ·   instance_name - O nome de uma instância do servidor de destino.
+
+EXEMPLOS
+       Exemplo 1, Listando as configurações do balanceador de carga sem um
+       destino
+           Este exemplo lista todas as configurações do balanceador de carga
+           definidas para todos os clusters e instâncias do GlassFish Server.
+
+               asadmin> list-http-lb-configs
+
+               mycluster-http-lb-config
+               serverinstlb
+               Command list-http-lb-configs executed successfully.
+
+       Exemplo 2, Listando as configurações do balanceador de carga para um
+       destino específico
+           Este exemplo lista a configuração do balanceador de carga definido
+           para um cluster nomeado mycluster.
+
+               asadmin> list-http-lb-configs mycluster
+
+               mycluster-http-lb-config
+               Command list-http-lb-configs executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       delete-http-lb-config(1), create-http-lb-config(1)
+
+       asadmin(1M)
+
+                             26 de agosto de 2010         LIST-HTTP-LB-CONF(1)

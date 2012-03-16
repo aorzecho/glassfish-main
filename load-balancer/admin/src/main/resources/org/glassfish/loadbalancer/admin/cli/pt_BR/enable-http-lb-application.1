@@ -1,0 +1,67 @@
+ENABLE-HTTP-LB-AP(1)                                      ENABLE-HTTP-LB-AP(1)
+
+NOME
+       enable-http-lb-application - ativa a aplicação desativada anteriormente
+       gerenciada por um balanceador de carga
+
+SINOPSE
+           enable-http-lb-application [--help] --name application_name target
+
+DESCRIçãO
+       O subcomando enable-http-lb-application ativa o balanceador de carga
+       para aplicações implantadas em uma instância standalone ou
+       clusterizada. Você pode ativar o balanceador de carga para uma
+       aplicação em todas as instâncias de um cluster ou em uma instância
+       standalone única do servidor. Por default, o balanceador de carga é
+       ativado para todas as aplicações.
+
+           Nota
+           ┌──────────────────────────────────────┐
+           │Observação                            │
+           │                                      │
+           │           Este subcomando pode ser   │
+           │           aplicado apenas ao Oracle  │
+           │           GlassFish Server. Esse     │
+           │           subcomando não é aplicável │
+           │           ao GlassFish Server Open   │
+           │           Source Edition.            │
+           └──────────────────────────────────────┘
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --name
+           O nome da aplicação a ser ativada.
+
+OPERANDOS
+       target
+           Este operando especifica em qual instância de servidor ou cluster
+           será ativada a aplicação. Os valores válidos são:
+
+           ·   cluster_name- O nome de um cluster de destino.
+
+           ·   instance_name - O nome de uma instância do servidor de destino.
+
+EXEMPLOS
+       Exemplo 1, Ativando o Balanceador de Carga para uma Aplicação
+           Esse exemplo ativa uma aplicação chamada webapps-simple para usar
+           balanceamento de carga em um cluster chamado mycluster.
+
+               asadmin> enable-http-lb-application --name webapps-simple mycluster
+
+               Command enable-http-lb-application executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       disable-http-lb-application(1)
+
+       asadmin(1M)
+
+                             26 de agosto de 2010         ENABLE-HTTP-LB-AP(1)
