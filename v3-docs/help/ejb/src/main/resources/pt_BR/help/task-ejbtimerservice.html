@@ -1,50 +1,67 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-ejbtimerservice" name="task-ejbtimerservice"></a><a id="GHEJB00005" name="GHEJB00005"></a></p>
 
-
-<a name="task-ejbtimerservice"></a><h3>Para configurar o servi&#231;o de temporizador EJB</h3><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>O servi&#231;o de temporizador &#233; um servi&#231;o de notifica&#231;&#227;o persistente e transacional
-que &#233; fornecido pelo recipiente do bean corporativo e utilizado para programar
-notifica&#231;&#245;es ou eventos utilizados por beans corporativos. Todos os beans corporativos, exceto
-os beans de sess&#227;o com estado, podem receber notifica&#231;&#245;es do servi&#231;o de
-temporizador. Os temporizadores persistentes definidos pelo servi&#231;o n&#227;o s&#227;o destru&#237;dos quando o
-servidor &#233; desligado ou reiniciado.</p>
-
+<h4><a id="sthref6" name="sthref6"></a><a id="sthref7" name="sthref7"></a><a id="sthref8" name="sthref8"></a>Para Configurar o Servi&ccedil;o de Timer EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>O servi&ccedil;o de timer &eacute; um servi&ccedil;o de notifica&ccedil;&atilde;o persistente e transacional que &eacute; fornecido pelo cont&ecirc;iner do enterprise bean e utilizado para programar notifica&ccedil;&otilde;es ou eventos utilizados por enterprise beans. Todos os enterprise beans, exceto os beans de sess&atilde;o stateful, podem receber notifica&ccedil;&otilde;es do servi&ccedil;o de timer. Os timers persistentes definidos pelo servi&ccedil;o n&atilde;o s&atilde;o destru&iacute;dos quando o servidor &eacute; submetido a shutdown ou reiniciado.</p>
 <ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>Selecione o n&#243; Recipiente EJB.</b><p>A p&#225;gina Enterprise Java Beans (EJB) &#233; aberta.</p></li>
-<li><b>Clique na guia Servi&#231;o de temporizador EJB.</b><p>A p&#225;gina Servi&#231;o de temporizador EJB &#233; aberta.</p></li>
-<li><b>No campo Intervalo m&#237;nimo de entrega, digite o n&#250;mero m&#237;nimo de milissegundos
-permitidos antes que o pr&#243;xima vencimento do temporizador para um determinado temporizador
-possa ocorrer.</b><p>A defini&#231;&#227;o deste intervalo com um valor muito baixo pode causar a
-sobrecarga do servidor. O valor padr&#227;o &#233; 1000.</p></li>
-<li><b>No campo M&#225;ximo de reentregas, digite o n&#250;mero m&#225;ximo de tentativas feitas
-pelo servi&#231;o de temporizador para entregar um vencimento do temporizador devido &#224;
-exce&#231;&#227;o ou ao retorno.</b><p>O valor padr&#227;o &#233; 1. </p></li>
-<li><b>No campo Intervalo de reentrega, digite o intervalo, em segundos, entre a
-as tentativas de reentrega.</b><p>O valor padr&#227;o &#233; 5.000.</p></li>
-<li><b>No campo Origem dos dados do temporizador, digite o nome JNDI do
-recurso JDBC que ser&#225; utilizado como a origem dos dados do temporizador.</b><p>Se especificado, este valor sobrep&#245;e o valor padr&#227;o de <tt>jdbc/__TimerPool</tt> para o
-aplicativo do sistema do servi&#231;o de temporizador.</p></li>
-<li><b>Clique em Salvar.</b>
-<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar padr&#245;es e, em
-seguida, em Salvar. </p>
-
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
+</li>
+<li>
+<p>Selecione o n&oacute; Cont&ecirc;iner EJB.</p>
+<p>A p&aacute;gina Enterprise Java Beans (EJB) &eacute; aberta.</p>
+</li>
+<li>
+<p>Clique na guia Servi&ccedil;o de timer EJB.</p>
+<p>A p&aacute;gina Servi&ccedil;o de timer EJB &eacute; aberta.</p>
+</li>
+<li>
+<p>No campo Intervalo M&iacute;nimo de Entrega, digite o n&uacute;mero m&iacute;nimo de milissegundos permitidos antes que a pr&oacute;xima expira&ccedil;&atilde;o para um determinado timer ocorra.</p>
+<p>A defini&ccedil;&atilde;o deste intervalo com um valor muito baixo pode causar a sobrecarga do servidor. O valor default &eacute; 1000.</p>
+</li>
+<li>
+<p>No campo M&aacute;ximo de Reentregas, digite o n&uacute;mero m&aacute;ximo de tentativas feitas pelo servi&ccedil;o de timer para entregar uma expira&ccedil;&atilde;o de timer em decorr&ecirc;ncia de uma exce&ccedil;&atilde;o ou revers&atilde;o.</p>
+<p>O valor default &eacute; 1.</p>
+</li>
+<li>
+<p>No campo Intervalo de reentrega, digite o intervalo, em segundos, entre a as tentativas de reentrega.</p>
+<p>O valor default &eacute; 5.000.</p>
+</li>
+<li>
+<p>No campo Origem dos dados do timer, digite o nome JNDI do recurso JDBC que ser&aacute; utilizado como a origem dos dados do timer.</p>
+<p>Caso seja especificado, esse valor substitui o valor default de <code>jdbc/_TimerPool</code> para a aplica&ccedil;&atilde;o do sistema do servi&ccedil;o do timer.</p>
+</li>
+<li>
+<p>Clique em Salvar.</p>
 
 <hr>
-</li>
-<li><b>Reinicie o Servidor GlassFish.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2966&id=task-ejbgeneral">Para configurar as defini&#231;&#245;es EJB</a></p>
+<p><b>Dica:</b></p>
+Para voltar &agrave;s defini&ccedil;&otilde;es default, clique no bot&atilde;o Carregar Defaults e depois em Salvar.
+<hr>
 
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">Para configurar as defini&#231;&#245;es do conjunto MDB</a></p>
-
+<li>
+<p>Reinicie o GlassFish Server.</p>
 </li>
-<li><p><a href="task-ejbcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente EJB</a></p>
+</ol>
+<a id="sthref9" name="sthref9"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="../../../ejb-lite/pt_BR/help/missingtopic.html">Para Configurar as Defini&ccedil;&otilde;es EJB</a></p>
+</li>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">Para Configurar Defini&ccedil;&otilde;es do Pool MDB</a></p>
+</li>
+<li>
+<p><a href="task-ejbcontaineravailability.html">Para Configurar Defini&ccedil;&otilde;es de Disponibilidade do Cont&ecirc;iner EJB</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

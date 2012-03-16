@@ -1,104 +1,107 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-networklisteneredit"></a><h4>Editar escuta de rede</h4>
-<a name="indexterm-66"></a><p>Utilize a p&#225;gina Editar escuta de rede para modificar uma escuta de
-rede existente.</p>
+<p><a id="ref-networklisteneredit" name="ref-networklisteneredit"></a><a id="GHWEB00017" name="GHWEB00017"></a></p>
 
-<p>Quando voc&#234; edita uma escuta de rede, as abas SSL, HTTP e
-Arquivo de cache para o protocolo associado, tamb&#233;m est&#227;o dispon&#237;veis para edi&#231;&#227;o.</p>
-
-<p>A p&#225;gina Editar escuta de rede cont&#233;m essas op&#231;&#245;es.</p>
-
-<dl><dt>Carregar padr&#245;es</dt>
-<dd><p>Bot&#227;o para restaurar com os valores padr&#227;o as configura&#231;&#245;es que apresentam valores padr&#227;o. As configura&#231;&#245;es que n&#227;o apresentam valores padr&#227;o n&#227;o s&#227;o alteradas.</p>
-
+<h4><a id="sthref136" name="sthref136"></a>Editar Listener de Rede</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilize a p&aacute;gina Editar Listener de Rede para modificar um listener de rede existente.</p>
+<p>Quando voc&ecirc; edita um listener de rede, as guias SSL, HTTP e Arquivo de Cache para o protocolo associado, tamb&eacute;m est&atilde;o dispon&iacute;veis para edi&ccedil;&atilde;o.</p>
+<p>A p&aacute;gina Editar Listener de Rede cont&eacute;m as op&ccedil;&otilde;es a seguir.</p>
+<dl>
+<dt>Carregar Defaults</dt>
+<dd>
+<p>Bot&atilde;o para restaurar com os valores default as defini&ccedil;&otilde;es que apresentam valores default. As defini&ccedil;&otilde;es que n&atilde;o apresentam valores default n&atilde;o s&atilde;o alteradas.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
 <dt>Nome</dt>
-<dd><p>O nome &#250;nico da escuta. O campo Nome &#233; de somente leitura. Voc&#234; pode especificar o nome somente quando cria uma nova escuta de rede.</p>
-
+<dd>
+<p>O nome &uacute;nico do listener. O campo Nome &eacute; somente para leitura. Voc&ecirc; s&oacute; pode especificar o nome quando cria uma novo listener de rede.</p>
 </dd>
 <dt>Protocolo</dt>
-<dd><p>O protocolo associado &#224; escuta de rede. O campo Protocolo &#233; de somente leitura. Voc&#234; pode criar ou especificar um protocolo somente ao criar uma nova escuta de rede.</p>
-
+<dd>
+<p>O protocolo associado ao listener de rede. O campo Protocolo &eacute; somente para leitura. Voc&ecirc; s&oacute; pode criar ou especificar um protocolo criar um novo listener de rede.</p>
 </dd>
 <dt>Status</dt>
-<dd><p>O status da escuta de rede. A escuta pode ser ativada ou desativada. Por padr&#227;o, a op&#231;&#227;o est&#225; ativa. Se a escuta estiver desativada, qualquer tentativa de se conectar &#224; escuta resulta em uma exce&#231;&#227;o de soquete (<tt>java.net.ConnectException</tt>).</p>
-
-<p>Nas vers&#245;es do Servidor GlassFish anteriores a 9.1, uma escuta cujo atributo ativo estava definido como falso retornava um c&#243;digo de resposta 404, para quaisquer solicita&#231;&#245;es enviadas ao mesmo. Para obter esse comportamento na vers&#227;o atual do Servidor GlassFish, defina o status da escuta como ativo e cada estado de servidor virtual associado como DESATIVADO. Um servidor virtual lista suas escutas associadas na sua lista suspensa Escutas de rede.</p>
-
+<dd>
+<p>O status do listener de rede. O listener pode ser ativado ou desativado. Por default, a op&ccedil;&atilde;o est&aacute; ativada. Se o interpretador estiver desativado, qualquer tentativa de conectar ao listener resulta em uma exce&ccedil;&atilde;o de soquete (<code>java.net.ConnectException</code>).</p>
+<p>Nas vers&otilde;es do GlassFish Server anteriores a 9.1, um listener cujo atributo ativado estava definido como falso retornava um c&oacute;digo de resposta 404, para quaisquer solicita&ccedil;&otilde;es enviadas ao mesmo. Para obter esse comportamento na vers&atilde;o atual do GlassFish Server, defina o status do listener como ativado e cada estado de servidor virtual associado como DESLIGADO. Um servidor virtual lista suas listeners associadas na sua lista drop-down Listeners de rede.</p>
 </dd>
-<dt>Seguran&#231;a</dt>
-<dd><p>Se essa op&#231;&#227;o for selecionada, ela ser&#225; ativada para o protocolo utilizado para a escuta de rede. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
-
+<dt>Seguran&ccedil;a</dt>
+<dd>
+<p>Se esta op&ccedil;&atilde;o for selecionada, ela ser&aacute; ativada para o protocolo utilizado para o listener de rede. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
 </dd>
 <dt>Interpretador JK</dt>
-<dd><p>Se essa op&#231;&#227;o estiver selecionada, a escuta suporta o protocolo <tt> mod-jk</tt> do Apache. O protocolo <tt>mod-jk</tt> &#233; um protocolo propriet&#225;rio de comunica&#231;&#227;o/rede entre o <tt>httpd</tt> (servidor da Web) da Apache e uma inst&#226;ncia back-end do Servidor GlassFish. Se a escuta oferece suporte a esse protocolo, o <tt>httpd</tt> deveria manusear todo o conte&#250;do est&#225;tico, enquanto quaisquer solicita&#231;&#245;es por recursos din&#226;micos (ou seja, Servlets e JSPs) s&#227;o roteadas para o interpretador <tt>mod-jk</tt> ativado para a rede do Servidor GlassFish, utilizando o protocolo <tt>mod-jk</tt>. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
-
+<dd>
+<p>Se esta op&ccedil;&atilde;o estiver selecionada, o listener suportar&aacute; o protocolo <code>mod-jk</code> do Apache. O protocolo <code>mod-jk</code> &eacute; um protocolo propriet&aacute;rio de communication/network entre o <code>httpd</code> do Apache (servidor da web) e uma inst&acirc;ncia de back-end do GlassFish Server. Se o listener oferecer suporte a esse protocolo, o <code>httpd</code> dever&aacute; tratar todo o conte&uacute;do est&aacute;tico, enquanto as solicita&ccedil;&otilde;es por recursos din&acirc;micos (ou seja, Servlets e JSPs) ser&atilde;o roteadas para o interpretador <code>mod-jk</code> ativado para a rede do GlassFish Server, utilizando o protocolo <code>mod-jk</code>. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
 </dd>
 <dt>Porta</dt>
-<dd><p>O n&#250;mero da porta em que a escuta ser&#225; efetuada. Os valores v&#225;lidos s&#227;o 1 a 65.535. Em sistemas UNIX, a cria&#231;&#227;o de soquetes que escutam nas portas 1 a 1024 requer privil&#233;gios de superusu&#225;rio.</p>
-
+<dd>
+<p>O n&uacute;mero da porta do listener. Os valores v&aacute;lidos s&atilde;o 1 a 65.535. Em sistemas UNIX, criar soquetes que fazem listening nas portas 1 - 1024 exige privil&eacute;gios de superusu&aacute;rio.</p>
 </dd>
-<dt>Endere&#231;o</dt>
-<dd><p>O endere&#231;o IP em que a escuta de rede atuar&#225;. O endere&#231;o pode estar na nota&#231;&#227;o de par de pontos ou IPv6. Ele pode ser <tt>qualquer</tt> (para <tt>INADDR_ANY</tt>) para escutar todos s endere&#231;os de IP. Ele pode ser um nome de host.</p>
-
+<dt>Endere&ccedil;o</dt>
+<dd>
+<p>O endere&ccedil;o IP do listener de rede. O endere&ccedil;o pode estar na nota&ccedil;&atilde;o de par de pontos ou IPv6. Pode ser <code>qualquer</code> (para <code>INADDR_ANY</code>) para fazer listening em todos os endere&ccedil;os IP. Ele pode ser um nome de host.</p>
 </dd>
-<dt>Conjunto de segmentos</dt>
-<dd><p>O conjunto de segmentos associado &#224; escuta de rede.</p>
-
+<dt>Pool de Threads</dt>
+<dd>
+<p>O pool de threads associado ao listener de rede.</p>
 </dd>
 <dt>Transporte</dt>
-<dd><p>O tipo de transporte da escuta de rede. Por padr&#227;o, o &#250;nico transporte &#233; o <tt>tcp</tt>.</p>
-
+<dd>
+<p>O tipo de transporte do listener de rede. Por default, o &uacute;nico transporte &eacute; o <code>tcp</code>.</p>
 </dd>
 </dl>
+<a id="sthref137" name="sthref137"></a>
 <h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-networklistenernew.html">Para criar uma escuta de rede</a></p>
-
+<ul>
+<li>
+<p><a href="task-networklistenernew.html">Para Criar um Listener de Rede</a></p>
 </li>
-<li><p><a href="task-networklisteneredit.html">Para editar uma escuta de rede</a></p>
-
+<li>
+<p><a href="task-networklisteneredit.html">Para Editar um Listener de Rede</a></p>
 </li>
-<li><p><a href="task-networklistenerdelete.html">Para excluir uma escuta de rede</a></p>
-
+<li>
+<p><a href="task-networklistenerdelete.html">Para Deletar um Listener de Rede</a></p>
 </li>
-<li><p><a href="task-protocolnew.html">Para criar um protocolo</a></p>
-
+<li>
+<p><a href="task-protocolnew.html">Para Criar um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">Para editar um protocolo</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Para Editar um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">Para editar as configura&#231;&#245;es SSL para um protocolo</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Para Editar Defini&ccedil;&otilde;es de SSL de um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">Para editar as configura&#231;&#245;es HTTP para um protocolo</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">Para Editar Defini&ccedil;&otilde;es de HTTP de um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">Para editar as configura&#231;&#245;es de um arquivo de cache para um protocolo</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Para Editar Defini&ccedil;&otilde;es de Cache de Arquivo de um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">Para excluir um protocolo</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-network-listener-1"><tt>create-network-listener</tt>(1)</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Para Deletar um Protocolo</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-network-listeners-1"><tt>list-network-listeners</tt>(1)</a></p>
-
+</ul>
+<a id="sthref138" name="sthref138"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00046"><code>create-network-listener</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-network-listener-1"><tt>delete-network-listener</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00186"><code>list-network-listeners</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00098"><code>delete-network-listener</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

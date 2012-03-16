@@ -1,90 +1,92 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-protocolssledit"></a><h4>SSL</h4>
-<a name="indexterm-70"></a><a name="indexterm-71"></a><p>Utilize a p&#225;gina SSL para modificar as configura&#231;&#245;es SSL para um protocolo
-de rede.</p>
+<p><a id="ref-protocolssledit" name="ref-protocolssledit"></a><a id="GHWEB00021" name="GHWEB00021"></a></p>
 
-<p>As configura&#231;&#245;es nessa p&#225;gina t&#234;m significado apenas se a seguran&#231;a estiver ativada
-na p&#225;gina Editar Protocolo.</p>
-
-<p>A p&#225;gina SSL cont&#233;m estas op&#231;&#245;es.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<h4><a id="sthref148" name="sthref148"></a><a id="sthref149" name="sthref149"></a>SSL</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilize a p&aacute;gina SSL para modificar as defini&ccedil;&otilde;es SSL para um protocolo de rede.</p>
+<p>As defini&ccedil;&otilde;es nessa p&aacute;gina t&ecirc;m significado apenas se a seguran&ccedil;a estiver ativada na p&aacute;gina Editar Protocolo.</p>
+<p>A p&aacute;gina SSL cont&eacute;m estas op&ccedil;&otilde;es.</p>
+<dl>
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
 <dt>SSL3</dt>
-<dd><p>Se a caixa de sele&#231;&#227;o estiver selecionada, o protocolo SSL3 est&#225; dispon&#237;vel para o protocolo. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p>
-
+<dd>
+<p>Se a caixa de sele&ccedil;&atilde;o estiver selecionada, o protocolo SSL3 est&aacute; dispon&iacute;vel para o protocolo. Por default, a op&ccedil;&atilde;o est&aacute; ativada.</p>
 </dd>
 <dt>TLS</dt>
-<dd><p>Se a caixa de sele&#231;&#227;o estiver selecionada, o protocolo TLS est&#225; dispon&#237;vel para o protocolo. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p>
-
+<dd>
+<p>Se a caixa de sele&ccedil;&atilde;o estiver selecionada, o protocolo TLS est&aacute; dispon&iacute;vel para o protocolo. Por default, a op&ccedil;&atilde;o est&aacute; ativada.</p>
 </dd>
-<dt></dt>
-<dt>Autentica&#231;&#227;o do Cliente</dt>
-<dd><p>Se a caixa de sele&#231;&#227;o estiver marcada, os clientes dever&#227;o identificar-se para o servidor a cada solicita&#231;&#227;o. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
-
+<dt>Autentica&ccedil;&atilde;o do cliente</dt>
+<dd>
+<p>Se a caixa de sele&ccedil;&atilde;o estiver marcada, os clientes dever&atilde;o identificar-se para o servidor a cada solicita&ccedil;&atilde;o. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
 </dd>
 <dt>Apelido do certificado</dt>
-<dd><p>O apelido do certificado do servidor no banco de dados de certificados ou o s&#237;mbolo PKCS#11. No certificado, o formato do nome &#233; <tt><i> tokenname</i>:<i>nickname</i></tt>. Incluir a parte do <tt><i>nome do s&#237;mbolo</i>: </tt> neste atributo &#233; opcional. </p>
-
+<dd>
+<p>O apelido do certificado do servidor no banco de dados de certificado ou o token PKCS#11. No certificado, o formato de nome &eacute;<i>tokenname</i><code>:</code><i>nickname</i>. Inclusive o <i>tokenname</i><code>:</code> parte do nome neste atributo &eacute; opcional.</p>
 </dd>
-<dt>Armazenamento de chave</dt>
-<dd><p>O nome do arquivo de armazenamento de chave (por exemplo, <tt>keystore.jks</tt>).</p>
-
+<dt>Armazenamento de Chave</dt>
+<dd>
+<p>O nome do arquivo de armazenamento de chave (por exemplo, <code>keystore.jks</code>).</p>
 </dd>
-<dt>Algoritmo confi&#225;vel</dt>
-<dd><p>O nome do algoritmo de gerenciamento confi&#225;vel (por exemplo, PKIX) a ser usado para valida&#231;&#227;o do caminho de certifica&#231;&#227;o.</p>
-
+<dt>Algoritmo confi&aacute;vel</dt>
+<dd>
+<p>O nome do algoritmo de gerenciamento confi&aacute;vel (por exemplo, PKIX) a ser utilizado para valida&ccedil;&atilde;o do caminho de certifica&ccedil;&atilde;o.</p>
 </dd>
-<dt>Comprimento m&#225;x. certificado</dt>
-<dd><p>O n&#250;mero m&#225;ximo de certificados intermedi&#225;rios n&#227;o auto-emitidos que podem existir em um caminho de certifica&#231;&#227;o. Esse campo &#233; usado apenas se o campo Algoritmo confi&#225;vel estiver definido como PKIX. O valor 0 indica que o caminho pode conter somente um certificado. O valor -1 indica que o comprimento do caminho n&#227;o &#233; restringido (n&#227;o existe m&#225;ximo). Definir um valor menor do que -1 causa uma exce&#231;&#227;o a ser lan&#231;ada. </p>
-
+<dt>Comprimento m&aacute;x. do certificado</dt>
+<dd>
+<p>O n&uacute;mero m&aacute;ximo de certificados intermedi&aacute;rios n&atilde;o auto-emitidos que podem existir em um caminho de certifica&ccedil;&atilde;o. Esse campo &eacute; utilizado apenas se o campo Algoritmo confi&aacute;vel estiver definido como PKIX. O valor 0 indica que o caminho pode conter somente um certificado. O valor -1 indica que o comprimento do caminho n&atilde;o &eacute; restringido (n&atilde;o existe m&aacute;ximo). Definir um valor menor do que -1 causa uma exce&ccedil;&atilde;o a ser lan&ccedil;ada.</p>
 </dd>
-<dt>Armazenamento confi&#225;vel</dt>
-<dd><p>O nome do arquivo truststore (por exemplo, <tt>cacerts.jks</tt>).</p>
-
+<dt>Armazenamento confi&aacute;vel</dt>
+<dd>
+<p>O nome do arquivo truststore (por exemplo, <code>cacerts.jks</code>).</p>
 </dd>
 <dt>Conjuntos codificados</dt>
-<dd><p>Uma &#225;rea onde voc&#234; pode adicionar ou remover conjuntos codificados. Se voc&#234; n&#227;o adicionar quaisquer conjuntos codificados, todos os conjuntos codificados ser&#227;o usados.</p>
-
+<dd>
+<p>Uma &aacute;rea onde &eacute; poss&iacute;vel adicionar ou remover conjuntos codificados. Se voc&ecirc; n&atilde;o adicionar quaisquer conjuntos codificados, todos os conjuntos codificados ser&atilde;o utilizados.</p>
 </dd>
 </dl>
+<a id="sthref150" name="sthref150"></a>
 <h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-protocolnew.html">Para criar um protocolo</a></p>
-
+<ul>
+<li>
+<p><a href="task-protocolnew.html">Para Criar um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">Para editar um protocolo</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Para Editar um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">Para editar as configura&#231;&#245;es SSL para um protocolo</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Para Editar Defini&ccedil;&otilde;es de SSL de um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">Para editar as configura&#231;&#245;es HTTP para um protocolo</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">Para Editar Defini&ccedil;&otilde;es de HTTP de um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">Para editar as configura&#231;&#245;es de um arquivo de cache para um protocolo</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Para Editar Defini&ccedil;&otilde;es de Cache de Arquivo de um Protocolo</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">Para excluir um protocolo</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Para Deletar um Protocolo</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
-
+</ul>
+<a id="sthref151" name="sthref151"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00051"><code>create-protocol</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00195"><code>list-protocols</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00103"><code>delete-protocol</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

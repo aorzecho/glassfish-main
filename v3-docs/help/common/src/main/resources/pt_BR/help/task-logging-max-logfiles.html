@@ -1,52 +1,52 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-logging-max-logfiles" name="task-logging-max-logfiles"></a><a id="GHCOM00179" name="GHCOM00179"></a></p>
 
-
-<a name="task-logging-max-logfiles"></a><h3>Para alterar o n&#250;mero limite de arquivos do log rotacionados</h3><a name="indexterm-70"></a><a name="indexterm-71"></a><a name="indexterm-72"></a><p>Quando o Servidor GlassFish gira um arquivo do log, ele cria um
-arquivo novo e vazio denominado <tt>server.log</tt> e renomeia o arquivo antigo <tt>server.log_ </tt><i>date</i>,
-onde <i>date</i> &#233; a data e a hora em que o arquivo
-foi rotacionado.</p>
-
-<p>Por padr&#227;o, o Servidor GlassFish limita o n&#250;mero de arquivos do log
-rotacionados para 10. Quando esse limite for alcan&#231;ado, o arquivo do log
-mais antigo ser&#225; exclu&#237;do da pr&#243;xima vez em que o Servidor GlassFish
-girar um arquivo de registro.</p>
-
-<p>Se necess&#225;rio, &#233; poss&#237;vel alterar o n&#250;mero limite de arquivos do log
-rotacionados. Os novos limites definidos se aplicam aos arquivos do log rotacionados
-do registro de acesso e do servidor.</p>
-
+<h4><a id="sthref125" name="sthref125"></a><a id="sthref126" name="sthref126"></a><a id="sthref127" name="sthref127"></a>Para Alterar o Limite de N&uacute;mero de Arquivos de Log Girados</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Quando o GlassFish Server gira um arquivo de log, ele cria um arquivo novo e vazio denominado <code>server.log</code> e renomeia o arquivo antigo <code>server.log_</code><i>date</i>, em que <i>date</i> representa a data e o hor&aacute;rio em que o arquivo foi girado.</p>
+<p>Por default, o GlassFish Server limita o n&uacute;mero de arquivos do log rotacionados para 10. Quando esse limite for alcan&ccedil;ado, o arquivo do log mais antigo ser&aacute; deletado da pr&oacute;xima vez em que o GlassFish Server girar um arquivo de log.</p>
+<p>Se necess&aacute;rio, &eacute; poss&iacute;vel alterar o n&uacute;mero limite de arquivos do log rotacionados. Os novos limites definidos se aplicam aos arquivos de log rotacionados para o log de acesso e o log do servidor.</p>
+<ol>
+<li>
+<p>Defina a propriedade de sistema <code>com.sun.enterprise.server.logging.max_history_files</code> para o n&uacute;mero m&aacute;ximo permitido para a manuten&ccedil;&atilde;o de arquivos de log girados.</p>
+<p>Para obter informa&ccedil;&otilde;es sobre como definir uma propriedade de sistema, consulte <a href="task-systemproperties.html">Para Gerenciar Propriedades do Sistema</a>.</p>
+<p>O comportamento da propriedade de sistema the <code>com.sun.enterprise.server.logging.max_history_files</code> &eacute; como se segue:</p>
 <ul>
-<li><b>Defina a propriedade do sistema <tt>com.sun.enterprise.server.logging.max_history_files </tt> para o n&#250;mero m&#225;ximo de arquivos
-do log a serem mantidos.</b><p>Para obter informa&#231;&#245;es sobre como definir uma propriedade do sistema, consulte <a href="task-systemproperties.html">Para gerenciar propriedades do sistema</a>.</p><p>O comportamento da propriedade do sistema <tt>com.sun.enterprise.server.logging.max_history_files </tt> &#233; apresentado a seguir:</p>
-<ul><li><p>Se a propriedade n&#227;o estiver definida, o Servidor GlassFish mant&#233;m um n&#250;mero m&#225;ximo de 10 arquivos do log rotacionados.</p>
-
+<li>
+<p>Se a propriedade n&atilde;o estiver definida, o GlassFish Server mant&eacute;m um n&uacute;mero m&aacute;ximo de 10 arquivos do log rotacionados.</p>
 </li>
-<li><p>Se a propriedade estiver definida como um n&#250;mero inv&#225;lido ou nulo, o Servidor GlassFish mant&#233;m um n&#250;mero m&#225;ximo de 10 arquivos do log rotacionados.</p>
-
+<li>
+<p>Se a propriedade estiver definida como um n&uacute;mero inv&aacute;lido ou nulo, o GlassFish Server mant&eacute;m um n&uacute;mero m&aacute;ximo de 10 arquivos do log rotacionados.</p>
 </li>
-<li><p>Se a propriedade estiver definida como 0, o Servidor GlassFish n&#227;o mant&#233;m arquivos do log rotacionados.</p>
-
-</li></ul>
-</li></ul><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-eelogging.html">Para definir as configura&#231;&#245;es gerais de log</a></p>
-
+<li>
+<p>Se a propriedade estiver definida como 0, o GlassFish Server n&atilde;o mant&eacute;m arquivos do log rotacionados.</p>
 </li>
-<li><p><a href="task-eelogginglevels.html">Para configurar n&#237;veis de log</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-logviewer.html">Para visualizar os arquivos de log do DAS</a></p>
-
+</ol>
+<a id="sthref128" name="sthref128"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-eelogging.html">Para Configurar Defini&ccedil;&otilde;es de Log Gerais</a></p>
 </li>
-<li><p><a href="task-logging-collectlogfiles.html">Para criar um arquivo ZIP de todos os arquivos de log</a></p>
-
+<li>
+<p><a href="task-eelogginglevels.html">Para Configurar N&iacute;veis de Log</a></p>
 </li>
-<li><p><a href="task-systemproperties.html">Para gerenciar propriedades do sistema</a></p>
+<li>
+<p><a href="task-logviewer.html">Para Exibir Arquivos de Log para o DAS</a></p>
+</li>
+<li>
+<p><a href="task-logging-collectlogfiles.html">Para Criar um Arquivo Compactado ZIP de Todos os Arquivos de Log</a></p>
+</li>
+<li>
+<p><a href="task-systemproperties.html">Para Gerenciar Propriedades do Sistema</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

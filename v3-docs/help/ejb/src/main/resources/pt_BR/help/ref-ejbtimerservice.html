@@ -1,62 +1,59 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-ejbtimerservice"></a><h4>Servi&#231;o de temporizador EJB</h4>
-<a name="indexterm-18"></a><a name="indexterm-19"></a><a name="indexterm-20"></a><p>Use a p&#225;gina Servi&#231;os de temporizador EJB para configurar o servi&#231;o de
-temporizador EJB.</p>
+<p><a id="ref-ejbtimerservice" name="ref-ejbtimerservice"></a><a id="GHEJB00003" name="GHEJB00003"></a></p>
 
-<p>O servi&#231;o de temporizador &#233; um servi&#231;o de notifica&#231;&#227;o persistente e transacional
-que &#233; fornecido pelo recipiente do bean corporativo, e &#233; usado para
-programar notifica&#231;&#245;es ou eventos usados por beans corporativos. Todos os beans corporativos,
-exceto os beans de sess&#227;o com estado, podem receber notifica&#231;&#245;es do servi&#231;o
-de temporizador. Os temporizadores persistentes definidos pelo servi&#231;o n&#227;o s&#227;o destru&#237;dos quando
-o servidor &#233; desligado ou reiniciado.</p>
-
-<p>A p&#225;gina Servi&#231;o de temporizador EJB cont&#233;m a seguintes op&#231;&#245;es:</p>
-
-<dl><dt>Carregar padr&#245;es</dt>
-<dd><p>Bot&#227;o para restaurar com os valores padr&#227;o as configura&#231;&#245;es que apresentam valores padr&#227;o. As configura&#231;&#245;es que n&#227;o apresentam valores padr&#227;o n&#227;o s&#227;o alteradas.</p>
-
+<h4><a id="sthref23" name="sthref23"></a> <a id="sthref24" name="sthref24"></a> <a id="sthref25" name="sthref25"></a>Servi&ccedil;o de Timer EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Use a p&aacute;gina Servi&ccedil;os de Timer do EJB para configurar o servi&ccedil;o de timer do EJB.</p>
+<p>O servi&ccedil;o de timer &eacute; um servi&ccedil;o de notifica&ccedil;&atilde;o persistente e transacional que &eacute; fornecido pelo cont&ecirc;iner do enterprise bean e utilizado para programar notifica&ccedil;&otilde;es ou eventos utilizados por enterprise beans. Todos os enterprise beans, exceto os beans de sess&atilde;o stateful, podem receber notifica&ccedil;&otilde;es do servi&ccedil;o de timer. Os timers persistentes definidos pelo servi&ccedil;o n&atilde;o s&atilde;o destru&iacute;dos quando o servidor &eacute; submetido a shutdown ou reiniciado.</p>
+<p>A p&aacute;gina Servi&ccedil;o de timer EJB cont&eacute;m a seguintes op&ccedil;&otilde;es:</p>
+<dl>
+<dt>Carregar Defaults</dt>
+<dd>
+<p>Bot&atilde;o para restaurar com os valores default as defini&ccedil;&otilde;es que apresentam valores default. As defini&ccedil;&otilde;es que n&atilde;o apresentam valores default n&atilde;o s&atilde;o alteradas.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
-<dt>Intervalo m&#237;nimo de entrega</dt>
-<dd><p>O n&#250;mero m&#237;nimo de milissegundos permitidos antes que o pr&#243;ximo vencimento do temporizador para um determinado temporizador possa ocorrer. Definir esse intervalo com um valor muito baixo pode causar a sobrecarga do servidor. O valor padr&#227;o &#233; 1000.</p>
-
+<dt>Intervalo m&iacute;nimo de entrega</dt>
+<dd>
+<p>O n&uacute;mero m&iacute;nimo de milissegundos permitidos antes que a pr&oacute;xima expira&ccedil;&atilde;o para determinado timer ocorra. Definir esse intervalo com um valor muito baixo pode causar a sobrecarga do servidor. O valor default &eacute; 1000.</p>
 </dd>
-<dt>M&#225;ximo de reentregas</dt>
-<dd><p>O n&#250;mero m&#225;ximo de tentativas feitas pelo servi&#231;o de temporizador para entregar um vencimento do temporizador devido &#224; exce&#231;&#227;o ou ao retorno. O valor padr&#227;o &#233; 1. </p>
-
+<dt>M&aacute;ximo de reentregas</dt>
+<dd>
+<p>O n&uacute;mero m&aacute;ximo de tentativas feitas pelo servi&ccedil;o de timer para entregar uma expira&ccedil;&atilde;o de timer de em decorr&ecirc;ncia de uma exce&ccedil;&atilde;o ou revers&atilde;o. O valor default &eacute; 1.</p>
 </dd>
 <dt>Intervalo de reentrega</dt>
-<dd><p>O intervalo em milissegundos entre as tentativas de reentrega. O valor padr&#227;o &#233; 5.000.</p>
-
+<dd>
+<p>O intervalo em milissegundos entre as tentativas de reentrega. O valor default &eacute; 5.000.</p>
 </dd>
-<dt>Origem dos dados do temporizador</dt>
-<dd><p>O nome JNDI do recurso JDBC que ser&#225; usado como a origem dos dados do temporizador. Se especificado, este valor sobrep&#245;e o valor padr&#227;o de <tt>jdbc/__TimerPool</tt> para o aplicativo do sistema do servi&#231;o de temporizador.</p>
-
+<dt>Origem dos dados do timer</dt>
+<dd>
+<p>O nome JNDI do recurso JDBC que ser&aacute; usado como a origem dos dados do timer. Caso seja especificado, esse valor substitui o valor default de <code>jdbc/_TimerPool</code> para a aplica&ccedil;&atilde;o do sistema do servi&ccedil;o do timer.</p>
 </dd>
 </dl>
+<a id="sthref26" name="sthref26"></a>
 <h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-ejbtimerservice.html">Para configurar o servi&#231;o de temporizador EJB</a></p>
-
+<ul>
+<li>
+<p><a href="task-ejbtimerservice.html">Para Configurar o Servi&ccedil;o de Timer EJB</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2966&id=task-ejbgeneral">Para configurar as defini&#231;&#245;es EJB</a></p>
-
+<li>
+<p><a href="../../../ejb-lite/pt_BR/help/missingtopic.html">Para configurar as defini&ccedil;&otilde;es EJB</a></p>
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">Para configurar as defini&#231;&#245;es do conjunto MDB</a></p>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">Para Configurar Defini&ccedil;&otilde;es do Pool MDB</a></p>
+</li>
+</ul>
+<a id="sthref27" name="sthref27"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00205"><code>list-timers</code>(1)</a></p>
 
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-timers-1"><tt>list-timers</tt>(1)</a></p>
-
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

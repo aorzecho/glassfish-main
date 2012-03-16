@@ -1,65 +1,87 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-usedefaultauditmod" name="task-usedefaultauditmod"></a><a id="GHCOM00199" name="GHCOM00199"></a></p>
 
-
-<a name="task-usedefaultauditmod"></a><h3>Para usar o m&#243;dulo de auditoria padr&#227;o</h3><a name="indexterm-100"></a><p>O m&#243;dulo de auditoria <tt>padr&#227;o</tt> registra as solicita&#231;&#245;es de autentica&#231;&#227;o e de
-autoriza&#231;&#227;o no arquivo de log do servidor. Para obter informa&#231;&#245;es sobre a
-altera&#231;&#227;o do local do arquivo de log, consulte <a href="task-eelogging.html">Para definir as configura&#231;&#245;es gerais de log</a>.</p>
-
-<p>As entradas de log de autentica&#231;&#227;o incluem estas informa&#231;&#245;es:</p>
-
-
-<ul><li><p>Nomes do usu&#225;rios que tentaram se autenticar</p>
-
+<h4><a id="sthref172" name="sthref172"></a>Para Usar o M&oacute;dulo de Auditoria Default</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>O m&oacute;dulo de auditoria <code>default</code> registra as solicita&ccedil;&otilde;es de autentica&ccedil;&atilde;o e de autoriza&ccedil;&atilde;o no arquivo de log do servidor. Para obter informa&ccedil;&otilde;es sobre a altera&ccedil;&atilde;o da localiza&ccedil;&atilde;o do arquivo de log, consulte <a href="task-eelogging.html">Para Configurar Defini&ccedil;&otilde;es de Log Gerais</a>.</p>
+<p>As entradas de log de autentica&ccedil;&atilde;o incluem estas informa&ccedil;&otilde;es:</p>
+<ul>
+<li>
+<p>Nomes do usu&aacute;rios que tentaram se autenticar</p>
 </li>
-<li><p>O dom&#237;nio que processou a solicita&#231;&#227;o de acesso</p>
-
+<li>
+<p>O realm que processou a solicita&ccedil;&atilde;o de acesso</p>
 </li>
-<li><p>Componente URI ou EJB do m&#243;dulo Web solicitado</p>
-
+<li>
+<p>Componente URI ou EJB do m&oacute;dulo Web solicitado</p>
 </li>
-<li><p>&#202;xito ou falha da solicita&#231;&#227;o</p>
-
-</li></ul>
-<p>Independentemente de o modo de auditoria estar ou n&#227;o ativado, o Servidor
-GlassFish registra em log todos os eventos de autentica&#231;&#227;o recusados.</p>
-
-<p>As entradas de log de autoriza&#231;&#227;o incluem estas informa&#231;&#245;es:</p>
-
-
-<ul><li><p>Nomes de usu&#225;rios autenticados, se houver</p>
-
+<li>
+<p>&Ecirc;xito ou falha da solicita&ccedil;&atilde;o</p>
 </li>
-<li><p>Componente URI ou EJB da Web solicitada</p>
-
+</ul>
+<p>Independentemente de o modo de log de auditoria estar ou n&atilde;o ativado, o GlassFish Server registra em log todos os eventos de autentica&ccedil;&atilde;o recusados.</p>
+<p>As entradas de log de autoriza&ccedil;&atilde;o incluem estas informa&ccedil;&otilde;es:</p>
+<ul>
+<li>
+<p>Nomes de usu&aacute;rios autenticados, se houver</p>
 </li>
-<li><p>&#202;xito ou falha das solicita&#231;&#245;es</p>
-
-</li></ul>
+<li>
+<p>Componente URI ou EJB da Web solicitada</p>
+</li>
+<li>
+<p>&Ecirc;xito ou falha das solicita&ccedil;&otilde;es</p>
+</li>
+</ul>
 <ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>Sob o n&#243; Configura&#231;&#227;o, selecione o n&#243; Seguran&#231;a.</b><p>A p&#225;gina Seguran&#231;a &#233; exibida.</p></li>
-<li><b>Na lista suspensa M&#243;dulos de Auditoria, selecione o m&#243;dulo de auditoria denominado
-<tt>padr&#227;o</tt>.</b></li>
-<li><b>Clique em Salvar.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-auditmodulenew.html">Para criar um m&#243;dulo de auditoria</a></p>
-
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
 </li>
-<li><p><a href="task-auditmoduleedit.html">Para editar um m&#243;dulo de auditoria</a></p>
-
+<li>
+<p>Select the instance to configure:</p>
+<ul>
+<li>
+<p>To configure a particular instance, expand the instance's config node. For example, the default instance, <code>server</code>, expand the <code>server-config</code> node.</p>
 </li>
-<li><p><a href="task-auditmoduledelete.html">Para excluir um m&#243;dulo de auditoria</a></p>
-
+<li>
+<p>To configure the default settings for all instances, expand the <code>default-config</code> node.</p>
 </li>
-<li><p><a href="task-enabledisableauditmod.html">Para ativar ou desativar logs de auditoria</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-setactiveauditmod.html">Para definir o m&#243;dulo de auditoria ativo</a></p>
+<li>
+<p>Sob o n&oacute; Configura&ccedil;&atilde;o, selecione o n&oacute; Seguran&ccedil;a.</p>
+<p>A p&aacute;gina Seguran&ccedil;a &eacute; exibida.</p>
+</li>
+<li>
+<p>Na lista drop-down M&oacute;dulos de Auditoria, selecione o m&oacute;dulo de auditoria denominado <code>default</code>.</p>
+</li>
+<li>
+<p>Clique em Salvar.</p>
+</li>
+</ol>
+<a id="sthref173" name="sthref173"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-auditmodulenew.html">Para Criar um M&oacute;dulo de Auditoria</a></p>
+</li>
+<li>
+<p><a href="task-auditmoduleedit.html">Para Editar um M&oacute;dulo de Auditoria</a></p>
+</li>
+<li>
+<p><a href="task-auditmoduledelete.html">Para Deletar um M&oacute;dulo de Auditoria</a></p>
+</li>
+<li>
+<p><a href="task-enabledisableauditmod.html">Para Ativar ou Desativar o Log de Auditoria</a></p>
+</li>
+<li>
+<p><a href="task-setactiveauditmod.html">Para Definir o M&oacute;dulo de Auditoria Ativo</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

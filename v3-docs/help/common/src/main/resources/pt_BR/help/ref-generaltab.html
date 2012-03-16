@@ -1,63 +1,99 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-generaltab"></a><h4>Informa&#231;&#245;es gerais</h4>
-<a name="indexterm-141"></a><a name="indexterm-142"></a><p>Use a p&#225;gina Informa&#231;&#245;es Gerais para verificar as configura&#231;&#245;es do Servidor GlassFish
-e para exibir os dados do Java Virtual Machine.</p>
+<p><a id="ref-generaltab" name="ref-generaltab"></a><a id="GHCOM00058" name="GHCOM00058"></a></p>
 
-<p>A p&#225;gina Informa&#231;&#245;es Gerais cont&#233;m as seguintes informa&#231;&#245;es.</p>
-
-<dl><dt>Bot&#227;o Parar</dt>
-<dd><p>Clique no bot&#227;o Parar para interromper o Servidor GlassFish.</p>
-
+<h4><a id="sthref247" name="sthref247"></a><a id="sthref248" name="sthref248"></a>Informa&ccedil;&atilde;o Geral</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>The GlassFish Server creates one application server instance, called <code>server</code> at the time of installation. You can delete the server instance and create a new instance with a different name if you prefer.</p>
+<p>Each GlassFish Server instance has its own Java configuration, Java resources, application deployment areas, and server configuration settings. Changes to one application server instance have no effect on other application server instances. You can have one application server instance within one administrative domain.</p>
+<p>For many users, one application server instance meets their needs. However, depending upon your environment, you might want to create one or more additional application server instances. For example, in a development environment you can use different application server instances to test different GlassFish Server configurations, or to compare and test different application deployments. Because you can easily add or delete an application server instance, you can use them to create temporary "sandbox" areas to experiment with while developing.</p>
+<p>In addition, for each application server instance you can also create virtual servers. Within a single installed application server instance you can offer companies or individuals domain names, IP Addresses, and some administration capabilities. For the users, it is almost as if they have their own web server, without the hardware and basic server maintenance. These virtual servers do not span application server instances. For more information about virtual servers, see <a href="ref-serverinstjvmgeneral.html">Defini&ccedil;&otilde;es Gerais de JVM</a>.</p>
+<p>In operational deployments, for many purposes you can use virtual servers instead of multiple application server instances. However, if virtual servers do not meet your needs, you can also use multiple application server instances.</p>
+<p>An GlassFish Server instance is not started automatically. Once you start an instance, the instance runs until you stop it. When you stop an application server instance, it stops accepting new connections, then waits for all outstanding connections to complete. If your machine crashes or is taken offline, the server quits and any requests it was servicing may be lost.</p>
+<p>Use a p&aacute;gina Informa&ccedil;&otilde;es Gerais para verificar as defini&ccedil;&otilde;es do GlassFish Server e para exibir os dados do Java Virtual Machine.</p>
+<p>A p&aacute;gina Informa&ccedil;&otilde;es Gerais cont&eacute;m as seguintes informa&ccedil;&otilde;es.</p>
+<dl>
+<dt>Bot&atilde;o Parar</dt>
+<dd>
+<p>Clique no bot&atilde;o Parar para interromper o GlassFish Server.</p>
 </dd>
-<dt>Bot&#227;o Reiniciar</dt>
-<dd><p>Clique no bot&#227;o Reiniciar para iniciar novamente o Servidor GlassFish.</p>
-
+<dt>Bot&atilde;o Reiniciar</dt>
+<dd>
+<p>Clique no bot&atilde;o Reiniciar para iniciar novamente o GlassFish Server.</p>
 </dd>
-<dt>Bot&#227;o Exibir arquivos de log.</dt>
-<dd><p>Clique no bot&#227;o Exibir arquivos de log para exibir os arquivos de log de uma inst&#226;ncia ou cluster do GlassFish Server.</p>
-
+<dt>Bot&atilde;o Exibir arquivos de log.</dt>
+<dd>
+<p>Clique no bot&atilde;o Visualizar Arquivos de Log para visualizar arquivos de log para um GlassFish Server inst&acirc;ncia ou cluster.</p>
+</dd>
+<dt>Visualizar Bot&atilde;o de Log Bruto</dt>
+<dd>
+<p>Clique no bot&atilde;o Visualizar Log Bruto para visualizar arquivos de log bruto para o Admin Server (denominado<code>servidor</code>).</p>
+</dd>
+<dt>Bot&atilde;o de Administra&ccedil;&atilde;o Segura</dt>
+<dd>
+<p>Clique no bot&atilde;o de Administra&ccedil;&atilde;o Segura para ativar ou desativar a administra&ccedil;&atilde;o segura na p&aacute;gina <a href="ref-securityadmin.html">Administra&ccedil;&atilde;o Segura</a>.</p>
 </dd>
 <dt>Nome</dt>
-<dd><p>O nome do servidor.</p>
-
+<dd>
+<p>O nome do current servidor.</p>
+</dd>
+<dt>Status</dt>
+<dd>
+<p>O status atual da inst&acirc;ncia do servidor. O servidor pode estar interrompido, iniciado ou em execu&ccedil;&atilde;o.</p>
+</dd>
+<dt>Tempo de funcionamento</dt>
+<dd>
+<p>O n&uacute;mero de horas e minutos que a inst&acirc;ncia do servidor est&aacute; em execu&ccedil;&atilde;o continuamente. Esse &eacute; somente para leitura.</p>
+</dd>
+<dt>HTTP Load Balancer</dt>
+<dd>
+<p>The name of the load balancer, if it is enabled for the server instance.</p>
 </dd>
 <dt>JVM</dt>
-<dd><p>Se voc&#234; clicar em JVM Report, ser&#225; aberta uma janela separada que exibe relat&#243;rios sobre o Java Virtual Machine, incluindo um relat&#243;rio de resumo, um relat&#243;rio de gerenciamento de mem&#243;ria e de coleta de erros,um relat&#243;rio de carregamento de classe e um despejo de segmentos atual.</p>
-
+<dd>
+<p>Se voc&ecirc; clicar em JVM Report, ser&aacute; aberta uma janela separada que exibe relat&oacute;rios sobre o Java Virtual Machine, incluindo um relat&oacute;rio de resumo, um relat&oacute;rio de gerenciamento de mem&oacute;ria e de coleta de erros,um relat&oacute;rio de carregamento de classe e um dump de threads atuais.</p>
 </dd>
-<dt>Diret&#243;rio de Configura&#231;&#227;o</dt>
-<dd><p>O diret&#243;rio localizado no computador host, que cont&#233;m arquivos de configura&#231;&#227;o; por exemplo, <tt>domain.xml</tt>.</p>
-
+<dt>Diret&oacute;rio de Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O diret&oacute;rio localizado no computador host, que cont&eacute;m arquivos de configura&ccedil;&atilde;o; por exemplo, <code>domain.xml</code>.</p>
 </dd>
-<dt>Vers&#227;o Instalada</dt>
-<dd><p>O identificador de vers&#227;o do produto.</p>
-
+<dt>Vers&atilde;o Instalada</dt>
+<dd>
+<p>O identificador de vers&atilde;o do produto.</p>
 </dd>
-<dt>Depura&#231;&#227;o</dt>
-<dd><p>Identifica se a depura&#231;&#227;o est&#225; ativada. Se a depura&#231;&#227;o estiver ativada, o n&#250;mero de porta tamb&#233;m ser&#225; exibido.</p>
-
+<dt>Administra&ccedil;&atilde;o Segura</dt>
+<dd>
+<p>O status atual da administra&ccedil;&atilde;o segura. Valores poss&iacute;veis s&atilde;o Ativado ou N&atilde;o-Ativado</p>
+</dd>
+<dt>Depura&ccedil;&atilde;o</dt>
+<dd>
+<p>Identifica se a depura&ccedil;&atilde;o est&aacute; ativada. Se a depura&ccedil;&atilde;o estiver ativada, o n&uacute;mero de porta tamb&eacute;m ser&aacute; exibido.</p>
 </dd>
 <dt>Porta(s) HTTP</dt>
-<dd><p>As portas configuradas atualmente para solicita&#231;&#245;es e respostas HTTP.</p>
-
+<dd>
+<p>As portas configuradas atualmente para solicita&ccedil;&otilde;es e respostas HTTP.</p>
 </dd>
 <dt>Porta(s) IIOP</dt>
-<dd><p>As portas configuradas atualmente para solicita&#231;&#245;es e respostas IIOP.</p>
-
+<dd>
+<p>As portas configuradas atualmente para solicita&ccedil;&otilde;es e respostas IIOP.</p>
 </dd>
 </dl>
+<a id="sthref249" name="sthref249"></a>
 <h5>Tarefa relacionada</h5>
-
-<ul><li><p><a href="task-generaltab.html">Para visualizar informa&#231;&#245;es gerais do DAS</a></p>
-
+<ul>
+<li>
+<p><a href="task-generaltab.html">Para Exibir Informa&ccedil;&otilde;es Gerais relativas ao DAS</a></p>
 </li>
-<li><p><a href="task-logviewer.html">Para visualizar os arquivos de log do DAS</a></p>
+<li>
+<p><a href="task-logviewer.html">Para Exibir Arquivos de Log para o DAS</a></p>
+</li>
+<li>
+<p><a href="task-rawlogviewer.html">Para Exibir Arquivos de Log Brutos para o DAS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

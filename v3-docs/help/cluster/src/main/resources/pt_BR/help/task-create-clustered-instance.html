@@ -1,107 +1,128 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-create-clustered-instance" name="task-create-clustered-instance"></a><a id="GHCLU00045" name="GHCLU00045"></a></p>
 
-
-<a name="task-create-clustered-instance"></a><h3>Para adicionar uma inst&#226;ncia do Servidor GlassFish a um cluster</h3><a name="indexterm-45"></a><a name="indexterm-46"></a><a name="indexterm-47"></a><p>As inst&#226;ncias do Servidor GlassFish formam a base da implanta&#231;&#227;o de um
-aplicativo. A inst&#226;ncia em cluster &#233; um membro de um cluster. Cada
-inst&#226;ncia pertence a um &#250;nico dom&#237;nio e tem sua pr&#243;pria estrutura de
-diret&#243;rio, configura&#231;&#227;o e aplicativos implantados. Cada inst&#226;ncia tamb&#233;m inclui o cont&#234;iner Web
-da plataforma Java, Enterprise Edition (Java EE) e o cont&#234;iner da tecnologia
-Enterprise JavaBeans (tecnologia EJB). Cada inst&#226;ncia nova deve conter uma refer&#234;ncia a
-um n&#243; que defina o host no qual a inst&#226;ncia residir&#225;.</p>
-
-
-<hr><p><b>Observa&#231;&#227;o - </b>Para criar uma inst&#226;ncia em um n&#243; de tipo CONFIG que represente
-um host remoto, voc&#234; deve utilizar o subcomando <tt>create-local-instance</tt>(1). &#201; poss&#237;vel utilizar
-o Console de Administra&#231;&#227;o para este prop&#243;sito.</p>
-
+<h4><a id="sthref67" name="sthref67"></a><a id="sthref68" name="sthref68"></a><a id="sthref69" name="sthref69"></a>Para Adicionar uma Inst&acirc;ncia do GlassFish Server a um Cluster</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>As inst&acirc;ncias do GlassFish Server formam a base da implanta&ccedil;&atilde;o de uma aplica&ccedil;&atilde;o. A inst&acirc;ncia clusterizada &eacute; um membro de um cluster. Cada inst&acirc;ncia pertence a um &uacute;nico dom&iacute;nio e tem sua pr&oacute;pria estrutura de diret&oacute;rio, configura&ccedil;&atilde;o e aplica&ccedil;&otilde;es implantadas. Cada inst&acirc;ncia tamb&eacute;m inclui o cont&ecirc;iner Web Java Platform, Enterprise Edition (Java EE) e o cont&ecirc;iner da tecnologia Enterprise JavaBeans (tecnologia EJB). Cada inst&acirc;ncia nova deve conter uma refer&ecirc;ncia a um n&oacute; que defina o host no qual a inst&acirc;ncia residir&aacute;.</p>
 
 <hr>
-<p><b>Antes de come&#231;ar</b></p><p>Certifique-se de que os seguintes itens existam:</p>
+<p><b>Observa&ccedil;&atilde;o:</b></p>
+Para criar uma inst&acirc;ncia em um n&oacute; do tipo CONFIG que represente um host remoto, voc&ecirc; dever&aacute; usar o subcomando <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00044"><code>create-local-instance</code>(1)</a>. &Eacute; poss&iacute;vel utilizar o Console de Administra&ccedil;&atilde;o para este prop&oacute;sito.
+<hr>
 
-
-<ul><li><p><a href="task-create-cluster.html">O cluster ao qual a inst&#226;ncia est&#225; sendo adicionada</a></p>
-
+<a id="sthref70" name="sthref70"></a>
+<h5>Antes de Come&ccedil;ar</h5>
+<p>Certifique-se de que os seguintes itens existam:</p>
+<ul>
+<li>
+<p>O cluster ao qual voc&ecirc; est&aacute; adicionando a inst&acirc;ncia. Consulte <a href="task-create-cluster.html">Para Criar um Cluster</a> para obter instru&ccedil;&otilde;es.</p>
 </li>
-<li><p><a href="task-createnode.html">O n&#243; no qual a inst&#226;ncia residir&#225;</a></p>
-
-</li></ul>
+<li>
+<p>O n&oacute; no qual a inst&acirc;ncia deve residir. Consulte <a href="task-createnode.html">Para Criar um N&oacute;</a> para obter instru&ccedil;&otilde;es.</p>
+</li>
+</ul>
 <ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Clusters.</b></li>
-<li><b>No n&#243; Clusters expandido, selecione o n&#243; do cluster.</b><p>A p&#225;gina Informa&#231;&#245;es gerais do cluster se abre.</p></li>
-<li><b>Na p&#225;gina Informa&#231;&#245;es gerais, clique na guia Inst&#226;ncias. </b><p>A p&#225;gina Inst&#226;ncias do servidor em clusters do cluster se abre.</p></li>
-<li><b>Na p&#225;gina Inst&#226;ncias do servidor em clusters, clique em Novo.</b><p>A p&#225;gina Inst&#226;ncias do servidor em clusters &#233; exibida.</p></li>
-<li><b>No campo Nome, digite um nome para a inst&#226;ncia.</b><p>O nome deve cumprir os seguintes requisitos:</p>
-<ul><li><p>O nome pode conter somente caracteres ASCII.</p>
-
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Clusters.</p>
 </li>
-<li><p>O nome deve come&#231;ar com uma letra, um n&#250;mero ou um sublinhado.</p>
-
+<li>
+<p>No n&oacute; Clusters expandido, selecione o n&oacute; do cluster.</p>
+<p>A p&aacute;gina Informa&ccedil;&otilde;es gerais do cluster se abre.</p>
 </li>
-<li><p>O nome pode conter somente os seguintes caracteres:</p>
-
-
-<ul><li><p>Letras min&#250;sculas</p>
-
+<li>
+<p>Na p&aacute;gina Informa&ccedil;&otilde;es gerais, clique na guia Inst&acirc;ncias.</p>
+<p>A p&aacute;gina Inst&acirc;ncias Clusterizadas do Servidor relativa ao cluster se abre.</p>
 </li>
-<li><p>Letras mai&#250;sculas</p>
-
+<li>
+<p>Na p&aacute;gina Inst&acirc;ncias Clusterizadas do Servidor, clique em Novo.</p>
+<p>A p&aacute;gina Inst&acirc;ncias Clusterizadas do Servidor &eacute; exibida.</p>
 </li>
-<li><p>N&#250;meros</p>
-
+<li>
+<p>No campo Nome, digite um nome para a inst&acirc;ncia.</p>
+<p>O nome deve cumprir os seguintes requisitos:</p>
+<ul>
+<li>
+<p>O nome pode conter somente caracteres ASCII.</p>
 </li>
-<li><p>H&#237;fen</p>
-
+<li>
+<p>O nome deve come&ccedil;ar com uma letra, um n&uacute;mero ou um sublinhado.</p>
 </li>
-<li><p>Per&#237;odo</p>
-
+<li>
+<p>O nome pode conter somente os seguintes caracteres:</p>
+<ul>
+<li>
+<p>Letras min&uacute;sculas</p>
 </li>
-<li><p>Sublinhado</p>
-
-</li></ul>
+<li>
+<p>Letras mai&uacute;sculas</p>
 </li>
-<li><p>O nome deve ser &#250;nico no dom&#237;nio e n&#227;o deve ser o nome de outra inst&#226;ncia, um cluster, uma configura&#231;&#227;o nomeada ou um n&#243; do Servidor GlassFish.</p>
-
+<li>
+<p>N&uacute;meros</p>
 </li>
-<li><p>O nome n&#227;o deve ser <tt>domain</tt>, <tt>server</tt>, nem nenhuma outra palavra-chave que esteja reservada pelo Servidor GlassFish.</p>
-
-</li></ul>
+<li>
+<p>H&iacute;fen</p>
 </li>
-<li><b>Na lista suspensa N&#243;, selecione o n&#243; no qual a inst&#226;ncia residir&#225;.</b></li>
-<li><b>Clique em OK.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-delete-clustered-instances.html">Para excluir inst&#226;ncias do Servidor GlassFish em cluster</a></p>
-
+<li>
+<p>Per&iacute;odo</p>
 </li>
-<li><p><a href="task-start-clustered-instances.html">Para iniciar inst&#226;ncias do Servidor GlassFish em cluster</a></p>
-
+<li>
+<p>Sublinhado</p>
 </li>
-<li><p><a href="task-stop-clustered-instances.html">Para interromper inst&#226;ncias do Servidor GlassFish em cluster</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-view-logs-clustered-instance.html">Para exibir arquivos de log de uma inst&#226;ncia do Servidor GlassFish em cluster</a></p>
-
+<li>
+<p>O nome deve ser &uacute;nico no dom&iacute;nio e n&atilde;o deve ser o nome de outra inst&acirc;ncia, um cluster, uma configura&ccedil;&atilde;o nomeada ou um n&oacute; do GlassFish Server.</p>
 </li>
-<li><p><a href="task-recovertransactions.html">Para recuperar transa&#231;&#245;es de uma inst&#226;ncia do Servidor GlassFish em cluster</a></p>
-
+<li>
+<p>O nome n&atilde;o deve ser <code>domain</code>, <code>server</code>, nem nenhuma outra palavra-chave que esteja reservada pelo GlassFish Server.</p>
 </li>
-<li><p><a href="task-change-clustered-instance-ports.html">Para modificar os n&#250;meros de porta de uma inst&#226;ncia do Servidor GlassFish em cluster</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-set-props-clustered-instance.html">Para definir propriedades somente da inst&#226;ncia de uma inst&#226;ncia do Servidor GlassFish em cluster</a></p>
-
+<li>
+<p>Na lista drop-down N&oacute;, selecione o n&oacute; no qual a inst&acirc;ncia residir&aacute;.</p>
 </li>
-<li><p><a href="task-mon-app-clustered-instance.html">Para exibir dados de monitoramento de aplicativo de uma inst&#226;ncia do Servidor GlassFish em cluster</a></p>
-
+<li>
+<p>Clique em OK.</p>
 </li>
-<li><p><a href="task-mon-server-clustered-instance.html">Para exibir dados de monitoramento de servidor virtual de uma inst&#226;ncia do Servidor GlassFish em cluster</a></p>
-
+</ol>
+<a id="sthref71" name="sthref71"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-delete-clustered-instances.html">Para Deletar Inst&acirc;ncias Clusterizadas do GlassFish Server</a></p>
 </li>
-<li><p><a href="task-mon-resource-clustered-instance.html">Para exibir dados de monitoramento de recurso de uma inst&#226;ncia do Servidor GlassFish em cluster</a></p>
+<li>
+<p><a href="task-start-clustered-instances.html">Para Iniciar Inst&acirc;ncias Clusterizadas do GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-stop-clustered-instances.html">Para Interromper Inst&acirc;ncias Clusterizadas do GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-view-logs-clustered-instance.html">Para Exibir Arquivos de Log de uma Inst&acirc;ncia Clusterizada do GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-recovertransactions.html">Para Recuperar Transa&ccedil;&otilde;es de uma Inst&acirc;ncia Clusterizada do GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-change-clustered-instance-ports.html">Para Modificar os N&uacute;meros de Porta de uma Inst&acirc;ncia Clusterizada do GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-set-props-clustered-instance.html">Para Definir Propriedades Somente da Inst&acirc;ncia de uma Inst&acirc;ncia Clusterizada do GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-mon-app-clustered-instance.html">Para Exibir Dados de Monitoramento de Aplica&ccedil;&otilde;es de uma Inst&acirc;ncia Clusterizada do GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-mon-server-clustered-instance.html">Para Exibir Dados de Monitoramento de Servidores Virtuais de uma Inst&acirc;ncia Clusterizada do GlassFish Server</a></p>
+</li>
+<li>
+<p><a href="task-mon-resource-clustered-instance.html">Para Exibir Dados de Monitoramento de Recursos de uma Inst&acirc;ncia Clusterizada do GlassFish Server</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

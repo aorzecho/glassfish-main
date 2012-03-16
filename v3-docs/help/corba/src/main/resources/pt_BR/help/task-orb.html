@@ -1,59 +1,92 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-orb" name="task-orb"></a><a id="GHCOR00006" name="GHCOR00006"></a></p>
 
-
-<a name="task-orb"></a><h3>Para configurar o ORB</h3><a name="indexterm-1"></a><a name="indexterm-2"></a><ol>
-<li><b>No componente da &#225;rvore, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>Selecione a inst&#226;ncia que ser&#225; configurada:</b><ul>
-<li><b>Para configurar uma inst&#226;ncia em particular, selecione o n&#243; de configura&#231;&#227;o da
-inst&#226;ncia. Por exemplo, na inst&#226;ncia padr&#227;o, <tt>server</tt>, selecione o n&#243; <tt>server-config</tt>.</b></li>
-<li><b>Para configura as defini&#231;&#245;es padr&#227;o das futuras inst&#226;ncias que utilizam uma c&#243;pia
-de <tt>default-config</tt>, selecione o n&#243; <tt> default-config</tt>.</b></li></ul></li>
-<li><b>Selecione o n&#243; ORB.</b><p>A p&#225;gina Seguran&#231;a &#233; aberta.</p></li>
-<li><b>Na lista suspensa ID de Grupo de segmentos, escolha o grupo de
-segmentos que o ORB utiliza.</b><p>O ORB utiliza grupos de segmentos para responder a solicita&#231;&#245;es de clientes
-remotos de beans empresariais e outros clientes que se comunicam utilizando RMI-IIOP. O
-grupo de segmentos padr&#227;o do ORB &#233; <tt>thread-pool-1</tt>, que utiliza padr&#245;es apropriados
-para solicita&#231;&#245;es RMI/IIOP.</p><p>Consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3022&id=ref-threadpools">Grupos de Segmentos</a> para obter mais informa&#231;&#245;es.</p></li>
-<li><b>Na lista suspensa Tamanho m&#225;x. do fragmento de mensagem, selecione o tamanho
-m&#225;ximo de fragmento para mensagens IIOP.</b><p>As mensagens com tamanho maior do que o m&#225;ximo permitido s&#227;o fragmentadas.
-O valor padr&#227;o &#233; 1024 bytes.</p></li>
-<li><b>No campo Total de conex&#245;es, defina o n&#250;mero m&#225;ximo de conex&#245;es de
-entrada para todas as escutas de IIOP.</b><p>O valor padr&#227;o &#233; 1024.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Autentica&#231;&#227;o de cliente IIOP necess&#225;ria para especificar
-que a autentica&#231;&#227;o de cliente IIOP &#233; necess&#225;ria.</b><p>Se a autentica&#231;&#227;o de IIOP estiver ativa, o servidor rejeita solicita&#231;&#245;es n&#227;o
-autenticadas e insere um bit de autentica&#231;&#227;o-necess&#225;ria em Refer&#234;ncias de Objeto Interoper&#225;veis
-(IORs) enviadas para clientes. A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p></li>
-<li>(Opcional) <b>Na se&#231;&#227;o Propriedades Adicionais, especifique propriedades adicionais.</b><p>O Servidor GlassFish n&#227;o define propriedades adicionais para o ORB.</p><ul>
-<li><b>Para adicionar uma propriedade, clique no bot&#227;o Adicionar propriedade. Na linha em
-branco que &#233; exibida, digite o nome da propriedade no campo Nome
-e digite o valor da propriedade no campo Valor.</b></li>
-<li><b>Para modificar uma propriedade, edite o campo Valor da propriedade.</b></li>
-<li><b>Para excluir uma propriedade, marque a caixa de sele&#231;&#227;o &#224; esquerda do
-campo Nome da propriedade a ser exclu&#237;da. Clique no bot&#227;o Excluir propriedades.</b></li></ul></li>
-<li><b>Clique em Salvar.</b>
-<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar padr&#245;es e, em
-seguida, em Salvar. </p>
-
+<h4><a id="sthref2" name="sthref2"></a><a id="sthref3" name="sthref3"></a>Para Configurar o ORB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>No componente da &aacute;rvore, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
+</li>
+<li>
+<p>Selecione a inst&acirc;ncia que ser&aacute; configurada:</p>
+<ul>
+<li>
+<p>Para configurar uma inst&acirc;ncia em particular, selecione o n&oacute; de configura&ccedil;&atilde;o da inst&acirc;ncia. Por exemplo, na inst&acirc;ncia default, <code>server</code>, selecione o n&oacute; <code>server-config</code>.</p>
+</li>
+<li>
+<p>Para configura as defini&ccedil;&otilde;es default das futuras inst&acirc;ncias que utilizam uma c&oacute;pia de <code>default-config</code>, selecione o n&oacute; <code>default-config</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Selecione o n&oacute; ORB.</p>
+<p>A p&aacute;gina Seguran&ccedil;a &eacute; aberta.</p>
+</li>
+<li>
+<p>Na lista drop-down ID do Pool de Threads, escolha o pool de threads que o ORB utiliza.</p>
+<p>O ORB utiliza pools de threads para responder a solicita&ccedil;&otilde;es de clientes remotos de enterprise beans e outros clientes que se comunicam utilizando RMI-IIOP. O pool de thread default do ORB &eacute; <code>thread-pool-1</code>, que usa defaults adequados para solicita&ccedil;&otilde;es de RMI/IIOP.</p>
+<p>Consulte <a href="../../../web/pt_BR/help/missingtopic.html">Pools de Threads</a> para obter mais informa&ccedil;&otilde;es.</p>
+</li>
+<li>
+<p>Na lista drop-down Tamanho m&aacute;x. do fragmento de mensagem, selecione o tamanho m&aacute;ximo de fragmento para mensagens IIOP.</p>
+<p>As mensagens com tamanho maior do que o m&aacute;ximo permitido s&atilde;o fragmentadas. O valor default &eacute; 1024 bytes.</p>
+</li>
+<li>
+<p>No campo Total de conex&otilde;es, defina o n&uacute;mero m&aacute;ximo de conex&otilde;es de entrada para todas as listeners IIOP.</p>
+<p>O valor default &eacute; 1024.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Autentica&ccedil;&atilde;o de cliente IIOP necess&aacute;ria para especificar que a autentica&ccedil;&atilde;o de cliente IIOP &eacute; necess&aacute;ria.</p>
+<p>Se a autentica&ccedil;&atilde;o IIOP estiver ativa, o servidor rejeita solicita&ccedil;&otilde;es n&atilde;o autenticadas e insere um bit de autentica&ccedil;&atilde;o-necess&aacute;ria em Refer&ecirc;ncias de Objeto Interoper&aacute;veis (IORs) enviadas para clientes. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
+</li>
+<li>
+<p>Na se&ccedil;&atilde;o Propriedades Adicionais, especifique propriedades adicionais.</p>
+<p>O GlassFish Server n&atilde;o define propriedades adicionais para o ORB.</p>
+<ul>
+<li>
+<p>Para adicionar uma propriedade, clique no bot&atilde;o Adicionar propriedade. Na linha em branco que &eacute; exibida, digite o nome da propriedade no campo Nome e digite o valor da propriedade no campo Valor.</p>
+</li>
+<li>
+<p>Para modificar uma propriedade, edite o campo Valor da propriedade.</p>
+</li>
+<li>
+<p>Para deletar uma propriedade, marque a caixa de sele&ccedil;&atilde;o &agrave; esquerda do campo Nome da Propriedade a ser deletada. Clique no bot&atilde;o Deletar Propriedades.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Clique em Salvar.</p>
 
 <hr>
-</li>
-<li><b>Reinicie o Servidor GlassFish.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-iioplistenernew.html">Para criar uma escuta de IIOP</a></p>
+<p><b>Dica:</b></p>
+Para voltar &agrave;s defini&ccedil;&otilde;es default, clique no bot&atilde;o Carregar Default e depois em Salvar.
+<hr>
 
 </li>
-<li><p><a href="task-iioplisteneredit.html">Para editar uma escuta de IIOP</a></p>
-
+<li>
+<p>Reinicie o GlassFish Server.</p>
 </li>
-<li><p><a href="task-editiiopssl.html">Para editar configura&#231;&#245;es de SSL para uma escuta de IIOP segura</a></p>
-
+</ol>
+<a id="sthref4" name="sthref4"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-iioplistenernew.html">Para Criar um Listener de IIOP</a></p>
 </li>
-<li><p><a href="task-iioplistenerdelete.html">Para excluir uma escuta de IIOP</a></p>
+<li>
+<p><a href="task-iioplisteneredit.html">Para Editar um Listener de IIOP</a></p>
+</li>
+<li>
+<p><a href="task-editiiopssl.html">Para Editar Defini&ccedil;&otilde;es da SSL de um Listener de IIOP Seguro</a></p>
+</li>
+<li>
+<p><a href="task-iioplistenerdelete.html">Para Deletar um Listener de IIOP</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

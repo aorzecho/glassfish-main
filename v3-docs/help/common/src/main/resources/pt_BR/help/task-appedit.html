@@ -1,89 +1,108 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-appedit" name="task-appedit"></a><a id="GHCOM00161" name="GHCOM00161"></a></p>
 
-
-<a name="task-appedit"></a><h3>Para editar um aplicativo implantado</h3><a name="indexterm-44"></a><ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, selecione o n&#243; Aplicativos.</b><p>A p&#225;gina Aplicativos &#233; exibida.</p></li>
-<li><b>Na tabela Aplicativos Implantados, clique no nome do aplicativo a ser editado.</b><p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o
-nome e &#233; separado do nome por dois pontos (<tt>:</tt>). Para obter
-mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p><p>A p&#225;gina Editar aplicativo &#233; exibida.</p></li>
-<li><b>Desmarque a caixa de sele&#231;&#227;o Status Ativado para desativar o status do
-aplicativo, para que ele fique indispon&#237;vel.</b><p>Por padr&#227;o, o status de um aplicativo &#233; Ativado, assim que &#233;
-implantado. </p></li>
-<li><b>Para um aplicativo Web, no campo Raiz de Contexto, digite o caminho
-do aplicativo.</b><p>No URL do aplicativo Web, a raiz de contexto aparece imediatamente ap&#243;s
-o n&#250;mero da porta (<tt>http://</tt><i>host</i><tt>:</tt><i>port</i><tt>/</tt><i> context-root</i><tt>/...</tt>).  Verifique se a raiz de contexto
-come&#231;a com uma barra; por exemplo, <tt> /hello</tt>.</p></li>
-<li><b>Desmarque a caixa de sele&#231;&#227;o Disponibilidade ativada para desativar a persist&#234;ncia de
-sess&#227;o e o ponto de verifica&#231;&#227;o SFSB do aplicativo.</b><p>Se a caixa de sele&#231;&#227;o Ativado estiver selecionada, a alta disponibilidade est&#225;
-ativada para sess&#245;es Web e para o ponto de verifica&#231;&#227;o e, potencialmente,
-a passiva&#231;&#227;o do bean da sess&#227;o com estado (SFSB). Se definido como
-falso (padr&#227;o), todo o salvamento da sess&#227;o Web e  o ponto
-de verifica&#231;&#227;o SFSB ser&#227;o desativados para o aplicativo especificado, aplicativo Web ou
-m&#243;dulo EJB. Se definido como verdadeiro, o aplicativo ou m&#243;dulo especificado ser&#225;
-ativado para alta disponibilidade. Defina essa op&#231;&#227;o como verdadeira apenas se a
-alta disponibilidade estiver configurada e ativada em n&#237;veis mais altos, como os
-n&#237;veis do servidor e recipiente.</p><p>Esta op&#231;&#227;o aparece se clusters ou inst&#226;ncias de servidores independentes, al&#233;m da
-inst&#226;ncia padr&#227;o do servidor (<tt>server</tt>), existirem.</p></li>
-<li><b>Na lista suspensa Servidores Virtuais, selecione o servidor virtual a ser associado
-ao aplicativo.</b><p>A op&#231;&#227;o Servidores virtuais aparece somente se a inst&#226;ncia padr&#227;o do servidor,
-<tt> server</tt>, existir. Se os clusters ou outras inst&#226;ncias de servidores independentes existirem,
-&#233; poss&#237;vel selecionar os servidores virtuais depois da implanta&#231;&#227;o. V&#225; &#224; p&#225;gina
-Editar aplicativo, selecione a guia Destino e selecione Gerenciar servidores virtuais para
-o destino desejado.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Java Web Start Ativado para usar o
-software Java Web Start para implementar o aplicativo.</b><p>Esta op&#231;&#227;o est&#225; ativada ou desativada por padr&#227;o de acordo com a
-configura&#231;&#227;o no momento da implanta&#231;&#227;o.</p></li>
-<li><b>No campo Descri&#231;&#227;o, digite uma descri&#231;&#227;o para o aplicativo.</b></li>
-<li><b>Para visualizar a lista de descritores de m&#243;dulo do aplicativo, clique na
-guia Descri&#231;&#227;o. Para obter mais detalhes, consulte <a href="task-appviewdesc.html">Para exibir os descritores de um aplicativo</a></b></li>
-<li><b>Por padr&#227;o, o status de um aplicativo est&#225; ativado em todos os
-destinos. Para visualizar os destinos nos quais o aplicativo foi ativado, clique
-na guia Destinos. &#201; poss&#237;vel ativar ou desativar aplicativos em um ou
-v&#225;rios destinos. Consulte <a href="task-appviewtargets.html">Para visualizar destinos do aplicativo</a>.</b></li>
-<li><b>Clique em Salvar.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-applistdeployed.html">Para exibir uma lista de aplicativos implantados</a></p>
-
+<h4><a id="sthref74" name="sthref74"></a>Para Editar uma Aplica&ccedil;&atilde;o Implantada</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, selecione o n&oacute; Aplica&ccedil;&otilde;es.</p>
+<p>A p&aacute;gina Aplica&ccedil;&otilde;es &eacute; exibida.</p>
 </li>
-<li><p><a href="task-appdeployweb.html">Para implantar um aplicativo Web</a></p>
-
+<li>
+<p>Na tabela Aplica&ccedil;&otilde;es Implantadas, clique no nome da aplica&ccedil;&atilde;o a ser editado.</p>
+<p>O nome pode incluir um identificador de vers&atilde;o opcional, que segue o nome e &eacute; separado do nome por dois-pontos (<code>:</code>). Para obter mais informa&ccedil;&otilde;es sobre vers&otilde;es modulares ou da aplica&ccedil;&atilde;o, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00324"><i>Vers&otilde;es Modulares e da Aplica&ccedil;&atilde;o</i> em <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
+<p>A p&aacute;gina Editar Aplica&ccedil;&atilde;o &eacute; exibida.</p>
 </li>
-<li><p><a href="task-deployentapp.html">Para implantar um Aplicativo Empresarial</a></p>
-
+<li>
+<p>Desmarque a caixa de sele&ccedil;&atilde;o Status Ativado para desativar o status da aplica&ccedil;&atilde;o, para que ele fique indispon&iacute;vel.</p>
+<p>Por default, o status de uma aplica&ccedil;&atilde;o &eacute; Ativado, assim que ela &eacute; implantada.</p>
 </li>
-<li><p><a href="task-appdeployclient.html">Para implantar um cliente aplicativo</a></p>
-
+<li>
+<p>Para uma aplica&ccedil;&atilde;o Web, no campo Raiz de Contexto, digite o caminho da aplica&ccedil;&atilde;o.</p>
+<p>No URL da aplica&ccedil;&atilde;o web, a raiz do contexto segue imediatamente o n&uacute;mero da porta (<code>http://</code><i>host</i><code>:</code><i>porta</i><code>/</code><i>context-root</i><code>/...</code>). Certifique-se de que a raiz do contexto comece com uma barra, por exemplo: <code>/hello</code>.</p>
 </li>
-<li><p><a href="task-appdeployconn.html">Para implantar um m&#243;dulo conector</a></p>
-
+<li>
+<p>Desmarque a caixa de sele&ccedil;&atilde;o Disponibilidade ativada para desativar a persist&ecirc;ncia de sess&atilde;o e o checkpoint SFSB da aplica&ccedil;&atilde;o.</p>
+<p>Se a caixa de sele&ccedil;&atilde;o Ativado estiver selecionada, a alta disponibilidade ser&aacute; ativada para sess&otilde;es Web e para checkpoint e, potencialmente, a passiva&ccedil;&atilde;o do bean da sess&atilde;o stateful (SFSB). Se esta op&ccedil;&atilde;o estiver definida como falsa (default), todo os salvamentos de sess&atilde;o Web e checkpoints SFSB ser&atilde;o desativados para a aplica&ccedil;&atilde;o, a aplica&ccedil;&atilde;o Web ou o m&oacute;dulo EJB especificado. Se esta op&ccedil;&atilde;o estiver definida como verdadeira, a aplica&ccedil;&atilde;o ou o m&oacute;dulo especificado ser&aacute; ativado para alta disponibilidade. Defina essa op&ccedil;&atilde;o como verdadeira apenas se a alta disponibilidade estiver configurada e ativada em n&iacute;veis mais altos, como os n&iacute;veis do servidor e cont&ecirc;iner.</p>
+<p>Esta op&ccedil;&atilde;o aparece se clusters ou inst&acirc;ncias de servidores standalone, al&eacute;m da inst&acirc;ncia default do servidor (<code>server</code>), existirem.</p>
 </li>
-<li><p><a href="task-appdeployejb.html">Para implantar um EJB Jar</a></p>
-
+<li>
+<p>Na lista drop-down Servidores Virtuais, selecione o servidor virtual a ser associado &agrave; aplica&ccedil;&atilde;o.</p>
+<p>A op&ccedil;&atilde;o Servidores Virtuais aparece somente se a inst&acirc;ncia default do servidor, <code>server</code>, existir. Se os clusters ou outras inst&acirc;ncias de servidores standalone existirem, &eacute; poss&iacute;vel selecionar os servidores virtuais depois da implanta&ccedil;&atilde;o. V&aacute; &agrave; p&aacute;gina Editar Aplica&ccedil;&atilde;o, selecione a guia Destino e selecione Gerenciar Servidores Virtuais para o destino desejado.</p>
 </li>
-<li><p><a href="task-appviewdesc.html">Para exibir os descritores de um aplicativo</a></p>
-
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Java Web Start Ativado para usar o software Java Web Start na implanta&ccedil;&atilde;o da aplica&ccedil;&atilde;o.</p>
+<p>Esta op&ccedil;&atilde;o est&aacute; ativada ou desativada por default de acordo com a defini&ccedil;&atilde;o no momento da implanta&ccedil;&atilde;o original.</p>
 </li>
-<li><p><a href="task-appviewtargets.html">Para visualizar destinos do aplicativo</a></p>
-
+<li>
+<p>No campo Descri&ccedil;&atilde;o, digite uma descri&ccedil;&atilde;o para a aplica&ccedil;&atilde;o.</p>
 </li>
-<li><p><a href="task-endpoint.html">Para visualizar as informa&#231;&#245;es do ponto final para um servi&#231;o Web</a></p>
-
+<li>
+<p>Para exibir a lista de descritores de m&oacute;dulo da aplica&ccedil;&atilde;o, clique na guia Descri&ccedil;&atilde;o. Para ver mais detalhes, consulte <a href="task-appviewdesc.html">Para Exibir Descritores de uma Aplica&ccedil;&atilde;o</a></p>
 </li>
-<li><p><a href="task-applaunch.html">Para iniciar um aplicativo</a></p>
-
+<li>
+<p>Por default, o status de uma aplica&ccedil;&atilde;o est&aacute; ativado em todos os destinos. Para exibir os destinos nos quais a aplica&ccedil;&atilde;o foi ativada, clique na guia Destinos. &Eacute; poss&iacute;vel ativar ou desativar aplica&ccedil;&otilde;es em um ou v&aacute;rios destinos. Consulte <a href="task-appviewtargets.html">Para visualizar destinos da aplica&ccedil;&atilde;o</a>.</p>
 </li>
-<li><p><a href="task-appclientlaunch.html">Para iniciar um cliente de aplicativo</a></p>
-
+<li>
+<p>Clique em Salvar.</p>
 </li>
-<li><p><a href="task-appredeploy.html">Para reimplantar um aplicativo implantado</a></p>
-
+</ol>
+<a id="sthref75" name="sthref75"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-applistdeployed.html">Para Exibir uma Lista de Aplica&ccedil;&otilde;es Implantadas</a></p>
 </li>
-<li><p><a href="task-apprestart.html">Para recarregar um aplicativo implantado</a></p>
+<li>
+<p><a href="task-appdeployweb.html">Para Implantar uma Aplica&ccedil;&atilde;o Web</a></p>
+</li>
+<li>
+<p><a href="task-deployentapp.html">Para Implantar uma Aplica&ccedil;&atilde;o Enterprise</a></p>
+</li>
+<li>
+<p><a href="task-appdeployclient.html">Para Implantar um Cliente de Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-appdeployconn.html">Para Implantar um M&oacute;dulo de Conector</a></p>
+</li>
+<li>
+<p><a href="task-appdeployejb.html">Para Implantar um Arquivo Jar EJB</a></p>
+</li>
+<li>
+<p><a href="task-appviewdesc.html">Para Exibir Descritores de uma Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-appviewtargets.html">Para visualizar destinos da aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-endpoint.html">Para Exibir Informa&ccedil;&otilde;es de Ponto Final de um Web Service</a></p>
+</li>
+<li>
+<p><a href="task-applaunch.html">Para Acionar uma Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-appclientlaunch.html">Para Acionar um Cliente de Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-appclientstubs.html">Para Fazer Download de Stubs de Cliente de Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-appredeploy.html">Para Reimplantar uma Aplica&ccedil;&atilde;o Implantada</a></p>
+</li>
+<li>
+<p><a href="task-apprestart.html">Para Recarregar uma Aplica&ccedil;&atilde;o Implantada</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesview.html">Para Exibir Recursos no Escopo da Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesedit.html">Para Modificar Recursos no Escopo da Aplica&ccedil;&atilde;o</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

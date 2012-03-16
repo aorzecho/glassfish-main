@@ -1,93 +1,97 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-createnode" name="task-createnode"></a><a id="GHCLU00081" name="GHCLU00081"></a></p>
 
-
-<a name="task-createnode"></a><h3>Para criar um n&#243;</h3><a name="indexterm-154"></a><p>Um n&#243; representa um host no qual o software Servidor GlassFish est&#225;
-instalado. Um n&#243; deve estar presente em cada host na qual as
-inst&#226;ncias Servidor GlassFish residem. </p>
-
+<h4><a id="sthref224" name="sthref224"></a>Para Criar um N&oacute;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Um n&oacute; representa um host no qual o software GlassFish Server est&aacute; instalado. Um n&oacute; deve estar presente em cada host na qual as inst&acirc;ncias GlassFish Server residem.</p>
 <ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, selecione o n&#243; N&#243;s.</b><p>A p&#225;gina N&#243;s &#233; exibida.</p></li>
-<li><b>Na p&#225;gina N&#243;s, clique em Novo.</b><p>A p&#225;gina Novo n&#243; &#233; exibida.</p></li>
-<li><b>No campo Nome, digite o nome desejado para o n&#243;.</b></li>
-<li><b>Na lista suspensa Tipo, selecione o tipo do n&#243; a ser criado.</b><ul>
-<li><b>Para criar um n&#243; que ofere&#231;a suporte &#224; comunica&#231;&#227;o atrav&#233;s de shell
-seguro (SSH), selecione SSH.</b></li>
-<li><b>Para criar um n&#243; que n&#227;o ofere&#231;a suporte &#224; comunica&#231;&#227;o remota, selecione
-CONFIG.</b></li></ul></li>
-<li><b>No campo Host do n&#243;, digite o nome do host que o
-n&#243; representa.</b><p>Se este campo &#233; obrigat&#243;rio ou n&#227;o, depende do tipo de n&#243;:</p>
-<ul><li><p>Se o tipo de n&#243; for CONFIG, o nome do host pode ser omitido. O nome do host pode ser determinado quando as inst&#226;ncias que residem no n&#243; forem criadas.</p>
-
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, selecione o n&oacute; N&oacute;s.</p>
+<p>A p&aacute;gina N&oacute;s &eacute; exibida.</p>
 </li>
-<li><p>Se o tipo de n&#243; for SSH, o nome do host deve ser especificado. Caso contr&#225;rio, ocorre um erro.</p>
-
-</li></ul>
+<li>
+<p>Na p&aacute;gina N&oacute;s, clique em Novo.</p>
+<p>A p&aacute;gina Novo n&oacute; &eacute; exibida.</p>
 </li>
-<li><b>No campo Diret&#243;rio do n&#243;, digite o caminho para o diret&#243;rio que
-cont&#233;m as inst&#226;ncias Servidor GlassFish que s&#227;o criadas no n&#243;.</b><p>Se o tipo do n&#243; for CONFIG, deixe este campo vazio. O
-diret&#243;rio do n&#243; pode ser determinado quando as inst&#226;ncias que residem no
-n&#243; forem criadas.</p><p>Se for digitado um caminho relativo, o caminho &#233; relativo ao diret&#243;rio
-<i>as-install</i>, no qual <i>as-install</i> corresponde ao diret&#243;rio de instala&#231;&#227;o de base do
-software Servidor GlassFish no host.</p></li>
-<li><b>No campo Diret&#243;rio de instala&#231;&#227;o, digite o caminho completo para o pai
-do diret&#243;rio de instala&#231;&#227;o de base do software Servidor GlassFish no host,
-por exemplo, <tt>/export/glassfish3/</tt>.</b><p>Se o tipo do n&#243; for CONFIG, deixe este campo vazio. O
-diret&#243;rio de instala&#231;&#227;o pode ser determinado quando as inst&#226;ncias que residem no
-n&#243; forem criadas.</p></li>
-<li><b>Para for&#231;ar a cria&#231;&#227;o do n&#243; na configura&#231;&#227;o do servidor de administra&#231;&#227;o
-do dom&#237;nio (DAS) mesmo se a valida&#231;&#227;o dos par&#226;metros do n&#243; falhar,
-ative a op&#231;&#227;o For&#231;ar.</b></li>
-<li><b>No campo Porta SSH, digite a porta para utilizar as conex&#245;es SSH
-com este host do n&#243;.</b></li>
-<li><b>No campo Nome do usu&#225;rio SSH, digite o nome do usu&#225;rio deste
-host do n&#243; que deve executar o processo para conex&#227;o com o
-host atrav&#233;s de SSH.</b></li>
-<li><b>Especifique como o usu&#225;rio SSH ser&#225; autenticado ao efetuar login no host
-do n&#243;.</b><ul>
-<li><b>Para especificar a autentica&#231;&#227;o atrav&#233;s de um arquivo de chave privada SSH,
-realize estas etapas:</b><ol style="list-style-type: lower-alpha">
-<li><b>Na lista suspensa Autentica&#231;&#227;o de usu&#225;rio SSH, selecione Arquivo principal.</b></li>
-<li><b>No campo Arquivo principal, digite o caminho absoluto para o arquivo da
-chave privada de SSH para o usu&#225;rio que a op&#231;&#227;o Nome de
-usu&#225;rio SSH especifica. </b>
-<hr><p><b>Observa&#231;&#227;o - </b>O Servidor GlassFish tamb&#233;m oferece suporte &#224; autentica&#231;&#227;o com senha atrav&#233;s da
-entrada <tt>AS_ADMIN_SSHPASSWORD</tt> no arquivo de senha. O arquivo de senha &#233; especificado
-na op&#231;&#227;o <tt>--paswordfile</tt> do utilit&#225;rio <tt>asadmin</tt>(1M).</p>
-
-
-<hr>
-</li></ol></li>
-<li><b>Para especificar a autentica&#231;&#227;o atrav&#233;s de uma senha armazenada na configura&#231;&#227;o do
-DAS, realize estas etapas:</b>
-<hr><p><b>Cuidado - </b>Esta senha &#233; armazenada em forma de texto na configura&#231;&#227;o do DAS.
-Para maior seguran&#231;a, utilize um arquivo de chave ou um alias de
-senha. </p>
-
-
-<hr>
-<ol style="list-style-type: lower-alpha">
-<li><b>Na lista suspensa Autentica&#231;&#227;o de usu&#225;rio SSH, selecione Senha.</b></li>
-<li><b>No campo Senha SSH, digite a senha que o usu&#225;rio SSH utilizar&#225;
-ao efetuar login neste host do n&#243;. </b></li>
-<li><b>No campo Confirmar senha SSH, digite novamente a senha.</b></li></ol></li>
-<li><b>Para especificar a autentica&#231;&#227;o atrav&#233;s de um alias de senha, realize estas
-etapas:</b><ol style="list-style-type: lower-alpha">
-<li><b>Na lista suspensa Autentica&#231;&#227;o de usu&#225;rio SSH, selecione Alias de senha.</b></li>
-<li><b>Na lista suspensa Alias de senha, selecione o alias existente.</b></li></ol></li></ul></li>
-<li><b>Clique em Salvar.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-deletenode.html">Para excluir n&#243;s</a></p>
-
+<li>
+<p>No campo Nome, digite o nome desejado para o n&oacute;.</p>
 </li>
-<li><p><a href="task-listnodes.html">Para listar todos os n&#243;s do dom&#237;nio atual</a></p>
-
+<li>
+<p>Na lista drop-down Tipo, selecione o tipo do n&oacute; a ser criado.</p>
+<ul>
+<li>
+<p>Para ativar o n&oacute; de modo a suportar a comunica&ccedil;&atilde;o por meio do protocolo remoto Distributed Component Object Model (DCOM), selecione DCOM.</p>
 </li>
-<li><p><a href="task-editnode.html">Para editar um n&#243;</a></p>
+<li>
+<p>Para criar um n&oacute; que ofere&ccedil;a suporte &agrave; comunica&ccedil;&atilde;o atrav&eacute;s de shell seguro (SSH), selecione SSH.</p>
+</li>
+<li>
+<p>Para criar um n&oacute; que n&atilde;o ofere&ccedil;a suporte &agrave; comunica&ccedil;&atilde;o remota, selecione CONFIG.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>No campo Host do n&oacute;, digite o nome do host que o n&oacute; representa.</p>
+<p>Se este campo &eacute; obrigat&oacute;rio ou n&atilde;o, depende do tipo de n&oacute;:</p>
+<ul>
+<li>
+<p>Se o tipo de n&oacute; for CONFIG, o nome do host pode ser omitido. O nome do host pode ser determinado quando as inst&acirc;ncias que residem no n&oacute; forem criadas.</p>
+</li>
+<li>
+<p>Se o tipo de n&oacute; for DCOM ou SSH, o nome do host dever&aacute; ser especificado. Caso contr&aacute;rio, ocorre um erro.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>No campo Diret&oacute;rio do n&oacute;, digite o caminho para o diret&oacute;rio que cont&eacute;m as inst&acirc;ncias GlassFish Server que s&atilde;o criadas no n&oacute;.</p>
+<p>Se o tipo do n&oacute; for CONFIG, deixe este campo vazio. O diret&oacute;rio do n&oacute; pode ser determinado quando as inst&acirc;ncias que residem no n&oacute; forem criadas.</p>
+<p>Se voc&ecirc; digitar um caminho relativo, o caminho ser&aacute; relativo ao diret&oacute;rio <i>as-install</i> em que <i>as-install</i> &eacute; o diret&oacute;rio de instala&ccedil;&atilde;o base do software GlassFish Server no host.</p>
+</li>
+<li>
+<p>No campo Diret&oacute;rio de Instala&ccedil;&atilde;o, digite o caminho completo para o <i>pai</i> do diret&oacute;rio de instala&ccedil;&atilde;o base do software GlassFish Server no host, por exemplo: <code>/export/glassfish3</code>.</p>
+<p>Se o tipo do n&oacute; for CONFIG, deixe este campo vazio. O diret&oacute;rio de instala&ccedil;&atilde;o pode ser determinado quando as inst&acirc;ncias que residem no n&oacute; forem criadas.</p>
+</li>
+<li>
+<p>Finalize a cria&ccedil;&atilde;o do n&oacute;, conforme requerido pelo tipo do n&oacute;.</p>
+<ol type="a">
+<li>
+<p>Se o tipo de n&oacute; for CONFIG, clique em Salvar.</p>
+</li>
+<li>
+<p>Se o tipo de n&oacute; for DCOM, siga as instru&ccedil;&otilde;es contidas em <a href="task-nodenewdcom.html">Para Finalizar a Cria&ccedil;&atilde;o de um N&oacute; do DCOM</a>.</p>
+</li>
+<li>
+<p>Se o tipo de n&oacute; for SSH, siga as instru&ccedil;&otilde;es contidas em <a href="task-nodenewssh.html">Para Finalizar a Cria&ccedil;&atilde;o de um N&oacute; SSH</a>.</p>
+</li>
+</ol>
+</li>
+</ol>
+<a id="sthref225" name="sthref225"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-nodenewdcom.html">Para Finalizar a Cria&ccedil;&atilde;o de um N&oacute; do DCOM</a></p>
+</li>
+<li>
+<p><a href="task-nodenewssh.html">Para Finalizar a Cria&ccedil;&atilde;o de um N&oacute; SSH</a></p>
+</li>
+<li>
+<p><a href="task-deletenode.html">Para Deletar N&oacute;s</a></p>
+</li>
+<li>
+<p><a href="task-listnodes.html">Para Listar Todos os N&oacute;s no Dom&iacute;nio Atual</a></p>
+</li>
+<li>
+<p><a href="task-pingnode.html">Para Testar se um N&oacute; Pode ser Acessado</a></p>
+</li>
+<li>
+<p><a href="task-editnode.html">Para Editar um N&oacute;</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

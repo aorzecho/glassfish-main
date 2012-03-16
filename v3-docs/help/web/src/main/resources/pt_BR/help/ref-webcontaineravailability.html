@@ -1,104 +1,112 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-webcontaineravailability"></a><h4>Disponibilidade de recipiente da Web</h4>
-<a name="indexterm-39"></a><a name="indexterm-40"></a><p>Utilize a p&#225;gina Disponibilidade de recipiente da Web para configurar as defini&#231;&#245;es
-de disponibilidade do recipiente da Web.</p>
+<p><a id="ref-webcontaineravailability" name="ref-webcontaineravailability"></a><a id="GHWEB00001" name="GHWEB00001"></a></p>
 
-<p>A p&#225;gina Disponibilidade de recipiente da Web cont&#233;m as op&#231;&#245;es a seguir.</p>
-
-<dl><dt>Carregar padr&#245;es</dt>
-<dd><p>Bot&#227;o para restaurar com os valores padr&#227;o as configura&#231;&#245;es que apresentam valores padr&#227;o. As configura&#231;&#245;es que n&#227;o apresentam valores padr&#227;o n&#227;o s&#227;o alteradas.</p>
-
+<h4><a id="sthref79" name="sthref79"></a><a id="sthref80" name="sthref80"></a>Disponibilidade do Cont&ecirc;iner Web</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilize a p&aacute;gina Disponibilidade do Cont&ecirc;iner Web para configurar as defini&ccedil;&otilde;es de disponibilidade do cont&ecirc;iner Web.</p>
+<p>A p&aacute;gina Disponibilidade do Cont&ecirc;iner Web cont&eacute;m as op&ccedil;&otilde;es a seguir.</p>
+<dl>
+<dt>Carregar Defaults</dt>
+<dd>
+<p>Bot&atilde;o para restaurar com os valores default as defini&ccedil;&otilde;es que apresentam valores default. As defini&ccedil;&otilde;es que n&atilde;o apresentam valores default n&atilde;o s&atilde;o alteradas.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
-<dt>Servi&#231;o de disponibilidade</dt>
-<dd><p>Se a caixa de sele&#231;&#227;o Ativo estiver marcada, a disponibilidade est&#225; ativada para o recipiente da Web.</p>
-
+<dt>Servi&ccedil;o de disponibilidade</dt>
+<dd>
+<p>Se a caixa de sele&ccedil;&atilde;o Ativado estiver marcada, a disponibilidade est&aacute; ativada para o cont&ecirc;iner Web.</p>
 </dd>
-<dt>Tipo de persist&#234;ncia</dt>
-<dd><p>O mecanismo de persist&#234;ncia utilizado.</p>
-
-
-<ul><li><p>Se a op&#231;&#227;o Servi&#231;o de disponibilidade ativado <b>n&#227;o</b> estiver marcada, selecione uma das seguintes op&#231;&#245;es:</p>
-
-
-<ul><li><p><tt>memory</tt> para nenhuma persist&#234;ncia de sess&#227;o</p>
-
+<dt>Tipo de persist&ecirc;ncia</dt>
+<dd>
+<p>O mecanismo de persist&ecirc;ncia utilizado.</p>
+<ul>
+<li>
+<p>Se a op&ccedil;&atilde;o Servi&ccedil;o de disponibilidade ativado <i>n&atilde;o</i> estiver marcada, selecione uma das seguintes op&ccedil;&otilde;es:</p>
+<ul>
+<li>
+<p><code>memory</code> para nenhuma persist&ecirc;ncia de sess&atilde;o</p>
 </li>
-<li><p><tt>file</tt> para persist&#234;ncia de sess&#227;o com base no sistema de arquivos que n&#227;o est&#225; altamente dispon&#237;vel</p>
-
-</li></ul>
+<li>
+<p><code>file</code> para persist&ecirc;ncia de sess&atilde;o com base no sistema de arquivos que n&atilde;o est&aacute; altamente dispon&iacute;vel</p>
 </li>
-<li><p>Se a op&#231;&#227;o Servi&#231;o de disponibilidade ativado estiver marcada, selecione <tt>replicated</tt> para persist&#234;ncia de sess&#227;o com base no failover do cluster que est&#225; altamente dispon&#237;vel.</p>
-
-</li></ul>
+</ul>
+</li>
+<li>
+<p>Se a op&ccedil;&atilde;o Servi&ccedil;o de disponibilidade ativado estiver marcada, selecione <code>replicated</code> para persist&ecirc;ncia de sess&atilde;o com base no failover do cluster que est&aacute; altamente dispon&iacute;vel.</p>
+</li>
+</ul>
 </dd>
-<dt>Frequ&#234;ncia da persist&#234;ncia</dt>
-<dd><p>Frequ&#234;ncia em que a sess&#227;o HTTP &#233; armazenada:</p>
-
-
-<ul><li><p><tt>web-method</tt> &#8212; O estado da sess&#227;o &#233; armazenado no final de cada solicita&#231;&#227;o, antes do envio de uma resposta de volta para o cliente. Este modo oferece a melhor garantia de que o estado da sess&#227;o estar&#225; totalmente atualizado em caso de falha. Esse &#233; o padr&#227;o.</p>
-
-</li></ul>
+<dt>Frequ&ecirc;ncia da persist&ecirc;ncia</dt>
+<dd>
+<p>Frequ&ecirc;ncia em que a sess&atilde;o HTTP &eacute; armazenada:</p>
+<ul>
+<li>
+<p><code>web-method</code> &mdash; O estado da sess&atilde;o &eacute; armazenado no final de cada solicita&ccedil;&atilde;o, antes do envio de uma resposta de volta para o cliente. Este modo oferece a melhor garantia de que o estado da sess&atilde;o estar&aacute; totalmente atualizado em caso de falha. Esse &eacute; o default.</p>
+</li>
+</ul>
 </dd>
-<dt>Escopo da persist&#234;ncia</dt>
-<dd><p>Altera&#231;&#245;es do escopo da sess&#227;o HTTP necess&#225;rias para que o armazenamento ocorra:</p>
-
-
-<ul><li><p><tt>session</tt> &#8212; Todo o estado da sess&#227;o &#233; armazenado a cada instante. Este modo oferece a melhor garantia de que os dados da sess&#227;o sejam corretamente armazenados em qualquer aplicativo da Web distribu&#237;vel.</p>
-
+<dt>Escopo da persist&ecirc;ncia</dt>
+<dd>
+<p>Altera&ccedil;&otilde;es do escopo da sess&atilde;o HTTP necess&aacute;rias para que o armazenamento ocorra:</p>
+<ul>
+<li>
+<p><code>session</code> &mdash; Todo o estado da sess&atilde;o &eacute; armazenado a cada instante. Este modo oferece a melhor garantia de que os dados da sess&atilde;o sejam corretamente armazenados em qualquer aplica&ccedil;&atilde;o Web distribu&iacute;vel.</p>
 </li>
-<li><p><tt>modified-session</tt> &#8212; Todo o estado da sess&#227;o &#233; armazenado se ela tiver sido modificada. Uma sess&#227;o &#233; considerada modificada caso <tt>HttpSession.setAttribute()</tt> ou <tt> HttpSession.removeAttribute()</tt> tenha sido chamado. Certifique-se de chamar <tt>setAttribute()</tt> sempre que um atributo for alterado. N&#227;o se trata de um requisito da especifica&#231;&#227;o Java EE, mas sim uma necessidade para que este modo funcione corretamente.</p>
-
+<li>
+<p><code>modified-session</code> &mdash; Todo o estado da sess&atilde;o &eacute; armazenado se ela tiver sido modificada. Uma sess&atilde;o &eacute; considerada modificada caso <code>HttpSession.setAttribute()</code> ou <code>HttpSession.removeAttribute()</code> tenha sido chamado. Certifique-se de chamar <code>setAttribute()</code> sempre que um atributo for alterado. N&atilde;o se trata de um requisito da especifica&ccedil;&atilde;o Java EE, mas sim uma necessidade para que este modo funcione corretamente.</p>
 </li>
-<li><p><tt>modified-attribute</tt> &#8212; Somente os atributos modificados da sess&#227;o s&#227;o armazenados. Para que este modo funcione corretamente, &#233; necess&#225;rio seguir estas diretrizes:</p>
-
-
-<ul><li><p>Chame <tt>setAttribute()</tt> sempre que o estado da sess&#227;o for modificado.</p>
-
+<li>
+<p><code>modified-attribute</code> &mdash; Somente os atributos modificados da sess&atilde;o s&atilde;o armazenados. Para que este modo funcione corretamente, &eacute; necess&aacute;rio seguir estas diretrizes:</p>
+<ul>
+<li>
+<p>Chame <code>setAttribute()</code> sempre que o estado da sess&atilde;o for modificado.</p>
 </li>
-<li><p>Certifique-se de que n&#227;o haja refer&#234;ncias cruzadas entre os atributos. O gr&#225;fico do objeto em cada chave de atributo diferente &#233; serializado e armazenado separadamente. Se houver quaisquer refer&#234;ncias cruzadas do objeto entre os objetos em cada chave diferente, eles n&#227;o s&#227;o serializados e desserializados corretamente.</p>
-
+<li>
+<p>Certifique-se de que n&atilde;o haja refer&ecirc;ncias cruzadas entre os atributos. O gr&aacute;fico do objeto em cada chave de atributo diferente &eacute; serializado e armazenado separadamente. Se houver quaisquer refer&ecirc;ncias cruzadas do objeto entre os objetos em cada chave diferente, eles n&atilde;o s&atilde;o serializados e desserializados corretamente.</p>
 </li>
-<li><p>Distribua o estado da sess&#227;o em muitos atributos ou, pelo menos, entre um atributo somente leitura e um atributo modific&#225;vel.</p>
-
-</li></ul>
-</li></ul>
+<li>
+<p>Distribua o estado da sess&atilde;o em muitos atributos ou, pelo menos, entre um atributo somente para leitura e um atributo modific&aacute;vel.</p>
+</li>
+</ul>
+</li>
+</ul>
 </dd>
-<dt>Estado de logon &#250;nico</dt>
-<dd><p>Se a caixa de sele&#231;&#227;o Ativado estiver marcada, o estado de logon &#250;nico est&#225; dispon&#237;vel para failover. </p>
-
+<dt>Estado de Sign-on &Uacute;nico</dt>
+<dd>
+<p>Se a caixa de sele&ccedil;&atilde;o Ativado estiver marcada, o estado de sign-on &uacute;nico est&aacute; dispon&iacute;vel para failover.</p>
 </dd>
 <dt>Propriedades adicionais</dt>
-<dd><p>Propriedades adicionais da disponibilidade do recipiente da Web.</p>
-
-<p>O Servidor GlassFish n&#227;o define propriedades adicionais da disponibilidade do recipiente da Web.</p>
-
+<dd>
+<p>Propriedades adicionais da Disponibilidade do Cont&ecirc;iner Web.</p>
+<p>O GlassFish Server n&atilde;o define propriedades adicionais da Disponibilidade do Cont&ecirc;iner Web.</p>
 </dd>
 </dl>
+<a id="sthref81" name="sthref81"></a>
 <h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-webcontainergeneral.html">Para configurar as propriedades gerais do recipiente da Web</a></p>
-
+<ul>
+<li>
+<p><a href="task-webcontainergeneral.html">cont&ecirc;ineresPara Configurar Propriedades Gerais do Cont&ecirc;iner Web</a></p>
 </li>
-<li><p><a href="task-webcontainersessiontimeout.html">Para configurar as propriedades da sess&#227;o do recipiente da Web</a></p>
-
+<li>
+<p><a href="task-webcontainersessiontimeout.html">Para Configurar Propriedades da Sess&atilde;o do Cont&ecirc;iner Web</a></p>
 </li>
-<li><p><a href="task-webcontainermanagerprops.html">Para configurar as propriedades do gerenciador do recipiente da Web</a></p>
-
+<li>
+<p><a href="task-webcontainermanagerprops.html">Para Configurar Propriedades do Gerenciador do Cont&ecirc;iner Web</a></p>
 </li>
-<li><p><a href="task-webcontainerstoreprops.html">Para configurar as propriedades de armazenamento do recipiente da Web</a></p>
-
+<li>
+<p><a href="task-webcontainerstoreprops.html">Para Configurar Propriedades do Armazenamento do Cont&ecirc;iner Web</a></p>
 </li>
-<li><p><a href="task-webcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente da Web</a></p>
+<li>
+<p><a href="task-webcontaineravailability.html">Para Configurar Defini&ccedil;&otilde;es de Disponibilidade do Cont&ecirc;iner Web</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

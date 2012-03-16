@@ -1,71 +1,67 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmsavailability"></a><h4>Disponibilidade de JMS</h4>
-<a name="indexterm-41"></a><a name="indexterm-42"></a><p>Utilize a p&#225;gina Disponibilidade de JMS para definir as configura&#231;&#245;es de disponibilidade
-do Java Message Service (JMS).</p>
+<p><a id="ref-jmsavailability" name="ref-jmsavailability"></a><a id="GHJMS00009" name="GHJMS00009"></a></p>
 
-<p>A p&#225;gina Disponibilidade de JMS cont&#233;m as op&#231;&#245;es a seguir.</p>
-
-<dl><dt>Carregar padr&#245;es</dt>
-<dd><p>Bot&#227;o para restaurar com os valores padr&#227;o as configura&#231;&#245;es que apresentam valores padr&#227;o. As configura&#231;&#245;es que n&#227;o apresentam valores padr&#227;o n&#227;o s&#227;o alteradas.</p>
-
+<h4><a id="sthref71" name="sthref71"></a><a id="sthref72" name="sthref72"></a>Disponibilidade do JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Use a p&aacute;gina de Disponibilidade do JMS para configurar defini&ccedil;&otilde;es de disponibilidade para o Java Message Service (JMS).</p>
+<p>A p&aacute;gina de Disponibilidade do JMS cont&eacute;m as seguintes op&ccedil;&otilde;es.</p>
+<dl>
+<dt>Carregar Defaults</dt>
+<dd>
+<p>Bot&atilde;o para restaurar com os valores default as defini&ccedil;&otilde;es que apresentam valores default. As defini&ccedil;&otilde;es que n&atilde;o apresentam valores default n&atilde;o s&atilde;o alteradas.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
-<dt>Servi&#231;o de disponibilidade</dt>
-<dd><p>Tipo de cluster da Fila de mensagens utilizado para fornecer servi&#231;os JMS a um cluster GlassFish. Se a caixa de sele&#231;&#227;o Habilitado estiver marcada, &#233; utilizado um cluster Message Queue aprimorado. Do contr&#225;rio, &#233; utilizado um cluster Message Queue convencional.</p>
-
-<p>Se a caixa de sele&#231;&#227;o Habilitado estiver marcada, as op&#231;&#245;es Tipo de armazenamento da configura&#231;&#227;o e Tipo de armazenamento da mensagem s&#227;o ignoradas.</p>
-
+<dt>Servi&ccedil;o de Disponibilidade</dt>
+<dd>
+<p>O tipo de cluster do Message Queue usado para oferecer servi&ccedil;os JMS a um cluster do GlassFish. Se a caixa de sele&ccedil;&atilde;o Ativado for marcada, um cluster Message Queue ser&aacute; utilizado. Caso contr&aacute;rio, um cluster Message Queue ser&aacute; utilizado.</p>
+<p>Se a caixa de sele&ccedil;&atilde;o Ativado for marcada, as op&ccedil;&otilde;es Tipo de Armazenamento de Configura&ccedil;&otilde;es e Tipo de Armazenamento de Mensagens ser&atilde;o ignoradas.</p>
 </dd>
-<dt>Tipo de armazenamento da configura&#231;&#227;o</dt>
-<dd><p>O tipo de armazenador de dados para os dados de configura&#231;&#227;o em um cluster Message Queue convencional. O valor <tt>masterbroker</tt> especifica o uso de um broker master para armazenar e gerenciar os dados da configura&#231;&#227;o. O valor <tt>shareddb </tt> especifica o uso de um banco de dados compartilhado para armazenar os dados de configura&#231;&#227;o.</p>
-
-<p>Esta op&#231;&#227;o &#233; ignorada se o Servi&#231;o de disponibilidade estiver habilitado.</p>
-
+<dt>Tipo de Armazenamento de Configura&ccedil;&otilde;es</dt>
+<dd>
+<p>O tipo de armazenamento de dados para dados de configura&ccedil;&atilde;o em um cluster Message Queue convencional. O valor <code>masterbroker</code> especifica o uso de um broker master para armazenar e gerenciar os dados da configura&ccedil;&atilde;o. O valor <code>shareddb</code> especifica o uso de um banco de dados compartilhado para armazenar os dados de configura&ccedil;&atilde;o.</p>
+<p>Essa op&ccedil;&atilde;o ser&aacute; ignorada se o Servi&ccedil;o de Disponibilidade for desativado.</p>
 </dd>
-<dt>Tipo de armazenamento da mensagem</dt>
-<dd><p>O tipo de armazenador de dados para os dados de mensagens em um cluster convencional. O valor <tt>file</tt> especifica um armazenador de arquivos. O valor <tt> jdbc</tt> especifica um armazenador JDBC.</p>
-
-<p>Esta op&#231;&#227;o &#233; ignorada se o Servi&#231;o de disponibilidade estiver habilitado.</p>
-
+<dt>Tipo de Armazenamento de Mensagens</dt>
+<dd>
+<p>O tipo de armazenador de dados para os dados de mensagens em um cluster convencional. O valor <code>file</code> especifica um armazenador de arquivos. O valor <code>jdbc</code> especifica um armazenador JDBC.</p>
+<p>Essa op&ccedil;&atilde;o ser&aacute; ignorada se o Servi&ccedil;o de Disponibilidade for desativado.</p>
 </dd>
-<dt>Fornecedor do banco de dados</dt>
-<dt>Nome de usu&#225;rio do banco de dados</dt>
-<dt>Senha do banco de dados</dt>
-<dt>URL de acesso do banco de dados</dt>
-<dd><p>O fornecedor do banco de dados, o usu&#225;rio, a senha e o URL de acesso do banco de dados JDBC a ser usado em qualquer uma dessas situa&#231;&#245;es:</p>
-
-
-<ul><li><p>Quando o Servi&#231;o de disponibilidade estiver habilitado</p>
-
+<dt>Fornecedor do Banco de Dados</dt>
+<dt>Nome de Usu&aacute;rio do Banco de Dados</dt>
+<dt>Senha do Banco de Dados</dt>
+<dt>URL de Acesso do Banco de Dados</dt>
+<dd>
+<p>O fornecedor do banco de dados, o usu&aacute;rio, a senha e o url de acesso do banco de dados JDBC para usar em uma dessas situa&ccedil;&otilde;es:</p>
+<ul>
+<li>
+<p>Quando o Servi&ccedil;o de Disponibilidade &eacute; ativado.</p>
 </li>
-<li><p>Quando o Tipo de armazenamento da configura&#231;&#227;o estiver definido como <tt>shareddb</tt></p>
-
+<li>
+<p>Quando o Tipo de Armazenamento de Configura&ccedil;&otilde;es &eacute; definido para <code>shareddb</code></p>
 </li>
-<li><p>Quando o Tipo de armazenamento da mensagem estiver definido como <tt>jdbc</tt></p>
-
-</li></ul>
-<p>Para obter informa&#231;&#245;es sobre os fornecedores suportados e os formatos de URL de acesso para cada fornecedor, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=gheaz">JDBC-Based Persistence no <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide </i></a>.</p>
-
+<li>
+<p>Quando o Tipo de Armazenamento de Mensagens &eacute; definido para <code>jdbc</code></p>
+</li>
+</ul>
+<p>Para obter informa&ccedil;&otilde;es sobre fornecedores e os formatos dos urls de acesso para cada fornecedor, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GMADG00244"><i>Persist&ecirc;ncia baseada em JDBC</i> no <i>Oracle GlassFish Server Message Queue Administration Guide</i></a>.</p>
 </dd>
 <dt>Propriedades Adicionais</dt>
-<dd><p>Propriedades adicionais da disponibilidade do JMS.</p>
-
-<p>O Servidor GlassFish n&#227;o define propriedades adicionais da disponibilidade do JMS.</p>
-
+<dd>
+<p>Propriedades adicionais para disponibilidade do JMS.</p>
+<p>GlassFish Server n&atilde;o predefine nenhuma propriedade de disponibilidade de JMS adicional.</p>
 </dd>
 </dl>
-<h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-jmsservice.html">Para configurar o servi&#231;o JMS</a></p>
-
-</li></ul>
+<a id="sthref73" name="sthref73"></a>
+<h5>Tarefas Relacionadas</h5>
+<p><a href="task-jmsservice.html">Para Configurar o Servi&ccedil;o do JMS</a></p>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,98 +1,122 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-appdeployconn" name="task-appdeployconn"></a><a id="GHCOM00159" name="GHCOM00159"></a></p>
 
-
-<a name="task-appdeployconn"></a><h3>Para implantar um m&#243;dulo conector</h3><a name="indexterm-38"></a><a name="indexterm-39"></a><a name="indexterm-40"></a><ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, selecione o n&#243; Aplicativos.</b><p>A p&#225;gina Aplicativos &#233; exibida.</p></li>
-<li><b>Na tabela Aplicativos Implantados, clique no bot&#227;o Implantar.</b><p>A p&#225;gina Implementar Aplicativos ou M&#243;dulos &#233; exibida.</p></li>
-<li><b>Especifique o local do aplicativo a ser implementado.</b><ul>
-<li><b>Se o aplicativo for um arquivo que reside na m&#225;quina cliente ou
-&#233; acess&#237;vel a partir dela, selecione a op&#231;&#227;o Arquivo Empacotado a Ser
-Carregado no Servidor.</b><p>O computador cliente &#233; o host em que voc&#234; visualiza o Console
-de Administra&#231;&#227;o por meio de um navegador.</p><p>Clique em Procurar para localizar o arquivo ou digite o caminho completo
-para o arquivo.</p></li>
-<li><b>Se o aplicativo for um arquivo que reside na m&#225;quina servidor, ou
-se for um aplicativo n&#227;o empacotado de um diret&#243;rio explodido, selecione a
-op&#231;&#227;o Arquivo Empacotado Local ou Diret&#243;rio que &#233; Acess&#237;vel a parir do
-Servidor GlassFish.</b><p>O computador servidor &#233; o host que executa o servidor de administra&#231;&#227;o
-de dom&#237;nio (DAS). </p><p>Clique em Procurar Arquivos para localizar um arquivo ou clique em Procurar
-Pastas para localizar um diret&#243;rio. Como alternativa, digite o caminho completo para
-o arquivo ou diret&#243;rio. A implanta&#231;&#227;o a partir de um diret&#243;rio avan&#231;ado
-destina-se a desenvolvedores avan&#231;ados e n&#227;o &#233; recomendada para ambientes de produ&#231;&#227;o.</p></li></ul></li>
-<li><b>Na lista suspensa Tipo, selecione M&#243;dulo Conector.</b><p>Se voc&#234; tiver especificado um Arquivo Empacotador a Ser Carregado no Servidor
-ou um Arquivo Empacotado Local Acessado do Servidor GlassFish, o tipo do
-aplicativo ser&#225; detectado automaticamente. Se voc&#234; tiver especificado um Diret&#243;rio Acessado do
-Servidor GlassFish, voc&#234; deve especificar o tipo manualmente.</p></li>
-<li><b>No campo Nome do Aplicativo, preserve o nome padr&#227;o, que &#233; o
-nome do diret&#243;rio ou o prefixo do nome do arquivo, ou digite
-outro nome. </b><p>O nome padr&#227;o ser&#225; exibido se voc&#234; optar por carregar um arquivo.
-O nome do aplicativo deve ser exclusivo.</p><p>O nome pode incluir um identificador de vers&#227;o opcional, que segue o
-nome e &#233; separado do nome por dois pontos (<tt>:</tt>). O identificador
-de vers&#227;o deve come&#231;ar com uma letra ou n&#250;mero. Cont&#233;m caracteres alfanum&#233;ricos
-e caracteres de tra&#231;o baixo (<tt>_</tt>), tra&#231;o (<tt>-</tt>) e ponto final (<tt>.</tt>).
-Para obter mais informa&#231;&#245;es sobre vers&#245;es de aplicativos e m&#243;dulos, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions no <i>Oracle GlassFish Server 3.1 Application Deployment Guide </i></a>.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Status Ativado para habilitar o aplicativo.</b><p>Por padr&#227;o, essa op&#231;&#227;o est&#225; selecionada. Esta op&#231;&#227;o est&#225; desativada, o aplicativo
-n&#227;o est&#225; dispon&#237;vel.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Executar verificador para verificar o descritor de
-implanta&#231;&#227;o antes da implanta&#231;&#227;o.</b><p>Se essa op&#231;&#227;o for selecionada e a verifica&#231;&#227;o falhar, a implanta&#231;&#227;o n&#227;o
-ser&#225; realizada. O verificador examina a estrutura e o conte&#250;do dos descritores
-de implanta&#231;&#227;o. A verifica&#231;&#227;o de aplicativos grandes geralmente consome muito tempo. A
-op&#231;&#227;o est&#225; desativada por padr&#227;o.</p><p>Os pacotes verificadores devem ser instalados a partir da Ferramenta de atualiza&#231;&#227;o,
-ou um aviso &#233; registrado e esta op&#231;&#227;o &#233; ignorada.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o For&#231;ar reimplanta&#231;&#227;o para for&#231;ar a reimplanta&#231;&#227;o caso
-o aplicativo j&#225; esteja implantado.</b><p>Se essa op&#231;&#227;o n&#227;o for selecionada, a tentativa de reimplantar o aplicativo
-que j&#225; esteja implantado resultar&#225; em erro. A op&#231;&#227;o est&#225; desativada por
-padr&#227;o.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Preservar recursos no escopo do aplicativo para
-preservar os recursos no escopo do aplicativo e restaur&#225;-los durante a reimplanta&#231;&#227;o.</b><p>A op&#231;&#227;o est&#225; desativada por padr&#227;o.</p></li>
-<li><b>No campo Descri&#231;&#227;o, digite uma descri&#231;&#227;o para o aplicativo.</b></li>
-<li><b>Para adicionar inst&#226;ncias de servidor e clusters de destino nos quais implantar
-o m&#243;dulo ou aplicativo, selecione-os na lista Destinos dispon&#237;veis e utilize o
-bot&#227;o Adicionar para mov&#234;-los para a lista Destinos selecionados.</b><p>A op&#231;&#227;o Destino aparece se clusters ou inst&#226;ncias de servidores independentes, al&#233;m
-da inst&#226;ncia padr&#227;o do servidor (<tt>server</tt>), existirem. Por padr&#227;o, o m&#243;dulo ou
-aplicativo &#233; implantado na inst&#226;ncia padr&#227;o do servidor, denominado <tt>server</tt>. Utilize a
-bot&#227;o Adicionar tudo para implantar em todos os destinos. Utilize os bot&#245;es
-Remover e Remover tudo para remover os destinos da lista Destinos selecionados.</p></li>
-<li><b>Clique em OK.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-applistdeployed.html">Para exibir uma lista de aplicativos implantados</a></p>
-
+<h4><a id="sthref66" name="sthref66"></a><a id="sthref67" name="sthref67"></a><a id="sthref68" name="sthref68"></a>Para Implantar um M&oacute;dulo de Conector</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, selecione o n&oacute; Aplica&ccedil;&otilde;es.</p>
+<p>A p&aacute;gina Aplica&ccedil;&otilde;es &eacute; exibida.</p>
 </li>
-<li><p><a href="task-appdeployweb.html">Para implantar um aplicativo Web</a></p>
-
+<li>
+<p>Na tabela Aplica&ccedil;&otilde;es Implantadas, clique no bot&atilde;o Implantar.</p>
+<p>A p&aacute;gina Implantar Aplica&ccedil;&otilde;es ou M&oacute;dulos &eacute; exibida.</p>
 </li>
-<li><p><a href="task-deployentapp.html">Para implantar um Aplicativo Empresarial</a></p>
-
+<li>
+<p>Especifique o local da aplica&ccedil;&atilde;o a ser implantada.</p>
+<ul>
+<li>
+<p>Se a aplica&ccedil;&atilde;o for um arquivo compactado que reside na m&aacute;quina cliente ou que pode ser acessado a partir dela, selecione a op&ccedil;&atilde;o Arquivo Encapsulado para Upload no Servidor.</p>
+<p>O computador cliente &eacute; o host em que voc&ecirc; exibe o Console de Administra&ccedil;&atilde;o por meio de um browser.</p>
+<p>Clique em Procurar para localizar o arquivo ou digite o caminho completo para o arquivo.</p>
 </li>
-<li><p><a href="task-appdeployclient.html">Para implantar um cliente aplicativo</a></p>
-
+<li>
+<p>Se a aplica&ccedil;&atilde;o for um arquivo compactado que reside na m&aacute;quina servidora ou se for uma aplica&ccedil;&atilde;o n&atilde;o encapsulada de um diret&oacute;rio explodido, selecione a op&ccedil;&atilde;o Arquivo Encapsulado ou Diret&oacute;rio Local Acess&iacute;vel no GlassFish Server.</p>
+<p>O computador servidor &eacute; o host que executa o servidor de administra&ccedil;&atilde;o de dom&iacute;nios (DAS).</p>
+<p>Clique em Procurar Arquivos para localizar um arquivo ou clique em Procurar Pastas para localizar um diret&oacute;rio. Como alternativa, digite o caminho completo para o arquivo ou diret&oacute;rio. A implanta&ccedil;&atilde;o com base em um diret&oacute;rio explodido destina-se a desenvolvedores avan&ccedil;ados e n&atilde;o &eacute; recomendada para ambientes de produ&ccedil;&atilde;o.</p>
 </li>
-<li><p><a href="task-appdeployejb.html">Para implantar um EJB Jar</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-appedit.html">Para editar um aplicativo implantado</a></p>
-
+<li>
+<p>Na lista drop-down Tipo, selecione M&oacute;dulo Conector.</p>
+<p>Se voc&ecirc; tiver especificado um Arquivo Encapsulado para Upload no Servidor ou um Arquivo Encapsulado Local Acess&iacute;vel no GlassFish Server, o tipo da aplica&ccedil;&atilde;o ser&aacute; detectado automaticamente. Se voc&ecirc; tiver especificado um Diret&oacute;rio Acessado do GlassFish Server, voc&ecirc; deve especificar o tipo manualmente.</p>
 </li>
-<li><p><a href="task-appviewdesc.html">Para exibir os descritores de um aplicativo</a></p>
-
+<li>
+<p>No campo Nome da Aplica&ccedil;&atilde;o, preserve o nome default, que &eacute; o nome do diret&oacute;rio ou o prefixo do nome do arquivo, ou digite outro nome.</p>
+<p>O nome default ser&aacute; exibido se voc&ecirc; optar por fazer upload de um arquivo. O nome da aplica&ccedil;&atilde;o deve ser exclusivo.</p>
+<p>O nome pode incluir um identificador de vers&atilde;o opcional, que segue o nome e &eacute; separado do nome por dois-pontos (<code>:</code>). O identificador de vers&atilde;o deve come&ccedil;ar com uma letra ou n&uacute;mero. Ela pode conter caracteres alfanum&eacute;ricos e sublinhado (<code>_</code>), tra&ccedil;o (<code>-</code>), e ponto (<code>.</code>). Para obter mais informa&ccedil;&otilde;es sobre vers&otilde;es modulares ou da aplica&ccedil;&atilde;o, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00324"><i>Vers&otilde;es Modulares e da Aplica&ccedil;&atilde;o</i> em <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
 </li>
-<li><p><a href="task-endpoint.html">Para visualizar as informa&#231;&#245;es do ponto final para um servi&#231;o Web</a></p>
-
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Status Ativado para ativar a aplica&ccedil;&atilde;o.</p>
+<p>Por default, essa op&ccedil;&atilde;o est&aacute; selecionada. Esta op&ccedil;&atilde;o estiver desativada, a aplica&ccedil;&atilde;o n&atilde;o estar&aacute; dispon&iacute;vel.</p>
 </li>
-<li><p><a href="task-applaunch.html">Para iniciar um aplicativo</a></p>
-
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Executar Verificador para verificar o descritor de implanta&ccedil;&atilde;o antes da implanta&ccedil;&atilde;o.</p>
+<p>Se essa op&ccedil;&atilde;o for selecionada e a verifica&ccedil;&atilde;o falhar, a implanta&ccedil;&atilde;o n&atilde;o ser&aacute; realizada. O verificador examina a estrutura e o conte&uacute;do dos descritores de implanta&ccedil;&atilde;o. A verifica&ccedil;&atilde;o de aplica&ccedil;&otilde;es grandes geralmente consome muito tempo. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
+<p>Os pacotes verificadores devem ser instalados pela Ferramenta de Atualiza&ccedil;&atilde;o, ou uma advert&ecirc;ncia ser&aacute; registrada e esta op&ccedil;&atilde;o ser&aacute; ignorada.</p>
 </li>
-<li><p><a href="task-appclientlaunch.html">Para iniciar um cliente de aplicativo</a></p>
-
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Impor Reimplanta&ccedil;&atilde;o para impor a reimplanta&ccedil;&atilde;o caso a aplica&ccedil;&atilde;o j&aacute; esteja implantada.</p>
+<p>Se esta op&ccedil;&atilde;o n&atilde;o tiver sido selecionada, a tentativa de implantar uma aplica&ccedil;&atilde;o j&aacute; implantada resultar&aacute; em erro. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
 </li>
-<li><p><a href="task-appredeploy.html">Para reimplantar um aplicativo implantado</a></p>
-
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Preservar Recursos no Escopo da Aplica&ccedil;&atilde;o para preservar os recursos no escopo da aplica&ccedil;&atilde;o e restaur&aacute;-los durante a reimplanta&ccedil;&atilde;o.</p>
+<p>Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
 </li>
-<li><p><a href="task-apprestart.html">Para recarregar um aplicativo implantado</a></p>
+<li>
+<p>No campo Descri&ccedil;&atilde;o, digite uma descri&ccedil;&atilde;o para a aplica&ccedil;&atilde;o.</p>
+</li>
+<li>
+<p>Para adicionar inst&acirc;ncias de servidor e clusters de destino nos quais implantar o m&oacute;dulo ou aplica&ccedil;&atilde;o, selecione-os na lista Destinos dispon&iacute;veis e utilize o bot&atilde;o Adicionar para mov&ecirc;-los para a lista Destinos selecionados.</p>
+<p>A op&ccedil;&atilde;o Destino aparece se clusters ou inst&acirc;ncias de servidores standalone, al&eacute;m da inst&acirc;ncia default do servidor (<code>server</code>), existirem. Por default, o m&oacute;dulo ou aplica&ccedil;&atilde;o &eacute; implantado na inst&acirc;ncia default do servidor, denominado <code>server</code>. Utilize a bot&atilde;o Adicionar tudo para implantar em todos os alvos. Utilize os bot&otilde;es Remover e Remover tudo para remover os destinos da lista Destinos selecionados.</p>
+</li>
+<li>
+<p>Clique em OK.</p>
+</li>
+</ol>
+<a id="sthref69" name="sthref69"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-applistdeployed.html">Para Exibir uma Lista de Aplica&ccedil;&otilde;es Implantadas</a></p>
+</li>
+<li>
+<p><a href="task-appdeployweb.html">Para Implantar uma Aplica&ccedil;&atilde;o Web</a></p>
+</li>
+<li>
+<p><a href="task-deployentapp.html">Para Implantar uma Aplica&ccedil;&atilde;o Enterprise</a></p>
+</li>
+<li>
+<p><a href="task-appdeployclient.html">Para Implantar um Cliente de Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-appdeployejb.html">Para Implantar um Arquivo Jar EJB</a></p>
+</li>
+<li>
+<p><a href="task-appedit.html">Para Editar uma Aplica&ccedil;&atilde;o Implantada</a></p>
+</li>
+<li>
+<p><a href="task-appviewdesc.html">Para Exibir Descritores de uma Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-endpoint.html">Para Exibir Informa&ccedil;&otilde;es de Ponto Final de um Web Service</a></p>
+</li>
+<li>
+<p><a href="task-applaunch.html">Para Acionar uma Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-appclientlaunch.html">Para Acionar um Cliente de Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-appclientstubs.html">Para Fazer Download de Stubs de Cliente de Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="task-appredeploy.html">Para Reimplantar uma Aplica&ccedil;&atilde;o Implantada</a></p>
+</li>
+<li>
+<p><a href="task-apprestart.html">Para Recarregar uma Aplica&ccedil;&atilde;o Implantada</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesview.html">Para Exibir Recursos no Escopo da Aplica&ccedil;&atilde;o</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesedit.html">Para Modificar Recursos no Escopo da Aplica&ccedil;&atilde;o</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

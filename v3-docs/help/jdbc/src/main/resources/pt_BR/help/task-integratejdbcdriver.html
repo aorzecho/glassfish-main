@@ -1,67 +1,91 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-integratejdbcdriver" name="task-integratejdbcdriver"></a><a id="GHJDB00031" name="GHJDB00031"></a></p>
 
-
-<a name="task-integratejdbcdriver"></a><h3>Para integrar um driver JDBC</h3><a name="indexterm-3"></a><p>Um driver compat&#237;vel com a API JDBC (driver JDBC) converte as chamadas
-do JDBC de um aplicativo no protocolo do servidor de banco de
-dados.</p>
-
+<h4><a id="sthref4" name="sthref4"></a>Para Integrar um Driver JDBC</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Um driver que suporte a API da JDBC (driver JDBC) converte as chamadas JDBC de uma aplica&ccedil;&atilde;o no protocolo do servidor de bancos de dados.</p>
+<p>Para integrar o driver JDBC a um dom&iacute;nio do GlassFish Server, execute qualquer um desses procedimentos:</p>
 <ul>
-<li><b>Para integrar o driver JDBC a um dom&#237;nio do Servidor GlassFish, execute
-qualquer um desses procedimentos:</b><ul>
-<li><b>Torne o driver acess&#237;vel ao carregador de classe comum.</b><ol style="list-style-type: lower-alpha">
-<li><b>Copie os arquivos JAR e ZIP do driver no diret&#243;rio <i>domain-dir</i><tt> /lib</tt>.</b>
-<hr><p><b>Observa&#231;&#227;o - </b>H&#225; uma exce&#231;&#227;o a essa regra. Se voc&#234; estiver usando o driver
-JDBC da Oracle e deseja tirar vantagem das extens&#245;es EclipseLink que est&#227;o dispon&#237;veis
-para uso com bancos de dados da Oracle, &#233; preciso colocar os
-arquivos JAR para o driver JDBC para o JDBC da Oracle JDBC
-no diret&#243;rio <i>domain-dir</i><tt>/lib/ext</tt>.</p>
-
+<li>
+<p>Torne o driver acess&iacute;vel ao carregador de classe comum.</p>
+<ol>
+<li>
+<p>Copie os arquivos JAR e ZIP do driver para o diret&oacute;rio <i>domain-dir</i><code>/lib</code>.</p>
 
 <hr>
-</li>
-<li><b>Reinicie o dom&#237;nio.</b></li></ol></li>
-<li><b>Torne o driver acess&#237;vel ao carregador de classe do sistema.</b><ol style="list-style-type: lower-alpha">
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>No n&#243; Configura&#231;&#227;o, selecione o n&#243; Configura&#231;&#245;es de JVM.</b><p>A p&#225;gina Configura&#231;&#245;es Gerais de JVM &#233; exibida.</p></li>
-<li><b>Na p&#225;gina Configura&#231;&#245;es Gerais de JVM, clique na guia Configura&#231;&#245;es de Caminho.</b></li>
-<li><b>No campo Sufixo de Caminho de Classe, digite o nome de caminho
-totalmente qualificado para o arquivo JAR do driver.</b></li>
-<li><b>Clique em Salvar.</b></li>
-<li><b>Reinicie o servidor.</b></li></ol></li></ul></li></ul><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-setdbaccess.html">Para configurar o acesso ao banco de dados</a></p>
+<p><b>Observa&ccedil;&atilde;o:</b></p>
+H&aacute; uma exce&ccedil;&atilde;o a essa regra. Se voc&ecirc; estiver usando o driver Oracle JDBC e quiser tirar proveito das extens&otilde;es EclipseLink que est&atilde;o dispon&iacute;veis para uso com bancos de dados Oracle, voc&ecirc; dever&aacute; colocar os arquivos JAR do driver Oracle JDBC no diret&oacute;rio <i>domain-dir</i><code>/lib/ext</code>.
+<hr>
 
 </li>
-<li><p><a href="task-jdbcresourcenew.html">Para criar um recurso do JDBC</a></p>
-
+<li>
+<p>Reinicie o dom&iacute;nio.</p>
 </li>
-<li><p><a href="task-jdbcresourcesedit.html">Para editar um recurso JDBC</a></p>
-
+</ol>
 </li>
-<li><p><a href="task-jdbcresourcesdelete.html">Para excluir um recurso do JDBC</a></p>
-
+<li>
+<p>Torne o driver acess&iacute;vel ao carregador de classe do sistema.</p>
+<ol>
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">Para criar um conjunto de conex&#245;es do JDBC</a></p>
-
+<li>
+<p>No n&oacute; Configura&ccedil;&atilde;o, selecione o n&oacute; Configura&ccedil;&otilde;es de JVM.</p>
+<p>A p&aacute;gina Defini&ccedil;&otilde;es Gerais de JVM &eacute; exibida.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooledit.html">Para editar as configura&#231;&#245;es gerais do conjunto de conex&#245;es do JDBC</a></p>
-
+<li>
+<p>Na p&aacute;gina Defini&ccedil;&otilde;es Gerais de JVM, clique na guia Defini&ccedil;&otilde;es de Caminho.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">Para editar atributos avan&#231;ados do conjunto de conex&#245;es do JDBC</a></p>
-
+<li>
+<p>No campo Sufixo de Caminho de Classe, digite o nome de caminho totalmente qualificado para o arquivo JAR do driver.</p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">Para verificar as configura&#231;&#245;es do conjunto de conex&#245;es</a></p>
-
+<li>
+<p>Clique em Salvar.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar as propriedades do conjunto de conex&#245;es JDBC</a></p>
-
+<li>
+<p>Reinicie o servidor.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">Para excluir um conjunto de conex&#245;es do JDBC</a></p>
+</ol>
+</li>
+</ul>
+<a id="sthref5" name="sthref5"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-setdbaccess.html">Para Configurar o Acesso ao Banco de Dados</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcenew.html">Para Criar um Recurso JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcesedit.html">Para Editar um Recurso JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcesdelete.html">Para Deletar um Recurso JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">pools de conex&otilde;esPara Criar um Pool de Conex&otilde;es JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooledit.html">Para Editar Defini&ccedil;&otilde;es Gerais do Pool de Conex&otilde;es JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">Para Editar Atributos Avan&ccedil;ados do Pool de Conex&otilde;es JDBC</a></p>
+</li>
+<li>
+<p><a href="task-verifyconnpoolsettings.html">Para Verificar Defini&ccedil;&otilde;es do Pool de Conex&otilde;es</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">Para Editar Propriedades do Pool de Conex&otilde;es JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">Para Deletar um Pool de Conex&otilde;es JDBC</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

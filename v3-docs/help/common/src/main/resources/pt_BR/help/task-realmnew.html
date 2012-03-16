@@ -1,112 +1,123 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-realmnew" name="task-realmnew"></a><a id="GHCOM00184" name="GHCOM00184"></a></p>
 
-
-<a name="task-realmnew"></a><h3>Para criar um dom&#237;nio</h3><a name="indexterm-81"></a><a name="indexterm-82"></a><p>O Servidor GlassFish vem pr&#233;-configurado com estes dom&#237;nios: <tt>arquivo</tt>, <tt> certificado</tt> e <tt>dom&#237;nio admin</tt>.
- Tamb&#233;m &#233; poss&#237;vel criar <tt>ldap</tt>, <tt>JDBC</tt>, <tt>solaris</tt>, <tt>PAM</tt> e dom&#237;nios personalizados.
-Geralmente, voc&#234; tem um dom&#237;nio de cada tipo em um servidor, mas,
-no Servidor GlassFish, h&#225; dois dom&#237;nios de arquivo: <tt>arquivo</tt> e <tt> dom&#237;nio admin</tt>. 
-H&#225; dois dom&#237;nios do mesmo tipo, mas usados para finalidades diferentes: &#201;
-poss&#237;vel tamb&#233;m ter um banco de dados de certificado para cada servidor
-virtual do sistema.</p>
-
+<h4><a id="sthref141" name="sthref141"></a>Para Criar um Realm</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>O GlassFish Server vem pr&eacute;-configurado com estes tr&ecirc;s realms: <code>arquivo</code>, <code>certificado</code> e <code>admin-realm</code>. Tamb&eacute;m &eacute; poss&iacute;vel criar <code>ldap</code>, <code>JDBC</code>, <code>solaris</code>, <code>PAM</code> e realms personalizados. Geralmente, voc&ecirc; tem um realm de cada tipo em um servidor, mas, no GlassFish Server h&aacute; dois realms de arquivo: <code>arquivo</code> e <code>admin-realm</code>. H&aacute; dois realms do mesmo tipo, mas usados para finalidades diferentes: &Eacute; poss&iacute;vel tamb&eacute;m ter um banco de dados de certificado para cada servidor virtual do sistema.</p>
 <ol>
-<li><b>No n&#243; Configura&#231;&#245;es, expanda a configura&#231;&#227;o de cluster ou inst&#226;ncia de servidor
-na qual deseja configurar os dom&#237;nios.</b></li>
-<li><b>Expanda o n&#243; Seguran&#231;a.</b></li>
-<li><b>Expanda o n&#243; Dom&#237;nios.</b><p>&#201; aberta a p&#225;gina Dom&#237;nios.</p></li>
-<li><b>Na p&#225;gina Dom&#237;nios, clique em Novo.</b><p>&#201; aberta a p&#225;gina Novo Dom&#237;nio.</p></li>
-<li><b>No campo Nome, digite um nome para o dom&#237;nio.</b></li>
-<li><b>Para especificar o nome da classe do dom&#237;nio, fa&#231;a uma das seguintes
-coisas:</b><ul>
-<li><b>Na lista suspensa Nome da Classe, selecione o nome da classe do
-dom&#237;nio que est&#225; sendo criado.</b><p>As op&#231;&#245;es v&#225;lidas s&#227;o mostradas na seguinte tabela.</p><table><col width="16%"><col width="83%"><tr><th align="left" valign="top" scope="column"><p>Nome de Dom&#237;nio</p>
+<li>
+<p>No n&oacute; Configura&ccedil;&otilde;es, expanda a configura&ccedil;&atilde;o de cluster ou inst&acirc;ncia de servidor na qual voc&ecirc; deseja configurar os realms.</p>
+</li>
+<li>
+<p>Expanda o n&oacute; Seguran&ccedil;a.</p>
+</li>
+<li>
+<p>Expanda o n&oacute; Realms.</p>
+<p>&Eacute; aberta a p&aacute;gina Realms.</p>
+</li>
+<li>
+<p>Na p&aacute;gina Realms, clique em Novo.</p>
+<p>&Eacute; aberta a p&aacute;gina Novo Realm.</p>
+</li>
+<li>
+<p>No campo Nome, digite um nome para o realm.</p>
+</li>
+<li>
+<p>Para especificar o nome da classe do realm, fa&ccedil;a uma das seguintes coisas:</p>
+<ul>
+<li>
+<p>Na lista drop-down Nome da Classe, selecione o nome da classe do realm que est&aacute; sendo criado.</p>
+<p>As op&ccedil;&otilde;es v&aacute;lidas s&atilde;o mostradas na seguinte tabela.</p>
 
-</th>
-<th align="left" valign="top" scope="column"><p>Nome da Classe</p>
-
-</th>
+<table  summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="16%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t7">Nome do Realm</th>
+<th align="left" valign="bottom" id="r1c2-t7">Nome da Classe</th>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>arquivo</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.file.FileRealm</tt></p>
-
-</td>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t7" headers="r1c1-t7"><code>arquivo</code></td>
+<td align="left" headers="r2c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.file.FileRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>certificado</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.certificate.CertificateRealm </tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t7" headers="r1c1-t7"><code>certificado</code></td>
+<td align="left" headers="r3c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.certificate.CertificateRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>ldap</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.ldap.LDAPRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t7" headers="r1c1-t7"><code>ldap</code></td>
+<td align="left" headers="r4c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.ldap.LDAPRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>JDBC</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t7" headers="r1c1-t7"><code>JDBC</code></td>
+<td align="left" headers="r5c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>solaris</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.solaris.SolarisRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t7" headers="r1c1-t7"><code>solaris</code></td>
+<td align="left" headers="r6c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.solaris.SolarisRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>PAM</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.solaris.PamRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t7" headers="r1c1-t7"><code>PAM</code></td>
+<td align="left" headers="r7c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.solaris.PamRealm</code></td>
 </tr>
-</table></li>
-<li><b>Selecione o bot&#227;o de op&#231;&#245;es inferior e digite o nome da classe
-do dom&#237;nio personalizado que est&#225; sendo criado.</b></li></ul></li>
-<li>(Opcional) <b>Na se&#231;&#227;o Propriedades Adicionais, especifique essas propriedades.</b><p>Para adicionar uma propriedade, clique no bot&#227;o Adicionar Propriedade. Na linha em
-brando que &#233; exibida, digite o nome da propriedade no campo Nome
-e digite o valor da propriedade no campo Valor.</p><p>As propriedades v&#225;lidas dependem do tipo de dom&#237;nio.</p>
-<ul><li><p><a href="ref-editfile-adminrealm.html">Propriedades espec&#237;ficas da classe <tt> FileRealm</tt></a></p>
-
+</tbody>
+</table>
+<hr>
 </li>
-<li><p><a href="ref-editcertrealm.html">Propriedades espec&#237;ficas da classe <tt>CertificateRealm </tt></a></p>
-
+<li>
+<p>Selecione o bot&atilde;o de op&ccedil;&otilde;es inferior e digite o nome da classe do realm personalizado que est&aacute; sendo criado.</p>
 </li>
-<li><p><a href="ref-editjdbcrealm.html">Propriedades espec&#237;ficas para a classe <tt>JDBCRealm </tt></a></p>
-
+</ul>
 </li>
-<li><p><a href="ref-ldaprealmprop.html">Propriedades espec&#237;ficas da classe <tt>LDAPRealm </tt></a></p>
-
+<li>
+<p>Na se&ccedil;&atilde;o Propriedades Adicionais, especifique essas propriedades.</p>
+<p>Para adicionar uma propriedade, clique no bot&atilde;o Adicionar Propriedade. Na linha em brando que &eacute; exibida, digite o nome da propriedade no campo Nome e digite o valor da propriedade no campo Valor.</p>
+<p>As propriedades v&aacute;lidas dependem do tipo de realm.</p>
+<ul>
+<li>
+<p><a href="ref-editfile-adminrealm.html">Propriedades Espec&iacute;ficas da Classe do <code>FileRealm</code></a></p>
 </li>
-<li><p><a href="ref-solarisrealmprop.html">Propriedades espec&#237;ficas da classe <tt>SolarisRealm </tt></a></p>
-
+<li>
+<p><a href="ref-editcertrealm.html">Propriedades Espec&iacute;ficas da Classe <code>CertificateRealm</code></a></p>
 </li>
-<li><p><a href="ref-pamrealmprop.html">Propriedades espec&#237;ficas da classe <tt>PamRealm </tt></a></p>
-
-</li></ul>
+<li>
+<p><a href="ref-editjdbcrealm.html">Propriedades Espec&iacute;ficas da Classe<code>JDBCRealm</code></a></p>
 </li>
-<li><b>Clique em OK.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-realmedit.html">Para editar um dom&#237;nio</a></p>
-
+<li>
+<p><a href="ref-ldaprealmprop.html">Propriedades Espec&iacute;ficas da Classe<code>LDAPRealm</code></a></p>
 </li>
-<li><p><a href="task-todeleterealm.html">Para excluir um dom&#237;nio</a></p>
-
+<li>
+<p><a href="ref-solarisrealmprop.html">Propriedades Espec&iacute;ficas da Classe<code>SolarisRealm</code></a></p>
 </li>
-<li><p><a href="task-createcustomrealm.html">Para criar um dom&#237;nio personalizado</a></p>
+<li>
+<p><a href="ref-pamrealmprop.html">Propriedades Espec&iacute;ficas da Classe<code>PamRealm</code></a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Clique em OK.</p>
+</li>
+</ol>
+<a id="sthref142" name="sthref142"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-realmedit.html">Para Editar um Realm</a></p>
+</li>
+<li>
+<p><a href="task-todeleterealm.html">Para Deletar um Realm</a></p>
+</li>
+<li>
+<p><a href="task-createcustomrealm.html">Para Criar um Realm Personalizado</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

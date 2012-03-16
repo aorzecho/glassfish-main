@@ -1,77 +1,65 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jaccprovidernew"></a><h4>Novo Provedor de JACC</h4>
-<a name="indexterm-225"></a><p>Utilize a p&#225;gina Novo provedor de JACC para criar um novo Java
-Authorization Contract for Containers (JACC) compat&#237;vel com o JSR-115/196 que possa ser
-utilizado por m&#243;dulos de autoriza&#231;&#227;o de terceiros em aplicativos em execu&#231;&#227;o no
-GlassFish Server. O provedor de JACC &#233; criado como um elemento <tt>jacc-provider</tt>
-dentro do elemento <tt>security-service</tt> no arquivo <tt> domain.xml</tt> do dom&#237;nio.</p>
+<p><a id="ref-jaccprovidernew" name="ref-jaccprovidernew"></a><a id="GHCOM00115" name="GHCOM00115"></a></p>
 
-<p>A instala&#231;&#227;o padr&#227;o do GlassFish Server inclui dois provedores de JACC, denominados
-<tt>default</tt> e <tt>simple </tt>. Todos os novos provedores JACC criados s&#227;o somados a
-estes dois provedores padr&#227;o. Os provedores de JACC padr&#227;o do GlassFish Server
-implementam um mecanismo simples de autoriza&#231;&#227;o com base em arquivo que cumpre
-com a especifica&#231;&#227;o do JACC.</p>
-
-<p>Todos os provedores de JACC do GlassFish Server devem utilizar as APIs
-do servi&#231;o de autentica&#231;&#227;o e autoriza&#231;&#227;o Java (JAAS). O JAAS ativa os
-servi&#231;os para autenticar e fazer cumprir os controles de acesso dos usu&#225;rios.
-O JAAS implementa uma vers&#227;o do padr&#227;o da estrutura do m&#243;dulo de
-autentica&#231;&#227;o plug&#225;vel (PAM) da tecnologia Java.</p>
-
-<p>O JSR 196 permite desenvolver plug-ins em camadas diferentes. &#201; poss&#237;vel definir
-plug-ins que alterem a forma como o novo mecanismo de autentica&#231;&#227;o &#233;
-configurado, como <tt>AuthConfigProvider</tt> e <tt>AuthConfigFactory</tt>. Tamb&#233;m &#233; poss&#237;vel definir os novos mecanismos
-de autentica&#231;&#227;o, como <tt>ServerAuthModule </tt> e <tt>ClientAuthModule</tt>.</p>
-
-<p>A p&#225;gina Novo Provedor de JACC cont&#233;m as seguintes op&#231;&#245;es.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<h4><a id="sthref412" name="sthref412"></a>Novo Provedor de JACC</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Use a p&aacute;gina de Novo Provedor de JACC para criar um novo provedor de JACC JSR-115/196compliant que possa ser usado por m&oacute;dulos de autoriza&ccedil;&atilde;o de terceiros para aplica&ccedil;&otilde;es que estejam sendo executadas no GlassFish Server. O provedor de JACC &eacute; criado como um elemento <code>jacc-provider</code> dentro do elemento <code>security-service</code> no arquivo <code>domain.xml</code> do dom&iacute;nio.</p>
+<p>A instala&ccedil;&atilde;o default do &amp;ProductName inclui dois provedores de JACC, denominados <code>default</code> e <code>simple</code>. Todos os novos provedores de JACC criados s&atilde;o somados a estes dois provedores default. Os provedores de JACC do GlassFish Server default implementam um mecanismo simples de autoriza&ccedil;&atilde;o baseado em arquivo que est&aacute; em conformidade com a especifica&ccedil;&atilde;o JACC.</p>
+<p>Todos os provedores de JACC do GlassFish Server devem usar a Autentica&ccedil;&atilde;o Java e APIs de JAAS. O JAAS ativa os servi&ccedil;os para autenticar e fazer cumprir os controles de acesso dos usu&aacute;rios. O JASS implementa a vers&atilde;o de tecnologia Java do framework Pluggable Authentication Module (PAM) padr&atilde;o.</p>
+<p>O JSR 196 permite desenvolver plug-ins em camadas diferentes. &Eacute; poss&iacute;vel definir plug-ins que alterem a forma como o novo mecanismo de autentica&ccedil;&atilde;o &eacute; configurado, como <code>AuthConfigProvider</code> e <code>AuthConfigFactory</code>. Tamb&eacute;m &eacute; poss&iacute;vel definir os novos mecanismos de autentica&ccedil;&atilde;o, como <code>ServerAuthModule</code> e <code>ClientAuthModule</code>.</p>
+<p>A p&aacute;gina Novo Provedor de JACC cont&eacute;m as seguintes op&ccedil;&otilde;es.</p>
+<dl>
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
 <dt>Nome</dt>
-<dd><p>O nome do provedor JACC. Este nome &#233; utilizado para fazer refer&#234;ncia ao elemento <tt>jacc-provider</tt> no <tt>domain.xml</tt>.</p>
-
+<dd>
+<p>O nome do provedor de JACC. Este nome &eacute; utilizado para fazer refer&ecirc;ncia ao elemento <code>jacc-provider</code> no <code>domain.xml</code>.</p>
 </dd>
-<dt>Configura&#231;&#227;o da Diretiva</dt>
-<dd><p>Nome de classe totalmente qualificado do <tt>javax.security.jacc.PolicyConfigurationFactory.provider </tt> que implementa o <tt>javax.security.jacc.PolicyConfigurationFactory </tt> espec&#237;fico do provedor.</p>
-
+<dt>Configura&ccedil;&atilde;o da Pol&iacute;tica</dt>
+<dd>
+<p>Nome de classe totalmente qualificado do <code>javax.security.jacc.PolicyConfigurationFactory.provider</code> que implementa o <code>javax.security.jacc.PolicyConfigurationFactory</code> espec&iacute;fico do provedor.</p>
 </dd>
-<dt>Provedor de Diretivas</dt>
-<dd><p>Nome de classe totalmente qualificado do <tt>javax.security.jacc.policy.provider </tt> que implementa o <tt>java.security.Policy</tt>.</p>
-
+<dt>Provedor de Pol&iacute;ticas</dt>
+<dd>
+<p>Nome de classe totalmente qualificado do <code>javax.security.jacc.policy.provider</code> que implementa o <code>java.security.Policy</code>.</p>
 </dd>
 <dt>Propriedades adicionais</dt>
-<dd><p>Propriedades adicionais do provedor de JACC. Para obter uma descri&#231;&#227;o das propriedades adicionais dispon&#237;veis para provedores de JACC, consulte <a href="ref-jaccproviderprop.html">Propriedades espec&#237;ficas de provedores de JACC</a>.</p>
-
+<dd>
+<p>Propriedades adicionais do provedor de JACC. Para ver uma descri&ccedil;&atilde;o das propriedades adicionais que est&atilde;o dispon&iacute;veis para provedores de JACC, consulte <a href="ref-jaccproviderprop.html">Propriedades Espec&iacute;ficas de Provedores de JACC</a>.</p>
 </dd>
 </dl>
-<a name="gkont"></a><h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-jaccprovidernew.html">Para criar um provedor de JACC</a></p>
-
+<a id="sthref413" name="sthref413"></a>
+<h5>Tarefas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-jaccprovidernew.html">Para Criar um Provedor de JACC</a></p>
 </li>
-<li><p><a href="task-jaccprovideredit.html">Para editar um provedor de JACC</a></p>
-
+<li>
+<p><a href="task-jaccprovideredit.html">Para Editar um Provedor de JACC</a></p>
 </li>
-<li><p><a href="task-jaccproviderdelete.html">Para excluir um provedor de JACC</a></p>
-
-</li></ul>
-<a name="gkoov"></a><h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jaccproviderdelete.html">Para Deletar um Provedor de JACC</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
-
+</ul>
+<a id="sthref414" name="sthref414"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00034"><code>create-jacc-provider</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00086"><code>delete-jacc-provider</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00171"><code>list-jacc-providers</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

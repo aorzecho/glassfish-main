@@ -1,100 +1,104 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-transportnew"></a><h4>Novo transporte</h4>
-<a name="indexterm-77"></a><p>Utilize a p&#225;gina Novo transporte para criar um novo transporte.</p>
+<p><a id="ref-transportnew" name="ref-transportnew"></a><a id="GHWEB00025" name="GHWEB00025"></a></p>
 
-<p>N&#227;o &#233; comum precisar de outro transporte al&#233;m do transporte <tt>tcp</tt> padr&#227;o.</p>
-
-<p>A p&#225;gina Novo transporte cont&#233;m as op&#231;&#245;es a seguir.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<h4><a id="sthref163" name="sthref163"></a>Novo Transporte</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilize a p&aacute;gina Novo transporte para criar um novo transporte.</p>
+<p>N&atilde;o &eacute; comum precisar de outro transporte al&eacute;m do transporte <code>&darr;tcp</code> default.</p>
+<p>A p&aacute;gina Novo transporte cont&eacute;m as op&ccedil;&otilde;es a seguir.</p>
+<dl>
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
 <dt>Nome do transporte</dt>
-<dd><p>Um nome &#250;nico para o transporte.</p>
-
+<dd>
+<p>Um nome &uacute;nico para o transporte.</p>
 </dd>
 <dt>Nome da classe</dt>
-<dd><p>O nome da classe da implementa&#231;&#227;o do transporte. O valor padr&#227;o &#233; <tt>com.sun.grizzly.TCPSelectorHandler</tt>.</p>
-
+<dd>
+<p>O nome da classe da implementa&ccedil;&atilde;o do transporte. O valor default &eacute; <code>com.sun.grizzly.TCPSelectorHandler</code>.</p>
 </dd>
-<dt>Manipulador de chave de sele&#231;&#227;o</dt>
-<dd><p>O nome da classe da implementa&#231;&#227;o do manipulador de chave de sele&#231;&#227;o. Um manipulador de chave de sele&#231;&#227;o &#233; uma classe abstrata que gerencia o ciclo de vida das chaves de sele&#231;&#227;o. Se voc&#234; n&#227;o especifica um valor, a implementa&#231;&#227;o padr&#227;o &#233; usada.</p>
-
+<dt>Handler de chave de sele&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da classe do handler de chave de sele&ccedil;&atilde;o. Um handler de chave de sele&ccedil;&atilde;o &eacute; uma classe abstrata que gerencia o ciclo de vida das chaves de sele&ccedil;&atilde;o. Se voc&ecirc; n&atilde;o especifica um valor, a implementa&ccedil;&atilde;o default &eacute; usada.</p>
 </dd>
 <dt>Tipo do buffer de bytes</dt>
-<dd><p>O tipo de <tt>ByteBuffer</tt> a ser usado. As escolhas dispon&#237;veis s&#227;o <tt>HEAP</tt> e <tt>DIRECT</tt>. O valor padr&#227;o &#233; <tt>HEAP</tt>.</p>
-
+<dd>
+<p>O tipo de <code>ByteBuffer</code> a ser usado. As op&ccedil;&otilde;es dispon&iacute;veis s&atilde;o <code>HEAP</code> e <code>DIRECT</code>. O valor default &eacute; <code>HEAP</code>.</p>
 </dd>
-<dt>Segmentos do aceitador</dt>
-<dd><p>O n&#250;mero de processadores na m&#225;quina. Um valor de &#8211;1 indica que o Grizzly ir&#225; calcular por si mesmo o n&#250;mero de segmentos do aceitador com base no n&#250;mero de processadores na m&#225;quina. O valor padr&#227;o &#233; 1. </p>
-
-<p>Para definir o n&#250;mero de segmentos de processamento da solicita&#231;&#227;o, defina o valor Tamanho m&#225;ximo do conjunto de segmentos usado por uma escuta de rede que usa este transporte.</p>
-
+<dt>Threads do Aceitador</dt>
+<dd>
+<p>O n&uacute;mero de processadores na m&aacute;quina. Um valor de -1 indica que Grizzly ir&aacute; calcular o n&uacute;mero de threads de quem aceita, com base no n&uacute;mero de processadores na m&aacute;quina. O valor default &eacute; 1.</p>
+<p>Para definir o n&uacute;mero de threads de processamento da solicita&ccedil;&atilde;o, defina o valor Tamanho M&aacute;ximo do Pool de Threads usado por um listener de rede que usa este transporte.</p>
 </dd>
-<dt>Contagem m&#225;xima de conex&#245;es</dt>
-<dd><p>O n&#250;mero m&#225;ximo de conex&#245;es pendentes em uma escuta de rede que usa este transporte. O valor padr&#227;o &#233; 4096.</p>
-
+<dt>Contagem m&aacute;xima de conex&otilde;es</dt>
+<dd>
+<p>O n&uacute;mero m&aacute;ximo de conex&otilde;es pendentes em um listener de rede que usa este transporte. O valor default &eacute; 4096.</p>
 </dd>
 <dt>Tamanho do buffer</dt>
-<dd><p>O tamanho em bytes do buffer a ser fornecido para fluxos de entrada criados por uma escuta de rede que utiliza esse transporte. O valor padr&#227;o &#233; 8.192.</p>
-
+<dd>
+<p>O tamanho em bytes do buffer a ser fornecido para fluxos de entrada criados por um listener de rede que utiliza esse transporte. O valor default &eacute; 8.192.</p>
 </dd>
-<dt>Tempo limite da chave ociosa</dt>
-<dd><p>O n&#250;mero de segundos ap&#243;s o qual uma chave ociosa ser&#225; cancelada e o canal ser&#225; fechado. O valor padr&#227;o &#233; 30.</p>
-
+<dt>Time-out para chave ociosa</dt>
+<dd>
+<p>O n&uacute;mero de segundos ap&oacute;s o qual uma chave ociosa ser&aacute; cancelada e o canal ser&aacute; fechado. O valor default &eacute; 30.</p>
 </dd>
-<dt>Tempo limite da leitura</dt>
-<dd><p>O n&#250;mero em milissegundos que o Servidor GlassFish aguarda durante a an&#225;lise do cabe&#231;alho e corpo da opera&#231;&#227;o de leitura. O valor padr&#227;o &#233; 30.000.</p>
-
+<dt>Time-out para leitura</dt>
+<dd>
+<p>O n&uacute;mero em milissegundos que o GlassFish Server aguarda durante o parsing do cabe&ccedil;alho e corpo da opera&ccedil;&atilde;o de leitura. O valor default &eacute; 30.000.</p>
 </dd>
-<dt>Tempo limite do seletor do conjunto</dt>
-<dd><p>O n&#250;mero em milissegundos que um seletor NIO ser&#225; bloqueado enquanto aguarda por eventos (solicita&#231;&#245;es de usu&#225;rios). O valor padr&#227;o &#233; 1000.</p>
-
+<dt>Time-out para Sondagem do Seletor</dt>
+<dd>
+<p>O n&uacute;mero em milissegundos que um seletor NIO ser&aacute; bloqueado enquanto aguarda por eventos (solicita&ccedil;&otilde;es de usu&aacute;rios). O valor default &eacute; 1000.</p>
 </dd>
-<dt>Tempo limite de grava&#231;&#227;o</dt>
-<dd><p>O n&#250;mero de milissegundos que o &#38;ProductName. aguarda antes de considerar que o cliente remoto desconectou ao gravar a resposta. O valor padr&#227;o &#233; 30.000.</p>
-
+<dt>Time-out para grava&ccedil;&atilde;o</dt>
+<dd>
+<p>O n&uacute;mero de milissegundos que o &amp;ProductName. aguarda antes de considerar que o cliente remoto desconectou ao gravar a resposta. O valor default &eacute; 30.000.</p>
 </dd>
-<dt>Exibir configura&#231;&#227;o</dt>
-<dd><p>Se esta op&#231;&#227;o &#233; selecionada, a configura&#231;&#227;o interna do Grizzly &#233; descarregada nos registros do servidor. Essa op&#231;&#227;o pode fornecer informa&#231;&#245;es &#250;teis para a depura&#231;&#227;o. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
-
+<dt>Exibir configura&ccedil;&atilde;o</dt>
+<dd>
+<p>Se esta op&ccedil;&atilde;o &eacute; selecionada, a configura&ccedil;&atilde;o interna do Grizzly &eacute; descarregada nos registros do servidor. Essa op&ccedil;&atilde;o pode fornecer informa&ccedil;&otilde;es &uacute;teis para a depura&ccedil;&atilde;o. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
 </dd>
 <dt>Snoop</dt>
-<dd><p>Se esta op&#231;&#227;o &#233; selecionada, as informa&#231;&#245;es solicitadas/respondidas s&#227;o descarregada nos registros do servidor. Essa op&#231;&#227;o pode fornecer informa&#231;&#245;es &#250;teis para a depura&#231;&#227;o, mas ir&#225; reduzir significativamente o desempenho. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
-
+<dd>
+<p>Se esta op&ccedil;&atilde;o for selecionada, a informa&ccedil;&atilde;o request/response ser&aacute; submetida a dump no log do servidor. Essa op&ccedil;&atilde;o pode fornecer informa&ccedil;&otilde;es &uacute;teis para a depura&ccedil;&atilde;o, mas ir&aacute; reduzir significativamente o desempenho. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
 </dd>
 <dt>Nenhum atraso TCP</dt>
-<dd><p>Se esta op&#231;&#227;o for selecionada, TCP_NODELAY (tamb&#233;m denominado como algoritmo de Nagle) &#233; ativado. Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p>
-
+<dd>
+<p>Se essa op&ccedil;&atilde;o for selecionada, TCP_NODELAY (tamb&eacute;m chamado de Nagle) ser&aacute; ativado. Por default, a op&ccedil;&atilde;o est&aacute; ativada.</p>
 </dd>
 </dl>
+<a id="sthref164" name="sthref164"></a>
 <h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-transportnew.html">Para criar um transporte</a></p>
-
+<ul>
+<li>
+<p><a href="task-transportnew.html">Para Criar um Transporte</a></p>
 </li>
-<li><p><a href="task-transportedit.html">Para editar um transporte</a></p>
-
+<li>
+<p><a href="task-transportedit.html">Para Editar um Transporte</a></p>
 </li>
-<li><p><a href="task-transportdelete.html">Para excluir um transporte</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-transport-1"><tt>create-transport</tt>(1)</a></p>
-
+<li>
+<p><a href="task-transportdelete.html">Para Deletar um Transporte</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-transports-1"><tt>list-transports</tt>(1)</a></p>
-
+</ul>
+<a id="sthref165" name="sthref165"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00061"><code>create-transport</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-transport-1"><tt>delete-transport</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00206"><code>list-transports</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00112"><code>delete-transport</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

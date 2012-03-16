@@ -1,60 +1,85 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-webcontainermanagerprops" name="task-webcontainermanagerprops"></a><a id="GHWEB00032" name="GHWEB00032"></a></p>
 
-
-<a name="task-webcontainermanagerprops"></a><h3>Para configurar as propriedades do gerenciador do recipiente da Web</h3><a name="indexterm-6"></a><a name="indexterm-7"></a><a name="indexterm-8"></a><p>O gerenciador de sess&#227;o fornece os meios para configurar o modo como
-as sess&#245;es s&#227;o criadas e destru&#237;das, onde o estado de sess&#227;o &#233;
-armazenado e o n&#250;mero m&#225;ximo de sess&#245;es dispon&#237;veis.</p>
-
+<h4><a id="sthref8" name="sthref8"></a><a id="sthref9" name="sthref9"></a><a id="sthref10" name="sthref10"></a>Para Configurar Propriedades do Gerenciador do Cont&ecirc;iner Web</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>O gerenciador de sess&atilde;o fornece os meios para configurar o modo como as sess&otilde;es s&atilde;o criadas e destru&iacute;das, onde o estado de sess&atilde;o &eacute; armazenado e o n&uacute;mero m&aacute;ximo de sess&otilde;es dispon&iacute;veis.</p>
 <ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>Selecione a configura&#231;&#227;o que est&#225; sendo alterada.</b></li>
-<li><b>No n&#243; da configura&#231;&#227;o, selecione o n&#243; Recipiente da Web.</b><p>A p&#225;gina Propriedades Gerais &#233; exibida.</p></li>
-<li><b>Na p&#225;gina Propriedades Gerais, clique na guia  Propriedades do Gerenciador.</b><p>A p&#225;gina Propriedades do Gerenciador &#233; exibida.</p></li>
-<li><b>No campo Intervalo de duplica&#231;&#227;o, digite o n&#250;mero de segundos que antecede
-a exclus&#227;o dos dados de sess&#227;o inativa do armazenamento.</b><p>O valor padr&#227;o &#233; 60.</p><p>Defina este valor menor do que a frequ&#234;ncia na qual os dados
-da sess&#227;o s&#227;o modificados. Por exemplo, este valor deveria ser o menor
-poss&#237;vel (1 segundo) para um servlet de contagem de acessos em um
-website com acesso frequente, do contr&#225;rio voc&#234; perder&#225; alguns acessos cada vez
-que reiniciar o servidor.</p></li>
-<li><b>No campo M&#225;ximo de sess&#245;es, digite o n&#250;mero m&#225;ximo de sess&#245;es que
-pode ser armazenado no cache.</b><p>Um valor de -1 indica nenhum limite para o n&#250;mero de sess&#245;es.
-O valor padr&#227;o &#233; -1.</p><p>Ap&#243;s o limite ser alcan&#231;ado, uma tentativa para criar uma nova sess&#227;o
-causa a ocorr&#234;ncia de uma <tt>IllegalStateException</tt>.</p></li>
-<li><b>No campo Nome do arquivo da sess&#227;o, digite o caminho absoluto ou
-relativo do diret&#243;rio no qual o estado da sess&#227;o &#233; preservado entre
-as reinicializa&#231;&#245;es do aplicativo, se for poss&#237;vel preservar o estado.</b><p>Se este caminho n&#227;o &#233; definido, o estado da sess&#227;o n&#227;o &#233;
-preservado. Por padr&#227;o, este caminho n&#227;o &#233; definido.</p><p>Um caminho relativo para o diret&#243;rio tempor&#225;rio do aplicativo Web.</p><p>Esta configura&#231;&#227;o se aplica somente se o tipo de persist&#234;ncia for <tt>memory</tt>.
-Para definir o tipo de persist&#234;ncia, consulte <a href="task-webcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente da Web</a>.</p></li>
-<li>(Opcional) <b>Na se&#231;&#227;o Propriedades adicionais, especifique essas propriedades.</b><p>O Servidor GlassFish n&#227;o define propriedades adicionais para o gerenciador de sess&#227;o.</p><ul>
-<li><b>Para adicionar uma propriedade, clique no bot&#227;o Adicionar Propriedade. Na linha em
-branco que &#233; exibida, digite o nome da propriedade no campo Nome
-e digite o valor da propriedade no campo Valor.</b></li>
-<li><b>Para modificar uma propriedade, edite o campo Valor da propriedade.</b></li>
-<li><b>Para excluir uma propriedade, marque a caixa de sele&#231;&#227;o &#224; esquerda do
-campo Nome da propriedade a ser exclu&#237;da. Clique no bot&#227;o Excluir Propriedades.</b></li></ul></li>
-<li><b>Clique em Salvar.</b>
-<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar Padr&#245;es e depois
-em Salvar. </p>
-
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
+</li>
+<li>
+<p>Selecione a configura&ccedil;&atilde;o que est&aacute; sendo alterada.</p>
+</li>
+<li>
+<p>No n&oacute; da configura&ccedil;&atilde;o, selecione o n&oacute; Cont&ecirc;iner Web.</p>
+<p>A p&aacute;gina Propriedades Gerais &eacute; exibida.</p>
+</li>
+<li>
+<p>Na p&aacute;gina Propriedades Gerais, clique na guia Propriedades do Gerenciador.</p>
+<p>A p&aacute;gina Propriedades do Gerenciador &eacute; exibida.</p>
+</li>
+<li>
+<p>No campo Intervalo de duplica&ccedil;&atilde;o, digite o n&uacute;mero de segundos que antecede a dele&ccedil;&atilde;o dos dados de sess&atilde;o inativa do armazenamento.</p>
+<p>O valor default &eacute; 60.</p>
+<p>Defina este valor menor do que a frequ&ecirc;ncia na qual os dados da sess&atilde;o s&atilde;o modificados. Por exemplo, este valor deveria ser o menor poss&iacute;vel (1 segundo) para um servlet de contagem de acessos em um Web site com acesso frequente, do contr&aacute;rio voc&ecirc; perder&aacute; alguns acessos cada vez que reiniciar o servidor.</p>
+</li>
+<li>
+<p>No campo M&aacute;ximo de sess&otilde;es, digite o n&uacute;mero m&aacute;ximo de sess&otilde;es que pode ser armazenado no cache.</p>
+<p>Um valor de -1 indica que n&atilde;o h&aacute; limite para o n&uacute;mero de sess&otilde;es. O valor default &eacute; -1.</p>
+<p>Ap&oacute;s o limite ser alcan&ccedil;ado, uma tentativa para criar uma nova sess&atilde;o causa a ocorr&ecirc;ncia de uma <code>IllegalStateException</code>.</p>
+</li>
+<li>
+<p>No campo Nome do arquivo da sess&atilde;o, digite o caminho absoluto ou relativo do diret&oacute;rio no qual o estado da sess&atilde;o &eacute; preservado entre as reinicializa&ccedil;&otilde;es da aplica&ccedil;&atilde;o, se for poss&iacute;vel preservar o estado.</p>
+<p>Se este caminho n&atilde;o &eacute; definido, o estado da sess&atilde;o n&atilde;o &eacute; preservado. Por default, este caminho n&atilde;o &eacute; definido.</p>
+<p>Um caminho relativo para o diret&oacute;rio tempor&aacute;rio da aplica&ccedil;&atilde;o Web.</p>
+<p>Esta defini&ccedil;&atilde;o se aplica somente se o tipo de persist&ecirc;ncia for <code>memory</code>. Para definir o Tipo de Persist&ecirc;ncia, consulte <a href="task-webcontaineravailability.html">Para Configurar Defini&ccedil;&otilde;es de Disponibilidade do Cont&ecirc;iner Web</a>.</p>
+</li>
+<li>
+<p>Na se&ccedil;&atilde;o Propriedades adicionais, especifique essas propriedades.</p>
+<p>O GlassFish Server n&atilde;o define propriedades adicionais para o gerenciador de sess&atilde;o.</p>
+<ul>
+<li>
+<p>Para adicionar uma propriedade, clique no bot&atilde;o Adicionar Propriedade. Na linha em branco que &eacute; exibida, digite o nome da propriedade no campo Nome e digite o valor da propriedade no campo Valor.</p>
+</li>
+<li>
+<p>Para modificar uma propriedade, edite o campo Valor da propriedade.</p>
+</li>
+<li>
+<p>Para deletar uma propriedade, marque a caixa de sele&ccedil;&atilde;o &agrave; esquerda do campo Nome da Propriedade a ser deletada. Clique no bot&atilde;o Deletar Propriedades.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Clique em Salvar.</p>
 
 <hr>
-</li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-webcontainergeneral.html">Para configurar as propriedades gerais do recipiente da Web</a></p>
+<p><b>Dica:</b></p>
+Para voltar &agrave;s defini&ccedil;&otilde;es default, clique no bot&atilde;o Carregar Defaults e depois em Salvar.
+<hr>
 
 </li>
-<li><p><a href="task-webcontainersessiontimeout.html">Para configurar as propriedades da sess&#227;o do recipiente da Web</a></p>
-
+</ol>
+<a id="sthref11" name="sthref11"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-webcontainergeneral.html">cont&ecirc;ineresPara Configurar Propriedades Gerais do Cont&ecirc;iner Web</a></p>
 </li>
-<li><p><a href="task-webcontainerstoreprops.html">Para configurar as propriedades de armazenamento do recipiente da Web</a></p>
-
+<li>
+<p><a href="task-webcontainersessiontimeout.html">Para Configurar Propriedades da Sess&atilde;o do Cont&ecirc;iner Web</a></p>
 </li>
-<li><p><a href="task-webcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente da Web</a></p>
+<li>
+<p><a href="task-webcontainerstoreprops.html">Para Configurar Propriedades do Armazenamento do Cont&ecirc;iner Web</a></p>
+</li>
+<li>
+<p><a href="task-webcontaineravailability.html">Para Configurar Defini&ccedil;&otilde;es de Disponibilidade do Cont&ecirc;iner Web</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

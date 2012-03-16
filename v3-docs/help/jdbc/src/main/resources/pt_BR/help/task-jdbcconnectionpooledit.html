@@ -1,108 +1,134 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jdbcconnectionpooledit" name="task-jdbcconnectionpooledit"></a><a id="GHJDB00037" name="GHJDB00037"></a></p>
 
-
-<a name="task-jdbcconnectionpooledit"></a><h3>Para editar as configura&#231;&#245;es gerais do conjunto de conex&#245;es do JDBC</h3><a name="indexterm-10"></a><ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Recursos.</b></li>
-<li><b>No n&#243; Recursos, expanda o n&#243; JDBC.</b></li>
-<li><b>No n&#243; JDBC, selecione o n&#243; Conjuntos de conex&#245;es.</b><p>A p&#225;gina Conjuntos de conex&#245;es &#233; exibida.</p></li>
-<li><b>Clique no nome do conjunto de conex&#245;es a ser editado.</b><p>A p&#225;gina Editar conjunto de conex&#245;es &#233; exibida.</p></li>
-<li><b>Na lista suspensa Tipo de recurso, selecione um tipo de recurso.</b><p>As op&#231;&#245;es incluem <tt>javax.sql.DataSource</tt> (somente transa&#231;&#245;es locais), <tt>javax.sql.XADataSource</tt> (transa&#231;&#245;es globais) e <tt> java.sql.ConnectionPoolDataSource</tt>
-(transa&#231;&#245;es locais; poss&#237;veis melhorias de desempenho).</p></li>
-<li><b>No campo Nome da classe da origem de dados, digite o nome
-da classe espec&#237;fica do fornecedor que implementa a API <tt>DataSource</tt>, <tt>ConnectionPoolDataSource</tt> ou
-<tt>XADataSource</tt>.</b><p>Se voc&#234; selecionou um dos tipos de recursos de origem de dados,
-esse campo &#233; normalmente preenchido automaticamente com o nome da classe associado
-ao tipo de recursos e com o fornecedor do banco de dados
-de sua escolha. Se voc&#234; selecionou o tipo de recurso<tt>java.sql.Driver</tt>, esse campo
-&#233; desativado.</p></li>
-<li><b>No campo Nome da classe do driver, digite o nome da classe
-espec&#237;fica do fornecedor que implementa a API <tt>java.sql.Driver</tt>.</b><p>Se voc&#234; selecionou o tipo de recurso <tt>java.sql.Driver</tt>, normalmente esse campo &#233;
-automaticamente preenchido com o nome da classe associado ao driver do fornecedor
-de banco de dados de sua escolha. Se voc&#234; selecionou um dos
-tipos de recursos de origem de dados, esse campo &#233; desativado.</p></li>
-<li><b>Selecione a caixa de sele&#231;&#227;o Ping ativado para efetuar o ping autom&#225;tico
-no conjunto durante a cria&#231;&#227;o ou reconfigura&#231;&#227;o, para identificar e avisar sobre
-valores de atributos com erros.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
-<li><b>No campo Descri&#231;&#227;o, digite uma descri&#231;&#227;o breve do conjunto de conex&#245;es.</b></li>
-<li><b>No campo Tamanho inicial e m&#237;nimo do conjunto, digite o n&#250;mero m&#237;nimo
-de conex&#245;es nesse conjunto.</b><p>Esse valor tamb&#233;m determina o n&#250;mero de conex&#245;es colocadas no conjunto quando
-o conjunto &#233; criado ou quando o Servidor GlassFish &#233; iniciado. O
-valor padr&#227;o &#233; 8.</p></li>
-<li><b>No campo Tamanho inicial e m&#225;ximo do conjunto, digite o n&#250;mero m&#225;ximo
-de conex&#245;es nesse conjunto.</b><p>O valor padr&#227;o &#233; 32.</p></li>
-<li><b>No campo Quantidade de redimensionamento do conjunto, digite o n&#250;mero de conex&#245;es
-por lote de redimensionamento do conjunto.</b><p>Quando o conjunto aumente e diminui em dire&#231;&#227;o ao tamanho m&#225;ximo e
-m&#237;nimo, respectivamente, o conjunto &#233; redimensionado em lotes. Esse valor determina o
-n&#250;mero de conex&#245;es do lote. A defini&#231;&#227;o de um valor muito alto
-torna demorado o processo de cria&#231;&#227;o e reciclagem de conex&#245;es; um valor
-muito baixo compromete a efici&#234;ncia. O valor padr&#227;o &#233; 2.</p></li>
-<li><b>No campo Tempo limite de inatividade, digite a quantidade m&#225;xima de tempo,
-em segundos, para que uma conex&#227;o permane&#231;a ociosa no conjunto.</b><p>Ap&#243;s esse per&#237;odo, a conex&#227;o ser&#225; removida do conjunto. O valor padr&#227;o
-&#233; 300.</p></li>
-<li><b>No campo Tempo m&#225;x. de espera, digite a quantidade m&#225;xima de tempo,
-em milissegundos, que o aplicativo solicitante da conex&#227;o aguardar&#225; at&#233; que o
-tempo limite da conex&#227;o seja atingido.</b><p>O valor padr&#227;o &#233; 60.000.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Conex&#245;es n&#227;o transacionais - Ativado para retornar
-conex&#245;es n&#227;o transacionais.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
-<li><b>Na lista suspensa, selecione o n&#237;vel de isolamento de transa&#231;&#227;o para o
-conjunto de conex&#245;es. </b><p>Se n&#227;o especificado, as conex&#245;es funcionar&#227;o com os n&#237;veis de isolamento padr&#227;o,
-fornecidos pelo driver JDBC. Por padr&#227;o essa op&#231;&#227;o n&#227;o &#233; especificada.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o N&#237;vel de isolamento garantido para que todas
-as conex&#245;es obtidas no conjunto tenham o mesmo n&#237;vel de isolamento.</b><p>Por exemplo, se o n&#237;vel de isolamento da conex&#227;o for alterado via
-programa&#231;&#227;o (com <tt>con.setTransactionIsolation</tt>), durante a &#250;ltima utiliza&#231;&#227;o, esse mecanismo alterar&#225; o status
-para o n&#237;vel de isolamento especificado.</p><p>Essa configura&#231;&#227;o s&#243; ser&#225; aplic&#225;vel se um n&#237;vel de isolamento de transa&#231;&#227;o
-for especificado.</p></li>
-<li><b>Clique no bot&#227;o Ping para verificar a conex&#227;o ao banco de dados.</b><p>O Console de Administra&#231;&#227;o tenta se conectar ao banco de dados. Se
-uma mensagem de erro for exibida, verifique se o servidor de banco
-de dados foi iniciado.</p></li>
-<li><b>Clique no bot&#227;o Descarregar para redefinir o conjunto de conex&#245;es ao seu
-estado inicial.</b><p>Quaisquer conex&#245;es ativas existentes s&#227;o destru&#237;das, o que significa que as transa&#231;&#245;es
-associadas com essas conex&#245;es ser&#227;o perdidas. O subcomando ent&#227;o recria as conex&#245;es
-iniciais para o conjunto e restaura o conjunto a seu tamanho est&#225;vel.</p></li>
-<li><b>Clique em Salvar.</b>
-<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar Padr&#245;es e depois
-em Salvar. </p>
-
+<h4><a id="sthref17" name="sthref17"></a>Para Editar Defini&ccedil;&otilde;es Gerais do Pool de Conex&otilde;es JDBC</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Recursos.</p>
+</li>
+<li>
+<p>No n&oacute; Recursos, expanda o n&oacute; JDBC.</p>
+</li>
+<li>
+<p>No n&oacute; JDBC, selecione o n&oacute; Pools de Conex&otilde;es.</p>
+<p>A p&aacute;gina Pools de Conex&otilde;es &eacute; exibida.</p>
+</li>
+<li>
+<p>Clique no nome do pool de conex&otilde;es a ser editado.</p>
+<p>A p&aacute;gina Editar Pool de Conex&otilde;es &eacute; exibida.</p>
+</li>
+<li>
+<p>Na lista drop-down Tipo de Recurso, selecione um tipo de recurso.</p>
+<p>As op&ccedil;&otilde;es incluem <code>javax.sql.DataSource</code> (somente transa&ccedil;&otilde;es locais), <code>javax.sql.XADataSource</code> (transa&ccedil;&otilde;es globais) e <code>java.sql.ConnectionPoolDataSource</code> (transa&ccedil;&otilde;es locais; poss&iacute;veis melhorias de desempenho).</p>
+</li>
+<li>
+<p>No campo Nome da classe da origem de dados, digite o nome da classe espec&iacute;fica do fornecedor que implementa a API <code>DataSource</code>, <code>ConnectionPoolDataSource</code> ou <code>XADataSource</code>.</p>
+<p>Se voc&ecirc; selecionou um dos tipos de recursos de origem de dados, esse campo &eacute; normalmente preenchido automaticamente com o nome da classe associado ao tipo de recursos e com o fornecedor do banco de dados de sua escolha. Se voc&ecirc; selecionou o tipo de recurso<code>java.sql.Driver</code> , esse campo &eacute; desativado.</p>
+</li>
+<li>
+<p>No campo Nome da classe do driver, digite o nome da classe espec&iacute;fica do fornecedor que implementa a API <code>java.sql.Driver</code>.</p>
+<p>Se voc&ecirc; selecionou o tipo de recurso <code>java.sql.Driver</code>, normalmente esse campo &eacute; automaticamente preenchido com o nome da classe associado ao driver do fornecedor de banco de dados de sua escolha. Se voc&ecirc; selecionou um dos tipos de recursos de origem de dados, esse campo &eacute; desativado.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Ping Ativado para efetuar o ping autom&aacute;tico no pool durante a cria&ccedil;&atilde;o ou reconfigura&ccedil;&atilde;o, para identificar e avisar sobre valores de atributos com erros.</p>
+<p>Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
+</li>
+<li>
+<p>No campo Descri&ccedil;&atilde;o, digite uma descri&ccedil;&atilde;o breve do pool de conex&otilde;es.</p>
+</li>
+<li>
+<p>No campo Tamanho inicial e m&iacute;nimo do conjunto, digite o n&uacute;mero m&iacute;nimo de conex&otilde;es nesse conjunto.</p>
+<p>Esse valor tamb&eacute;m determina o n&uacute;mero de conex&otilde;es colocadas no conjunto quando o conjunto &eacute; criado ou quando o GlassFish Server &eacute; iniciado. O valor default &eacute; 8.</p>
+</li>
+<li>
+<p>No campo Tamanho inicial e m&aacute;ximo do Pool, digite o n&uacute;mero m&aacute;ximo de conex&otilde;es nesse Pool.</p>
+<p>O valor default &eacute; 32.</p>
+</li>
+<li>
+<p>No campo Quantidade de Redimensionamento do Pool, digite o n&uacute;mero de conex&otilde;es por batch de redimensionamento do pool.</p>
+<p>Quando o pool aumenta e diminui em rela&ccedil;&atilde;o aos tamanhos m&aacute;ximo e m&iacute;nimo, respectivamente, o pool &eacute; redimensionado em batches. Esse valor determina o n&uacute;mero de conex&otilde;es do batch. A defini&ccedil;&atilde;o de um valor muito alto torna demorado o processo de cria&ccedil;&atilde;o e reciclagem de conex&otilde;es; um valor muito baixo compromete a efici&ecirc;ncia. O valor default &eacute; 2.</p>
+</li>
+<li>
+<p>No campo Time-out para Inatividade, digite o tempo m&aacute;ximo, em segundos, para que uma conex&atilde;o permane&ccedil;a ociosa no pool.</p>
+<p>Ap&oacute;s esse per&iacute;odo, a conex&atilde;o ser&aacute; removida do conjunto. O valor default &eacute; 300.</p>
+</li>
+<li>
+<p>No campo Tempo m&aacute;x. de espera, digite o tempo m&aacute;ximo, em milissegundos, que a aplica&ccedil;&atilde;o solicitante da conex&atilde;o aguardar&aacute; at&eacute; obter um time-out.</p>
+<p>O valor default &eacute; 60.000.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Conex&otilde;es n&atilde;o transacionais - Ativado para retornar conex&otilde;es n&atilde;o transacionais.</p>
+<p>Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
+</li>
+<li>
+<p>Na lista drop-down, selecione o n&iacute;vel de isolamento de transa&ccedil;&atilde;o para o pool de conex&otilde;es.</p>
+<p>Se n&atilde;o especificado, as conex&otilde;es funcionar&atilde;o com os n&iacute;veis de isolamento default, fornecidos pelo driver JDBC. Por default essa op&ccedil;&atilde;o n&atilde;o &eacute; especificada.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o N&iacute;vel de isolamento garantido para que todas as conex&otilde;es obtidas no pool tenham o mesmo n&iacute;vel de isolamento.</p>
+<p>Por exemplo, se o n&iacute;vel de isolamento da conex&atilde;o for alterado via programa&ccedil;&atilde;o (com <code>con.setTransactionIsolation</code>), durante a &uacute;ltima utiliza&ccedil;&atilde;o, esse mecanismo alterar&aacute; o status para o n&iacute;vel de isolamento especificado.</p>
+<p>Essa defini&ccedil;&atilde;o s&oacute; ser&aacute; aplic&aacute;vel se um n&iacute;vel de isolamento de transa&ccedil;&atilde;o for especificado.</p>
+</li>
+<li>
+<p>Clique no bot&atilde;o Ping para verificar a conex&atilde;o ao banco de dados.</p>
+<p>O Console de Administra&ccedil;&atilde;o tenta se conectar ao banco de dados. Se uma mensagem de erro for exibida, verifique se o servidor de banco de dados foi iniciado.</p>
+</li>
+<li>
+<p>Clique no bot&atilde;o Descarregar para redefinir o pool de conex&otilde;es ao seu estado inicial.</p>
+<p>Quaisquer conex&otilde;es ativas existentes s&atilde;o destru&iacute;das, o que significa que as transa&ccedil;&otilde;es associadas com essas conex&otilde;es ser&atilde;o perdidas. O subcomando ent&atilde;o recria as conex&otilde;es iniciais para o pool e restaura o pool a seu tamanho est&aacute;vel.</p>
+</li>
+<li>
+<p>Clique em Salvar.</p>
 
 <hr>
-</li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-setdbaccess.html">Para configurar o acesso ao banco de dados</a></p>
+<p><b>Dica:</b></p>
+Para voltar &agrave;s defini&ccedil;&otilde;es default, clique no bot&atilde;o Carregar Defaults e depois em Salvar.
+<hr>
 
 </li>
-<li><p><a href="task-integratejdbcdriver.html">Para integrar um driver JDBC</a></p>
-
+</ol>
+<a id="sthref18" name="sthref18"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-setdbaccess.html">Para Configurar o Acesso ao Banco de Dados</a></p>
 </li>
-<li><p><a href="task-jdbcresourcenew.html">Para criar um recurso do JDBC</a></p>
-
+<li>
+<p><a href="task-integratejdbcdriver.html">Para Integrar um Driver JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcresourcesedit.html">Para editar um recurso JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcresourcenew.html">Para Criar um Recurso JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcresourcetargets.html">Para editar destinos do recurso do JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcresourcesedit.html">Para Editar um Recurso JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcresourcesdelete.html">Para excluir um recurso do JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcresourcetargets.html">Para editar destinos do recurso JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">Para criar um conjunto de conex&#245;es do JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcresourcesdelete.html">Para Deletar um Recurso JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">Para editar atributos avan&#231;ados do conjunto de conex&#245;es do JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">pools de conex&otilde;esPara Criar um Pool de Conex&otilde;es JDBC</a></p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">Para verificar as configura&#231;&#245;es do conjunto de conex&#245;es</a></p>
-
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">Para Editar Atributos Avan&ccedil;ados do Pool de Conex&otilde;es JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">Para editar as propriedades do conjunto de conex&#245;es JDBC</a></p>
-
+<li>
+<p><a href="task-verifyconnpoolsettings.html">Para Verificar Defini&ccedil;&otilde;es do Pool de Conex&otilde;es</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">Para excluir um conjunto de conex&#245;es do JDBC</a></p>
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">Para Editar Propriedades do Pool de Conex&otilde;es JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">Para Deletar um Pool de Conex&otilde;es JDBC</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,45 +1,61 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-accessadmintools" name="task-accessadmintools"></a><a id="GHCOM00182" name="GHCOM00182"></a></p>
 
-
-<a name="task-accessadmintools"></a><h3>Para dar acesso a ferramentas de administra&#231;&#227;o</h3><a name="indexterm-79"></a><p>Somente usu&#225;rios do grupo <tt>asadmin</tt> podem acessar o Console de Administra&#231;&#227;o e
-o utilit&#225;rio da linha de comando <tt>asadmin</tt>.  Para dar aos usu&#225;rios
-acesso a essas ferramentas de administra&#231;&#227;o, adicione-as ao grupo <tt>asadmin </tt> no <tt>admin-realm</tt>.</p>
-
+<h4><a id="sthref137" name="sthref137"></a>Para Conceder Acesso a Ferramentas de Administra&ccedil;&atilde;o</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Somente usu&aacute;rios do grupo <code>asadmin</code> podem acessar o Console de Administra&ccedil;&atilde;o e o utilit&aacute;rio da linha de comando <code>asadmin</code>. Para dar aos usu&aacute;rios acesso a essas ferramentas de administra&ccedil;&atilde;o, adicione-as ao grupo <code>asadmin</code> no <code>admin-realm</code>.</p>
 <ol>
-<li><b>No n&#243; Configura&#231;&#245;es, expanda a configura&#231;&#227;o de cluster ou inst&#226;ncia de servidor
-na qual deseja configurar os privil&#233;gios de acesso de administra&#231;&#227;o.</b></li>
-<li><b>Expanda o n&#243; Seguran&#231;a.</b></li>
-<li><b>Expanda o n&#243; Dom&#237;nios.</b></li>
-<li><b>Selecione o n&#243; <tt>admin-realm</tt>.</b><p>A p&#225;gina Editar Dom&#237;nio &#233; exibida.</p></li>
-<li><b>Na p&#225;gina Editar Dom&#237;nio, clique no bot&#227;o Gerenciar Usu&#225;rios.</b><p>A p&#225;gina Usu&#225;rios Administrativos &#233; exibida.</p><p>Inicialmente, depois da instala&#231;&#227;o, o nome de usu&#225;rio e senha do administrador
-inseridos na instala&#231;&#227;o s&#227;o listados em um arquivo chamado <tt>admin-keyfile</tt>.  Por
-padr&#227;o, esse usu&#225;rio pertence ao grupo <tt>asadmin</tt>, que d&#225; direitos para modificar
-o Servidor GlassFish.  Atribua usu&#225;rios a esse grupo somente se quiser
-dar a eles privil&#233;gios de administrador para o cluster ou inst&#226;ncia selecionada
-do &#38;ProductName.</p><p>Se voc&#234; adicionar usu&#225;rios ao dom&#237;nio <tt>admin-realm</tt>, mas atribuir o usu&#225;rio a
-um grupo diferente do <tt>asadmin</tt>, as informa&#231;&#245;es de usu&#225;rios ainda ser&#227;o gravadas
-no arquivo denominado <tt>admin-keyfile</tt>, por&#233;m os usu&#225;rios n&#227;o ter&#227;o acesso &#224;s ferramentas
-administrativas ou a aplicativos no dom&#237;nio <tt>file</tt>.</p></li>
-<li><b>Na p&#225;gina Usu&#225;rios Administrativos, clique em Novo, para adicionar um novo usu&#225;rio
-ao dom&#237;nio <tt>admin-realm </tt>.</b><p>A p&#225;gina Novo Usu&#225;rio do Dom&#237;nio Arquivo &#233; exibida.</p></li>
-<li><b>No campo ID de Usu&#225;rio, digite o nome do novo usu&#225;rio.</b></li>
-<li><b>No campo Lista de Grupos, digite os nomes dos grupos aos quais
-o usu&#225;rio vai pertencer.</b><p>Para autorizar um usu&#225;rio a fazer modifica&#231;&#245;es no Servidor GlassFish, inclua o
-grupo <tt>asadmin</tt> na  Lista de Grupos.</p></li>
-<li><b>Nos campos Nova Senha e Confirmar Nova Senha, digite a senha do
-novo usu&#225;rio.</b></li>
-<li><b>Clique em OK para adicionar esse usu&#225;rio ao dom&#237;nio <tt>admin-realm</tt> ou clique
-em Cancelar para sair sem salvar.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-securitysettings.html">Para definir as configura&#231;&#245;es de seguran&#231;a</a></p>
-
+<li>
+<p>No n&oacute; Configura&ccedil;&otilde;es, expanda a configura&ccedil;&atilde;o de cluster ou inst&acirc;ncia de servidor na qual deseja configurar os privil&eacute;gios de acesso de administra&ccedil;&atilde;o.</p>
 </li>
-<li><p><a href="task-changeadminpasswd.html">Para alterar a senha de um usu&#225;rio no dom&#237;nio do admin</a></p>
+<li>
+<p>Expanda o n&oacute; Seguran&ccedil;a.</p>
+</li>
+<li>
+<p>Expanda o n&oacute; Realms.</p>
+</li>
+<li>
+<p>Selecione o n&oacute; <code>admin-realm</code>.</p>
+<p>A p&aacute;gina Editar Realm &eacute; exibida.</p>
+</li>
+<li>
+<p>Na p&aacute;gina Editar Realm, clique no bot&atilde;o Gerenciar Usu&aacute;rios.</p>
+<p>A p&aacute;gina Usu&aacute;rios Administrativos &eacute; exibida.</p>
+<p>Inicialmente, depois da instala&ccedil;&atilde;o, o nome de usu&aacute;rio e senha do administrador inseridos na instala&ccedil;&atilde;o s&atilde;o listados em um arquivo chamado <code>admin-keyfile</code>. Por default, esse usu&aacute;rio pertence ao grupo <code>asadmin</code>, que d&aacute; direitos para modificar o GlassFish Server. Designe usu&aacute;rios a esse grupo somente se quiser dar a eles privil&eacute;gios de administrador para o cluster ou inst&acirc;ncia selecionada do &amp;ProductName.</p>
+<p>Se voc&ecirc; adicionar usu&aacute;rios ao realm <code>admin-realm</code>, mas designar o usu&aacute;rio a um grupo diferente do <code>asadmin</code>, as informa&ccedil;&otilde;es de usu&aacute;rios ainda ser&atilde;o gravadas no arquivo denominado <code>admin-keyfile</code>, por&eacute;m os usu&aacute;rios n&atilde;o ter&atilde;o acesso &agrave;s ferramentas administrativas ou a aplica&ccedil;&otilde;es no realm <code>file</code>.</p>
+</li>
+<li>
+<p>Na p&aacute;gina Usu&aacute;rios Administrativos, clique em Novo, para adicionar um novo usu&aacute;rio ao realm <code>admin-realm</code> .</p>
+<p>A p&aacute;gina Novo Usu&aacute;rio do Realm Arquivo &eacute; exibida.</p>
+</li>
+<li>
+<p>No campo ID de Usu&aacute;rio, digite o nome do novo usu&aacute;rio.</p>
+</li>
+<li>
+<p>No campo Lista de Grupos, digite os nomes dos grupos aos quais o usu&aacute;rio vai pertencer.</p>
+<p>Para autorizar um usu&aacute;rio a fazer modifica&ccedil;&otilde;es no GlassFish Server, inclua o grupo <code>asadmin</code> na Lista de Grupos.</p>
+</li>
+<li>
+<p>Nos campos Nova Senha e Confirmar Nova Senha, digite a senha do novo usu&aacute;rio.</p>
+</li>
+<li>
+<p>Clique em OK para adicionar esse usu&aacute;rio ao realm <code>admin-realm</code> ou clique em Cancelar para sair sem salvar.</p>
+</li>
+</ol>
+<a id="sthref138" name="sthref138"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-securitysettings.html">Para Configurar Defini&ccedil;&otilde;es de Seguran&ccedil;a</a></p>
+</li>
+<li>
+<p><a href="task-changeadminpasswd.html">Para Alterar a Senha de um Usu&aacute;rio no Realm Admin</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

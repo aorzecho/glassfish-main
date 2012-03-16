@@ -1,95 +1,95 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-gms"></a><h4>Editar servi&#231;o de gerenciamento de grupos </h4>
-<a name="indexterm-220"></a><p>Utilize a p&#225;gina Servi&#231;o de gerenciamento de grupos para alterar as configura&#231;&#245;es
-do GMS.</p>
+<p><a id="ref-gms" name="ref-gms"></a><a id="GHCLU00026" name="GHCLU00026"></a></p>
 
-<p>O servi&#231;o de gerenciamento de grupos (GMS) &#233; um servi&#231;o em processo
-que oferece monitoramento de cluster, associa&#231;&#227;o de cluster e servi&#231;os de comunica&#231;&#227;o
-de grupos. O GMS est&#225; constru&#237;do sobre uma pilha configur&#225;vel de protocolos
-de monitoramento da integridade e de descoberta da associa&#231;&#227;o do grupo. O
-GMS realiza as seguintes fun&#231;&#245;es:</p>
-
-
-<ul><li><p>Notifica os m&#243;dulos registrados em uma inst&#226;ncia do Servidor GlassFish quando uma ou mais inst&#226;ncias do membro s&#227;o adicionadas ou removidas de um cluster, ou quando tais inst&#226;ncias sejam suspeitas de ter falhas ou realmente tenham falhas.</p>
-
+<h4><a id="sthref354" name="sthref354"></a>Editar Servi&ccedil;o de Gerenciamento de Grupo</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilize a p&aacute;gina Servi&ccedil;o de gerenciamento de grupos para alterar as defini&ccedil;&otilde;es do GMS.</p>
+<p>O servi&ccedil;o de gerenciamento de grupos (GMS) &eacute; um servi&ccedil;o em processo que oferece monitoramento de cluster, associa&ccedil;&atilde;o de cluster e servi&ccedil;os de comunica&ccedil;&atilde;o de grupos. O GMS est&aacute; constru&iacute;do sobre uma pilha configur&aacute;vel de protocolos de monitoramento da integridade e de descoberta da associa&ccedil;&atilde;o do grupo. O GMS realiza as seguintes fun&ccedil;&otilde;es:</p>
+<ul>
+<li>
+<p>Notifica os m&oacute;dulos registrados em uma inst&acirc;ncia do GlassFish Server quando uma ou mais inst&acirc;ncias do membro s&atilde;o adicionadas ou removidas de um cluster, ou quando tais inst&acirc;ncias sejam suspeitas de ter falhas ou realmente tenham falhas.</p>
 </li>
-<li><p>Oferece a capacidade de enviar e receber mensagens entre um grupo de processos.</p>
-
-</li></ul>
-<p>A p&#225;gina Servi&#231;o de gerenciamento de grupos cont&#233;m as seguintes op&#231;&#245;es.</p>
-
-<dl><dt>Carregar padr&#245;es</dt>
-<dd><p>Bot&#227;o para restaurar com os valores padr&#227;o as configura&#231;&#245;es que apresentam valores padr&#227;o. As configura&#231;&#245;es que n&#227;o apresentam valores padr&#227;o n&#227;o s&#227;o alteradas.</p>
-
+<li>
+<p>Oferece a capacidade de enviar e receber mensagens entre um grupo de processos.</p>
+</li>
+</ul>
+<p>A p&aacute;gina Servi&ccedil;o de gerenciamento de grupos cont&eacute;m as seguintes op&ccedil;&otilde;es.</p>
+<dl>
+<dt>Carregar Defaults</dt>
+<dd>
+<p>Bot&atilde;o para restaurar com os valores default as defini&ccedil;&otilde;es que apresentam valores default. As defini&ccedil;&otilde;es que n&atilde;o apresentam valores default n&atilde;o s&atilde;o alteradas.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
-<dt>Maximum Missed Heartbeats (M&#225;ximo de pulsa&#231;&#245;es perdidas)</dt>
-<dd><p>N&#250;mero de tentativas de monitoramento ap&#243;s o qual a inst&#226;ncia do servidor &#233; suspeita de ter falha. O padr&#227;o &#233; 3.</p>
-
+<dt>Maximum Missed Heartbeats (M&aacute;ximo de pulsa&ccedil;&otilde;es perdidas)</dt>
+<dd>
+<p>N&uacute;mero de tentativas de monitoramento ap&oacute;s o qual a inst&acirc;ncia do servidor &eacute; suspeita de ter falha. O default &eacute; 3.</p>
 </dd>
-<dt>Heartbeat Frequency (Frequ&#234;ncia das pulsa&#231;&#245;es)</dt>
-<dd><p>Per&#237;odo de tempo entre as tentativas de monitoramento. O padr&#227;o &#233; 2000 milissegundos.</p>
-
+<dt>Heartbeat Frequency (Frequ&ecirc;ncia das pulsa&ccedil;&otilde;es)</dt>
+<dd>
+<p>Per&iacute;odo de tempo entre as tentativas de monitoramento. O default &eacute; 2000 milissegundos.</p>
 </dd>
-<dt>Group Discovery Timeout (Tempo limite da descoberta de grupo)</dt>
-<dd><p>Quantidade de tempo que o GMS espera a descoberta de outros membros do grupo. O padr&#227;o &#233; 5000 milissegundos.</p>
-
+<dt>Group Discovery Timeout (Time-out para descoberta de grupo)</dt>
+<dd>
+<p>Quantidade de tempo que o GMS espera a descoberta de outros membros do grupo. O default &eacute; 5000 milissegundos.</p>
 </dd>
-<dt>Failure Verification Wait Time (Tempo de espera para sele&#231;&#227;o da falha)</dt>
-<dd><p>Per&#237;odo de tempo ap&#243;s o qual uma suspeita de falha &#233; marcada como verificada. O padr&#227;o &#233; 1500 milissegundos.</p>
-
+<dt>Tempo de Espera para Verifica&ccedil;&atilde;o de Falha)</dt>
+<dd>
+<p>Per&iacute;odo de tempo ap&oacute;s o qual uma suspeita de falha &eacute; marcada como verificada. O default &eacute; 1500 milissegundos.</p>
 </dd>
 <dt>Propriedades adicionais</dt>
-<dd><p>Tabela de propriedades adicionais do Servi&#231;o de gerenciamento de grupos.</p>
-
-<p>O Servidor GlassFish n&#227;o define propriedades adicionais do GMS.</p>
-
-<p>S&#227;o exibidas as seguintes informa&#231;&#245;es para cada propriedade:</p>
-
-<dl><dt>Nome</dt>
-<dd><p>O nome da propriedade.</p>
-
+<dd>
+<p>Tabela de propriedades adicionais do Servi&ccedil;o de gerenciamento de grupos.</p>
+<p>O GlassFish Server n&atilde;o define propriedades adicionais do GMS.</p>
+<p>S&atilde;o exibidas as seguintes informa&ccedil;&otilde;es para cada propriedade:</p>
+<dl>
+<dt>Nome</dt>
+<dd>
+<p>O nome da propriedade.</p>
 </dd>
 <dt>Valor</dt>
-<dd><p>Valor da propriedade definida para a inst&#226;ncia selecionada.</p>
-
+<dd>
+<p>Valor da propriedade definida para a inst&acirc;ncia selecionada.</p>
 </dd>
-<dt>Descri&#231;&#227;o</dt>
-<dd><p>Descri&#231;&#227;o textual que oferece mais informa&#231;&#245;es sobre a propriedade.</p>
-
-</dd>
-</dl>
-<p>A tabela Propriedades adicionais tamb&#233;m cont&#233;m as seguintes op&#231;&#245;es.</p>
-
-<dl><dt>Adicionar propriedade</dt>
-<dd><p>Bot&#227;o para adicionar uma propriedade. Se clicar neste bot&#227;o, uma linha &#233; adicionada &#224; tabela Propriedades adicionais.</p>
-
-</dd>
-<dt>Excluir propriedades</dt>
-<dd><p>Bot&#227;o para excluir uma ou mais propriedades selecionadas. Qualquer propriedade exclu&#237;da volta ao seu valor padr&#227;o ou, se nenhum valor tiver sido definido, fica com valor indefinido.</p>
-
+<dt>Descri&ccedil;&atilde;o</dt>
+<dd>
+<p>Descri&ccedil;&atilde;o textual que oferece mais informa&ccedil;&otilde;es sobre a propriedade.</p>
 </dd>
 </dl>
+<p>A tabela Propriedades adicionais tamb&eacute;m cont&eacute;m as seguintes op&ccedil;&otilde;es.</p>
+<dl>
+<dt>Adicionar propriedade</dt>
+<dd>
+<p>Bot&atilde;o para adicionar uma propriedade. Se clicar neste bot&atilde;o, uma linha &eacute; adicionada &agrave; tabela Propriedades adicionais.</p>
+</dd>
+<dt>Deletar propriedades</dt>
+<dd>
+<p>Bot&atilde;o para deletar uma ou mais propriedades selecionadas. Qualquer propriedade deletada volta ao seu valor default ou, se nenhum valor tiver sido definido, fica com valor indefinido.</p>
 </dd>
 </dl>
-<h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-gmsenable.html">Para ativar o servi&#231;o de gerenciamento de grupos</a></p>
-
+</dd>
+</dl>
+<a id="sthref355" name="sthref355"></a>
+<h5>Tarefas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-gmsenable.html">Para Ativar o Servi&ccedil;o de Gerenciamento de Grupos</a></p>
 </li>
-<li><p><a href="task-gms.html">Para configurar o servi&#231;o de gerenciamento de grupos</a></p>
-
+<li>
+<p><a href="task-gms.html">Para Configurar o Servi&ccedil;o de Gerenciamento de Grupos</a></p>
 </li>
-<li><p><a href="task-gmscluster.html">Para configurar as defini&#231;&#245;es do servi&#231;o de gerenciamento de grupos de um cluster</a></p>
+<li>
+<p><a href="task-gmscluster.html">Para Configurar Defini&ccedil;&otilde;es do Servi&ccedil;o de Gerenciamento de Grupos de um Cluster</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

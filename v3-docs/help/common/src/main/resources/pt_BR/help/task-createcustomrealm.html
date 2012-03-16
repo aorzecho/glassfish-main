@@ -1,43 +1,60 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-createcustomrealm" name="task-createcustomrealm"></a><a id="GHCOM00187" name="GHCOM00187"></a></p>
 
-
-<a name="task-createcustomrealm"></a><h3>Para criar um dom&#237;nio personalizado</h3><a name="indexterm-85"></a><a name="indexterm-86"></a><p>Al&#233;m dos tr&#234;s dom&#237;nios incorporados, voc&#234; tamb&#233;m pode criar dom&#237;nios personalizados que
-armazenem dados de usu&#225;rio de algum outro modo, como em um banco
-de dados relacional.  O desenvolvimento de um dom&#237;nio personalizado est&#225; fora
-do escopo deste documento.  Para obter mais informa&#231;&#245;es, consulte o <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beabg">Cap&#237;tulo 4, Securing Applications, no <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p>
-
-<p>Para fins de administra&#231;&#227;o, os dom&#237;nios personalizados s&#227;o implementados por uma classe
-(chamada de <tt>LoginModule</tt>) derivada do pacote do Java Authentication and Authorization Service
-(JAAS).</p>
-
+<h4><a id="sthref147" name="sthref147"></a><a id="sthref148" name="sthref148"></a>Para Criar um Realm Personalizado</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Al&eacute;m dos tr&ecirc;s realms incorporados, voc&ecirc; tamb&eacute;m pode criar realms personalizados que armazenem dados de usu&aacute;rio de algum outro modo, como em um banco de dados relacional. O desenvolvimento de um realm personalizado est&aacute; fora do escopo deste documento. Para obter mais informa&ccedil;&otilde;es, consulte o <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDVG00006">Cap&iacute;tulo 5, <i>Securing Applications,</i> no <i>Oracle GlassFish Server Application Development Guide</i></a>.</p>
+<p>Para fins de administra&ccedil;&atilde;o, os realms personalizados s&atilde;o implementados por uma classe (chamada de <code>LoginModule</code>) derivada do pacote do Java Authentication and Authorization Service (JAAS).</p>
 <ol>
-<li><b>Siga o procedimento definido em <a href="task-realmnew.html">Para criar um dom&#237;nio</a>, digitando o nome do dom&#237;nio personalizado
-e o nome da classe <tt> LoginModule</tt>. </b><p>Use qualquer nome exclusivo para o dom&#237;nio personalizado; por exemplo, <tt>myCustomRealm</tt>.</p></li>
-<li><b>Clique em OK.</b></li>
-<li><b>Edite o arquivo de configura&#231;&#227;o de login do dom&#237;nio, <tt></tt><i>domain-dir</i><tt>/config/login.conf </tt>, e adicione
-o nome de classe totalmente qualificado do <tt>LoginModule </tt> do JAAS, no final
-do arquivo, como a seguir:</b><pre><i>realmName</i> {
+<li>
+<p>Siga o procedimento descrito em <a href="task-realmnew.html">Para Criar um Realm</a>, digitando o nome do realm personalizado e o nome da classe <code>LoginModule</code>.</p>
+<p>Use qualquer nome exclusivo para o realm personalizado; por exemplo, <code>myCustomRealm</code>.</p>
+</li>
+<li>
+<p>Clique em OK.</p>
+</li>
+<li>
+<p>Edite o arquivo de configura&ccedil;&atilde;o de log-in do dom&iacute;nio, <i>domain-dir</i><code>/config/login.conf</code>, e adicione o nome da classe totalmente qualificado do <code>LoginModule</code> do JAAS no final do arquivo, como se segue:</p>
+<pre>
+<i>realmName</i> {
     <i>fully-qualified-LoginModule-classname</i> required;
-};</pre><p>Por exemplo,</p><pre>myCustomRealm {
+};
+</pre>
+<p>Por exemplo,</p>
+<pre>
+myCustomRealm {
     com.foo.bar.security.customrealm.simpleCustomLoginModule required;
-};</pre></li>
-<li><b>Copie a classe do <tt>LoginModule</tt><tt> e todas as classes dependentes no diret&#243;rio </tt><i>domain-dir</i><tt>/lib/classes</tt>.</b></li>
-<li><b>Reinicie o servidor se Reinicializa&#231;&#227;o Necess&#225;ria aparecer no Console de Administra&#231;&#227;o. </b></li>
-<li><b>Verifique se o dom&#237;nio est&#225; devidamente carregado.</b><p>Verifique o <tt></tt><i>domain-dir</i><tt>/logs/server.log </tt> para se certificar de que o servidor carregou o
-dom&#237;nio. O servidor deve invocar o m&#233;todo <tt>init</tt> do dom&#237;nio.</p></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-realmnew.html">Para criar um dom&#237;nio</a></p>
-
+};
+</pre></li>
+<li>
+<p>Copie a classe <code>LoginModule</code> e todas as classes dependentes no diret&oacute;rio <i>domain-dir</i><code>/lib/classes</code>.</p>
 </li>
-<li><p><a href="task-realmedit.html">Para editar um dom&#237;nio</a></p>
-
+<li>
+<p>Reinicie o servidor se Reinicializa&ccedil;&atilde;o Necess&aacute;ria aparecer no Console de Administra&ccedil;&atilde;o.</p>
 </li>
-<li><p><a href="task-todeleterealm.html">Para excluir um dom&#237;nio</a></p>
+<li>
+<p>Verifique se o realm est&aacute; devidamente carregado.</p>
+<p>Verifique <i>domain-dir</i><code>/logs/server.log</code> para garantir que o servidor tenha carregado o realm. O servidor dever&aacute; chamar o m&eacute;todo <code>init</code> do realm.</p>
+</li>
+</ol>
+<a id="sthref149" name="sthref149"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-realmnew.html">Para Criar um Realm</a></p>
+</li>
+<li>
+<p><a href="task-realmedit.html">Para Editar um Realm</a></p>
+</li>
+<li>
+<p><a href="task-todeleterealm.html">Para Deletar um Realm</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

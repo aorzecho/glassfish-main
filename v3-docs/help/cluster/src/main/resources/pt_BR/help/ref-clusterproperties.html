@@ -1,97 +1,127 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-clusterproperties"></a><h4>Propriedades do cluster</h4>
-<a name="indexterm-193"></a><a name="indexterm-194"></a><p>A p&#225;gina Propriedades do cluster exibe uma lista das propriedades que est&#227;o
-definidas para os clusters selecionados. Estas propriedades acrescentam informa&#231;&#245;es opcionais de configura&#231;&#227;o
-sobre o cluster.</p>
+<p><a id="ref-clusterproperties" name="ref-clusterproperties"></a><a id="GHCLU00014" name="GHCLU00014"></a></p>
 
-<p>O campo Nome do cluster &#233; um campo de somente leitura que
-exibe o nome do cluster selecionado.</p>
-
-<p>S&#227;o exibidas as seguintes informa&#231;&#245;es para cada propriedade:</p>
-
-<dl><dt>Nome</dt>
-<dd><p>O nome da propriedade.</p>
-
+<h4><a id="sthref300" name="sthref300"></a><a id="sthref301" name="sthref301"></a>Propriedades do Cluster</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>A p&aacute;gina Propriedades do cluster exibe uma lista das propriedades que est&atilde;o definidas para os clusters selecionados. Estas propriedades acrescentam informa&ccedil;&otilde;es opcionais de configura&ccedil;&atilde;o sobre o cluster.</p>
+<p>O campo Nome do cluster &eacute; um campo somente para leitura que exibe o nome do cluster selecionado.</p>
+<p>S&atilde;o exibidas as seguintes informa&ccedil;&otilde;es para cada propriedade:</p>
+<dl>
+<dt>Nome</dt>
+<dd>
+<p>O nome da propriedade.</p>
 </dd>
 <dt>Valor</dt>
-<dd><p>Valor da propriedade definida para a inst&#226;ncia selecionada.</p>
-
+<dd>
+<p>Valor da propriedade definida para a inst&acirc;ncia selecionada.</p>
 </dd>
-<dt>Descri&#231;&#227;o</dt>
-<dd><p>Descri&#231;&#227;o textual que oferece mais informa&#231;&#245;es sobre a propriedade.</p>
-
-</dd>
-</dl>
-<p>A tabela Propriedades adicionais tamb&#233;m cont&#233;m as seguintes op&#231;&#245;es.</p>
-
-<dl><dt>Adicionar propriedade</dt>
-<dd><p>Bot&#227;o para adicionar uma propriedade. Se clicar neste bot&#227;o, uma linha &#233; adicionada &#224; tabela Propriedades adicionais.</p>
-
-</dd>
-<dt>Excluir propriedades</dt>
-<dd><p>Bot&#227;o para excluir uma ou mais propriedades selecionadas. Qualquer propriedade exclu&#237;da volta ao seu valor padr&#227;o ou, se nenhum valor tiver sido definido, fica com valor indefinido.</p>
-
+<dt>Descri&ccedil;&atilde;o</dt>
+<dd>
+<p>Descri&ccedil;&atilde;o textual que oferece mais informa&ccedil;&otilde;es sobre a propriedade.</p>
 </dd>
 </dl>
-<p>O Servidor GlassFish define as seguintes propriedades do cluster:</p>
-
-<dl><dt><tt>GMS_LISTENER_PORT</tt></dt>
-<dd><p>O n&#250;mero da porta na qual o cluster escuta as mensagens provenientes do servi&#231;o de gerenciamento de grupo (GMS). O valor padr&#227;o deve ser suficiente na maioria dos casos.</p>
-
+<p>A tabela Propriedades adicionais tamb&eacute;m cont&eacute;m as seguintes op&ccedil;&otilde;es.</p>
+<dl>
+<dt>Adicionar propriedade</dt>
+<dd>
+<p>Bot&atilde;o para adicionar uma propriedade. Se clicar neste bot&atilde;o, uma linha &eacute; adicionada &agrave; tabela Propriedades adicionais.</p>
 </dd>
-<dt><tt>GMS_LOOPBACK</tt></dt>
-<dd><p>Especifique se uma inst&#226;ncia pode receber de si mesma mensagens do n&#237;vel do aplicativo que a inst&#226;ncia transmite para o cluster.</p>
-
-<p>Os valores poss&#237;veis s&#227;o os seguintes:</p>
-
-<dl><dt><tt>false</tt></dt>
-<dd><p>A inst&#226;ncia <b>n&#227;o</b> pode receber mensagens de si mesma (padr&#227;o).</p>
-
+<dt>Deletar propriedades</dt>
+<dd>
+<p>Bot&atilde;o para deletar uma ou mais propriedades selecionadas. Qualquer propriedade deletada volta ao seu valor default ou, se nenhum valor tiver sido definido, fica com valor indefinido.</p>
 </dd>
-<dt><tt>true</tt></dt>
-<dd><p>A inst&#226;ncia pode receber mensagens de si mesma. Utilize esta configura&#231;&#227;o para testar um inst&#226;ncia quando tal inst&#226;ncia for a &#250;nica em um cluster.</p>
-
+</dl>
+<p>O GlassFish Server define as seguintes propriedades do cluster:</p>
+<dl>
+<dt><code>GMS_LISTENER_PORT</code></dt>
+<dd>
+<p>No cluster, o n&uacute;mero da porta de listener para as mensagens provenientes do servi&ccedil;o de gerenciamento de grupo (GMS).</p>
+<p>O valor default &eacute; <code>${GMS_LISTENER_PORT-</code><i>cluster-name</i><code>}</code>. Na maioria das situa&ccedil;&otilde;es, esse valor default dever&aacute; ser suficiente.</p>
+<p>Entretanto, se GMS <b>n&atilde;o</b> estiver usando multicast para transmitir mensagens, essa propriedade dever&aacute; specificar um n&uacute;mero de porta que &eacute; v&aacute;lido para todas as inst&acirc;ncias GlassFish Server no cluster. Para usar o valor default para atender a essas exig&ecirc;ncias, use uma propriedade do sistema para definir o n&uacute;mero da porta de cada inst&acirc;ncia individualmente.</p>
+<p>Por exemplo, use a p&aacute;gina <a href="ref-clustersystemproperties.html">Propriedades do Sistema do Cluster</a> para criar a propriedade do sistema <code>GMS_LISTENER_PORT-</code><i>cluster-name</i>. Assim, para cada inst&acirc;ncia no cluster, defina a propriedade do sistema <code>GMS_LISTENER_PORT-</code><i>cluster-name</i> para o n&uacute;mero da porta no qual a inst&acirc;ncia faz listening das mensagens de GMS. O valor default da propriedade <code>GMS_LISTENER_PORT</code> para o cluster faz refer&ecirc;ncia a essa propriedade do sistema.</p>
+</dd>
+<dt><code>GMS_LOOPBACK</code></dt>
+<dd>
+<p>Especifique se uma inst&acirc;ncia pode receber de si mesma mensagens do n&iacute;vel da aplica&ccedil;&atilde;o que a inst&acirc;ncia transmite para o cluster.</p>
+<p>Os valores poss&iacute;veis s&atilde;o os seguintes:</p>
+<dl>
+<dt><code>false</code></dt>
+<dd>
+<p>A inst&acirc;ncia <i>n&atilde;o</i> pode receber mensagens de si mesma (default).</p>
+</dd>
+<dt><code>true</code></dt>
+<dd>
+<p>A inst&acirc;ncia pode receber mensagens de si mesma. Utilize esta defini&ccedil;&atilde;o para testar um inst&acirc;ncia quando tal inst&acirc;ncia for a &uacute;nica em um cluster.</p>
 </dd>
 </dl>
 </dd>
-<dt><tt>GMS_MULTICAST_TIME_TO_LIVE</tt></dt>
-<dd><p>O n&#250;mero m&#225;ximo de itera&#231;&#245;es ou transmiss&#245;es que uma mensagem multicast dos seguintes tipos de evento pode sofrer antes que a mensagem seja descartada:</p>
-
-
-<ul><li><p>Descoberta de grupo</p>
-
+<dt><code>GMS_MULTICAST_TIME_TO_LIVE</code></dt>
+<dd>
+<p>O n&uacute;mero m&aacute;ximo de itera&ccedil;&otilde;es ou transmiss&otilde;es que uma mensagem multicast dos seguintes tipos de evento pode sofrer antes que a mensagem seja descartada:</p>
+<ul>
+<li>
+<p>Descoberta de grupo</p>
 </li>
-<li><p>Pulsa&#231;&#245;es do membro</p>
-
+<li>
+<p>Pulsa&ccedil;&otilde;es do membro</p>
 </li>
-<li><p>Altera&#231;&#245;es da associa&#231;&#227;o</p>
-
-</li></ul>
-<p>Para coincidir com a configura&#231;&#227;o da rede na qual o DAS e as inst&#226;ncias em cluster est&#227;o implantadas, defina este valor com menor valor poss&#237;vel. Para determinar o menor valor poss&#237;vel do seu sistema, utilize o subcomando <tt>validate-multicast</tt>(1).</p>
-
-<p>O valor 0 garante que as mensagens multicast nunca saiam do host do qual elas s&#227;o transmitidas.</p>
-
-<p>O valor 1 pode evitar a transmiss&#227;o de mensagens entre hosts da mesma sub-rede conectados por um comutador ou um roteador. </p>
-
-<p>O padr&#227;o &#233; 4, o que garante que as mensagens sejam transmitidas com &#234;xito para todos os membros do cluster em redes nas quais os hosts est&#227;o conectados por comutadores ou roteadores.</p>
-
+<li>
+<p>Altera&ccedil;&otilde;es da associa&ccedil;&atilde;o</p>
+</li>
+</ul>
+<p>Para coincidir com a configura&ccedil;&atilde;o da rede na qual o DAS e as inst&acirc;ncias clusterizadas est&atilde;o implantadas, defina este valor com menor valor poss&iacute;vel. Para determinar o menor valor poss&iacute;vel do sistema, use o subcomando <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00259"><code>validate-multicast</code>(1)</a>.</p>
+<p>O valor 0 garante que as mensagens multicast nunca saiam do host do qual elas s&atilde;o transmitidas.</p>
+<p>O valor 1 pode evitar a transmiss&atilde;o de mensagens entre hosts da mesma sub-rede conectados por um comutador ou um roteador.</p>
+<p>O default &eacute; 4, o que garante que as mensagens sejam transmitidas com &ecirc;xito para todos os membros do cluster em redes nas quais os hosts est&atilde;o conectados por comutadores ou roteadores.</p>
+</dd>
+<dt><code>GMS_DISCOVERY_URI_LIST</code></dt>
+<dd>
+<p>Os locais das inst&acirc;ncias GlassFish Server para os quais o GMS ir&aacute; enviar eventos de grupo. Esta propriedade s&oacute; &eacute; obrigat&oacute;ria se o GMS n&atilde;o estiver usando multicast para transferir mensagens.</p>
+<p>Os valores v&aacute;lidos dessa propriedade s&atilde;o os seguintes:</p>
+<ul>
+<li>
+<p>Uma lista separada por v&iacute;rgulas de URIs (Uniform Resource Identifiers). Cada URI deve localizar uma inst&acirc;ncia de GlassFish Server. Esse formato &eacute; obrigat&oacute;rio se v&aacute;rias inst&acirc;ncias GlassFish Server estiverem sendo executadas no mesmo host.</p>
+<p>O formato de cada URI na lista &eacute; o seguinte:</p>
+<p><i>esquema</i><code>://</code><i>host-name-or -IP-address</i><code>:</code><i>porta</i></p>
+<ul>
+<li>
+<p><i>esquema</i> &eacute; o esquema de URI, que &eacute; <code>tcp</code>.</p>
+</li>
+<li>
+<p><i>host-name-or -IP-address</i> &eacute; o nome do host ou o endere&ccedil;o IP do host no qual a inst&acirc;ncia est&aacute; sendo executada.</p>
+</li>
+<li>
+<p><i>porta</i> &eacute; o n&uacute;mero da porta no qual a inst&acirc;ncia faz listening de mensagens de GMS. A propriedade do sistema <code>GMS_LISTENER_PORT-</code><i>clustername</i> deve ser definido pela inst&acirc;ncia. Para obter mais informa&ccedil;&otilde;es sobre como definir essas prooriedades do sistema, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSHAG00373"><i>Lozalizando Inst&acirc;ncias GlassFish Server Quando Multicast Estiver Desativado,</i> em <i>Oracle GlassFish Server High Availability Administration Guide</i></a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Uma lista separada por v&iacute;rgulas de endere&ccedil;os IP ou de nomes de host. A lista pode conter uma mistura de endere&ccedil;os IP e nomes de host. Esse formato s&oacute; poder&aacute; ser usado se uma inst&acirc;ncia clusterizada estiver sendo executada em cada host. O valor da propriedade <code>GMS_LISTENER_PORT</code> deve ser &uacute;nico para cada cluster no dom&iacute;nio.</p>
+</li>
+<li>
+<p>A palavra-chave <code>gerar</code>. Esse formato s&oacute; pode ser usado se uma inst&acirc;ncia clusterizada estiver sendo executada em cada host. V&aacute;rias inst&acirc;ncias no mesmo host n&atilde;o podem ser membros do mesmo cluster. O valor da propriedade <code>GMS_LISTENER_PORT</code> deve ser &uacute;nico para cada cluster no dom&iacute;nio.</p>
+</li>
+</ul>
 </dd>
 </dl>
-<h5>Subcomandos <tt>asadmin</tt> equivalentes</h5>
-
-<ul><li><p><tt>get</tt>(1)</p>
-
+<a id="sthref302" name="sthref302"></a>
+<h5>Subcomandos asadmin Equivalentes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00139"><code>get</code>(1)</a></p>
 </li>
-<li><p><tt>list</tt>(1)</p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00145"><code>list</code>(1)</a></p>
 </li>
-<li><p><tt>set</tt>(1)</p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00226"><code>set</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

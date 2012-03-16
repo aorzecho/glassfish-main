@@ -1,56 +1,83 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-ejbmdbpoolsettings" name="task-ejbmdbpoolsettings"></a><a id="GHEJB00004" name="GHEJB00004"></a></p>
 
-
-<a name="task-ejbmdbpoolsettings"></a><h3>Para configurar as defini&#231;&#245;es do conjunto MDB</h3><a name="indexterm-1"></a><a name="indexterm-2"></a><a name="indexterm-3"></a><a name="indexterm-4"></a><a name="indexterm-5"></a><p>O conjunto para beans conduzidos por mensagem &#233; semelhante ao conjunto para
-os beans de sess&#227;o. Por padr&#227;o, o recipiente mant&#233;m um conjunto de
-beans conduzidos por mensagem.</p>
-
-<p>Para ajustar a configura&#231;&#227;o desse conjunto, execute as etapas a seguir.</p>
-
+<h4><a id="sthref2" name="sthref2"></a><a id="sthref3" name="sthref3"></a><a id="sthref4" name="sthref4"></a>Para Configurar Defini&ccedil;&otilde;es do Pool MDB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>O pool para beans baseados em mensagens &eacute; semelhante ao pool para os beans de sess&atilde;o. Por default, o cont&ecirc;iner mant&eacute;m um pool de beans baseados em mensagens.</p>
+<p>Para ajustar a configura&ccedil;&atilde;o desse pool, execute as etapas a seguir.</p>
 <ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>Selecione o n&#243; Recipiente EJB.</b><p>A p&#225;gina Enterprise Java Beans (EJB) &#233; aberta.</p></li>
-<li><b>Clique na guia Configura&#231;&#245;es MDB.</b><p>A p&#225;gina Configura&#231;&#245;es do conjunto MDB padr&#227;o &#233; aberta.</p></li>
-<li><b>No campo Tamanho inicial e M&#237;nimo do conjunto, digite o n&#250;mero m&#237;nimo
-de beans de mensagem a serem mantidos no conjunto.</b><p>O valor padr&#227;o &#233; 0.</p></li>
-<li><b>No campo Tamanho m&#225;ximo do conjunto, digite o n&#250;mero m&#225;ximo de beans
-que o recipiente pode manter no conjunto ao mesmo tempo.</b><p>O valor padr&#227;o &#233; 32.</p></li>
-<li><b>No campo Quantidade de redimensionamento do conjunto, digite o n&#250;mero de beans
-que s&#227;o removidos do conjunto, se estiverem ociosos por mais tempo do
-que o especificado no campo Tempo limite do conjunto ocioso.</b><p>O valor precisa ser ao menos 0 e menor do que o
-valor de Tamanho m&#225;ximo do conjunto. O valor padr&#227;o &#233; 8.</p></li>
-<li><b>No campo Tempo limite do conjunto ocioso, digite o tempo, em segundos,
-que um bean do conjunto pode permanecer ocioso antes que seja removido.</b><p>Ap&#243;s essa quantidade de tempo, o bean &#233; destru&#237;do. Um valor de
-0 significa que um bean pode permanecer ocioso indefinidamente. O valor padr&#227;o
-&#233; 600.</p></li>
-<li>(Opcional) <b>Na se&#231;&#227;o Propriedades adicionais, especifique as propriedades adicionais.</b><p>O Servidor GlassFish n&#227;o define quaisquer propriedades adicionais para o conjunto MDB.</p><ul>
-<li><b>Para adicionar uma propriedade, clique no bot&#227;o Adicionar propriedade. Na linha em
-branco que &#233; exibida, digite o nome da propriedade no campo Nome
-e digite o valor da propriedade no campo Valor.</b></li>
-<li><b>Para modificar uma propriedade, edite o campo Valor da propriedade.</b></li>
-<li><b>Para excluir uma propriedade, marque a caixa de sele&#231;&#227;o &#224; esquerda do
-campo Nome da propriedade a ser exclu&#237;da. Clique no bot&#227;o Excluir propriedades.</b></li></ul></li>
-<li><b>Clique em Salvar.</b>
-<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar padr&#245;es e, em
-seguida, em Salvar. </p>
-
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
+</li>
+<li>
+<p>Selecione o n&oacute; Cont&ecirc;iner EJB.</p>
+<p>A p&aacute;gina Enterprise Java Beans (EJB) &eacute; aberta.</p>
+</li>
+<li>
+<p>Clique na guia Defini&ccedil;&otilde;es MDB.</p>
+<p>A p&aacute;gina Defini&ccedil;&otilde;es do Pool MDB Default &eacute; aberta.</p>
+</li>
+<li>
+<p>No campo Tamanho inicial e M&iacute;nimo do Pool, digite o n&uacute;mero m&iacute;nimo de beans de mensagem a serem mantidos no Pool.</p>
+<p>O valor default &eacute; 0.</p>
+</li>
+<li>
+<p>No campo Tamanho M&aacute;ximo do Pool, digite o n&uacute;mero m&aacute;ximo de beans que o cont&ecirc;iner pode manter no pool ao mesmo tempo.</p>
+<p>O valor default &eacute; 32.</p>
+</li>
+<li>
+<p>No campo Quantidade de Redimensionamento do Pool, digite o n&uacute;mero de beans que ser&atilde;o removidos do Pool, se estiverem ociosos por mais tempo do que o especificado no campo Time-out para Pool Ocioso.</p>
+<p>O valor precisa ser ao menos 0 e menor do que o valor de Tamanho m&aacute;ximo do Pool. O valor default &eacute; 8.</p>
+</li>
+<li>
+<p>No campo Time-out para Pool ocioso, digite o tempo, em segundos, que um bean do Pool pode permanecer ocioso antes que seja removido.</p>
+<p>Ap&oacute;s essa quantidade de tempo, o bean &eacute; destru&iacute;do. Um valor de 0 significa que um bean pode permanecer ocioso indefinidamente. O valor default &eacute; 600.</p>
+</li>
+<li>
+<p>Na se&ccedil;&atilde;o Propriedades adicionais, especifique as propriedades adicionais.</p>
+<p>O GlassFish Server n&atilde;o define quaisquer propriedades adicionais para o pool MDB.</p>
+<ul>
+<li>
+<p>Para adicionar uma propriedade, clique no bot&atilde;o Adicionar propriedade. Na linha em branco que &eacute; exibida, digite o nome da propriedade no campo Nome e digite o valor da propriedade no campo Valor.</p>
+</li>
+<li>
+<p>Para modificar uma propriedade, edite o campo Valor da propriedade.</p>
+</li>
+<li>
+<p>Para deletar uma propriedade, marque a caixa de sele&ccedil;&atilde;o &agrave; esquerda do campo Nome da Propriedade a ser deletada. Clique no bot&atilde;o Deletar Propriedades.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Clique em Salvar.</p>
 
 <hr>
-</li>
-<li><b>Reinicie o Servidor GlassFish.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2966&id=task-ejbgeneral">Para configurar as defini&#231;&#245;es EJB</a></p>
+<p><b>Dica:</b></p>
+Para voltar &agrave;s defini&ccedil;&otilde;es default, clique no bot&atilde;o Carregar Defaults e depois em Salvar.
+<hr>
 
 </li>
-<li><p><a href="task-ejbtimerservice.html">Para configurar o servi&#231;o de temporizador EJB</a></p>
-
+<li>
+<p>Reinicie o GlassFish Server.</p>
 </li>
-<li><p><a href="task-ejbcontaineravailability.html">Para configurar as defini&#231;&#245;es de disponibilidade de um recipiente EJB</a></p>
+</ol>
+<a id="sthref5" name="sthref5"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="../../../ejb-lite/pt_BR/help/missingtopic.html">Para Configurar as Defini&ccedil;&otilde;es EJB</a></p>
+</li>
+<li>
+<p><a href="task-ejbtimerservice.html">Para Configurar o Servi&ccedil;o de Timer EJB</a></p>
+</li>
+<li>
+<p><a href="task-ejbcontaineravailability.html">Para Configurar Defini&ccedil;&otilde;es de Disponibilidade do Cont&ecirc;iner EJB</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

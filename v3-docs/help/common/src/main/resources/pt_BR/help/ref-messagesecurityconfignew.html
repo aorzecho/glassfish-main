@@ -1,85 +1,89 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-messagesecurityconfignew"></a><h4>Nova Configura&#231;&#227;o de Seguran&#231;a de Mensagens</h4>
-<a name="indexterm-230"></a><p>Use a p&#225;gina Nova Configura&#231;&#227;o de Seguran&#231;a de Mensagens para criar uma
-configura&#231;&#227;o HttpServlet de seguran&#231;a de mensagens.</p>
+<p><a id="ref-messagesecurityconfignew" name="ref-messagesecurityconfignew"></a><a id="GHCOM00119" name="GHCOM00119"></a></p>
 
-<p>A p&#225;gina Nova Configura&#231;&#227;o de Seguran&#231;a de Mensagens cont&#233;m as seguintes op&#231;&#245;es.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<h4><a id="sthref423" name="sthref423"></a>Nova Configura&ccedil;&atilde;o de Seguran&ccedil;a da Mensagem</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Use a p&aacute;gina Nova Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens para criar uma configura&ccedil;&atilde;o HttpServlet de seguran&ccedil;a de mensagens.</p>
+<p>A p&aacute;gina Nova Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens cont&eacute;m as seguintes op&ccedil;&otilde;es.</p>
+<dl>
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
-<dt>Camada de Autentica&#231;&#227;o</dt>
-<dd><p>Especifica a camada de mensagens na qual a autentica&#231;&#227;o &#233; realizada. O valor deve ser <tt>SOAP</tt> ou <tt>HttpServlet</tt>. Como a configura&#231;&#227;o do SOAP est&#225; dispon&#237;vel por padr&#227;o, a &#250;nica op&#231;&#227;o &#233; <tt>HttpServlet</tt>.</p>
-
+<dt>Camada de Autentica&ccedil;&atilde;o</dt>
+<dd>
+<p>Especifica a camada de mensagens na qual a autentica&ccedil;&atilde;o &eacute; realizada. O valor deve ser <code>SOAP</code> ou <code>HttpServlet</code>. Como uma configura&ccedil;&atilde;o SOAP est&aacute; dispon&iacute;vel por default, a &uacute;nica op&ccedil;&atilde;o &eacute; <code>HttpServlet</code>.</p>
 </dd>
 <dt>ID do Provedor</dt>
-<dd><p>O identificador exclusivo da configura&#231;&#227;o do provedor desta configura&#231;&#227;o de seguran&#231;a de mensagem.</p>
-
+<dd>
+<p>O identificador exclusivo da configura&ccedil;&atilde;o do provedor desta configura&ccedil;&atilde;o de seguran&ccedil;a de mensagem.</p>
 </dd>
-<dt>Provedor Padr&#227;o</dt>
-<dd><p>Se esta op&#231;&#227;o for selecionada, este provedor ser&#225; o provedor padr&#227;o. O provedor padr&#227;o ser&#225; chamado para qualquer aplicativo que n&#227;o identifique um provedor espec&#237;fico. Se o provedor for o provedor de cliente padr&#227;o, o provedor de servidor padr&#227;o, ou de ambos, &#233; determinado pelo Tipo de Provedor.</p>
-
+<dt>Provedor Default</dt>
+<dd>
+<p>Se esta op&ccedil;&atilde;o for selecionada, este provedor ser&aacute; o provedor default. O provedor default ser&aacute; chamado para qualquer aplica&ccedil;&atilde;o que n&atilde;o identifique um provedor espec&iacute;fico. Se o provedor for o provedor de cliente default, o provedor de servidor default, ou de ambos, &eacute; determinado pelo Tipo de Provedor.</p>
 </dd>
 <dt>Tipo de Provedor</dt>
-<dd><p>Especifica o tipo do provedor. As op&#231;&#245;es dispon&#237;veis s&#227;o:</p>
-
-<dl><dt><tt>cliente</tt></dt>
-<dd><p>Especifica que o provedor &#233; o provedor de autentica&#231;&#227;o do cliente.</p>
-
+<dd>
+<p>Especifica o tipo do provedor. As op&ccedil;&otilde;es dispon&iacute;veis s&atilde;o:</p>
+<dl>
+<dt><code>cliente</code></dt>
+<dd>
+<p>Especifica que o provedor &eacute; o provedor de autentica&ccedil;&atilde;o do cliente.</p>
 </dd>
-<dt><tt>servidor</tt></dt>
-<dd><p>Especifica que o provedor &#233; o provedor de autentica&#231;&#227;o do servidor.</p>
-
+<dt><code>servidor</code></dt>
+<dd>
+<p>Especifica que o provedor &eacute; o provedor de autentica&ccedil;&atilde;o do servidor.</p>
 </dd>
-<dt><tt>cliente-servidor</tt></dt>
-<dd><p>Especifica que o provedor e um provedor de autentica&#231;&#227;o do cliente e do servidor.</p>
-
+<dt><code>cliente-servidor</code></dt>
+<dd>
+<p>Especifica que o provedor &eacute; um provedor de autentica&ccedil;&atilde;o do cliente e do servidor.</p>
 </dd>
 </dl>
 </dd>
 <dt>Nome da Classe</dt>
-<dd><p>O nome da classe de implementa&#231;&#227;o Java do provedor. Os provedores de autentica&#231;&#227;o cliente devem implementar a <tt>com.sun.enterprise.security.jauth.ClientAuthModule</tt> da interface. Os provedores do lado do servidor devem implementar a <tt>com.sun.enterprise.security.jauth.ServerAuthModule</tt> da interface. Os provedores de cliente-servidor devem implementar as duas interfaces.</p>
-
+<dd>
+<p>O nome da classe de implementa&ccedil;&atilde;o Java do provedor. Provedores de autentica&ccedil;&atilde;o do cliente devem implementar a interface <code>com.sun.enterprise.security.jauth.ClientAuthModule</code>. Provedores do servidor devem implementar a interface <code>com.sun.enterprise.security.jauth.ServerAuthModule</code>. Os provedores de cliente-servidor devem implementar as duas interfaces.</p>
 </dd>
 <dt>Propriedades Adicionais</dt>
-<dd><p>Propriedades adicionais para configura&#231;&#227;o de seguran&#231;a de mensagens.</p>
-
+<dd>
+<p>Propriedades adicionais para configura&ccedil;&atilde;o de seguran&ccedil;a de mensagens.</p>
 </dd>
 </dl>
-<a name="gkokx"></a><h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-configmsgsecproviders.html">Para configurar os recursos do Servidor GlassFish para uso pelos provedores de seguran&#231;a de mensagens</a></p>
-
+<a id="sthref424" name="sthref424"></a>
+<h5>Tarefas relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-configmsgsecproviders.html">Para Configurar Recursos do GlassFish Server para Uso por Provedores de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfignew.html">Para criar uma configura&#231;&#227;o de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfignew.html">Para Criar uma Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigedit.html">Para editar uma configura&#231;&#227;o de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigedit.html">Para Editar uma Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigdelete.html">Para excluir uma configura&#231;&#227;o de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigdelete.html">Para Deletar uma Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfignew.html">Para criar uma configura&#231;&#227;o de provedor de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfignew.html">Para Criar uma Configura&ccedil;&atilde;o do Provedor de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigedit.html">Para editar uma configura&#231;&#227;o de provedor de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigedit.html">Para Editar uma Configura&ccedil;&atilde;o do Provedor de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigdelete.html">Para excluir uma configura&#231;&#227;o de provedor de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigdelete.html">Para Deletar uma Configura&ccedil;&atilde;o do Provedor de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-enablemesec4appclients.html">Para ativar a seguranda de mensagens para clientes aplicativos</a></p>
-
-</li></ul>
-<a name="gkone"></a><h5>Comandos <tt>asadmin</tt> relacionados</h5>
+<li>
+<p><a href="task-enablemesec4appclients.html">Para Ativar a Seguran&ccedil;a de Mensagens de Clientes da Aplica&ccedil;&atilde;o</a></p>
+</li>
+</ul>
+<a id="sthref425" name="sthref425"></a>
+<h5>Comandos asadmin Relacionados</h5>
 <p>Nenhum.</p>
 
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,62 +1,65 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmxconnectoredit"></a><h4>Editar Conector JMX</h4>
-<a name="indexterm-238"></a><p>Use a p&#225;gina Editar conector JMX para editar o conector JMX compat&#237;vel
-com JSR 360.</p>
+<p><a id="ref-jmxconnectoredit" name="ref-jmxconnectoredit"></a><a id="GHCOM00127" name="GHCOM00127"></a></p>
 
-<p>A p&#225;gina Editar conector JMX cont&#233;m as seguintes op&#231;&#245;es.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<h4><a id="sthref442" name="sthref442"></a>Editar Conector JMX</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Use a p&aacute;gina Editar Conector JMX para editar o conector JMX JSR 360-compliant.</p>
+<p>A p&aacute;gina Editar conector JMX cont&eacute;m as seguintes op&ccedil;&otilde;es.</p>
+<dl>
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
 <dt>Nome</dt>
-<dd><p>O nome do conector JMX. Este campo &#233; somente leitura.</p>
-
+<dd>
+<p>O nome do conector JMX. Este campo &eacute; somente leitura.</p>
 </dd>
-<dt> Protocol JMX</dt>
-<dd><p>O nome do protocolo que esse conector JMX suporta. Este campo &#233; somente leitura.</p>
-
+<dt>Protocol JMX</dt>
+<dd>
+<p>O nome do protocolo que esse conector JMX suporta. Este campo &eacute; somente leitura.</p>
 </dd>
 <dt>JMXServiceURL</dt>
-<dd><p>O URL de servi&#231;os JMX. Este campo &#233; somente leitura.</p>
-
+<dd>
+<p>O URL de servi&ccedil;os JMX. Este campo &eacute; somente leitura.</p>
 </dd>
-<dt>Seguran&#231;a</dt>
-<dd><p>Se a caixa de sele&#231;&#227;o Dispon&#237;vel estiver marcada, a comunica&#231;&#227;o JMX ser&#225; criptografada. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
-
+<dt>Seguran&ccedil;a</dt>
+<dd>
+<p>Se a caixa de sele&ccedil;&atilde;o Dispon&iacute;vel estiver marcada, a comunica&ccedil;&atilde;o JMX ser&aacute; criptografada. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
 </dd>
-<dt>Endere&#231;o</dt>
-<dd><p>O endere&#231;o IP do servi&#231;o de nomes no qual o stub do servidor do conector JMX est&#225; registrado. Esta n&#227;o &#233; a porta do soquete do servidor que faz a comunica&#231;&#227;o JMX real. Este &#233; o endere&#231;o da interface de rede onde o registro do RMI foi iniciado. Se o seu sistema tem m&#250;ltiplas interfaces de rede, modifique esse valor para que apenas uma determinada interface seja selecionada. O valor padr&#227;o &#233; <tt>0.0.0.0</tt>.</p>
-
+<dt>Endere&ccedil;o</dt>
+<dd>
+<p>O endere&ccedil;o IP do servi&ccedil;o de nomes no qual o stub do servidor do conector JMX est&aacute; registrado. Esta n&atilde;o &eacute; a porta do soquete do servidor que faz a comunica&ccedil;&atilde;o JMX real. Este &eacute; o endere&ccedil;o da interface de rede onde o registro do RMI foi iniciado. Se o seu sistema tem m&uacute;ltiplas interfaces de rede, modifique esse valor para que apenas uma determinada interface seja selecionada. O valor default &eacute; <code>0.0.0.0</code>.</p>
 </dd>
 <dt>Porta</dt>
-<dd><p>O n&#250;mero da porta na qual o servi&#231;o de nomes (registro RMI) escutam conex&#245;es do cliente RMI. O &#250;nico uso deste servi&#231;o de nomes &#233; para baixar os stubs RMI. Se a porta padr&#227;o estiver ocupada, uma porta livre ser&#225; usada. Os valores legais s&#227;o 1- 65535. Em sistemas UNIX, a cria&#231;&#227;o de soquetes que escutam nas portas 1 - 1024 requer privil&#233;gios de superusu&#225;rio. O valor padr&#227;o &#233; 8686.</p>
-
+<dd>
+<p>O n&uacute;mero da porta na qual o servi&ccedil;o de nomes (registro RMI) fazem de listening de conex&otilde;es do cliente RMI. O &uacute;nico uso deste servi&ccedil;o de nomea&ccedil;&atilde;o &eacute; fazer download para os stubs de RMI. Se a porta default estiver ocupada, uma porta livre ser&aacute; usada. Os valores legais s&atilde;o 1- 65535. Em sistemas UNIX, criar sockets que fazem listening nas portas 1 - 1024 exige privil&eacute;gios de superusu&aacute;rios. O valor default &eacute; 8686.</p>
 </dd>
-<dt>Nome de Dom&#237;nio</dt>
-<dd><p>O nome que representa o dom&#237;nio administrativo especial. Todas as autentica&#231;&#245;es s&#227;o manuseadas por este dom&#237;nio. O valor padr&#227;o &#233; <tt>admin-realm </tt>.</p>
-
+<dt>Nome do Realm</dt>
+<dd>
+<p>O nome que representa o realm administrativo especial. Todas as autentica&ccedil;&otilde;es s&atilde;o manuseadas por este realm. O valor default &eacute; <code>admin-realm</code>.</p>
 </dd>
 <dt>Propriedades Adicionais</dt>
-<dd><p>Propriedade adicional para o conector JMX. Diversas propriedades s&#227;o especificadas por padr&#227;o.</p>
-
+<dd>
+<p>Propriedade adicional para o conector JMX. Diversas propriedades s&atilde;o especificadas por default.</p>
 </dd>
 </dl>
+<a id="sthref443" name="sthref443"></a>
 <h5>Tarefa relacionada</h5>
-
-<ul><li><p><a href="task-jmxconnectoredit.html">Para editar o conector JMX </a></p>
-
+<ul>
+<li>
+<p><a href="task-jmxconnectoredit.html">Para Editar o Conector JMX</a></p>
 </li>
-<li><p><a href="task-jmxconnectorssledit.html">Para editar as configura&#231;&#245;es SSL do conector JMX</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
+<li>
+<p><a href="task-jmxconnectorssledit.html">Para Editar as Defini&ccedil;&otilde;es da SSL do Conector JMX</a></p>
+</li>
+</ul>
+<a id="sthref444" name="sthref444"></a>
+<h5>Comandos asadmin Relacionados</h5>
 <p>Nenhum.</p>
 
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

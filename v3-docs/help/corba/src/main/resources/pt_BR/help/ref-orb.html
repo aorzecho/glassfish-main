@@ -1,80 +1,83 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-orb"></a><h4>ORB</h4>
-<a name="indexterm-8"></a><a name="indexterm-9"></a><p>Utilize a p&#225;gina ORB para configurar o Object Request Broker.</p>
+<p><a id="ref-orb" name="ref-orb"></a><a id="GHCOR00001" name="GHCOR00001"></a></p>
 
-<p>O ORB fornece a infraestrutura para identificar e localizar objetos, processar o
-gerenciamento de conex&#245;es, entregar dados e solicitar comunica&#231;&#245;es. Clientes remotos de beans
-empresariais (m&#243;dulos EJB) se comunicam com o Servidor GlassFish utilizando o ORB.</p>
-
-<p>A p&#225;gina ORB cont&#233;m as op&#231;&#245;es a seguir.</p>
-
-<dl><dt>Carregar padr&#245;es</dt>
-<dd><p>Bot&#227;o para restaurar com os valores padr&#227;o as configura&#231;&#245;es que apresentam valores padr&#227;o. As configura&#231;&#245;es que n&#227;o apresentam valores padr&#227;o n&#227;o s&#227;o alteradas.</p>
-
+<h4><a id="sthref14" name="sthref14"></a><a id="sthref15" name="sthref15"></a>ORB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilize a p&aacute;gina ORB para configurar o Object Request Broker.</p>
+<p>O ORB oferece a infraestrutura para identificar e localizar objetos, processar o gerenciamento de conex&otilde;es, entregar dados e solicitar comunica&ccedil;&otilde;es. Clientes remotos de enterprise beans (m&oacute;dulos EJB) se comunicam com o GlassFish Server utilizando o ORB.</p>
+<p>A p&aacute;gina ORB cont&eacute;m as op&ccedil;&otilde;es a seguir.</p>
+<dl>
+<dt>Carregar Defaults</dt>
+<dd>
+<p>Bot&atilde;o para restaurar com os valores default as defini&ccedil;&otilde;es que apresentam valores default. As defini&ccedil;&otilde;es que n&atilde;o apresentam valores default n&atilde;o s&atilde;o alteradas.</p>
 </dd>
-<dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<dt>Nome da configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
-<dt>ID do conjunto de segmentos</dt>
-<dd><p>O grupo de segmentos utilizado pelo ORB. O ORB utiliza grupos de segmentos para responder a solicita&#231;&#245;es de clientes remotos de beans empresariais e outros clientes que se comunicam utilizando RMI-IIOP. O grupo de segmentos padr&#227;o do ORB &#233; <tt>thread-pool-1</tt>, que utiliza padr&#245;es apropriados para solicita&#231;&#245;es RMI/IIOP.</p>
-
+<dt>ID do Pool de Threads</dt>
+<dd>
+<p>O pool de threads utilizado pelo ORB. O ORB utiliza pools de threads para responder a solicita&ccedil;&otilde;es de clientes remotos de enterprise beans e outros clientes que se comunicam utilizando RMI-IIOP. O pool de thread default do ORB &eacute; <code>thread-pool-1</code>, que usa defaults adequados para solicita&ccedil;&otilde;es de RMI/IIOP.</p>
 </dd>
-<dt>Tamanho m&#225;x. do fragmento de mensagem</dt>
-<dd><p>O tamanho m&#225;ximo di fragmento de mensagem para mensagens IIOP. As mensagens com tamanho maior do que o m&#225;ximo permitido s&#227;o fragmentadas. O valor padr&#227;o &#233; 1024 bytes.</p>
-
+<dt>Tamanho m&aacute;x. do fragmento de mensagem</dt>
+<dd>
+<p>O tamanho m&aacute;ximo di fragmento de mensagem para mensagens IIOP. As mensagens com tamanho maior do que o m&aacute;ximo permitido s&atilde;o fragmentadas. O valor default &eacute; 1024 bytes.</p>
 </dd>
-<dt>Total de conex&#245;es</dt>
-<dd><p>O n&#250;mero m&#225;ximo de conex&#245;es de entrada para todas as escutas de IIOP. O valor padr&#227;o &#233; 1024.</p>
-
+<dt>Total de conex&otilde;es</dt>
+<dd>
+<p>O n&uacute;mero m&aacute;ximo de conex&otilde;es de entrada para todas as listeners IIOP.&darr; O valor default &eacute; 1024.</p>
 </dd>
-<dt>Autentica&#231;&#227;o do cliente IIOP</dt>
-<dd><p>Se a caixa de sele&#231;&#227;o Ativado estiver marcada, o servidor rejeita solicita&#231;&#245;es n&#227;o autenticadas e insere um bit autentica&#231;&#227;o-necess&#225;ria nas Refer&#234;ncias de Objeto Interoper&#225;veis (IORs) enviadas para clientes. A autentica&#231;&#227;o do cliente IIOP pode ser ativada ou desativada. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p>
-
+<dt>Autentica&ccedil;&atilde;o do cliente IIOP</dt>
+<dd>
+<p>Se a caixa de sele&ccedil;&atilde;o Ativado estiver marcada, o servidor rejeita solicita&ccedil;&otilde;es n&atilde;o autenticadas e insere um bit autentica&ccedil;&atilde;o-necess&aacute;ria nas Refer&ecirc;ncias de Objeto Interoper&aacute;veis (IORs) enviadas para clientes. A autentica&ccedil;&atilde;o do cliente IIOP pode ser ativada ou desativada. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
 </dd>
-<dt>Propriedades adicionais</dt>
-<dd><p>Propriedades adicionais do ORB. O Servidor GlassFish n&#227;o define propriedades adicionais para o ORB.</p>
-
+<dt>Propriedades Adicionais</dt>
+<dd>
+<p>Propriedades adicionais do ORB. O GlassFish Server n&atilde;o define propriedades adicionais para o ORB.</p>
 </dd>
 </dl>
+<a id="sthref16" name="sthref16"></a>
 <h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-orb.html">Para configurar o ORB</a></p>
-
+<ul>
+<li>
+<p><a href="task-orb.html">Para Configurar o ORB</a></p>
 </li>
-<li><p><a href="task-iioplistenernew.html">Para criar uma escuta de IIOP</a></p>
-
+<li>
+<p><a href="task-iioplistenernew.html">Para Criar um Listener de IIOP</a></p>
 </li>
-<li><p><a href="task-iioplisteneredit.html">Para editar uma escuta de IIOP</a></p>
-
+<li>
+<p><a href="task-iioplisteneredit.html">Para Editar um Listener de IIOP</a></p>
 </li>
-<li><p><a href="task-editiiopssl.html">Para editar configura&#231;&#245;es de SSL para uma escuta de IIOP segura</a></p>
-
+<li>
+<p><a href="task-editiiopssl.html">Para Editar Defini&ccedil;&otilde;es da SSL de um Listener de IIOP Seguro</a></p>
 </li>
-<li><p><a href="task-iioplistenerdelete.html">Para excluir uma escuta de IIOP</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-iiop-listener-1"><tt>create-iiop-listener</tt>(1)</a></p>
-
+<li>
+<p><a href="task-iioplistenerdelete.html">Para Deletar um Listener de IIOP</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-iiop-listeners-1"><tt>list-iiop-listeners</tt>(1)</a></p>
-
+</ul>
+<a id="sthref17" name="sthref17"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00032"><code>create-iiop-listener</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-iiop-listener-1"><tt>delete-iiop-listener</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00169"><code>list-iiop-listeners</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-ssl-1"><tt>create-ssl</tt>(1)</a></p>
-
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00084"><code>delete-iiop-listener</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-ssl-1"><tt>delete-ssl</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00058"><code>create-ssl</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00109"><code>delete-ssl</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

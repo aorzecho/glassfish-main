@@ -1,117 +1,117 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-messagesecurityproviderconfignew"></a><h4>Nova Configura&#231;&#227;o do Provedor</h4>
-<a name="indexterm-233"></a><p>Use a p&#225;gina Nova Configura&#231;&#227;o do Provedor para criar uma nova configura&#231;&#227;o
-do provedor de seguran&#231;a de mensagens.</p>
+<p><a id="ref-messagesecurityproviderconfignew" name="ref-messagesecurityproviderconfignew"></a><a id="GHCOM00122" name="GHCOM00122"></a></p>
 
-<p>A p&#225;gina Nova Configura&#231;&#227;o do Provedor cont&#233;m as seguintes op&#231;&#245;es.</p>
-
-<dl><dt>Configuration Name</dt>
-<dd><p>O nome da configura&#231;&#227;o para a qual as defini&#231;&#245;es nesta p&#225;gina se aplicam. Este campo &#233; de somente leitura.</p>
-
+<h4><a id="sthref432" name="sthref432"></a>Nova Configura&ccedil;&atilde;o do Provedor</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Use a p&aacute;gina Nova Configura&ccedil;&atilde;o do Provedor para criar uma nova configura&ccedil;&atilde;o do provedor de seguran&ccedil;a de mensagens.</p>
+<p>A p&aacute;gina Nova Configura&ccedil;&atilde;o do Provedor cont&eacute;m as seguintes op&ccedil;&otilde;es.</p>
+<dl>
+<dt>Nome da Configura&ccedil;&atilde;o</dt>
+<dd>
+<p>O nome da configura&ccedil;&atilde;o &agrave; qual as defini&ccedil;&otilde;es nesta p&aacute;gina se aplicam. Este campo &eacute; somente para leitura.</p>
 </dd>
 <dt>ID do Provedor</dt>
-<dd><p>O nome do provedor de seguran&#231;a de mensagens.</p>
-
+<dd>
+<p>O nome do provedor de seguran&ccedil;a de mensagens.</p>
 </dd>
-<dt>Provedor Padr&#227;o</dt>
-<dd><p>Se esta op&#231;&#227;o for selecionada, este provedor ser&#225; o provedor padr&#227;o. O provedor padr&#227;o ser&#225; chamado para qualquer aplicativo que n&#227;o identifique um provedor espec&#237;fico. Se o provedor for o provedor de cliente padr&#227;o, o provedor de servidor padr&#227;o, ou de ambos, &#233; determinado pelo Tipo de Provedor.</p>
-
+<dt>Provedor Default</dt>
+<dd>
+<p>Se esta op&ccedil;&atilde;o for selecionada, este provedor ser&aacute; o provedor default. O provedor default ser&aacute; chamado para qualquer aplica&ccedil;&atilde;o que n&atilde;o identifique um provedor espec&iacute;fico. Se o provedor for o provedor de cliente default, o provedor de servidor default, ou de ambos, &eacute; determinado pelo Tipo de Provedor.</p>
 </dd>
 <dt>Tipo de Provedor</dt>
-<dd><p>Especifica o tipo do provedor. As op&#231;&#245;es dispon&#237;veis s&#227;o:</p>
-
-<dl><dt><tt>cliente</tt></dt>
-<dd><p>Especifica que o provedor &#233; o provedor de autentica&#231;&#227;o do cliente.</p>
-
+<dd>
+<p>Especifica o tipo do provedor. As op&ccedil;&otilde;es dispon&iacute;veis s&atilde;o:</p>
+<dl>
+<dt><code>cliente</code></dt>
+<dd>
+<p>Especifica que o provedor &eacute; o provedor de autentica&ccedil;&atilde;o do cliente.</p>
 </dd>
-<dt><tt>servidor</tt></dt>
-<dd><p>Especifica que o provedor &#233; o provedor de autentica&#231;&#227;o do servidor.</p>
-
+<dt><code>servidor</code></dt>
+<dd>
+<p>Especifica que o provedor &eacute; o provedor de autentica&ccedil;&atilde;o do servidor.</p>
 </dd>
-<dt><tt>cliente-servidor</tt></dt>
-<dd><p>Especifica que o provedor e um provedor de autentica&#231;&#227;o do cliente e do servidor.</p>
-
+<dt><code>cliente-servidor</code></dt>
+<dd>
+<p>Especifica que o provedor e um provedor de autentica&ccedil;&atilde;o do cliente e do servidor.</p>
 </dd>
 </dl>
 </dd>
 <dt>Nome da Classe</dt>
-<dd><p>O nome da classe de implementa&#231;&#227;o Java do provedor. Os provedores de autentica&#231;&#227;o cliente devem implementar a <tt>com.sun.enterprise.security.jauth.ClientAuthModule</tt> da interface. Os provedores do lado do servidor devem implementar a <tt>com.sun.enterprise.security.jauth.ServerAuthModule</tt> da interface. Os provedores de cliente-servidor devem implementar as duas interfaces.</p>
-
+<dd>
+<p>O nome da classe de implementa&ccedil;&atilde;o Java do provedor. Provedores de autentica&ccedil;&atilde;o do cliente devem implementar a interface <code>com.sun.enterprise.security.jauth.ClientAuthModule</code>. Provedores do servidor devem implementar a interface <code>com.sun.enterprise.security.jauth.ServerAuthModule</code>. Os provedores de cliente-servidor devem implementar as duas interfaces.</p>
 </dd>
-<dt>Autenticar Fonte (para Diretiva de Solicita&#231;&#227;o)</dt>
-<dd><p>O tipo da autentica&#231;&#227;o necess&#225;ria para a diretiva de solicita&#231;&#227;o. A diretiva de solicita&#231;&#227;o determina o processamento da solicita&#231;&#227;o que o provedor de autentica&#231;&#227;o realiza. Os campos da diretiva de solicita&#231;&#227;o s&#227;o opcionais, mas se eles n&#227;o forem especificados, o provedor de autentica&#231;&#227;o n&#227;o autentica as mensagens solicitadas.</p>
-
-<p>Selecione <tt>remetente</tt> para especificar a autentica&#231;&#227;o do remetente da camada de mensagens (por exemplo, nome de usu&#225;rio e senha) das mensagens solicitadas. Selecione <tt>conte&#250;do </tt> para especificar autentica&#231;&#227;o de conte&#250;do (por exemplo, assinatura digital) das mensagens solicitadas. Deixe o campo vazio para n&#227;o autenticar a fonte das solicita&#231;&#245;es. Por padr&#227;o, nenhum tipo de autentica&#231;&#227;o &#233; selecionado.</p>
-
-<p>Para uma descri&#231;&#227;o das a&#231;&#245;es realizadas pelos provedores de seguran&#231;a de mensagens SOAP, consulte <a href="ref-configreq-respolicy.html">Configura&#231;&#245;es da Diretiva de Solicita&#231;&#227;o e Resposta</a>.</p>
-
+<dt>Autenticar Fonte (para Pol&iacute;tica de Solicita&ccedil;&atilde;o)</dt>
+<dd>
+<p>O tipo da autentica&ccedil;&atilde;o necess&aacute;ria para a pol&iacute;tica de solicita&ccedil;&atilde;o. A pol&iacute;tica de solicita&ccedil;&atilde;o determina o processamento da solicita&ccedil;&atilde;o que o provedor de autentica&ccedil;&atilde;o realiza. Os campos da pol&iacute;tica de solicita&ccedil;&atilde;o s&atilde;o opcionais, mas se eles n&atilde;o forem especificados, o provedor de autentica&ccedil;&atilde;o n&atilde;o autentica as mensagens solicitadas.</p>
+<p>Selecione <code>remetente</code> para especificar a autentica&ccedil;&atilde;o do remetente da camada de mensagens (por exemplo, nome de usu&aacute;rio e senha) das mensagens solicitadas. Selecione <code>conte&uacute;do</code> para especificar autentica&ccedil;&atilde;o de conte&uacute;do (por exemplo, assinatura digital) das mensagens solicitadas. Deixe o campo vazio para n&atilde;o autenticar a fonte das solicita&ccedil;&otilde;es. Por default, nenhum tipo de autentica&ccedil;&atilde;o &eacute; selecionado.</p>
+<p>Para obter uma descri&ccedil;&atilde;o das a&ccedil;&otilde;es executadas pelos provedores de seguran&ccedil;a da mensagem de SOAP, consulte <a href="ref-configreq-respolicy.html">Configura&ccedil;&otilde;es de Pol&iacute;ticas de Solicita&ccedil;&atilde;o e Resposta</a>.</p>
 </dd>
-<dt>Autenticar Destinat&#225;rio (para Diretiva de Solicita&#231;&#227;o)</dt>
-<dd><p>Especifica se a autentica&#231;&#227;o do destinat&#225;rio ocorre antes ou ap&#243;s a autentica&#231;&#227;o de conte&#250;do da diretiva de solicita&#231;&#227;o.</p>
-
-<p>Selecione <tt>before-content</tt> ou <tt>after-content</tt> para solicitar autentica&#231;&#227;o de camada-mensagem do destinat&#225;rio da mensagem solicitada ao seu remetente (por criptografia XML). Se o valor n&#227;o for especificado, o padr&#227;o ser&#225; <tt>after-content</tt>. As diretivas s&#227;o expressas no pedido do remetente da mensagem, portanto <tt>after-content</tt> significa que o destinat&#225;rio da mensagem descriptografa a mensagem antes de validar a assinatura.</p>
-
+<dt>Autenticar Destinat&aacute;rio (para Pol&iacute;tica de Solicita&ccedil;&atilde;o)</dt>
+<dd>
+<p>Especifica se a autentica&ccedil;&atilde;o do destinat&aacute;rio ocorre antes ou ap&oacute;s a autentica&ccedil;&atilde;o de conte&uacute;do da pol&iacute;tica de solicita&ccedil;&atilde;o.</p>
+<p>Selecione <code>before-content</code> ou <code>after-content</code> para solicitar autentica&ccedil;&atilde;o de camada-mensagem do destinat&aacute;rio da mensagem solicitada ao seu remetente (por criptografia XML). Se o valor n&atilde;o for especificado, o default ser&aacute; <code>after-content</code>. As Pol&iacute;ticas s&atilde;o expressas no pedido do remetente da mensagem, portanto <code>after-content</code> significa que o destinat&aacute;rio da mensagem descriptografa a mensagem antes de validar a assinatura.</p>
 </dd>
-<dt>Autenticar Fonte (para Diretiva de Resposta)</dt>
-<dd><p>O tipo da autentica&#231;&#227;o necess&#225;ria para a diretiva de resposta. A diretiva de resposta determina o processamento da resposta que o provedor de autentica&#231;&#227;o realiza. Os campos da diretiva de resposta s&#227;o opcionais, mas se eles n&#227;o forem especificados, nenhuma autentica&#231;&#227;o ser&#225; aplicada &#224;s mensagens de resposta.</p>
-
-<p>Selecione <tt>remetente</tt> para especificar a autentica&#231;&#227;o do remetente da camada de mensagens (por exemplo, nome de usu&#225;rio e senha) das mensagens de resposta. Selecione <tt>conte&#250;do </tt> para especificar autentica&#231;&#227;o de conte&#250;do (por exemplo, assinatura digital) das mensagens de resposta. Deixe o campo em branco para n&#227;o autenticar as fontes de resposta. Por padr&#227;o, nenhum tipo de autentica&#231;&#227;o &#233; selecionado.</p>
-
-<p>Para uma descri&#231;&#227;o das a&#231;&#245;es realizadas pelos provedores de seguran&#231;a de mensagens SOAP, consulte <a href="ref-configreq-respolicy.html">Configura&#231;&#245;es da Diretiva de Solicita&#231;&#227;o e Resposta</a>.</p>
-
+<dt>Autenticar Fonte (para Pol&iacute;tica de Resposta)</dt>
+<dd>
+<p>O tipo da autentica&ccedil;&atilde;o necess&aacute;ria para a pol&iacute;tica de resposta. A pol&iacute;tica de resposta determina o processamento da resposta que o provedor de autentica&ccedil;&atilde;o realiza. Os campos da pol&iacute;tica de resposta s&atilde;o opcionais, mas se eles n&atilde;o forem especificados, nenhuma autentica&ccedil;&atilde;o ser&aacute; aplicada &agrave;s mensagens de resposta.</p>
+<p>Selecione <code>remetente</code> para especificar a autentica&ccedil;&atilde;o do remetente da camada de mensagens (por exemplo, nome de usu&aacute;rio e senha) das mensagens de resposta. Selecione <code>conte&uacute;do</code> para especificar autentica&ccedil;&atilde;o de conte&uacute;do (por exemplo, assinatura digital) das mensagens de resposta. Deixe o campo em branco para n&atilde;o autenticar as fontes de resposta. Por default, nenhum tipo de autentica&ccedil;&atilde;o &eacute; selecionado.</p>
+<p>Para obter uma descri&ccedil;&atilde;o das a&ccedil;&otilde;es executadas pelos provedores de seguran&ccedil;a da mensagem de SOAP, consulte <a href="ref-configreq-respolicy.html">Configura&ccedil;&otilde;es de Pol&iacute;ticas de Solicita&ccedil;&atilde;o e Resposta</a>.</p>
 </dd>
-<dt>Autenticar Destinat&#225;rio (para Diretiva de Resposta)</dt>
-<dd><p>Especifica se a autentica&#231;&#227;o do destinat&#225;rio ocorre antes ou ap&#243;s a autentica&#231;&#227;o de conte&#250;do da diretiva de resposta.</p>
-
-<p>Selecione <tt>before-content</tt> ou <tt>after-content</tt> para definir a autentica&#231;&#227;o de camada-mensagem do destinat&#225;rio da mensagem de resposta ao seu remetente (por criptografia XML). Se o valor n&#227;o for especificado, o padr&#227;o ser&#225; <tt>after-content</tt>. As diretivas s&#227;o expressas no pedido do remetente da mensagem, portanto <tt>after-content</tt> significa que o destinat&#225;rio da mensagem descriptografa a mensagem antes de validar a assinatura.</p>
-
+<dt>Autenticar Destinat&aacute;rio (para Pol&iacute;tica de Resposta)</dt>
+<dd>
+<p>Especifica se a autentica&ccedil;&atilde;o do destinat&aacute;rio ocorre antes ou ap&oacute;s a autentica&ccedil;&atilde;o de conte&uacute;do da pol&iacute;tica de resposta.</p>
+<p>Selecione <code>before-content</code> ou <code>after-content</code> para definir a autentica&ccedil;&atilde;o de camada-mensagem do destinat&aacute;rio da mensagem de resposta ao seu remetente (por criptografia XML). Se o valor n&atilde;o for especificado, o default ser&aacute; <code>after-content</code>. As Pol&iacute;ticas s&atilde;o expressas no pedido do remetente da mensagem, portanto <code>after-content</code> significa que o destinat&aacute;rio da mensagem descriptografa a mensagem antes de validar a assinatura.</p>
 </dd>
 <dt>Propriedades Adicionais</dt>
-<dd><p>Propriedades adicionais para configura&#231;&#227;o do provedor de seguran&#231;a de mensagens. Para uma descri&#231;&#227;o das propriedades adicionais dispon&#237;veis para configura&#231;&#245;es do provedor, consulte <a href="ref-messagesecurityproviderconfigprops.html">Propriedades Espec&#237;ficas das Configura&#231;&#245;es do Provedor de Seguran&#231;a de Mensagens</a>.</p>
-
+<dd>
+<p>Propriedades adicionais para configura&ccedil;&atilde;o do provedor de seguran&ccedil;a de mensagens. Para obter uma descri&ccedil;&atilde;o das proriedades adicionais dispon&iacute;veis para configura&ccedil;&otilde;es do provedor, consulte <a href="ref-messagesecurityproviderconfigprops.html">Propriedades Espec&iacute;ficas a Configura&ccedil;&otilde;es do Provedor de Seguran&ccedil;a da Mensagem</a>.</p>
 </dd>
 </dl>
-<a name="gkony"></a><h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-configmsgsecproviders.html">Para configurar os recursos do Servidor GlassFish para uso pelos provedores de seguran&#231;a de mensagens</a></p>
-
+<a id="sthref433" name="sthref433"></a>
+<h5>Tarefas Relacionadas</h5>
+<ul>
+<li>
+<p><a href="task-configmsgsecproviders.html">Para Configurar Recursos do GlassFish Server para Uso por Provedores de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfignew.html">Para criar uma configura&#231;&#227;o de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfignew.html">Para Criar uma Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigedit.html">Para editar uma configura&#231;&#227;o de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigedit.html">Para Editar uma Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigdelete.html">Para excluir uma configura&#231;&#227;o de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigdelete.html">Para Deletar uma Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfignew.html">Para criar uma configura&#231;&#227;o de provedor de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfignew.html">Para Criar uma Configura&ccedil;&atilde;o do Provedor de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigedit.html">Para editar uma configura&#231;&#227;o de provedor de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigedit.html">Para Editar uma Configura&ccedil;&atilde;o do Provedor de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigdelete.html">Para excluir uma configura&#231;&#227;o de provedor de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigdelete.html">Para Deletar uma Configura&ccedil;&atilde;o do Provedor de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-enablemesec4appclients.html">Para ativar a seguranda de mensagens para clientes aplicativos</a></p>
-
-</li></ul>
-<a name="gkooq"></a><h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-message-security-provider-1"><tt>create-message-security-provider</tt>(1)</a></p>
-
+<li>
+<p><a href="task-enablemesec4appclients.html">Para Ativar a Seguran&ccedil;a de Mensagens de Clientes da Aplica&ccedil;&atilde;o</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-message-security-providers-1"><tt>list-message-security-providers</tt>(1)</a></p>
-
+</ul>
+<a id="sthref434" name="sthref434"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00045"><code>create-message-security-provider</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-message-security-provider-1"><tt>delete-message-security-provider</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00184"><code>list-message-security-providers</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00097"><code>delete-message-security-provider</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

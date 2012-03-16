@@ -1,99 +1,79 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-threadpools"></a><h4>Conjunto de segmentos</h4>
-<a name="indexterm-79"></a><a name="indexterm-80"></a><p>Use a p&#225;gina conjunto de segmentos para configur&#225;-los.</p>
+<p><a id="ref-threadpools" name="ref-threadpools"></a><a id="GHWEB00027" name="GHWEB00027"></a></p>
 
-<p>Use conjunto de segmentos para limitar um servi&#231;o a uma quantidade espec&#237;fica
-de segmentos simult&#226;neos.</p>
-
-<p>Na primeira instala&#231;&#227;o do Servidor GlassFish, existem dois conjunto de segmentos por
-padr&#227;o. O conjunto de segmentos denominado <tt>http-thread-pool</tt> &#233; configurado para uso pelas
-escutas de rede, enquanto o <tt>thread-pool-1</tt> &#233; configurado para uso pelo ORB
-para solicita&#231;&#245;es RMI/IIOP. Pode ser necess&#225;rio criar um conjunto de segmentos com
-configura&#231;&#245;es diferentes para uso por determinados tipos de aplicativos e para determinados
-sistemas de hardware, ou para ajustar os conjunto de segmentos padr&#227;o para
-suas necessidades.</p>
-
-<p>A Java Virtual Machine (JVM) pode suportar muitos segmentos simult&#226;neos de execu&#231;&#227;o.
-Para ajudar no desempenho, o Servidor GlassFish mant&#233;m um ou mais conjunto
-de segmentos. &#201; poss&#237;vel atribuir conjunto de segmentos espec&#237;ficos a servi&#231;os espec&#237;ficos.</p>
-
-<p>Um conjunto de segmentos pode atender v&#225;rios servi&#231;os. Os segmentos de solicita&#231;&#227;o
-processam solicita&#231;&#245;es de usu&#225;rios. Quando o servidor recebe uma solicita&#231;&#227;o, ele a
-atribui a um segmento livre do conjunto de segmentos. O segmento executa
-a solicita&#231;&#227;o do cliente e retorna os resultados. Por exemplo, se a
-solicita&#231;&#227;o precisar usar um recurso do sistema que est&#225; ocupado no momento,
-o segmento esperar&#225; at&#233; que o recurso fique dispon&#237;vel para ent&#227;o permitir
-que a solicita&#231;&#227;o use o recurso.</p>
-
-<p>Especifique um n&#250;mero m&#237;nimo e m&#225;ximo de segmentos a serem reservados para
-solicita&#231;&#245;es. O conjunto de segmentos &#233; dinamicamente ajustado entre esses dois valores.
-O tamanho m&#237;nimo do conjunto de segmentos especificado sinaliza o servidor para
-reservar pelo menos essa quantidade de segmentos para solicita&#231;&#245;es. O n&#250;mero &#233;
-aumentado at&#233; o tamanho m&#225;ximo especificado para o conjunto de segmentos.</p>
-
-<p>O aumento do n&#250;mero de segmentos dispon&#237;veis para um processo permite que
-o processo responda mais solicita&#231;&#245;es simultaneamente.</p>
-
-<p>Para cada conjunto de segmentos, as informa&#231;&#245;es a seguir s&#227;o fornecidas.</p>
-
-<dl><dt>ID do conjunto de segmentos</dt>
-<dd><p>O nome do conjunto de segmentos.</p>
-
+<h4><a id="sthref169" name="sthref169"></a><a id="sthref170" name="sthref170"></a>Pools de Thread</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Use a p&aacute;gina Pool de Threads para configur&aacute;-los.</p>
+<p>Use pools de threads para limitar um servi&ccedil;o a uma quantidade espec&iacute;fica de threads concorrentes.</p>
+<p>Na primeira instala&ccedil;&atilde;o do GlassFish Server, existem dois pool de threads por default. O pool do thread denominado <code>http-thread-pool</code> est&aacute; configurado para uso por listeners de rede, enquanto <code>thread-pool-1</code> est&aacute; configurado para uso por ORB para solicita&ccedil;&otilde;es de RMI/IIOP. Pode ser necess&aacute;rio criar um pool de threads com cdefini&ccedil;&otilde;es diferentes para uso por determinados tipos de aplica&ccedil;&otilde;es e para determinados sistemas de hardware, ou para ajustar os pools de threads default &agrave;s suas necessidades.</p>
+<p>A Java Virtual Machine (JVM) pode suportar muitos threads simult&acirc;neos de execu&ccedil;&atilde;o. Para ajudar no desempenho, o GlassFish Server mant&eacute;m um ou mais pool de threads. &Eacute; poss&iacute;vel designar pools de threads espec&iacute;ficos a servi&ccedil;os espec&iacute;ficos.</p>
+<p>Um pool de threads pode atender v&aacute;rios servi&ccedil;os. Os threads de solicita&ccedil;&atilde;o processam solicita&ccedil;&otilde;es de usu&aacute;rios. Quando o servidor recebe uma solicita&ccedil;&atilde;o, ele a designa a um thread livre do pool de threads. O thread executa a solicita&ccedil;&atilde;o do cliente e retorna os resultados. Por exemplo, se a solicita&ccedil;&atilde;o precisar usar um recurso do sistema que est&aacute; ocupado no momento, o thread esperar&aacute; at&eacute; que o recurso fique dispon&iacute;vel para ent&atilde;o permitir que a solicita&ccedil;&atilde;o use o recurso.</p>
+<p>Especifique um n&uacute;mero m&iacute;nimo e m&aacute;ximo de threads a serem reservados para solicita&ccedil;&otilde;es. O pool de threads &eacute; dinamicamente ajustado entre esses dois valores. O tamanho m&iacute;nimo do pool de threads especificado sinaliza o servidor para reservar pelo menos essa quantidade de threads para solicita&ccedil;&otilde;es. O n&uacute;mero &eacute; aumentado at&eacute; o tamanho m&aacute;ximo especificado para o pool de threads.</p>
+<p>O aumento do n&uacute;mero de threads dispon&iacute;veis para um processo permite que o processo responda mais solicita&ccedil;&otilde;es simultaneamente.</p>
+<p>Para cada pool de threads, as informa&ccedil;&otilde;es a seguir s&atilde;o fornecidas.</p>
+<dl>
+<dt>ID do Pool de Threads</dt>
+<dd>
+<p>O nome do pool de threads.</p>
 </dd>
-<dt>Tamanho m&#225;x. do conjunto de segmentos</dt>
-<dd><p>O n&#250;mero m&#225;ximo de segmentos no conjunto do segmentos.</p>
-
+<dt>Tamanho m&aacute;x. do Pool de Threads</dt>
+<dd>
+<p>O n&uacute;mero m&aacute;ximo de threads no pool de threads.</p>
 </dd>
-<dt>Tamanho m&#237;n. do conjunto de segmentos</dt>
-<dd><p>O n&#250;mero m&#237;nimo de segmentos no conjunto do segmentos. Esses conjuntos s&#227;o criados quando o conjunto de segmentos &#233; instanciado.</p>
-
+<dt>Tamanho m&iacute;n. do Pool de Threads</dt>
+<dd>
+<p>O n&uacute;mero m&iacute;nimo de threads no pool do threads. Esses pools s&atilde;o criados quando o pool de threads &eacute; instanciado.</p>
 </dd>
-<dt>Tamanho m&#225;x. da fila</dt>
-<dd><p>O n&#250;mero m&#225;ximo de mensagens que podem ser colocadas na fila at&#233; que segmentos estejam dispon&#237;veis para process&#225;-las.</p>
-
+<dt>Tamanho m&aacute;x. da fila</dt>
+<dd>
+<p>O n&uacute;mero m&aacute;ximo de mensagens que podem ser colocadas na fila at&eacute; que os threads estejam dispon&iacute;veis para process&aacute;-las.</p>
 </dd>
-<dt>Tempo limite do segmento ocioso</dt>
-<dd><p>O per&#237;odo de tempo em segundos ap&#243;s o qual os segmentos inativos s&#227;o removidos do conjunto.</p>
-
+<dt>Time-out para Thread Inativo</dt>
+<dd>
+<p>O per&iacute;odo de tempo em segundos ap&oacute;s o qual os threads inativos s&atilde;o removidos do pool.</p>
 </dd>
 </dl>
-<p>A tabela Conjunto de segmentos tamb&#233;m cont&#233;m as op&#231;&#245;es a seguir.</p>
-
-<dl><dt>Novo</dt>
-<dd><p>Bot&#227;o utilizado para criar um novo conjunto de segmentos.</p>
-
+<p>A tabela Pool de Threads tamb&eacute;m cont&eacute;m as op&ccedil;&otilde;es a seguir.</p>
+<dl>
+<dt>Novo</dt>
+<dd>
+<p>Bot&atilde;o utilizado para criar um novo pool de threads.</p>
 </dd>
-<dt>Excluir</dt>
-<dd><p>Bot&#227;o utilizado para excluir um ou mais conjunto de segmentos selecionados.</p>
-
+<dt>Deletar</dt>
+<dd>
+<p>Bot&atilde;o utilizado para deletar um ou mais pool de threads selecionados.</p>
 </dd>
 </dl>
+<a id="sthref171" name="sthref171"></a>
 <h5>Tarefas relacionadas</h5>
-
-<ul><li><p><a href="task-threadpoolnew.html">Para criar um conjunto de segmentos</a></p>
-
+<ul>
+<li>
+<p><a href="task-threadpoolnew.html">Para Criar um Pool de Threads</a></p>
 </li>
-<li><p><a href="task-threadpooledit.html">Para editar um conjunto de segmentos</a></p>
-
+<li>
+<p><a href="task-threadpooledit.html">Para Editar um Pool de Threads</a></p>
 </li>
-<li><p><a href="task-threadpooldelete.html">Para excluir um conjunto de segmentos.</a></p>
-
-</li></ul>
-<h5>Comandos <tt>asadmin</tt> relacionados</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-threadpool-1"><tt>create-threadpool</tt>(1)</a></p>
-
+<li>
+<p><a href="task-threadpooldelete.html">Para Deletar um Pool de Threads</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-threadpools-1"><tt>list-threadpools</tt>(1)</a></p>
-
+</ul>
+<a id="sthref172" name="sthref172"></a>
+<h5>Comandos asadmin Relacionados</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00060"><code>create-threadpool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-threadpool-1"><tt>delete-threadpool</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00204"><code>list-threadpools</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00111"><code>delete-threadpool</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

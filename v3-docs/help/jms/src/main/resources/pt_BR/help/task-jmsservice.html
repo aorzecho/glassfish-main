@@ -1,118 +1,157 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmsservice" name="task-jmsservice"></a><a id="GHJMS00026" name="GHJMS00026"></a></p>
 
-
-<a name="task-jmsservice"></a><h3>Para configurar o servi&#231;o JMS</h3><a name="indexterm-13"></a><p>Utilize a p&#225;gina Servi&#231;o JMS para definir as configura&#231;&#245;es a serem utilizadas
-por todas as conex&#245;es do JMS.</p>
-
-<p>Para obter mais informa&#231;&#245;es sobre a configura&#231;&#227;o do servi&#231;o JMS, consulte o
-<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beaob">Cap&#237;tulo 16, Using the Java Message Service, no <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p>
-
+<h4><a id="sthref20" name="sthref20"></a>Para Configurar o Servi&ccedil;o do JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilize a p&aacute;gina Servi&ccedil;o JMS para definir as defini&ccedil;&otilde;es a serem utilizadas por todas as conex&otilde;es JMS.</p>
+<p>Para obter mais informa&ccedil;&otilde;es sobre como configurar o Servi&ccedil;o de JMS, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDVG00020">Chapter 19, <i>Using the Java Message Service,</i> em <i>Oracle GlassFish Server Application Development Guide</i></a>.</p>
 <ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>No n&#243; Configura&#231;&#227;o, selecione o n&#243; Java Message Service.</b><p>A p&#225;gina Servi&#231;o JMS &#233; aberta.</p></li>
-<li><b>Na lista suspensa Tipo:</b><ul>
-<li><b>Selecione INCORPORADO para acessar o servi&#231;o JMS no host local.</b><p>O servi&#231;o JMS &#233; iniciado na mesma m&#225;quina que o Servidor GlassFish.
-A inicializa&#231;&#227;o lenta inicia o broker padr&#227;o incorporado no primeiro acesso aos
-servi&#231;os JMS, em vez de na inicializa&#231;&#227;o do Servidor GlassFish. Esse &#233;
-o tipo padr&#227;o do servi&#231;o JMS.</p></li>
-<li><b>Selecione LOCAL para acessar o servi&#231;o JMS no host local.</b><p>O servi&#231;o JMS &#233; iniciado juntamente com o Servidor GlassFish.</p></li>
-<li><b>Selecione REMOTO para acessar o servi&#231;o JMS em outro sistema.</b><p>Se escolher REMOTO, o servi&#231;o JMS n&#227;o ser&#225; iniciado pelo Servidor GlassFish
-na pr&#243;xima vez que o servidor for iniciado. Em vez disso, o
-servi&#231;o JMS &#233; iniciado e gerenciado pela Fila de mensagens, de forma
-que ser&#225; necess&#225;rio iniciar o broker da Fila de mensagens separadamente. Para
-obter informa&#231;&#245;es sobre como iniciar o broker, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2438&id=aeoby">Starting Brokers no <i>Oracle GlassFish Server Message Queue 4.5 Administration Guide </i></a>. Se voc&#234; escolher
-esse valor e estiver utilizando um host remoto, siga as instru&#231;&#245;es em
-<a href="task-jmshostedit.html">Para editar um host do JMS</a> para especificar o nome do host remoto.</p></li></ul></li>
-<li><b>No campo Tempo limite para inicializa&#231;&#227;o, digite o n&#250;mero de segundos que
-o Servidor GlassFish aguarda o servi&#231;o JMS ser iniciado antes de anular
-a inicializa&#231;&#227;o.</b><p>Em um sistema lento e sobrecarregado, aumente o valor a partir do
-padr&#227;o. O valor padr&#227;o &#233; 60.</p></li>
-<li><b>No campo Argumentos de inicializa&#231;&#227;o, digite argumentos para personalizar a inicializa&#231;&#227;o do
-servi&#231;o JMS.</b><p>Utilize qualquer argumento dispon&#237;vel atrav&#233;s do comando <tt><i>as-install-parent</i>/mq/bin/imqbrokerd</tt>.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Reconex&#227;o ativa para que o servi&#231;o JMS
-tente reconectar-se a um servidor de mensagens (ou a lista de endere&#231;os
-na AddressList) quando uma conex&#227;o &#233; perdida.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; ativa.</p></li>
-<li><b>No campo Intervalo para reconectar, digite o n&#250;mero de segundos entre as
-tentativas de reconex&#227;o.</b><p>Esse intervalo aplica-se a tentativas em cada endere&#231;o na lista AddressList e
-a endere&#231;os sucessivos na lista. Se for muito curto, esse intervalo de
-tempo n&#227;o d&#225; ao broker tempo para ser recuperar. Se for muito
-longo, a reconex&#227;o pode representar um atraso inaceit&#225;vel. O valor padr&#227;o &#233;
-5 segundos.</p></li>
-<li><b>No campo Tentativas de reconex&#227;o, digite o n&#250;mero de tentativas de conex&#227;o
-(ou reconex&#227;o) para cada endere&#231;o na AddressList antes de o tempo de
-execu&#231;&#227;o do cliente tentar o pr&#243;ximo endere&#231;o na lista.</b><p>Um valor de -1 indica que o n&#250;mero de tentativas de reconex&#227;o
-&#233; ilimitado (o tempo de execu&#231;&#227;o do cliente tenta conectar-se ao primeiro
-endere&#231;o at&#233; conseguir). O valor padr&#227;o &#233; 3.</p></li>
-<li><b>Na lista suspensa Host padr&#227;o do JMS, selecione o nome do host
-padr&#227;o do JMS.</b><p>O valor padr&#227;o &#233; <tt>default_JMS_host</tt>.</p></li>
-<li><b>Na lista suspensa Comportamento da lista de endere&#231;os, selecione a ordem de
-tentativas de conex&#227;o.</b><ul>
-<li><b><tt>random</tt> significa selecionar um endere&#231;o na AddressList aleatoriamente.</b><p>Se houver muitos clientes tentando uma conex&#227;o usando a mesma f&#225;brica de
-conex&#245;es, especifique <tt>random</tt> para impedi-los de serem conectados ao mesmo endere&#231;o. Essa
-&#233; a op&#231;&#227;o padr&#227;o.</p></li>
-<li><b><tt>priority</tt> significa que a reconex&#227;o sempre tenta conectar-se ao primeiro endere&#231;o do
-servidor na AddressList e utiliza outro somente se o primeiro broker n&#227;o
-estiver dispon&#237;vel.</b></li></ul></li>
-<li><b>No campo Itera&#231;&#245;es da lista de endere&#231;os, digite o n&#250;mero de vezes
-que o servi&#231;o JMS itera atrav&#233;s da AddressList em um esfor&#231;o para
-estabelecer (ou restabelecer) uma conex&#227;o.</b><p>Um valor de -1 indica que o n&#250;mero de tentativas &#233; ilimitado.
-O valor padr&#227;o &#233; 3.</p></li>
-<li><b>Nos campos Esquema MQ e Servi&#231;o MQ, digite o nome do esquema
-de endere&#231;o e do servi&#231;o de conex&#227;o da Fila de mensagens, se
-um esquema ou servi&#231;o n&#227;o padr&#227;o for utilizado. </b><p>Para obter informa&#231;&#245;es sobre sintaxe, consulte <a href="ref-mqschemeservice.html">Sintaxe de endere&#231;os do esquema MQ e servi&#231;o MQ</a>.</p></li>
-<li>(Opcional) <b>Na se&#231;&#227;o Propriedades adicionais, especifique propriedades adicionais do servi&#231;o JMS.</b><p>Para obter informa&#231;&#245;es sobre as propriedades dispon&#237;veis, consulte <a href="ref-jmsservice-additional-props.html">Propriedades espec&#237;ficas do servi&#231;o JMS</a>.</p><ul>
-<li><b>Para adicionar uma propriedade, clique no bot&#227;o Adicionar propriedade. Na linha em
-branco que &#233; exibida, digite o nome da propriedade no campo Nome
-e digite o valor da propriedade no campo Valor.</b></li>
-<li><b>Para modificar uma propriedade, edite o campo Valor da propriedade.</b></li>
-<li><b>Para excluir uma propriedade, marque a caixa de sele&#231;&#227;o &#224; esquerda do
-campo Nome da propriedade a ser exclu&#237;da. Clique no bot&#227;o Excluir propriedades.</b></li></ul></li>
-<li><b>Clique em Ping para verificar se o servi&#231;o JMS est&#225; sendo executado
-no host padr&#227;o do JMS.</b><p>Se o servi&#231;o JMS estiver em execu&#231;&#227;o, uma mensagem informa que o
-ping foi bem-sucedido.</p></li>
-<li><b>Clique em Salvar.</b>
-<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar padr&#245;es e depois
-em Salvar. </p>
-
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
+</li>
+<li>
+<p>Select the instance to configure:</p>
+<ul>
+<li>
+<p>To configure a particular instance, select the instance's config node. For example, for the default instance, <code>server</code>, select the <code>server-config</code> node.</p>
+</li>
+<li>
+<p>To configure the default settings for future instances that use a copy of <code>default-config</code>, select the <code>default-config</code> node.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>No n&oacute; Configura&ccedil;&atilde;o, selecione o n&oacute; Java Message Service.</p>
+<p>A p&aacute;gina Servi&ccedil;o JMS &eacute; aberta.</p>
+</li>
+<li>
+<p>Na lista drop-down Tipo:</p>
+<ul>
+<li>
+<p>Selecione INCORPORADO para acessar o servi&ccedil;o JMS no host local.</p>
+<p>O servi&ccedil;o JMS &eacute; iniciado na mesma m&aacute;quina que o GlassFish Server. A inicializa&ccedil;&atilde;o lenta inicia o broker default incorporado no primeiro acesso aos servi&ccedil;os JMS, em vez de na inicializa&ccedil;&atilde;o do GlassFish Server. Esse &eacute; o tipo default do servi&ccedil;o JMS.</p>
+</li>
+<li>
+<p>Selecione LOCAL para acessar o servi&ccedil;o JMS no host local.</p>
+<p>O servi&ccedil;o JMS &eacute; iniciado juntamente com o GlassFish Server.</p>
+</li>
+<li>
+<p>Selecione REMOTE para acessar o servi&ccedil;o de JMS em outro sistema. or on a cluster.</p>
+<p>Se escolher REMOTO, o servi&ccedil;o JMS n&atilde;o ser&aacute; iniciado pelo GlassFish Server na pr&oacute;xima vez que o servidor for iniciado. Em vez disso, o servi&ccedil;o JMS &eacute; iniciado e gerenciado pelo Message Queue, de forma que ser&aacute; necess&aacute;rio iniciar o broker do Message Queue separadamente. Para obter mais informa&ccedil;&otilde;es sobre como iniciar o controlador, consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GMADG00227"><i>Starting Brokers</i> em <i>Oracle GlassFish Server Message Queue Administration Guide</i></a>. Se voc&ecirc; escolher este valor e est&aacute; usando um host remoto, siga as instru&ccedil;&otilde;es em <a href="task-jmshostedit.html">Para Editar um Host de JMS</a> para especificar o nome do host remoto.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>No campo Time-out para inicializa&ccedil;&atilde;o, digite o n&uacute;mero de segundos que o GlassFish Server aguarda o servi&ccedil;o JMS ser iniciado antes de abortar a inicializa&ccedil;&atilde;o.</p>
+<p>Em um sistema lento e sobrecarregado, aumente o valor a partir do default. O valor default &eacute; 60.</p>
+</li>
+<li>
+<p>No campo Argumentos de inicializa&ccedil;&atilde;o, digite argumentos para personalizar a inicializa&ccedil;&atilde;o do servi&ccedil;o JMS.</p>
+<p>Use qualquer argumento dispon&iacute;vel por meio do comando <i>as-install-parent</i><code>/mq/bin/imqbrokerd</code>.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Reconex&atilde;o ativa para que o servi&ccedil;o JMS tente reconectar-se a um servidor de mensagens (ou a lista de endere&ccedil;os na AddressList) quando uma conex&atilde;o &eacute; perdida.</p>
+<p>Por default, a op&ccedil;&atilde;o est&aacute; ativada.</p>
+</li>
+<li>
+<p>No campo Intervalo para reconectar, digite o n&uacute;mero de segundos entre as tentativas de reconex&atilde;o.</p>
+<p>Esse intervalo aplica-se a tentativas em cada endere&ccedil;o na lista AddressList e a endere&ccedil;os sucessivos na lista. Se for muito curto, esse intervalo de tempo n&atilde;o d&aacute; ao broker tempo para ser recuperar. Se for muito longo, a reconex&atilde;o pode representar um atraso inaceit&aacute;vel. O valor default &eacute; 5 segundos.</p>
+</li>
+<li>
+<p>No campo Tentativas de reconex&atilde;o, digite o n&uacute;mero de tentativas de conex&atilde;o (ou reconex&atilde;o) para cada endere&ccedil;o na AddressList antes de o runtime do cliente tentar o pr&oacute;ximo endere&ccedil;o na lista.</p>
+<p>Um valor de -1 indica que o n&uacute;mero de tentativas de reconex&atilde;o &eacute; ilimitado (o runtime do cliente tenta conectar-se ao primeiro endere&ccedil;o at&eacute; conseguir). O valor default &eacute; 3.</p>
+</li>
+<li>
+<p>Na lista drop-down Host default JMS, selecione o nome do host default JMS.</p>
+<p>O valor default &eacute; <code>default_JMS_host</code>.</p>
+</li>
+<li>
+<p>Na lista drop-down Comportamento da lista de endere&ccedil;os, selecione a ordem de tentativas de conex&atilde;o.</p>
+<ul>
+<li>
+<p><code>random</code> significa selecionar um endere&ccedil;o na AddressList aleatoriamente.</p>
+<p>Se houver muitos clientes tentando uma conex&atilde;o usando a mesma f&aacute;brica de conex&otilde;es, especifique <code>random</code> para impedi-los de serem conectados ao mesmo endere&ccedil;o. Essa &eacute; a op&ccedil;&atilde;o default.</p>
+</li>
+<li>
+<p><code>priority</code> significa que a reconex&atilde;o sempre tenta conectar-se ao primeiro endere&ccedil;o do servidor na AddressList e utiliza outro somente se o primeiro broker n&atilde;o estiver dispon&iacute;vel.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>No campo Itera&ccedil;&otilde;es da lista de endere&ccedil;os, digite o n&uacute;mero de vezes que o servi&ccedil;o JMS itera atrav&eacute;s da AddressList em um esfor&ccedil;o para estabelecer (ou restabelecer) uma conex&atilde;o.</p>
+<p>Um valor de -1 indica que o n&uacute;mero de tentativas &eacute; ilimitado. O valor default &eacute; 3.</p>
+</li>
+<li>
+<p>Nos campos Esquema MQ e Servi&ccedil;o MQ, digite o nome do esquema de endere&ccedil;o e do servi&ccedil;o de conex&atilde;o doMessage Queue, se um esquema ou servi&ccedil;o n&atilde;o default for utilizado.</p>
+<p>Consulte <a href="ref-mqschemeservice.html">Sintaxe de endere&ccedil;os do esquema MQ e servi&ccedil;o MQ</a> para informa&ccedil;&otilde;es de sintaxe.</p>
+</li>
+<li>
+<p>Na se&ccedil;&atilde;o Propriedades adicionais, especifique propriedades adicionais do servi&ccedil;o JMS.</p>
+<p>Para obter informa&ccedil;&otilde;es sobre propriedades dispon&iacute;veis, consulte <a href="ref-jmsservice-additional-props.html">Propriedades Espec&iacute;ficas ao Servi&ccedil;o JMS</a>.</p>
+<ul>
+<li>
+<p>Para adicionar uma propriedade, clique no bot&atilde;o Adicionar propriedade. Na linha em branco que &eacute; exibida, digite o nome da propriedade no campo Nome e digite o valor da propriedade no campo Valor.</p>
+</li>
+<li>
+<p>Para modificar uma propriedade, edite o campo Valor da propriedade.</p>
+</li>
+<li>
+<p>Para deletar uma propriedade, marque a caixa de sele&ccedil;&atilde;o &agrave; esquerda do campo Nome da Propriedade a ser deletada. Clique no bot&atilde;o Deletar Propriedades.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Clique em Ping para verificar se o servi&ccedil;o JMS est&aacute; sendo executado no host default JMS.</p>
+<p>Se o servi&ccedil;o JMS estiver em execu&ccedil;&atilde;o, uma mensagem informa que o ping foi bem-sucedido.</p>
+</li>
+<li>
+<p>Clique em Salvar.</p>
 
 <hr>
-</li></ol><p><b>Mais Informa&#231;&#245;es<br>Acessando servidores remotos</b></p><p>A mudan&#231;a de um provedor e um host para um sistema remoto
-faz com que todos os aplicativos do JMS sejam executados no servidor
-remoto. Para utilizar o servidor local e um ou mais servidores remotos,
-crie um recurso de f&#225;brica de conex&#245;es com a propriedade <tt>AddressList</tt> para
-criar conex&#245;es que acessem servidores remotos. Consulte <a href="task-jmsconnectionnew.html">Para criar um recurso de f&#225;brica de conex&#245;es do JMS</a>.</p>
-
-Comando asadmin equivalente</b></p><p><tt>jms-ping</tt></p>
-
-<p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-jmshostnew.html">Para criar um host do JMS</a></p>
+<p><b>Dica:</b></p>
+Para voltar &agrave;s defini&ccedil;&otilde;es default, clique no bot&atilde;o Carregar Defaults e depois em Salvar.
+<hr>
 
 </li>
-<li><p><a href="task-jmshostedit.html">Para editar um host do JMS</a></p>
-
+</ol>
+<a id="sthref21" name="sthref21"></a>
+<h5>Acessando servidores remotos</h5>
+<p>A mudan&ccedil;a de um provedor e um host para um sistema remoto faz com que todas as aplica&ccedil;&otilde;es JMS sejam executadas no servidor remoto. Para utilizar o servidor local e um ou mais servidores remotos, crie um recurso de f&aacute;brica de conex&otilde;es com a propriedade <code>AddressList</code> para criar conex&otilde;es que acessem servidores remotos. Consulte <a href="task-jmsconnectionnew.html">Para Criar um Recurso da F&aacute;brica de Conex&otilde;es JMS</a>.</p>
+<a id="sthref22" name="sthref22"></a>
+<h5>Comando asadmin equivalente</h5>
+<p><code>jms-ping</code></p>
+<a id="sthref23" name="sthref23"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-jmshostnew.html">Para Criar um Host de JMS</a></p>
 </li>
-<li><p><a href="task-jmshostdelete.html">Para excluir um host do JMS</a></p>
-
+<li>
+<p><a href="task-jmshostedit.html">Para Editar um Host de JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestnew.html">Para criar um destino f&#237;sico do JMS</a></p>
-
+<li>
+<p><a href="task-jmshostdelete.html">Para Deletar um Host de JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestedit.html">Para editar um destino f&#237;sico do JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestnew.html">Para Criar uma Destina&ccedil;&atilde;o F&iacute;sica de JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldestdelete.html">Para excluir um destino f&#237;sico do JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestedit.html">Para Editar uma Destina&ccedil;&atilde;o F&iacute;sica de JMS</a></p>
 </li>
-<li><p><a href="task-jmsflushmessages.html">Para remover mensagens de um destino f&#237;sico do JMS</a></p>
-
+<li>
+<p><a href="task-jmsphysicaldestdelete.html">Para Deletar uma Destina&ccedil;&atilde;o F&iacute;sica de JMS</a></p>
 </li>
-<li><p><a href="task-jmsphysicaldeststats.html">Para visualizar estat&#237;sticas de um destino f&#237;sico do JMS</a></p>
+<li>
+<p><a href="task-jmsflushmessages.html">Para Remover Mensagens de um Destino F&iacute;sico do JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsphysicaldeststats.html">Para Exibir Estat&iacute;sticas de um Destino F&iacute;sico do JMS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

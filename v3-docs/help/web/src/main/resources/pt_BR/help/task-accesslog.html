@@ -1,169 +1,201 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-accesslog" name="task-accesslog"></a><a id="GHWEB00035" name="GHWEB00035"></a></p>
 
-
-<a name="task-accesslog"></a><h3>Para configurar o servi&#231;o HTTP</h3><a name="indexterm-16"></a><a name="indexterm-17"></a><ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>No n&#243; Configura&#231;&#227;o, selecione o n&#243; Servi&#231;o HTTP.</b><p>A p&#225;gina Servi&#231;o HTTP &#233; exibida.</p></li>
-<li><b>Selecione a caixa de sele&#231;&#227;o SSO ativado, para ativar o logon &#250;nico
-por padr&#227;o para todos os aplicativos da Web em todos os servidores
-virtuais neste servidor que est&#227;o configurados para o mesmo dom&#237;nio.</b><p>Voc&#234; pode sobrepor esta configura&#231;&#227;o para um servidor virtual individual. Por padr&#227;o,
-a op&#231;&#227;o est&#225; desativada.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Log de Acesso Ativado para ativar o
-log de acesso para todos os subelementos de servidor virtual que n&#227;o
-especificarem essa propriedade. </b><p>Se a caixa de sele&#231;&#227;o Log de Acesso Ativado for desmarcada, o
-log de acesso ser&#225; desativado para todos os subelementos de servidor virtual
-que n&#227;o especificarem essa propriedade. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Rota&#231;&#227;o Ativada para ativar a circula&#231;&#227;o do
-arquivo de registro.</b><p>Por padr&#227;o, a op&#231;&#227;o est&#225; ativada.</p></li>
-<li><b>Na lista suspensa Pol&#237;tica de Rota&#231;&#227;o, selecione uma pol&#237;tica.</b><p>A &#250;nica pol&#237;tica de rota&#231;&#227;o dispon&#237;vel &#233; <tt>tempo</tt>.</p></li>
-<li><b>No campo Intervalo de Rota&#231;&#227;o, digite o n&#250;mero de minutos entre as
-rota&#231;&#245;es do log de acesso. </b><p>Esse campo s&#243; ser&#225; v&#225;lido se a Pol&#237;tica de Rota&#231;&#227;o for <tt>tempo</tt>.
-O valor padr&#227;o &#233; 1.440 minutos (24 horas).</p></li>
-<li><b>No campo Sufixo de Rota&#231;&#227;o, digite o valor de sequ&#234;ncia a ser
-adicionado ao final do nome do arquivo de log, ap&#243;s a rota&#231;&#227;o.</b><p>O valor padr&#227;o &#233; <tt>dd-MM-yyyy</tt>.</p><p>Verifique se o sufixo de rota&#231;&#227;o cont&#233;m valores suficientes para criar um
-sufixo exclusivo para cada rota&#231;&#227;o de log. Por exemplo, se o log
-de acesso for circulado mais de uma vez ao dia, inclua a
-hora do dia no sufixo de rota&#231;&#227;o.</p><p>Um sufixo exclusivo &#233; necess&#225;rio para assegurar que o arquivo de log
-de acesso seja circulado sempre que o intervalo de rota&#231;&#227;o for cumprido.
-Se o sufixo de rota&#231;&#227;o do novo arquivo de log de acesso
-for igual ao sufixo de rota&#231;&#227;o do arquivo de log existente, o
-arquivo n&#227;o ser&#225; circulado.</p></li>
-<li><b>No campo Contagem m&#225;xima de arquivos, digite o n&#250;mero m&#225;ximo de arquivos
-de registro de acesso rotacionado a serem mantidos.</b><p>Um valor negativo indica que n&#227;o h&#225; limite para a contagem de
-arquivos. O valor padr&#227;o &#233; -1.</p></li>
-<li><b>No campo Tamanho do buffer, digite o tamanho em bytes, do buffer
-de registros de acesso.</b><p>Um valor menor que ou igual a 0 desativa o armazenamento em
-buffer de registros de acesso. O valor padr&#227;o &#233; 32.768.</p></li>
-<li><b>No campo Intervalo de grava&#231;&#227;o, digite o n&#250;mero de segundos que antecede
-a grava&#231;&#227;o do registro em disco.</b><p>O log de acesso &#233; gravado quando o buffer est&#225; cheio ou
-quando o intervalo expira. Se o valor for menor que ou igual
-a 0, o buffer ser&#225; sempre gravado, mesmo que n&#227;o esteja cheio. 
-Isso significa que, a cada vez que o servidor &#233; acessado, a
-mensagem de log &#233; armazenada diretamente no arquivo. O valor padr&#227;o &#233;
-300.</p></li>
-<li><b>No campo Formato, digite o valor de sequ&#234;ncia para especificar as seguintes
-propriedades do registro de acesso:</b>
-<ul><li><p>As informa&#231;&#245;es a serem capturadas no log de acesso</p>
-
+<h4><a id="sthref21" name="sthref21"></a><a id="sthref22" name="sthref22"></a>Para Configurar o Servi&ccedil;o de HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
 </li>
-<li><p>A ordem em que as informa&#231;&#245;es ser&#227;o capturadas</p>
-
-</li></ul>
-<p>O valor padr&#227;o &#233; o seguinte:</p><pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>Esses valores est&#227;o dispon&#237;veis para inclus&#227;o na sequ&#234;ncia de formato:</p><dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
-<dd><p>Registra o valor (ao chamar seu m&#233;todo <tt>toString</tt>) do atributo de solicita&#231;&#227;o com o determinado <i>nome</i></p>
-
+<li>
+<p>Select the configuration that you are changing.</p>
+</li>
+<li>
+<p>No n&oacute; Configura&ccedil;&atilde;o, selecione o n&oacute; Servi&ccedil;o HTTP.</p>
+<p>A p&aacute;gina Servi&ccedil;o HTTP &eacute; exibida.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o SSO Ativado, para ativar o sign-on &uacute;nico por default para todas as aplica&ccedil;&otilde;es Web em todos os servidores virtuais neste servidor que est&atilde;o configurados para o mesmo realm.</p>
+<p>Voc&ecirc; pode substituir esta defini&ccedil;&atilde;o para um servidor virtual individual. Por default, a op&ccedil;&atilde;o est&aacute; desativada.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Log de Acesso Ativado para ativar o log de acesso para todos os subelementos de servidor virtual que n&atilde;o especificarem essa propriedade.</p>
+<p>Se a caixa de sele&ccedil;&atilde;o Log de Acesso Ativado for desmarcada, o log de acesso ser&aacute; desativado para todos os subelementos de servidor virtual que n&atilde;o especificarem essa propriedade. Por default, a op&ccedil;&atilde;o est&aacute; desativada.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Rota&ccedil;&atilde;o Ativada para ativar a circula&ccedil;&atilde;o do arquivo de log.</p>
+<p>Por default, a op&ccedil;&atilde;o est&aacute; ativada.</p>
+</li>
+<li>
+<p>Na lista drop-down Pol&iacute;tica de Rota&ccedil;&atilde;o, selecione uma pol&iacute;tica.</p>
+<p>A &uacute;nica pol&iacute;tica de rota&ccedil;&atilde;o dispon&iacute;vel &eacute; <code>tempo</code>.</p>
+</li>
+<li>
+<p>No campo Intervalo de Rota&ccedil;&atilde;o, digite o n&uacute;mero de minutos entre as rota&ccedil;&otilde;es do log de acesso.</p>
+<p>Esse campo s&oacute; ser&aacute; v&aacute;lido se a Pol&iacute;tica de Rota&ccedil;&atilde;o for <code>tempo</code>. O valor default &eacute; 1.440 minutos (24 horas).</p>
+</li>
+<li>
+<p>No campo Sufixo de Rota&ccedil;&atilde;o, digite o valor de string a ser adicionado ao final do nome do arquivo de log, ap&oacute;s a rota&ccedil;&atilde;o.</p>
+<p>O valor default &eacute; <code>dd-MM-yyyy</code>.</p>
+<p>Verifique se o sufixo de rota&ccedil;&atilde;o cont&eacute;m valores suficientes para criar um sufixo exclusivo para cada rota&ccedil;&atilde;o de log. Por exemplo, se o log de acesso for circulado mais de uma vez ao dia, inclua a hora do dia no sufixo de rota&ccedil;&atilde;o.</p>
+<p>Um sufixo exclusivo &eacute; necess&aacute;rio para assegurar que o arquivo de log de acesso seja circulado sempre que o intervalo de rota&ccedil;&atilde;o for cumprido. Se o sufixo de rota&ccedil;&atilde;o do novo arquivo de log de acesso for igual ao sufixo de rota&ccedil;&atilde;o do arquivo de log existente, o arquivo n&atilde;o ser&aacute; circulado.</p>
+</li>
+<li>
+<p>No campo Contagem m&aacute;xima de arquivos, digite o n&uacute;mero m&aacute;ximo de arquivos de log de acesso rotacionado a serem mantidos.</p>
+<p>Um valor negativo indica que n&atilde;o h&aacute; limite para a contagem de arquivos. O valor default &eacute; -1.</p>
+</li>
+<li>
+<p>No campo Tamanho do buffer, digite o tamanho em bytes, do buffer de log de acesso.</p>
+<p>Um valor menor que ou igual a 0 desativa o armazenamento em buffer de logs de acesso. O valor default &eacute; 32.768.</p>
+</li>
+<li>
+<p>No campo Intervalo de grava&ccedil;&atilde;o, digite o n&uacute;mero de segundos que antecede a grava&ccedil;&atilde;o do log em disco.</p>
+<p>O log de acesso &eacute; gravado quando o buffer est&aacute; cheio ou quando o intervalo expira. Se o valor for menor que ou igual a 0, o buffer ser&aacute; sempre gravado, mesmo que n&atilde;o esteja cheio. Isso significa que, a cada vez que o servidor &eacute; acessado, a mensagem de log &eacute; armazenada diretamente no arquivo. O valor default &eacute; 300.</p>
+</li>
+<li>
+<p>No campo Formato, digite o valor de string para especificar as seguintes propriedades do log de acesso:</p>
+<ul>
+<li>
+<p>As informa&ccedil;&otilde;es a serem capturadas no log de acesso</p>
+</li>
+<li>
+<p>A ordem em que as informa&ccedil;&otilde;es ser&atilde;o capturadas</p>
+</li>
+</ul>
+<p>O valor default &eacute; o seguinte:</p>
+<pre>
+%client.name% %auth-user-name% %datetime% %request% %status% %response.length%
+</pre>
+<p>Esses valores est&atilde;o dispon&iacute;veis para inclus&atilde;o na string de formato:</p>
+<dl>
+<dt><code>%attribute.</code><i>nome</i><code>%</code></dt>
+<dd>
+<p>Registra o valor (ao chamar seu m&eacute;todo <code>toString</code>) do atributo de solicita&ccedil;&atilde;o com o determinado <i>nome</i></p>
 </dd>
-<dt><tt>%auth-user-name%</tt></dt>
-<dd><p>Nome do usu&#225;rio autorizado</p>
-
+<dt><code>%auth-user-name%</code></dt>
+<dd>
+<p>Nome do usu&aacute;rio autorizado</p>
 </dd>
-<dt><tt>%client.name%</tt></dt>
-<dd><p>Nome do host cliente</p>
-
+<dt><code>%client.name%</code></dt>
+<dd>
+<p>Nome do host cliente</p>
 </dd>
-<dt><tt>%client.dns%</tt></dt>
-<dd><p>DNS Cliente</p>
-
+<dt><code>%client.dns%</code></dt>
+<dd>
+<p>DNS Cliente</p>
 </dd>
-<dt><tt>%cookie.<i>name</i>%</tt></dt>
-<dd><p>O valor do cookie solicitado com o <i>nome</i> determinado</p>
-
+<dt><code>%cookie.</code><i>nome</i><code>%</code></dt>
+<dd>
+<p>O valor do cookie solicitado com o <i>nome</i> determinado</p>
 </dd>
-<dt><tt>%cookie.value%</tt></dt>
-<dd><p>O valor do primeiro cookie encontrado na solicita&#231;&#227;o</p>
-
+<dt><code>%cookie.value%</code></dt>
+<dd>
+<p>O valor do primeiro cookie encontrado na solicita&ccedil;&atilde;o</p>
 </dd>
-<dt><tt>%datetime%</tt></dt>
-<dd><p>Data do sistema</p>
-
+<dt><code>%datetime%</code></dt>
+<dd>
+<p>Data do sistema</p>
 </dd>
-<dt><tt>%request%</tt></dt>
-<dd><p>Linha de solicita&#231;&#227;o de HTTP completo</p>
-
+<dt><code>%request%</code></dt>
+<dd>
+<p>Linha de solicita&ccedil;&atilde;o HTTP completo</p>
 </dd>
-<dt><tt>%status%</tt></dt>
-<dd><p>Status</p>
-
+<dt><code>%status%</code></dt>
+<dd>
+<p>Status</p>
 </dd>
-<dt><tt>%response.length%</tt></dt>
-<dd><p>Tamanho do conte&#250;do da resposta</p>
-
+<dt><code>%response.length%</code></dt>
+<dd>
+<p>Tamanho do conte&uacute;do da resposta</p>
 </dd>
-<dt><tt>%header.referer%</tt></dt>
-<dd><p>Cabe&#231;alho do referenciador</p>
-
+<dt><code>%header.referer%</code></dt>
+<dd>
+<p>Cabe&ccedil;alho do referenciador</p>
 </dd>
-<dt><tt>%header.user-agent%</tt></dt>
-<dd><p>Cabe&#231;alho de agente do usu&#225;rio</p>
-
+<dt><code>%header.user-agent%</code></dt>
+<dd>
+<p>Cabe&ccedil;alho de agente do usu&aacute;rio</p>
 </dd>
-<dt><tt>%http-method%</tt></dt>
-<dd><p>M&#233;todo HTTP</p>
-
+<dt><code>%http-method%</code></dt>
+<dd>
+<p>M&eacute;todo HTTP</p>
 </dd>
-<dt><tt>%http-uri%</tt></dt>
-<dd><p>URI HTTP</p>
-
+<dt><code>%http-uri%</code></dt>
+<dd>
+<p>URI HTTP</p>
 </dd>
-<dt><tt>%query-str%</tt></dt>
-<dd><p>Sequ&#234;ncia de consulta HTTP</p>
-
+<dt><code>%query-str%</code></dt>
+<dd>
+<p>Sequ&ecirc;ncia de consulta HTTP</p>
 </dd>
-<dt><tt>%http-version%</tt></dt>
-<dd><p>Vers&#227;o do protocolo HTTP</p>
-
+<dt><code>%http-version%</code></dt>
+<dd>
+<p>Vers&atilde;o do protocolo HTTP</p>
 </dd>
-<dt><tt>%header.accept%</tt></dt>
-<dd><p>Cabe&#231;alho da aceita&#231;&#227;o</p>
-
+<dt><code>%header.accept%</code></dt>
+<dd>
+<p>Cabe&ccedil;alho da aceita&ccedil;&atilde;o</p>
 </dd>
-<dt><tt>%header.date%</tt></dt>
-<dd><p>Cabe&#231;alho de data</p>
-
+<dt><code>%header.date%</code></dt>
+<dd>
+<p>Cabe&ccedil;alho de data</p>
 </dd>
-<dt><tt>%header.if-mod-since%</tt></dt>
-<dd><p>Cabe&#231;alho Se modificado desde</p>
-
+<dt><code>%header.if-mod-since%</code></dt>
+<dd>
+<p>Cabe&ccedil;alho Se modificado desde</p>
 </dd>
-<dt><tt>%header.auth%</tt></dt>
-<dd><p>Cabe&#231;alho da autoriza&#231;&#227;o</p>
-
+<dt><code>%header.auth%</code></dt>
+<dd>
+<p>Cabe&ccedil;alho da autoriza&ccedil;&atilde;o</p>
 </dd>
-<dt><tt>%header.<i>any</i>%</tt></dt>
-<dd><p>Um valor de cabe&#231;alho HTTP v&#225;lido em RFC 2616 (<tt>qualquer</tt> tamb&#233;m &#233; um valor de cabe&#231;alho v&#225;lido; est&#225; especificado como vari&#225;vel, aqui)</p>
-
+<dt><code>%header.</code><i>qualquer</i><code>%</code></dt>
+<dd>
+<p>Um valor de cabe&ccedil;alho HTTP v&aacute;lido em RFC 2616 (<code>qualquer</code> tamb&eacute;m &eacute; um valor de cabe&ccedil;alho v&aacute;lido; est&aacute; especificado como vari&aacute;vel, aqui)</p>
 </dd>
-<dt><tt>%session.<i>name</i>%</tt></dt>
-<dd><p>O valor do atributo da sess&#227;o com o nome <i>nome</i>, <tt>NULL-SESSION-ATTRIBUTE-<i>nome</i></tt> se o atributo nomeado n&#227;o existe na sess&#227;o ou <tt>NULL-SESSION</tt> se nenhuma sess&#227;o existe</p>
-
+<dt><code>%cookie.</code><i>nome</i><code>%</code></dt>
+<dd>
+<p>O valor do atributo da sess&atilde;o com o nome <i>name</i>, or <code>NULL-SESSION-ATTRIBUTE-</code><i>name</i> se o atributo denominado n&atilde;o existir na sess&atilde;o ou <code>NULL-SESSION</code> se nenhuma sess&atilde;o existir</p>
 </dd>
-<dt><tt>%time-taken%</tt></dt>
-<dd><p>Tempo (em milissegundos) que levou para efetuar o servi&#231;o de cada solicita&#231;&#227;o</p>
-
+<dt><code>%time-taken%</code></dt>
+<dd>
+<p>Tempo (em milissegundos) que levou para efetuar o servi&ccedil;o de cada solicita&ccedil;&atilde;o</p>
 </dd>
-<dt><tt>%vs.id%</tt></dt>
-<dd><p>ID do servidor virtual</p>
-
+<dt><code>%vs.id%</code></dt>
+<dd>
+<p>ID do servidor virtual</p>
 </dd>
 </dl>
 </li>
-<li>(Opcional) <b>Na se&#231;&#227;o Propriedades Adicionais, especifique essas propriedades.</b><p>Para obter uma descri&#231;&#227;o das propriedades dispon&#237;veis, consulte <a href="ref-httpserviceprops.html">Propriedades espec&#237;ficas do servi&#231;o HTTP</a>.</p><ul>
-<li><b>Para adicionar uma propriedade, clique no bot&#227;o Adicionar Propriedade. Na linha em
-brando que &#233; exibida, digite o nome da propriedade no campo Nome
-e digite o valor da propriedade no campo Valor.</b></li>
-<li><b>Para modificar uma propriedade, edite o campo Valor da propriedade.</b></li>
-<li><b>Para excluir uma propriedade, marque a caixa de sele&#231;&#227;o &#224; esquerda do
-campo Nome da propriedade a ser exclu&#237;da. Clique no bot&#227;o Excluir Propriedades.</b></li></ul></li>
-<li><b>Clique em Salvar.</b>
-<hr><p><b>Dica - </b>Para restaurar as configura&#231;&#245;es padr&#227;o, clique no bot&#227;o Carregar Padr&#245;es e depois
-em Salvar. </p>
-
+<li>
+<p>Na se&ccedil;&atilde;o Propriedades Adicionais, especifique essas propriedades.</p>
+<p>Para obter uma descri&ccedil;&atilde;o das propriedades dispon&iacute;veis, <a href="ref-httpserviceprops.html">Propriedades Espec&iacute;ficas ao Servi&ccedil;o HTTP</a> consulte.</p>
+<ul>
+<li>
+<p>Para adicionar uma propriedade, clique no bot&atilde;o Adicionar propriedade. Na linha em branco que &eacute; exibida, digite o nome da propriedade no campo Nome e digite o valor da propriedade no campo Valor.</p>
+</li>
+<li>
+<p>Para modificar uma propriedade, edite o campo Valor da propriedade.</p>
+</li>
+<li>
+<p>Para deletar uma propriedade, marque a caixa de sele&ccedil;&atilde;o &agrave; esquerda do campo Nome da Propriedade a ser deletada. Clique no bot&atilde;o Deletar Propriedades.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Clique em Salvar.</p>
 
 <hr>
-</li></ol>
+<p><b>Dica:</b></p>
+Para voltar &agrave;s defini&ccedil;&otilde;es default, clique no bot&atilde;o Carregar Defaults e depois em Salvar.
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+</li>
+</ol>
+
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

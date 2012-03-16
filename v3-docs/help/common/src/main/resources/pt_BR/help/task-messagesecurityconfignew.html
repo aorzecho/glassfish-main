@@ -1,83 +1,97 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-messagesecurityconfignew" name="task-messagesecurityconfignew"></a><a id="GHCOM00204" name="GHCOM00204"></a></p>
 
-
-<a name="task-messagesecurityconfignew"></a><h3>Para criar uma configura&#231;&#227;o de seguran&#231;a de mensagens</h3><a name="indexterm-107"></a><p>Normalmente, voc&#234; n&#227;o precisa criar uma configura&#231;&#227;o de seguran&#231;a de mensagens. O
-Servidor GlassFish inclui uma configura&#231;&#227;o de seguran&#231;a de mensagens para a camada
-de autentica&#231;&#227;o SOAP. Os provedores desta configura&#231;&#227;o n&#227;o s&#227;o ativados por padr&#227;o,
-mas voc&#234; pode ativ&#225;-los editando a configura&#231;&#227;o de seguran&#231;a de mensagens SOAP.
-Voc&#234; pode, contudo, criar uma configura&#231;&#227;o para a camada de autentica&#231;&#227;o HttpServlet,
-e especificar uma ou mais configura&#231;&#245;es para ela.</p>
-
+<h4><a id="sthref183" name="sthref183"></a>Para Criar uma Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Normalmente, voc&ecirc; n&atilde;o precisa criar uma configura&ccedil;&atilde;o de seguran&ccedil;a de mensagens. O GlassFish Server inclui uma configura&ccedil;&atilde;o de seguran&ccedil;a de mensagens para a camada de autentica&ccedil;&atilde;o SOAP. Os provedores desta configura&ccedil;&atilde;o n&atilde;o s&atilde;o ativados por default, mas voc&ecirc; pode ativ&aacute;-los editando a configura&ccedil;&atilde;o de seguran&ccedil;a de mensagens SOAP. Voc&ecirc; pode, contudo, criar uma configura&ccedil;&atilde;o para a camada de autentica&ccedil;&atilde;o HttpServlet, e especificar uma ou mais configura&ccedil;&otilde;es de provedor para ela.</p>
 <ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>Expanda o n&#243; Seguran&#231;a.</b></li>
-<li><b>Selecione o n&#243; Seguran&#231;a de Mensagens.</b><p>A p&#225;gina Configura&#231;&#245;es de Seguran&#231;a de Mensagens &#233; exibida.</p></li>
-<li><b>Na p&#225;gina Configura&#231;&#245;es de Seguran&#231;a de Mensagens, clique em Novo.</b><p>A p&#225;gina Nova Configura&#231;&#227;o de Seguran&#231;a de Mensagens &#233; exibida.</p>
-<hr><p><b>Observa&#231;&#227;o - </b>&#201; poss&#237;vel criar ou excluir os provedores de seguran&#231;a de mensagens da
-configura&#231;&#227;o <tt>server-config</tt> padr&#227;o. Os &#250;nicos provedores de seguran&#231;a de mensagem que s&#227;o
-suportados no <tt>server-config</tt> padr&#227;o s&#227;o SOAP e HttpServlet. Como estes dois provedores
-de mensagem j&#225; s&#227;o criados por padr&#227;o quando o Servidor GlassFish &#233;
-instalado, o bot&#227;o Novo fica desativado na p&#225;gina Configura&#231;&#245;es de seguran&#231;a de
-mensagens no <tt>server-config</tt> padr&#227;o.</p>
-
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
+</li>
+<li>
+<p>Expanda o n&oacute; Seguran&ccedil;a.</p>
+</li>
+<li>
+<p>Selecione o n&oacute; Seguran&ccedil;a de Mensagens.</p>
+<p>A p&aacute;gina Configura&ccedil;&otilde;es de Seguran&ccedil;a de Mensagens &eacute; exibida.</p>
+</li>
+<li>
+<p>Na p&aacute;gina Configura&ccedil;&otilde;es de Seguran&ccedil;a de Mensagens, clique em Novo.</p>
+<p>A p&aacute;gina Nova Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens &eacute; exibida.</p>
 
 <hr>
+<p><b>Observa&ccedil;&atilde;o:</b></p>
+&Eacute; poss&iacute;vel criar ou deletar os provedores de seguran&ccedil;a de mensagens da configura&ccedil;&atilde;o <code>server-config</code> default. Os &uacute;nicos provedores de seguran&ccedil;a de mensagem que s&atilde;o suportados no <code>server-config</code> default s&atilde;o SOAP e HttpServlet. Como estes dois provedores de mensagem j&aacute; s&atilde;o criados por default quando o GlassFish Server &eacute; instalado, o bot&atilde;o Novo fica desativado na p&aacute;gina Configura&ccedil;&otilde;es de seguran&ccedil;a de mensagens no <code>server-config</code> default.
+<hr>
+
 </li>
-<li><b>Na p&#225;gina Nova Configura&#231;&#227;o de Seguran&#231;a de Mensagens, na lista suspensa Camada
-de Autentica&#231;&#227;o, selecione a camada de mensagens para a quar voc&#234; est&#225;
-criando uma configura&#231;&#227;o. </b><p>Como uma configura&#231;&#227;o SOAP est&#225; dispon&#237;vel por padr&#227;o, a &#250;nica op&#231;&#227;o &#233;
-<tt>HttpServlet</tt>.</p></li>
-<li><b>No campo ID do Provedor, digite o identificador exclusivo da configura&#231;&#227;o do
-provedor para essa configura&#231;&#227;o de seguran&#231;a de mensagens.</b></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Provedor Padr&#227;o para especificar que essa configura&#231;&#227;o
-de provedor &#233; o provedor padr&#227;o.</b></li>
-<li><b>Na lista suspensa Tipo de Provedor, selecione o tipo deste provedor.</b><p>As op&#231;&#245;es dispon&#237;veis s&#227;o:</p><dl><dt><tt>cliente</tt></dt>
-<dd><p>Especifica que o provedor &#233; o provedor de autentica&#231;&#227;o do cliente.</p>
-
+<li>
+<p>Na p&aacute;gina Nova Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens, na lista drop-down Camada de Autentica&ccedil;&atilde;o, selecione a camada de mensagens para a quar voc&ecirc; est&aacute; criando uma configura&ccedil;&atilde;o.</p>
+<p>Como uma configura&ccedil;&atilde;o SOAP est&aacute; dispon&iacute;vel por default, a &uacute;nica op&ccedil;&atilde;o &eacute; <code>HttpServlet</code>.</p>
+</li>
+<li>
+<p>No campo ID do Provedor, digite o identificador exclusivo da configura&ccedil;&atilde;o do provedor para essa configura&ccedil;&atilde;o de seguran&ccedil;a de mensagens.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Provedor Default para especificar que essa configura&ccedil;&atilde;o de provedor &eacute; o provedor default.</p>
+</li>
+<li>
+<p>Na lista drop-down Tipo de Provedor, selecione o tipo deste provedor.</p>
+<p>As op&ccedil;&otilde;es dispon&iacute;veis s&atilde;o:</p>
+<dl>
+<dt><code>cliente</code></dt>
+<dd>
+<p>Especifica que o provedor &eacute; o provedor de autentica&ccedil;&atilde;o do cliente.</p>
 </dd>
-<dt><tt>servidor</tt></dt>
-<dd><p>Especifica que o provedor &#233; o provedor de autentica&#231;&#227;o do servidor.</p>
-
+<dt><code>servidor</code></dt>
+<dd>
+<p>Especifica que o provedor &eacute; o provedor de autentica&ccedil;&atilde;o do servidor.</p>
 </dd>
-<dt><tt>cliente-servidor</tt></dt>
-<dd><p>Especifica que o provedor e um provedor de autentica&#231;&#227;o do cliente e do servidor.</p>
-
+<dt><code>cliente-servidor</code></dt>
+<dd>
+<p>Especifica que o provedor e um provedor de autentica&ccedil;&atilde;o do cliente e do servidor.</p>
 </dd>
 </dl>
 </li>
-<li><b>No campo Nome da Classe, digite o nome da classe de Implementa&#231;&#227;o
-Java do provedor.</b><p>Os provedores de autentica&#231;&#227;o cliente devem implementar a <tt>com.sun.enterprise.security.jauth.ClientAuthModule</tt> da interface. Os
-provedores do lado do servidor devem implementar a <tt>com.sun.enterprise.security.jauth.ServerAuthModule</tt> da interface. Os
-provedores de cliente-servidor devem implementar as duas interfaces.</p></li>
-<li>(Opcional) <b>Na se&#231;&#227;o Propriedades Adicionais, especifique essas propriedades.</b><p>Para adicionar uma propriedade, clique no bot&#227;o Adicionar Propriedade. Na linha em
-branco que &#233; exibida, digite o nome da propriedade no campo Nome
-e digite o valor da propriedade no campo Valor.</p><p>O Servidor GlassFish n&#227;o define nenhuma propriedade adicional para configura&#231;&#245;es de seguran&#231;a
-de mensagens.</p></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-configmsgsecproviders.html">Para configurar os recursos do Servidor GlassFish para uso pelos provedores de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p>No campo Nome da Classe, digite o nome da classe de Implementa&ccedil;&atilde;o Java do provedor.</p>
+<p>Provedores de autentica&ccedil;&atilde;o do cliente devem implementar a interface <code>com.sun.enterprise.security.jauth.ClientAuthModule</code>. Provedores do servidor devem implementar a interface <code>com.sun.enterprise.security.jauth.ServerAuthModule</code>. Os provedores de cliente-servidor devem implementar as duas interfaces.</p>
 </li>
-<li><p><a href="task-messagesecurityconfigedit.html">Para editar uma configura&#231;&#227;o de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p>Na se&ccedil;&atilde;o Propriedades Adicionais, especifique essas propriedades.</p>
+<p>Para adicionar uma propriedade, clique no bot&atilde;o Adicionar Propriedade. Na linha em branco que &eacute; exibida, digite o nome da propriedade no campo Nome e digite o valor da propriedade no campo Valor.</p>
+<p>O GlassFish Server n&atilde;o define nenhuma propriedade adicional para configura&ccedil;&otilde;es de seguran&ccedil;a de mensagens.</p>
 </li>
-<li><p><a href="task-messagesecurityconfigdelete.html">Para excluir uma configura&#231;&#227;o de seguran&#231;a de mensagens</a></p>
-
+</ol>
+<a id="sthref184" name="sthref184"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-configmsgsecproviders.html">Para Configurar Recursos do GlassFish Server para Uso por Provedores de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfignew.html">Para criar uma configura&#231;&#227;o de provedor de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigedit.html">Para Editar uma Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigedit.html">Para editar uma configura&#231;&#227;o de provedor de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigdelete.html">Para Deletar uma Configura&ccedil;&atilde;o de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigdelete.html">Para excluir uma configura&#231;&#227;o de provedor de seguran&#231;a de mensagens</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfignew.html">Para Criar uma Configura&ccedil;&atilde;o do Provedor de Seguran&ccedil;a de Mensagens</a></p>
 </li>
-<li><p><a href="task-enablemesec4appclients.html">Para ativar a seguranda de mensagens para clientes aplicativos</a></p>
+<li>
+<p><a href="task-messagesecurityproviderconfigedit.html">Para Editar uma Configura&ccedil;&atilde;o do Provedor de Seguran&ccedil;a de Mensagens</a></p>
+</li>
+<li>
+<p><a href="task-messagesecurityproviderconfigdelete.html">Para Deletar uma Configura&ccedil;&atilde;o do Provedor de Seguran&ccedil;a de Mensagens</a></p>
+</li>
+<li>
+<p><a href="task-enablemesec4appclients.html">Para Ativar a Seguran&ccedil;a de Mensagens de Clientes da Aplica&ccedil;&atilde;o</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

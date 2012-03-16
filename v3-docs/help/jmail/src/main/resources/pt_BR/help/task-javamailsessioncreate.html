@@ -1,81 +1,105 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-javamailsessioncreate" name="task-javamailsessioncreate"></a><a id="GHJML00011" name="GHJML00011"></a></p>
 
-
-<a name="task-javamailsessioncreate"></a><h3>Para criar uma sess&#227;o JavaMail</h3><a name="indexterm-1"></a><ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Recursos.</b></li>
-<li><b>No n&#243; Recursos, selecione Sess&#245;es JavaMail.</b><p>Abre-se a p&#225;gina Sess&#245;es JavaMail.</p></li>
-<li><b>Na tabela Sess&#245;es, clique em Novo.</b><p>Abre-se a p&#225;gina Nova sess&#227;o JavaMail.</p></li>
-<li><b>No campo Nome JNDI, digite um nome exclusivo para o recurso de
-sess&#227;o de correio. </b><p>Utilize o prefixo de subcontexto de nomea&#231;&#227;o <tt>mail/</tt> para recursos JavaMail. Por
-exemplo: <tt>mail/MySession</tt>. O nome deve conter somente caracteres alfanum&#233;ricos, sublinhado, tra&#231;o ou
-ponto.</p></li>
-<li><b>No campo Host de correio, digite o nome do host do servidor
-de correio padr&#227;o.</b><p>Os m&#233;todos de conex&#227;o dos objetos Armazenamento e Transporte usam esse valor
-se n&#227;o &#233; fornecida uma propriedade de host espec&#237;fica do protocolo. O
-nome deve ser resol&#250;vel para um nome de host real.</p></li>
-<li><b>No campo Usu&#225;rio padr&#227;o, digite o nome do usu&#225;rio a ser fornecido
-quando conectar-se a um servidor de correio. </b><p>Os m&#233;todos de conex&#227;o dos objetos Armazenamento e Transporte usam esse valor
-se n&#227;o &#233; fornecida uma propriedade de nome de usu&#225;rio espec&#237;fica do
-protocolo. O nome de usu&#225;rio deve conter somente caracteres alfanum&#233;ricos, sublinhado, tra&#231;o
-ou ponto.</p></li>
-<li><b>No campo Endere&#231;o de remetente padr&#227;o, digite o endere&#231;o de e-mail do
-usu&#225;rio padr&#227;o.</b><p>O formato &#233; <i>nome de usu&#225;rio</i><tt>@</tt><i>host</i><i>dom&#237;nio</i>.</p></li>
-<li><b>No campo Descri&#231;&#227;o, digite uma descri&#231;&#227;o para a sess&#227;o de correio.</b></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Status ativo para ativar a sess&#227;o de
-correio.</b><p>O valor padr&#227;o &#233; Ativo.</p></li>
-<li><b>No campo Protocolo do armazenamento, defina o servi&#231;o de protocolo do armazenamento
-a ser utilizado.</b><p>O servi&#231;o de protocolo do armazenamento conecta-se a um servidor de correio,
-recupera mensagens e as salva em uma ou mais pastas. Os valores
-permitidos s&#227;o <tt>imap</tt>, <tt>pop3</tt>, <tt>imaps</tt> e <tt>pop3s</tt>. O valor padr&#227;o &#233; <tt>imap</tt>.</p></li>
-<li><b>No campo Classe de protocolo do armazenamento, especifique a classe de implementa&#231;&#227;o
-do provedor de servi&#231;o para armazenamento.</b><p>Os valores permitidos s&#227;o:</p>
-
-
-<ul><li><p><tt>com.sun.mail.imap.IMAPStore</tt></p>
-
+<h4><a id="sthref2" name="sthref2"></a>Para Criar uma Sess&atilde;o do JavaMail</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Recursos.</p>
 </li>
-<li><p><tt>com.sun.mail.pop3.POP3Store</tt></p>
-
+<li>
+<p>No n&oacute; Recursos, selecione Sess&otilde;es JavaMail.</p>
+<p>Abre-se a p&aacute;gina Sess&otilde;es JavaMail.</p>
 </li>
-<li><p><tt>com.sun.mail.imap.IMAPSSLStore</tt></p>
-
+<li>
+<p>Na tabela Sess&otilde;es, clique em Novo.</p>
+<p>Abre-se a p&aacute;gina Nova sess&atilde;o JavaMail.</p>
 </li>
-<li><p><tt>com.sun.mail.pop3.POP3SSLStore</tt></p>
-
-</li></ul>
-<p>O valor padr&#227;o &#233; <tt>com.sun.mail.imap.IMAPStore</tt>.</p></li>
-<li><b>No campo Protocolo do transporte, especifique o m&#233;todo de comunica&#231;&#227;o de transporte.</b><p>O servi&#231;o de protocolo de transporte envia mensagens. Os valores permitidos s&#227;o
-<tt>smtp</tt> e <tt>smtps</tt>. Por padr&#227;o, o Protocolo do transporte &#233; <tt>smtp</tt>.</p></li>
-<li><b>No campo Classe de protocolo do transporte, especifique a classe de implementa&#231;&#227;o
-do provedor de servi&#231;o para transporte.</b><p>O valor padr&#227;o &#233; <tt>com.sun.mail.smtp.SMTPTransport</tt>.</p></li>
-<li><b>Marque a caixa de sele&#231;&#227;o Depura&#231;&#227;o para ativar a sa&#237;da de depura&#231;&#227;o
-extra, incluindo um rastreamento de protocolo, para a sess&#227;o de correio.</b><p>Se o n&#237;vel de log JavaMail estiver definido como <tt>BOM</tt> ou melhor,
-a sa&#237;da de depura&#231;&#227;o &#233; gerada e inclu&#237;da no arquivo de log
-do sistema. Para obter informa&#231;&#245;es sobre a configura&#231;&#227;o do n&#237;vel de log,
-consulte <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3031&id=task-eelogginglevels">Para configurar n&#237;veis de log</a>. Por padr&#227;o, a op&#231;&#227;o est&#225; desativada.</p></li>
-<li>(Opcional) <b>Na tabela Propriedades adicionais, especifique propriedades adicionais requeridas por aplicativos, como uma
-propriedade de nome de usu&#225;rio ou de host espec&#237;fica do protocolo.</b><p>Para obter uma lista das propriedades dispon&#237;veis, consulte a documenta&#231;&#227;o da JavaMail
-API em <a href="http://java.sun.com/products/javamail/javadocs/index.html"></a>. Propriedades adicionais devem come&#231;ar com <tt>mail-</tt> e devem usar
-h&#237;fens, n&#227;o pontos, como separadores. Por exemplo, <tt>mail-debug</tt> &#233; correto, mas <tt>mail.debug</tt>
-n&#227;o. O back-end do Servidor GlassFish converte os h&#237;fens nos pontos esperados
-pela JavaMail API.</p><p>Para adicionar uma propriedade, clique no bot&#227;o Adicionar propriedade. Na linha em
-branco que &#233; exibida, digite o nome da propriedade no campo Nome
-e digite o valor da propriedade no campo Valor.</p></li>
-<li><b>Na lista de destinos dispon&#237;veis, selecione o destino ou destinos dos quais
-configurar a sess&#227;o de e-mail e clique em Adicionar.</b><p>Os destinos podem ser armazenados em clusters ou em inst&#226;ncias independentes do
-servidor. Se um destino n&#227;o for selecionado, a sess&#227;o &#233; configurado com
-a inst&#226;ncia padr&#227;o do servidor <tt>server</tt>.</p></li>
-<li><b>Clique em OK.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-javamailsessionsedit.html">Para editar uma sess&#227;o JavaMail</a></p>
-
+<li>
+<p>No campo Nome JNDI, digite um nome exclusivo para o recurso de sess&atilde;o de correio.</p>
+<p>Use o prefixo de denomina&ccedil;&atilde;o sub-context<code>mail/</code>para recursos do JavaMail. Por exemplo, <code>mail/MySession</code>. O nome deve conter somente caracteres alfanum&eacute;ricos, sublinhado, tra&ccedil;o ou ponto.</p>
 </li>
-<li><p><a href="task-javamailsessionsdelete.html">Para excluir uma sess&#227;o JavaMail</a></p>
+<li>
+<p>No campo Host de correio, digite o nome do host do servidor de correio default.</p>
+<p>Os m&eacute;todos de conex&atilde;o dos objetos Armazenamento e Transporte usam esse valor se n&atilde;o &eacute; fornecida uma propriedade de host espec&iacute;fica do protocolo. O nome deve ser resol&uacute;vel para um nome de host real.</p>
+</li>
+<li>
+<p>No campo Usu&aacute;rio Default, digite o nome do usu&aacute;rio a ser fornecido durante a conex&atilde;o com um servidor de correio.</p>
+<p>Os m&eacute;todos de conex&atilde;o dos objetos Armazenamento e Transporte usam esse valor se n&atilde;o &eacute; fornecida uma propriedade de nome de usu&aacute;rio espec&iacute;fica do protocolo. O nome de usu&aacute;rio deve conter somente caracteres alfanum&eacute;ricos, sublinhado, tra&ccedil;o ou ponto.</p>
+</li>
+<li>
+<p>No campo Endere&ccedil;o de remetente default, digite o endere&ccedil;o de e-mail do usu&aacute;rio default.</p>
+<p>O formato &eacute; <i>nome de usu&aacute;rio</i><code>@</code><i>host</i>.<i>dom&iacute;nio</i>.</p>
+</li>
+<li>
+<p>No campo Descri&ccedil;&atilde;o, digite uma descri&ccedil;&atilde;o para a sess&atilde;o de correio.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Status ativo para ativar a sess&atilde;o de correio.</p>
+<p>O valor default &eacute; Ativo.</p>
+</li>
+<li>
+<p>No campo Protocolo do armazenamento, defina o servi&ccedil;o de protocolo do armazenamento a ser utilizado.</p>
+<p>O servi&ccedil;o de protocolo do armazenamento conecta-se a um servidor de correio, recupera mensagens e as salva em uma ou mais pastas. Os valores permitidos s&atilde;o <code>imap</code>, <code>pop3</code>, <code>imaps</code> e <code>pop3s</code>. O valor default &eacute; <code>imap</code>.</p>
+</li>
+<li>
+<p>No campo Classe de protocolo do armazenamento, especifique a classe de implementa&ccedil;&atilde;o do provedor de servi&ccedil;o para armazenamento.</p>
+<p>Os valores permitidos s&atilde;o:</p>
+<ul>
+<li>
+<p><code>com.sun.mail.imap.IMAPStore</code></p>
+</li>
+<li>
+<p><code>com.sun.mail.pop3.POP3Store</code></p>
+</li>
+<li>
+<p><code>com.sun.mail.imap.IMAPSSLStore</code></p>
+</li>
+<li>
+<p><code>com.sun.mail.pop3.POP3SSLStore</code></p>
+</li>
+</ul>
+<p>O valor default &eacute; <code>com.sun.mail.imap.IMAPStore</code>.</p>
+</li>
+<li>
+<p>No campo Protocolo do transporte, especifique o m&eacute;todo de comunica&ccedil;&atilde;o de transporte.</p>
+<p>O servi&ccedil;o de protocolo de transporte envia mensagens. Os valores permitidos s&atilde;o <code>smtp</code> e <code>smtps</code>. Por default, o Protocolo do transporte &eacute; <code>smtp</code>.</p>
+</li>
+<li>
+<p>No campo Classe de protocolo do transporte, especifique a classe de implementa&ccedil;&atilde;o do provedor de servi&ccedil;o para transporte.</p>
+<p>O valor default &eacute; <code>com.sun.mail.smtp.SMTPTransport</code>.</p>
+</li>
+<li>
+<p>Marque a caixa de sele&ccedil;&atilde;o Depura&ccedil;&atilde;o para ativar a sa&iacute;da de depura&ccedil;&atilde;o extra, incluindo um rastreamento de protocolo, para a sess&atilde;o de correio.</p>
+<p>Se o n&iacute;vel de log JavaMail estiver definido como <code>BOM</code> ou melhor, a sa&iacute;da de depura&ccedil;&atilde;o &eacute; gerada e inclu&iacute;da no arquivo de log do sistema. Para obter informa&ccedil;&otilde;es sobre a defini&ccedil;&atilde;o do n&iacute;vel de log, consulte <a href="../../../common/pt_BR/help/missingtopic.html">Para configurar n&iacute;veis de log</a>. Por default, essa op&ccedil;&atilde;o est&aacute; desativada.</p>
+</li>
+<li>
+<p>Na tabela Propriedades Adicionais, especifique propriedades adicionais requeridas por aplica&ccedil;&otilde;es, como uma propriedade de nome de usu&aacute;rio ou de host espec&iacute;fica do protocolo.</p>
+<p>Para ver uma lista das propriedades dispon&iacute;veis, consulte a documenta&ccedil;&atilde;o da API JavaMail (<code><a href="http://java.sun.com/products/javamail/javadocs/index.html">http://java.sun.com/products/javamail/javadocs/index.html</a></code>). Propriedades adicionais devem come&ccedil;ar com <code>mail-</code> e devem usar h&iacute;fens, n&atilde;o pontos, como separadores. Por exemplo, <code>mail-debug</code> &eacute; correto, mas <code>mail.debug</code> n&atilde;o. O back-end do GlassFish Server converte os h&iacute;fens nos pontos esperados pela JavaMail API.</p>
+<p>Para adicionar uma propriedade, clique no bot&atilde;o Adicionar propriedade. Na linha em branco que &eacute; exibida, digite o nome da propriedade no campo Nome e digite o valor da propriedade no campo Valor.</p>
+</li>
+<li>
+<p>Na lista de destinos dispon&iacute;veis, selecione o destino ou destinos dos quais configurar a sess&atilde;o de e-mail e clique em Adicionar.</p>
+<p>Os destinos podem ser clusters ou inst&acirc;ncias standalone do servidor. Se um destino n&atilde;o for selecionado, a sess&atilde;o &eacute; configurado com a inst&acirc;ncia default do servidor <code>server</code>.</p>
+</li>
+<li>
+<p>Clique em OK.</p>
+</li>
+</ol>
+<a id="sthref3" name="sthref3"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-javamailsessionsedit.html">Para Editar uma Sess&atilde;o do JavaMail</a></p>
+</li>
+<li>
+<p><a href="task-javamailsessionsdelete.html">Para Deletar uma Sess&atilde;o do JavaMail</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

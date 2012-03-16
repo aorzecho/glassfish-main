@@ -1,47 +1,75 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-auditmodulenew" name="task-auditmodulenew"></a><a id="GHCOM00194" name="GHCOM00194"></a></p>
 
-
-<a name="task-auditmodulenew"></a><h3>Para criar um m&#243;dulo de auditoria</h3><a name="indexterm-95"></a><p>A auditoria &#233; como o Servidor GlassFish grava eventos significativos, como erros
-ou vulnerabilidades de seguran&#231;a. O Servidor GlassFish registra todos os eventos de
-autentica&#231;&#227;o em arquivos de log.  Um log de acesso completo fornece
-uma pista sequencial dos eventos de acesso do Servidor GlassFish.</p>
-
-<p>O Servidor GlassFish fornece um m&#243;dulo de auditoria padr&#227;o, que &#233; nem
-simples. Para obter mais informa&#231;&#245;es, consulte <a href="task-usedefaultauditmod.html">Para usar o m&#243;dulo de auditoria padr&#227;o</a> .</p>
-
+<h4><a id="sthref162" name="sthref162"></a>Para Criar um M&oacute;dulo de Auditoria</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>A auditoria &eacute; como o GlassFish Server grava eventos significativos, como erros ou vulnerabilidades de seguran&ccedil;a. O GlassFish Server registra todos os eventos de autentica&ccedil;&atilde;o em arquivos de log. Um log de acesso completo fornece uma pista sequencial dos eventos de acesso do GlassFish Server.</p>
+<p>O GlassFish Server oferece um m&oacute;dulo de auditoria simples default; para obter mais informa&ccedil;&otilde;es, consulte <a href="task-usedefaultauditmod.html">Para Usar o M&oacute;dulo de Auditoria Default</a> .</p>
 <ol>
-<li><b>Na &#225;rvore de navega&#231;&#227;o, expanda o n&#243; Configura&#231;&#227;o.</b></li>
-<li><b>Sob o n&#243; Configura&#231;&#227;o, expanda o n&#243; Seguran&#231;a.</b></li>
-<li><b>Sob o n&#243; Seguran&#231;a, selecione o n&#243; M&#243;dulos de Auditoria.</b><p>A p&#225;gina M&#243;dulos de Auditoria &#233; exibida.</p></li>
-<li><b>Na p&#225;gina M&#243;dulos de Auditoria, clique em Novo.</b><p>A p&#225;gina Novo M&#243;dulo de Auditoria &#233; exibida.</p></li>
-<li><b>Na p&#225;gina Novo M&#243;dulo de Auditoria, no campo Nome, digite o nome
-do m&#243;dulo de auditoria. </b></li>
-<li><b>No campo Nome da Classe, digite o nome totalmente qualificado da classe
-que implementa esse m&#243;dulo.</b><p>O nome da classe do m&#243;dulo de auditoria padr&#227;o &#233; <tt>com.sun.enterprise.security.Audit </tt>.</p></li>
-<li>(Opcional) <b>Na se&#231;&#227;o Propriedades Adicionais, especifique essas propriedades.</b><p>Para adicionar uma propriedade, clique no bot&#227;o Adicionar Propriedade. Na linha em
-branco que &#233; exibida, digite o nome da propriedade no campo Nome
-e digite o valor da propriedade no campo Valor.</p><p>Para uma descri&#231;&#227;o da propriedade adicional que est&#225; dispon&#237;vel para m&#243;dulos de
-auditoria, consulte <a href="ref-auditmoduleprop.html">Propriedades Espec&#237;ficas de M&#243;dulos de Auditoria</a>.</p></li>
-<li><b>Clique em OK.</b></li></ol><p></b>Consulte tamb&#233;m</b></p>
-<ul><li><p><a href="task-auditmoduleedit.html">Para editar um m&#243;dulo de auditoria</a></p>
-
+<li>
+<p>Na &aacute;rvore de navega&ccedil;&atilde;o, expanda o n&oacute; Configura&ccedil;&atilde;o.</p>
 </li>
-<li><p><a href="task-auditmoduledelete.html">Para excluir um m&#243;dulo de auditoria</a></p>
-
+<li>
+<p>Select the instance to configure:</p>
+<ul>
+<li>
+<p>To configure a particular instance, expand the instance's config node. For example, the default instance, <code>server</code>, expand the <code>server-config</code> node.</p>
 </li>
-<li><p><a href="task-enabledisableauditmod.html">Para ativar ou desativar logs de auditoria</a></p>
-
+<li>
+<p>To configure the default settings for all instances, expand the <code>default-config</code> node.</p>
 </li>
-<li><p><a href="task-setactiveauditmod.html">Para definir o m&#243;dulo de auditoria ativo</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-usedefaultauditmod.html">Para usar o m&#243;dulo de auditoria padr&#227;o</a></p>
+<li>
+<p>Sob o n&oacute; Configura&ccedil;&atilde;o, expanda o n&oacute; Seguran&ccedil;a.</p>
+</li>
+<li>
+<p>Sob o n&oacute; Seguran&ccedil;a, selecione o n&oacute; M&oacute;dulos de Auditoria.</p>
+<p>A p&aacute;gina M&oacute;dulos de Auditoria &eacute; exibida.</p>
+</li>
+<li>
+<p>Na p&aacute;gina M&oacute;dulos de Auditoria, clique em Novo.</p>
+<p>A p&aacute;gina Novo M&oacute;dulo de Auditoria &eacute; exibida.</p>
+</li>
+<li>
+<p>Na p&aacute;gina Novo M&oacute;dulo de Auditoria, no campo Nome, digite o nome do m&oacute;dulo de auditoria.</p>
+</li>
+<li>
+<p>No campo Nome da Classe, digite o nome totalmente qualificado da classe que implementa esse m&oacute;dulo.</p>
+<p>O nome da classe do m&oacute;dulo de auditoria default &eacute; <code>com.sun.enterprise.security.Audit</code> .</p>
+</li>
+<li>
+<p>Na se&ccedil;&atilde;o Propriedades Adicionais, especifique essas propriedades.</p>
+<p>Para adicionar uma propriedade, clique no bot&atilde;o Adicionar Propriedade. Na linha em branco que &eacute; exibida, digite o nome da propriedade no campo Nome e digite o valor da propriedade no campo Valor.</p>
+<p>Para obter uma descri&ccedil;&atilde;o de uma propriedade adicional que est&aacute; dispon&iacute;vel para m&oacute;dulos de auditoria, consulte <a href="ref-auditmoduleprop.html">Propriedades Espec&iacute;ficas para Auditar M&oacute;dulos</a>.</p>
+</li>
+<li>
+<p>Clique em OK.</p>
+</li>
+</ol>
+<a id="sthref163" name="sthref163"></a>
+<h5>Consulte tamb&eacute;m</h5>
+<ul>
+<li>
+<p><a href="task-auditmoduleedit.html">Para Editar um M&oacute;dulo de Auditoria</a></p>
+</li>
+<li>
+<p><a href="task-auditmoduledelete.html">Para Deletar um M&oacute;dulo de Auditoria</a></p>
+</li>
+<li>
+<p><a href="task-enabledisableauditmod.html">Para Ativar ou Desativar o Log de Auditoria</a></p>
+</li>
+<li>
+<p><a href="task-setactiveauditmod.html">Para Definir o M&oacute;dulo de Auditoria Ativo</a></p>
+</li>
+<li>
+<p><a href="task-usedefaultauditmod.html">Para Usar o M&oacute;dulo de Auditoria Default</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle e/ou suas empresas afiliadas. Todos os direitos reservados e de titularidade da Oracle Corporation. Proibida a reprodu&#231;&#227;o total ou parcial. <a href="docinfo.html">Advert&#234;ncia legal</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
