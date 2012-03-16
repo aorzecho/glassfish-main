@@ -1,88 +1,113 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-recovertransactions-standalone-instance" name="task-recovertransactions-standalone-instance"></a><a id="GHCLU00061" name="GHCLU00061"></a></p>
 
-
-<a name="task-recovertransactions-standalone-instance"></a><h3>回復獨立 GlassFish Server 實例的作業事件</h3><a name="indexterm-99"></a><a name="indexterm-100"></a><a name="indexterm-101"></a><ol>
-<li><b>在瀏覽樹狀結構中，選取 [獨立實例] 節點。</b><p>此時將開啟 [獨立伺服器實例] 頁面。</p></li>
-<li><b>選取需要回復其作業事件的實例。</b><p>此時將開啟實例的 [一般資訊] 頁面。</p></li>
-<li><b>在 [一般資訊] 頁面上，按一下 [回復作業事件]。</b><p>[回復作業事件] 頁面會隨即開啟。</p><p>此頁面的內容取決於實例是否正在執行中。</p>
-<ul><li><p>如果實例在執行中，[回復作業事件] 頁面只包含文字「<b>回復是由正在執行的伺服器自行執行</b>」與 [確定] 按鈕。</p>
-
+<h4><a id="sthref146" name="sthref146"></a><a id="sthref147" name="sthref147"></a><a id="sthref148" name="sthref148"></a>&#22238;&#24489;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#20316;&#26989;&#20107;&#20214;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>&#22312;&#28687;&#35261;&#27193;&#29376;&#32080;&#27083;&#20013;&#65292;&#36984;&#21462; &#12300;&#29544;&#31435;&#23526;&#20363;&#12301; &#31680;&#40670;&#12290;</p>
+<p>&#27492;&#26178;&#23559;&#38283;&#21855; &#12300;&#29544;&#31435;&#20282;&#26381;&#22120;&#23526;&#20363;&#12301; &#38913;&#38754;&#12290;</p>
 </li>
-<li><p>如果實例不在執行中，[回復作業事件] 頁面會包含其他選項。</p>
-
-</li></ul>
+<li>
+<p>&#36984;&#21462;&#38656;&#35201;&#22238;&#24489;&#20854;&#20316;&#26989;&#20107;&#20214;&#30340;&#23526;&#20363;&#12290;</p>
+<p>&#27492;&#26178;&#23559;&#38283;&#21855;&#23526;&#20363;&#30340; &#12300;&#19968;&#33324;&#36039;&#35338;&#12301; &#38913;&#38754;&#12290;</p>
 </li>
-<li><b>從 [目標伺服器] 下拉式清單中，選取能夠回復目前實例之作業事件的其他實例。</b><p>對於獨立實例，請選取名為 <tt>server</tt> 的實例，其代表 Domain Administration Server (DAS)。</p></li>
-<li><b>在 [作業事件記錄目錄] 欄位中，鍵入儲存作業事件記錄的目錄。</b><p>預設是位於網域目錄下的 <tt>/logs/tx</tt>。作業事件記錄保存在 <tt>tx</tt> 中，它是叢集配置之作業事件服務 [作業事件記錄位置] 設定所指定目錄的子目錄。[作業事件記錄位置] 預設值為 [網域屬性] 頁面上的 [記錄根目錄] 欄位所指定的目錄，該頁面位於 [GlassFish
-Server] 節點的 [進階] 標籤之下。</p></li>
-<li><b>按一下 [確定]。</b></li></ol><p></b>另請參閱</b></p>
-<ul><li><p><a href="task-create-standalone-instance.html">建立獨立 GlassFish Server 實例</a></p>
-
+<li>
+<p>&#22312; &#12300;&#19968;&#33324;&#36039;&#35338;&#12301; &#38913;&#38754;&#19978;&#65292;&#25353;&#19968;&#19979; &#12300;&#22238;&#24489;&#20316;&#26989;&#20107;&#20214;&#12301;&#12290;</p>
+<p>&#12300;&#22238;&#24489;&#20316;&#26989;&#20107;&#20214;&#12301; &#38913;&#38754;&#26371;&#38568;&#21363;&#38283;&#21855;&#12290;</p>
+<p>&#27492;&#38913;&#38754;&#30340;&#20839;&#23481;&#21462;&#27770;&#26044;&#23526;&#20363;&#26159;&#21542;&#27491;&#22312;&#22519;&#34892;&#20013;&#12290;</p>
+<ul>
+<li>
+<p>&#22914;&#26524;&#23526;&#20363;&#22312;&#22519;&#34892;&#20013;&#65292;&#12300;&#22238;&#24489;&#20316;&#26989;&#20107;&#20214;&#12301; &#38913;&#38754;&#21482;&#21253;&#21547;&#25991;&#23383;&#12300;<b>&#22238;&#24489;&#26159;&#30001;&#27491;&#22312;&#22519;&#34892;&#30340;&#20282;&#26381;&#22120;&#33258;&#34892;&#22519;&#34892;</b>&#12301;&#33287; &#12300;&#30906;&#23450;&#12301; &#25353;&#37397;&#12290;</p>
 </li>
-<li><p><a href="task-delete-standalone-instances.html">刪除獨立 GlassFish Server 實例</a></p>
-
+<li>
+<p>&#22914;&#26524;&#23526;&#20363;&#19981;&#22312;&#22519;&#34892;&#20013;&#65292;&#12300;&#22238;&#24489;&#20316;&#26989;&#20107;&#20214;&#12301; &#38913;&#38754;&#26371;&#21253;&#21547;&#20854;&#20182;&#36984;&#38917;&#12290;</p>
 </li>
-<li><p><a href="task-start-standalone-instances.html">啟動獨立 GlassFish Server 實例</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-stop-standalone-instances.html">停止獨立 GlassFish Server 實例</a></p>
-
+<li>
+<p>&#24478; &#12300;&#30446;&#27161;&#20282;&#26381;&#22120;&#12301; &#19979;&#25289;&#24335;&#28165;&#21934;&#20013;&#65292;&#36984;&#21462;&#33021;&#22816;&#22238;&#24489;&#30446;&#21069;&#23526;&#20363;&#20043;&#20316;&#26989;&#20107;&#20214;&#30340;&#20854;&#20182;&#23526;&#20363;&#12290;</p>
+<p>&#23565;&#26044;&#29544;&#31435;&#23526;&#20363;&#65292;&#35531;&#36984;&#21462;&#21517;&#28858; <code>server</code> &#30340;&#23526;&#20363;&#65292;&#20854;&#20195;&#34920;&#32178;&#22495;&#31649;&#29702;&#20282;&#26381;&#22120; (DAS)&#12290;</p>
 </li>
-<li><p><a href="task-view-logs-standalone-instance.html">檢視獨立 GlassFish Server 實例的記錄檔</a></p>
-
+<li>
+<p>&#22312; &#12300;&#20316;&#26989;&#20107;&#20214;&#35352;&#37636;&#30446;&#37636;&#12301; &#27396;&#20301;&#20013;&#65292;&#37749;&#20837;&#20786;&#23384;&#20316;&#26989;&#20107;&#20214;&#35352;&#37636;&#30340;&#30446;&#37636;&#12290;</p>
+<p>&#38928;&#35373;&#26159;&#20301;&#26044;&#32178;&#22495;&#30446;&#37636;&#24213;&#19979;&#30340; <code>/logs/tx</code>&#12290;&#20316;&#26989;&#20107;&#20214;&#35352;&#37636;&#20445;&#23384;&#22312; <code>tx</code> &#20013;&#65292;&#23427;&#26159;&#21474;&#38598;&#32068;&#24907;&#20043;&#20316;&#26989;&#20107;&#20214;&#26381;&#21209; &#12300;&#20316;&#26989;&#20107;&#20214;&#35352;&#37636;&#20301;&#32622;&#12301; &#35373;&#23450;&#25152;&#25351;&#23450;&#30446;&#37636;&#30340;&#23376;&#30446;&#37636;&#12290;&#12300;&#20316;&#26989;&#20107;&#20214;&#35352;&#37636;&#20301;&#32622;&#12301; &#38928;&#35373;&#20540;&#28858; &#12300;&#32178;&#22495;&#23660;&#24615;&#12301; &#38913;&#38754;&#19978;&#30340; &#12300;&#35352;&#37636;&#26681;&#30446;&#37636;&#12301; &#27396;&#20301;&#25152;&#25351;&#23450;&#30340;&#30446;&#37636;&#65292;&#35442;&#38913;&#38754;&#20301;&#26044; &#12300;GlassFish Server&#12301; &#31680;&#40670;&#30340; &#12300;&#36914;&#38542;&#12301; &#27161;&#31844;&#20043;&#19979;&#12290;</p>
 </li>
-<li><p><a href="task-standalone-instance-app-deploy.html">將應用程式部署至獨立 GlassFish Server 實例</a></p>
-
+<li>
+<p>&#25353;&#19968;&#19979; &#12300;&#30906;&#23450;&#12301;&#12290;</p>
 </li>
-<li><p><a href="task-standalone-instance-app-list.html">列出已部署至獨立 GlassFish Server 實例的應用程式</a></p>
-
+</ol>
+<a id="sthref149" name="sthref149"></a>
+<h5>&#21478;&#35531;&#21443;&#38321;</h5>
+<ul>
+<li>
+<p><a href="task-create-standalone-instance.html">&#24314;&#31435;&#29544;&#31435; GlassFish Server &#23526;&#20363;</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-undeploy.html">從獨立 GlassFish Server 實例取消部署應用程式</a></p>
-
+<li>
+<p><a href="task-delete-standalone-instances.html">&#21034;&#38500;&#29544;&#31435; GlassFish Server &#23526;&#20363;</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-remove.html">從獨立 GlassFish Server 實例移除應用程式</a></p>
-
+<li>
+<p><a href="task-start-standalone-instances.html">&#21855;&#21205;&#29544;&#31435; GlassFish Server &#23526;&#20363;</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-edit.html">編輯已部署至獨立 GlassFish Server 實例的應用程式</a></p>
-
+<li>
+<p><a href="task-stop-standalone-instances.html">&#20572;&#27490;&#29544;&#31435; GlassFish Server &#23526;&#20363;</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-enable-disable.html">啟用或停用已部署至獨立 GlassFish Server 實例的應用程式</a></p>
-
+<li>
+<p><a href="task-view-logs-standalone-instance.html">&#27298;&#35222;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#35352;&#37636;&#27284;</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">啟用或停用已部署至獨立 GlassFish Server 實例之應用程式的負載平衡</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-deploy.html">&#23559;&#25033;&#29992;&#31243;&#24335;&#24314;&#32622;&#33267;&#29544;&#31435; GlassFish Server &#23526;&#20363;</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-create.html">為獨立 GlassFish Server 實例建立資源</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-list.html">&#21015;&#31034;&#24314;&#32622;&#33267;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#25033;&#29992;&#31243;&#24335;</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-display.html">列出獨立 GlassFish Server 實例的資源</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-undeploy.html">&#24478;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#35299;&#38500;&#24314;&#32622;&#25033;&#29992;&#31243;&#24335;</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-enable-disable.html">啟用或停用獨立 GlassFish Server 實例的資源</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-remove.html">&#24478;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#31227;&#38500;&#25033;&#29992;&#31243;&#24335;</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-edit.html">編輯獨立 GlassFish Server 實例的資源</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-edit.html">&#32232;&#36655;&#24314;&#32622;&#33267;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#25033;&#29992;&#31243;&#24335;</a></p>
 </li>
-<li><p><a href="task-change-standalone-instance-ports.html">修改獨立 GlassFish Server 實例的連接埠號碼</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-enable-disable.html">&#21855;&#29992;&#25110;&#20572;&#29992;&#24314;&#32622;&#33267;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#25033;&#29992;&#31243;&#24335;</a></p>
 </li>
-<li><p><a href="task-set-props-standalone-instance.html">為獨立 GlassFish Server 實例設定僅限實例的特性</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-lb-enable-disable.html">&#21855;&#29992;&#25110;&#20572;&#29992;&#24314;&#32622;&#33267;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#20043;&#25033;&#29992;&#31243;&#24335;&#30340;&#36000;&#36617;&#24179;&#34913;</a></p>
 </li>
-<li><p><a href="task-mon-app-standalone-instance.html">檢視獨立 GlassFish Server 實例的應用程式監視資料</a></p>
-
+<li>
+<p><a href="task-standalone-instance-resource-create.html">&#24314;&#31435;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#36039;&#28304;</a></p>
 </li>
-<li><p><a href="task-mon-server-standalone-instance.html">檢視獨立 GlassFish Server 實例的虛擬伺服器監視資料</a></p>
-
+<li>
+<p><a href="task-standalone-instance-resource-display.html">&#21015;&#31034;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#36039;&#28304;</a></p>
 </li>
-<li><p><a href="task-mon-resource-standalone-instance.html">檢視獨立 GlassFish Server 實例的資源監視資料</a></p>
+<li>
+<p><a href="task-standalone-instance-resource-enable-disable.html">&#21855;&#29992;&#25110;&#20572;&#29992;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#36039;&#28304;</a></p>
+</li>
+<li>
+<p><a href="task-standalone-instance-resource-edit.html">&#32232;&#36655;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#36039;&#28304;</a></p>
+</li>
+<li>
+<p><a href="task-change-standalone-instance-ports.html">&#20462;&#25913;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#36899;&#25509;&#22496;&#34399;&#30908;</a></p>
+</li>
+<li>
+<p><a href="task-set-props-standalone-instance.html">&#21482;&#35373;&#23450;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#23526;&#20363;&#29305;&#24615;&middot;</a></p>
+</li>
+<li>
+<p><a href="task-mon-app-standalone-instance.html">&#27298;&#35222;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#25033;&#29992;&#31243;&#24335;&#30435;&#35222;&#36039;&#26009;</a></p>
+</li>
+<li>
+<p><a href="task-mon-server-standalone-instance.html">&#27298;&#35222;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#34395;&#25836;&#20282;&#26381;&#22120;&#30435;&#35222;&#36039;&#26009;</a></p>
+</li>
+<li>
+<p><a href="task-mon-resource-standalone-instance.html">&#27298;&#35222;&#29544;&#31435; GlassFish Server &#23526;&#20363;&#30340;&#36039;&#28304;&#30435;&#35222;&#36039;&#26009;</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>版權所有 &#169; 2005, 2011, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

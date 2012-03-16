@@ -1,113 +1,78 @@
 <!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-mqschemeservice"></a><h4>MQ 方案和 MQ 服務位址語法</h4>
-<p>訊息服務位址的完整語法為</p>
+<p><a id="ref-mqschemeservice" name="ref-mqschemeservice"></a><a id="GHJMS00011" name="GHJMS00011"></a></p>
 
-<pre><i>scheme</i>://<i>address-syntax</i></pre><p>其中，<i>scheme</i> 和 <i>address-syntax</i> 將在下表中說明。</p>
+<h4>MQ &#26041;&#26696;&#21644; MQ &#26381;&#21209;&#20301;&#22336;&#35486;&#27861;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>&#35338;&#24687;&#26381;&#21209;&#20301;&#22336;&#30340;&#23436;&#25972;&#35486;&#27861;&#28858;</p>
+<pre>
+<i>scheme</i>://<i>address-syntax</i>
+</pre>
+<p>&#20854;&#20013;&#65292;<i>scheme</i> &#21644; <i>address-syntax</i> &#23559;&#22312;&#19979;&#34920;&#20013;&#35498;&#26126;&#12290;</p>
+<p>MQ &#26041;&#26696;&#21644; MQ &#26381;&#21209;&#26159;&#19979;&#34920;&#30340;&#21069;&#20841;&#27396;&#20013;&#39023;&#31034;&#30340;&#20540;&#12290;</p>
 
-<p>MQ 方案和 MQ 服務是下表的前兩欄中顯示的值。</p>
-
-<table><col width="16%"><col width="16%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"><p>方案名稱</p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>連線服務</p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>說明</p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>位址語法</p>
-
-</th>
+<table  summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="9%" />
+<col width="13%" />
+<col width="36%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t2">&#26041;&#26696;&#21517;&#31281;<br /></th>
+<th align="left" valign="bottom" id="r1c2-t2">&#36899;&#32218;&#26381;&#21209;<br /></th>
+<th align="left" valign="bottom" id="r1c3-t2">&#35498;&#26126;<br /></th>
+<th align="left" valign="bottom" id="r1c4-t2">&#20301;&#22336;&#35486;&#27861;<br /></th>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>mq</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>jms</tt> 和 <tt>ssljms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Message Queue 用戶端執行階段將連線位於指定主機和連接埠的 MQ 連接埠對映器。該連接埠對映器傳回動態建立的連線服務連接埠之清單，然後 Message Queue
-用戶端執行階段將連線託管指定連線服務的連接埠。</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>[</tt><i>hostName</i><tt>][:</tt><i> port</i><tt>][/</tt><i>serviceName</i><tt> ]</tt></p>
-
-<p>預設值： <i>hostName</i> = <tt>localhost</tt>, <i>port</i> = <tt>7676</tt>, <i>serviceName </i> = <tt>jms</tt></p>
-
-<p>預設值僅適用於 <tt>jms</tt> 連線服務。對於
-<tt>ssljms</tt> 連線服務，需要指定所有的變數。</p>
-
-<p>範例： <tt>mq:MyHost:7677/ssljms</tt></p>
-
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t2" headers="r1c1-t2"><code>mq</code></td>
+<td align="left" headers="r2c1-t2 r1c2-t2"><code>jms</code> &#21644; <code>ssljms</code></td>
+<td align="left" headers="r2c1-t2 r1c3-t2">Message Queue &#29992;&#25142;&#31471;&#22519;&#34892;&#38542;&#27573;&#23559;&#36899;&#32218;&#20301;&#26044;&#25351;&#23450;&#20027;&#27231;&#21644;&#36899;&#25509;&#22496;&#30340; MQ &#36899;&#25509;&#22496;&#23565;&#26144;&#22120;&#12290;&#35442;&#36899;&#25509;&#22496;&#23565;&#26144;&#22120;&#20659;&#22238;&#21205;&#24907;&#24314;&#31435;&#30340;&#36899;&#32218;&#26381;&#21209;&#36899;&#25509;&#22496;&#20043;&#28165;&#21934;&#65292;&#28982;&#24460; Message Queue &#29992;&#25142;&#31471;&#22519;&#34892;&#38542;&#27573;&#23559;&#36899;&#32218;&#35351;&#31649;&#25351;&#23450;&#36899;&#32218;&#26381;&#21209;&#30340;&#36899;&#25509;&#22496;&#12290;</td>
+<td align="left" headers="r2c1-t2 r1c4-t2"><code>[</code><i>hostName</i><code>][:</code><i>port</i><code>][/</code><i>serviceName</i><code>]</code>
+<p>&#38928;&#35373;&#20540;&#65306;<i>hostName</i> = <code>localhost</code>, <i>port</i> = <code>7676</code>, <i>serviceName</i> = <code>jms</code></p>
+<p>&#38928;&#35373;&#20540;&#20677;&#36969;&#29992;&#26044; <code>jms</code> &#36899;&#32218;&#26381;&#21209;&#12290;&#23565;&#26044; <code>ssljms</code> &#36899;&#32218;&#26381;&#21209;&#65292;&#38656;&#35201;&#25351;&#23450;&#25152;&#26377;&#30340;&#35722;&#25976;&#12290;</p>
+<p>&#31684;&#20363;&#65306;<code>mq:MyHost:7677/ssljms</code></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>mqtcp</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>jms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Message Queue 用戶端執行階段將透過與指定的主機和連接埠建立 TCP 連線 (略過 MQ 連接埠對映器) 來建立連線。</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /jms</tt></p>
-
-<p>範例： <tt>mqtcp:localhost:7676/jms</tt></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t2" headers="r1c1-t2"><code>mqtcp</code></td>
+<td align="left" headers="r3c1-t2 r1c2-t2"><code>jms</code></td>
+<td align="left" headers="r3c1-t2 r1c3-t2">Message Queue &#29992;&#25142;&#31471;&#22519;&#34892;&#38542;&#27573;&#23559;&#36879;&#36942;&#33287;&#25351;&#23450;&#30340;&#20027;&#27231;&#21644;&#36899;&#25509;&#22496;&#24314;&#31435; TCP &#36899;&#32218; (&#30053;&#36942; MQ &#36899;&#25509;&#22496;&#23565;&#26144;&#22120;) &#20358;&#24314;&#31435;&#36899;&#32218;&#12290;</td>
+<td align="left" headers="r3c1-t2 r1c4-t2"><i>hostName</i><code>:</code><i>port</i><code>/jms</code>
+<p>&#31684;&#20363;&#65306;<code>mqtcp:localhost:7676/jms</code></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>mqssl</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>ssljms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Message
-Queue 用戶端執行階段將透過與指定的主機和連接埠建立安全 SSL 連線 (略過 MQ 連接埠對映器) 來建立連線。</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /ssljms</tt></p>
-
-<p>範例： <tt>mqssl:localhost:7676/ssljms</tt></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t2" headers="r1c1-t2"><code>mqssl</code></td>
+<td align="left" headers="r4c1-t2 r1c2-t2"><code>ssljms</code></td>
+<td align="left" headers="r4c1-t2 r1c3-t2">Message Queue &#29992;&#25142;&#31471;&#22519;&#34892;&#38542;&#27573;&#23559;&#36879;&#36942;&#33287;&#25351;&#23450;&#30340;&#20027;&#27231;&#21644;&#36899;&#25509;&#22496;&#24314;&#31435;&#23433;&#20840; SSL &#36899;&#32218; (&#30053;&#36942; MQ &#36899;&#25509;&#22496;&#23565;&#26144;&#22120;) &#20358;&#24314;&#31435;&#36899;&#32218;&#12290;</td>
+<td align="left" headers="r4c1-t2 r1c4-t2"><i>hostName</i><code>:</code><i>port</i><code>/ssljms</code>
+<p>&#31684;&#20363;&#65306;<code>mqssl:localhost:7676/ssljms</code></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>http</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>httpjms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Message Queue 用戶端執行階段將與指定 URL
-處的 Message Queue 通道 Servlet 建立 HTTP 連線。(必須配置代理程式以存取 HTTP 通道 Servlet，如「Message Queue
-<b>管理員指南</b>」中所述。)</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
-
-<p>如果多個代理程式實例使用同一個通道 Servlet，則連線到特定代理程式實例 (而不是隨機選取的實例) 的語法為：<tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t2" headers="r1c1-t2"><code>http</code></td>
+<td align="left" headers="r5c1-t2 r1c2-t2"><code>httpjms</code></td>
+<td align="left" headers="r5c1-t2 r1c3-t2">Message Queue &#29992;&#25142;&#31471;&#22519;&#34892;&#38542;&#27573;&#23559;&#33287;&#25351;&#23450; URL &#34389;&#30340; Message Queue &#36890;&#36947; Servlet &#24314;&#31435; HTTP &#36899;&#32218;&#12290;(&#24517;&#38920;&#32068;&#24907;&#20195;&#29702;&#31243;&#24335;&#20197;&#23384;&#21462; HTTP &#36890;&#36947; Servlet&#65292;&#22914;&#12300;Message Queue <i>&#31649;&#29702;&#21729;&#25351;&#21335;</i>&#12301;&#20013;&#25152;&#36848;&#12290;)</td>
+<td align="left" headers="r5c1-t2 r1c4-t2"><i>hostName</i><code>:</code><i>port</i><code>/</code><i>contextRoot</i><code>/tunnel</code>
+<p>&#22914;&#26524;&#22810;&#20491;&#20195;&#29702;&#31243;&#24335;&#23526;&#20363;&#20351;&#29992;&#21516;&#19968;&#20491;&#36890;&#36947; Servlet&#65292;&#21063;&#36899;&#32218;&#21040;&#29305;&#23450;&#20195;&#29702;&#31243;&#24335;&#23526;&#20363; (&#32780;&#19981;&#26159;&#38568;&#27231;&#36984;&#21462;&#30340;&#23526;&#20363;) &#30340;&#35486;&#27861;&#28858;&#65306;<code>http://</code><i>hostName</i><code>:</code><i>port</i><code>/</code><i>contextRoot</i><code>/tunnel?</code><i>serverName</i><code>=</code><i>hostName</i><code>:</code><i>instanceName</i></p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>https</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>httpsjms</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p>Message Queue 用戶端執行階段將與指定的 Message Queue 通道 Servlet URL 建立安全
-HTTPS 連線。(必須配置代理程式以存取 HTTPS 通道 Servlet，如「Message Queue <b>管理員指南</b>」中所述。)</p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><i>hostName</i><tt>:</tt><i>port</i><tt> /</tt><i>contextRoot</i><tt>/tunnel</tt></p>
-
-<p>如果多個代理程式實例使用同一個通道 Servlet，則連線到特定代理程式實例 (而不是隨機選取的實例) 的語法為：<tt>http://</tt><i>hostName</i><tt> :</tt><i>port</i><tt>/</tt><i>contextRoot </i><tt>/tunnel?</tt><i>serverName </i><tt>=</tt><i>hostName</i><tt>:</tt><i> instanceName</i></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t2" headers="r1c1-t2"><code>https</code></td>
+<td align="left" headers="r6c1-t2 r1c2-t2"><code>httpsjms</code></td>
+<td align="left" headers="r6c1-t2 r1c3-t2">Message Queue &#29992;&#25142;&#31471;&#22519;&#34892;&#38542;&#27573;&#23559;&#33287;&#25351;&#23450;&#30340; Message Queue &#36890;&#36947; Servlet URL &#24314;&#31435;&#23433;&#20840; HTTPS &#36899;&#32218;&#12290;(&#24517;&#38920;&#32068;&#24907;&#20195;&#29702;&#31243;&#24335;&#20197;&#23384;&#21462; HTTPS &#36890;&#36947; Servlet&#65292;&#22914;&#12300;Message Queue <i>&#31649;&#29702;&#21729;&#25351;&#21335;</i>&#12301;&#20013;&#25152;&#36848;&#12290;)</td>
+<td align="left" headers="r6c1-t2 r1c4-t2"><i>hostName</i><code>:</code><i>port</i><code>/</code><i>contextRoot</i><code>/tunnel</code>
+<p>&#22914;&#26524;&#22810;&#20491;&#20195;&#29702;&#31243;&#24335;&#23526;&#20363;&#20351;&#29992;&#21516;&#19968;&#20491;&#36890;&#36947; Servlet&#65292;&#21063;&#36899;&#32218;&#21040;&#29305;&#23450;&#20195;&#29702;&#31243;&#24335;&#23526;&#20363; (&#32780;&#19981;&#26159;&#38568;&#27231;&#36984;&#21462;&#30340;&#23526;&#20363;) &#30340;&#35486;&#27861;&#28858;&#65306;<code>http://</code><i>hostName</i><code>:</code><i>port</i><code>/</code><i>contextRoot</i><code>/tunnel?</code><i>serverName</i><code>=</code><i>hostName</i><code>:</code><i>instanceName</i></p>
 </td>
 </tr>
+</tbody>
 </table>
+<hr>
 
-<small>版權所有 &#169; 2005, 2011, Oracle 和 (或) 其關係公司。 保留一切權利。 <a href="docinfo.html">法律聲明</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
