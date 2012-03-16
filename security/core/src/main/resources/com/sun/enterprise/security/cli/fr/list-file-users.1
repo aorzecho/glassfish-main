@@ -1,0 +1,67 @@
+LIST-FILE-USERS(1)                                          LIST-FILE-USERS(1)
+
+NOM
+       list-file-users - répertorie les utilisateurs de fichier
+
+SYNOPSIS
+           list-file-users [--help] [--authrealmname auth_realm_name] [target]
+
+DESCRIPTION
+       La sous-commande list-file-users affiche la liste des utilisateurs de
+       fichier prise en charge par l'authentification de domaine de fichiers.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --authrealmname
+           Répertorie uniquement les utilisateurs dans le domaine
+           d'authentification spécifié.
+
+OPÉRANDES
+       target
+           Indique la cible pour laquelle vous souhaitez répertorier les
+           utilisateurs de fichier. Les valeurs suivantes sont valides :
+
+           server
+               Répertorie les utilisateurs de fichier sur l'instance de
+               serveur par défaut. Ceci est la valeur par défaut.
+
+           configuration_name
+               Répertorie les utilisateurs de fichier dans la configuration
+               spécifiée.
+
+           cluster_name
+               Répertorie les utilisateurs de fichier sur toutes les instances
+               de serveur du cluster spécifié.
+
+           instance_name
+               Répertorie les utilisateurs de fichier sur l'instance de
+               serveur spécifiée.
+
+EXEMPLES
+       Exemple 1, Liste des utilisateurs dans un domaine de fichiers
+       spécifique
+           L'exemple suivant répertorie les utilisateurs du domaine de
+           fichiers nommé sample_file_realm.
+
+               asadmin> list-file-users --authrealmname sample_file_realm
+               sample_user05
+               sample_user08
+               sample_user12
+               Command list-file-users executed successfully
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-file-user(1), delete-file-user(1), update-file-user(1),
+       list-file-groups(1)
+
+       asadmin(1M)
+
+                                 21 juin 2011               LIST-FILE-USERS(1)

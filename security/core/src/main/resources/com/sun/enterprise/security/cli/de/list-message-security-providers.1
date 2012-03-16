@@ -1,0 +1,72 @@
+LIST-MESSAGE-SECUR(1)                                    LIST-MESSAGE-SECUR(1)
+
+NAME
+       list-message-security-providers - Listet alle
+       Sicherheitsnachrichtenprovider für die angegebenen Meldungsschicht auf
+
+ZUSAMMENFASSUNG
+           list-message-security-providers [--help]
+           --layer message_layer
+           [target]
+
+BESCHREIBUNG
+       Der Unterbefehl list-message-security-providers ermöglicht es
+       Administratoren, alle Sicherheitsnachrichtenprovider
+       (provider-config-Unterelemente) für die angegebene Meldungsschicht
+       (message-security-config-Element von domain.xml) aufzulisten.
+
+       Dieser Unterbefehl wird nur im Remote-Modus unterstützt.
+
+OPTIONEN
+       --help, -?
+           Zeigt den Hilfetext für den Unterbefehl an.
+
+       --layer
+           Die Nachrichtenschicht, für die der Provider aufgelistet werden
+           soll. Der Standardwert ist HttpServlet.
+
+OPERANDEN
+       target
+           Beschränkt die Auflistung auf Nachrichtensicherheitsprovider für
+           ein bestimmtes Ziel. Gültige Werte sind:
+
+           server
+               Listet Provider für die standardmäßige Serverinstanz server auf
+               und ist der Standardwert.
+
+           domain
+               Listet Provider für die Domain auf.
+
+           cluster
+               Listet Provider für die Serverinstanzen im Cluster auf.
+
+           instance
+               Listet Provider für eine bestimmte Serverinstanz auf.
+
+BEISPIELE
+       Beispiel 1, Nachrichtensicherheitsprovider auflisten
+           Das folgende Beispiel zeigt, wie Nachrichtensicherheitsprovider für
+           eine Nachrichtenschicht aufgelistet werden.
+
+               asadmin> list-message-security-providers
+               --layer SOAP
+               XWS_ClientProvider
+               ClientProvider
+               XWS_ServerProvider
+               ServerProvider
+               Command list-message-security-providers executed successfully.
+
+BEENDIGUNGSSTATUS
+       0
+           Befehl erfolgreich ausgeführt
+
+       1
+           Fehler beim Ausführen des Befehls
+
+SIEHE AUCH
+       create-message-security-provider(1),
+       delete-message-security-provider(1)
+
+       asadmin(1M)
+
+                               22. Dezember 2010         LIST-MESSAGE-SECUR(1)

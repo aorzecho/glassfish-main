@@ -1,0 +1,48 @@
+DISABLE-SECURE-ADM(1)                                    DISABLE-SECURE-ADM(1)
+
+參考名
+       disable-secure-admin - 如果安全管理已啟用，則停用安全管理。
+
+概要
+           disable-secure-admin [--help]
+
+說明
+       如果安全管理已啟用，則 disable-secure-admin 子命令會停用安全管理。
+
+           注意
+           ┌────────────────────────────────────────────────────────────────────────────────────────┐
+           │注意                                                                                    │
+           │                                                                                        │
+           │           啟用或停用安全管理後，您必須重新啟動網域內任何執行中的伺服器。啟用或停用只有 │
+           │           DAS                                                                          │
+           │           正在執行的安全管理較為簡單，然後重新啟動                                     │
+           │           DAS，再啟動任何其他實例。                                                    │
+           └────────────────────────────────────────────────────────────────────────────────────────┘
+
+選項
+       --help, -?
+           顯示子命令的說明文字。
+
+範例
+       範例 1, 停用網域的安
+           下列範例會顯示如何對網域停用 secure admin。
+
+               asadmin> disable-secure-admin
+               server-config
+               default-config
+
+               Command disable-secure-admin executed successfully.
+
+結束狀態
+       0
+           子命令執行成功
+
+       1
+           執行子命令時發生錯誤
+
+另請參閱
+       enable-secure-admin(1)
+
+       asadmin(1M)
+
+                              2011 年 6 月 25 日         DISABLE-SECURE-ADM(1)

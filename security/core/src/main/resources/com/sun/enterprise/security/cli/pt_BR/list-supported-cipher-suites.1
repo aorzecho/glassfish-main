@@ -1,0 +1,86 @@
+LIST-SUPPORTED-CIP(1)                                    LIST-SUPPORTED-CIP(1)
+
+NOME
+       list-supported-cipher-suites - permite que os administradores listem os
+       conjuntos cipher que são suportados e estão disponíveis para um destino
+       especificado do GlassFish Server
+
+SINOPSE
+           list-supported-cipher-suites [--help] [--target target]
+
+DESCRIçãO
+       O subcomando list-supported-cipher-suites permite que os
+       administradores listem os conjuntos cipher que são suportados e estão
+       disponíveis para um destino especificado do GlassFish Server. Os
+       conjuntos cipher que podem estar disponíveis, além dos provedores
+       SSL/TLS default, que estão incorporados nos pacotes do GlassFish Server
+       irão variar, dependendo do provedor terceiro.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Especifica o destino para o qual você deseja listar conjuntos
+           cipher. Os valores a seguir são válidos:
+
+           servidor
+               Lista os conjuntos cipher para a instância do servidor default.
+               Este é o valor default.
+
+           configuration_name
+               Lista os conjuntos cipher para a configuração especificada.
+
+           cluster_name
+               Lista os conjuntos cipher para todas as instâncias de servidor
+               no cluster especificado.
+
+           instance_name
+               Lista os conjuntos cipher para a instância do servidor
+               especificada.
+
+EXEMPLOS
+       Exemplo 1, Listando conjuntos cipher
+           O exemplo a seguir mostra como listar os conjuntos cipher para o
+           domínio default.
+
+               asadmin> list-supported-cipher-suites
+               SSL_RSA_WITH_RC4_128_MD5
+               SSL_RSA_WITH_RC4_128_SHA
+               TLS_RSA_WITH_AES_128_CBC_SHA
+               TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+               TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+               SSL_RSA_WITH_3DES_EDE_CBC_SHA
+               SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+               SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+               SSL_RSA_WITH_DES_CBC_SHA
+               SSL_DHE_RSA_WITH_DES_CBC_SHA
+               SSL_DHE_DSS_WITH_DES_CBC_SHA
+               SSL_RSA_EXPORT_WITH_RC4_40_MD5
+               SSL_RSA_EXPORT_WITH_DES40_CBC_SHA
+               SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+               SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA
+               SSL_RSA_WITH_NULL_MD5
+               SSL_RSA_WITH_NULL_SHA
+               SSL_DH_anon_WITH_RC4_128_MD5
+               TLS_DH_anon_WITH_AES_128_CBC_SHA
+               SSL_DH_anon_WITH_3DES_EDE_CBC_SHA
+               SSL_DH_anon_WITH_DES_CBC_SHA
+               SSL_DH_anon_EXPORT_WITH_RC4_40_MD5
+               SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA
+
+               Command list-supported-cipher-suites executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       asadmin(1M)
+
+                              14 de junho de 2011        LIST-SUPPORTED-CIP(1)

@@ -1,0 +1,55 @@
+LIST-AUTH-REALMS(1)                                        LIST-AUTH-REALMS(1)
+
+名前
+       list-auth-realms - 認証レルムを一覧表示します
+
+概要
+           list-auth-realms [--help] [target]
+
+説明
+       list-auth-realmsサブコマンドは、認証レルムを一覧表示します。このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+オペランド
+       target
+           認証レルムを一覧表示するターゲットの名前。
+
+           server
+               デフォルトのサーバー・インスタンスserverのレルムを一覧表示します。これはデフォルト値です。
+
+           configuration_name
+               名前付き構成のレルムを一覧表示します。
+
+           cluster_name
+               クラスタ内のすべてのサーバー・インスタンスのレルムを一覧表示します。
+
+           instance_name
+               特定のサーバー・インスタンスのレルムを一覧表示します。
+
+例
+       例 1, 認証レルムの一覧表示
+
+               asadmin> list-auth-realms
+               file
+               ldap
+               certificate
+               db
+               Command list-auth-realms executed successfully
+           file、ldap、certificate、およびdbは、使用可能な認証レルムです。
+
+終了ステータス
+       0
+           コマンドは正常に実行されました
+
+       1
+           コマンドの実行時にエラーが発生しました
+
+関連項目
+       create-auth-realm(1), delete-auth-realm(1)
+
+       asadmin(1M)
+
+                                2010年12月22日             LIST-AUTH-REALMS(1)

@@ -1,0 +1,65 @@
+LIST-MESSAGE-SECUR(1)                                    LIST-MESSAGE-SECUR(1)
+
+名前
+       list-message-security-providers -
+       指定のメッセージ層のすべてのセキュリティ・メッセージ・プロバイダを一覧表示します
+
+概要
+           list-message-security-providers [--help]
+           --layer message_layer
+           [target]
+
+説明
+       list-message-security-providersサブコマンドを使用すると、管理者は、指定のメッセージ層(domain.xmlのmessage-security-config要素)のすべてのセキュリティ・メッセージ・プロバイダ(provider-configサブ要素)を一覧表示できます。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --layer
+           プロバイダを一覧表示するメッセージ層。デフォルト値はHttpServletです。
+
+オペランド
+       target
+           一覧表示する内容を、指定したターゲットのメッセージ・セキュリティ・プロバイダに制限します。有効な値は次のとおりです。
+
+           server
+               デフォルトのサーバー・インスタンスserverのプロバイダを一覧表示します。これはデフォルト値です。
+
+           domain
+               ドメインのプロバイダを一覧表示します。
+
+           cluster
+               クラスタ内のサーバー・インスタンスのプロバイダを一覧表示します。
+
+           instance
+               特定のサーバー・インスタンスのプロバイダを一覧表示します。
+
+例
+       例 1, メッセージ・セキュリティ・プロバイダの一覧表示
+           次の例では、特定のメッセージ層のメッセージ・セキュリティ・プロバイダを一覧表示する方法を示します。
+
+               asadmin> list-message-security-providers
+               --layer SOAP
+               XWS_ClientProvider
+               ClientProvider
+               XWS_ServerProvider
+               ServerProvider
+               Command list-message-security-providers executed successfully.
+
+終了ステータス
+       0
+           コマンドは正常に実行されました
+
+       1
+           コマンドの実行時にエラーが発生しました
+
+関連項目
+       create-message-security-provider(1),
+       delete-message-security-provider(1)
+
+       asadmin(1M)
+
+                                2010年12月22日           LIST-MESSAGE-SECUR(1)

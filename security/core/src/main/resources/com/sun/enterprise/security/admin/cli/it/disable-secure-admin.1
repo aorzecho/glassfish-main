@@ -1,0 +1,58 @@
+DISABLE-SECURE-ADM(1)                                    DISABLE-SECURE-ADM(1)
+
+NOME
+       disable-secure-admin - disabilita l'amministrazione sicura, qualora sia
+       già abilitata.
+
+SINTASSI
+           disable-secure-admin [--help]
+
+DESCRIZIONE
+       Il comando secondario disable-secure-admin disabilita l'amministrazione
+       sicura, qualora sia già abilitata.
+
+           Nota
+           ┌───────────────────────────────────────┐
+           │Nota                                   │
+           │                                       │
+           │           È necessario riavviare i    │
+           │           server in esecuzione nel    │
+           │           dominio dopo aver abilitato │
+           │           o disabilitato              │
+           │           l'amministrazione sicura. È │
+           │           più facile abilitare o      │
+           │           disabilitare                │
+           │           l'amministrazione sicura se │
+           │           è in esecuzione solo DAS    │
+           │           piuttosto che riavviare DAS │
+           │           e avviare altre istanze.    │
+           └───────────────────────────────────────┘
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+ESEMPI
+       Esempio 1, Disabilitazione dell'amministrazione sicura per un dominio
+           Nell'esempio che segue è illustrata la disabilitazione di secure
+           admin per un dominio.
+
+               asadmin> disable-secure-admin
+               server-config
+               default-config
+
+               Command disable-secure-admin executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       enable-secure-admin(1)
+
+       asadmin(1M)
+
+                                25 giugno 2011           DISABLE-SECURE-ADM(1)

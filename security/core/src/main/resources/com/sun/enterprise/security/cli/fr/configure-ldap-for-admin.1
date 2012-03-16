@@ -1,0 +1,45 @@
+CONFIGURE-LDAP-FOR(1)                                    CONFIGURE-LDAP-FOR(1)
+
+NOM
+       configure-ldap-for-admin - configure le domaine d'authentification
+       nommé admin-realm pour le LDAP donné
+
+SYNOPSIS
+           configure-ldap-for-admin [--help]
+
+DESCRIPTION
+       La sous-commande configure-ldap-for-admin configure le domaine
+       d'authentification nommé admin-realm pour le LDAP donné. La
+       sous-commande configure-ldap-for-admin est interactive. La
+       sous-commande invite l'utilisateur à sélectionner les options basedn et
+       ldap-group.
+
+       Cette commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+EXEMPLES
+       Exemple 1, Configuration du domaine d'authentification LDAP
+
+               asadmin> configure-ldap-for-admin
+               Enter the value for the basedn option>
+               Enter the value for the ldap-group option>
+               The LDAP Auth Realm admin-realm was configured correctly
+               in admin server's configuration.
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       change-admin-password(1), create-auth-realm(1)create-auth-realm(1),
+       list-auth-realms(1)
+
+       asadmin(1M)
+
+                                 28 août 2009            CONFIGURE-LDAP-FOR(1)

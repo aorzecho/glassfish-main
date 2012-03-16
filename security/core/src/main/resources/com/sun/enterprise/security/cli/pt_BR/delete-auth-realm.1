@@ -1,0 +1,59 @@
+DELETE-AUTH-REALM(1)                                      DELETE-AUTH-REALM(1)
+
+NOME
+       delete-auth-realm - remove o realm de autenticação indicado
+
+SINOPSE
+           delete-auth-realm [--help]
+           [--target target]
+           auth_realm-name
+
+DESCRIçãO
+       O subcomando delete-auth-realm remove o realm de autenticação nomeado.
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Especifica o destino no qual o realm de autenticação está sendo
+           deletado. Valores válidos são
+
+           servidor
+               Deleta o realm para a instância do servidor default server e é
+               o valor default.
+
+           configuration_name
+               Deleta o realm para a configuração nomeada.
+
+           cluster_name
+               Deleta o realm para cada instância do servidor no cluster.
+
+           instance_name
+               Deleta o realm para uma instância do servidor particular.
+
+OPERANDOS
+       auth_realm_name
+           Nome do realm a ser deletado.
+
+EXEMPLOS
+       Exemplo 1, Deletando um Realm de Autenticação
+           Este exemplo deleta o realm de autenticação db.
+
+               asadmin> delete-auth-realm db
+               Command delete-auth-realm executed successfully
+
+STATUS DE SAíDA
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       create-auth-realm(1), list-auth-realms(1)
+
+       asadmin(1M)
+
+                            22 de dezembro de 2010        DELETE-AUTH-REALM(1)

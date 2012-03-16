@@ -1,0 +1,76 @@
+CREATE-FILE-USER(1)                                        CREATE-FILE-USER(1)
+
+NOM
+       create-file-user - crée un utilisateur de fichiers
+
+SYNOPSIS
+           create-file-user [--help] [--authrealmnameauth_realm_name]
+           [--target target
+           [--groups user_groups[:user_groups]*] user_name
+
+DESCRIPTION
+       La sous-commande create-file-user crée une entrée dans le fichier de
+       clés avec les nom utilisateur, mot de passe et groupes spécifiés. Il
+       est possible de créer plusieurs groupes en les séparant par un signe
+       deux-points (:). Si auth_realm_name n'est pas spécifié, une entrée est
+       créée dans le fichier de clés pour le domaine par défaut. Si
+       auth_realm_name est spécifié, une entrée est créée dans le fichier de
+       clés à l'aide de auth_realm_name.
+
+       Vous pouvez utiliser l'option --passwordfile de la commande asadmin(1M)
+       pour spécifier le mot de passe de l'utilisateur. L'entrée du fichier de
+       mots de passe doit avoir le format suivant : AS_ADMIN_USERPASSWORD=
+       user-password.
+
+       Si un mot de passe n'est pas indiqué, la sous-commande échoue si
+       l'administration sécurisée est activée et si l'utilisateur créé est un
+       administrateur.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Il s'agit du nom de la cible sur laquelle la commande agit. Les
+           cibles valides sont config, instance, cluster ou serveur. Par
+           défaut, la cible est le serveur.
+
+       --groups
+           Il s'agit du groupe associé à cet utilisateur de fichier.
+
+       --authrealmname
+           Nom du domaine dans lequel l'utilisateur est créé. Si vous ne
+           spécifiez pas cette option, l'utilisateur est créé dans le domaine
+           "file".
+
+OPÉRANDES
+       user_name
+           Il s'agit du nom d'utilisateur de fichier à créer.
+
+EXEMPLES
+       Exemple 1, Création d'un utilisateur dans le domaine de fichiers
+           Cet exemple crée un utilisateur de domaine de fichiers nommé
+           sample_user. Il est supposé qu'un domaine d'authentification a déjà
+           été créé à l'aide de la sous-commande create-auth-realm.
+
+               asadmin> create-file-user
+               --groups staff:manager
+               --authrealmname auth-realm1 sample_user
+               Command create-file-user executed successfully
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       create-auth-realm(1), delete-file-user(1), list-file-users(1),
+       update-file-user(1), list-file-groups(1)
+
+       asadmin(1M)
+
+                                 03 juin 2011              CREATE-FILE-USER(1)

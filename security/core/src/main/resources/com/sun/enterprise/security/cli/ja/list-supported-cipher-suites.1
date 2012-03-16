@@ -1,0 +1,77 @@
+LIST-SUPPORTED-CIP(1)                                    LIST-SUPPORTED-CIP(1)
+
+名前
+       list-supported-cipher-suites - 管理者は、指定したGlassFish
+       Serverターゲットでサポートされている使用可能な暗号化方式群を一覧表示できます
+
+概要
+           list-supported-cipher-suites [--help] [--target target]
+
+説明
+       list-supported-cipher-suitesサブコマンドを使用すると、管理者は、指定したGlassFish
+       Serverターゲットでサポートされている使用可能な暗号化方式群を一覧表示できます。GlassFish
+       Serverパッケージに含まれているデフォルトのSSL/TLSプロバイダに追加して使用可能な暗号化方式群は、プロバイダ(他社製)によって異なります。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --target
+           暗号化方式群を一覧表示するターゲットを指定します。次の値が有効です。
+
+           server
+               デフォルトのサーバー・インスタンスの暗号化方式群を一覧表示します。この値がデフォルト値です。
+
+           configuration_name
+               指定した構成の暗号化方式群を一覧表示します。
+
+           cluster_name
+               指定したクラスタ内のすべてのサーバー・インスタンスの暗号化方式群を一覧表示します。
+
+           instance_name
+               指定したサーバー・インスタンスの暗号化方式群を一覧表示します。
+
+例
+       例 1, 暗号化方式群の一覧表示
+           次の例では、デフォルト・ドメインの暗号化方式群を一覧表示する方法を示します。
+
+               asadmin> list-supported-cipher-suites
+               SSL_RSA_WITH_RC4_128_MD5
+               SSL_RSA_WITH_RC4_128_SHA
+               TLS_RSA_WITH_AES_128_CBC_SHA
+               TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+               TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+               SSL_RSA_WITH_3DES_EDE_CBC_SHA
+               SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+               SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+               SSL_RSA_WITH_DES_CBC_SHA
+               SSL_DHE_RSA_WITH_DES_CBC_SHA
+               SSL_DHE_DSS_WITH_DES_CBC_SHA
+               SSL_RSA_EXPORT_WITH_RC4_40_MD5
+               SSL_RSA_EXPORT_WITH_DES40_CBC_SHA
+               SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+               SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA
+               SSL_RSA_WITH_NULL_MD5
+               SSL_RSA_WITH_NULL_SHA
+               SSL_DH_anon_WITH_RC4_128_MD5
+               TLS_DH_anon_WITH_AES_128_CBC_SHA
+               SSL_DH_anon_WITH_3DES_EDE_CBC_SHA
+               SSL_DH_anon_WITH_DES_CBC_SHA
+               SSL_DH_anon_EXPORT_WITH_RC4_40_MD5
+               SSL_DH_anon_EXPORT_WITH_DES40_CBC_SHA
+
+               Command list-supported-cipher-suites executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       asadmin(1M)
+
+                                 2011年6月14日           LIST-SUPPORTED-CIP(1)

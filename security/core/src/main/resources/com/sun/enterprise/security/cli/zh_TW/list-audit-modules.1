@@ -1,0 +1,53 @@
+LIST-AUDIT-MODULES(1)                                    LIST-AUDIT-MODULES(1)
+
+參考名
+       list-audit-modules - 取得所有模組以及顯示它們
+
+概要
+           list-audit-modules [--help] [target]
+
+說明
+       list-audit-modules
+       子命令會列出所有稽核模組。只有遠端模式支援這個子命令。
+
+選項
+       --help, -?
+           顯示子命令的說明文字。
+
+運算元
+       目
+           指定要列出稽核模組的目標。有效的值如下：
+
+           server
+               列出預設伺服器實例 server 的稽核模組，且為預設值。
+
+           configuration_name
+               列出已命名組態的稽核模組。
+
+           cluster_name
+               列出叢集內所有伺服器實例的稽核模組。
+
+           instance_name
+               列出特定伺服器實例的稽核模組。
+
+範例
+       範例 1, 列出稽核模組
+
+               asadmin> list-audit-modules
+               sampleAuditModule1
+               sampleAuditModule2
+               Command list-audit-modules executed successfully
+
+結束狀態
+       0
+           命令執行成功
+
+       1
+           執行命令時發生錯誤
+
+另請參閱
+       create-audit-module(1), delete-audit-module(1)
+
+       asadmin(1M)
+
+                              2010 年 12 月 22 日        LIST-AUDIT-MODULES(1)

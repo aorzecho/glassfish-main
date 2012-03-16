@@ -1,0 +1,87 @@
+SUBCOMANDODELETE-JA(1)                                  SUBCOMANDODELETE-JA(1)
+
+NOMBRE DE REFERENCIA
+       subcomandodelete-jacc-provider - permite a los administradores suprimir
+       proveedores de JACC definidos para un dominio.
+
+SINOPSIS
+           delete-jacc-provider [--help]
+           [--target target] jacc-provider-name
+
+DESCRIPCIÓN
+       El subcomando delete-jacc-provider permite a los administradores
+       suprimir proveedores de JACC definidos para un dominio. Los proveedores
+       de JACC se definen como elementos jacc-provider del elemento
+       security-service en el archivo dominio.xml del dominio. Los proveedores
+       de JACC se pueden crear utilizando la Consola de administración de
+       GlassFish Server o el subcomando create-jacc-provider .
+
+       La instalación por defecto de GlassFish Server incluye dos proveedores
+       de JACC denominados default y simple. Estos proveedores por defecto no
+       se deben suprimir.
+
+       El proveedor de JACC utilizado porGlassFish Server para la autorización
+       se identifica mediante el elemento jacc-provider del servicio de
+       seguridad en domain.xml. Por lo tanto, si suprime el proveedor
+       jacc-provider, asegúrese de cambiar también jacc-provider para el
+       nombre de algún otro proveedor de JACC que exista en servicio de
+       seguridad.
+
+       Si cambia el elemento jacc-provider para que apunte a un proveedor de
+       JACC diferente, debe reiniciar GlassFish Server.
+
+       Este subcomando sólo está soportado en modo remoto.
+
+OPCIONES
+       Si una opción tiene un nombre corto, este nombre tiene prioridad sobre
+       el nombre largo. Las opciones cortas están marcadas con un guión; las
+       largas, con dos guiones.
+
+       --help, -?
+           Muestra el texto de ayuda para el subcomando.
+
+       --target
+           Especifica el destino del que se va a suprimir el proveedor de
+           JACC. Los valores válidos son:
+
+           server
+               Suprime el proveedor de JACC de la instancia de servidor por
+               defecto. Éste es el valor por defecto.
+
+           configuration_name
+               Suprime el proveedor de JACC de la configuración especificada.
+
+           cluster_name
+               Suprima el proveedor de JACC de todas las instancias de
+               servidor del cluster especificado.
+
+           instance_name
+               Suprima el proveedor de JACC de una instancia de servidor
+               especificada.
+
+OPERANDOS
+       jacc-provider-name
+           Nombre del proveedor de JACC que se va a suprimir.
+
+EJEMPLOS
+       Ejemplo 1, Supresión de un Proveedor de JACC
+           En el ejemplo siguiente se muestra cómo suprimir un proveedor de
+           JACC denominado testJACC del dominio por defecto.
+
+               asadmin> delete-jacc-provider testJACC
+
+               Command delete-jacc-provider executed successfully.
+
+ESTADO DE SALIDA
+       0
+           Subcomando ejecutado correctamente
+
+       1
+           Error al ejecutar el subcomando
+
+CONSULTE TAMBIÉN
+       create-jacc-provider(1), list-jacc-providers(1)
+
+       Utilidad asadmin(1M)
+
+                              14 de junio de 2011       SUBCOMANDODELETE-JA(1)

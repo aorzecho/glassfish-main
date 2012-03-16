@@ -1,0 +1,61 @@
+DISABLE-SECURE-ADM(1)                                    DISABLE-SECURE-ADM(1)
+
+NOM
+       disable-secure-admin - désactive l'administration sécurisée si elle est
+       déjà activée.
+
+SYNOPSIS
+           disable-secure-admin [--help]
+
+DESCRIPTION
+       La sous-commande disable-secure-admin désactive l'administration
+       sécurisée si elle est déjà activée.
+
+           Note
+           ┌────────────────────────────────────────┐
+           │Remarque                                │
+           │                                        │
+           │           Vous devez redémarrer tout   │
+           │           serveur exécuté dans le      │
+           │           domaine après avoir activé   │
+           │           ou désactivé                 │
+           │           l'administration sécurisée.  │
+           │           Il est plus simple d'activer │
+           │           ou de désactiver             │
+           │           l'administration sécurisée   │
+           │           lorsque seul le serveur DAS  │
+           │           est en cours d'exécution,    │
+           │           puis de redémarrer le        │
+           │           serveur DAS et de démarrer   │
+           │           ensuite toute autre          │
+           │           instance.                    │
+           └────────────────────────────────────────┘
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+EXEMPLES
+       Exemple 1, Désactivation de secure admin pour un domaine
+           L'exemple suivant montre comment désactiver secure admin pour un
+           domaine.
+
+               asadmin> disable-secure-admin
+               server-config
+               default-config
+
+               Command disable-secure-admin executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       enable-secure-admin(1)
+
+       asadmin(1M)
+
+                                 25 juin 2011            DISABLE-SECURE-ADM(1)

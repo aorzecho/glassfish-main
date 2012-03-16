@@ -1,0 +1,79 @@
+UPDATE-FILE-USER(1)                                        UPDATE-FILE-USER(1)
+
+NOM
+       update-file-user - met à jour un utilisateur de fichier en cours tel
+       qu'indiqué
+
+SYNOPSIS
+           update-file-user [--help] [--groups user_groups[:user_groups]*]
+           [--target target
+           [--authrealmname authrealm_name]
+           username
+
+DESCRIPTION
+       La sous-commande update-file-user met à jour une entrée existante dans
+       le fichier de clés en utilisant le nom utilisateur, le mot de passe et
+       les groupes spécifiés. Il est possible d'entrer plusieurs groupes en
+       les séparant par un signe deux-points (:).
+
+       Si un nouveau mot de passe n'est pas indiqué, la sous-commande échoue
+       si l'administration sécurisée est activée et si l'utilisateur en cours
+       de mise à jour est un administrateur.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --groups
+           Il s'agit du nom du groupe auquel appartient l'utilisateur de
+           fichier.
+
+       --authrealmname
+           Nom du domaine d'authentification où l'utilisateur à mettre à jour
+           peut être trouvé.
+
+       --target
+           Cette option permet de spécifier la cible sur laquelle vous mettez
+           à jour un utilisateur de fichier. Les valeurs valides sont les
+           suivantes :
+
+           server
+               Met à jour l'utilisateur de fichier pour l'instance de serveur
+               par défaut. Ceci est la valeur par défaut.
+
+           cluster_name
+               Met à jour l'utilisateur de fichier sur chaque instance de
+               serveur du cluster.
+
+           instance_name
+               Met à jour l'utilisateur de fichier sur une instance de serveur
+               spécifiée.
+
+OPÉRANDES
+       username
+           Il s'agit du nom de l'utilisateur de fichier à mettre à jour.
+
+EXEMPLES
+       Exemple 1, Mise à jour des informations relatives à l'utilisateur dans
+       un domaine de fichiers
+           L'exemple suivant met à jour les informations d'un utilisateur de
+           domaine de fichiers nommé sample_user.
+
+               asadmin> update-file-user
+               --groups staff:manager:engineer sample_user
+               Command update-file-user executed successfully
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       delete-file-user(1), list-file-users(1), create-file-user(1),
+       list-file-groups(1)
+
+       asadmin(1M)
+
+                                 1er déc. 2010             UPDATE-FILE-USER(1)

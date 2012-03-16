@@ -1,0 +1,86 @@
+DELETE-MESSAGE-SEC(1)                                    DELETE-MESSAGE-SEC(1)
+
+NOME
+       delete-message-security-provider - permite aos administradores
+       deletarem um provedor de segurança de mensagens
+
+SINOPSE
+           delete-message-security-provider [--help] [--target target]
+           --layer message_layer
+           provider_name
+
+DESCRIçãO
+       O subcomando delete-message-security-provider permite aos
+       administradores deletar um provedor de segurança de mensagens.
+
+       Em termos do que acontece quando este subcomando é executado, o
+       subelemento provider-config para o elemento (message-security-config da
+       camada de mensagens fornecida domain.xml é deletado. O arquivo
+       domain.xml especifica parâmetros e propriedades para o GlassFish
+       Server). A opção especificada na lista abaixo se aplica aos atributos
+       dentro de message-security-config e provider-config subelementos do
+       arquivo domain.xml .
+
+       Se a camada de mensagens (message-security-config attribute) não
+       existir, ela é criada, e provider-config é criado abaixo dela.
+
+       Este comando é suportado apenas no modo remoto.
+
+OPçõES
+       Se uma opção tiver um nome de opção curto, a mesma precederá o nome de
+       opção longo. Opções curtas possui um traço, enquanto opções longas
+       possui dois traços.
+
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --target
+           Especifica o destino a partir do qual está sendo deletado o
+           provedor de segurança de mensagens. Valores válidos são
+
+           servidor
+               Deleta o provedor de segurança de mensagens da instância de
+               servidor default
+                server e é o valor default
+
+           domain
+               Deleta o provedor de segurança de mensagens do domínio.
+
+           cluster_name
+               Deleta o provedor de segurança de mensagens de cada instância
+               do servidor no cluster.
+
+           instance_name
+               Deleta o provedor de segurança de mensagens de uma determinada
+               instância do servidor.
+
+       --layer
+           A camada de mensagens em que o provedor deve ser deletado. O valor
+           default é HttpServlet.
+
+OPERANDOS
+       provider_name
+           O nome do provedor utilizado para fazer referência ao elemento
+           provider-config.
+
+EXEMPLOS
+       Exemplo 1, Deletando um provedor de segurança de mensagens
+           O exemplo a seguir exibe como deletar um provedor de segurança de
+           mensagens para um cliente.
+
+               asadmin> delete-message-security-provider
+               --layer SOAP mySecurityProvider
+
+STATUS DE SAíDA
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       create-message-security-provider(1), list-message-security-providers(1)
+
+       asadmin(1M)
+
+                            22 de dezembro de 2010       DELETE-MESSAGE-SEC(1)

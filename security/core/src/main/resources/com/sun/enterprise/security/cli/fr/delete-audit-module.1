@@ -1,0 +1,60 @@
+DELETE-AUDIT-MODUL(1)                                    DELETE-AUDIT-MODUL(1)
+
+NOM
+       delete-audit-module - enlève le module d'audit nommé
+
+SYNOPSIS
+           delete-audit-module [--help]
+           [--target target]
+           audit_module_name
+
+DESCRIPTION
+       Cette sous-commande enlève le module d'audit nommé. Cette sous-commande
+       est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Spécifie la cible sur laquelle vous supprimez le module d'audit.
+           Les valeurs valides sont les suivantes :
+
+           server
+               Supprime le module d'audit pour l'instance de serveur par
+               défaut server et constitue la valeur par défaut.
+
+           configuration_name
+               Supprime le module d'audit pour la configuration nommée.
+
+           cluster_name
+               Supprime le module d'audit pour chaque instance de serveur du
+               cluster.
+
+           instance_name
+               Supprime le module d'audit pour une instance de serveur
+               spécifique.
+
+OPÉRANDES
+       audit_module_name
+           Nom du module d'audit à supprimer.
+
+EXEMPLES
+       Exemple 1, Suppression d'un module d'audit
+
+               asadmin> delete-audit-module sampleAuditModule
+               Command delete-audit-module executed successfully
+
+STATUT DE SORTIE
+       0
+           commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la commande
+
+VOIR AUSSI
+       create-audit-module(1), list-audit-modules(1)
+
+       asadmin(1M)
+
+                                 22 déc. 2010            DELETE-AUDIT-MODUL(1)

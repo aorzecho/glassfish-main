@@ -1,0 +1,96 @@
+ENABLE-SECURE-ADMI(1)                                    ENABLE-SECURE-ADMI(1)
+
+NOME
+       enable-secure-admin - abilita l'amministrazione sicura (se non è già
+       abilitata), modificando facoltativamente l'alias utilizzato per i
+       messaggi amministrativi dalle DAS alle istanze o l'alias utilizzato per
+       i messaggi amministrativi dalle istanze al DAS.
+
+SINTASSI
+           enable-secure-admin [--help]
+           [--adminalias=alias]
+           [--instancealias=alias]
+
+DESCRIZIONE
+       Il comando secondario enable-secure-admin fa sì che il DAS e le istanze
+       nel dominio utilizzino i certificati SSL per cifrare i messaggi inviati
+       reciprocamente. Questo comando secondario consente inoltre al DAS di
+       accettare i messaggi amministrativi da client di amministrazione remoti
+       come la utility asadmin e gli IDE.
+
+           Nota
+           ┌───────────────────────────────────────┐
+           │Nota                                   │
+           │                                       │
+           │           È necessario riavviare i    │
+           │           server in esecuzione nel    │
+           │           dominio dopo aver abilitato │
+           │           o disabilitato              │
+           │           l'amministrazione sicura. È │
+           │           più facile abilitare o      │
+           │           disabilitare                │
+           │           l'amministrazione sicura se │
+           │           è in esecuzione solo DAS    │
+           │           piuttosto che riavviare DAS │
+           │           e avviare altre istanze.    │
+           └───────────────────────────────────────┘
+
+       Per impostazione predefinita, se è abilitata l'amministrazione sicura,
+       il DAS e le istanze utilizzano questi certificati SSL per eseguire
+       l'autenticazione reciproca come "principal" di sicurezza e per
+       autorizzare l'accesso amministrativo. Il valore --asadminalias indica
+       al DAS quale certificato SSL utilizzare per identificarsi alle istanze.
+       Il valore --instancealias indica alle istanze quale certificato SSL
+       utilizzare per identificarsi al DAS.
+
+       Il comando enable-secure-admin non riesce se un utente amministrativo
+       qualsiasi nel dominio ha una password vuota.
+
+       In alternativa, è possibile utilizzare il comando secondario
+       enable-secure-admin-internal-user per far sì che i server si
+       identifichino utilizzando nome utente e password dell'amministrazione
+       sicura.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --adminalias
+           L'alias che fa riferimento al certificato SSL/TLS sul DAS. L'alias
+           viene utilizzato dal DAS per identificarsi alle istanze. Il valore
+           predefinito è s1as.
+
+       --instancealias
+           L'alias che fa riferimento al certificato SSL/TLS sulle istanze.
+           L'alias viene utilizzato dalle istanze per identificarsi al DAS. Il
+           valore predefinito è glassfish-instance.
+
+ESEMPI
+       Esempio 1, Abilitazione dell'amministrazione sicura per un dominio
+           L'esempio di seguito mostra come abilitare secure admin per un
+           dominio utilizzando un alias admin adtest e un alias di istanza
+            intest
+
+               asadmin> enable-secure-admin --adminalias adtest --instancealias intest
+               server-config
+               default-config
+
+               Command enable-secure-admin executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       disable-secure-admin(1)
+
+       enable-secure-admin-principal(1)
+
+       enable-secure-admin-internal-user(1)
+
+       asadmin(1M)
+
+                                25 giugno 2011           ENABLE-SECURE-ADMI(1)

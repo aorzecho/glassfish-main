@@ -1,0 +1,86 @@
+DELETE-MESSAGE-SEC(1)                                    DELETE-MESSAGE-SEC(1)
+
+NAME
+       delete-message-security-provider - Ermöglicht Administratoren das
+       Löschen eines Nachrichtensicherheitsproviders
+
+ZUSAMMENFASSUNG
+           delete-message-security-provider [--help] [--target target]
+           --layer message_layer
+           provider_name
+
+BESCHREIBUNG
+       Der Unterbefehl delete-message-security-provider ermöglicht es
+       Administratoren, einen Nachrichtensicherheitsprovider zu löschen.
+
+       Wenn dieser Unterbefehl ausgeführt wird, wird das Unterelement
+       provider-config für die angegebene Nachrichtenschicht
+       (message-security-config-Element von domain.xml) gelöscht. Die Datei
+       domain.xml gibt Parameter und Eigenschaften für GlassFish Server an.
+       Die in der nachstehenden Liste aufgeführten Optionen gelten für
+       Attribute innerhalb der Unterelemente message-security-config und
+       provider-config der Datei domain.xml.
+
+       Wenn die Nachrichtenschicht (Attribut message-security-config) nicht
+       vorhanden ist, wird sie erstellt. Das Unterelement provider-config wird
+       dann unter ihr erstellt.
+
+       Dieser Befehl wird nur im Remote-Modus unterstützt.
+
+OPTIONEN
+       Wenn eine Option einen kurzen Optionsnamen hat, geht die kurze Option
+       dem langen Optionsnamen voraus. Kurze Optionen haben einen Bindestrich,
+       lange Optionen haben zwei Bindestriche.
+
+       --help, -?
+           Zeigt den Hilfetext für den Unterbefehl an.
+
+       --target
+           Gibt das Ziel an, aus dem Sie den Nachrichtensicherheitsprovider
+           löschen. Gültige Werte sind
+
+           server
+               Löscht den Nachrichtensicherheitsprovider aus der
+               standardmäßigen Serverinstanz server und ist der Standardwert
+
+           domain
+               Löscht den Nachrichtensicherheitsprovider aus der Domain.
+
+           cluster_name
+               Löscht den Nachrichtensicherheitsprovider aus jeder
+               Serverinstanz im Cluster.
+
+           instance_name
+               Löscht den Nachrichtensicherheitsprovider aus einer bestimmten
+               Serverinstanz.
+
+       --layer
+           Die Nachrichtenschicht, aus der der Provider gelöscht werden soll.
+           Der Standardwert ist HttpServlet.
+
+OPERANDEN
+       provider_name
+           Der Name des Providers, mit dem das Element provider-config
+           referenziert wird.
+
+BEISPIELE
+       Beispiel 1, Nachrichtensicherheitsprovider löschen
+           Das folgende Beispiel zeigt, wie ein Nachrichtensicherheitsprovider
+           für einen Client gelöscht wird.
+
+               asadmin> delete-message-security-provider
+               --layer SOAP mySecurityProvider
+
+BEENDIGUNGSSTATUS
+       0
+           Befehl erfolgreich ausgeführt
+
+       1
+           Fehler beim Ausführen des Befehls
+
+SIEHE AUCH
+       create-message-security-provider(1), list-message-security-providers(1)
+
+       asadmin(1M)
+
+                               22. Dezember 2010         DELETE-MESSAGE-SEC(1)

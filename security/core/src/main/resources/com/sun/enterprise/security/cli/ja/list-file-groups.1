@@ -1,0 +1,59 @@
+LIST-FILE-GROUPS(1)                                        LIST-FILE-GROUPS(1)
+
+名前
+       list-file-groups - ファイル・グループを一覧表示します
+
+概要
+           list-file-groups [--help] [--name username] [--authrealmname auth_realm_name]
+           [--target target]
+
+説明
+       list-file-groupsサブコマンドは、ファイル・レルム認証によってサポートされるファイル・ユーザーとファイル・グループを一覧表示します。このサブコマンドは、ファイル・ユーザー内の使用可能なグループを一覧表示します。--nameオプションを指定しない場合は、すべてのグループが一覧表示されます。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --name
+           グループを一覧表示するファイル・ユーザーの名前を識別します。
+
+       --authrealmname
+           使用可能なグループを一覧表示する認証レルムの名前。
+
+       --target
+           このオプションは、一覧表示できる構成を指定します。有効なターゲットは次のとおりです。
+
+           server
+               現在のサーバー内のファイル・グループを一覧表示します。この値がデフォルト値です。
+
+           cluster_name
+               クラスタ内のファイル・グループを一覧表示します。
+
+           instance_name
+               特定のインスタンスのファイル・グループを一覧表示します。
+
+例
+       例 1, すべてのファイル・レルムのグループの一覧表示
+           この例では、サーバーに対して定義されたすべてのファイル・レルムのグループを一覧表示します。
+
+               asadmin> list-file-groups
+               staff
+               manager
+               Command list-file-groups executed successfully
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       delete-file-user(1), update-file-user(1), create-file-user(1),
+       list-file-users(1)
+
+       asadmin(1M)
+
+                                 2010年12月1日             LIST-FILE-GROUPS(1)

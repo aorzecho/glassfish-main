@@ -1,0 +1,59 @@
+LIST-JACC-PROVIDER(1)                                    LIST-JACC-PROVIDER(1)
+
+名前
+       list-jacc-providers -
+       管理者は、ドメインに対して定義されたJACCプロバイダを一覧表示できます
+
+概要
+           list-jacc-providers [--help] [target]
+
+説明
+       list-jacc-providersサブコマンドにより、管理者は、ドメインに対して定義されたJACCプロバイダを一覧表示できます。JACCプロバイダは、ドメインのdomain.xmlファイルのsecurity-service要素内にjacc-provider要素として定義されます。JACCプロバイダは、GlassFish
+       Server管理コンソールまたはcreate-jacc-providerサブコマンドを使用して作成できます。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+オペランド
+       target
+           JACCプロバイダを一覧表示するターゲットを指定します。次の値が有効です。
+
+           server
+               デフォルトのサーバー・インスタンスのJACCプロバイダを一覧表示します。この値がデフォルト値です。
+
+           configuration_name
+               指定した構成にJACCプロバイダを一覧表示します。
+
+           cluster_name
+               指定したクラスタ内のすべてのサーバー・インスタンスにJACCプロバイダを一覧表示します。
+
+           instance_name
+               指定したサーバー・インスタンスのJACCプロバイダを一覧表示します。
+
+例
+       例 1, JACCプロバイダの一覧表示
+           次の例では、デフォルト・ドメインのJACCプロバイダを一覧表示する方法を示します。
+
+               asadmin> list-jacc-providers
+               default
+               simple
+               testJACC
+
+               Command list-jacc-providers executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       create-jacc-provider(1), delete-jacc-provider(1)
+
+       asadmin(1M)
+
+                                 2011年6月21日           LIST-JACC-PROVIDER(1)

@@ -1,0 +1,179 @@
+CREATE-MESSAGE-SEC(1)                                    CREATE-MESSAGE-SEC(1)
+
+NOME
+       create-message-security-provider - consente all'amministratore di
+       creare un provider di sicurezza messaggi che specifica le modalità di
+       protezione dei messaggi SOAP.
+
+SINTASSI
+           create-message-security-provider [--help]
+           [--target target]
+           --classname provider_class
+           [--layer message_layer] [--providertype provider_type]
+           [--requestauthsource request_auth_source ]
+           [--requestauthrecipient request_auth_recipient ]
+           [--responseauthsource response_auth_source ]
+           [--responseauthrecipient response_auth_recipient ]
+           [--isdefaultprovider] [--property name=value[:name=value]*]
+           provider_name
+
+DESCRIZIONE
+       Il comando secondario create-message-security-provider consente
+       all'amministratore di creare un provider di sicurezza messaggi per il
+       servizio di sicurezza che specifica come verranno protetti i messaggi
+       SOAP.
+
+       Questo comando è supportato solo in modalità remota.
+
+OPZIONI
+       Se per un'opzione è disponibile un'abbreviazione, questa precede il
+       nome esteso. Le opzioni brevi presentano una lineetta, le opzioni
+       lunghe ne hanno due.
+
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Specifica la destinazione per cui creare il provider di sicurezza
+           messaggi. I valori validi sono i seguenti:
+
+           server
+               Crea il provider per l'istanza server predefinita server ed è
+               il valore predefinito.
+
+           domain
+               Crea il provider per il dominio.
+
+           cluster_name
+               Crea il provider per ogni istanza server del cluster.
+
+           instance_name
+               Crea il provider per una particolare istanza server.
+
+       --classname
+           Definisce la classe di implementazione Java del provider. I
+           provider di autenticazione client devono implementare l'interfaccia
+            com.sun.enterprise. security.jauth.ClientAuthModule. I provider
+           lato server devono implementare l'interfaccia
+           com.sun.enterprise.security jauth.ServerAuthModule. Un provider può
+           implementare entrambe le interfacce, ma l'interfaccia implementata
+           deve corrispondere al proprio tipo di provider.
+
+       --layer
+           Entità di livello messaggio utilizzata per definire il valore
+           dell'attributo
+            auth-layer di elementi message-security-config. Il valore
+           predefinito è HttpServlet. Un'altra opzione è SOAP.
+
+       --providertype
+           Definisce se il provider deve essere utilizzato come provider di
+           autenticazione client e/o provider di autenticazione server. Le
+           opzioni valide per questa proprietà includono client, server o
+            client-server.
+
+       --requestauthsource
+           L'attributo auth-source indica come requisito l'autenticazione del
+           mittente di livello messaggio (ad esempio nome utente password) o
+           l'autenticazione del contenuto (ad esempio firma digitale) per i
+           messaggi di richiesta. I possibili valori sono sender o content. Se
+           non si specifica questo argomento, l'autenticazione di origine
+           della richiesta non è obbligatoria.
+
+       --requestauthrecipient
+           L'attributo auth-recipient indica come requisito l'autenticazione
+           di livello messaggio del ricevente di un messaggio al mittente (ad
+           esempio tramite cifratura XML). I possibili valori sono
+           before-content o after-content. Il valore predefinito è
+           after-content.
+
+       --responseauthsource
+           L'attributo auth-source indica come requisito l'autenticazione del
+           mittente di livello messaggio (ad esempio nome utente password) o
+           l'autenticazione del contenuto (ad esempio firma digitale) per i
+           messaggi di risposta. I possibili valori sono sender o content. Se
+           non si specifica questa opzione, l'autenticazione di origine della
+           risposta non è obbligatoria.
+
+       --responseauthrecipient
+           L'attributo auth-recipient indica come requisito l'autenticazione
+           di livello messaggio del ricevente di un messaggio di risposta al
+           mittente (ad esempio tramite cifratura XML). I possibili valori
+           sono before-content o after-content. Il valore predefinito è
+           after-content.
+
+       --isdefaultprovider
+           L'attributo default-provider viene utilizzato per designare il
+           provider come provider predefinito (nel livello) del tipo o dei
+           tipi identificati dall'argomento providertype. A questa opzione non
+           è associata alcuna impostazione predefinita.
+
+       --property
+           Utilizzare questa proprietà per passare valori di proprietà
+           specifici del provider al provider nel momento in cui viene
+           inizializzato. Le proprietà passate in questo modo possono
+           includere alias di chiavi che devono essere utilizzati dal provider
+           per ottenere le chiavi da algoritmi di cifratura, keystore, firma,
+           standardizzazione e così via.
+
+           È possibile impostare le seguenti proprietà:
+
+           security.config
+               Specifica la posizione del file di configurazione della
+               sicurezza dei messaggi. Per puntare a un file di configurazione
+               nella directory domain-dir/config, usare la proprietà di
+               sistema ${com.sun.aas.instanceRoot}/config/, ad esempio:
+               ${com.sun.aas.instanceRoot}/config/wss-server-config-1.0.xml.
+               Il valore predefinito è domain-dir/config/
+               wss-serverconfig-1.0.xml.
+
+           debug
+               Se impostato su true, consente di eseguire il dump dei messaggi
+               di debug del provider server nel log del server. Il valore
+               predefinito è false.
+
+           dynamic.username. password
+               Se impostato su true, comunica alla fase di esecuzione del
+               provider di recuperare nome utente e password da
+               CallbackHandler per ogni richiesta. Se si imposta false, il
+               nome utente e la password per l'elemento o gli elementi
+                wsse:UsernameToken vengono raccolti una volta, durante
+               l'inizializzazione del modulo. Questa proprietà è applicabile
+               solo per un ClientAuthModule. Il valore predefinito è false.
+
+           encryption.key.alias
+               Specifica la chiave di cifratura utilizzata dal provider. La
+               chiave è identificata dal relativo alias keystore. Il valore
+               predefinito è s1as.
+
+           signature.key.alias
+               Specifica la chiave di firma utilizzata dal provider. La chiave
+               è identificata dal relativo alias keystore. Il valore
+               predefinito è s1as.
+
+OPERANDI
+       provider_name
+           Nome del provider usato per referenziare l'elemento
+           provider-config.
+
+ESEMPI
+       Esempio 1, Creazione di un provider di sicurezza messaggi
+           Nell'esempio riportato di seguito viene illustrato come creare un
+           provider di sicurezza messaggi per un client.
+
+               asadmin> create-message-security-provider
+               --classname com.sun.enterprise.security.jauth.ClientAuthModule
+               --providertype client mySecurityProvider
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       delete-message-security-provider(1), list-message-security-providers(1)
+
+       asadmin(1M)
+
+                               22 dicembre 2010          CREATE-MESSAGE-SEC(1)

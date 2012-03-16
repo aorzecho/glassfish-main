@@ -1,0 +1,57 @@
+LIST-AUDIT-MODULES(1)                                    LIST-AUDIT-MODULES(1)
+
+NOME
+       list-audit-modules - recupera tutti i moduli di audit e li visualizza
+
+SINTASSI
+           list-audit-modules [--help] [target]
+
+DESCRIZIONE
+       Il comando secondario list-audit-modules elenca tutti i moduli di
+       revisione. Questo comando secondario è supportato solo in modalità
+       remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+OPERANDI
+       target
+           Specifica la destinazione in cui vengono elencati i moduli di
+           revisione. I valori validi sono i seguenti:
+
+           server
+               Elenca i moduli di revisione dell'istanza server predefinita
+               server ed è il valore predefinito.
+
+           configuration_name
+               Elenca i moduli di revisione della configurazione denominata.
+
+           cluster_name
+               Elenca i moduli di revisione di tutte le istanze server del
+               cluster.
+
+           instance_name
+               Elenca i moduli di revisione di un'istanza server specifica.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco dei moduli di revisione
+
+               asadmin> list-audit-modules
+               sampleAuditModule1
+               sampleAuditModule2
+               Command list-audit-modules executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-audit-module(1), delete-audit-module(1)
+
+       asadmin(1M)
+
+                               22 dicembre 2010          LIST-AUDIT-MODULES(1)

@@ -1,0 +1,61 @@
+LIST-AUTH-REALMS(1)                                        LIST-AUTH-REALMS(1)
+
+NOMBRE DE REFERENCIA
+       list-auth-realms - muestra los dominios de autenticación.
+
+SINOPSIS
+           list-auth-realms [--help] [target]
+
+DESCRIPCIÓN
+       El subcomando list-auth-dominios muestra una lista de los dominios de
+       autenticación. Este subcomando sólo está soportado en modo remoto.
+
+OPCIONES
+       --help, -?
+           Muestra el texto de ayuda para el subcomando.
+
+OPERANDOS
+       destino
+           Nombre del destino para el que desea mostrar los dominios de
+           autenticación.
+
+           server
+               Muestra los dominios para la instancia de servidor por defecto
+               server y es el valor por defecto.
+
+           configuration_name
+               Muestra los dominios para la configuración especificada.
+
+           cluster_name
+               Muestra los dominios para todas las instancias de servidor del
+               cluster.
+
+           instance_name
+               Muestra los dominios para una determinada instancia de
+               servidor.
+
+EJEMPLOS
+       Ejemplo 1, Lista de los Dominios de Autenticación
+
+               asadmin> list-auth-realms
+               file
+               ldap
+               certificate
+               db
+               Command list-auth-realms executed successfully
+           Donde file, ldap, certificate y db son los dominios de
+           autenticación disponibles.
+
+ESTADO DE SALIDA
+       0
+           Comando ejecutado correctamente
+
+       1
+           Error al ejecutar el comando
+
+CONSULTE TAMBIÉN
+       create-auth-realm(1), delete-auth-realm(1)
+
+       Utilidad asadmin(1M)
+
+                                  22 Dic 2010              LIST-AUTH-REALMS(1)
