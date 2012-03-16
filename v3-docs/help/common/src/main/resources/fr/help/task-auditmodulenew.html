@@ -1,47 +1,75 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-auditmodulenew" name="task-auditmodulenew"></a><a id="GHCOM00194" name="GHCOM00194"></a></p>
 
-
-<a name="task-auditmodulenew"></a><h3>Cr&#233;er un module d&#8217;audit</h3><a name="indexterm-95"></a><p>Les modules d&#8217;audit contr&#244;lent la mani&#232;re dont le GlassFish Server consigne les
-&#233;v&#233;nements importants, comme les erreurs et les br&#232;ches de s&#233;curit&#233;. Le GlassFish
-Server consigne tous les &#233;v&#233;nements d&#8217;authentification dans des fichiers journaux. Un journal
-d&#8217;acc&#232;s fournit un suivi s&#233;quentiel des &#233;v&#233;nements d&#8217;acc&#232;s du GlassFish Server.</p>
-
-<p>GlassFish Server fournit un simple module d&#8217;audit par d&#233;faut ; pour plus
-d&#8217;informations, consultez <a href="task-usedefaultauditmod.html">Utiliser le module d'audit par d&#233;faut</a> .</p>
-
+<h4><a id="sthref162" name="sthref162"></a>Cr&eacute;er un module d'audit</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Les modules d'audit contr&ocirc;lent la mani&egrave;re dont le GlassFish&nbsp;Server consigne les &eacute;v&eacute;nements importants, comme les erreurs et les br&egrave;ches de s&eacute;curit&eacute;. GlassFish&nbsp;Server consigne tous les &eacute;v&eacute;nements d'authentification dans des fichiers journaux. Un journal d'acc&egrave;s complet fournit un suivi chronologique des &eacute;v&eacute;nements d'acc&egrave;s dans GlassFish&nbsp;Server.</p>
+<p>GlassFish&nbsp;Server fournit un simple module d'audit par d&eacute;faut. Pour plus d'informations, reportez-vous &agrave; <a href="task-usedefaultauditmod.html">Utiliser le module d'audit par d&eacute;faut</a>.</p>
 <ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>Sous le n&#339;ud Configuration, d&#233;veloppez le n&#339;ud S&#233;curit&#233;.</b></li>
-<li><b>Sous le n&#339;ud S&#233;curit&#233;, s&#233;lectionnez le n&#339;ud Modules d&#8217;audit.</b><p>La page Modules d&#8217;audit s&#8217;affiche.</p></li>
-<li><b>Sur la page Modules d&#8217;audit, cliquez sur Nouveau.</b><p>La page Nouveau module d&#8217;audit s&#8217;affiche.</p></li>
-<li><b>Sur la page Nouveau module d&#8217;audit, dans le champ Nom, saisissez le
-nom du module d&#8217;audit.</b></li>
-<li><b>Dans le champ Nom de la classe, saisissez le nom complet de
-la classe qui impl&#233;mente ce module.</b><p>Le nom de classe du module d&#8217;audit par d&#233;faut est <tt>com.sun.enterprise.security.Audit</tt>.</p></li>
-<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</p><p>Pour obtenir une description de la propri&#233;t&#233; suppl&#233;mentaire disponible pour les modules
-d&#8217;audit, consultez <a href="ref-auditmoduleprop.html">Propri&#233;t&#233;s propres aux modules d'audit</a>.</p></li>
-<li><b>Cliquez sur OK.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-auditmoduleedit.html">Pour modifier un module d'audit</a></p>
-
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p><a href="task-auditmoduledelete.html">Supprimer un module d'audit</a></p>
-
+<li>
+<p>Select the instance to configure:</p>
+<ul>
+<li>
+<p>To configure a particular instance, expand the instance's config node. For example, the default instance, <code>server</code>, expand the <code>server-config</code> node.</p>
 </li>
-<li><p><a href="task-enabledisableauditmod.html">Activer ou d&#233;sactiver la journalisation d'audit</a></p>
-
+<li>
+<p>To configure the default settings for all instances, expand the <code>default-config</code> node.</p>
 </li>
-<li><p><a href="task-setactiveauditmod.html">D&#233;finir le module d'audit actif</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-usedefaultauditmod.html">Utiliser le module d'audit par d&#233;faut</a></p>
+<li>
+<p>Sous le noeud Configuration, d&eacute;veloppez le noeud S&eacute;curit&eacute;.</p>
+</li>
+<li>
+<p>Sous le noeud S&eacute;curit&eacute;, s&eacute;lectionnez le noeud Modules d'audit.</p>
+<p>La page Modules d'audit appara&icirc;t.</p>
+</li>
+<li>
+<p>Sur la page Modules d'audit, cliquez sur Nouveau.</p>
+<p>La page Nouveau module d'audit appara&icirc;t.</p>
+</li>
+<li>
+<p>Sur la page Nouveau module d'audit, dans le champ Nom, saisissez le nom du module d'audit.</p>
+</li>
+<li>
+<p>Dans le champ Nom de la classe, saisissez le nom complet de la classe qui impl&eacute;mente ce module.</p>
+<p>Le nom de classe du module d'audit par d&eacute;faut est <code>com.sun.enterprise.security.Audit</code>.</p>
+</li>
+<li>
+<p>Dans la section Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les propri&eacute;t&eacute;s suppl&eacute;mentaires.</p>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+<p>Pour une description de la propri&eacute;t&eacute; suppl&eacute;mentaire disponible dans les modules d'audit, reportez-vous &agrave; <a href="ref-auditmoduleprop.html">Propri&eacute;t&eacute;s propres aux modules d'audit</a>.</p>
+</li>
+<li>
+<p>Cliquez sur OK.</p>
+</li>
+</ol>
+<a id="sthref163" name="sthref163"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-auditmoduleedit.html">Modifier un module d'audit</a></p>
+</li>
+<li>
+<p><a href="task-auditmoduledelete.html">Supprimer un module d'audit</a></p>
+</li>
+<li>
+<p><a href="task-enabledisableauditmod.html">Activer ou d&eacute;sactiver la journalisation d'audit</a></p>
+</li>
+<li>
+<p><a href="task-setactiveauditmod.html">D&eacute;finir le module d'audit actif</a></p>
+</li>
+<li>
+<p><a href="task-usedefaultauditmod.html">Utiliser le module d'audit par d&eacute;faut</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

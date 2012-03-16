@@ -1,87 +1,114 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-securitysettings" name="task-securitysettings"></a><a id="GHCOM00181" name="GHCOM00181"></a></p>
 
-
-<a name="task-securitysettings"></a><h3>Configurer les r&#233;glages de s&#233;curit&#233;</h3><a name="indexterm-77"></a><a name="indexterm-78"></a><p>La Console d'administration  vous permet de d&#233;finir toute une s&#233;rie de
-r&#233;glages de s&#233;curit&#233; dans le syst&#232;me.</p>
-
+<h4><a id="sthref134" name="sthref134"></a><a id="sthref135" name="sthref135"></a>Configurer les param&egrave;tres de s&eacute;curit&eacute;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La Console d'administration permet de d&eacute;finir toute une s&eacute;rie de param&egrave;tres de s&eacute;curit&eacute; dans le syst&egrave;me.</p>
 <ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configurations.</b></li>
-<li><b>Sous le n&#339;ud Configurations, cliquez sur la configuration de l'instance de serveur
-ou du cluster pour laquelle vous souhaitez configurer les param&#232;tres de s&#233;curit&#233;.
-</b><p>La page Configuration s&#8217;ouvre.</p></li>
-<li><b>Sur la page Configuration, cliquez sur S&#233;curit&#233;. </b><p>La page Param&#232;tres de s&#233;curit&#233; pour la cible de configuration s&#233;lectionn&#233;e s'ouvre.
-</p></li>
-<li><b>Cochez la case Gestionnaire de s&#233;curit&#233; activ&#233;.</b><p>Une option JVM, <tt>-Djava.security.manager</tt>, est alors ajout&#233;e aux param&#232;tres JVM de GlassFish
-Server. Voir <a href="task-jvmoptions.html">Configurer les options JVM</a>. Vous devez red&#233;marrer le serveur pour activer la modification.</p><p>V&#233;rifiez que vous avez bien accord&#233; les autorisations n&#233;cessaires pour toutes les
-applications. Vous pouvez d&#233;sactiver le gestionnaire de s&#233;curit&#233; pour am&#233;liorer les performances.
-Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>Cochez la case Journalisation d&#8217;audit activ&#233;e.</b><p>Lorsque cette option est activ&#233;e, le serveur charge et ex&#233;cute tous les
-modules d&#8217;audit s&#233;lectionn&#233;s dans la liste des modules d&#8217;audit. Si cette option
-n&#8217;est pas activ&#233;e, le serveur n&#8217;acc&#232;de pas aux modules d&#8217;audit. Cette option
-est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>Dans la liste d&#233;roulante Domaine par d&#233;faut, s&#233;lectionnez le domaine actif que
-le serveur utilisera pour l&#8217;authentification.</b><p>Les applications utiliseront ce domaine sauf indication contraire de leur descripteur de
-d&#233;ploiement. Tous les domaines configur&#233;s apparaissent dans la liste. La valeur par
-d&#233;faut est <tt>file</tt>.</p></li>
-<li><b>Indiquez les informations du principal par d&#233;faut.</b><ol style="list-style-type: lower-alpha">
-<li><b>Dans le champ Principal par d&#233;faut, saisissez le nom de l&#8217;utilisateur par
-d&#233;faut.</b><p>Le serveur utilise ce nom d&#8217;utilisateur lorsque aucun autre principal n&#8217;est fourni.</p></li>
-<li><b>Dans le champ Mot de passe du principal par d&#233;faut, saisissez le
-mot de passe du principal par d&#233;faut indiqu&#233; dans le champ Principal
-par d&#233;faut.</b></li></ol><p>Aucune valeur principale par d&#233;faut n&#8217;est requise pour un fonctionnement normal du
-serveur.</p></li>
-<li><b>Dans la liste d&#233;roulante JACC, s&#233;lectionnez le nom d&#8217;un fournisseur JACC configur&#233;.</b><p>Les choix par d&#233;faut sont <tt>par d&#233;faut</tt> et <tt> simple</tt>. L&#8217;option par d&#233;faut est
-<tt>par d&#233;faut</tt>. Pour plus d'informations sur la cr&#233;ation de nouveaux fournisseurs JACC, voir
-***. </p></li>
-<li><b>Dans la liste d&#233;roulante Modules d&#8217;audit, s&#233;lectionnez les modules de fournisseur d&#8217;audit
-qui seront utilis&#233;s par le sous-syst&#232;me d&#8217;audit si la journalisation d&#8217;audit est
-activ&#233;e.</b><p>Par d&#233;faut, le serveur utilise un module d&#8217;audit nomm&#233; <tt>default</tt>. Pour plus
-d&#8217;informations sur la cr&#233;ation de modules d&#8217;audit, consultez <a href="task-auditmodulenew.html">Cr&#233;er un module d'audit</a>.</p></li>
-<li><b>Cochez la case Mappage principal-r&#244;le par d&#233;faut activ&#233; pour appliquer un mappage
-principal-r&#244;le par d&#233;faut &#224; des applications d&#233;pourvues de mappage sp&#233;cifique aux applications.</b></li>
-<li><b>Si vous avez activ&#233; le mappage principal-r&#244;le par d&#233;faut, dans le champ
-Classe de principal mapp&#233;e, saisissez le nom d&#8217;une classe d&#8217;impl&#233;mentation <tt>java.security.Principal </tt> pesronnalis&#233;e
-&#224; utiliser dans le mappage principal-r&#244;le par d&#233;faut.</b></li>
-<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>Les propri&#233;t&#233;s valides d&#233;pendent du type de domaine s&#233;lectionn&#233; dans le champ
-Domaine par d&#233;faut. Reportez-vous &#224; l'entr&#233;e appropri&#233;e dans la liste ci-dessous pour
-le type de domaine que vous souhaitez configurer. </p>
-<ul><li><p><a href="ref-editfile-adminrealm.html">Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>FileRealm</tt></a></p>
-
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configurations.</p>
 </li>
-<li><p><a href="ref-editcertrealm.html">Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>CertificateRealm</tt></a></p>
-
+<li>
+<p>Sous le noeud Configurations, cliquez sur la configuration de d'instance de serveur ou de cluster pour laquelle vous souhaitez d&eacute;finir les param&egrave;tres de s&eacute;curit&eacute;.</p>
+<p>La page Configuration appara&icirc;t.</p>
 </li>
-<li><p><a href="ref-editjdbcrealm.html">Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>JDBCRealm</tt></a></p>
-
+<li>
+<p>Sur la page Configuration, cliquez sur S&eacute;curit&eacute;.</p>
+<p>La page Param&egrave;tres de s&eacute;curit&eacute; de la cible de configuration s&eacute;lectionn&eacute;e appara&icirc;t.</p>
 </li>
-<li><p><a href="ref-ldaprealmprop.html">Propri&#233;t&#233;s sp&#233;cifiques &#224; la classe <tt>LDAPRealm </tt></a></p>
-
+<li>
+<p>Cochez la case Gestionnaire de s&eacute;curit&eacute; activ&eacute;.</p>
+<p>Une option&nbsp;JVM, <code>-Djava.security.manager</code>, est alors ajout&eacute;e aux param&egrave;tres&nbsp;JVM de GlassFish&nbsp;Server. Reportez-vous &agrave; <a href="task-jvmoptions.html">Configurer les options&nbsp;JVM</a>. Vous devez red&eacute;marrer le serveur pour activer la modification.</p>
+<p>V&eacute;rifiez que vous avez bien accord&eacute; les autorisations n&eacute;cessaires pour toutes les applications. Vous pouvez d&eacute;sactiver le gestionnaire de s&eacute;curit&eacute; pour am&eacute;liorer les performances. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </li>
-<li><p><a href="ref-solarisrealmprop.html">Propri&#233;t&#233;s sp&#233;cifiques &#224; la classe <tt>SolarisRealm </tt></a></p>
-
+<li>
+<p>Cochez la case Journalisation d'audit activ&eacute;e.</p>
+<p>Lorsque cette option est activ&eacute;e, le serveur charge et ex&eacute;cute tous les modules d'audit s&eacute;lectionn&eacute;s dans la liste Modules d'audit. Si cette option n'est pas activ&eacute;e, le serveur n'acc&egrave;de pas aux modules d'audit. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </li>
-<li><p><a href="ref-pamrealmprop.html">Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>PamRealm </tt></a></p>
-
-</li></ul>
+<li>
+<p>Dans la liste d&eacute;roulante Domaine par d&eacute;faut, s&eacute;lectionnez le domaine actif que le serveur utilisera pour l'authentification.</p>
+<p>Les applications utiliseront ce domaine sauf indication contraire de leur descripteur de d&eacute;ploiement. Tous les domaines configur&eacute;s apparaissent dans la liste. La valeur par d&eacute;faut est <code>file</code>.</p>
+</li>
+<li>
+<p>Indiquez les informations du principal par d&eacute;faut.</p>
+<ol type="a">
+<li>
+<p>Dans le champ Principal par d&eacute;faut, saisissez le nom de l'utilisateur par d&eacute;faut.</p>
+<p>Le serveur emploie ce nom utilisateur lorsque aucun autre principal n'est fourni.</p>
+</li>
+<li>
+<p>Dans le champ Mot de passe du principal par d&eacute;faut, saisissez le mot de passe du principal par d&eacute;faut indiqu&eacute; dans le champ Principal par d&eacute;faut.</p>
+</li>
+</ol>
+<p>Aucun principal par d&eacute;faut n'est requis pour un fonctionnement normal du serveur.</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante&nbsp;JACC, s&eacute;lectionnez le nom d'un fournisseur&nbsp;JACC configur&eacute;.</p>
+<p>Les choix par d&eacute;faut sont <code>default</code> et <code>simple</code>. L'option par d&eacute;faut est <code>default</code>. Pour plus d'informations sur la cr&eacute;ation de fournisseurs&nbsp;JACC, reportez-vous &agrave; ***.</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante Modules d'audit, s&eacute;lectionnez les modules de fournisseur d'audit qui seront utilis&eacute;s par le sous-syst&egrave;me d'audit si la journalisation d'audit est activ&eacute;e.</p>
+<p>Par d&eacute;faut, le serveur utilise un module d'audit nomm&eacute; <code>default</code>. Pour plus d'informations sur la cr&eacute;ation de modules d'audit, reportez-vous &agrave; <a href="task-auditmodulenew.html">Cr&eacute;er un module d'audit</a>.</p>
+</li>
+<li>
+<p>Cochez la case Mise en correspondance par d&eacute;faut des principaux avec des r&ocirc;les pour appliquer une correspondance principal-r&ocirc;le par d&eacute;faut &agrave; des applications d&eacute;pourvues de correspondance propre aux applications.</p>
+</li>
+<li>
+<p>Si vous avez activ&eacute; la correspondance principal-r&ocirc;le par d&eacute;faut, dans le champ Classe de principal mise en correspondance, saisissez le nom d'une classe d'impl&eacute;mentation <code>java.security.Principal</code> personnalis&eacute;e &agrave; utiliser dans la correspondance principal-r&ocirc;le par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans la section Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les propri&eacute;t&eacute;s suppl&eacute;mentaires.</p>
+<p>Les propri&eacute;t&eacute;s valides d&eacute;pendent du type de domaine s&eacute;lectionn&eacute; dans le champ Domaine par d&eacute;faut. Dans la liste ci-dessous, reportez-vous &agrave; l'entr&eacute;e appropri&eacute;e pour le type de domaine &agrave; configurer.</p>
 <ul>
-<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
-<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
-<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
-Nom de la propri&#233;t&#233; que vous supprimez,  puis cliquez sur le
-bouton Supprimer propri&#233;t&#233;s.</b></li></ul></li>
-<li><b>Cliquez sur Enregistrer.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-accessadmintools.html">Autoriser l'acc&#232;s aux outils d'administration</a></p>
-
+<li>
+<p><a href="ref-editfile-adminrealm.html">Propri&eacute;t&eacute;s propres &agrave; la classe<code>FileRealm</code></a></p>
 </li>
-<li><p><a href="task-changeadminpasswd.html">Pour modifier le mot de passe d'un utilisateur du domaine d'administration</a></p>
+<li>
+<p><a href="ref-editcertrealm.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>CertificateRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-editjdbcrealm.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>JDBCRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-ldaprealmprop.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>LDAPRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-solarisrealmprop.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>SolarisRealm</code></a></p>
+</li>
+<li>
+<p><a href="ref-pamrealmprop.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>PamRealm</code></a></p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+</li>
+<li>
+<p>Pour modifier une propri&eacute;t&eacute;, modifiez le champ Valeur de cette propri&eacute;t&eacute;.</p>
+</li>
+<li>
+<p>Pour supprimer une propri&eacute;t&eacute;, s&eacute;lectionnez la case situ&eacute;e &agrave; gauche du champ Nom de la propri&eacute;t&eacute; &agrave; supprimer, puis cliquez sur le bouton Supprimer des propri&eacute;t&eacute;s.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
+</li>
+</ol>
+<a id="sthref136" name="sthref136"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-accessadmintools.html">Autoriser l'acc&egrave;s aux outils d'administration</a></p>
+</li>
+<li>
+<p><a href="task-changeadminpasswd.html">Modifier le mot de passe d'un utilisateur dans le domaine admin-realm</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

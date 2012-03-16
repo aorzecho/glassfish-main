@@ -1,79 +1,135 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmsconnectionedit" name="task-jmsconnectionedit"></a><a id="GHJMS00021" name="GHJMS00021"></a></p>
 
-
-<a name="task-jmsconnectionedit"></a><h3>Modifier une ressource d&#8217;usine de connexion JMS</h3><a name="indexterm-3"></a><a name="indexterm-4"></a><ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Ressources.</b></li>
-<li><b>Sous le noeud Connecteurs, d&#233;veloppez le noeud Ressources JMS.</b></li>
-<li><b>Sous le noeud Ressources JMS, s&#233;lectionnez le noeud Usines de connexion JMS.
-</b><p>La page Usines de connexion JMS s&#8217;ouvre. </p></li>
-<li><b>Sur la page Usines de connexion JMS, cliquez sur le nom de
-l&#8217;usine de connexion que vous modifiez.</b><p>La page Modifier l&#8217;usine de connexion JMS s&#8217;ouvre.</p></li>
-<li><b>Dans le champ Description, saisissez une description de l&#8217;usine de connexion.</b></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de Statut pour activer la ressource au moment
-de l&#8217;ex&#233;cution.</b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
-<li><b>Dans le champ Taille initiale et minimale du pool, sp&#233;cifiez le nombre
-minimum de connexions dans le pool.</b><p>La valeur par d&#233;faut est 8.</p></li>
-<li><b>Dans le champ Taille maximale du pool, sp&#233;cifiez le nombre maximum de
-connexions dans le pool.</b><p>La valeur par d&#233;faut est 32.</p></li>
-<li><b>Dans le champ Valeur de redimensionnement du pool, sp&#233;cifiez le nombre de
-connexions &#224; supprimer lorsque le d&#233;lai d&#8217;inactivit&#233; du pool expire. </b><p>La valeur par d&#233;faut est 2.</p></li>
-<li><b>Dans le champ D&#233;lai d&#8217;inactivit&#233;, sp&#233;cifiez le temps maximum (en secondes) pendant
-lequel une connexion peut rester inactive dans le pool.</b><p>La valeur par d&#233;faut est 300.</p></li>
-<li><b>Dans le champ Attente max., sp&#233;cifiez le temps pendant lequel l&#8217;application demandant
-une connexion patientera avant d&#8217;obtenir une expiration de la connexion.</b><p>La valeur par d&#233;faut est 60 000.</p></li>
-<li><b>Si la case &#201;chec sur tout Fermer toutes les connexions est coch&#233;e,
-GlassFish Server interrompt toutes les connexions du pool et les r&#233;tablit si
-une seule connexion &#233;choue. </b><p>Si vous ne s&#233;lectionnez pas cette case, les connexions individuelles ne seront
-r&#233;tablies que lorsqu&#8217;elles seront utilis&#233;es.</p></li>
-<li><b>Pour une ressource d&#8217;usine de connexion JMS, sp&#233;cifiez la valeur de Prise
-en charge des transactions comme suit :</b><ul>
-<li><b>Choisissez <tt>XATransaction</tt> (valeur par d&#233;faut) si la ressource peut &#234;tre utilis&#233;e pour
-des transactions impliquant l&#8217;utilisation de plusieurs ressources dans le cadre d&#8217;une transaction.</b><p>Par exemple, cette ressource plus une ressource JDBC, une ressource de connecteur
-ou une autre ressource de fabrique de connexion JMS. Cette valeur offre
-un maximum de flexibilit&#233;. Les ressources configur&#233;es <tt>XATransaction</tt> participent &#224; des op&#233;rations
-de validation &#224; deux phases.</p></li>
-<li><b>Choisissez <tt>LocalTransaction</tt> si la ressource peut &#234;tre utilis&#233;e soit pour des transactions
-impliquant une seule ressource dans le cadre de la transaction, soit comme
-dernier agent dans une transaction distribu&#233;e impliquant plusieurs ressources XA.</b><p>Cette valeur permet de bien meilleures performances. Les ressources configur&#233;es <tt>LocalTransaction</tt> ne
-sont pas utilis&#233;es dans les op&#233;rations de validation &#224; deux phases.</p></li>
-<li><b>Choisissez <tt>NoTransaction</tt> si la ressource ne peut participer &#224; aucune transaction.</b><p>Dans les applications JMS, l&#8217;utilisation de cette configuration est limit&#233;e.</p></li></ul></li>
-<li><b>S&#233;lectionnez la case Validation de la connexion pour activer la validation de
-la connexion.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li>(Facultatif) <b>Dans le tableau Autres propri&#233;t&#233;s, sp&#233;cifiez les autres propri&#233;t&#233;s pour l&#8217;usine de
-connexion.</b><p>Pour plus d&#8217;informations sur les propri&#233;t&#233;s disponibles, reportez-vous &#224; la rubrique <a href="ref-jmsconnectionproperties.html">Propri&#233;t&#233;s sp&#233;cifiques aux usines de connexion JMS</a>.</p><ul>
-<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
-<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
-<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
-Nom de la propri&#233;t&#233; que vous supprimez,  puis cliquez sur le
-bouton Supprimer propri&#233;t&#233;s.</b></li></ul></li>
-<li><b>Cliquez sur Enregistrer.</b>
-<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
-par d&#233;faut, puis sur Enregistrer.</p>
-
+<h4><a id="sthref5" name="sthref5"></a><a id="sthref6" name="sthref6"></a>Modifier une ressource de fabrique de connexions JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Ressources.</p>
+</li>
+<li>
+<p>Sous le noeud Ressources, d&eacute;veloppez le noeud Ressources JMS.</p>
+</li>
+<li>
+<p>Sous le noeud Ressources JMS, s&eacute;lectionnez le noeud Fabriques de connexions JMS.</p>
+<p>La page Fabriques de connexions JMS appara&icirc;t.</p>
+</li>
+<li>
+<p>Sur la page Fabriques de connexions JMS, cliquez sur le nom de la fabrique de connexions &agrave; modifier.</p>
+<p>La page Modifier une fabrique de connexions JMS appara&icirc;t.</p>
+</li>
+<li>
+<p>Dans le champ Description, saisissez la description de la fabrique de connexions.</p>
+</li>
+<li>
+<p>S&eacute;lectionnez la case Activ&eacute; du champ Statut pour activer la ressource lors de l'ex&eacute;cution.</p>
+<p>Cette option est activ&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans le champ Taille initiale et minimale du pool, sp&eacute;cifiez le nombre minimal de connexions dans le pool.</p>
+<p>La valeur par d&eacute;faut est&nbsp;8.</p>
+</li>
+<li>
+<p>Dans le champ Taille maximale du pool, sp&eacute;cifiez le nombre maximal de connexions dans le pool.</p>
+<p>La valeur par d&eacute;faut est&nbsp;32.</p>
+</li>
+<li>
+<p>Dans le champ Valeur de redimensionnement du pool, sp&eacute;cifiez le nombre de connexions &agrave; enlever lorsque le d&eacute;lai d'inactivit&eacute; du pool est d&eacute;pass&eacute;.</p>
+<p>La valeur par d&eacute;faut est&nbsp;2.</p>
+</li>
+<li>
+<p>Dans le champ D&eacute;lai d'inactivit&eacute;, sp&eacute;cifiez la dur&eacute;e maximale, en secondes, pendant laquelle une connexion peut rester inactive dans le pool.</p>
+<p>La valeur par d&eacute;faut est&nbsp;300.</p>
+</li>
+<li>
+<p>Dans le champ Attente max., sp&eacute;cifiez le d&eacute;lai d'attente au-del&agrave; duquel il y a temporisation de la connexion pour l'application demandant une connexion.</p>
+<p>La valeur par d&eacute;faut est&nbsp;60&nbsp;000.</p>
+</li>
+<li>
+<p>Si la case Fermer toutes les connexions du champ Echec sur tout est coch&eacute;e, GlassFish&nbsp;Server ferme toutes les connexions du pool et les r&eacute;tablit en cas d'&eacute;chec de l'une d'entre elles.</p>
+<p>Si vous ne s&eacute;lectionnez pas cette case, les connexions individuelles ne seront r&eacute;tablies que lorsqu'elles seront utilis&eacute;es.</p>
+</li>
+<li>
+<p>Pour une ressource de fabrique de connexions JMS, sp&eacute;cifiez la valeur de prise en charge des transactions comme suit&nbsp;:</p>
+<ul>
+<li>
+<p>Choisissez <code>XATransaction</code> (valeur par d&eacute;faut) si la ressource peut &ecirc;tre utilis&eacute;e pour les transactions impliquant l'utilisation de plusieurs ressources dans la port&eacute;e d'une transaction.</p>
+<p>Par exemple, cette ressource plus une ressource JDBC, une ressource de connecteur ou une autre ressource de fabrique de connexions JMS. Cette valeur offre un maximum de flexibilit&eacute;. Les ressources configur&eacute;es comme <code>XATransaction</code> participent aux op&eacute;rations de validation en deux phases.</p>
+</li>
+<li>
+<p>Choisissez <code>LocalTransaction</code> si la ressource peut &ecirc;tre utilis&eacute;e soit pour les transactions impliquant uniquement une ressource dans la port&eacute;e de la transaction, soit en tant que dernier agent dans une transaction distribu&eacute;e impliquant plusieurs ressources XA.</p>
+<p>Cette valeur offre de meilleures performances. Les ressources configur&eacute;es comme <code>LocalTransaction</code> ne sont pas utilis&eacute;es dans les op&eacute;rations de validation en deux phases.</p>
+</li>
+<li>
+<p>Choisissez <code>NoTransaction</code> si la ressource ne peut participer &agrave; aucune transaction.</p>
+<p>Dans les applications JMS, l'utilisation de cette configuration est limit&eacute;e.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cochez la case Validation de la connexion pour activer la validation de la connexion.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans la table Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les propri&eacute;t&eacute;s suppl&eacute;mentaires de la fabrique de connexions.</p>
+<p>Pour plus d'informations sur les propri&eacute;t&eacute;s disponibles, reportez-vous &agrave; <a href="ref-jmsconnectionproperties.html">Propri&eacute;t&eacute;s propres aux fabriques de connexions JMS</a>.</p>
+<ul>
+<li>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+</li>
+<li>
+<p>Pour modifier une propri&eacute;t&eacute;, modifiez le champ Valeur de cette propri&eacute;t&eacute;.</p>
+</li>
+<li>
+<p>Pour supprimer une propri&eacute;t&eacute;, s&eacute;lectionnez la case situ&eacute;e &agrave; gauche du champ Nom de la propri&eacute;t&eacute; &agrave; supprimer, puis cliquez sur le bouton Supprimer des propri&eacute;t&eacute;s.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Optionally, click the Targets tab to go to the JMS Connection Factory Resource Targets page. On this page, do the following:</p>
+<ol type="a">
+<li>
+<p>Click Manage Targets to open the Manage Resource Targets page.</p>
+<p>On this page, move targets between the Available column and the Selected column. Make sure to place in the Selected column the target or targets to which applications that use the resource will be deployed. The available targets include the available clusters and server instances, as well as the default server instance, <code>server</code>. Click OK to save the changes.</p>
+</li>
+<li>
+<p>Select the checkbox for a target, then click Enable or Disable to enable or disable the resource for that target.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
 
 <hr>
-</li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-jmsconnectionnew.html">Pour cr&#233;er une ressource d'usine de connexion JMS</a></p>
+<p><b>Conseil:</b></p>
+Pour revenir aux param&egrave;tres par d&eacute;faut, cliquez sur le bouton Charger les valeurs par d&eacute;faut, puis sur Enregistrer.
+<hr>
 
 </li>
-<li><p><a href="task-jmsconnectiondelete.html">Supprimer une ressource d'usine de connexion JMS</a></p>
-
+</ol>
+<a id="sthref7" name="sthref7"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-jmsconnectionnew.html">Cr&eacute;er une ressource de fabrique de connexions JMS</a></p>
 </li>
-<li><p><a href="task-jmsdestinationnew.html">Cr&#233;er une ressource de destination JMS</a></p>
-
+<li>
+<p><a href="task-jmsconnectiondelete.html">Supprimer une ressource de fabrique de connexions JMS</a></p>
 </li>
-<li><p><a href="task-jmsdestinationedit.html">Modifier une ressource de destination JMS</a></p>
-
+<li>
+<p><a href="task-jmsdestinationnew.html">Cr&eacute;er une ressource de destination JMS</a></p>
 </li>
-<li><p><a href="task-jmsdestinationdelete.html">Supprimer une ressource de destination JMS</a></p>
+<li>
+<p><a href="task-jmsdestinationedit.html">Modifier une ressource de destination JMS</a></p>
+</li>
+<li>
+<p><a href="task-jmsdestinationdelete.html">Supprimer une ressource de destination JMS</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

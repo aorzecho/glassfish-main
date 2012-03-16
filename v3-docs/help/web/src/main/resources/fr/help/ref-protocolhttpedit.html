@@ -1,194 +1,207 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-protocolhttpedit"></a><h4>HTTP</h4>
-<a name="indexterm-72"></a><a name="indexterm-73"></a><p>Utilisez la page HTTP pour modifier les param&#232;tres HTTP pour un protocole
-de r&#233;seau. </p>
+<p><a id="ref-protocolhttpedit" name="ref-protocolhttpedit"></a><a id="GHWEB00022" name="GHWEB00022"></a></p>
 
-<p>La page HTTP contient les options suivantes.</p>
-
-<dl><dt>Restaurer les valeurs par d&#233;faut</dt>
-<dd><p>Bouton de restauration des valeurs par d&#233;faut des param&#232;tres qui ont des valeurs par d&#233;faut. Les param&#232;tres qui n'ont pas de valeurs par d&#233;faut ne sont pas modifi&#233;s.</p>
-
+<h4><a id="sthref152" name="sthref152"></a><a id="sthref153" name="sthref153"></a>HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilisez la page HTTP pour modifier les param&egrave;tres HTTP d'un protocole r&eacute;seau.</p>
+<p>La page HTTP contient les options suivantes&nbsp;:</p>
+<dl>
+<dt>Charger les valeurs par d&eacute;faut</dt>
+<dd>
+<p>Bouton de restauration des valeurs par d&eacute;faut des param&egrave;tres qui ont des valeurs par d&eacute;faut. Les param&egrave;tres qui n'ont pas de valeurs par d&eacute;faut ne sont pas modifi&eacute;s.</p>
 </dd>
-<dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
 <dt>Nom du protocole</dt>
-<dd><p>Nom du protocole. Le champ Nom du protocole est un champ en lecture seule. Vous pouvez </p>
-
+<dd>
+<p>Nom du protocole. Le champ Nom du protocole est en lecture seule. Vous ne pouvez sp&eacute;cifier le nom qu'&agrave; la cr&eacute;ation du protocole.</p>
 </dd>
 <dt>Nom de serveur</dt>
-<dd><p>Nom d&#8217;h&#244;te &#224; utiliser dans les URL envoy&#233;es par le serveur au client. Ce nom est l&#8217;alias si votre serveur en utilise un. Si votre serveur n&#8217;utilise aucun alias, laissez ce champ vide.</p>
-
+<dd>
+<p>Nom d'h&ocirc;te &agrave; utiliser dans les URL envoy&eacute;es par le serveur au client. Ce nom correspond &agrave; l'alias si votre serveur en utilise un. Si votre serveur n'utilise aucun alias, laissez ce champ vide.</p>
 </dd>
-<dt>Serveur virtuel par d&#233;faut</dt>
-<dd><p>Serveur virtuel &#224; associer au protocole. La page Serveurs virtuels vous permet de d&#233;finir des serveurs virtuels.</p>
-
+<dt>Serveur virtuel par d&eacute;faut</dt>
+<dd>
+<p>Serveur virtuel &agrave; associer au protocole. La page Serveurs virtuels permet de d&eacute;finir des serveurs virtuels.</p>
 </dd>
 <dt>Port de redirection</dt>
-<dd><p>Valeur de port qui redirige une requ&#234;te vers un autre port. GlassFish Server r&#233;achemine automatiquement la requ&#234;te si les deux conditions suivantes sont remplies :</p>
-
-
-<ul><li><p>Ce protocole prend en charge des requ&#234;tes non SSL.</p>
-
+<dd>
+<p>Valeur de port qui r&eacute;achemine une demande vers un autre port. GlassFish&nbsp;Server r&eacute;achemine automatiquement la demande si les deux conditions suivantes sont remplies&nbsp;:</p>
+<ul>
+<li>
+<p>Ce protocole prend en charge les demandes non SSL.</p>
 </li>
-<li><p>Une requ&#234;te pour laquelle une contrainte de s&#233;curit&#233; correspondante requiert le transport SSL est re&#231;ue.</p>
-
-</li></ul>
-<p>Si aucun port de redirection n&#8217;est sp&#233;cifi&#233;, le GlassFish Server utilise le num&#233;ro de port sp&#233;cifi&#233; dans la requ&#234;te d&#8217;origine.</p>
-
+<li>
+<p>Une demande est re&ccedil;ue. Une contrainte de s&eacute;curit&eacute; correspondante requiert le transport SSL.</p>
+</li>
+</ul>
+<p>Si aucun port de redirection n'est sp&eacute;cifi&eacute;, GlassFish&nbsp;Server utilise le num&eacute;ro de port sp&eacute;cifi&eacute; dans la demande d'origine.</p>
 </dd>
-<dt>Nb max. de connexions</dt>
-<dd><p>Nombre maximal de connexions persistantes &#224; maintenir en mode Keep-Alive. Le sous-syst&#232;me Keep-Alive interroge p&#233;riodiquement les connexions inactives. La valeur par d&#233;faut est 256.</p>
-
+<dt>Nombre max. de connexions</dt>
+<dd>
+<p>Nombre maximal de connexions persistantes &agrave; maintenir. Le sous-syst&egrave;me de maintien des connexions interroge p&eacute;riodiquement les connexions inactives. La valeur par d&eacute;faut est&nbsp;256.</p>
 </dd>
-<dt>D&#233;lai d&#8217;attente</dt>
-<dd><p>Temps maximum en secondes pendant lequel une connexion peut &#234;tre consid&#233;r&#233;e comme inactive et conserv&#233;e &#224; l&#8217;&#233;tat de persistance. Une valeur de 0 ou moins signifie que les connexions persistantes sont conserv&#233;es ouvertes ind&#233;finiment. La valeur par d&#233;faut est 30 secondes.</p>
-
+<dt>Temporisation</dt>
+<dd>
+<p>Temps maximal (en secondes) pendant lequel une connexion peut &ecirc;tre consid&eacute;r&eacute;e comme inactive et maintenue. Une valeur inf&eacute;rieure ou &eacute;gale &agrave;&nbsp;0 signifie que les connexions maintenues restent ouvertes ind&eacute;finiment. La valeur par d&eacute;faut est de 30&nbsp;secondes.</p>
 </dd>
-<dt>D&#233;lai d&#8217;expiration du chargement</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, la connexion pour un servlet qui lit les octets lentement est ferm&#233;e lorsque la limite de D&#233;lai d&#8217;expiration du chargement de la connexion est atteinte. Si cette option est d&#233;sactiv&#233;e, les connexions servlet n&#8217;ont pas de d&#233;lai d&#8217;expiration. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Temporisation du chargement</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, la connexion d'un servlet qui lit les octets lentement est ferm&eacute;e une fois que le d&eacute;lai de temporisation du chargement de la connexion est atteint. Si cette option est d&eacute;sactiv&eacute;e, les connexions de servlet ne font pas l'objet de temporisations. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>D&#233;lai d&#8217;expiration du chargement de la connexion</dt>
-<dd><p>Le d&#233;lai d&#8217;expiration pour les t&#233;l&#233;chargements, en millisecondes. Ce champ n&#8217;est applicable que si la case Activ&#233; de D&#233;lai d&#8217;expiration du chargement est s&#233;lectionn&#233;e. La valeur par d&#233;faut est 300000 millisecondes.</p>
-
+<dt>Temporisation du chargement de la connexion</dt>
+<dd>
+<p>Temporisation des chargements, en millisecondes. Ce champ n'est applicable que si la case Activ&eacute; de l'option Temporisation du chargement est coch&eacute;e. La valeur par d&eacute;faut est 300&nbsp;000&nbsp;millisecondes.</p>
 </dd>
-<dt>D&#233;lai d&#8217;expiration de la requ&#234;te</dt>
-<dd><p>Nombre de secondes avant l&#8217;expiration de la requ&#234;te. Si la requ&#234;te n&#8217;est pas trait&#233;e avant d&#8217;atteindre la valeur de d&#233;lai d&#8217;expiration, la requ&#234;te est ignor&#233;e. La valeur par d&#233;faut est 30 secondes.</p>
-
+<dt>Temporisation de la demande</dt>
+<dd>
+<p>D&eacute;lai (en secondes) avant l'expiration de la demande. Si la demande n&rsquo;est pas trait&eacute;e avant la valeur de temporisation atteinte, la demande n'est pas prise en compte. La valeur par d&eacute;faut est de 30&nbsp;secondes.</p>
 </dd>
-<dt>Taille du tampon d&#8217;envoi</dt>
-<dd><p>La taille (en octets) du tampon d&#8217;envoi. La valeur par d&#233;faut est 8192 octets.</p>
-
+<dt>Taille du tampon d'envoi</dt>
+<dd>
+<p>Taille (en octets) de la m&eacute;moire tampon d'envoi. La valeur par d&eacute;faut est 8&nbsp;192&nbsp;octets.</p>
 </dd>
-<dt>Longueur du tampon d&#8217;en-t&#234;te</dt>
-<dd><p>La taille (en octets) du tampon utilis&#233; par la requ&#234;te traitant les threads pour lire les donn&#233;es de la requ&#234;te. La valeur par d&#233;faut est 8192 octets.</p>
-
+<dt>Longueur du tampon d'en-t&ecirc;te</dt>
+<dd>
+<p>Taille (en octets) de la m&eacute;moire tampon utilis&eacute;e par la demande traitant les threads pour lire les donn&eacute;es de la demande. La valeur par d&eacute;faut est 8&nbsp;192&nbsp;octets.</p>
 </dd>
-<dt>Taille maximum des billets</dt>
-<dd><p>La taille maximale en octets des actions POST. La valeur par d&#233;faut est 2097152 octets.</p>
-
+<dt>Taille max. des actions POST</dt>
+<dd>
+<p>Taille maximale en octets des actions POST. La valeur par d&eacute;faut est 2&nbsp;097&nbsp;152&nbsp;octets.</p>
 </dd>
 <dt>Codage URI</dt>
-<dd><p>Le nom du jeu de caract&#232;res utilis&#233; pour d&#233;coder les URI des requ&#234;tes re&#231;ues. La valeur doit &#234;tre un nom de jeu de caract&#232;res IANA valide. La valeur par d&#233;faut est UTF-8.</p>
-
+<dd>
+<p>Nom du jeu de caract&egrave;res utilis&eacute; pour d&eacute;coder les URI de demande re&ccedil;us. La valeur doit &ecirc;tre un nom de jeu de caract&egrave;res IANA valide. La valeur par d&eacute;faut est UTF-8.</p>
 </dd>
 <dt>Version</dt>
-<dd><p>La version du protocole HTTP utilis&#233;e. La valeur par d&#233;faut est HTTP/1.1.</p>
-
+<dd>
+<p>Version du protocole HTTP utilis&eacute;e. La valeur par d&eacute;faut est HTTP/1.1.</p>
 </dd>
 <dt>Compression</dt>
-<dd><p>Sp&#233;cifie l'utilisation de la compression HTTP/1.1 GZIP pour enregistrer la bande passante du serveur. Les choix disponibles sont les suivants :</p>
-
-<dl><dt><tt>on</tt></dt>
-<dd><p>Compresse les donn&#233;es.</p>
-
+<dd>
+<p>Sp&eacute;cifie l'utilisation de la compression HTTP/1.1 GZIP pour enregistrer la bande passante du serveur. Les choix disponibles sont les suivants&nbsp;:</p>
+<dl>
+<dt><code>Actif</code></dt>
+<dd>
+<p>Compresse les donn&eacute;es.</p>
 </dd>
-<dt><tt>off</tt></dt>
-<dd><p>D&#233;sactive la compression.</p>
-
+<dt><code>Inactif</code></dt>
+<dd>
+<p>D&eacute;sactive la compression.</p>
 </dd>
-<dt><tt>force</tt></dt>
-<dd><p>Force la compression des donn&#233;es dans tous les cas.</p>
-
+<dt><code>Forcer</code></dt>
+<dd>
+<p>Force la compression des donn&eacute;es dans tous les cas.</p>
 </dd>
 </dl>
-<p>La valeur par d&#233;faut est <tt>off</tt>.</p>
-
+<p>La valeur par d&eacute;faut est <code>Inactif</code>.</p>
 </dd>
 <dt>Types MIME compressibles</dt>
-<dd><p>Une liste s&#233;par&#233;e par des virgules de types MIME pour lesquels la compression HTTP est utilis&#233;e. La valeur par d&#233;faut est <tt>text/html,text/xml,text/plain</tt>. </p>
-
+<dd>
+<p>Liste s&eacute;par&eacute;e par des virgules de types MIME pour lesquels la compression HTTP est utilis&eacute;e. La valeur par d&eacute;faut est <code>text/html,text/xml,text/plain</code>.</p>
 </dd>
-<dt>Taille minimum de compression</dt>
-<dd><p>La taille minimale d&#8217;un fichier lorsque la compression est appliqu&#233;e. Cette valeur doit &#234;tre configur&#233;e si la compression est d&#233;finie sur <tt>on</tt> ou <tt>force</tt>. La valeur par d&#233;faut est 2048 octets.</p>
-
+<dt>Taille minimale de compression</dt>
+<dd>
+<p>Taille minimale d'un fichier lorsque la compression est appliqu&eacute;e. Cette valeur doit &ecirc;tre configur&eacute;e si la compression est d&eacute;finie sur <code>Actif</code> ou <code>Forcer</code>. La valeur par d&eacute;faut est 2&nbsp;048&nbsp;octets.</p>
 </dd>
 <dt>Agents utilisateur sans compression</dt>
-<dd><p>Une liste s&#233;par&#233;e par des virgules d&#8217;expressions r&#233;guli&#232;res correspondant &#224; des agents utilisateur de clients HTTP pour lesquels la compression ne devrait pas &#234;tre utilis&#233;e. Par d&#233;faut, cette valeur est une cha&#238;ne vide.</p>
-
+<dd>
+<p>Liste d'expressions r&eacute;guli&egrave;res, s&eacute;par&eacute;es par des virgules, correspondant &agrave; des agents utilisateur de clients HTTP pour lesquels la compression ne doit pas &ecirc;tre utilis&eacute;e. Par d&eacute;faut, cette valeur est une cha&icirc;ne vide.</p>
 </dd>
-<dt>Agent utilisateur limit&#233;</dt>
-<dd><p>Une liste des agents utilisateur limit&#233;s sur lesquels la compression HTTP est appliqu&#233;e. Si aucun utilisateur agent n&#8217;est sp&#233;cifi&#233;, la compression HTTP est appliqu&#233;e &#224; tous les agents utilisateur. Par d&#233;faut, aucun utilisateur agent n&#8217;est sp&#233;cifi&#233;.</p>
-
+<dt>Agent utilisateur limit&eacute;</dt>
+<dd>
+<p>Liste des agents utilisateur limit&eacute;s sur lesquels la compression HTTP est appliqu&eacute;e. Si aucun utilisateur agent n'est sp&eacute;cifi&eacute;, la compression HTTP est appliqu&eacute;e &agrave; tous les agents utilisateur. Par d&eacute;faut, aucun utilisateur agent n'est sp&eacute;cifi&eacute;.</p>
 </dd>
-<dt>Type de r&#233;ponse par d&#233;faut</dt>
-<dd><p>Une cha&#238;ne qui sp&#233;cifie le type de r&#233;ponse par d&#233;faut. Le format est une cha&#238;ne s&#233;par&#233;e par des points-virgule pr&#233;sentant le type de contenu (content-type), l&#8217;encodage, la langue et le jeu de caract&#232;res. La valeur par d&#233;faut est <tt>text/html; charset=iso-8859-1</tt>.</p>
-
+<dt>Type de r&eacute;ponse par d&eacute;faut</dt>
+<dd>
+<p>Cha&icirc;ne qui sp&eacute;cifie le type de r&eacute;ponse par d&eacute;faut. Le format est une cha&icirc;ne d'&eacute;l&eacute;ments, s&eacute;par&eacute;s par des points-virgules, pr&eacute;sentant le type de contenu, l'encodage, la langue et le jeu de caract&egrave;res. La valeur par d&eacute;faut est <code>text/html; charset=iso-8859-1</code>.</p>
 </dd>
-<dt>Type de r&#233;ponse forc&#233;e</dt>
-<dd><p>Une cha&#238;ne qui sp&#233;cifie le type de requ&#234;te utilis&#233; si aucun mappage MIME n&#8217;est disponible correspondant &#224; l&#8217;extension du fichier. Le format est une cha&#238;ne s&#233;par&#233;e par des points-virgule pr&#233;sentant le type de contenu (content-type), l&#8217;encodage, la langue et le jeu de caract&#232;res. La valeur par d&#233;faut est <tt>text/html; charset=iso-8859-1</tt>.</p>
-
+<dt>Type de r&eacute;ponse forc&eacute;e</dt>
+<dd>
+<p>Cha&icirc;ne qui sp&eacute;cifie le type de demande utilis&eacute; si aucune mise en correspondance MIME correspondant &agrave; l'extension du fichier n'est disponible. Le format est une cha&icirc;ne d'&eacute;l&eacute;ments, s&eacute;par&eacute;s par des points-virgules, pr&eacute;sentant le type de contenu, l'encodage, la langue et le jeu de caract&egrave;res. La valeur par d&eacute;faut est <code>text/html; charset=iso-8859-1</code>.</p>
 </dd>
 <dt>Adaptateur</dt>
-<dd><p>Le nom de classe de l&#8217;adaptateur de ressources statiques. La valeur par d&#233;faut est <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p>
-
+<dd>
+<p>Nom de classe de l'adaptateur de ressource statique. La valeur par d&eacute;faut est <code>com.sun.grizzly.tcp.StaticResourcesAdapter</code>.</p>
 </dd>
 <dt>Support Comet</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, le support Comet est activ&#233; pour le protocole. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, le support Comet est activ&eacute; pour le protocole. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
 <dt>Recherche DNS</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, la recherche de DNS est activ&#233;e. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, la recherche DNS est activ&eacute;e. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
 <dt>Prise en charge de RCM</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, RCM est activ&#233;. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, RCM est activ&eacute;. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Suivi</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, l&#8217;op&#233;ration Suivi est activ&#233;e. Si cette option est d&#233;sactiv&#233;e, GlassFish Server est moins expos&#233; &#224; des attaques de scripts entre sites. Cette option est activ&#233;e par d&#233;faut.</p>
-
+<dt>Trace</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, l'op&eacute;ration TRACE est activ&eacute;e. Si cette option est d&eacute;sactiv&eacute;e, GlassFish&nbsp;Server est moins expos&eacute; &agrave; des attaques de scripts entre sites. Cette option est activ&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Auth. d&#8217;intercommunication</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, l&#8217;auditeur de r&#233;seau qui utilise ce protocole re&#231;oit le trafic d&#8217;un serveur proxy &#224; terminaison SSL. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Pass-through d'auth.</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, le processus d'&eacute;coute r&eacute;seau qui utilise ce protocole re&ccedil;oit le trafic d'un serveur proxy &agrave; terminaison SSL. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
 <dt>Segmentation</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, le d&#233;coupage des r&#233;ponses HTTP est activ&#233;. Cette option est activ&#233;e par d&#233;faut.</p>
-
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, la segmentation des r&eacute;ponses HTTP est activ&eacute;e. Cette option est activ&eacute;e par d&eacute;faut.</p>
 </dd>
 <dt>XPowered By</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, GlassFish Server utilise les en-t&#234;tes <tt>X-Powered-By</tt>? en fonction des sp&#233;cifications Java Servlet 3.0 et Java Server Pages 2.0. Cette option est activ&#233;e par d&#233;faut.</p>
-
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, GlassFish&nbsp;Server utilise les en-t&ecirc;tes <code>X-Powered-By</code> en fonction des sp&eacute;cifications Java Servlet&nbsp;3.0 et Java Server Pages&nbsp;2.0. Cette option est activ&eacute;e par d&eacute;faut.</p>
+</dd>
+<dt>Barre oblique encod&eacute;e</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, les URI peuvent contenir des slashs cod&eacute;s. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</dd>
+<dt>Prise en charge des sockets Web</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, le protocole WebSocket est pris en charge. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
 </dl>
-<h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-protocolnew.html">Cr&#233;ation d'un protocole</a></p>
-
+<a id="sthref154" name="sthref154"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-protocolnew.html">Cr&eacute;er un protocole</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">Modification d'un protocole</a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Modifier un protocole</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">Modifier les param&#232;tres SSL d'un protocole </a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Modifier les param&egrave;tres SSL d'un protocole</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">Modifier les param&#232;tres HTTP pour un protocole </a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">Modifier les param&egrave;tres HTTP d'un protocole</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">Modifier les param&#232;tres de cache de fichiers pour un protocole</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Modifier les param&egrave;tres du cache de fichiers d'un protocole</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">Suppression d'un protocole</a></p>
-
-</li></ul>
-<h5>Commandes <tt>asadmin</tt> connexes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-protocol-1"><tt>create-protocol</tt>(1)</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Supprimer un protocole</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-protocols-1"><tt>list-protocols</tt>(1)</a></p>
-
+</ul>
+<a id="sthref155" name="sthref155"></a>
+<h5>Commandes asadmin connexes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00051"><code>create-protocol</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-protocol-1"><tt>delete-protocol</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00195"><code>list-protocols</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00103"><code>delete-protocol</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,62 +1,81 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-start-clustered-instances" name="task-start-clustered-instances"></a><a id="GHCLU00047" name="GHCLU00047"></a></p>
 
-
-<a name="task-start-clustered-instances"></a><h3>D&#233;marrer les instances de GlassFish Server clusteris&#233;es</h3><a name="indexterm-51"></a><a name="indexterm-52"></a><a name="indexterm-53"></a><p><b>Avant de commencer</b></p><p>Assurez-vous que les conditions suivantes sont remplies&#160;:</p>
-
-
-<ul><li><p>Tous les n&#339;uds sur lesquels r&#233;sident les instances sont activ&#233;s pour la communication &#224; distance.</p>
-
+<h4><a id="sthref76" name="sthref76"></a><a id="sthref77" name="sthref77"></a><a id="sthref78" name="sthref78"></a>D&eacute;marrer des instances de GlassFish&nbsp;Server incluses dans un cluster</h4>
+<a name="BEGIN" id="BEGIN"></a><a id="sthref79" name="sthref79"></a>
+<h5>Avant de commencer</h5>
+<p>Assurez-vous que les pr&eacute;requis suivants sont respect&eacute;s&nbsp;:</p>
+<ul>
+<li>
+<p>Tous les noeuds sur lesquels r&eacute;sident les instances sont activ&eacute;s pour la communication &agrave; distance.</p>
 </li>
-<li><p>L'utilisateur du serveur d'administration de domaine (DAS) peut utiliser le protocole SSH (shell s&#233;curis&#233;) pour se connecter &#224; l'h&#244;te pour n'importe quel n&#339;ud dans lequel r&#233;sident les instances.</p>
-
-</li></ul>
-<p>Si l'une de ces conditions n'est pas remplie, d&#233;marrez chaque instance individuellement
-&#224; partir de la ligne de commande &#224; l'aide de la sous-commande
-<a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=start-local-instance-1"><tt>start-local-instance</tt>(1)</a>.</p>
-
+<li>
+<p>L'utilisateur du serveur d'administration de domaine (DAS) peut utiliser le protocole SSH (shell s&eacute;curis&eacute;) pour se connecter &agrave; l'h&ocirc;te pour n'importe quel noeud dans lequel r&eacute;sident les instances.</p>
+</li>
+</ul>
+<p>Si l'un de ces pr&eacute;requis n'est pas respect&eacute;, d&eacute;marrez chaque instance s&eacute;par&eacute;ment &agrave; partir de la ligne de commande &agrave; l'aide de la sous-commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00237"><code>start-local-instance</code>(1)</a>.</p>
 <ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Clusters.</b></li>
-<li><b>Sous le n&#339;ud Clusters d&#233;velopp&#233;, s&#233;lectionnez le n&#339;ud pour le cluster.</b><p>La page Informations g&#233;n&#233;rales du cluster s'ouvre.</p></li>
-<li><b>Dans la page Informations g&#233;n&#233;rales, cliquez sur l&#8217;onglet Instances. </b><p>La page Instances de serveur clusteris&#233;es du cluster s'ouvre.</p></li>
-<li><b>Pour chaque instance d&#233;marr&#233;e, cochez la case en regard de l'instance dans
-le tableau Instances de serveur.</b></li>
-<li><b>Cliquez sur D&#233;marrer.</b><p>Vous &#234;tes invit&#233; &#224; confirmer que vous souhaitez d&#233;marrer les instances.</p></li>
-<li><b>Confirmez le d&#233;marrage des instances.</b><p>Le statut de chaque instance est mis &#224; jour dans le tableau
-Instances de serveur au d&#233;marrage de l'instance.</p></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-create-clustered-instance.html">Ajouter une instance de GlassFish Server &#224; un cluster</a></p>
-
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Clusters.</p>
 </li>
-<li><p><a href="task-delete-clustered-instances.html">Supprimer les instances de GlassFish Server clusteris&#233;es</a></p>
-
+<li>
+<p>Sous le noeud Clusters d&eacute;velopp&eacute;, s&eacute;lectionnez le noeud correspondant au cluster.</p>
+<p>La page Informations g&eacute;n&eacute;rales du cluster appara&icirc;t.</p>
 </li>
-<li><p><a href="task-stop-clustered-instances.html">Arr&#234;ter les instances de GlassFish Server clusteris&#233;es</a></p>
-
+<li>
+<p>Dans la page Informations g&eacute;n&eacute;rales, cliquez sur l'onglet Instances.</p>
+<p>La page Instances de serveur clusteris&eacute;es du cluster appara&icirc;t.</p>
 </li>
-<li><p><a href="task-view-logs-clustered-instance.html">Afficher les journaux d'une instance de GlassFish Server clusteris&#233;e</a></p>
-
+<li>
+<p>Pour chaque instance &agrave; d&eacute;marrer, cochez la case en regard de l'instance dans la table Instances de serveur.</p>
 </li>
-<li><p><a href="task-recovertransactions.html">R&#233;cup&#233;rer les transactions d'une instance de GlassFish Server clusteris&#233;e</a></p>
-
+<li>
+<p>Cliquez sur D&eacute;marrer.</p>
+<p>Vous &ecirc;tes invit&eacute; &agrave; confirmer que vous souhaitez d&eacute;marrer les instances.</p>
 </li>
-<li><p><a href="task-change-clustered-instance-ports.html">Modifier les num&#233;ros de port d'une instance de GlassFish Server clusteris&#233;e</a></p>
-
+<li>
+<p>Confirmez le d&eacute;marrage des instances.</p>
+<p>Le statut de chaque instance est mis &agrave; jour dans la table Instances de serveur au d&eacute;marrage de l'instance.</p>
 </li>
-<li><p><a href="task-set-props-clustered-instance.html">Configurer des propri&#233;t&#233;s sp&#233;cifiques &#224; l'instance d'une instance de GlassFish Server clusteris&#233;e</a></p>
-
+</ol>
+<a id="sthref80" name="sthref80"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-create-clustered-instance.html">Ajouter une instance de GlassFish&nbsp;Server &agrave; un cluster</a></p>
 </li>
-<li><p><a href="task-mon-app-clustered-instance.html">Afficher les donn&#233;es de contr&#244;le des applications pour une instance de GlassFish Server clusteris&#233;e</a></p>
-
+<li>
+<p><a href="task-delete-clustered-instances.html">Supprimer des instances de GlassFish&nbsp;Server incluses dans un cluster</a></p>
 </li>
-<li><p><a href="task-mon-server-clustered-instance.html">Afficher les donn&#233;es de contr&#244;le d'un serveur virtuel pour une instance de GlassFish Server clusteris&#233;e</a></p>
-
+<li>
+<p><a href="task-stop-clustered-instances.html">Arr&ecirc;ter des instances de GlassFish&nbsp;Server incluses dans un cluster</a></p>
 </li>
-<li><p><a href="task-mon-resource-clustered-instance.html">Afficher les donn&#233;es de contr&#244;le des ressources pour une instance de GlassFish Server clusteris&#233;e</a></p>
+<li>
+<p><a href="task-view-logs-clustered-instance.html">Afficher les fichiers journaux d'une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-recovertransactions.html">R&eacute;cup&eacute;rer des transactions d'une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-change-clustered-instance-ports.html">Modifier les num&eacute;ros de port d'une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-set-props-clustered-instance.html">D&eacute;finir les propri&eacute;t&eacute;s propres &agrave; une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-mon-app-clustered-instance.html">Visualiser les donn&eacute;es de surveillance des applications pour une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-mon-server-clustered-instance.html">Visualiser les donn&eacute;es de surveillance des serveurs virtuels pour une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-mon-resource-clustered-instance.html">Visualiser les donn&eacute;es de surveillance des ressources pour une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

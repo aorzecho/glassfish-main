@@ -1,86 +1,128 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-webcontaineravailability" name="task-webcontaineravailability"></a><a id="GHWEB00034" name="GHWEB00034"></a></p>
 
-
-<a name="task-webcontaineravailability"></a><h3>Pour configurer les param&#232;tres de disponibilit&#233; du conteneur Web</h3><a name="indexterm-12"></a><a name="indexterm-13"></a><a name="indexterm-14"></a><a name="indexterm-15"></a><ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>S&#233;lectionnez la configuration &#224; modifier. </b></li>
-<li><b>Sous le n&#339;ud Configuration, s&#233;lectionnez le n&#339;ud Service de disponibilit&#233;.</b><p>La page Service de disponibilit&#233; s'ouvre.</p></li>
-<li><b>Sur la page Service de disponibilit&#233;, cliquez sur l'onglet Disponibilit&#233; du conteneur
-Web. </b><p>La page correspondante s'ouvre.</p></li>
-<li><b>Dans le champ Service de disponibilit&#233;, cochez la case Activ&#233; pour activer
-la disponibilit&#233; du conteneur Web. </b><p>Pour d&#233;sactiver la disponibilit&#233;, d&#233;cochez la case Service de disponibilit&#233; activ&#233;.</p></li>
-<li><b>Dans la liste d&#233;roulante Type de persistance, s&#233;lectionnez le m&#233;canisme de persistance.</b><ul>
-<li><b>Si le service de disponibilit&#233; n'est <b>pas</b> activ&#233;, s&#233;lectionnez l'un des &#233;l&#233;ments
-suivants&#160;:</b>
-<ul><li><p><tt>memory</tt> pour n'utiliser aucune persistance de session </p>
-
+<h4><a id="sthref16" name="sthref16"></a><a id="sthref17" name="sthref17"></a><a id="sthref18" name="sthref18"></a><a id="sthref19" name="sthref19"></a>Configurer les param&egrave;tres de disponibilit&eacute; du conteneur Web</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p><tt>file</tt> pour utiliser une persistance de session bas&#233;e sur le syst&#232;me de fichiers n'&#233;tant pas hautement disponible </p>
-
-</li></ul>
+<li>
+<p>S&eacute;lectionnez la configuration &agrave; modifier.</p>
 </li>
-<li><b>Si le service de disponibilit&#233; est activ&#233;, s&#233;lectionnez <tt>replicated</tt> pour utiliser la
-persistance de session bas&#233;e sur le basculement du cluster hautement disponible. </b></li></ul></li>
-<li><b>Dans la liste d&#233;roulante Fr&#233;quence de la persistance, s&#233;lectionnez la fr&#233;quence de
-stockage de la session HTTP&#160;:</b>
-<ul><li><p><tt>web-method</tt>&#160;: l'&#233;tat de la session est stock&#233; &#224; la fin de chaque requ&#234;te Web avant l'envoi d'une r&#233;ponse au client. Ce mode est la meilleure garantie que l&#8217;&#233;tat de la session sera enti&#232;rement r&#233;actualis&#233; en cas de panne. Il s&#8217;agit de la valeur par d&#233;faut.</p>
-
-</li></ul>
-<p>L'option Fr&#233;quence de la persistance n'est applicable que si le type de
-persistance est <tt>replicated</tt>.  </p></li>
-<li><b>Dans la liste d&#233;roulante Port&#233;e de la persistance, s&#233;lectionnez l'&#233;tendue des modifications
-de session HTTP n&#233;cessaires pour le stockage&#160;: </b>
-<ul><li><p><tt>session</tt>&#160;: l'&#233;tat de la session est stock&#233; int&#233;gralement &#224; chaque fois. Ce mode est la meilleure garantie que vos donn&#233;es de session seront correctement stock&#233;es pour n&#8217;importe quelle application Web distribuable.</p>
-
+<li>
+<p>Sous le noeud Configuration, s&eacute;lectionnez le noeud Service de disponibilit&eacute;.</p>
+<p>La page Service de disponibilit&eacute; appara&icirc;t.</p>
 </li>
-<li><p><tt>modified-session</tt>&#160;: l'&#233;tat de la session est stock&#233; int&#233;gralement s'il a &#233;t&#233; modifi&#233;. Une session est consid&#233;r&#233;e comme ayant &#233;t&#233; modifi&#233;e si <tt>HttpSession.setAttribute() </tt> ou <tt>HttpSession.removeAttribute()</tt> a &#233;t&#233; appel&#233;. Vous devez vous assurer que <tt> setAttribute()</tt> est appel&#233; chaque fois qu&#8217;un attribut est modifi&#233;. Cette exigence n&#8217;est pas requise par la sp&#233;cification Java EE, mais elle est n&#233;cessaire pour que ce mode fonctionne correctement.</p>
-
+<li>
+<p>Sur la page Service de disponibilit&eacute;, cliquez sur l'onglet Disponibilit&eacute; du conteneur Web.</p>
+<p>La page Disponibilit&eacute; du conteneur Web appara&icirc;t.</p>
 </li>
-<li><p><tt>modified-attribute</tt>&#160;: seuls les attributs de session modifi&#233;s sont stock&#233;s. Pour que ce mode fonctionne correctement, suivez les recommandations ci-dessous&#160;:</p>
-
-
-<ul><li><p>Appelez <tt>setAttribute()</tt> &#224; chaque modification de l'&#233;tat de la session.</p>
-
+<li>
+<p>Dans le champ Service de disponibilit&eacute;, cochez la case Activ&eacute; pour activer la disponibilit&eacute; du conteneur Web.</p>
+<p>Pour d&eacute;sactiver la disponibilit&eacute;, d&eacute;s&eacute;lectionnez la case Activ&eacute; du champ Service de disponibilit&eacute;.</p>
 </li>
-<li><p>Veillez &#224; ce qu&#8217;il n&#8217;y ait pas de r&#233;f&#233;rences crois&#233;es entre les attributs. Le graphe des objets sous chaque cl&#233; d&#8217;attribut distincte est s&#233;rialis&#233; et stock&#233; s&#233;par&#233;ment. S&#8217;il existe des r&#233;f&#233;rences crois&#233;es entre les objets sous chaque cl&#233; individuelle, ceux-ci ne seront pas s&#233;rialis&#233;s ni d&#233;s&#233;rialis&#233;s correctement.</p>
-
+<li>
+<p>Dans la liste d&eacute;roulante Type de persistance, s&eacute;lectionnez le m&eacute;canisme de persistance.</p>
+<ul>
+<li>
+<p>Si le service de disponibilit&eacute; n'est <i>pas</i> activ&eacute;, s&eacute;lectionnez l'un des &eacute;l&eacute;ments suivants&nbsp;:</p>
+<ul>
+<li>
+<p><code>memory</code> pour n'utiliser aucune persistance de session</p>
 </li>
-<li><p>R&#233;partissez l&#8217;&#233;tat de la session entre plusieurs attributs, ou au moins entre un attribut en lecture seule et un attribut modifiable.</p>
-
-</li></ul>
-</li></ul>
-<p>Port&#233;e de la persistance n'est applicable que si le type de persistance
-est <tt>replicated</tt>.  </p></li>
-<li><b>Dans le champ &#201;tat Connexion Unique, cochez la case Activ&#233; pour rendre
-l'&#233;tat de connexion unique disponible pour le basculement. </b><p>Pour rendre l'&#233;tat de connexion unique indisponible pour le basculement, d&#233;sactivez la
-case &#201;tat Connexion unique. </p></li>
-<li><b>Pour restaurer les valeurs par d&#233;faut de tous les param&#232;tres, cliquez sur
-le bouton Charger les valeurs par d&#233;faut. </b></li>
-<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>GlassFish Server ne d&#233;finit aucune autre propri&#233;t&#233; de disponibilit&#233; du conteneur Web.</p><ul>
-<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
-<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
-<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
-Nom de la propri&#233;t&#233; que vous supprimez,  puis cliquez sur le
-bouton Supprimer propri&#233;t&#233;s.</b></li></ul></li>
-<li><b>Cliquez sur Enregistrer.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-webcontainergeneral.html">Configuration des propri&#233;t&#233;s g&#233;n&#233;rales du conteneur Web</a></p>
-
+<li>
+<p><code>file</code> pour utiliser une persistance de session bas&eacute;e sur le syst&egrave;me de fichiers n'&eacute;tant pas hautement disponible</p>
 </li>
-<li><p><a href="task-webcontainersessiontimeout.html">Configurer les propri&#233;t&#233;s de session pour le conteneur Web</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-webcontainermanagerprops.html">Configurer les propri&#233;t&#233;s du gestionnaire pour le conteneur Web</a></p>
-
+<li>
+<p>Si le service de disponibilit&eacute; est activ&eacute;, s&eacute;lectionnez <code>replicated</code> pour utiliser la persistance de session bas&eacute;e sur le basculement apr&egrave;s incident du cluster hautement disponible.</p>
 </li>
-<li><p><a href="task-webcontainerstoreprops.html">Configurer les propri&#233;t&#233;s de stockage pour le conteneur Web</a></p>
+</ul>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante Fr&eacute;quence de la persistance, s&eacute;lectionnez la fr&eacute;quence de stockage de la session HTTP&nbsp;:</p>
+<ul>
+<li>
+<p><code>web-method&nbsp;:</code> l'&eacute;tat de la session est stock&eacute; &agrave; la fin de chaque demande Web avant l'envoi d'une r&eacute;ponse au client. Ce mode constitue la meilleure garantie que l'&eacute;tat de la session sera enti&egrave;rement mis &agrave; jour en cas d'&eacute;chec. Il s'agit de la valeur par d&eacute;faut.</p>
+</li>
+</ul>
+<p>L'option Fr&eacute;quence de la persistance n'est applicable que si le type de persistance est <code>replicated</code>.</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante Port&eacute;e de la persistance, s&eacute;lectionnez la port&eacute;e des modifications de session HTTP requises pour le stockage&nbsp;:</p>
+<ul>
+<li>
+<p><code>session&nbsp;:</code> l'&eacute;tat de la session est stock&eacute; int&eacute;gralement &agrave; chaque fois. Ce mode constitue la meilleure garantie que vos donn&eacute;es de session seront correctement stock&eacute;es, quelle que soit l'application Web distribuable.</p>
+</li>
+<li>
+<p><code>modified-session&nbsp;:</code> l'&eacute;tat de la session est stock&eacute; int&eacute;gralement s'il a &eacute;t&eacute; modifi&eacute;. Une session est consid&eacute;r&eacute;e comme ayant &eacute;t&eacute; modifi&eacute;e si <code>HttpSession.setAttribute()</code> ou <code>HttpSession.removeAttribute()</code> a &eacute;t&eacute; appel&eacute;. Vous devez vous assurer que <code>setAttribute()</code> est appel&eacute; chaque fois qu'un attribut est modifi&eacute;. Cette exigence n'est pas requise par la sp&eacute;cification Java EE, mais elle est n&eacute;cessaire pour que ce mode fonctionne correctement.</p>
+</li>
+<li>
+<p><code>modified-attribute&nbsp;:</code> seuls les attributs de session modifi&eacute;s sont stock&eacute;s. Pour que ce mode fonctionne correctement, suivez les lignes directrices ci-dessous&nbsp;:</p>
+<ul>
+<li>
+<p>Appelez <code>setAttribute()</code> &agrave; chaque modification de l'&eacute;tat de la session.</p>
+</li>
+<li>
+<p>Veillez &agrave; ce qu'il n'y ait pas de r&eacute;f&eacute;rences crois&eacute;es entre les attributs. Le graphique d'objet sous chaque cl&eacute; d'attribut distincte est s&eacute;rialis&eacute; et stock&eacute; s&eacute;par&eacute;ment. S'il existe des r&eacute;f&eacute;rences crois&eacute;es entre les objets situ&eacute;s sous chaque cl&eacute;, ceux-ci ne seront pas s&eacute;rialis&eacute;s ni d&eacute;s&eacute;rialis&eacute;s correctement.</p>
+</li>
+<li>
+<p>Distribuez l'&eacute;tat de la session entre plusieurs attributs, ou au moins entre un attribut en lecture seule et un attribut modifiable.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>L'option Port&eacute;e de la persistance n'est applicable que si le type de persistance est <code>replicated</code>.</p>
+</li>
+<li>
+<p>Dans le champ Etat Connexion Unique, cochez la case Activ&eacute; pour rendre l'&eacute;tat de connexion unique disponible pour le basculement en cas d'incident.</p>
+<p>Pour rendre l'&eacute;tat de connexion unique indisponible pour le basculement en cas d'incident, d&eacute;s&eacute;lectionnez la case Etat Connexion unique.</p>
+</li>
+<li>
+<p>Pour restaurer les valeurs par d&eacute;faut de tous les param&egrave;tres, cliquez sur le bouton Charger les valeurs par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans la section Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les propri&eacute;t&eacute;s suppl&eacute;mentaires.</p>
+<p>GlassFish&nbsp;Server ne d&eacute;finit aucune autre propri&eacute;t&eacute; de disponibilit&eacute; du conteneur Web.</p>
+<ul>
+<li>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+</li>
+<li>
+<p>Pour modifier une propri&eacute;t&eacute;, modifiez le champ Valeur de cette propri&eacute;t&eacute;.</p>
+</li>
+<li>
+<p>Pour supprimer une propri&eacute;t&eacute;, s&eacute;lectionnez la case situ&eacute;e &agrave; gauche du champ Nom de la propri&eacute;t&eacute; &agrave; supprimer, puis cliquez sur le bouton Supprimer des propri&eacute;t&eacute;s.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
+</li>
+</ol>
+<a id="sthref20" name="sthref20"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-webcontainergeneral.html">Configurer les propri&eacute;t&eacute;s g&eacute;n&eacute;rales du conteneur Web</a></p>
+</li>
+<li>
+<p><a href="task-webcontainersessiontimeout.html">Configurer les propri&eacute;t&eacute;s de session du conteneur Web</a></p>
+</li>
+<li>
+<p><a href="task-webcontainermanagerprops.html">Configurer les propri&eacute;t&eacute;s de gestionnaire du conteneur Web</a></p>
+</li>
+<li>
+<p><a href="task-webcontainerstoreprops.html">Configurer les propri&eacute;t&eacute;s de stockage du conteneur Web</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

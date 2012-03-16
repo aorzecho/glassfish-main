@@ -1,51 +1,63 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-jmxconnectoredit" name="task-jmxconnectoredit"></a><a id="GHCOM00211" name="GHCOM00211"></a></p>
 
-
-<a name="task-jmxconnectoredit"></a><h3>Pour modifier le connecteur JMX</h3><a name="indexterm-114"></a><a name="indexterm-115"></a><p>Utilisez le Service d&#8217;administration pour configurer un connecteur JMX distant conforme au
-JSR-160.</p>
-
-<p>Le connecteur JMX distant conforme au JSR-160 g&#232;re la communication entre les
-clients JMX, comme par exemple JConsole et le service JMX, &#224; des
-fins de gestion de domaine.</p>
-
+<h4><a id="sthref199" name="sthref199"></a>Modifier le connecteur&nbsp;JMX</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilisez le service d'administration pour configurer un connecteur JMX distant conforme au JSR-160.</p>
+<p>Le connecteur&nbsp;JMX distant conforme au JSR-160 g&egrave;re la communication entre les clients&nbsp;JMX (comme par exemple, JConsole) et le service&nbsp;JMX, &agrave; des fins de gestion de domaine.</p>
 <ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>Sous le n&#339;ud Configuration, s&#233;lectionnez le n&#339;ud Service d&#8217;administration.</b><p>La page Modifier le connecteur JMX s&#8217;ouvre.</p></li>
-<li><b>Cochez la case S&#233;curit&#233; activ&#233;e pour que la communication JMX soit crypt&#233;e.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>Dans le champ Adresse, saisissez l&#8217;adresse IP du service de nommage o&#249;
-le stub du serveur du connecteur JMX est enregistr&#233;.</b><p>Ce n&#8217;est pas le port du socket de serveur qui effectue la
-v&#233;ritable communication JMX. C&#8217;est l&#8217;adresse de l&#8217;interface r&#233;seau depuis laquelle le registre
-RMI est lanc&#233;. Si votre syst&#232;me est dot&#233; de plusieurs interfaces r&#233;seau,
-modifiez cette valeur pour qu&#8217;une seule interface soit s&#233;lectionn&#233;e. La valeur par
-d&#233;faut est <tt>0.0.0.0</tt>.</p></li>
-<li><b>Dans le champ Port, saisissez le num&#233;ro de port sur lequel le
-service de nommage (registre RMI) &#233;coute les connexions client RMI.</b><p>La seule utilisation de ce service de nommage consiste &#224; t&#233;l&#233;charger les
-stubs RMI. Si le port par d&#233;faut est occup&#233;, on utilise un
-port libre. Les valeurs l&#233;gales sont de 1 &#224; 65535. Sous les
-syst&#232;mes UNIX, la cr&#233;ation de sockets qui &#233;coutent sur les ports 1
-&#224; 1024 n&#233;cessite des privil&#232;ges de superutilisateur. La valeur par d&#233;faut est
-8686.</p></li>
-<li><b>Dans le champ Nom de domaine, saisissez le nom qui repr&#233;sente le
-domaine administratif particulier. </b><p>Toutes les authentifications sont g&#233;r&#233;es par ce domaine. La valeur par d&#233;faut
-est <tt>admin-realm </tt>.</p></li>
-<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>Le GlassFish Server sp&#233;cifie plusieurs propri&#233;t&#233;s par d&#233;faut.</p><ul>
-<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
-<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
-<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
-Nom de la propri&#233;t&#233; que vous supprimez,  puis cliquez sur le
-bouton Supprimer propri&#233;t&#233;s.</b></li></ul></li>
-<li><b>Cliquez sur Enregistrer.</b></li>
-<li><b>Si vous avez coch&#233; la case S&#233;curit&#233; activ&#233;e, suivez les &#233;tapes de
-<a href="task-jmxconnectorssledit.html">Pour modifier les param&#232;tres SSL du connecteur JMX</a>.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-jmxconnectorssledit.html">Pour modifier les param&#232;tres SSL du connecteur JMX</a></p>
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
+</li>
+<li>
+<p>Sous le noeud Configuration, s&eacute;lectionnez le noeud Service d'administration.</p>
+<p>La page Modifier le connecteur JMX appara&icirc;t.</p>
+</li>
+<li>
+<p>Cochez la case S&eacute;curit&eacute; activ&eacute;e pour que la communication&nbsp;JMX soit crypt&eacute;e.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans le champ Adresse, saisissez l'adresse&nbsp;IP du service de d&eacute;nomination aupr&egrave;s duquel le stub du serveur du connecteur&nbsp;JMX est inscrit.</p>
+<p>Ce n'est pas le port du socket de serveur qui effectue la v&eacute;ritable communication&nbsp;JMX. C'est l'adresse de l'interface r&eacute;seau depuis laquelle le registre&nbsp;RMI est d&eacute;marr&eacute;. Si votre syst&egrave;me est dot&eacute; de plusieurs interfaces r&eacute;seau, modifiez cette valeur afin de s&eacute;lectionner une seule interface. La valeur par d&eacute;faut est <code>0.0.0.0</code>.</p>
+</li>
+<li>
+<p>Dans le champ Port, saisissez le num&eacute;ro de port sur lequel le service de d&eacute;nomination (registre&nbsp;RMI) &eacute;coute les connexions client&nbsp;RMI.</p>
+<p>La seule fonction de ce service de d&eacute;nomination consiste &agrave; t&eacute;l&eacute;charger les stubs&nbsp;RMI. Si le port par d&eacute;faut est occup&eacute;, un port libre est utilis&eacute; &agrave; la place. Les valeurs valides vont de&nbsp;1 &agrave;&nbsp;65535. Sous les syst&egrave;mes UNIX, la cr&eacute;ation de sockets qui &eacute;coutent sur les ports&nbsp;1 &agrave;&nbsp;1024 n&eacute;cessite des privil&egrave;ges de superutilisateur. La valeur par d&eacute;faut est 8686.</p>
+</li>
+<li>
+<p>Dans le champ Nom de domaine, saisissez le nom qui repr&eacute;sente le domaine d'administration sp&eacute;cial.</p>
+<p>Toutes les authentifications sont g&eacute;r&eacute;es par ce domaine. La valeur par d&eacute;faut est <code>admin-realm</code> .</p>
+</li>
+<li>
+<p>Dans la section Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les propri&eacute;t&eacute;s suppl&eacute;mentaires.</p>
+<p>GlassFish&nbsp;Server sp&eacute;cifie plusieurs propri&eacute;t&eacute;s par d&eacute;faut.</p>
+<ul>
+<li>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+</li>
+<li>
+<p>Pour modifier une propri&eacute;t&eacute;, modifiez le champ Valeur de cette propri&eacute;t&eacute;.</p>
+</li>
+<li>
+<p>Pour supprimer une propri&eacute;t&eacute;, s&eacute;lectionnez la case situ&eacute;e &agrave; gauche du champ Nom de la propri&eacute;t&eacute; &agrave; supprimer, puis cliquez sur le bouton Supprimer des propri&eacute;t&eacute;s.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
+</li>
+<li>
+<p>Si vous avez coch&eacute; la case S&eacute;curit&eacute; activ&eacute;e, suivez la proc&eacute;dure d&eacute;crite dans <a href="task-jmxconnectorssledit.html">Modifier les param&egrave;tres&nbsp;SSL pour le connecteur&nbsp;JMX</a>.</p>
+</li>
+</ol>
+<a id="sthref200" name="sthref200"></a>
+<h5>Voir aussi</h5>
+<p><a href="task-jmxconnectorssledit.html">Modifier les param&egrave;tres&nbsp;SSL pour le connecteur&nbsp;JMX</a></p>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

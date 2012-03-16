@@ -1,70 +1,72 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-transactionservice"></a><h4>Service de transaction</h4>
-<a name="indexterm-8"></a><p>La page Service de transaction vous permet de configurer la r&#233;cup&#233;ration de
-transaction, les d&#233;lais d&#8217;attente et la journalisation.</p>
+<p><a id="ref-transactionservice" name="ref-transactionservice"></a><a id="GHJTS00002" name="GHJTS00002"></a></p>
 
-<p>La page Service de transaction contient les options suivantes&#160;:</p>
-
-<dl><dt>Restaurer les valeurs par d&#233;faut</dt>
-<dd><p>Bouton de restauration des valeurs par d&#233;faut des param&#232;tres qui ont des valeurs par d&#233;faut. Les param&#232;tres qui n'ont pas de valeurs par d&#233;faut ne sont pas modifi&#233;s.</p>
-
+<h4><a id="sthref14" name="sthref14"></a>Service de transaction</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Service de transaction permet de configurer la r&eacute;cup&eacute;ration, les temporisations et la journalisation des transactions.</p>
+<p>Elle contient les options suivantes.</p>
+<dl>
+<dt>Charger les valeurs par d&eacute;faut</dt>
+<dd>
+<p>Bouton de restauration des valeurs par d&eacute;faut des param&egrave;tres qui ont des valeurs par d&eacute;faut. Les param&egrave;tres qui n'ont pas de valeurs par d&eacute;faut ne sont pas modifi&eacute;s.</p>
 </dd>
-<dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
-<dt>Au red&#233;marrage</dt>
-<dd><p>Si la case Activ&#233; est coch&#233;e, le GlassFish Server essaie de r&#233;cup&#233;rer les transactions incompl&#232;tes au red&#233;marrage du serveur. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Au red&eacute;marrage</dt>
+<dd>
+<p>Si la case Activ&eacute; est coch&eacute;e, GlassFish&nbsp;Server tente de r&eacute;cup&eacute;rer les transactions incompl&egrave;tes au red&eacute;marrage du serveur. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>D&#233;lai d&#8217;attente de transaction</dt>
-<dd><p>Dur&#233;e d&#8217;attente, en secondes, du serveur avant d&#8217;annuler une transaction qui ne s&#8217;est pas termin&#233;e. La valeur par d&#233;faut est z&#233;ro qui signifie que le serveur attend la fin d&#8217;une transaction pendant une dur&#233;e ind&#233;termin&#233;e.</p>
-
+<dt>Temporisation de transaction</dt>
+<dd>
+<p>D&eacute;lai d'attente, en secondes, du serveur au-del&agrave; duquel ce dernier annule une transaction qui n'est pas termin&eacute;e. La valeur par d&eacute;faut est&nbsp;0. Elle signifie que le serveur attend la fin d'une transaction pendant une dur&eacute;e ind&eacute;termin&eacute;e.</p>
 </dd>
-<dt>D&#233;lai d&#8217;attente d&#8217;essai</dt>
-<dd><p>Dur&#233;e, en secondes, pendant laquelle le GlassFish Server essaie de se connecter &#224; un serveur inaccessible. La valeur par d&#233;faut est de 600 (10 minutes).</p>
-
+<dt>Temporisation de tentative</dt>
+<dd>
+<p>Dur&eacute;e, en secondes, pendant laquelle GlassFish&nbsp;Server tente de se connecter &agrave; un serveur inaccessible. La valeur par d&eacute;faut est&nbsp;600 (10&nbsp;minutes).</p>
 </dd>
-<dt>Emplacement du journal des transactions</dt>
-<dd><p>R&#233;pertoire o&#249; sont conserv&#233;s les journaux du serveur. Les journaux de transaction sont conserv&#233;s dans le sous-r&#233;pertoire <tt>tx</tt> du r&#233;pertoire sp&#233;cifi&#233; par ce champ. La valeur par d&#233;faut est le r&#233;pertoire sp&#233;cifi&#233; dans le champ Racine journal de la page Attributs de domaine, qui se trouve dans l&#8217;onglet Avanc&#233; du n&#339;ud GlassFish Server.</p>
-
+<dt>Emplacement des journaux des transactions</dt>
+<dd>
+<p>R&eacute;pertoire dans lequel sont conserv&eacute;s les journaux du serveur. Les journaux de transaction sont conserv&eacute;s dans le sous-r&eacute;pertoire <code>tx</code> du r&eacute;pertoire sp&eacute;cifi&eacute; dans ce champ. La valeur par d&eacute;faut correspond au r&eacute;pertoire sp&eacute;cifi&eacute; dans le champ Racine journal de la page Attributs de domaine, qui se trouve dans l'onglet Avanc&eacute; du noeud GlassFish&nbsp;Server.</p>
 </dd>
-<dt>D&#233;cision heuristique</dt>
-<dd><p>Indique si les transactions qui impliquent des serveurs inaccessibles doivent &#234;tre valid&#233;es ou annul&#233;es. La valeur par d&#233;faut est Annulation. Valider les transactions ind&#233;termin&#233;es risque de compromettre l&#8217;int&#233;grit&#233; des donn&#233;es dans votre application.</p>
-
+<dt>D&eacute;cision heuristique</dt>
+<dd>
+<p>Indique si les transactions qui impliquent des serveurs inaccessibles doivent &ecirc;tre valid&eacute;es ou annul&eacute;es. La valeur par d&eacute;faut est Annuler. Valider les transactions ind&eacute;termin&eacute;es risque de compromettre l'int&eacute;grit&eacute; des donn&eacute;es dans votre application.</p>
 </dd>
-<dt>Intervalle de point cl&#233;</dt>
-<dd><p>Nombre de transactions effectu&#233;es entre des op&#233;rations de point cl&#233; qui compriment le fichier journal de transactions. La valeur par d&#233;faut est 65&#160;536.</p>
-
+<dt>Intervalle entre points cl&eacute;s</dt>
+<dd>
+<p>Nombre de transactions effectu&eacute;es entre des op&eacute;rations de point cl&eacute; qui compriment le fichier journal de transactions. La valeur par d&eacute;faut est&nbsp;65&nbsp;536.</p>
 </dd>
-<dt>Autres propri&#233;t&#233;s</dt>
-<dd><p>Autres propri&#233;t&#233;s du service de transaction.</p>
-
-<p>Pour obtenir une description des propri&#233;t&#233;s disponibles, consultez <a href="ref-transactionsvcproperties.html">Propri&#233;t&#233;s sp&#233;cifiques au service de transaction</a>.</p>
-
+<dt>Autres propri&eacute;t&eacute;s</dt>
+<dd>
+<p>Propri&eacute;t&eacute;s suppl&eacute;mentaires du service de transaction.</p>
+<p>Pour obtenir une description des propri&eacute;t&eacute;s disponibles, reportez-vous &agrave; <a href="ref-transactionsvcproperties.html">Propri&eacute;t&eacute;s propres au service de transaction</a>.</p>
 </dd>
 </dl>
-<a name="ginkt"></a><h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-configtransservice.html">Configuration du service de transaction</a></p>
-
+<a id="sthref15" name="sthref15"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-configtransservice.html">Configurer le service de transaction</a></p>
 </li>
-<li><p><a href="task-configtransrecovery.html">Configuration de la r&#233;cup&#233;ration des transactions par le GlassFish Server</a></p>
-
+<li>
+<p><a href="task-configtransrecovery.html">Configuration de la r&eacute;cup&eacute;ration des transactions par GlassFish&nbsp;Server</a></p>
 </li>
-<li><p><a href="task-settranstimeout.html">D&#233;finition du d&#233;lai d'attente d'une transaction</a></p>
-
+<li>
+<p><a href="task-settranstimeout.html">D&eacute;finir une valeur de temporisation des transactions</a></p>
 </li>
-<li><p><a href="task-settranslog.html">D&#233;finition de l'emplacement des journaux des transactions</a></p>
-
+<li>
+<p><a href="task-settranslog.html">D&eacute;finir l'emplacement des journaux des transactions</a></p>
 </li>
-<li><p><a href="task-setkeyptinterval.html">D&#233;finition de l'intervalle entre points cl&#233;s</a></p>
+<li>
+<p><a href="task-setkeyptinterval.html">D&eacute;finir l'intervalle entre les points cl&eacute;s</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

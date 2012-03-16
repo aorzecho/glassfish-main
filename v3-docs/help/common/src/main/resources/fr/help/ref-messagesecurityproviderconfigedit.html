@@ -1,152 +1,157 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-messagesecurityproviderconfigedit"></a><h4>Modifier la configuration du fournisseur</h4>
-<a name="indexterm-236"></a><p>Utilisez la page Modifier la configuration du fournisseur pour modifier la configuration
-d&#8217;un fournisseur de s&#233;curit&#233; des messages.</p>
+<p><a id="ref-messagesecurityproviderconfigedit" name="ref-messagesecurityproviderconfigedit"></a><a id="GHCOM00124" name="GHCOM00124"></a></p>
 
-<p>La page Modifier la configuration du fournisseur contient les options suivantes.</p>
-
-<dl><dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<h4><a id="sthref437" name="sthref437"></a>Modifier la configuration du fournisseur</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Modifier la configuration du fournisseur permet de modifier la configuration d'un fournisseur de s&eacute;curit&eacute; des messages.</p>
+<p>Elle contient les options suivantes&nbsp;:</p>
+<dl>
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
-<dt>Couche d&#8217;authentification</dt>
-<dd><p>Couche d&#8217;authentification (SOAP ou HttpServlet) pour laquelle cette configuration de fournisseur a &#233;t&#233; cr&#233;&#233;e. Ce champ est en lecture seule.</p>
-
+<dt>Couche d'authentification</dt>
+<dd>
+<p>Couche d'authentification (SOAP ou HttpServlet) pour laquelle cette configuration de fournisseur a &eacute;t&eacute; cr&eacute;&eacute;e. Ce champ est en lecture seule.</p>
 </dd>
 <dt>ID fournisseur</dt>
-<dd><p>Nom de la configuration du fournisseur de s&#233;curit&#233; des messages. Ce champ est en lecture seule. Vous pouvez sp&#233;cifier l&#8217;ID fournisseur uniquement lors de la cr&#233;ation d&#8217;une nouvelle configuration de fournisseur de s&#233;curit&#233; des messages.</p>
-
+<dd>
+<p>Nom de la configuration du fournisseur de s&eacute;curit&eacute; des messages. Ce champ est en lecture seule. Vous pouvez sp&eacute;cifier l'ID fournisseur uniquement lors de la cr&eacute;ation d'une configuration de fournisseur de s&eacute;curit&eacute; des messages.</p>
 </dd>
-<dt>Fournisseur par d&#233;faut</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, ce fournisseur est le fournisseur par d&#233;faut. Le fournisseur par d&#233;faut est appel&#233; lorsque l&#8217;application n&#8217;identifie aucun fournisseur sp&#233;cifique. Le Type de fournisseur d&#233;termine si le fournisseur est le fournisseur client par d&#233;faut, le fournisseur de serveur par d&#233;faut, ou les deux.</p>
-
+<dt>Fournisseur par d&eacute;faut</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, ce fournisseur est le fournisseur par d&eacute;faut. Le fournisseur par d&eacute;faut est appel&eacute; lorsque l'application n'identifie aucun fournisseur sp&eacute;cifique. Le type de fournisseur d&eacute;termine si le fournisseur est le fournisseur client par d&eacute;faut, le fournisseur de serveur par d&eacute;faut, ou les deux.</p>
 </dd>
 <dt>Type de fournisseur</dt>
-<dd><p>Sp&#233;cifie le type du fournisseur. Les choix disponibles sont les suivants :</p>
-
-<dl><dt><tt>client</tt></dt>
-<dd><p>Sp&#233;cifie que le fournisseur est le fournisseur d&#8217;authentification du client.</p>
-
+<dd>
+<p>Sp&eacute;cifie le type du fournisseur. Les choix disponibles sont les suivants&nbsp;:</p>
+<dl>
+<dt><code>client</code></dt>
+<dd>
+<p>Sp&eacute;cifie que le fournisseur est le fournisseur d'authentification client.</p>
 </dd>
-<dt><tt>server</tt></dt>
-<dd><p>Sp&#233;cifie que le fournisseur est le fournisseur d&#8217;authentification du serveur.</p>
-
+<dt><code>server</code></dt>
+<dd>
+<p>Sp&eacute;cifie que le fournisseur est le fournisseur d'authentification du serveur.</p>
 </dd>
-<dt><tt>client-server</tt></dt>
-<dd><p>Sp&#233;cifie que le fournisseur est &#224; la fois le fournisseur d&#8217;authentification du client et du serveur.</p>
-
+<dt><code>client-server</code></dt>
+<dd>
+<p>Sp&eacute;cifie que le fournisseur est &agrave; la fois le fournisseur d'authentification client et du serveur.</p>
 </dd>
 </dl>
 </dd>
 <dt>Nom de classe</dt>
-<dd><p>Nom de la classe d&#8217;impl&#233;mentation Java du fournisseur. Les fournisseurs d&#8217;authentification client doivent impl&#233;menter l&#8217;interface <tt>com.sun.enterprise.security.jauth.ClientAuthModule</tt> . Les fournisseurs c&#244;t&#233; serveur doivent impl&#233;menter l&#8217;interface <tt>com.sun.enterprise.security.jauth.ServerAuthModule</tt> . Les fournisseurs c&#244;t&#233; client doivent impl&#233;menter les deux interfaces.</p>
-
+<dd>
+<p>Nom de la classe d'impl&eacute;mentation Java du fournisseur. Les fournisseurs d'authentification client doivent impl&eacute;menter l'interface <code>com.sun.enterprise.security.jauth.ClientAuthModule</code>. Les fournisseurs c&ocirc;t&eacute; serveur doivent impl&eacute;menter l'interface <code>com.sun.enterprise.security.jauth.ServerAuthModule</code>. Les fournisseurs c&ocirc;t&eacute; client doivent impl&eacute;menter les deux interfaces.</p>
 </dd>
-<dt>Authentifier la source (pour la strat&#233;gie de requ&#234;te)</dt>
-<dd><p>Type d&#8217;authentification requise pour la strat&#233;gie de requ&#234;te. La strat&#233;gie de requ&#234;te d&#233;termine le traitement des requ&#234;tes par le fournisseur d&#8217;authentification. Les champs de strat&#233;gie de requ&#234;te sont facultatifs, mais s&#8217;ils ne sont pas sp&#233;cifi&#233;s, le fournisseur d&#8217;authentification n&#8217;authentifie pas les messages de requ&#234;te.</p>
-
-<p>S&#233;lectionnez <tt>exp&#233;diteur</tt> pour sp&#233;cifier au niveau de la couche message l&#8217;authentification de l&#8217;exp&#233;diteur (par exemple, nom d&#8217;utilisateur et mot de passe) des messages de requ&#234;te. S&#233;lectionnez <tt>content</tt> pour sp&#233;cifier l&#8217;authentification du contenu (par exemple, signature num&#233;rique) des messages de requ&#234;te. Laissez le champ vierge pour ne pas authentifier la source des requ&#234;tes. Par d&#233;faut, aucun type d&#8217;authentification n&#8217;est s&#233;lectionn&#233;.</p>
-
-<p>Pour une description des actions r&#233;alis&#233;es par les fournisseurs de s&#233;curit&#233; des messages SOAP, reportez-vous &#224; la rubrique <a href="ref-configreq-respolicy.html">Configurer les modalit&#233;s de requ&#234;te et de r&#233;ponse</a>.</p>
-
+<dt>Authentifier la source (pour la r&egrave;gle de demande)</dt>
+<dd>
+<p>Type de l'authentification requise pour la r&egrave;gle de demande. La r&egrave;gle de demande d&eacute;termine le traitement des demandes par le fournisseur d'authentification. Les champs de r&egrave;gle de demande sont facultatifs&nbsp;; n&eacute;anmoins, s'ils ne sont pas renseign&eacute;s, le fournisseur d'authentification n'authentifie pas les messages de demande.</p>
+<p>S&eacute;lectionnez <code>sender</code> pour indiquer, au niveau de la couche des messages, l'authentification de l'exp&eacute;diteur (par exemple, nom utilisateur et mot de passe) des messages de demande. S&eacute;lectionnez <code>content</code> pour indiquer l'authentification du contenu (par exemple, signature num&eacute;rique) des messages de demande. Laissez le champ vide pour ne pas authentifier la source des demandes. Par d&eacute;faut, aucun type d'authentification n'est s&eacute;lectionn&eacute;.</p>
+<p>Pour obtenir une description des actions effectu&eacute;es par les fournisseurs de s&eacute;curit&eacute; des messages&nbsp;SOAP, reportez-vous &agrave; <a href="ref-configreq-respolicy.html">Configurations de r&egrave;gle de demande et de r&eacute;ponse</a>.</p>
 </dd>
-<dt>Authentifier le destinataire (pour la strat&#233;gie de requ&#234;te)</dt>
-<dd><p>Sp&#233;cifie si l&#8217;authentification du destinataire a lieu avant ou apr&#232;s l&#8217;authentification du contenu pour la strat&#233;gie de requ&#234;te.</p>
-
-<p>S&#233;lectionnez <tt>avant contenu</tt> ou <tt>apr&#232;s contenu</tt> pour demander au niveau de la couche message l&#8217;authentification du destinataire du message de requ&#234;te &#224; son exp&#233;diteur (par cryptage XML). Si la valeur n&#8217;est pas indiqu&#233;e, la valeur par d&#233;faut est <tt>after-content</tt>. Les strat&#233;gies sont exprim&#233;es dans l&#8217;ordre de l&#8217;exp&#233;diteur du message, donc <tt>apr&#232;s contenu</tt> signifie que le destinataire du message d&#233;crypte le message avant de valider la signature.</p>
-
+<dt>Authentifier le destinataire (pour la r&egrave;gle de demande)</dt>
+<dd>
+<p>Sp&eacute;cifie si l'authentification du destinataire a lieu avant ou apr&egrave;s l'authentification du contenu pour la r&egrave;gle de demande.</p>
+<p>S&eacute;lectionnez <code>before-content</code> ou <code>after-content</code> pour d&eacute;finir, au niveau de la couche des messages, l'authentification du destinataire du message de demande aupr&egrave;s de son exp&eacute;diteur (par cryptage&nbsp;XML). Si la valeur n'est pas indiqu&eacute;e, la valeur par d&eacute;faut est <code>after-content</code>. Les r&egrave;gles sont exprim&eacute;es dans l'ordre choisi par l'exp&eacute;diteur du message&nbsp;; ainsi, <code>after-content</code> signifie que le destinataire d&eacute;crypte le message avant de valider la signature.</p>
 </dd>
-<dt>Authentifier la source (pour la strat&#233;gie de r&#233;ponse)</dt>
-<dd><p>Type d&#8217;authentification requise pour la strat&#233;gie de r&#233;ponse. La strat&#233;gie de r&#233;ponse d&#233;termine le traitement des r&#233;ponses par le fournisseur d&#8217;authentification. Les champs de strat&#233;gie de r&#233;ponse sont facultatifs, mais s&#8217;ils ne sont pas renseign&#233;s, aucune authentification n&#8217;est appliqu&#233;e aux messages de r&#233;ponse.</p>
-
-<p>S&#233;lectionnez <tt>exp&#233;diteur</tt> pour sp&#233;cifier au niveau de la couche message l&#8217;authentification de l&#8217;exp&#233;diteur (par exemple, nom d&#8217;utilisateur et mot de passe) des messages de r&#233;ponse. S&#233;lectionnez <tt>contenu</tt> pour sp&#233;cifier l&#8217;authentification du contenu (par exemple, signature num&#233;rique) des messages de r&#233;ponse. Laissez le champ vide pour ne pas authentifier les sources de r&#233;ponse. Par d&#233;faut, aucun type d&#8217;authentification n&#8217;est s&#233;lectionn&#233;.</p>
-
-<p>Pour une description des actions r&#233;alis&#233;es par les fournisseurs de s&#233;curit&#233; des messages SOAP, reportez-vous &#224; la rubrique <a href="ref-configreq-respolicy.html">Configurer les modalit&#233;s de requ&#234;te et de r&#233;ponse</a>.</p>
-
+<dt>Authentifier la source (pour la r&egrave;gle de r&eacute;ponse)</dt>
+<dd>
+<p>Type d'authentification requise pour la r&egrave;gle de r&eacute;ponse. La r&egrave;gle de r&eacute;ponse d&eacute;termine le traitement des r&eacute;ponses par le fournisseur d'authentification. Les champs de r&egrave;gle de r&eacute;ponse sont facultatifs&nbsp;; n&eacute;anmoins, s'ils ne sont pas renseign&eacute;s, aucune authentification n'est appliqu&eacute;e aux messages de r&eacute;ponse.</p>
+<p>S&eacute;lectionnez <code>sender</code> pour indiquer, au niveau de la couche des messages, l'authentification de l'exp&eacute;diteur (par exemple, nom utilisateur et mot de passe) des messages de r&eacute;ponse. S&eacute;lectionnez <code>content</code> pour indiquer l'authentification du contenu (par exemple, signature num&eacute;rique) des messages de r&eacute;ponse. Laissez le champ vide pour ne pas authentifier les sources de r&eacute;ponse. Par d&eacute;faut, aucun type d'authentification n'est s&eacute;lectionn&eacute;.</p>
+<p>Pour obtenir une description des actions effectu&eacute;es par les fournisseurs de s&eacute;curit&eacute; des messages&nbsp;SOAP, reportez-vous &agrave; <a href="ref-configreq-respolicy.html">Configurations de r&egrave;gle de demande et de r&eacute;ponse</a>.</p>
 </dd>
-<dt>Authentifier le destinataire (pour la strat&#233;gie de r&#233;ponse)</dt>
-<dd><p>Sp&#233;cifie si l&#8217;authentification du destinataire a lieu avant ou apr&#232;s l&#8217;authentification du contenu pour la strat&#233;gie de r&#233;ponse.</p>
-
-<p>S&#233;lectionnez <tt>avant contenu</tt> ou <tt>apr&#232;s contenu</tt> pour d&#233;finir une demande au niveau de la couche message d&#8217;authentification du destinataire du message de r&#233;ponse &#224; cet exp&#233;diteur (par cryptage XML). Si la valeur n&#8217;est pas indiqu&#233;e, la valeur par d&#233;faut est <tt>after-content</tt>. Les strat&#233;gies sont exprim&#233;es dans l&#8217;ordre de l&#8217;exp&#233;diteur du message, donc <tt>apr&#232;s contenu</tt> signifie que le destinataire du message d&#233;crypte le message avant de valider la signature.</p>
-
+<dt>Authentifier le destinataire (pour la r&egrave;gle de r&eacute;ponse)</dt>
+<dd>
+<p>Sp&eacute;cifie si l'authentification du destinataire a lieu avant ou apr&egrave;s l'authentification du contenu pour la r&egrave;gle de r&eacute;ponse.</p>
+<p>S&eacute;lectionnez <code>before-content</code> ou <code>after-content</code> pour d&eacute;finir, au niveau de la couche des messages, l'authentification du destinataire du message de r&eacute;ponse aupr&egrave;s de son exp&eacute;diteur (par cryptage&nbsp;XML). Si la valeur n'est pas indiqu&eacute;e, la valeur par d&eacute;faut est <code>after-content</code>. Les r&egrave;gles sont exprim&eacute;es dans l'ordre choisi par l'exp&eacute;diteur du message&nbsp;; ainsi, <code>after-content</code> signifie que le destinataire d&eacute;crypte le message avant de valider la signature.</p>
 </dd>
-<dt>Autres propri&#233;t&#233;s</dt>
-<dd><p>Autres propri&#233;t&#233;s pour la configuration du fournisseur de s&#233;curit&#233; des messages. Pour obtenir une description des autres propri&#233;t&#233;s disponibles pour les configurations de fournisseurs, consultez <a href="ref-messagesecurityproviderconfigprops.html">Propri&#233;t&#233;s propres aux configurations de fournisseur de s&#233;curit&#233; des messages</a>.</p>
-
+<dt>Autres propri&eacute;t&eacute;s</dt>
+<dd>
+<p>Autres propri&eacute;t&eacute;s pour la configuration du fournisseur de s&eacute;curit&eacute; des messages. Pour obtenir une description des propri&eacute;t&eacute;s suppl&eacute;mentaires disponibles pour les configurations de fournisseur, reportez-vous &agrave; <a href="ref-messagesecurityproviderconfigprops.html">Propri&eacute;t&eacute;s propres aux configurations de fournisseur de s&eacute;curit&eacute; des messages</a>.</p>
 </dd>
 </dl>
-<a name="gkonc"></a><h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-configmsgsecproviders.html">Configurer les utilitaires du GlassFish Server pour permettre l'utilisation par des fournisseurs de s&#233;curit&#233; des messages</a></p>
-
+<a id="sthref438" name="sthref438"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-configmsgsecproviders.html">Configurer les utilitaires GlassFish&nbsp;Server pour qu'ils puissent &ecirc;tre utilis&eacute;s par les fournisseurs de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfignew.html">Pour cr&#233;er une configuration de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfignew.html">Cr&eacute;er une configuration de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigedit.html">Pour modifier une configuration de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigedit.html">Modifier une configuration de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigdelete.html">Pour supprimer une configuration de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigdelete.html">Supprimer une configuration de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfignew.html">Pour cr&#233;er la configuration d'un fournisseur de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfignew.html">Cr&eacute;er une configuration de fournisseur de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigedit.html">Pour modifier la configuration d'un fournisseur de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigedit.html">Modifier une configuration de fournisseur de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigdelete.html">Pour supprimer la configuration d'un fournisseur de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigdelete.html">Supprimer une configuration de fournisseur de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-enablemesec4appclients.html">Pour activer la s&#233;curit&#233; des messages pour les clients de l'application</a></p>
-
-</li></ul>
-<a name="gkona"></a><h5>Commandes <tt>asadmin</tt> connexes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-message-security-provider-1"><tt>create-message-security-provider</tt>(1)</a></p>
-
+<li>
+<p><a href="task-enablemesec4appclients.html">Activer la s&eacute;curit&eacute; des messages pour les clients d'application</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-message-security-providers-1"><tt>list-message-security-providers</tt>(1)</a></p>
-
+</ul>
+<a id="sthref439" name="sthref439"></a>
+<h5>Commandes asadmin connexes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00045"><code>create-message-security-provider</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-message-security-provider-1"><tt>delete-message-security-provider</tt>(1)</a></p>
-
-</li></ul>
-<p>De plus, utilisez la commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a> pour modifier les strat&#233;gies de requ&#234;te
-et de r&#233;ponse.</p>
-
-<p>Pour d&#233;finir la strat&#233;gie de r&#233;ponse, remplacez <tt>request</tt> dans les commandes suivantes
-par <tt>response</tt>.</p>
-
-
-<ul><li><p>Ajoutez une strat&#233;gie de requ&#234;te au client et d&#233;finissez la source d&#8217;authentification :</p>
-
-<pre>asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00184"><code>list-message-security-providers</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00097"><code>delete-message-security-provider</code>(1)</a></p>
+</li>
+</ul>
+<p>En outre, utilisez la commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00226"><code>set</code>(1)</a> pour modifier les r&egrave;gles de demande et de r&eacute;ponse.</p>
+<p>Pour d&eacute;finir la r&egrave;gle de r&eacute;ponse, remplacez <code>request</code> par <code>response</code> dans les commandes suivantes.</p>
+<ul>
+<li>
+<p>Ajoutez une r&egrave;gle de demande au client et d&eacute;finissez la source d'authentification&nbsp;:</p>
+<pre>
+asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
 server-config.security-service.message-security-config.SOAP.
 provider-config.ClientProvider.request-policy.auth_source=
-sender | content</pre></li>
-<li><p>Ajoutez une strat&#233;gie de requ&#234;te au serveur et d&#233;finissez la source d&#8217;authentification :</p>
-
-<pre>asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
+sender | content
+</pre></li>
+<li>
+<p>Ajoutez une r&egrave;gle de demande au serveur et d&eacute;finissez la source d'authentification&nbsp;:</p>
+<pre>
+asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
 server-config.security-service.message-security-config.SOAP.
 provider-config.ServerProvider.request-policy.auth_source=
-sender | content</pre></li>
-<li><p>Ajoutez une strat&#233;gie de requ&#234;te au client et d&#233;finissez le destinataire de l&#8217;authentification :</p>
-
-<pre>asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
+sender | content
+</pre></li>
+<li>
+<p>Ajoutez une r&egrave;gle de demande au client et d&eacute;finissez le destinataire de l'authentification&nbsp;:</p>
+<pre>
+asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
 server-config.security-service.message-security-config.SOAP.
 provider-config.ClientProvider.request-policy.auth_recipient=
-before-content | after-content</pre></li>
-<li><p>Ajoutez une strat&#233;gie de requ&#234;te au serveur et d&#233;finissez le destinataire de l&#8217;authentification :</p>
-
-<pre>asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
+before-content | after-content
+</pre></li>
+<li>
+<p>Ajoutez une r&egrave;gle de demande au serveur et d&eacute;finissez le destinataire de l'authentification&nbsp;:</p>
+<pre>
+asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
 server-config.security-service.message-security-config.SOAP.
 provider-config.ServerProvider.request-policy.auth_recipient=
-before-content | after-content</pre></li></ul>
+before-content | after-content
+</pre></li>
+</ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

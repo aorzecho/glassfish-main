@@ -1,114 +1,119 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-connectorconnectionpoolnew2"></a><h4>Nouveau pool de connexions de connecteur (&#233;tape 2 sur 2)</h4>
-<a name="indexterm-41"></a><p>Utilisez la page Nouveau pool de connexions de connecteur (&#233;tape 2 sur
-2) pour cr&#233;er un nouveau pool de connexions de connecteur.</p>
+<p><a id="ref-connectorconnectionpoolnew2" name="ref-connectorconnectionpoolnew2"></a><a id="GHJCA00043" name="GHJCA00043"></a></p>
 
-<p>La page Nouveau pool de connexions de connecteur (&#233;tape 2 sur 2)
-contient les options suivantes.</p>
-
-<dl><dt>Ping</dt>
-<dd><p>Lorsque cette option est activ&#233;e, un ping est r&#233;alis&#233; vers le pool au cours de la cr&#233;ation ou de la reconfiguration afin d&#8217;identifier et de signaler les valeurs incorrectes de ses attributs, le cas &#233;ch&#233;ant. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<h4><a id="sthref72" name="sthref72"></a>Nouveau pool de connexions de connecteur (&eacute;tape 2 sur 2)</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Nouveau pool de connexions de connecteur (&eacute;tape 2 sur 2) permet de cr&eacute;er un pool de connexions de connecteur.</p>
+<p>Elle contient les options suivantes.</p>
+<dl>
+<dt>Ping</dt>
+<dd>
+<p>Lorsque cette option est activ&eacute;e, la commande ping est envoy&eacute;e au pool de connexions lors de sa cr&eacute;ation ou de sa reconfiguration, afin d'identifier et de signaler toute erreur de valeur d'attribut. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
 <dt>Description</dt>
-<dd><p>Une description du pool de connexions du connecteur. </p>
-
+<dd>
+<p>Description du pool de connexions de connecteur.</p>
 </dd>
 <dt>Taille initiale et minimale du pool</dt>
-<dd><p>Le nombre minimum de connexions dans le pool de connexions de connecteur. La valeur par d&#233;faut est 8.</p>
-
+<dd>
+<p>Nombre minimal de connexions dans le pool de connexions de connecteur. La valeur par d&eacute;faut est&nbsp;8.</p>
 </dd>
 <dt>Taille maximale du pool</dt>
-<dd><p>Le nombre maximum de connexions dans le pool de connexions de connecteur. La valeur par d&#233;faut est 32.</p>
-
+<dd>
+<p>Nombre maximal de connexions dans le pool de connexions de connecteur. La valeur par d&eacute;faut est&nbsp;32.</p>
 </dd>
 <dt>Valeur de redimensionnement du pool</dt>
-<dd><p>Le nombre de connexions &#224; supprimer lorsque le d&#233;lai d&#8217;inactivit&#233; du pool expire. La valeur par d&#233;faut est 2.</p>
-
+<dd>
+<p>Nombre de connexions &agrave; enlever lorsque le d&eacute;lai d'inactivit&eacute; du pool est d&eacute;pass&eacute;. La valeur par d&eacute;faut est&nbsp;2.</p>
 </dd>
-<dt>D&#233;lai d&#8217;inactivit&#233;</dt>
-<dd><p>Temps maximum en secondes durant lequel une connexion demeure inactive dans le pool. La valeur par d&#233;faut est 300.</p>
-
+<dt>D&eacute;lai d'inactivit&eacute;</dt>
+<dd>
+<p>Dur&eacute;e maximale, en secondes, pendant laquelle une connexion peut rester inactive dans le pool. La valeur par d&eacute;faut est&nbsp;300.</p>
 </dd>
 <dt>Attente max.</dt>
-<dd><p>Dur&#233;e pendant laquelle l&#8217;application demandant une connexion doit patienter avant d&#8217;&#234;tre notifi&#233;e de l&#8217;expiration de la connexion. La valeur par d&#233;faut est 60 000.</p>
-
+<dd>
+<p>D&eacute;lai d'attente d'une application demandant une connexion au-del&agrave; duquel il y a temporisation de la connexion. La valeur par d&eacute;faut est&nbsp;60&nbsp;000.</p>
 </dd>
-<dt>Validation des connexions</dt>
-<dd><p>Si la case Requis est s&#233;lectionn&#233;e, les connexions sont valid&#233;es avant d&#8217;&#234;tre donn&#233;es &#224; l&#8217;application. Si la validation d&#8217;une ressource &#233;choue, elle est d&#233;truite et une nouvelle ressource est cr&#233;&#233;e et renvoy&#233;e. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Validation de la connexion</dt>
+<dd>
+<p>Si la case Requis est coch&eacute;e, les connexions sont valid&eacute;es avant d'&ecirc;tre affect&eacute;es &agrave; l'application. Si la validation d'une ressource &eacute;choue, elle est d&eacute;truite et une autre ressource est cr&eacute;&eacute;e puis renvoy&eacute;e. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Sur tout &#233;chec</dt>
-<dd><p>Si la case Fermer toutes les connexions est coch&#233;e, GlassFish Server ferme toutes les connexions du pool et les r&#233;tablit si une seule connexion &#233;choue. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Echec sur tout</dt>
+<dd>
+<p>Si la case Fermer toutes les connexions est coch&eacute;e, GlassFish&nbsp;Server ferme toutes les connexions du pool et les r&eacute;tablit en cas d'&eacute;chec de l'une d'entre elles. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
 <dt>Prise en charge des transactions</dt>
-<dd><p>La prise en charge des transactions choisie remplace l&#8217;attribut de prise en charge des transactions dans l&#8217;adaptateur de ressources associ&#233; &#224; ce pool de connexions de fa&#231;on &#224; garantir la compatibilit&#233; descendante. En d&#8217;autres mots, il peut prendre en charge un niveau de transaction inf&#233;rieur &#224; celui sp&#233;cifi&#233; dans l&#8217;adaptateur de ressources, ou le m&#234;me niveau de transaction que celui sp&#233;cifi&#233; dans l&#8217;adaptateur de ressources, mais il ne peut pas sp&#233;cifier un niveau sup&#233;rieur.</p>
-
-<p>La valeur peut &#234;tre l&#8217;une des suivantes&#160;:</p>
-
-<dl><dt>XATransaction</dt>
-<dd><p>L&#8217;adaptateur de ressources prend en charge les transactions JTA et les transactions locales du gestionnaire de ressources en impl&#233;mentant les interfaces LocalTransaction et XAResource. Les transactions XA sont contr&#244;l&#233;es et d&#233;termin&#233;es par un gestionnaire de transactions externe &#224; un gestionnaire de ressources.</p>
-
+<dd>
+<p>La prise en charge des transactions choisie remplace l'attribut de prise en charge des transactions dans l'adaptateur de ressource associ&eacute; au pool de connexions de fa&ccedil;on &agrave; garantir la compatibilit&eacute; descendante. En d'autres termes, la prise en charge d'un niveau de transaction inf&eacute;rieur ou &eacute;gal &agrave; celui sp&eacute;cifi&eacute; dans l'adaptateur de ressource est assur&eacute;e, mais pas la prise en charge d'un niveau sup&eacute;rieur.</p>
+<p>Les valeurs possibles sont les suivantes&nbsp;:</p>
+<dl>
+<dt>XATransaction</dt>
+<dd>
+<p>L'adaptateur de ressource prend en charge les transactions JTA et les transactions locales du gestionnaire de ressources en impl&eacute;mentant les interfaces LocalTransaction et XAResource. Les transactions XA sont contr&ocirc;l&eacute;es et d&eacute;termin&eacute;es par un gestionnaire de transactions externe &agrave; un gestionnaire de ressources.</p>
 </dd>
 <dt>LocalTransaction</dt>
-<dd><p>L&#8217;adaptateur de ressources prend en charge les transactions locales en impl&#233;mentant l&#8217;interface LocalTransaction. Les transactions locales sont g&#233;r&#233;es dans un gestionnaire de ressources et n&#8217;impliquent aucun gestionnaire de transactions externe.</p>
-
+<dd>
+<p>L'adaptateur de ressource prend en charge les transactions locales en impl&eacute;mentant l'interface LocalTransaction. Les transactions locales sont g&eacute;r&eacute;es dans un gestionnaire de ressources et n'impliquent aucun gestionnaire de transactions externe.</p>
 </dd>
 <dt>NoTransaction</dt>
-<dd><p>L&#8217;adaptateur de ressources ne prend pas en charge les transactions JTA ou les transactions locales du gestionnaire de ressources et n&#8217;impl&#233;mente pas les interfaces XAResource ou LocalTransaction. </p>
-
+<dd>
+<p>L'adaptateur de ressource ne prend pas en charge les transactions JTA ou les transactions locales du gestionnaire de ressources et n'impl&eacute;mente pas les interfaces XAResource ou LocalTransaction.</p>
 </dd>
 </dl>
 </dd>
-<dt>Autres propri&#233;t&#233;s</dt>
-<dd><p>Propri&#233;t&#233;s suppl&#233;mentaires pour le pool de connexions de connecteur. Les propri&#233;t&#233;s disponibles d&#233;pendent de l&#8217;adaptateur de ressources pour le pool de connexions du connecteur. Les paires Nom-Valeur sp&#233;cifi&#233;es dans ce tableau peuvent &#234;tre utilis&#233;es pour remplacer les valeurs par d&#233;faut pour les propri&#233;t&#233;s d&#233;finies par le fournisseur de l&#8217;adaptateur de ressources.</p>
-
-<p>Si vous indiquez un nom mais pas une valeur pour une propri&#233;t&#233;, il est supprim&#233; du tableau lorsque vous terminez la cr&#233;ation du pool de connexions. Si vous ne souhaitez pas d&#233;finir imm&#233;diatement la valeur d&#8217;une propri&#233;t&#233; mais souhaitez conserver cette propri&#233;t&#233; dans la table afin de d&#233;finir sa valeur ult&#233;rieurement, entrez des parenth&#232;ses vides dans le champ Valeur&#160;:</p>
-
-<pre>()</pre></dd>
+<dt>Autres propri&eacute;t&eacute;s</dt>
+<dd>
+<p>Propri&eacute;t&eacute;s suppl&eacute;mentaires du pool de connexions de connecteur. Les propri&eacute;t&eacute;s disponibles d&eacute;pendent de l'adaptateur de ressource du pool de connexions de connecteur. Les paires nom-valeur sp&eacute;cifi&eacute;es dans cette table peuvent &ecirc;tre utilis&eacute;es pour remplacer les valeurs par d&eacute;faut des propri&eacute;t&eacute;s d&eacute;finies par le fournisseur de l'adaptateur de ressource.</p>
+<p>Si vous indiquez un nom mais pas de valeur pour une propri&eacute;t&eacute;, celle-ci est enlev&eacute;e de la table &agrave; l'issue de la cr&eacute;ation du pool de connexions. Si vous ne souhaitez pas d&eacute;finir imm&eacute;diatement la valeur d'une propri&eacute;t&eacute; mais souhaitez conserver cette propri&eacute;t&eacute; dans la table afin de d&eacute;finir sa valeur ult&eacute;rieurement, entrez des parenth&egrave;ses vides dans le champ Valeur&nbsp;:</p>
+<pre>
+()
+</pre></dd>
 </dl>
-<a name="gkomy"></a><h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-connectorconnectionpoolnew.html">Cr&#233;er un pool de connexions de connecteur</a></p>
-
+<a id="sthref73" name="sthref73"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-connectorconnectionpoolnew.html">Cr&eacute;er un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooledit.html">Modifier un pool de connexions de connecteur</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooledit.html">Modifier un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooladvance.html">Modifier les attributs avanc&#233;s d'un pool de connexions de connecteur</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooladvance.html">Modifier les attributs avanc&eacute;s d'un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpoolproperty.html">Modifier les propri&#233;t&#233;s d'un pool de connexions de connecteur</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpoolproperty.html">Modifier les propri&eacute;t&eacute;s d'un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapnew.html">Cr&#233;er un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapnew.html">Cr&eacute;er une mappe de s&eacute;curit&eacute; pour un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapedit.html">Pour modifier un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapedit.html">Modifier une mappe de s&eacute;curit&eacute; pour un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapdel.html">Supprimer un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapdel.html">Supprimer une mappe de s&eacute;curit&eacute; pour un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooldel.html">Supprimer un pool de connexions du connecteur</a></p>
-
-</li></ul>
-<a name="gkokt"></a><h5>Commandes <tt>asadmin</tt> connexes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooldel.html">Supprimer un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
-
+</ul>
+<a id="sthref74" name="sthref74"></a>
+<h5>Commandes asadmin connexes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00018"><code>create-connector-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00157"><code>list-connector-connection-pools</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00070"><code>delete-connector-connection-pool</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

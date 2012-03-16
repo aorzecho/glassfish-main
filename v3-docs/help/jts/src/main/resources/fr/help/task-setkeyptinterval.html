@@ -1,43 +1,57 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-setkeyptinterval" name="task-setkeyptinterval"></a><a id="GHJTS00008" name="GHJTS00008"></a></p>
 
-
-<a name="task-setkeyptinterval"></a><h3>D&#233;finition de l&#8217;intervalle entre points cl&#233;s</h3><a name="indexterm-6"></a><a name="indexterm-7"></a><p>Les op&#233;rations de point cl&#233; permettent de compresser les fichiers journaux de
-transactions. L&#8217;intervalle entre points cl&#233;s est le nombre de transactions effectu&#233;es entre les
-op&#233;rations de point cl&#233; dans le journal. Les op&#233;rations de point cl&#233;
-permettent de r&#233;duire la taille des fichiers journaux de transaction. Plus le
-nombre d&#8217;intervalles entre points cl&#233;s est &#233;lev&#233; et plus la taille des
-fichiers journaux est importante, affectant potentiellement les performances. Un nombre plus petit
-d&#8217;intervalles entre points cl&#233;s (par exemple 256) entra&#238;ne des fichiers journaux plus
-petits, mais diminue l&#233;g&#232;rement les performances en raison du plus grand nombre
-d&#8217;op&#233;rations de point cl&#233;.</p>
-
+<h4><a id="sthref11" name="sthref11"></a><a id="sthref12" name="sthref12"></a>D&eacute;finir l'intervalle entre les points cl&eacute;s</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Les op&eacute;rations de point cl&eacute; permettent de compresser les fichiers journaux de transactions. L'intervalle entre points cl&eacute;s d&eacute;signe le nombre de transactions effectu&eacute;es entre les op&eacute;rations de point cl&eacute; dans le journal. Les op&eacute;rations de point cl&eacute; permettent de r&eacute;duire la taille des fichiers journaux de transaction. Plus le nombre d'intervalles entre points cl&eacute;s est &eacute;lev&eacute;, plus la taille des fichiers journaux est importante, ce qui peut alt&eacute;rer les performances. Un nombre plus faible d'intervalles entre points cl&eacute;s (par exemple, 256) entra&icirc;ne des fichiers journaux plus petits, mais diminue l&eacute;g&egrave;rement les performances en raison du plus grand nombre d'op&eacute;rations de point cl&eacute;.</p>
 <ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>S&#233;lectionnez l&#8217;instance &#224; configurer :</b><ul>
-<li><b>Pour configurer une instance en particulier, s&#233;lectionnez le n&#339;ud de configuration de
-l&#8217;instance. Par exemple, pour l&#8217;instance par d&#233;faut, <tt>server</tt>, s&#233;lectionnez le n&#339;ud <tt>server-config</tt>.</b></li>
-<li><b>Pour configurer les r&#233;glages par d&#233;faut pour toutes les instances, s&#233;lectionnez le
-n&#339;ud <tt>default-config</tt>.</b></li></ul></li>
-<li><b>S&#233;lectionnez le n&#339;ud Service de transaction.</b><p>La page Service de transaction s&#8217;affiche.</p></li>
-<li><b>Dans le champ Intervalle de point cl&#233;, saisissez le nombre de transactions
-entre les op&#233;rations de points cl&#233;s.</b><p>La valeur par d&#233;faut est 65&#160;536.</p></li>
-<li><b>Cliquez sur Enregistrer.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-configtransservice.html">Configuration du service de transaction</a></p>
-
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p><a href="task-configtransrecovery.html">Configuration de la r&#233;cup&#233;ration des transactions par le GlassFish Server</a></p>
-
+<li>
+<p>S&eacute;lectionnez l'instance &agrave; configurer&nbsp;:</p>
+<ul>
+<li>
+<p>Pour configurer une instance sp&eacute;cifique, s&eacute;lectionnez le noeud de configuration de l'instance. Par exemple, pour l'instance par d&eacute;faut, <code>server</code>, s&eacute;lectionnez le noeud <code>server-config</code>.</p>
 </li>
-<li><p><a href="task-settranstimeout.html">D&#233;finition du d&#233;lai d'attente d'une transaction</a></p>
-
+<li>
+<p>Pour configurer les param&egrave;tres par d&eacute;faut pour toutes les instances, s&eacute;lectionnez le noeud <code>default-config</code>.</p>
 </li>
-<li><p><a href="task-settranslog.html">D&#233;finition de l'emplacement des journaux des transactions</a></p>
+</ul>
+</li>
+<li>
+<p>S&eacute;lectionnez le noeud Service de transaction.</p>
+<p>La page Service de transaction appara&icirc;t.</p>
+</li>
+<li>
+<p>Dans le champ Intervalle de point cl&eacute;, saisissez le nombre de transactions entre les op&eacute;rations de points cl&eacute;s.</p>
+<p>La valeur par d&eacute;faut est&nbsp;65&nbsp;536.</p>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
+</li>
+</ol>
+<a id="sthref13" name="sthref13"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-configtransservice.html">Configurer le service de transaction</a></p>
+</li>
+<li>
+<p><a href="task-configtransrecovery.html">Configuration de la r&eacute;cup&eacute;ration des transactions par GlassFish&nbsp;Server</a></p>
+</li>
+<li>
+<p><a href="task-settranstimeout.html">D&eacute;finir une valeur de temporisation des transactions</a></p>
+</li>
+<li>
+<p><a href="task-settranslog.html">D&eacute;finir l'emplacement des journaux des transactions</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

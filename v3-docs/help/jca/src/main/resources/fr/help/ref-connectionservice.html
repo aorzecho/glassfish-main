@@ -1,53 +1,58 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-connectionservice"></a><h4>Service du connecteur </h4>
-<a name="indexterm-62"></a><p>Utilisez la page Service du connecteur pour modifier les param&#232;tres g&#233;n&#233;raux pour
-le service du connecteur, qui r&#233;git les adaptateurs de ressources. </p>
+<p><a id="ref-connectionservice" name="ref-connectionservice"></a><a id="GHJCA00059" name="GHJCA00059"></a></p>
 
-<p>La page Service du connecteur contient les options suivantes.</p>
-
-<dl><dt>Restaurer les valeurs par d&#233;faut</dt>
-<dd><p>Bouton de restauration des valeurs par d&#233;faut des param&#232;tres qui ont des valeurs par d&#233;faut. Les param&#232;tres qui n'ont pas de valeurs par d&#233;faut ne sont pas modifi&#233;s.</p>
-
+<h4><a id="sthref125" name="sthref125"></a>Service du connecteur</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Service du connecteur permet de modifier les param&egrave;tres g&eacute;n&eacute;raux du service du connecteur, qui r&eacute;git les adaptateurs de ressource.</p>
+<p>Elle contient les options suivantes.</p>
+<dl>
+<dt>Charger les valeurs par d&eacute;faut</dt>
+<dd>
+<p>Bouton de restauration des valeurs par d&eacute;faut des param&egrave;tres qui ont des valeurs par d&eacute;faut. Les param&egrave;tres qui n'ont pas de valeurs par d&eacute;faut ne sont pas modifi&eacute;s.</p>
 </dd>
-<dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
-<dt>D&#233;lai d&#8217;arr&#234;t</dt>
-<dd><p>Le nombre maximum de secondes autoris&#233; pendant l&#8217;arr&#234;t de GlassFish Server pour que la m&#233;thode <tt>ResourceAdapter.stop</tt> d&#8217;une instance de module connecteur se termine. Les adaptateurs de ressources d&#233;passant ce d&#233;lai pour s&#8217;arr&#234;ter sont ignor&#233;s et l&#8217;arr&#234;t de GlassFish Server se poursuit. La valeur par d&#233;faut est 30 secondes.</p>
-
+<dt>Temporisation d'arr&ecirc;t</dt>
+<dd>
+<p>D&eacute;lai maximal autoris&eacute;, en secondes, pour l'ex&eacute;cution de la m&eacute;thode <code>ResourceAdapter.stop</code> d'une instance de module connecteur, au cours de l'arr&ecirc;t de GlassFish&nbsp;Server. Les adaptateurs de ressource d&eacute;passant ce d&eacute;lai de fermeture sont ignor&eacute;s et l'arr&ecirc;t de GlassFish&nbsp;Server se poursuit. La valeur par d&eacute;faut est de 30&nbsp;secondes.</p>
 </dd>
-<dt>Strat&#233;gie de chargement de classe de connecteur</dt>
-<dd><p>La strat&#233;gie &#224; utiliser pour le chargement des classes. Les choix disponibles sont les suivants :</p>
-
-<dl><dt><tt>derived</tt></dt>
-<dd><p>Indique que les adaptateurs de ressources sont fournis selon les r&#233;f&#233;rences d&#8217;une application vers l&#8217;une des ressources de l&#8217;adaptateur de ressources. Cette strat&#233;gie est la strat&#233;gie par d&#233;faut.</p>
-
+<dt>R&egrave;gle de chargement de classe de connecteur</dt>
+<dd>
+<p>R&egrave;gle &agrave; utiliser pour le chargement des classes. Les choix disponibles sont les suivants&nbsp;:</p>
+<dl>
+<dt><code>derived</code></dt>
+<dd>
+<p>Indique que les adaptateurs de ressource sont fournis en fonction des r&eacute;f&eacute;rences d'une application &agrave; l'une des ressources de l'adaptateur de ressource. Cette r&egrave;gle est utilis&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt><tt>global</tt></dt>
-<dd><p>Indique que tous les adaptateurs de ressources seront visibles &#224; toutes les applications.</p>
-
-</dd>
-</dl>
-<p>Cette strat&#233;gie ne s&#8217;applique pas &#224; l&#8217;adaptateur de ressources du syst&#232;me JMS pr&#233;install&#233;, <tt>jmsra</tt>, qui est toujours visible de toutes les applications. </p>
-
+<dt><code>global</code></dt>
+<dd>
+<p>Indique que l'ensemble des adaptateurs de ressource sera visible par toutes les applications.</p>
 </dd>
 </dl>
-<h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-connectionservice.html">Configurer le service du connecteur</a></p>
-
+<p>Cette r&egrave;gle ne s'applique pas &agrave; l'adaptateur de ressource du syst&egrave;me JMS pr&eacute;install&eacute;, <code>jmsra</code>, qui est toujours visible par toutes les applications.</p>
+</dd>
+</dl>
+<a id="sthref126" name="sthref126"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-connectionservice.html">Configurer le service du connecteur</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-3029&id=task-appdeployconn">D&#233;ployer un module connecteur</a></p>
-
-</li></ul>
-<h5>Commandes <tt>asadmin</tt> connexes</h5>
+<li>
+<p><a href="../../../common/fr/help/missingtopic.html">D&eacute;ployer un module connecteur</a></p>
+</li>
+</ul>
+<a id="sthref127" name="sthref127"></a>
+<h5>Commandes asadmin connexes</h5>
 <p>Aucune.</p>
 
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

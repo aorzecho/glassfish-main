@@ -1,59 +1,74 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-setdbaccess" name="task-setdbaccess"></a><a id="GHJDB00030" name="GHJDB00030"></a></p>
 
-
-<a name="task-setdbaccess"></a><h3>Configurer l&#8217;acc&#232;s &#224; la base de donn&#233;es</h3><a name="indexterm-1"></a><a name="indexterm-2"></a><p>Pour stocker, organiser et r&#233;cup&#233;rer les donn&#233;es, la plupart des applications utilisent
-des bases de donn&#233;es relationnelles.</p>
-
-<p>GlassFish Server inclut une copie de la base de donn&#233;es Java DB
-et est pr&#233;configur&#233; pour acc&#233;der &#224; cette base de donn&#233;es.</p>
-
+<h4><a id="sthref2" name="sthref2"></a>Param&eacute;trer l'acc&egrave;s &agrave; une base de donn&eacute;es</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Pour stocker, organiser et extraire les donn&eacute;es, la plupart des applications utilisent des bases de donn&eacute;es relationnelles.</p>
+<p>GlassFish&nbsp;Server inclut une copie de la base de donn&eacute;es Java DB et est pr&eacute;configur&eacute; pour acc&eacute;der &agrave; cette base de donn&eacute;es.</p>
 <ol>
-<li><b>Installez un produit de base de donn&#233;es pris en charge. </b><p>Pour consulter la liste des bases de donn&#233;es prises en charge, reportez-vous
-aux <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2434&id=sjsaseern"><i>Oracle GlassFish Server 3.1-3.1.1 Release Notes</i></a>.</p></li>
-<li><b>Installez un pilote prenant en charge l&#8217;API JDBC (pilote JDBC) pour la
-base de donn&#233;es.</b><p>Assurez-vous que le pilote que vous souhaitez utiliser pour cr&#233;er des connexions
-&#224; la base de donn&#233;es est install&#233; sur tous les serveurs sur
-lesquels vous souhaitez d&#233;ployer la source de donn&#233;es.</p></li>
-<li><b>Assurez-vous que le fichier JAR du pilote soit accessible &#224; l&#8217;instance de
-serveur du domaine. </b><p>Voir <a href="task-integratejdbcdriver.html">Int&#233;grer un pilote JDBC</a>.</p></li>
-<li><b>Cr&#233;ez la base de donn&#233;es. </b><p>G&#233;n&#233;ralement, le fournisseur d&#8217;applications offre des scripts pour cr&#233;er et renseigner la
-base de donn&#233;es.</p></li>
-<li><b>Cr&#233;ez un pool de connexions pour la base de donn&#233;es. </b><p>Voir <a href="task-jdbcconnectionpoolnew.html">Cr&#233;er un pool de connexions JDBC</a>.</p></li>
-<li><b>Cr&#233;ez une ressource JDBC pointant vers le pool de connexions. </b><p>Voir <a href="task-jdbcresourcenew.html">Cr&#233;er une ressource JDBC</a>.</p></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-integratejdbcdriver.html">Int&#233;grer un pilote JDBC</a></p>
-
+<li>
+<p>Installez un produit de base de donn&eacute;es pris en charge.</p>
+<p>Pour obtenir la liste des bases de donn&eacute;es prises en charge, reportez-vous &agrave; <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRLN"><i>Oracle GlassFish Server Release Notes</i></a>.</p>
 </li>
-<li><p><a href="task-jdbcresourcenew.html">Cr&#233;er une ressource JDBC</a></p>
-
+<li>
+<p>Installez un pilote prenant en charge l'API JDBC (pilote JDBC) pour la base de donn&eacute;es.</p>
+<p>Assurez-vous que le pilote que vous souhaitez utiliser pour cr&eacute;er des connexions &agrave; la base de donn&eacute;es est install&eacute; sur tous les serveurs sur lesquels vous souhaitez d&eacute;ployer la source de donn&eacute;es.</p>
 </li>
-<li><p><a href="task-jdbcresourcesedit.html">Modifier une ressource JDBC</a></p>
-
+<li>
+<p>Assurez-vous que le fichier JAR du pilote est accessible &agrave; l'instance de serveur du domaine.</p>
+<p>Reportez-vous &agrave; <a href="task-integratejdbcdriver.html">Int&eacute;grer un pilote JDBC</a>.</p>
 </li>
-<li><p><a href="task-jdbcresourcesdelete.html">Supprimer une ressource JDBC</a></p>
-
+<li>
+<p>Cr&eacute;ez la base de donn&eacute;es.</p>
+<p>G&eacute;n&eacute;ralement, le fournisseur d'application offre des scripts pour cr&eacute;er et renseigner la base de donn&eacute;es.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">Cr&#233;er un pool de connexions JDBC</a></p>
-
+<li>
+<p>Cr&eacute;ez un pool de connexions pour la base de donn&eacute;es.</p>
+<p>Reportez-vous &agrave; <a href="task-jdbcconnectionpoolnew.html">Cr&eacute;er un pool de connexions JDBC</a>.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooledit.html">Modifier les param&#232;tres g&#233;n&#233;raux du pool de connexions JDBC</a></p>
-
+<li>
+<p>Cr&eacute;ez une ressource JDBC pointant vers le pool de connexions.</p>
+<p>Reportez-vous &agrave; <a href="task-jdbcresourcenew.html">Cr&eacute;er une ressource JDBC</a>.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">Modifier les attributs avanc&#233;s d'un pool de connexions JDBC</a></p>
-
+</ol>
+<a id="sthref3" name="sthref3"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-integratejdbcdriver.html">Int&eacute;grer un pilote JDBC</a></p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">V&#233;rifier les param&#232;tres du pool de connexions</a></p>
-
+<li>
+<p><a href="task-jdbcresourcenew.html">Cr&eacute;er une ressource JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">Modifier les propri&#233;t&#233;s d'un pool de connexions JDBC</a></p>
-
+<li>
+<p><a href="task-jdbcresourcesedit.html">Modifier une ressource JDBC</a></p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">Supprimer un pool de connexions JDBC</a></p>
+<li>
+<p><a href="task-jdbcresourcesdelete.html">Supprimer une ressource JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">Cr&eacute;er un pool de connexions JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooledit.html">Modifier les param&egrave;tres g&eacute;n&eacute;raux d'un pool de connexions JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">Modifier les attributs avanc&eacute;s du pool de connexions JDBC</a></p>
+</li>
+<li>
+<p><a href="task-verifyconnpoolsettings.html">V&eacute;rifier les param&egrave;tres d'un pool de connexions</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">Modifier les propri&eacute;t&eacute;s d'un pool de connexions JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">Supprimer un pool de connexions JDBC</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

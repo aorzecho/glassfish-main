@@ -1,156 +1,214 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-protocolhttpedit" name="task-protocolhttpedit"></a><a id="GHWEB00045" name="GHWEB00045"></a></p>
 
-
-<a name="task-protocolhttpedit"></a><h3>Modifier les param&#232;tres HTTP pour un protocole </h3><a name="indexterm-28"></a><a name="indexterm-29"></a><ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>Sous le n&#339;ud Configuration, d&#233;veloppez le n&#339;ud Config r&#233;seau.</b></li>
-<li><b>Sous le n&#339;ud Configuration de r&#233;seau, s&#233;lectionnez le n&#339;ud Protocoles.</b><p>La page Protocoles s&#8217;affiche.</p></li>
-<li><b>Sur la page Protocoles, cliquez sur le nom du protocole que vous
-modifiez.</b><p>La page Modification du protocole s&#8217;affiche.</p></li>
-<li><b>Sur la page Modification de protocole, cliquez sur l&#8217;onglet HTTP.</b><p>La page HTTP s&#8217;affiche.</p></li>
-<li><b>Dans le champ Nom du serveur, saisissez le nom d&#8217;h&#244;te &#224; utiliser
-dans les URL envoy&#233;es au client par le serveur.</b><p>Ce nom est l&#8217;alias si votre serveur en utilise un. Si votre
-serveur n&#8217;utilise aucun alias, laissez ce champ vide.</p></li>
-<li><b>Dans la liste d&#233;roulante Serveur virtuel par d&#233;faut, s&#233;lectionnez le serveur virtuel
-&#224; associer au protocole.</b><p>La page Serveurs virtuels vous permet de d&#233;finir des serveurs virtuels.</p></li>
-<li><b>Dans le champ Port de redirection, saisissez la valeur de port &#224;
-utiliser pour rediriger une requ&#234;te vers un autre port. </b><p>GlassFish Server r&#233;achemine automatiquement la requ&#234;te si les deux conditions suivantes sont
-remplies :</p>
-
-
-<ul><li><p>Ce protocole prend en charge des requ&#234;tes non SSL.</p>
-
+<h4><a id="sthref59" name="sthref59"></a><a id="sthref60" name="sthref60"></a>Modifier les param&egrave;tres HTTP d'un protocole</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p>Une requ&#234;te pour laquelle une contrainte de s&#233;curit&#233; correspondante requiert le transport SSL est re&#231;ue.</p>
-
-</li></ul>
-<p>Si aucun port de redirection n&#8217;est sp&#233;cifi&#233;, le GlassFish Server utilise le
-num&#233;ro de port sp&#233;cifi&#233; dans la requ&#234;te d&#8217;origine.</p></li>
-<li><b>Dans le champ Nombre max. de connexions, saisissez le nombre maximal de
-connexions permanentes &#224; conserver en mode Keep-Alive.</b><p>Le sous-syst&#232;me Keep-Alive interroge p&#233;riodiquement les connexions inactives.</p></li>
-<li><b>Dans le champ D&#233;lai d&#8217;attente, entrez la dur&#233;e maximum (en secondes) pendant
-laquelle une connexion peut &#234;tre consid&#233;r&#233;e comme inactive et conserv&#233;e &#224; l&#8217;&#233;tat
-de persistance. </b><p>Une valeur de 0 ou moins signifie que les connexions persistantes sont
-conserv&#233;es ouvertes ind&#233;finiment. La valeur par d&#233;faut est 30 secondes.</p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de D&#233;lai d&#8217;expiration du chargement pour activer la
-fermeture de la connexion pour un servlet qui lit les octets lentement
-une fois la limite de D&#233;lai d&#8217;expiration du chargement de la connexion
-atteinte. </b><p>Si cette option est d&#233;sactiv&#233;e, les connexions servlet n&#8217;ont pas de d&#233;lai
-d&#8217;expiration. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>Dans le champ D&#233;lai d&#8217;expiration du chargement de la connexion, entrez le
-d&#233;lai d&#8217;expiration pour les chargements, en milli&#232;mes de secondes.  </b><p>Ce champ est applicable uniquement si la case D&#233;sactiv&#233; du D&#233;lai d&#8217;expiration
-du chargement est s&#233;lectionn&#233;e. La valeur par d&#233;faut est 300000 millisecondes.</p></li>
-<li><b>Dans le champ D&#233;lai d&#8217;expiration de la requ&#234;te, saisissez le nombre de
-secondes au bout desquelles une requ&#234;te expire.</b><p>Si la requ&#234;te n&#8217;est pas trait&#233;e avant d&#8217;atteindre la valeur de d&#233;lai
-d&#8217;expiration, la requ&#234;te est ignor&#233;e. La valeur par d&#233;faut est 30 secondes.</p></li>
-<li><b>Dans le champ Taille du tampon d&#8217;envoi, saisissez la taille (en octets)
-du tampon d&#8217;envoi.</b><p>La valeur par d&#233;faut est 8192 octets.</p></li>
-<li><b>Dans le champ Longueur du tampon d&#8217;en-t&#234;te, saisissez la taille (en octets)
-du tampon utilis&#233; par les threads de traitement de requ&#234;te pour lire
-les donn&#233;es de la requ&#234;te.</b><p>La valeur par d&#233;faut est 8192 octets.</p></li>
-<li><b>Dans le champ Taille maximum des billets, tapez la taille maximale (en
-octets) des actions POST. </b><p>La valeur par d&#233;faut est 2097152 octets.</p></li>
-<li><b>Dans le champ Codage URI, tapez le nom du jeu de caract&#232;res utilis&#233;
-pour d&#233;coder les URI de requ&#234;te re&#231;us. </b><p>La valeur doit &#234;tre un nom de jeu de caract&#232;res IANA valide.
-La valeur par d&#233;faut est UTF-8.</p></li>
-<li><b>Dans le champ Version, saisissez la version du protocole HTTP utilis&#233;.</b><p>La valeur par d&#233;faut est HTTP/1.1.</p></li>
-<li><b>Compression &#224; partir de la liste d&#233;roulante, s&#233;lectionnez l'utilisation d'HTTP/1.1 compression gzip
-pour enregistrer server bande passante. </b><p>Les choix disponibles sont les suivants :</p><dl><dt><tt>on</tt></dt>
-<dd><p>Compresse les donn&#233;es.</p>
-
+<li>
+<p>Sous le noeud Configuration, d&eacute;veloppez le noeud Configuration r&eacute;seau.</p>
+</li>
+<li>
+<p>Sous le noeud Configuration r&eacute;seau, d&eacute;veloppez le noeud Protocoles.</p>
+<p>La page Protocoles appara&icirc;t.</p>
+</li>
+<li>
+<p>Sur la page Protocoles, cliquez sur le nom du protocole que vous modifiez.</p>
+<p>La page Modifier un protocole appara&icirc;t.</p>
+</li>
+<li>
+<p>Sur la page Modifier un protocole, cliquez sur l'onglet HTTP.</p>
+<p>La page HTTP appara&icirc;t.</p>
+</li>
+<li>
+<p>Dans le champ Nom du serveur, saisissez le nom d'h&ocirc;te &agrave; utiliser dans les URL envoy&eacute;es au client par le serveur.</p>
+<p>Ce nom correspond &agrave; l'alias si votre serveur en utilise un. Si votre serveur n'utilise aucun alias, laissez ce champ vide.</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante Serveur virtuel par d&eacute;faut, s&eacute;lectionnez le serveur virtuel &agrave; associer au protocole.</p>
+<p>La page Serveurs virtuels permet de d&eacute;finir des serveurs virtuels.</p>
+</li>
+<li>
+<p>Dans le champ Port de redirection, saisissez la valeur de port &agrave; utiliser pour rediriger une demande vers un autre port.</p>
+<p>GlassFish&nbsp;Server r&eacute;achemine automatiquement la demande si les deux conditions suivantes sont remplies&nbsp;:</p>
+<ul>
+<li>
+<p>Ce protocole prend en charge les demandes non SSL.</p>
+</li>
+<li>
+<p>Une demande est re&ccedil;ue. Une contrainte de s&eacute;curit&eacute; correspondante requiert le transport SSL.</p>
+</li>
+</ul>
+<p>Si aucun port de redirection n'est sp&eacute;cifi&eacute;, GlassFish&nbsp;Server utilise le num&eacute;ro de port sp&eacute;cifi&eacute; dans la demande d'origine.</p>
+</li>
+<li>
+<p>Dans le champ Nombre max. de connexions, saisissez le nombre maximal de connexions persistantes &agrave; maintenir.</p>
+<p>Le sous-syst&egrave;me de maintien des connexions interroge p&eacute;riodiquement les connexions inactives.</p>
+</li>
+<li>
+<p>Dans le champ D&eacute;lai d'attente, entrez la dur&eacute;e maximale (en secondes) pendant laquelle une connexion peut &ecirc;tre consid&eacute;r&eacute;e comme inactive et maintenue.</p>
+<p>Une valeur inf&eacute;rieure ou &eacute;gale &agrave;&nbsp;0 signifie que les connexions maintenues restent ouvertes ind&eacute;finiment. La valeur par d&eacute;faut est de 30&nbsp;secondes.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de l'option Temporisation du chargement pour activer la fermeture de la connexion pour un servlet qui lit les octets lentement une fois le d&eacute;lai de temporisation du chargement de la connexion d&eacute;pass&eacute;.</p>
+<p>Si cette option est d&eacute;sactiv&eacute;e, les connexions de servlet ne font pas l'objet de temporisations. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans le champ Temporisation du chargement de la connexion, entrez la valeur de temporisation des chargements, en millisecondes.</p>
+<p>Ce champ n'est applicable que si la case D&eacute;sactiv&eacute; de l'option Temporisation du chargement du chargement est coch&eacute;e. La valeur par d&eacute;faut est 300&nbsp;000&nbsp;millisecondes.</p>
+</li>
+<li>
+<p>Dans le champ Temporisation de la demande, saisissez le nombre de secondes au bout desquelles une demande expire.</p>
+<p>Si la demande n&rsquo;est pas trait&eacute;e avant la valeur de temporisation atteinte, la demande n'est pas prise en compte. La valeur par d&eacute;faut est de 30&nbsp;secondes.</p>
+</li>
+<li>
+<p>Dans le champ Taille du tampon d'envoi, saisissez la taille (en octets) du tampon d'envoi.</p>
+<p>La valeur par d&eacute;faut est 8&nbsp;192&nbsp;octets.</p>
+</li>
+<li>
+<p>Dans le champ Longueur du tampon d'en-t&ecirc;te, saisissez la taille (en octets) du tampon utilis&eacute; par les threads de traitement de demande pour lire les donn&eacute;es de la demande.</p>
+<p>La valeur par d&eacute;faut est 8&nbsp;192&nbsp;octets.</p>
+</li>
+<li>
+<p>Dans le champ Taille max. des actions POST, tapez la taille maximale (en octets) des actions POST.</p>
+<p>La valeur par d&eacute;faut est 2&nbsp;097&nbsp;152&nbsp;octets.</p>
+</li>
+<li>
+<p>Dans le champ Codage URI, tapez le nom du jeu de caract&egrave;res utilis&eacute; pour d&eacute;coder les URI de demande re&ccedil;us.</p>
+<p>La valeur doit &ecirc;tre un nom de jeu de caract&egrave;res IANA valide. La valeur par d&eacute;faut est UTF-8.</p>
+</li>
+<li>
+<p>Dans le champ Version, saisissez la version du protocole HTTP utilis&eacute;.</p>
+<p>La valeur par d&eacute;faut est HTTP/1.1.</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante Compression, s&eacute;lectionnez l'utilisation de la compression GZIP HTTP/1.1 pour enregistrer la bande passante du serveur.</p>
+<p>Les choix disponibles sont les suivants&nbsp;:</p>
+<dl>
+<dt><code>Actif</code></dt>
+<dd>
+<p>Compresse les donn&eacute;es.</p>
 </dd>
-<dt><tt>off</tt></dt>
-<dd><p>D&#233;sactive la compression.</p>
-
+<dt><code>Inactif</code></dt>
+<dd>
+<p>D&eacute;sactive la compression.</p>
 </dd>
-<dt><tt>force</tt></dt>
-<dd><p>Force la compression des donn&#233;es dans tous les cas. </p>
-
+<dt><code>Forcer</code></dt>
+<dd>
+<p>Force la compression des donn&eacute;es dans tous les cas.</p>
 </dd>
 </dl>
-<p>La valeur par d&#233;faut est <tt>off</tt>.</p></li>
-<li><b>Dans le champ Types MIME compressibles, tapez une liste s&#233;par&#233;e par des
-virgules de types MIME pour lesquels la compression HTTP est utilis&#233;e.</b><p>La valeur par d&#233;faut est <tt>text/html,text/xml,text/plain</tt>. </p></li>
-<li><b>Dans le champ Taille minimum de compression, saisissez la taille minimale d&#8217;un
-fichier lorsque la compression est appliqu&#233;e. </b><p>Cette valeur doit &#234;tre configur&#233;e si la compression est d&#233;finie sur <tt>on</tt>
-ou <tt>force</tt>. La valeur par d&#233;faut est 2048 octets.</p></li>
-<li><b>Dans le champ Agents utilisateur sans compression, tapez une liste s&#233;par&#233;e par
-des virgules d&#8217;expressions r&#233;guli&#232;res correspondant &#224; des agents utilisateur de clients HTTP pour
-lesquels la compression ne devrait pas &#234;tre utilis&#233;e. </b><p>Par d&#233;faut, cette valeur est une cha&#238;ne vide.</p></li>
-<li><b>Dans le champ Agent utilisateur limit&#233;, tapez une liste des agents utilisateur
-limit&#233;s sur lesquels la compression HTTP est appliqu&#233;e. </b><p>Si aucun utilisateur agent n&#8217;est sp&#233;cifi&#233;, la compression HTTP est appliqu&#233;e &#224;
-tous les agents utilisateur. Par d&#233;faut, aucun utilisateur agent n&#8217;est sp&#233;cifi&#233;.</p></li>
-<li><b>Dans le champ Type de r&#233;ponse par d&#233;faut, saisissez une cha&#238;ne qui
-sp&#233;cifie le type de r&#233;ponse par d&#233;faut. </b><p>Le format est une cha&#238;ne s&#233;par&#233;e par des points-virgule pr&#233;sentant le type
-de contenu (content-type), l&#8217;encodage, la langue et le jeu de caract&#232;res. La
-valeur par d&#233;faut est <tt>text/html; charset=iso-8859-1</tt>.</p></li>
-<li><b>Dans le champ Type de r&#233;ponse forc&#233;e, entrez une cha&#238;ne qui sp&#233;cifie
-le type de requ&#234;te utilis&#233; si aucun mappage MIME est disponible correspondant
-&#224; l&#8217;extension du fichier.</b><p>Le format est une cha&#238;ne s&#233;par&#233;e par des points-virgule pr&#233;sentant le type
-de contenu (content-type), l&#8217;encodage, la langue et le jeu de caract&#232;res. La
-valeur par d&#233;faut est <tt>text/html; charset=iso-8859-1</tt>.</p></li>
-<li><b>Dans le champ Adaptateur, entrez le nom de classe de l&#8217;adaptateur de
-ressources statiques. </b><p>La valeur par d&#233;faut est <tt>com.sun.grizzly.tcp.StaticResourcesAdapter</tt>.</p></li>
-<li><b>Cochez la case Comet Support activ&#233; pour activer le support Comet pour
-le protocole.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de Recherche DNS pour activer la recerche DNS
-(syst&#232;me de noms de domaines).</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de Prise en charge de RCM pour activer
-la gestion de la configuration des ressources (RCM). </b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de Suivi pour activer l&#8217;op&#233;ration TRACE. </b><p>Si cette option est d&#233;sactiv&#233;e, GlassFish Server est moins expos&#233; &#224; des
-attaques de scripts entre sites. Cette option est activ&#233;e par d&#233;faut.</p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de Auth. d&#8217;intercommunication pour indiquer que l&#8217;auditeur de
-r&#233;seau qui utilise ce protocole re&#231;oit le trafic d&#8217;un serveur proxy &#224;
-terminaison SSL. </b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de Segmentation pour activer le d&#233;coupage de r&#233;ponse
-HTTP. </b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de XPowered By pour indiquer &#224; GlassFish Server
-d&#8217;utiliser les en-t&#234;tes <tt>X-Powered-By</tt> selon les sp&#233;cifications de Java Servlet 3.0 et
-de Java Server Pages 2.0. </b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
-<li><b>Cliquez sur Enregistrer.</b>
-<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
-par d&#233;faut, puis sur Enregistrer.</p>
-
+<p>La valeur par d&eacute;faut est <code>Inactif</code>.</p>
+</li>
+<li>
+<p>Dans le champ Types MIME compressibles, entrez une liste de types MIME s&eacute;par&eacute;s par des virgules pour lesquels la compression HTTP est utilis&eacute;e.</p>
+<p>La valeur par d&eacute;faut est <code>text/html,text/xml,text/plain</code>.</p>
+</li>
+<li>
+<p>Dans le champ Taille minimum de compression, saisissez la taille minimale d&rsquo;un fichier lorsque la compression est appliqu&eacute;e.</p>
+<p>Cette valeur doit &ecirc;tre configur&eacute;e si la compression est d&eacute;finie sur <code>Actif</code> ou <code>Forcer</code>. La valeur par d&eacute;faut est 2&nbsp;048&nbsp;octets.</p>
+</li>
+<li>
+<p>Dans le champ Agents utilisateur sans compression, tapez une liste d'expressions r&eacute;guli&egrave;res (s&eacute;par&eacute;es par des virgules) correspondant aux agents utilisateur de clients HTTP pour lesquels la compression ne doit pas &ecirc;tre utilis&eacute;e.</p>
+<p>Par d&eacute;faut, cette valeur est une cha&icirc;ne vide.</p>
+</li>
+<li>
+<p>Dans le champ Agent utilisateur limit&eacute;, entrez une liste des agents utilisateur limit&eacute;s sur lesquels la compression HTTP est appliqu&eacute;e.</p>
+<p>Si aucun utilisateur agent n'est sp&eacute;cifi&eacute;, la compression HTTP est appliqu&eacute;e &agrave; tous les agents utilisateur. Par d&eacute;faut, aucun utilisateur agent n'est sp&eacute;cifi&eacute;.</p>
+</li>
+<li>
+<p>Dans le champ Type de r&eacute;ponse par d&eacute;faut, saisissez une cha&icirc;ne qui sp&eacute;cifie le type de r&eacute;ponse par d&eacute;faut.</p>
+<p>Le format est une cha&icirc;ne d'&eacute;l&eacute;ments, s&eacute;par&eacute;s par des points-virgules, pr&eacute;sentant le type de contenu, l'encodage, la langue et le jeu de caract&egrave;res. La valeur par d&eacute;faut est <code>text/html; charset=iso-8859-1</code>.</p>
+</li>
+<li>
+<p>Dans le champ Type de r&eacute;ponse forc&eacute;e, entrez une cha&icirc;ne qui sp&eacute;cifie le type de demande utilis&eacute; si aucune mise en correspondance MIME ne correspond &agrave; l'extension du fichier.</p>
+<p>Le format est une cha&icirc;ne d'&eacute;l&eacute;ments, s&eacute;par&eacute;s par des points-virgules, pr&eacute;sentant le type de contenu, l'encodage, la langue et le jeu de caract&egrave;res. La valeur par d&eacute;faut est <code>text/html; charset=iso-8859-1</code>.</p>
+</li>
+<li>
+<p>Dans le champ Adaptateur, entrez le nom de classe de l'adaptateur de ressource statique.</p>
+<p>La valeur par d&eacute;faut est <code>com.sun.grizzly.tcp.StaticResourcesAdapter</code>.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de l'option Support Comet afin d'activer le support Comet pour le protocole.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de l'option Recherche DNS pour activer la recherche DNS (Domain Name System).</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de l'option Prise en charge de RCM pour activer la gestion de la configuration des ressources (RCM).</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de l'option Trace pour activer l'op&eacute;ration TRACE.</p>
+<p>Si cette option est d&eacute;sactiv&eacute;e, GlassFish&nbsp;Server est moins expos&eacute; &agrave; des attaques de scripts entre sites. Cette option est activ&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de l'option Pass-through d'auth. pour indiquer que le processus d'&eacute;coute r&eacute;seau qui utilise ce protocole re&ccedil;oit le trafic d'un serveur proxy &agrave; terminaison SSL.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de l'option Segmentation pour activer la segmentation des r&eacute;ponses HTTP.</p>
+<p>Cette option est activ&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de l'option XPowered By pour indiquer &agrave; GlassFish&nbsp;Server d'utiliser les en-t&ecirc;tes <code>X-Powered-By</code> selon les sp&eacute;cifications Java Servlet&nbsp;3.0 et Java Server Pages&nbsp;2.0.</p>
+<p>Cette option est activ&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
 
 <hr>
-</li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-networklistenernew.html">Cr&#233;ation d'un listener r&#233;seau</a></p>
+<p><b>Conseil:</b></p>
+Pour revenir aux param&egrave;tres par d&eacute;faut, cliquez sur le bouton Charger les valeurs par d&eacute;faut, puis sur Enregistrer.
+<hr>
 
 </li>
-<li><p><a href="task-networklisteneredit.html">Modification d'un listener r&#233;seau</a></p>
-
+</ol>
+<a id="sthref61" name="sthref61"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-networklistenernew.html">Cr&eacute;er un processus d'&eacute;coute r&eacute;seau</a></p>
 </li>
-<li><p><a href="task-networklistenerdelete.html">Suppression d'un listener r&#233;seau</a></p>
-
+<li>
+<p><a href="task-networklisteneredit.html">Modifier un processus d'&eacute;coute r&eacute;seau</a></p>
 </li>
-<li><p><a href="task-protocolnew.html">Cr&#233;ation d'un protocole</a></p>
-
+<li>
+<p><a href="task-networklistenerdelete.html">Supprimer un processus d'&eacute;coute r&eacute;seau</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">Modification d'un protocole</a></p>
-
+<li>
+<p><a href="task-protocolnew.html">Cr&eacute;er un protocole</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">Modifier les param&#232;tres SSL d'un protocole </a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Modifier un protocole</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">Modifier les param&#232;tres de cache de fichiers pour un protocole</a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Modifier les param&egrave;tres SSL d'un protocole</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">Suppression d'un protocole</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Modifier les param&egrave;tres du cache de fichiers d'un protocole</a></p>
 </li>
-<li><p><a href="task-transportnew.html">Cr&#233;er un transport</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Supprimer un protocole</a></p>
 </li>
-<li><p><a href="task-transportedit.html">Modifier un transport</a></p>
-
+<li>
+<p><a href="task-transportnew.html">Cr&eacute;er un transport</a></p>
 </li>
-<li><p><a href="task-transportdelete.html">Supprimer un transport</a></p>
+<li>
+<p><a href="task-transportedit.html">Modifier un transport</a></p>
+</li>
+<li>
+<p><a href="task-transportdelete.html">Supprimer un transport</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

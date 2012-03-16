@@ -1,55 +1,69 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-configtransrecovery" name="task-configtransrecovery"></a><a id="GHJTS00005" name="GHJTS00005"></a></p>
 
-
-<a name="task-configtransrecovery"></a><h3>Configuration de la r&#233;cup&#233;ration des transactions par le GlassFish Server</h3><a name="indexterm-2"></a><p>Les transactions peuvent &#234;tre incompl&#232;tes en raison d&#8217;une panne du serveur ou
-d&#8217;un gestionnaire de ressources. Il est essentiel de terminer ces transactions qui
-ont &#233;chou&#233; et de pouvoir les r&#233;cup&#233;rer en cas de panne. Le
-GlassFish Server est con&#231;u pour r&#233;cup&#233;rer en cas de panne et pour
-terminer les transactions au d&#233;marrage du serveur.</p>
-
-<p>Si, au cours de la r&#233;cup&#233;ration, certaines ressources sont inaccessibles, le red&#233;marrage
-du serveur peut &#234;tre retard&#233; pendant qu&#8217;il essaye de r&#233;cup&#233;rer les transactions.</p>
-
-<p>Lorsque la transaction implique plusieurs serveurs, le serveur &#224; l&#8217;origine de la
-transaction peut contacter les autres serveurs pour obtenir le r&#233;sultat des transactions.
-Si les autres serveurs sont inaccessibles, la transaction utilise le champ D&#233;cision
-heuristique pour d&#233;terminer le r&#233;sultat.</p>
-
+<h4><a id="sthref4" name="sthref4"></a>Configuration de la r&eacute;cup&eacute;ration des transactions par GlassFish&nbsp;Server</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Les transactions peuvent &ecirc;tre incompl&egrave;tes en raison d'une panne du serveur ou d'un gestionnaire de ressources. Il est essentiel de terminer ces transactions laiss&eacute;es de c&ocirc;t&eacute; et de pouvoir les r&eacute;cup&eacute;rer en cas de panne. GlassFish&nbsp;Server est con&ccedil;u pour r&eacute;cup&eacute;rer en cas de panne et pour terminer les transactions au d&eacute;marrage du serveur.</p>
+<p>Si, au cours de la r&eacute;cup&eacute;ration, certaines ressources sont inaccessibles, le red&eacute;marrage du serveur peut &ecirc;tre retard&eacute; pendant qu'il essaye de r&eacute;cup&eacute;rer les transactions.</p>
+<p>Lorsque la transaction implique plusieurs serveurs, le serveur &agrave; l'origine de la transaction peut contacter les autres serveurs pour obtenir le r&eacute;sultat des transactions. Si les autres serveurs sont inaccessibles, la transaction utilise le champ D&eacute;cision heuristique pour d&eacute;terminer le r&eacute;sultat.</p>
 <ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>S&#233;lectionnez l&#8217;instance &#224; configurer :</b><ul>
-<li><b>Pour configurer une instance en particulier, s&#233;lectionnez le n&#339;ud de configuration de
-l&#8217;instance. Par exemple, pour l&#8217;instance par d&#233;faut, <tt>server</tt>, s&#233;lectionnez le n&#339;ud <tt>server-config</tt>.</b></li>
-<li><b>Pour configurer les r&#233;glages par d&#233;faut pour toutes les instances, s&#233;lectionnez le
-n&#339;ud <tt>default-config</tt>.</b></li></ul></li>
-<li><b>S&#233;lectionnez le n&#339;ud Service de transaction.</b><p>La page Service de transaction s&#8217;affiche.</p></li>
-<li><b>Dans la page Service de transaction, cochez la case Activ&#233; au red&#233;marrage
-pour activer la r&#233;cup&#233;ration des transactions incompl&#232;tes.</b><p>Par d&#233;faut, la case &#224; cocher Activ&#233; n&#8217;est pas coch&#233;e.</p></li>
-<li><b>Dans le champ D&#233;lai d&#8217;expiration de la tentative, saisissez le nombre de
-secondes pendant lesquelles le GlassFish Server tente de se connecter &#224; un
-serveur inaccessible.</b><p>La valeur par d&#233;faut est de 600 (10 minutes).</p></li>
-<li><b>Dans la liste d&#233;roulante D&#233;cision heuristique, s&#233;lectionnez la strat&#233;gie pour les serveurs
-inaccessibles dans une transaction.</b><p>&#192; moins d&#8217;avoir une bonne raison de s&#233;lectionner Engager, laissez l&#8217;option D&#233;cision
-heuristique d&#233;finie sur R&#233;p&#233;ter (par d&#233;faut). Valider les transactions ind&#233;termin&#233;es risque de
-compromettre l&#8217;int&#233;grit&#233; des donn&#233;es dans votre application.</p></li>
-<li><b>Cliquez sur Enregistrer.</b></li>
-<li><b>Red&#233;marrez GlassFish Server.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-configtransservice.html">Configuration du service de transaction</a></p>
-
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p><a href="task-settranstimeout.html">D&#233;finition du d&#233;lai d'attente d'une transaction</a></p>
-
+<li>
+<p>S&eacute;lectionnez l'instance &agrave; configurer&nbsp;:</p>
+<ul>
+<li>
+<p>Pour configurer une instance sp&eacute;cifique, s&eacute;lectionnez le noeud de configuration de l'instance. Par exemple, pour l'instance par d&eacute;faut, <code>server</code>, s&eacute;lectionnez le noeud <code>server-config</code>.</p>
 </li>
-<li><p><a href="task-settranslog.html">D&#233;finition de l'emplacement des journaux des transactions</a></p>
-
+<li>
+<p>Pour configurer les param&egrave;tres par d&eacute;faut pour toutes les instances, s&eacute;lectionnez le noeud <code>default-config</code>.</p>
 </li>
-<li><p><a href="task-setkeyptinterval.html">D&#233;finition de l'intervalle entre points cl&#233;s</a></p>
+</ul>
+</li>
+<li>
+<p>S&eacute;lectionnez le noeud Service de transaction.</p>
+<p>La page Service de transaction appara&icirc;t.</p>
+</li>
+<li>
+<p>Sur la page Service de transaction, cochez la case Activ&eacute; de l'option Au red&eacute;marrage pour activer la r&eacute;cup&eacute;ration des transactions incompl&egrave;tes.</p>
+<p>Par d&eacute;faut, la case Activ&eacute; n'est pas coch&eacute;e.</p>
+</li>
+<li>
+<p>Dans le champ Temporisation de tentative, saisissez le nombre de secondes pendant lesquelles GlassFish&nbsp;Server tente de se connecter &agrave; un serveur inaccessible.</p>
+<p>La valeur par d&eacute;faut est&nbsp;600 (10&nbsp;minutes).</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante D&eacute;cision heuristique, s&eacute;lectionnez la r&egrave;gle pour les serveurs inaccessibles dans une transaction.</p>
+<p>A moins d'avoir une bonne raison de s&eacute;lectionner Engager, laissez l'option D&eacute;cision heuristique d&eacute;finie sur R&eacute;p&eacute;ter (par d&eacute;faut). Valider les transactions ind&eacute;termin&eacute;es risque de compromettre l'int&eacute;grit&eacute; des donn&eacute;es dans votre application.</p>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
+</li>
+<li>
+<p>Red&eacute;marrez GlassFish&nbsp;Server.</p>
+</li>
+</ol>
+<a id="sthref5" name="sthref5"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-configtransservice.html">Configurer le service de transaction</a></p>
+</li>
+<li>
+<p><a href="task-settranstimeout.html">D&eacute;finir une valeur de temporisation des transactions</a></p>
+</li>
+<li>
+<p><a href="task-settranslog.html">D&eacute;finir l'emplacement des journaux des transactions</a></p>
+</li>
+<li>
+<p><a href="task-setkeyptinterval.html">D&eacute;finir l'intervalle entre les points cl&eacute;s</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

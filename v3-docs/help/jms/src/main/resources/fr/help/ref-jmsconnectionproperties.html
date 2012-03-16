@@ -1,70 +1,63 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jmsconnectionproperties"></a><h4>Propri&#233;t&#233;s sp&#233;cifiques aux usines de connexion JMS</h4>
-<a name="indexterm-33"></a><a name="indexterm-34"></a><p>Les propri&#233;t&#233;s suppl&#233;mentaires suivantes sont disponibles pour une usine de connexion JMS.</p>
+<p><a id="ref-jmsconnectionproperties" name="ref-jmsconnectionproperties"></a><a id="GHJMS00005" name="GHJMS00005"></a></p>
 
-<dl><dt><tt>ClientId</tt></dt>
-<dd><p>Sp&#233;cifie un ID client si la fabrique de connexion est destin&#233;e &#224; &#234;tre utilis&#233;e par un abonn&#233; de mani&#232;re durable.</p>
-
+<h4><a id="sthref57" name="sthref57"></a><a id="sthref58" name="sthref58"></a>Propri&eacute;t&eacute;s propres aux fabriques de connexions JMS</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Les propri&eacute;t&eacute;s suppl&eacute;mentaires suivantes sont disponibles pour une fabrique de connexions JMS.</p>
+<dl>
+<dt><code>ClientId</code></dt>
+<dd>
+<p>Sp&eacute;cifie un ID client si la fabrique de connexions est destin&eacute;e &agrave; &ecirc;tre utilis&eacute;e par un abonn&eacute; durable.</p>
 </dd>
-<dt><tt>AddressList</tt></dt>
-<dd><p>Indique les noms (et parfois les num&#233;ros de port) de la ou des instances d&#8217;un courtier de message avec lesquelles les applications vont communiquer. Chaque adresse de la liste indique le nom d&#8217;h&#244;te (et parfois le port de l&#8217;h&#244;te et le service de connexion) pour la connexion. Par exemple, la valeur peut &#234;tre <tt>earth</tt> ou <tt>earth:7677</tt>. Sp&#233;cifiez le num&#233;ro de port si le courtier de message utilise un autre port que le port par d&#233;faut (7676). Si les param&#232;tres de propri&#233;t&#233; sp&#233;cifient plusieurs h&#244;tes et plusieurs ports dans un environnement clust&#233;ris&#233;, le premier h&#244;te disponible dans la liste est utilis&#233;, &#224; moins que la valeur de la propri&#233;t&#233; <tt>AddressListBehavior</tt> ne soit <tt>RANDOM</tt>.</p>
-
-<p>Pour plus d&#8217;informations, reportez-vous au <b>Guide du d&#233;veloppeur Message Queue pour clients Java</b>.</p>
-
-<p>La valeur par d&#233;faut est l&#8217;h&#244;te local et num&#233;ro de port par d&#233;faut (7676). Le client tentera de se connecter &#224; un courtier sur le port 7676 de l&#8217;h&#244;te local.</p>
-
+<dt><code>AddressList</code></dt>
+<dd>
+<p>Indique les noms (et &eacute;ventuellement les num&eacute;ros de port) des instances de broker avec lesquelles les applications vont communiquer. Chaque adresse de la liste indique le nom d'h&ocirc;te (et &eacute;ventuellement le port de l'h&ocirc;te et le service de connexion) pour la connexion. Par exemple, la valeur peut &ecirc;tre <code>earth</code> ou <code>earth:7677</code>. Sp&eacute;cifiez le num&eacute;ro de port si le broker utilise un autre port que le port par d&eacute;faut (7676). Si les param&egrave;tres de propri&eacute;t&eacute; sp&eacute;cifient plusieurs h&ocirc;tes et plusieurs ports dans un environnement inclus dans un cluster, le premier h&ocirc;te disponible dans la liste est utilis&eacute;, &agrave; moins que la valeur de la propri&eacute;t&eacute; <code>AddressListBehavior</code> ne soit <code>RANDOM</code>.</p>
+<p>Pour plus d'informations, reportez-vous au manuel <i>Message Queue Developer's Guide for Java Clients</i>.</p>
+<p>La valeur par d&eacute;faut est l'h&ocirc;te local et le num&eacute;ro de port par d&eacute;faut (7676). Le client tentera de se connecter &agrave; un broker sur le port&nbsp;7676 de l'h&ocirc;te local.</p>
 </dd>
-<dt><tt>UserName</tt></dt>
-<dd><p>Nom d&#8217;utilisateur pour la fabrique de connexion.</p>
-
-<p>La valeur par d&#233;faut est <tt>guest</tt>.</p>
-
+<dt><code>UserName</code></dt>
+<dd>
+<p>Nom utilisateur de la fabrique de connexions.</p>
+<p>La valeur par d&eacute;faut est <code>guest</code>.</p>
 </dd>
-<dt><tt>Password</tt></dt>
-<dd><p>Mot de passe pour la fabrique de connexion.</p>
-
-<p>La valeur par d&#233;faut est <tt>guest</tt>.</p>
-
+<dt><code>Password</code></dt>
+<dd>
+<p>Mot de passe de la fabrique de connexions.</p>
+<p>La valeur par d&eacute;faut est <code>guest</code>.</p>
 </dd>
-<dt><tt>ReconnectEnabled</tt></dt>
-<dd><p>Si elle est d&#233;finie sur <tt>true</tt>, cela sp&#233;cifie que l&#8217;ex&#233;cution du client tente de se reconnecter &#224; un serveur de messages (ou la liste des adresses dans <tt>AddressList</tt>) lorsqu&#8217;une connexion est perdue.</p>
-
-<p>La valeur par d&#233;faut est <tt>true</tt>.</p>
-
+<dt><code>ReconnectEnabled</code></dt>
+<dd>
+<p>Si cette propri&eacute;t&eacute; a la valeur <code>True</code>, indique que le programme client tente de se reconnecter &agrave; un serveur de messagerie (ou &agrave; la liste d'adresses indiqu&eacute;e dans <code>AddressList</code>) en cas de perte de connexion.</p>
+<p>La valeur par d&eacute;faut est <code>True</code>.</p>
 </dd>
-<dt><tt>ReconnectAttempts</tt></dt>
-<dd><p>D&#233;finit le nombre de tentatives de connexion (ou de reconnexion) pour chaque adresse dans <tt>AddressList</tt> avant que le programme client ne passe &#224; l&#8217;adresse suivante dans la liste. La valeur -1 indique que le nombre de tentatives de reconnexion est illimit&#233; (le programme client tentera de se connecter &#224; la premi&#232;re adresse jusqu&#8217;&#224; ce qu&#8217;il y arrive).</p>
-
-<p>La valeur par d&#233;faut est 3.</p>
-
+<dt><code>ReconnectAttempts</code></dt>
+<dd>
+<p>D&eacute;finit le nombre de tentatives de connexion (ou de reconnexion) pour chaque adresse indiqu&eacute;e dans <code>AddressList</code> avant que le programme client ne passe &agrave; l'adresse suivante dans la liste. La valeur&nbsp;-1 indique que le nombre de tentatives de reconnexion est illimit&eacute; (le programme client tentera de se connecter &agrave; la premi&egrave;re adresse jusqu'&agrave; ce qu'il y parvienne).</p>
+<p>La valeur par d&eacute;faut est&nbsp;3.</p>
 </dd>
-<dt><tt>ReconnectInterval</tt></dt>
-<dd><p>Sp&#233;cifie l&#8217;intervalle en millisecondes entre les tentatives de reconnexion. Cela s&#8217;applique aux tentatives sur chaque adresse dans <tt>AddressList</tt> ainsi qu&#8217;aux adresses successives dans la liste. Si l&#8217;intervalle est trop court, le courtier n&#8217;aura pas le temps de r&#233;cup&#233;rer. S&#8217;il est trop long, le d&#233;lai de reconnexion peut &#234;tre inacceptable.</p>
-
-<p>La valeur par d&#233;faut est 30 000.</p>
-
+<dt><code>ReconnectInterval</code></dt>
+<dd>
+<p>Sp&eacute;cifie l'intervalle, en millisecondes, entre les tentatives de reconnexion. Cet intervalle s'applique aux tentatives sur chaque adresse indiqu&eacute;e dans <code>AddressList</code>, ainsi qu'aux adresses successives dans la liste. Si l'intervalle est trop court, le broker n'a pas le temps de r&eacute;cup&eacute;rer. S'il est trop long, le d&eacute;lai de reconnexion peut &ecirc;tre inacceptable.</p>
+<p>La valeur par d&eacute;faut est&nbsp;30&nbsp;000.</p>
 </dd>
-<dt><tt>AddressListBehavior</tt></dt>
-<dd><p>Indique si les tentatives de connexion doivent suivre l&#8217;ordre des adresses dans l&#8217;attribut <tt>AddressList</tt> (<tt>PRIORITY</tt>) ou un ordre al&#233;atoire (<tt>RANDOM</tt>).</p>
-
-<p><tt>RANDOM</tt> signifie que le processus de reconnexion choisit une adresse au hasard dans <tt>AddressList</tt>. Si un grand nombre de clients est susceptible de se connecter en utilisant la m&#234;me fabrique de connexion, cette valeur les emp&#234;che d&#8217;&#234;tre tous connect&#233;s &#224; la m&#234;me adresse.</p>
-
-<p><tt>PRIORITY</tt> signifie que le processus de reconnexion tentera toujours de se connecter &#224; la premi&#232;re adresse de serveur dans <tt>AddressList</tt> et n&#8217;utilisera une autre adresse que si le premier courtier n&#8217;est pas disponible.</p>
-
-<p>La valeur par d&#233;faut est <tt>RANDOM</tt>.</p>
-
+<dt><code>AddressListBehavior</code></dt>
+<dd>
+<p>Indique si les tentatives de connexion doivent suivre l'ordre des adresses indiqu&eacute;es dans l'attribut <code>AddressList</code> (<code>PRIORITY</code>) ou un ordre al&eacute;atoire (<code>RANDOM</code>).</p>
+<p><code>RANDOM</code> signifie que le processus de reconnexion choisit une adresse au hasard dans <code>AddressList</code>. Si un grand nombre de clients sont susceptibles de se connecter en utilisant la m&ecirc;me fabrique de connexions, cette valeur les emp&ecirc;che d'&ecirc;tre tous connect&eacute;s &agrave; la m&ecirc;me adresse.</p>
+<p><code>PRIORITY</code> signifie que le processus de reconnexion tentera toujours de se connecter &agrave; la premi&egrave;re adresse de serveur dans <code>AddressList</code> et n'utilisera une autre adresse que si le premier broker n'est pas disponible.</p>
+<p>La valeur par d&eacute;faut est <code>RANDOM</code>.</p>
 </dd>
-<dt><tt>AddressListIterations</tt></dt>
-<dd><p>Indique le nombre d&#8217;it&#233;rations du programme client dans <tt> AddressList</tt> en vue d&#8217;&#233;tablir (ou de r&#233;tablir) une connexion. La valeur -1 indique que le nombre de tentatives est illimit&#233;.</p>
-
-<p>La valeur par d&#233;faut est 3.</p>
-
+<dt><code>AddressListIterations</code></dt>
+<dd>
+<p>Indique le nombre d'it&eacute;rations du programme client dans <code>AddressList</code> en vue d'&eacute;tablir (ou de r&eacute;tablir) une connexion. La valeur&nbsp;-1 indique que le nombre de tentatives est illimit&eacute;.</p>
+<p>La valeur par d&eacute;faut est&nbsp;3.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,43 +1,60 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-createcustomrealm" name="task-createcustomrealm"></a><a id="GHCOM00187" name="GHCOM00187"></a></p>
 
-
-<a name="task-createcustomrealm"></a><h3>Cr&#233;er un domaine personnalis&#233;</h3><a name="indexterm-85"></a><a name="indexterm-86"></a><p>En plus des trois domaines int&#233;gr&#233;s, vous pouvez &#233;galement cr&#233;er des domaines
-personnalis&#233;s pour enregistrer les donn&#233;es utilisateur d&#8217;une autre mani&#232;re, par exemple dans
-une base de donn&#233;es relationnelle. La cr&#233;ation d&#8217;un domaine personnalis&#233; n&#8217;entre pas
-dans le domaine d&#8217;application de ce document. Pour de plus amples informations,
-reportez-vous au <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beabg">Chapitre 4, Securing Applications du <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>.</p>
-
-<p>Pour une meilleure gestion, des domaines personnalis&#233;s sont impl&#233;ment&#233;s par une classe
-(appel&#233;e <tt>LoginModule</tt>) issue du package Java Authentication and Authorization Service (JAAS).</p>
-
+<h4><a id="sthref147" name="sthref147"></a><a id="sthref148" name="sthref148"></a>Cr&eacute;er un domaine personnalis&eacute;</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>En plus des trois domaines int&eacute;gr&eacute;s, vous pouvez &eacute;galement cr&eacute;er des domaines personnalis&eacute;s pour enregistrer les donn&eacute;es utilisateur d'une autre mani&egrave;re, par exemple dans une base de donn&eacute;es relationnelle. La cr&eacute;ation d'un domaine personnalis&eacute; n'entre pas dans le champ d'application de ce document. Pour plus d'informations, reportez-vous au <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDVG00006">chapitre&nbsp;5, "<i>Securing Applications</i>", du manuel <i>Oracle GlassFish Server Application Development Guide</i></a>.</p>
+<p>Pour une meilleure gestion, les domaines personnalis&eacute;s sont impl&eacute;ment&eacute;s par une classe (appel&eacute;e <code>LoginModule</code>) issue du package&nbsp;JAAS (Java Authentication and Authorization Service).</p>
 <ol>
-<li><b>Suivez la proc&#233;dure dans <a href="task-realmnew.html">Cr&#233;er un domaine</a>, en saisissant le nom du domaine personnalis&#233;
-et le nom de la classe <tt> LoginModule</tt>. </b><p>Utilisez un nom unique pour le domaine personnalis&#233;, par exemple <tt>monDomainePersonnalis&#233;</tt>.</p></li>
-<li><b>Cliquez sur OK.</b></li>
-<li><b>Modifiez le fichier de configuration de connexion du domaine, <tt></tt><i>domain-dir</i><tt>/config/login.conf </tt>, et ajoutez
-le nom de classe complet du module <tt>LoginModule </tt> JASS &#224; la fin
-du fichier, comme suit :</b><pre><i>realmName</i> {
+<li>
+<p>Suivez la proc&eacute;dure d&eacute;crite dans <a href="task-realmnew.html">Cr&eacute;er un domaine</a>, en saisissant le nom du domaine personnalis&eacute; et le nom de la classe <code>LoginModule</code>.</p>
+<p>Utilisez un nom unique pour le domaine personnalis&eacute; (par exemple, <code>myCustomRealm</code>).</p>
+</li>
+<li>
+<p>Cliquez sur OK.</p>
+</li>
+<li>
+<p>Modifiez le fichier de configuration de connexion du domaine, <i>domain-dir</i><code>/config/login.conf</code>, et ajoutez le nom qualifi&eacute; complet de la classe du module <code>LoginModule</code>&nbsp;JAAS &agrave; la fin du fichier, comme suit&nbsp;:</p>
+<pre>
+<i>realmName</i> {
     <i>fully-qualified-LoginModule-classname</i> required;
-};</pre><p>Par exemple,</p><pre>myCustomRealm {
+};
+</pre>
+<p>Exemple&nbsp;:</p>
+<pre>
+myCustomRealm {
     com.foo.bar.security.customrealm.simpleCustomLoginModule required;
-};</pre></li>
-<li><b>Copiez la classe du module <tt>LoginModule</tt><tt> et toutes les classes qui en d&#233;pendent dans le r&#233;pertoire </tt><i>domain-dir</i><tt>/lib/classes</tt>.</b></li>
-<li><b>Red&#233;marrez le serveur si Red&#233;marrage requis s&#8217;affiche dans la Console d'administration .</b></li>
-<li><b>Assurez-vous que le domaine a &#233;t&#233; correctement charg&#233;.</b><p>V&#233;rifiez <tt></tt><i>domain-dir</i><tt>/logs/server.log </tt> pour vous assurer que le domaine a bien &#233;t&#233; charg&#233;
-par le serveur. Le serveur doit appeler la m&#233;thode <tt>init</tt> du domaine.</p></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-realmnew.html">Cr&#233;er un domaine</a></p>
-
+};
+</pre></li>
+<li>
+<p>Copiez la classe <code>LoginModule</code> et toutes les classes qui en d&eacute;pendent dans le r&eacute;pertoire <i>domain-dir</i><code>/lib/classes</code>.</p>
 </li>
-<li><p><a href="task-realmedit.html">Modifier un domaine</a></p>
-
+<li>
+<p>Red&eacute;marrez le serveur si "Red&eacute;marrage obligatoire" appara&icirc;t dans la Console d'administration .</p>
 </li>
-<li><p><a href="task-todeleterealm.html">Supprimer un domaine</a></p>
+<li>
+<p>Assurez-vous que le domaine a &eacute;t&eacute; correctement charg&eacute;.</p>
+<p>V&eacute;rifiez <i>domain-dir</i><code>/logs/server.log</code> pour vous assurer que le serveur a bien charg&eacute; le domaine. Le serveur doit appeler la m&eacute;thode <code>init</code> du domaine.</p>
+</li>
+</ol>
+<a id="sthref149" name="sthref149"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-realmnew.html">Cr&eacute;er un domaine</a></p>
+</li>
+<li>
+<p><a href="task-realmedit.html">Modifier un domaine</a></p>
+</li>
+<li>
+<p><a href="task-todeleterealm.html">Supprimer un domaine</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

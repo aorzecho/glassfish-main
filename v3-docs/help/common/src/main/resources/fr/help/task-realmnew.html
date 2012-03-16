@@ -1,113 +1,123 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-realmnew" name="task-realmnew"></a><a id="GHCOM00184" name="GHCOM00184"></a></p>
 
-
-<a name="task-realmnew"></a><h3>Cr&#233;er un domaine</h3><a name="indexterm-81"></a><a name="indexterm-82"></a><p>Le GlassFish Server est pr&#233;configur&#233; avec trois domaines : <tt>file</tt>, <tt> certificate</tt> et
-<tt>admin-realm</tt>. Il est &#233;galement possible de cr&#233;er d&#8217;autres domaines <tt>ldap</tt>, <tt>JDBC</tt>, <tt>solaris</tt>,
-<tt> PAM</tt> et des domaines personnalis&#233;s. Un serveur comprend g&#233;n&#233;ralement un domaine de
-chaque type, tandis que le GlassFish Server comprend deux domaines de fichiers
-: <tt>file</tt> et <tt> admin-realm</tt>. Il s&#8217;agit de deux domaines du m&#234;me type,
-mais ayant deux utilisations diff&#233;rentes. Il est &#233;galement possible d&#8217;avoir une base
-de donn&#233;es de certificats diff&#233;rente pour chaque serveur virtuel du syst&#232;me.</p>
-
+<h4><a id="sthref141" name="sthref141"></a>Cr&eacute;er un domaine</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>GlassFish&nbsp;Server est pr&eacute;configur&eacute; avec trois domaines&nbsp;: <code>file</code>, <code>certificate</code> et <code>admin-realm</code>. Il est &eacute;galement possible de cr&eacute;er des domaines <code>ldap</code>, <code>JDBC</code>, <code>solaris</code>, <code>PAM</code> et des domaines personnalis&eacute;s. Un serveur comprend g&eacute;n&eacute;ralement un domaine de chaque type, tandis que GlassFish&nbsp;Server comprend deux domaines de fichiers&nbsp;: <code>file</code> et <code>admin-realm</code>. Il s'agit de deux domaines du m&ecirc;me type, mais ayant deux utilisations diff&eacute;rentes. Il est &eacute;galement possible d'avoir une base de donn&eacute;es de certificats diff&eacute;rente pour chaque serveur virtuel du syst&egrave;me.</p>
 <ol>
-<li><b>Sous le n&#339;ud Configurations, d&#233;veloppez la configuration de l'instance de serveur ou
-du cluster pour laquelle vous souhaitez configurer des domaines. </b></li>
-<li><b>D&#233;veloppez le n&#339;ud S&#233;curit&#233;.</b></li>
-<li><b>D&#233;veloppez le n&#339;ud Domaines.</b><p>La page Domaines s&#8217;affiche.</p></li>
-<li><b>Sur la page Domaines, cliquez sur Nouveau.</b><p>La page Nouveau domaine s&#8217;affiche.</p></li>
-<li><b>Dans le champ Nom, attribuez un nom au domaine.</b></li>
-<li><b>Pour sp&#233;cifier le nom de classe pour le domaine, proc&#233;dez de l&#8217;une
-des mani&#232;res suivantes&#160;:</b><ul>
-<li><b>Dans la liste d&#233;roulante Nom de la classe, s&#233;lectionnez le nom de
-classe du domaine &#224; cr&#233;er.</b><p>Les choix possibles sont affich&#233;s dans le tableau suivant.</p><table><col width="16%"><col width="83%"><tr><th align="left" valign="top" scope="column"><p>Nom de domaine</p>
+<li>
+<p>Sous le noeud Configurations, d&eacute;veloppez la configuration d'instance de serveur ou de cluster pour laquelle vous souhaitez configurer des domaines.</p>
+</li>
+<li>
+<p>D&eacute;veloppez le noeud S&eacute;curit&eacute;.</p>
+</li>
+<li>
+<p>D&eacute;veloppez le noeud Domaines.</p>
+<p>La page Domaines appara&icirc;t.</p>
+</li>
+<li>
+<p>Sur la page Domaines, cliquez sur Nouveau.</p>
+<p>La page Nouveau domaine appara&icirc;t.</p>
+</li>
+<li>
+<p>Dans le champ Nom, attribuez un nom au domaine.</p>
+</li>
+<li>
+<p>Pour sp&eacute;cifier le nom de classe du domaine, proc&eacute;dez de l'une des mani&egrave;res suivantes&nbsp;:</p>
+<ul>
+<li>
+<p>Dans la liste d&eacute;roulante Nom de classe, s&eacute;lectionnez le nom de classe du domaine &agrave; cr&eacute;er.</p>
+<p>Les choix possibles sont affich&eacute;s dans le tableau suivant.</p>
 
-</th>
-<th align="left" valign="top" scope="column"><p>Nom de
-la classe</p>
-
-</th>
+<table  summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="16%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t7">Nom de domaine</th>
+<th align="left" valign="bottom" id="r1c2-t7">Nom de classe</th>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>fichier</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.file.FileRealm</tt></p>
-
-</td>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t7" headers="r1c1-t7"><code>file</code></td>
+<td align="left" headers="r2c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.file.FileRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>certificat</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.certificate.CertificateRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t7" headers="r1c1-t7"><code>certificate</code></td>
+<td align="left" headers="r3c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.certificate.CertificateRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>ldap</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.ldap.LDAPRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t7" headers="r1c1-t7"><code>ldap</code></td>
+<td align="left" headers="r4c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.ldap.LDAPRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>JDBC</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t7" headers="r1c1-t7"><code>JDBC</code></td>
+<td align="left" headers="r5c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>solaris</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.solaris.SolarisRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t7" headers="r1c1-t7"><code>solaris</code></td>
+<td align="left" headers="r6c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.solaris.SolarisRealm</code></td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p><tt>PAM</tt></p>
-
-</td>
-<td align="left" valign="top" scope="row"><p><tt>com.sun.enterprise.security.auth.realm.solaris.PamRealm</tt></p>
-
-</td>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t7" headers="r1c1-t7"><code>PAM</code></td>
+<td align="left" headers="r7c1-t7 r1c2-t7"><code>com.sun.enterprise.security.auth.realm.solaris.PamRealm</code></td>
 </tr>
-</table></li>
-<li><b>S&#233;lectionnez le bouton radio inf&#233;rieur et saisissez le nom de classe du
-domaine personnalis&#233; &#224; cr&#233;er.</b></li></ul></li>
-<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</p><p>Les propri&#233;t&#233;s valides d&#233;pendent du type de domaine.</p>
-<ul><li><p><a href="ref-editfile-adminrealm.html">Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>FileRealm</tt></a></p>
-
+</tbody>
+</table>
+<hr>
 </li>
-<li><p><a href="ref-editcertrealm.html">Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>CertificateRealm</tt></a></p>
-
+<li>
+<p>S&eacute;lectionnez le bouton d'option inf&eacute;rieur et saisissez le nom de classe du domaine personnalis&eacute; &agrave; cr&eacute;er.</p>
 </li>
-<li><p><a href="ref-editjdbcrealm.html">Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>JDBCRealm</tt></a></p>
-
+</ul>
 </li>
-<li><p><a href="ref-ldaprealmprop.html">Propri&#233;t&#233;s sp&#233;cifiques &#224; la classe <tt>LDAPRealm </tt></a></p>
-
+<li>
+<p>Dans la section Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les propri&eacute;t&eacute;s suppl&eacute;mentaires.</p>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+<p>Les propri&eacute;t&eacute;s valides d&eacute;pendent du type de domaine.</p>
+<ul>
+<li>
+<p><a href="ref-editfile-adminrealm.html">Propri&eacute;t&eacute;s propres &agrave; la classe<code>FileRealm</code></a></p>
 </li>
-<li><p><a href="ref-solarisrealmprop.html">Propri&#233;t&#233;s sp&#233;cifiques &#224; la classe <tt>SolarisRealm </tt></a></p>
-
+<li>
+<p><a href="ref-editcertrealm.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>CertificateRealm</code></a></p>
 </li>
-<li><p><a href="ref-pamrealmprop.html">Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>PamRealm </tt></a></p>
-
-</li></ul>
+<li>
+<p><a href="ref-editjdbcrealm.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>JDBCRealm</code></a></p>
 </li>
-<li><b>Cliquez sur OK.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-realmedit.html">Modifier un domaine</a></p>
-
+<li>
+<p><a href="ref-ldaprealmprop.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>LDAPRealm</code></a></p>
 </li>
-<li><p><a href="task-todeleterealm.html">Supprimer un domaine</a></p>
-
+<li>
+<p><a href="ref-solarisrealmprop.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>SolarisRealm</code></a></p>
 </li>
-<li><p><a href="task-createcustomrealm.html">Cr&#233;er un domaine personnalis&#233;</a></p>
+<li>
+<p><a href="ref-pamrealmprop.html">Propri&eacute;t&eacute;s propres &agrave; la classe <code>PamRealm</code></a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cliquez sur OK.</p>
+</li>
+</ol>
+<a id="sthref142" name="sthref142"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-realmedit.html">Modifier un domaine</a></p>
+</li>
+<li>
+<p><a href="task-todeleterealm.html">Supprimer un domaine</a></p>
+</li>
+<li>
+<p><a href="task-createcustomrealm.html">Cr&eacute;er un domaine personnalis&eacute;</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

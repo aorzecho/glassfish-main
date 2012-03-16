@@ -1,85 +1,100 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-networklisteneredit" name="task-networklisteneredit"></a><a id="GHWEB00040" name="GHWEB00040"></a></p>
 
-
-<a name="task-networklisteneredit"></a><h3>Modification d&#8217;un listener r&#233;seau</h3><a name="indexterm-22"></a><ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>Sous le n&#339;ud Configuration, d&#233;veloppez le n&#339;ud Config r&#233;seau.</b></li>
-<li><b>Sous le n&#339;ud Configuration de r&#233;seau, s&#233;lectionnez le n&#339;ud Auditeurs de r&#233;seau.</b><p>La page Listeners r&#233;seau s&#8217;affiche.</p></li>
-<li><b>Sur la page Auditeurs de r&#233;seau, cliquez sur le nom de l&#8217;auditeur
-de r&#233;seau que vous modifiez.</b><p>La page Modifier le listener r&#233;seau s&#8217;affiche.</p></li>
-<li><b>Cochez ou d&#233;cochez la case &#201;tat activ&#233; pour modifier l&#8217;&#233;tat du listener
-r&#233;seau.</b><p>Le listener peut &#234;tre activ&#233; ou d&#233;sactiv&#233;. Cette option est activ&#233;e par
-d&#233;faut. Si l&#8217;auditeur est d&#233;sactiv&#233;, toute tentative de connexion &#224; l&#8217;auditeur a pour
-r&#233;sultat une exception de socket (<tt>java.net.ConnectException</tt>). </p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de S&#233;curit&#233; pour activer la s&#233;curit&#233; du protocole
-utilis&#233; par l&#8217;auditeur de r&#233;seau. </b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de Listener JK pour indiquer que le module
-d&#8217;&#233;coute prend en charge le protocole <tt>mod-jk</tt> Apache. </b><p>Le protocole <tt>mod-jk</tt> est un protocole communication/r&#233;seau propri&#233;taire entre <tt>httpd</tt> Apache (serveur
-Web) et une instance d&#8217;arri&#232;re-plan de  GlassFish Server. Si l&#8217;auditeur prend en
-charge ce protocole, <tt>httpd</tt> est suppos&#233; g&#233;rer tout le contenu statique, tandis
-qu&#8217;une demande de ressources dynamiques (c&#8217;est-&#224;-dire, de servlets et de JSP) est
-achemin&#233;e vers l&#8217;auditeur r&#233;seau activ&#233; <tt>mod-jk</tt> de GlassFish Server, utilisant le protocole
-<tt>mod-jk</tt>. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>Dans le champ Port, saisissez le num&#233;ro de port sur lequel le
-listener r&#233;seau va &#233;couter.</b><p>Les valeurs valides sont comprises entre 1 et 65535. Sur un syst&#232;me
-UNIX, la cr&#233;ation de sockets &#233;coutant sur les ports 1 &#224; 1024 requiert
-des privil&#232;ges de superutilisateur.</p></li>
-<li><b>Dans le champ Adresse, saisissez l&#8217;adresse IP sur laquelle le listener r&#233;seau
-va &#233;couter.</b><p>L&#8217;adresse peut pr&#233;senter une notation IPv6 ou des paires de chiffres s&#233;par&#233;es
-par des points. Elle peut &#234;tre d&#233;finie sur <tt>any</tt> (pour <tt>INADDR_ANY</tt>) pour
-&#233;couter sur toutes les adresses IP. Il peut s&#8217;agir d&#8217;un nom d&#8217;h&#244;te.
-</p></li>
-<li><b>Dans la liste d&#233;roulante Pool de thread, s&#233;lectionnez le pool de thread
-&#224; associer &#224; l&#8217;auditeur de r&#233;seau.</b></li>
-<li><b>Cliquez sur Enregistrer.</b>
-<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
-par d&#233;faut, puis sur Enregistrer.</p>
-
+<h4><a id="sthref45" name="sthref45"></a>Modifier un processus d'&eacute;coute r&eacute;seau</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
+</li>
+<li>
+<p>Sous le noeud Configuration, d&eacute;veloppez le noeud Configuration r&eacute;seau.</p>
+</li>
+<li>
+<p>Sous le noeud Configuration r&eacute;seau, s&eacute;lectionnez le noeud Processus d'&eacute;coute r&eacute;seau.</p>
+<p>La page Processus d'&eacute;coute r&eacute;seau appara&icirc;t.</p>
+</li>
+<li>
+<p>Sur la page Processus d'&eacute;coute r&eacute;seau, cliquez sur le nom du processus d'&eacute;coute r&eacute;seau que vous modifiez.</p>
+<p>La page Modifier le processus d'&eacute;coute r&eacute;seau appara&icirc;t.</p>
+</li>
+<li>
+<p>Cochez ou d&eacute;s&eacute;lectionnez la case Activ&eacute; de l'option Statut pour modifier le statut du processus d'&eacute;coute r&eacute;seau.</p>
+<p>Le processus d'&eacute;coute peut &ecirc;tre activ&eacute; ou d&eacute;sactiv&eacute;. Cette option est activ&eacute;e par d&eacute;faut. Si le processus d'&eacute;coute est d&eacute;sactiv&eacute;, toute tentative de connexion au processus d'&eacute;coute a pour r&eacute;sultat une exception de socket (<code>java.net.ConnectException</code>).</p>
+</li>
+<li>
+<p>Cochez la case S&eacute;curit&eacute; activ&eacute;e pour activer la s&eacute;curit&eacute; du protocole utilis&eacute; par le processus d'&eacute;coute r&eacute;seau.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de Processus d'&eacute;coute JK pour indiquer que le processus d'&eacute;coute prend en charge le protocole <code>mod-jk</code> Apache.</p>
+<p>Le protocole <code>mod-jk</code> est un protocole communication/r&eacute;seau propri&eacute;taire entre le serveur Web <code>httpd</code> Apache et une instance back-end de GlassFish&nbsp;Server. Si le processus d'&eacute;coute prend en charge ce protocole, <code>httpd</code> est cens&eacute; g&eacute;rer tout le contenu statique, tandis que les demandes de ressources dynamiques (c'est-&agrave;-dire de servlets et de JSP) sont achemin&eacute;es vers le processus d'&eacute;coute r&eacute;seau activ&eacute; <code>mod-jk</code> de GlassFish&nbsp;Server, &agrave; l'aide du protocole <code>mod-jk</code>. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans le champ Port, saisissez le num&eacute;ro de port sur lequel le processus d'&eacute;coute r&eacute;seau va &eacute;couter.</p>
+<p>Les valeurs autoris&eacute;es sont comprises entre&nbsp;1 et&nbsp;65535. Sur un syst&egrave;me UNIX, la cr&eacute;ation de sockets &eacute;coutant sur les ports&nbsp;1 &agrave;&nbsp;1024 requiert des privil&egrave;ges de superutilisateur.</p>
+</li>
+<li>
+<p>Dans le champ Adresse, saisissez l'adresse IP sur laquelle le processus d'&eacute;coute r&eacute;seau va &eacute;couter.</p>
+<p>L'adresse peut pr&eacute;senter une notation IPv6 ou des paires de chiffres s&eacute;par&eacute;es par des points. Elle peut &ecirc;tre d&eacute;finie sur <code>any</code> (pour <code>INADDR_ANY</code>) pour &eacute;couter sur toutes les adresses IP. Il peut s'agir d'un nom d'h&ocirc;te.</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante Pool de threads, s&eacute;lectionnez le pool de threads &agrave; associer au processus d'&eacute;coute r&eacute;seau.</p>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
 
 <hr>
-</li></ol><p></b>&#201;tapes suivantes</b></p><p>Vous pouvez utiliser les onglets SSL, HTTP et Cache de fichiers pour
-modifier les param&#232;tres pour le protocole associ&#233; &#224; l&#8217;auditeur de r&#233;seau. L&#8217;onglet SSL
-n&#8217;est utile que si vous avez activ&#233; la s&#233;curit&#233; pour l&#8217;auditeur de
-r&#233;seau. </p>
-
-<p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-networklistenernew.html">Cr&#233;ation d'un listener r&#233;seau</a></p>
+<p><b>Conseil:</b></p>
+Pour revenir aux param&egrave;tres par d&eacute;faut, cliquez sur le bouton Charger les valeurs par d&eacute;faut, puis sur Enregistrer.
+<hr>
 
 </li>
-<li><p><a href="task-networklistenerdelete.html">Suppression d'un listener r&#233;seau</a></p>
-
+</ol>
+<a id="sthref46" name="sthref46"></a>
+<h5>Etapes suivantes</h5>
+<p>Vous pouvez utiliser les onglets SSL, HTTP et Cache de fichiers pour modifier les param&egrave;tres du protocole associ&eacute; au processus d'&eacute;coute r&eacute;seau. L'onglet SSL n'est utile que si vous avez activ&eacute; la s&eacute;curit&eacute; pour le processus d'&eacute;coute r&eacute;seau.</p>
+<a id="sthref47" name="sthref47"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-networklistenernew.html">Cr&eacute;er un processus d'&eacute;coute r&eacute;seau</a></p>
 </li>
-<li><p><a href="task-protocolnew.html">Cr&#233;ation d'un protocole</a></p>
-
+<li>
+<p><a href="task-networklistenerdelete.html">Supprimer un processus d'&eacute;coute r&eacute;seau</a></p>
 </li>
-<li><p><a href="task-protocoledit.html">Modification d'un protocole</a></p>
-
+<li>
+<p><a href="task-protocolnew.html">Cr&eacute;er un protocole</a></p>
 </li>
-<li><p><a href="task-protocolssledit.html">Modifier les param&#232;tres SSL d'un protocole </a></p>
-
+<li>
+<p><a href="task-protocoledit.html">Modifier un protocole</a></p>
 </li>
-<li><p><a href="task-protocolhttpedit.html">Modifier les param&#232;tres HTTP pour un protocole </a></p>
-
+<li>
+<p><a href="task-protocolssledit.html">Modifier les param&egrave;tres SSL d'un protocole</a></p>
 </li>
-<li><p><a href="task-protocolfilecacheedit.html">Modifier les param&#232;tres de cache de fichiers pour un protocole</a></p>
-
+<li>
+<p><a href="task-protocolhttpedit.html">Modifier les param&egrave;tres HTTP d'un protocole</a></p>
 </li>
-<li><p><a href="task-protocoldelete.html">Suppression d'un protocole</a></p>
-
+<li>
+<p><a href="task-protocolfilecacheedit.html">Modifier les param&egrave;tres du cache de fichiers d'un protocole</a></p>
 </li>
-<li><p><a href="task-transportnew.html">Cr&#233;er un transport</a></p>
-
+<li>
+<p><a href="task-protocoldelete.html">Supprimer un protocole</a></p>
 </li>
-<li><p><a href="task-transportedit.html">Modifier un transport</a></p>
-
+<li>
+<p><a href="task-transportnew.html">Cr&eacute;er un transport</a></p>
 </li>
-<li><p><a href="task-transportdelete.html">Supprimer un transport</a></p>
+<li>
+<p><a href="task-transportedit.html">Modifier un transport</a></p>
+</li>
+<li>
+<p><a href="task-transportdelete.html">Supprimer un transport</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

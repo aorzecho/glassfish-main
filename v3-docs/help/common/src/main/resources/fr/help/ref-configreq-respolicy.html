@@ -1,66 +1,53 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-configreq-respolicy"></a><h4>Configurer les modalit&#233;s de requ&#234;te et de r&#233;ponse</h4>
-<a name="indexterm-237"></a><p>Si Authentifier la source est <tt>sender</tt>, alors le message contient l&#8217;en-t&#234;te <tt>wsse:Security</tt>
-avec <tt>wsse:UsernameToken </tt> (avec mot de passe). Si Authentifier la source indique contenu,
-alors le contenu du corps de message SOAP est sign&#233; et le
-message contient l&#8217;en-t&#234;te <tt>wsse:Security </tt> avec la signature du corps de message repr&#233;sent&#233;e
-par <tt>ds</tt> : <tt> Signature</tt>.</p>
+<p><a id="ref-configreq-respolicy" name="ref-configreq-respolicy"></a><a id="GHCOM00125" name="GHCOM00125"></a></p>
 
-<p>Si Authentifier le destinataire indique <tt>Before Content</tt> ou <tt>After Content</tt>, le contenu du corps
-de message SOAP est crypt&#233; et remplac&#233; par <tt>xend:EncryptedData</tt>. Le message contient
-l&#8217;en-t&#234;te <tt>a wsse:Security</tt> qui inclut  <tt>xenc:EncryptedKey</tt>. <tt>xenc:EncryptedKey </tt> contient la cl&#233; utilis&#233;e pour
-crypter le corps du message SOAP. La cl&#233; est crypt&#233;e dans la
-cl&#233; publique du destinataire.</p>
-
-<p>Si les champs Authentifier la source et Authentifier le destinataire sont laiss&#233;s
-vides, alors aucune strat&#233;gie de s&#233;curit&#233; n&#8217;est sp&#233;cifi&#233;e et les modules n&#8217;effectuent
-aucune op&#233;ration de s&#233;curit&#233;.</p>
-
-<p>Le tableau suivant affiche les diff&#233;rentes strat&#233;gies de protection des messages et
-les op&#233;rations de s&#233;curit&#233; des messages effectu&#233;es par les fournisseurs WS-Security de
-s&#233;curit&#233; des messages SOAP pour chaque configuration.</p>
-
-<a name="gbutq"></a><p><b>Tableau&#160;1 Strat&#233;gie de protection des messages bas&#233;e sur les op&#233;rations WS-Security de s&#233;curit&#233; des messages SOAP</b></p><table><col width="33%"><col width="33%"><col width="33%"><tr><th align="left" valign="top" scope="column"></th>
-<th align="left" valign="top" scope="column"><p>Authentifier le destinataire <tt>avant contenu</tt></p>
-
-</th>
-<th align="left" valign="top" scope="column"><p>Authentifier le destinataire
-<tt>apr&#232;s contenu</tt></p>
-
-</th>
+<h4><a id="sthref440" name="sthref440"></a>Configurations de r&egrave;gle de demande et de r&eacute;ponse</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Si la source d'authentification est <code>sender</code>, le message contient l'en-t&ecirc;te <code>wsse:Security</code> avec <code>wsse:UsernameToken</code> (avec mot de passe). Si la source d'authentification est "content", le contenu du corps de message&nbsp;SOAP est sign&eacute;, et le message contient l'en-t&ecirc;te <code>wsse:Security</code> avec la signature du corps de message repr&eacute;sent&eacute;e par <code>ds</code>:<code>Signature</code>.</p>
+<p>Si le destinataire d'authentification est <code>before-content</code> ou <code>after-content</code>, le contenu du corps de message&nbsp;SOAP est crypt&eacute; et remplac&eacute; par l'&eacute;l&eacute;ment <code>xend:EncryptedData</code> obtenu. Le message contient l'en-t&ecirc;te <code>a wsse:Security</code> qui inclut un &eacute;l&eacute;ment <code>xenc:EncryptedKey</code>. <code>xenc:EncryptedKey</code> contient la cl&eacute; utilis&eacute;e pour crypter le corps du message&nbsp;SOAP. La cl&eacute; est crypt&eacute;e dans la cl&eacute; publique du destinataire.</p>
+<p>Si les param&egrave;tres de source et de destinataire d'authentification sont laiss&eacute;s vides, aucune r&egrave;gle de s&eacute;curit&eacute; n'est sp&eacute;cifi&eacute;e et les modules n'effectuent aucune op&eacute;ration de s&eacute;curit&eacute;.</p>
+<p>Le tableau suivant affiche les diff&eacute;rentes r&egrave;gles de protection des messages et les op&eacute;rations de s&eacute;curit&eacute; des messages correspondantes effectu&eacute;es par les fournisseurs WS-Security de s&eacute;curit&eacute; des messages&nbsp;SOAP pour chaque configuration.</p>
+<a id="sthref441" name="sthref441"></a><a id="gbutq" name="gbutq"></a>
+<p><b>R&egrave;gle de protection des messages bas&eacute;e sur les op&eacute;rations WS-Security de s&eacute;curit&eacute; des messages&nbsp;SOAP</b></p>
+<table  title="R&egrave;gle de protection des messages bas&eacute;e sur les op&eacute;rations WS-Security de s&eacute;curit&eacute; des messages&nbsp;SOAP" summary="Add Summary attribute value here." dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="20%" />
+<col width="*" />
+<col width="40%" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t11"><br /></th>
+<th align="left" valign="bottom" id="r1c2-t11">Authentifier le destinataire <code>before-content</code></th>
+<th align="left" valign="bottom" id="r1c3-t11">Authentifier le destinataire <code>after-content</code></th>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p>Authentifier la source <tt>exp&#233;diteur</tt></p>
-
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t11" headers="r1c1-t11">
+<p>Authentifier la source <code>sender</code></p>
 </td>
-<td colspan="2" align="left" valign="top" scope="row"><p>Le contenu du corps de message SOAP est crypt&#233;
-et remplac&#233; par <tt>xend:EncryptedData</tt>. Le message contient l&#8217;en-t&#234;te <tt>wsse:Security</tt> comprenant <tt>wsse:UsernameToken (with password)</tt> et
-<tt>xenc:EncryptedKey</tt>. <tt>xenc:EncryptedKey </tt> contient la cl&#233; utilis&#233;e pour crypter le corps du message
-SOAP. La cl&#233; est crypt&#233;e dans la cl&#233; publique du destinataire.</p>
-
+<td align="left" headers="r2c1-t11 r1c2-t11 r1c3-t11" colspan="2">
+<p>Le contenu du corps de message&nbsp;SOAP est crypt&eacute; et remplac&eacute; par l'&eacute;l&eacute;ment <code>xend:EncryptedData</code> obtenu. Le message contient l'en-t&ecirc;te <code>wsse:Security</code> comprenant les &eacute;l&eacute;ments <code>wsse:UsernameToken</code> (avec mot de passe) et <code>xenc:EncryptedKey</code>. <code>xenc:EncryptedKey</code> contient la cl&eacute; utilis&eacute;e pour crypter le corps du message&nbsp;SOAP. La cl&eacute; est crypt&eacute;e dans la cl&eacute; publique du destinataire.</p>
 </td>
 </tr>
-<tr><td align="left" valign="top" scope="row"><p>Authentifier la
-source <tt>contenu</tt></p>
-
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t11" headers="r1c1-t11">
+<p>Authentifier la source <code>content</code></p>
 </td>
-<td align="left" valign="top" scope="row"><p>Le contenu du corps de message SOAP est crypt&#233; et remplac&#233;
-par <tt>xend:EncryptedData</tt>. <tt>xenc:EncryptedData</tt> est sign&#233;. Le message contient l&#8217;en-t&#234;te <tt>wsse:Security</tt> comprenant <tt>xenc:EncryptedKey</tt>
-et une <tt>ds: Signature </tt>. <tt>xenc:EncryptedKey </tt> contient la cl&#233; utilis&#233;e pour crypter le corps
-du message SOAP. La cl&#233; est crypt&#233;e dans la cl&#233; publique du
-destinataire.</p>
-
+<td align="left" headers="r3c1-t11 r1c2-t11">
+<p>Le contenu du corps de message&nbsp;SOAP est crypt&eacute; et remplac&eacute; par l'&eacute;l&eacute;ment <code>xend:EncryptedData</code> obtenu. <code>xenc:EncryptedData</code> est sign&eacute;. Le message contient l'en-t&ecirc;te <code>wsse:Security</code> comprenant les &eacute;l&eacute;ments <code>xenc:EncryptedKey</code> et <code>ds:Signature</code> . <code>xenc:EncryptedKey</code> contient la cl&eacute; utilis&eacute;e pour crypter le corps du message&nbsp;SOAP. La cl&eacute; est crypt&eacute;e dans la cl&eacute; publique du destinataire.</p>
 </td>
-<td align="left" valign="top" scope="row"><p>Le contenu du corps de message SOAP est sign&#233;, puis crypt&#233; et
-remplac&#233; par <tt>xend:EncryptedData</tt>. Le message contient l&#8217;en-t&#234;te <tt>wsse:Security</tt> qui inclut <tt>xenc:EncryptedKey</tt> et
-<tt>ds:Signature</tt>. <tt>xenc:EncryptedKey </tt> contient la cl&#233; utilis&#233;e pour crypter le corps du message
-SOAP. La cl&#233; est crypt&#233;e dans la cl&#233; publique du destinataire.</p>
-
+<td align="left" headers="r3c1-t11 r1c3-t11">
+<p>Le contenu du corps de message&nbsp;SOAP est sign&eacute;, puis crypt&eacute; et remplac&eacute; par l'&eacute;l&eacute;ment <code>xend:EncryptedData</code> obtenu. Le message contient l'en-t&ecirc;te <code>wsse:Security</code> comprenant les &eacute;l&eacute;ments <code>xenc:EncryptedKey</code> et <code>ds:Signature</code> . <code>xenc:EncryptedKey</code> contient la cl&eacute; utilis&eacute;e pour crypter le corps du message&nbsp;SOAP. La cl&eacute; est crypt&eacute;e dans la cl&eacute; publique du destinataire.</p>
 </td>
 </tr>
+</tbody>
 </table>
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,101 +1,105 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-connectorconnectionpooladvance"></a><h4>Modifier les attributs avanc&#233;s d&#8217;un pool de connexions de connecteur</h4>
-<a name="indexterm-43"></a><p>Utilisez la page Modifier les attributs avanc&#233;s d&#8217;un pool de connexions de
-connecteur pour modifier les param&#232;tres d&#8217;un pool de connexions du connecteur. </p>
+<p><a id="ref-connectorconnectionpooladvance" name="ref-connectorconnectionpooladvance"></a><a id="GHJCA00045" name="GHJCA00045"></a></p>
 
-<p>La page Modifier les attributs avanc&#233;s du pool de connexions de connecteur
-pr&#233;sente les options suivantes&#160;:</p>
-
-<dl><dt>Restaurer les valeurs par d&#233;faut</dt>
-<dd><p>Bouton de restauration des valeurs par d&#233;faut des param&#232;tres qui ont des valeurs par d&#233;faut. Les param&#232;tres qui n'ont pas de valeurs par d&#233;faut ne sont pas modifi&#233;s.</p>
-
+<h4><a id="sthref78" name="sthref78"></a>Modifier les attributs avanc&eacute;s d'un pool de connexions de connecteur</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Modifier les attributs avanc&eacute;s d'un pool de connexions de connecteur permet de modifier les param&egrave;tres avanc&eacute;s d'un pool de connexions de connecteur.</p>
+<p>Elle contient les options suivantes.</p>
+<dl>
+<dt>Charger les valeurs par d&eacute;faut</dt>
+<dd>
+<p>Bouton de restauration des valeurs par d&eacute;faut des param&egrave;tres qui ont des valeurs par d&eacute;faut. Les param&egrave;tres qui n'ont pas de valeurs par d&eacute;faut ne sont pas modifi&eacute;s.</p>
 </dd>
-<dt>Valider au maximum une fois</dt>
-<dd><p>Indique l'intervalle, exprim&#233; en secondes, entre des demandes successives de validation d'une connexion, une fois au plus. La valeur par d&#233;faut est 0, ce qui signifie que l'attribut n'est pas activ&#233;.</p>
-
+<dt>Valider une fois au plus</dt>
+<dd>
+<p>Indique l'intervalle, exprim&eacute; en secondes, entre des demandes successives de validation d'une connexion, une fois au plus. La valeur par d&eacute;faut est&nbsp;0, ce qui signifie que l'attribut n'est pas activ&eacute;.</p>
 </dd>
-<dt>D&#233;lai d&#8217;expiration de la fuite</dt>
-<dd><p>P&#233;riode (en secondes) n&#233;cessaire pour effectuer un suivi des fuites de connexion dans un pool de connexions. Une valeur de 0 indique que le suivi des fuites de connexion est d&#233;sactiv&#233;. La valeur par d&#233;faut est 0.</p>
-
+<dt>Temporisation de perte</dt>
+<dd>
+<p>Dur&eacute;e, en secondes, n&eacute;cessaire au suivi des pertes de connexion dans un pool de connexions. La valeur&nbsp;0 indique que le suivi des pertes de connexion est d&eacute;sactiv&eacute;. La valeur par d&eacute;faut est&nbsp;0.</p>
 </dd>
-<dt>R&#233;cup&#233;ration de la fuite</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, les connexions qui pr&#233;sentent des fuites seront restaur&#233;es dans le pool une fois le suivi des fuites de connexion termin&#233;. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>R&eacute;cup&eacute;ration de perte</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, les connexions pr&eacute;sentant des pertes seront restaur&eacute;es dans le pool une fois le suivi des pertes de connexion termin&eacute;. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Nouvelles tentatives de cr&#233;ation</dt>
-<dd><p>Nombre de tentatives effectu&#233;es en cas d&#8217;&#233;chec de cr&#233;ation d&#8217;une connexion. Une valeur de 0 indique qu&#8217;aucune tentative ne sera effectu&#233;e pour cr&#233;er une nouvelle connexion. La valeur par d&#233;faut est 0.</p>
-
+<dt>Tentatives de cr&eacute;ation</dt>
+<dd>
+<p>Nombre de tentatives effectu&eacute;es en cas d'&eacute;chec de cr&eacute;ation d'une connexion. La valeur&nbsp;0 indique qu'aucune tentative ne sera effectu&eacute;e pour recr&eacute;er une connexion. La valeur par d&eacute;faut est&nbsp;0.</p>
 </dd>
-<dt>Fr&#233;quence des tentatives</dt>
-<dd><p>L&#8217;intervalle, en secondes, entre les deux tentatives pour cr&#233;er une connexion. Cet attribut n&#8217;est utilis&#233; que si la valeur de l&#8217;option Nouvelles tentatives de cr&#233;ation est sup&#233;rieure &#224; 0. La valeur par d&#233;faut est 10 secondes.</p>
-
+<dt>Intervalle entre les tentatives</dt>
+<dd>
+<p>Intervalle, en secondes, entre deux tentatives de cr&eacute;ation d'une connexion. Cet attribut n'est utilis&eacute; que si la valeur de l'option Tentatives de cr&eacute;ation est sup&eacute;rieure &agrave;&nbsp;0. La valeur par d&eacute;faut est de 10&nbsp;secondes.</p>
 </dd>
 <dt>Groupement</dt>
-<dd><p>Permet le groupement des connexions pour le pool. Cette option est activ&#233;e par d&#233;faut.</p>
-
+<dd>
+<p>Active le groupement des connexions pour le pool. Cette option est activ&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Association diff&#233;r&#233;e</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, les connexions sont associ&#233;es normalement lorsque vous effectuerez une op&#233;ration sur celles-ci. Les connexions sont dissoci&#233;es lorsque la transaction est termin&#233;e et qu&#8217;une m&#233;thode de composant se termine, ce qui permet la r&#233;utilisation des connexions physiques. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Association lazy</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, les connexions sont associ&eacute;es en diff&eacute;r&eacute; lorsque vous effectuez une op&eacute;ration sur celles-ci. Les connexions sont dissoci&eacute;es lorsque la transaction est termin&eacute;e et qu'une m&eacute;thode de composant prend fin, ce qui facilite la r&eacute;utilisation des connexions physiques. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Enr&#244;lement diff&#233;r&#233; de la connexion</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, une ressource est r&#233;pertori&#233;e dans la transaction uniquement lorsqu&#8217;elle est effectivement utilis&#233;e dans une m&#233;thode. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Participation des connexions lazy &agrave; la transaction</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, une ressource est engag&eacute;e dans une transaction uniquement lorsqu'elle est utilis&eacute;e dans une m&eacute;thode. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Associer au thread</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, une connexion est associ&#233;e &#224; un thread. Lorsque le m&#234;me thread a besoin d&#8217;une connexion, il peut r&#233;utiliser la connexion qui est d&#233;j&#224; associ&#233;e, par cons&#233;quent en &#233;vitant la surcharge d&#8217;obtention d&#8217;une connexion depuis le pool. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Associer &agrave; un thread</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, une connexion est associ&eacute;e &agrave; un thread. Lorsque ce dernier n&eacute;cessite une connexion, il peut r&eacute;utiliser celle qui lui est d&eacute;j&agrave; associ&eacute;e, limitant ainsi le temps syst&egrave;me li&eacute; &agrave; l'obtention d'une connexion &agrave; partir du pool. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Associer des connexions</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, la correspondance de connexions est activ&#233;e pour le pool. Cette option peut &#234;tre d&#233;sactiv&#233;e si vous savez que les connexions dans le pool seront toujours homog&#232;nes et par cons&#233;quent, si une connexion prise dans le pool n&#8217;a pas besoin que l&#8217;adaptateur de ressource lui trouve une correspondance. Cette option est activ&#233;e par d&#233;faut.</p>
-
+<dt>Faire correspondre les connexions</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, la correspondance de connexions est activ&eacute;e pour le pool. Cette option peut &ecirc;tre d&eacute;sactiv&eacute;e si vous savez que les connexions du pool seront toujours homog&egrave;nes et qu'il est donc inutile pour l'adaptateur de ressource d'associer une connexion emprunt&eacute;e au pool. Cette option est activ&eacute;e par d&eacute;faut.</p>
 </dd>
 <dt>Utilisation des correspondances de connexions</dt>
-<dd><p>Le nombre de r&#233;utilisation possible d&#8217;une connexion par le pool. Une fois qu&#8217;une connexion a &#233;t&#233; r&#233;utilis&#233;e le nombre de fois sp&#233;cifi&#233;, elle est ferm&#233;e. Une valeur de 0 indique que cet attribut n&#8217;est pas activ&#233;. La valeur par d&#233;faut est 0.</p>
-
+<dd>
+<p>Nombre de r&eacute;utilisations possibles d'une connexion par le pool. Une fois qu'une connexion a &eacute;t&eacute; r&eacute;utilis&eacute;e le nombre de fois sp&eacute;cifi&eacute;, elle est ferm&eacute;e. La valeur&nbsp;0 indique que cet attribut n'est pas activ&eacute;. La valeur par d&eacute;faut est&nbsp;0.</p>
 </dd>
 </dl>
-<a name="gkomp"></a><h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-connectorconnectionpoolnew.html">Cr&#233;er un pool de connexions de connecteur</a></p>
-
+<a id="sthref79" name="sthref79"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-connectorconnectionpoolnew.html">Cr&eacute;er un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooledit.html">Modifier un pool de connexions de connecteur</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooledit.html">Modifier un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooladvance.html">Modifier les attributs avanc&#233;s d'un pool de connexions de connecteur</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooladvance.html">Modifier les attributs avanc&eacute;s d'un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpoolproperty.html">Modifier les propri&#233;t&#233;s d'un pool de connexions de connecteur</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpoolproperty.html">Modifier les propri&eacute;t&eacute;s d'un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapnew.html">Cr&#233;er un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapnew.html">Cr&eacute;er une mappe de s&eacute;curit&eacute; pour un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapedit.html">Pour modifier un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapedit.html">Modifier une mappe de s&eacute;curit&eacute; pour un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorsecuritymapdel.html">Supprimer un mappage de s&#233;curit&#233; pour un pool de connexions du connecteur</a></p>
-
+<li>
+<p><a href="task-connectorsecuritymapdel.html">Supprimer une mappe de s&eacute;curit&eacute; pour un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="task-connectorconnectionpooldel.html">Supprimer un pool de connexions du connecteur</a></p>
-
-</li></ul>
-<a name="gkonj"></a><h5>Commandes <tt>asadmin</tt> connexes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-connector-connection-pool-1"><tt>create-connector-connection-pool</tt>(1)</a></p>
-
+<li>
+<p><a href="task-connectorconnectionpooldel.html">Supprimer un pool de connexions de connecteur</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-connector-connection-pools-1"><tt>list-connector-connection-pools</tt>(1)</a></p>
-
+</ul>
+<a id="sthref80" name="sthref80"></a>
+<h5>Commandes asadmin connexes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00018"><code>create-connector-connection-pool</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-connector-connection-pool-1"><tt>delete-connector-connection-pool</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00157"><code>list-connector-connection-pools</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00070"><code>delete-connector-connection-pool</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

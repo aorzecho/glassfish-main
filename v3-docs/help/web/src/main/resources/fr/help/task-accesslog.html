@@ -1,168 +1,201 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-accesslog" name="task-accesslog"></a><a id="GHWEB00035" name="GHWEB00035"></a></p>
 
-
-<a name="task-accesslog"></a><h3>Configurer le service HTTP</h3><a name="indexterm-16"></a><a name="indexterm-17"></a><ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>Sous le n&#339;ud Configuration, s&#233;lectionnez le n&#339;ud Service HTTP.</b><p>La page Service HTTP s&#8217;ouvre.</p></li>
-<li><b>S&#233;lectionnez la case Activ&#233; de SSO pour activer la connexion unique par
-d&#233;faut pour toutes les applications Web sur tous les serveurs virtuels de
-ce serveur qui sont configur&#233;s pour le m&#234;me domaine. </b><p>Vous pouvez annuler ce param&#232;tre pour un serveur virtuel. Cette option est d&#233;sactiv&#233;e
-par d&#233;faut.</p></li>
-<li><b>Cochez la case Journalisation de l&#8217;acc&#232;s activ&#233; pour activer la journalisation des
-acc&#232;s pour tous les sous-&#233;l&#233;ments des serveurs virtuels qui ne sp&#233;cifient pas
-cette propri&#233;t&#233;. </b><p>Si cette option est d&#233;sactiv&#233;e, la journalisation des acc&#232;s est d&#233;sactiv&#233;e pour
-tous les sous-&#233;l&#233;ments des serveurs virtuels qui ne sp&#233;cifient pas cette propri&#233;t&#233;.
-Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>Cochez la case Rotation activ&#233;e pour activer la rotation des fichiers journaux.</b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
-<li><b>Dans la liste d&#233;roulante Strat&#233;gie de rotation, s&#233;lectionnez une strat&#233;gie de rotation.</b><p>La seule strat&#233;gie de rotation disponible est <tt>time</tt>.</p></li>
-<li><b>Dans le champ Intervalle de rotation, entrez le nombre de minutes entre
-les rotations du journal d&#8217;acc&#232;s. </b><p>Ce champ est valide uniquement si l&#8217;option Strat&#233;gie de rotation est d&#233;finie
-sur <tt>time</tt>. La valeur par d&#233;faut est 1440 minutes (24 heures).</p></li>
-<li><b>Dans le champ Suffixe de rotation, entrez la valeur de cha&#238;ne &#224;
-ajouter &#224; la fin du nom du fichier journal apr&#232;s la rotation.</b><p>La valeur par d&#233;faut est <tt>yyyy-MM-dd</tt>.</p><p>Assurez-vous que le suffixe de rotation contient suffisamment de valeurs pour cr&#233;er
-un suffixe unique pour chaque rotation de journal. Par exemple, si plus
-d&#8217;une rotation par jour est appliqu&#233;e au journal d&#8217;acc&#232;s, ajoutez l&#8217;heure dans
-le suffixe de rotation.</p><p>Le suffixe doit &#234;tre unique pour s&#8217;assurer qu&#8217;une rotation est appliqu&#233;e au
-fichier du journal d&#8217;acc&#232;s chaque fois que l&#8217;intervalle de rotation arrive &#224;
-son terme. Si le suffixe de rotation du nouveau fichier du journal
-d&#8217;acc&#232;s est le m&#234;me que celui du fichier du journal d&#8217;acc&#232;s existant,
-aucune rotation n&#8217;est appliqu&#233;e au fichier.</p></li>
-<li><b>Dans le champ Nombre max. de fichiers, tapez le nombre maximum de
-fichiers journaux d&#8217;acc&#232;s en rotation &#224; conserver. </b><p>Une valeur n&#233;gative signifie qu&#8217;il n&#8217;y a pas de limite pour le
-nombre de fichiers. La valeur par d&#233;faut est &#8211;1.</p></li>
-<li><b>Dans le champ Taille du tampon, saisissez la taille (en octets) du
-tampon de journal d&#8217;acc&#232;s.</b><p>Une valeur inf&#233;rieure ou &#233;gale &#224; 0 d&#233;sactive la mise en tampon
-du journal d&#8217;acc&#232;s. La valeur par d&#233;faut est 32768.</p></li>
-<li><b>Dans le champ Intervalle d&#8217;&#233;criture, saisissez le nombre de secondes avant que
-le journal ne soit &#233;crit sur le disque.</b><p>Le journal d&#8217;acc&#232;s est &#233;crit lorsque le tampon est satur&#233; ou que
-l&#8217;intervalle expire. Si la valeur est inf&#233;rieure ou &#233;gale &#224; 0, le
-tampon est toujours &#233;crit m&#234;me s&#8217;il n&#8217;est pas plein. Autrement dit, chaque
-fois que l&#8217;utilisateur acc&#232;de au serveur, le message journal est directement enregistr&#233;
-dans le fichier. La valeur par d&#233;faut est 300.</p></li>
-<li><b>Dans le champ Format, entrez une valeur de cha&#238;ne pour sp&#233;cifier les
-propri&#233;t&#233;s ci-dessous du journal d&#8217;acc&#232;s :</b>
-<ul><li><p>Informations &#224; consigner dans le journal d&#8217;acc&#232;s</p>
-
+<h4><a id="sthref21" name="sthref21"></a><a id="sthref22" name="sthref22"></a>Configurer le service HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p>Ordre dans lequel les informations sont consign&#233;es</p>
-
-</li></ul>
-<p>La valeur par d&#233;faut est la suivante :</p><pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>Les valeurs suivantes peuvent &#234;tre incluses dans la cha&#238;ne de format :</p><dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
-<dd><p>Enregistre la valeur (en appelant sa m&#233;thode <tt>toString</tt>) de l&#8217;attribut de requ&#234;te avec le <i>nom</i> sp&#233;cifi&#233;</p>
-
+<li>
+<p>Select the configuration that you are changing.</p>
+</li>
+<li>
+<p>Sous le noeud Configuration, s&eacute;lectionnez le noeud Service HTTP.</p>
+<p>La page Service HTTP appara&icirc;t.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; de l'option SSO pour activer la connexion unique par d&eacute;faut pour l'ensemble des applications Web sur tous les serveurs virtuels de ce serveur qui sont configur&eacute;s pour le m&ecirc;me domaine.</p>
+<p>Vous pouvez annuler ce param&egrave;tre pour un serveur virtuel. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case relative &agrave; l'activation de la journalisation des acc&egrave;s afin d'activer la journalisation des acc&egrave;s pour tous les sous-&eacute;l&eacute;ments des serveurs virtuels qui ne sp&eacute;cifient pas cette propri&eacute;t&eacute;.</p>
+<p>Si cette case est d&eacute;s&eacute;lectionn&eacute;e, la journalisation des acc&egrave;s est d&eacute;sactiv&eacute;e pour tous les sous-&eacute;l&eacute;ments des serveurs virtuels qui ne sp&eacute;cifient pas cette propri&eacute;t&eacute;. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case Rotation activ&eacute;e pour activer la rotation des fichiers journaux.</p>
+<p>Cette option est activ&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante R&egrave;gle de rotation, s&eacute;lectionnez une r&egrave;gle de rotation.</p>
+<p>La seule r&egrave;gle de rotation disponible est <code>time</code>.</p>
+</li>
+<li>
+<p>Dans le champ Intervalle de rotation, entrez le nombre de minutes entre les rotations du journal des acc&egrave;s.</p>
+<p>Ce champ est valide uniquement si la r&egrave;gle de rotation est <code>time</code>. La valeur par d&eacute;faut est 1&nbsp;440&nbsp;minutes (24&nbsp;heures).</p>
+</li>
+<li>
+<p>Dans le champ Suffixe de rotation, entrez la valeur de cha&icirc;ne &agrave; ajouter &agrave; la fin du nom du fichier journal apr&egrave;s la rotation.</p>
+<p>La valeur par d&eacute;faut est <code>yyyy-MM-dd</code>.</p>
+<p>Assurez-vous que le suffixe de rotation contient suffisamment de valeurs pour cr&eacute;er un suffixe unique pour chaque rotation de journal. Par exemple, si le journal des acc&egrave;s fait l'objet de plusieurs rotations par jour, ajoutez l'heure dans le suffixe de rotation.</p>
+<p>Le suffixe doit &ecirc;tre unique pour s'assurer que le fichier journal des acc&egrave;s fait l'objet d'une rotation chaque fois que l'intervalle de rotation arrive &agrave; son terme. Si le suffixe de rotation du nouveau fichier journal des acc&egrave;s est le m&ecirc;me que celui du fichier existant, aucune rotation n'est appliqu&eacute;e au fichier.</p>
+</li>
+<li>
+<p>Dans le champ Nombre max. de fichiers, tapez le nombre maximal de fichiers journaux des acc&egrave;s en rotation &agrave; conserver.</p>
+<p>Une valeur n&eacute;gative signifie que le nombre de fichiers est illimit&eacute;. La valeur par d&eacute;faut est&nbsp;-1.</p>
+</li>
+<li>
+<p>Dans le champ Taille du tampon, saisissez la taille (en octets) du tampon de journal des acc&egrave;s.</p>
+<p>Une valeur inf&eacute;rieure ou &eacute;gale &agrave;&nbsp;0 d&eacute;sactive la mise en m&eacute;moire tampon du journal des acc&egrave;s. La valeur par d&eacute;faut est&nbsp;32&nbsp;768.</p>
+</li>
+<li>
+<p>Dans le champ Intervalle d'&eacute;criture, saisissez le nombre de secondes avant que le journal ne soit &eacute;crit sur le disque.</p>
+<p>Le journal des acc&egrave;s est &eacute;crit lorsque la m&eacute;moire tampon est pleine ou que l'intervalle expire. Si la valeur est inf&eacute;rieure ou &eacute;gale &agrave;&nbsp;0, l'&eacute;criture continue dans la m&eacute;moire tampon m&ecirc;me si elle n'est pas pleine. Autrement dit, chaque fois que l'utilisateur acc&egrave;de au serveur, le message du fichier journal est directement stock&eacute; dans le fichier. La valeur par d&eacute;faut est&nbsp;300.</p>
+</li>
+<li>
+<p>Dans le champ Format, entrez une valeur de cha&icirc;ne pour sp&eacute;cifier les propri&eacute;t&eacute;s ci-dessous du journal des acc&egrave;s&nbsp;:</p>
+<ul>
+<li>
+<p>Informations &agrave; capturer dans le journal des acc&egrave;s</p>
+</li>
+<li>
+<p>Ordre dans lequel les informations sont captur&eacute;es</p>
+</li>
+</ul>
+<p>La valeur par d&eacute;faut est la suivante&nbsp;:</p>
+<pre>
+%client.name% %auth-user-name% %datetime% %request% %status% %response.length%
+</pre>
+<p>Les valeurs suivantes peuvent &ecirc;tre incluses dans la cha&icirc;ne de format&nbsp;:</p>
+<dl>
+<dt><code>%attribute.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Consigne la valeur (en appelant la m&eacute;thode <code>toString</code> associ&eacute;e) de l'attribut de demande avec le <i>nom</i> sp&eacute;cifi&eacute;.</p>
 </dd>
-<dt><tt>%auth-user-name%</tt></dt>
-<dd><p>Nom de l&#8217;utilisateur autoris&#233;</p>
-
+<dt><code>%auth-user-name%</code></dt>
+<dd>
+<p>Nom de l'utilisateur autoris&eacute;</p>
 </dd>
-<dt><tt>%client.name%</tt></dt>
-<dd><p>Nom de l&#8217;h&#244;te client</p>
-
+<dt><code>%client.name%</code></dt>
+<dd>
+<p>Nom de l'h&ocirc;te client</p>
 </dd>
-<dt><tt>%client.dns%</tt></dt>
-<dd><p>Client DNS</p>
-
+<dt><code>%client.dns%</code></dt>
+<dd>
+<p>Client DNS</p>
 </dd>
-<dt><tt>%cookie.<i>name</i>%</tt></dt>
-<dd><p>La valeur du cookie de la requ&#234;te portant le <i>nom</i> sp&#233;cifi&#233;</p>
-
+<dt><code>%cookie.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Valeur du cookie de demande portant le <i>nom</i> sp&eacute;cifi&eacute;</p>
 </dd>
-<dt><tt>%cookie.value%</tt></dt>
-<dd><p>La valeur du premier cookie d&#233;tect&#233; dans la requ&#234;te </p>
-
+<dt><code>%cookie.value%</code></dt>
+<dd>
+<p>Valeur du premier cookie d&eacute;tect&eacute; dans la demande</p>
 </dd>
-<dt><tt>%datetime%</tt></dt>
-<dd><p>Date du syst&#232;me</p>
-
+<dt><code>%datetime%</code></dt>
+<dd>
+<p>Date du syst&egrave;me</p>
 </dd>
-<dt><tt>%request%</tt></dt>
-<dd><p>Ligne de requ&#234;te HTTP compl&#232;te</p>
-
+<dt><code>%request%</code></dt>
+<dd>
+<p>Ligne de demande HTTP compl&egrave;te</p>
 </dd>
-<dt><tt>%status%</tt></dt>
-<dd><p>Statut</p>
-
+<dt><code>%status%</code></dt>
+<dd>
+<p>Statut</p>
 </dd>
-<dt><tt>%response.length%</tt></dt>
-<dd><p>Longueur du contenu de la r&#233;ponse</p>
-
+<dt><code>%response.length%</code></dt>
+<dd>
+<p>Longueur du contenu de la r&eacute;ponse</p>
 </dd>
-<dt><tt>%header.referer%</tt></dt>
-<dd><p>En-t&#234;te de r&#233;f&#233;rent</p>
-
+<dt><code>%header.referer%</code></dt>
+<dd>
+<p>En-t&ecirc;te Referer</p>
 </dd>
-<dt><tt>%header.user-agent%</tt></dt>
-<dd><p>En-t&#234;te agent utilisateur</p>
-
+<dt><code>%header.user-agent%</code></dt>
+<dd>
+<p>En-t&ecirc;te d'agent utilisateur</p>
 </dd>
-<dt><tt>%http-method%</tt></dt>
-<dd><p>M&#233;thode HTTP</p>
-
+<dt><code>%http-method%</code></dt>
+<dd>
+<p>M&eacute;thode HTTP</p>
 </dd>
-<dt><tt>%http-uri%</tt></dt>
-<dd><p>URI HTTP</p>
-
+<dt><code>%http-uri%</code></dt>
+<dd>
+<p>URI HTTP</p>
 </dd>
-<dt><tt>%query-str%</tt></dt>
-<dd><p>Cha&#238;ne de requ&#234;te HTTP</p>
-
+<dt><code>%query-str%</code></dt>
+<dd>
+<p>Cha&icirc;ne de requ&ecirc;te HTTP</p>
 </dd>
-<dt><tt>%http-version%</tt></dt>
-<dd><p>Version du protocole HTTP</p>
-
+<dt><code>%http-version%</code></dt>
+<dd>
+<p>Version du protocole HTTP</p>
 </dd>
-<dt><tt>%header.accept%</tt></dt>
-<dd><p>En-t&#234;te d&#8217;acceptation</p>
-
+<dt><code>%header.accept%</code></dt>
+<dd>
+<p>En-t&ecirc;te d'acceptation</p>
 </dd>
-<dt><tt>%header.date%</tt></dt>
-<dd><p>En-t&#234;te de date</p>
-
+<dt><code>%header.date%</code></dt>
+<dd>
+<p>En-t&ecirc;te de date</p>
 </dd>
-<dt><tt>%header.if-mod-since%</tt></dt>
-<dd><p>En-t&#234;te Si modifi&#233; depuis</p>
-
+<dt><code>%header.if-mod-since%</code></dt>
+<dd>
+<p>En-t&ecirc;te If-Modified-Since</p>
 </dd>
-<dt><tt>%header.auth%</tt></dt>
-<dd><p>En-t&#234;te d&#8217;autorisation</p>
-
+<dt><code>%header.auth%</code></dt>
+<dd>
+<p>En-t&ecirc;te d'autorisation</p>
 </dd>
-<dt><tt>%header.<i>any</i>%</tt></dt>
-<dd><p>Toute valeur d&#8217;en-t&#234;te HTTP valide d&#233;finie dans RFC 2616 (<tt>any</tt> est &#233;galement une valeur d&#8217;en-t&#234;te valide ; elle est indiqu&#233;e ici en tant que variable)</p>
-
+<dt><code>%header.</code><i>any</i><code>%</code></dt>
+<dd>
+<p>Toute valeur d'en-t&ecirc;te HTTP valide d&eacute;finie dans le document RFC&nbsp;2616 (<code>any</code> est &eacute;galement une valeur d'en-t&ecirc;te valide, qui est indiqu&eacute;e ici en tant que variable)</p>
 </dd>
-<dt><tt>%session.<i>name</i>%</tt></dt>
-<dd><p>La valeur de l&#8217;attribut de session avec le nom <i>name</i>, ou le nom <tt>NULL-session-attribute-<i></i></tt> si l&#8217;attribut sp&#233;cifi&#233; n&#8217;existe pas dans la session, ou <tt>NULL-session</tt> si aucune session existe</p>
-
+<dt><code>%session.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Valeur de l'attribut de session portant le nom <i>name</i>, ou <code>NULL-SESSION-ATTRIBUTE-</code><i>name</i> si l'attribut sp&eacute;cifi&eacute; n'existe pas dans la session, ou encore <code>NULL-SESSION</code> s'il n'existe aucune session.</p>
 </dd>
-<dt><tt>%time-taken%</tt></dt>
-<dd><p>Dur&#233;e (en millisecondes) de traitement de chaque requ&#234;te </p>
-
+<dt><code>%time-taken%</code></dt>
+<dd>
+<p>Dur&eacute;e (en millisecondes) de traitement de chaque demande</p>
 </dd>
-<dt><tt>%vs.id%</tt></dt>
-<dd><p>ID serveur virtuel</p>
-
+<dt><code>%vs.id%</code></dt>
+<dd>
+<p>ID de serveur virtuel</p>
 </dd>
 </dl>
 </li>
-<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>Pour une description des propri&#233;t&#233;s disponibles, reportez-vous &#224; la rubrique <a href="ref-httpserviceprops.html">Propri&#233;t&#233;s sp&#233;cifiques au service HTTP</a>.</p><ul>
-<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
-<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
-<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
-Nom de la propri&#233;t&#233; que vous supprimez,  puis cliquez sur le
-bouton Supprimer propri&#233;t&#233;s.</b></li></ul></li>
-<li><b>Cliquez sur Enregistrer.</b>
-<hr><p><b>Astuce - </b>Pour revenir aux param&#232;tres par d&#233;faut, cliquez sur le bouton Charger valeurs
-par d&#233;faut, puis sur Enregistrer.</p>
-
+<li>
+<p>Dans la section Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les propri&eacute;t&eacute;s suppl&eacute;mentaires.</p>
+<p>Pour obtenir une description des propri&eacute;t&eacute;s disponibles, reportez-vous &agrave; <a href="ref-httpserviceprops.html">Propri&eacute;t&eacute;s propres au service HTTP</a>.</p>
+<ul>
+<li>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+</li>
+<li>
+<p>Pour modifier une propri&eacute;t&eacute;, modifiez le champ Valeur de cette propri&eacute;t&eacute;.</p>
+</li>
+<li>
+<p>Pour supprimer une propri&eacute;t&eacute;, s&eacute;lectionnez la case situ&eacute;e &agrave; gauche du champ Nom de la propri&eacute;t&eacute; &agrave; supprimer, puis cliquez sur le bouton Supprimer des propri&eacute;t&eacute;s.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
 
 <hr>
-</li></ol>
+<p><b>Conseil:</b></p>
+Pour revenir aux param&egrave;tres par d&eacute;faut, cliquez sur le bouton Charger les valeurs par d&eacute;faut, puis sur Enregistrer.
+<hr>
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+</li>
+</ol>
+
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,87 +1,81 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-messagesecurityconfigedit"></a><h4>Modifier la configuration de s&#233;curit&#233; des messages</h4>
-<a name="indexterm-231"></a><p>Utilisez la page Modifier la configuration de s&#233;curit&#233; des messages pour activer
-des fournisseurs de s&#233;curit&#233; des messages. </p>
+<p><a id="ref-messagesecurityconfigedit" name="ref-messagesecurityconfigedit"></a><a id="GHCOM00120" name="GHCOM00120"></a></p>
 
-<p>Pour activer la s&#233;curit&#233; des messages au niveau des extr&#233;mit&#233;s des services
-Web d&#233;ploy&#233;s sur le GlassFish Server, vous devez sp&#233;cifier un fournisseur &#224;
-utiliser par d&#233;faut du c&#244;t&#233; du serveur. Si vous activez un fournisseur
-de s&#233;curit&#233; des messages par d&#233;faut, vous devez &#233;galement activer les fournisseurs
-&#224; utiliser par les clients des services Web d&#233;ploy&#233;s sur le GlassFish
-Server. Pour savoir comment activer les fournisseurs utilis&#233;s par les clients, consultez
-la rubrique <a href="task-enablemesec4appclients.html">Pour activer la s&#233;curit&#233; des messages pour les clients de l'application</a>.</p>
-
-<p>Pour activer la s&#233;curit&#233; des messages pour les appels de service Web
-provenant des points d&#8217;extr&#233;mit&#233; d&#233;ploy&#233;s, vous devez sp&#233;cifier un fournisseur client par
-d&#233;faut. Si vous avez activ&#233; un fournisseur client par d&#233;faut pour le
-GlassFish Server, vous devez vous assurer que les services appel&#233;s depuis les
-points d&#8217;extr&#233;mit&#233; d&#233;ploy&#233;s sur le GlassFish Server soient configur&#233;s de mani&#232;re compatible
-avec la s&#233;curit&#233; de la couche &#171; message &#187;.</p>
-
-<p>La page Modifier la configuration de s&#233;curit&#233; des messages contient les options
-suivantes.</p>
-
-<dl><dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<h4><a id="sthref426" name="sthref426"></a>Modifier la configuration de la s&eacute;curit&eacute; des messages</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Modifier la configuration de la s&eacute;curit&eacute; des messages permet d'activer les fournisseurs de s&eacute;curit&eacute; des messages.</p>
+<p>Pour activer la s&eacute;curit&eacute; des messages au niveau des adresses des services&nbsp;Web d&eacute;ploy&eacute;s sur GlassFish&nbsp;Server, vous devez sp&eacute;cifier un fournisseur &agrave; utiliser par d&eacute;faut c&ocirc;t&eacute; serveur. Si vous activez un fournisseur de s&eacute;curit&eacute; des messages par d&eacute;faut, vous devez &eacute;galement activer les fournisseurs qu'utiliseront les clients des services Web&nbsp;d&eacute;ploy&eacute;s sur GlassFish&nbsp;Server. L'activation des fournisseurs utilis&eacute;s par les clients est abord&eacute;e dans <a href="task-enablemesec4appclients.html">Activer la s&eacute;curit&eacute; des messages pour les clients d'application</a>.</p>
+<p>Pour activer la s&eacute;curit&eacute; des messages pour les appels de service&nbsp;Web provenant des adresses d&eacute;ploy&eacute;es, vous devez sp&eacute;cifier un fournisseur client par d&eacute;faut. Si vous avez activ&eacute; un fournisseur client par d&eacute;faut pour GlassFish&nbsp;Server, vous devez vous assurer que les services appel&eacute;s depuis les adresses d&eacute;ploy&eacute;es sur GlassFish&nbsp;Server sont configur&eacute;s de mani&egrave;re compatible avec la s&eacute;curit&eacute; de la couche des messages.</p>
+<p>La page Modifier la configuration de la s&eacute;curit&eacute; des messages contient les options suivantes&nbsp;:</p>
+<dl>
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
-<dt>Couche d&#8217;authentification</dt>
-<dd><p>Couche message &#224; laquelle l&#8217;authentification est effectu&#233;e. Ce champ est en lecture seule. La valeur est <tt>SOAP</tt> (pour la configuration de s&#233;curit&#233; des messages par d&#233;faut) ou <tt>HttpServlet</tt>.</p>
-
+<dt>Couche d'authentification</dt>
+<dd>
+<p>Couche de messages au niveau de laquelle l'authentification est effectu&eacute;e. Ce champ est en lecture seule. La valeur est <code>SOAP</code> (pour la configuration de s&eacute;curit&eacute; des messages par d&eacute;faut) ou <code>HttpServlet</code>.</p>
 </dd>
-<dt>Fournisseur par d&#233;faut</dt>
-<dd><p>Fournisseur c&#244;t&#233; serveur par d&#233;faut, le cas &#233;ch&#233;ant. Le fournisseur de serveur par d&#233;faut, &#233;galement appel&#233; le fournisseur par d&#233;faut, identifie le fournisseur de serveur appel&#233; si l&#8217;application n&#8217;identifie aucun fournisseur de serveur sp&#233;cifique. Les choix disponibles sont <tt>ServerProvider</tt>, <tt>XWS_ServerProvider </tt>, ou aucun. Par d&#233;faut, aucun fournisseur n&#8217;est s&#233;lectionn&#233;, pour que GlassFish Server n&#8217;appelle pas de fournisseur de s&#233;curit&#233; des messages du c&#244;t&#233; serveur. La plupart du temps, s&#233;lectionnez <tt> ServerProvider</tt> comme fournisseur par d&#233;faut.</p>
-
+<dt>Fournisseur par d&eacute;faut</dt>
+<dd>
+<p>Fournisseur c&ocirc;t&eacute; serveur par d&eacute;faut, le cas &eacute;ch&eacute;ant. Le fournisseur de serveur par d&eacute;faut, &eacute;galement appel&eacute; le fournisseur par d&eacute;faut, identifie le fournisseur de serveur appel&eacute; si l'application n'identifie aucun fournisseur de serveur sp&eacute;cifique. Les choix disponibles sont <code>ServerProvider</code>, <code>XWS_ServerProvider</code> ou aucun. Par d&eacute;faut, aucun fournisseur n'est s&eacute;lectionn&eacute;, afin que GlassFish&nbsp;Server n'appelle pas de fournisseur de s&eacute;curit&eacute; des messages c&ocirc;t&eacute; serveur. La plupart du temps, s&eacute;lectionnez <code>ServerProvider</code> comme fournisseur par d&eacute;faut.</p>
 </dd>
-<dt>Fournisseur client par d&#233;faut</dt>
-<dd><p>Fournisseur client par d&#233;faut, le cas &#233;ch&#233;ant. Le fournisseur client par d&#233;faut identifie le fournisseur client appel&#233; si l&#8217;application n&#8217;identifie aucun fournisseur client sp&#233;cifique. Les choix disponibles sont <tt>ClientProvider</tt>, <tt> XWS_ClientProvider</tt>, ou aucun. Par d&#233;faut, aucun fournisseur n&#8217;est s&#233;lectionn&#233;, pour que GlassFish Server n&#8217;appelle pas de fournisseur de s&#233;curit&#233; des messages du c&#244;t&#233; client. La plupart du temps, s&#233;lectionnez "aucun" comme fournisseur client par d&#233;faut. S&#233;lectionnez <tt>ClientProvider</tt> pour appliquer un fournisseur et une strat&#233;gie par d&#233;faut de protection des messages aux appels de services Web provenant des points d&#8217;extr&#233;mit&#233; des services Web d&#233;ploy&#233;s sur GlassFish Server.</p>
-
+<dt>Fournisseur client par d&eacute;faut</dt>
+<dd>
+<p>Fournisseur client par d&eacute;faut, le cas &eacute;ch&eacute;ant. Le fournisseur client par d&eacute;faut identifie le fournisseur client appel&eacute; si l'application n'identifie aucun fournisseur client sp&eacute;cifique. Les choix disponibles sont <code>ClientProvider</code>, <code>XWS_ClientProvider</code> ou aucun. Par d&eacute;faut, aucun fournisseur n'est s&eacute;lectionn&eacute;, afin que GlassFish&nbsp;Server n'appelle pas de fournisseur de s&eacute;curit&eacute; des messages c&ocirc;t&eacute; client. La plupart du temps, s&eacute;lectionnez "aucun" comme fournisseur client par d&eacute;faut. S&eacute;lectionnez <code>ClientProvider</code> pour appliquer un fournisseur et une r&egrave;gle par d&eacute;faut de protection des messages aux appels de service&nbsp;Web provenant des adresses de services Web d&eacute;ploy&eacute;es sur GlassFish&nbsp;Server.</p>
 </dd>
 </dl>
-<a name="gkolv"></a><h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-configmsgsecproviders.html">Configurer les utilitaires du GlassFish Server pour permettre l'utilisation par des fournisseurs de s&#233;curit&#233; des messages</a></p>
-
+<a id="sthref427" name="sthref427"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-configmsgsecproviders.html">Configurer les utilitaires GlassFish&nbsp;Server pour qu'ils puissent &ecirc;tre utilis&eacute;s par les fournisseurs de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfignew.html">Pour cr&#233;er une configuration de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfignew.html">Cr&eacute;er une configuration de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigedit.html">Pour modifier une configuration de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigedit.html">Modifier une configuration de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityconfigdelete.html">Pour supprimer une configuration de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityconfigdelete.html">Supprimer une configuration de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfignew.html">Pour cr&#233;er la configuration d'un fournisseur de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfignew.html">Cr&eacute;er une configuration de fournisseur de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigedit.html">Pour modifier la configuration d'un fournisseur de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigedit.html">Modifier une configuration de fournisseur de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-messagesecurityproviderconfigdelete.html">Pour supprimer la configuration d'un fournisseur de s&#233;curit&#233; des messages</a></p>
-
+<li>
+<p><a href="task-messagesecurityproviderconfigdelete.html">Supprimer une configuration de fournisseur de s&eacute;curit&eacute; des messages</a></p>
 </li>
-<li><p><a href="task-enablemesec4appclients.html">Pour activer la s&#233;curit&#233; des messages pour les clients de l'application</a></p>
-
-</li></ul>
-<a name="gkokr"></a><h5>Commandes <tt>asadmin</tt> connexes</h5>
-<p>Utilisez la commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=set-1"><tt>set</tt>(1)</a> pour modifier la configuration de s&#233;curit&#233; des messages.</p>
-
-
-<ul><li><p>Pour sp&#233;cifier le fournisseur de serveur par d&#233;faut :</p>
-
-<pre>asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
+<li>
+<p><a href="task-enablemesec4appclients.html">Activer la s&eacute;curit&eacute; des messages pour les clients d'application</a></p>
+</li>
+</ul>
+<a id="sthref428" name="sthref428"></a>
+<h5>Commandes asadmin connexes</h5>
+<p>Utilisez la commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00226"><code>set</code>(1)</a> pour modifier la configuration de s&eacute;curit&eacute; des messages.</p>
+<ul>
+<li>
+<p>Pour sp&eacute;cifier le fournisseur de serveur par d&eacute;faut, entrez la commande suivante&nbsp;:</p>
+<pre>
+asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
 server-config.security-service.message-security-config.SOAP.
-default_provider=ServerProvider</pre></li>
-<li><p>Pour sp&#233;cifier le fournisseur client par d&#233;faut :</p>
-
-<pre>asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
+default_provider=ServerProvider
+</pre></li>
+<li>
+<p>Pour sp&eacute;cifier le fournisseur client par d&eacute;faut, entrez la commande suivante&nbsp;:</p>
+<pre>
+asadmin set --user <i>admin-user</i> --port <i>admin-port</i> 
 server-config.security-service.message-security-config.SOAP.
-default_client_provider=ClientProvider</pre></li></ul>
+default_client_provider=ClientProvider
+</pre></li>
+</ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

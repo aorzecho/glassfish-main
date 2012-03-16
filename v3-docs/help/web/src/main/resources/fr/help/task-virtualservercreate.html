@@ -1,58 +1,87 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-virtualservercreate" name="task-virtualservercreate"></a><a id="GHWEB00036" name="GHWEB00036"></a></p>
 
-
-<a name="task-virtualservercreate"></a><h3>Cr&#233;er un serveur virtuel</h3><a name="indexterm-18"></a><ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>Sous le n&#339;ud Configuration, s&#233;lectionnez le n&#339;ud Serveurs virtuels.</b><p>La page Serveurs virtuels s&#8217;ouvre.</p></li>
-<li><b>Dans la page Serveurs virtuels, cliquez sur Nouveau.</b><p>La page Nouveau serveur virtuel s&#8217;ouvre.</p></li>
-<li><b>Dans le champ ID, entrez une valeur identifiant le serveur virtuel en
-interne. </b><p>Cette valeur n&#8217;est pas visible pour les clients HTTP. Les noms d&#8217;h&#244;tes
-visibles des clients HTTP doivent &#234;tre sp&#233;cifi&#233;s dans le champ H&#244;tes.</p></li>
-<li><b>Dans le champ H&#244;tes, entrez les noms d&#8217;h&#244;te ou les adresses IP
-de la machine sur laquelle le serveur s&#8217;ex&#233;cute.</b><p>Utilisez des noms d&#8217;h&#244;te r&#233;els ou virtuels enregistr&#233;s dans le serveur DNS
-pour votre r&#233;seau (et, sous UNIX, dans votre fichier <tt>/etc/hosts</tt>).</p><p>La valeur par d&#233;faut est la valeur de propri&#233;t&#233; syst&#232;me <tt>${com.sun.aas.hostName}</tt>.</p></li>
-<li><b>S&#233;lectionnez une option &#201;tat pour le nouveau serveur virtuel.</b><p>Le serveur virtuel peut &#234;tre d&#233;fini sur On (c&#8217;est-&#224;-dire actif), Off (inactif)
-ou Disabled (d&#233;sactiv&#233;). La valeur par d&#233;faut est On.</p></li>
-<li><b>S&#233;lectionnez une option SSO pour le nouveau serveur virtuel.</b><p>Par d&#233;faut, un serveur virtuel h&#233;rite du param&#232;tre de connexion unique (SSO)
-du service HTTP. S&#233;lectionnez Activ&#233; ou D&#233;sactiv&#233; pour annuler le param&#232;tre du
-service HTTP en activant ou en d&#233;sactivant la connexion unique pour ce
-serveur virtuel. </p><p>La connexion unique d&#8217;une application &#224; l&#8217;autre dans GlassFish Server est prise
-en charge par les servlets et les fichiers JSP. Cette fonction permet
-&#224; plusieurs applications exigeant les m&#234;mes informations de connexion utilisateur de partager
-ces derni&#232;res au lieu de contraindre l&#8217;utilisateur &#224; s&#8217;authentifier s&#233;par&#233;ment pour chaque
-application. </p></li>
-<li><b>Dans la liste Auditeurs de r&#233;seau, s&#233;lectionnez un ou plusieurs auditeurs de
-r&#233;seau, ou laissez le champ vide. </b></li>
-<li><b>Dans la liste d&#233;roulante Module Web par d&#233;faut, s&#233;lectionnez le module devant
-r&#233;pondre &#224; toutes les requ&#234;tes qui ne peuvent pas &#234;tre mapp&#233;es vers
-les autres modules Web d&#233;ploy&#233;s sur le serveur virtuel.</b><p>Si aucun module Web par d&#233;faut n&#8217;est sp&#233;cifi&#233;, le module Web qui
-poss&#232;de une racine contexte vide est utilis&#233;. S&#8217;il n&#8217;existe aucun module Web
-avec une racine contexte vide, un module Web par d&#233;faut du syst&#232;me
-est cr&#233;&#233; et utilis&#233;.</p></li>
-<li><b>Dans le champ Fichier journal, saisissez le nom de chemin du fichier
-o&#249; les messages de journalisation provenant de ce serveur virtuel doivent appara&#238;tre.</b><p>Par d&#233;faut, des messages de journalisation sont envoy&#233;s au journal du serveur
-par d&#233;faut, <tt></tt><i>domain-dir</i><tt>/logs/server.log</tt>.</p></li>
-<li><b>Dans le champ Docroot, entrez le chemin absolu du r&#233;pertoire racine de
-documents sur le serveur.</b><p>Si ce champ n&#8217;est pas renseign&#233;, <tt></tt><i>domain-dir</i><tt>/docroot</tt> est utilis&#233;.</p></li>
-<li><b>S&#233;lectionnez l&#8217;option Journalisation de l&#8217;acc&#232;s pour activer ou d&#233;sactiver la journalisation des
-acc&#232;s.</b><p>Sinon, vous pouvez &#233;galement indiquer si la journalisation des acc&#232;s est h&#233;rit&#233;e
-du service HTTP. Par d&#233;faut, elle est h&#233;rit&#233;e du service HTTP.</p></li>
-<li><b>Dans le champ R&#233;pertoire, entrez le chemin absolu des journaux d&#8217;acc&#232;s du
-serveur.</b><p>La valeur par d&#233;faut est <tt></tt><i>domain-dir</i><tt>/logs/access</tt>.</p></li>
-<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez les autres propri&#233;t&#233;s du serveur virtuel.</b><p>Pour obtenir des informations sur les propri&#233;t&#233;s disponibles, consultez <a href="ref-virtualserverprops.html">Propri&#233;t&#233;s sp&#233;cifiques aux serveurs virtuels</a>.</p><p>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</p></li>
-<li><b>Cliquez sur OK.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-virtualserveredit.html">Modifier un serveur virtuel</a></p>
-
+<h4><a id="sthref35" name="sthref35"></a>Cr&eacute;er un serveur virtuel</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p><a href="task-virtualserverdelete.html">Supprimer un serveur virtuel</a></p>
+<li>
+<p>Select the configuration that you are changing.</p>
+</li>
+<li>
+<p>Sous le noeud Configuration, s&eacute;lectionnez le noeud Serveurs virtuels.</p>
+<p>La page Serveurs virtuels appara&icirc;t.</p>
+</li>
+<li>
+<p>Sur la page Serveurs virtuels, cliquez sur Nouveau.</p>
+<p>La page Nouveau serveur virtuel appara&icirc;t.</p>
+</li>
+<li>
+<p>Dans le champ ID, entrez une valeur identifiant le serveur virtuel en interne.</p>
+<p>Cette valeur n'est pas visible par les clients HTTP. Les noms d'h&ocirc;te visibles par les clients HTTP doivent &ecirc;tre sp&eacute;cifi&eacute;s dans le champ H&ocirc;tes.</p>
+</li>
+<li>
+<p>Dans le champ H&ocirc;tes, entrez les noms d'h&ocirc;te ou les adresses IP de l'ordinateur sur lequel le serveur est ex&eacute;cut&eacute;.</p>
+<p>Utilisez des noms d'h&ocirc;te r&eacute;els ou virtuels enregistr&eacute;s sur le serveur DNS pour votre r&eacute;seau (et, sous UNIX, dans le fichier <code>/etc/hosts</code>).</p>
+<p>La valeur par d&eacute;faut correspond &agrave; la valeur de propri&eacute;t&eacute; syst&egrave;me <code>${com.sun.aas.hostName}</code>.</p>
+</li>
+<li>
+<p>S&eacute;lectionnez l'option Etat pour le nouveau serveur virtuel.</p>
+<p>Le serveur virtuel peut &ecirc;tre d&eacute;fini sur Actif, Inactif ou D&eacute;sactiv&eacute;. La valeur par d&eacute;faut est Actif.</p>
+</li>
+<li>
+<p>S&eacute;lectionnez une option SSO pour le nouveau serveur virtuel.</p>
+<p>Par d&eacute;faut, un serveur virtuel h&eacute;rite du param&egrave;tre de connexion unique (SSO) du service HTTP. S&eacute;lectionnez Activ&eacute; ou D&eacute;sactiv&eacute; pour annuler le param&egrave;tre du service HTTP en activant ou en d&eacute;sactivant la connexion unique pour ce serveur virtuel.</p>
+<p>La connexion unique sur l'ensemble des applications de GlassFish&nbsp;Server est prise en charge par les servlets et les fichiers JSP. Cette fonctionnalit&eacute; permet &agrave; plusieurs applications exigeant les m&ecirc;mes informations de connexion utilisateur de partager ces derni&egrave;res au lieu de contraindre l'utilisateur &agrave; s'authentifier s&eacute;par&eacute;ment pour chaque application.</p>
+</li>
+<li>
+<p>Dans la liste Processus d'&eacute;coute r&eacute;seau, s&eacute;lectionnez au moins un processus d'&eacute;coute r&eacute;seau ou laissez le champ vide.</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante Module Web par d&eacute;faut, s&eacute;lectionnez le module devant r&eacute;pondre &agrave; toutes les demandes qui ne peuvent pas &ecirc;tre mise en correspondance avec les autres modules Web d&eacute;ploy&eacute;s sur le serveur virtuel.</p>
+<p>Si aucun module Web par d&eacute;faut n'est sp&eacute;cifi&eacute;, le module Web qui poss&egrave;de une racine de contexte vide est utilis&eacute;. S'il n'existe aucun module Web avec une racine de contexte vide, un module Web par d&eacute;faut du syst&egrave;me est cr&eacute;&eacute; et utilis&eacute;.</p>
+</li>
+<li>
+<p>Dans le champ Fichier journal, saisissez le nom de chemin du fichier dans lequel les messages de journalisation provenant de ce serveur virtuel appara&icirc;tront.</p>
+<p>Par d&eacute;faut, les messages de journalisation seront envoy&eacute;s au journal du serveur par d&eacute;faut, <i>domain-dir</i><code>/logs/server.log</code>.</p>
+</li>
+<li>
+<p>Dans le champ Racine doc., entrez le chemin absolu du r&eacute;pertoire racine de documents sur le serveur.</p>
+<p>Si le champ est laiss&eacute; vide, <i>domain-dir</i><code>/docroot</code> sera utilis&eacute;.</p>
+</li>
+<li>
+<p>S&eacute;lectionnez l'option Journalisation de l'acc&egrave;s pour activer ou d&eacute;sactiver la journalisation des acc&egrave;s.</p>
+<p>Sinon, vous pouvez &eacute;galement indiquer si la journalisation des acc&egrave;s est h&eacute;rit&eacute;e du service HTTP. Par d&eacute;faut, il est h&eacute;rit&eacute; du service HTTP.</p>
+</li>
+<li>
+<p>Dans le champ R&eacute;pertoire, entrez le chemin absolu des journaux des acc&egrave;s du serveur.</p>
+<p>La valeur par d&eacute;faut est <i>domain-dir</i><code>/logs/access</code>.</p>
+</li>
+<li>
+<p>Dans la section Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les autres propri&eacute;t&eacute;s du serveur virtuel.</p>
+<p>Pour plus d'informations sur les propri&eacute;t&eacute;s disponibles, reportez-vous &agrave; <a href="ref-virtualserverprops.html">Propri&eacute;t&eacute;s propres aux serveurs virtuels</a>.</p>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+</li>
+<li>
+<p>Cliquez sur OK.</p>
+</li>
+</ol>
+<a id="sthref36" name="sthref36"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-virtualserveredit.html">Modifier un serveur virtuel</a></p>
+</li>
+<li>
+<p><a href="task-virtualserverdelete.html">Supprimer un serveur virtuel</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

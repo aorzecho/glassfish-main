@@ -1,103 +1,112 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-webcontaineravailability"></a><h4>Disponibilit&#233; du conteneur Web</h4>
-<a name="indexterm-39"></a><a name="indexterm-40"></a><p>La page Disponibilit&#233; du conteneur Web permet de configurer les param&#232;tres correspondants.</p>
+<p><a id="ref-webcontaineravailability" name="ref-webcontaineravailability"></a><a id="GHWEB00001" name="GHWEB00001"></a></p>
 
+<h4><a id="sthref79" name="sthref79"></a><a id="sthref80" name="sthref80"></a>disponibilit&eacute; du conteneur</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Disponibilit&eacute; du conteneur Web permet de configurer les param&egrave;tres correspondants.</p>
 <p>Elle contient les options suivantes.</p>
-
-<dl><dt>Restaurer les valeurs par d&#233;faut</dt>
-<dd><p>Bouton de restauration des valeurs par d&#233;faut des param&#232;tres qui ont des valeurs par d&#233;faut. Les param&#232;tres qui n'ont pas de valeurs par d&#233;faut ne sont pas modifi&#233;s.</p>
-
+<dl>
+<dt>Charger les valeurs par d&eacute;faut</dt>
+<dd>
+<p>Bouton de restauration des valeurs par d&eacute;faut des param&egrave;tres qui ont des valeurs par d&eacute;faut. Les param&egrave;tres qui n'ont pas de valeurs par d&eacute;faut ne sont pas modifi&eacute;s.</p>
 </dd>
-<dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
-<dt>Service de disponibilit&#233;</dt>
-<dd><p>Si la case Activ&#233; est coch&#233;e, la disponibilit&#233; du conteneur Web est activ&#233;e.</p>
-
+<dt>Service de disponibilit&eacute;</dt>
+<dd>
+<p>Si la case Activ&eacute; est coch&eacute;e, la disponibilit&eacute; du conteneur Web est activ&eacute;e.</p>
 </dd>
 <dt>Type de persistance</dt>
-<dd><p>M&#233;canisme de persistance utilis&#233;. </p>
-
-
-<ul><li><p>Si le service de disponibilit&#233; n'est <b>pas</b> activ&#233;, s&#233;lectionnez l'un des &#233;l&#233;ments suivants&#160;:</p>
-
-
-<ul><li><p><tt>memory</tt> pour n'utiliser aucune persistance de session </p>
-
+<dd>
+<p>M&eacute;canisme de persistance utilis&eacute;.</p>
+<ul>
+<li>
+<p>Si le service de disponibilit&eacute; n'est <i>pas</i> activ&eacute;, s&eacute;lectionnez l'un des &eacute;l&eacute;ments suivants&nbsp;:</p>
+<ul>
+<li>
+<p><code>memory</code> pour n'utiliser aucune persistance de session</p>
 </li>
-<li><p><tt>file</tt> pour utiliser une persistance de session bas&#233;e sur le syst&#232;me de fichiers n'&#233;tant pas hautement disponible </p>
-
-</li></ul>
+<li>
+<p><code>file</code> pour utiliser une persistance de session bas&eacute;e sur le syst&egrave;me de fichiers n'&eacute;tant pas hautement disponible</p>
 </li>
-<li><p>Si le service de disponibilit&#233; est activ&#233;, s&#233;lectionnez <tt>replicated</tt> pour utiliser la persistance de session bas&#233;e sur le basculement du cluster hautement disponible. </p>
-
-</li></ul>
+</ul>
+</li>
+<li>
+<p>Si le service de disponibilit&eacute; est activ&eacute;, s&eacute;lectionnez <code>replicated</code> pour utiliser la persistance de session bas&eacute;e sur le basculement apr&egrave;s incident du cluster hautement disponible.</p>
+</li>
+</ul>
 </dd>
-<dt>Fr&#233;quence de le persistance</dt>
-<dd><p>Fr&#233;quence de stockage de la session HTTP&#160;:</p>
-
-
-<ul><li><p><tt>web-method</tt>&#160;: l'&#233;tat de la session est stock&#233; &#224; la fin de chaque requ&#234;te Web avant l'envoi d'une r&#233;ponse au client. Ce mode est la meilleure garantie que l&#8217;&#233;tat de la session sera enti&#232;rement r&#233;actualis&#233; en cas de panne. Il s&#8217;agit de la valeur par d&#233;faut.</p>
-
-</li></ul>
+<dt>Fr&eacute;quence de la persistance</dt>
+<dd>
+<p>Fr&eacute;quence de stockage de la session HTTP&nbsp;:</p>
+<ul>
+<li>
+<p><code>web-method&nbsp;:</code> l'&eacute;tat de la session est stock&eacute; &agrave; la fin de chaque demande Web avant l'envoi d'une r&eacute;ponse au client. Ce mode constitue la meilleure garantie que l'&eacute;tat de la session sera enti&egrave;rement mis &agrave; jour en cas d'&eacute;chec. Il s'agit de la valeur par d&eacute;faut.</p>
+</li>
+</ul>
 </dd>
-<dt>Port&#233;e de la persistance</dt>
-<dd><p>&#201;tendue des modifications de session HTTP requises pour le stockage&#160;:</p>
-
-
-<ul><li><p><tt>session</tt>&#160;: l'&#233;tat de la session est stock&#233; int&#233;gralement &#224; chaque fois. Ce mode est la meilleure garantie que vos donn&#233;es de session seront correctement stock&#233;es pour n&#8217;importe quelle application Web distribuable.</p>
-
+<dt>Port&eacute;e de la persistance</dt>
+<dd>
+<p>Etendue des modifications de session HTTP requises pour le stockage&nbsp;:</p>
+<ul>
+<li>
+<p><code>session&nbsp;:</code> l'&eacute;tat de la session est stock&eacute; int&eacute;gralement &agrave; chaque fois. Ce mode constitue la meilleure garantie que vos donn&eacute;es de session seront correctement stock&eacute;es, quelle que soit l'application Web distribuable.</p>
 </li>
-<li><p><tt>modified-session</tt>&#160;: l'&#233;tat de la session est stock&#233; int&#233;gralement s'il a &#233;t&#233; modifi&#233;. Une session est consid&#233;r&#233;e comme ayant &#233;t&#233; modifi&#233;e si <tt>HttpSession.setAttribute() </tt> ou <tt>HttpSession.removeAttribute()</tt> a &#233;t&#233; appel&#233;. Vous devez vous assurer que <tt> setAttribute()</tt> est appel&#233; chaque fois qu&#8217;un attribut est modifi&#233;. Cette exigence n&#8217;est pas requise par la sp&#233;cification Java EE, mais elle est n&#233;cessaire pour que ce mode fonctionne correctement.</p>
-
+<li>
+<p><code>modified-session&nbsp;:</code> l'&eacute;tat de la session est stock&eacute; int&eacute;gralement s'il a &eacute;t&eacute; modifi&eacute;. Une session est consid&eacute;r&eacute;e comme ayant &eacute;t&eacute; modifi&eacute;e si <code>HttpSession.setAttribute()</code> ou <code>HttpSession.removeAttribute()</code> a &eacute;t&eacute; appel&eacute;. Vous devez vous assurer que <code>setAttribute()</code> est appel&eacute; chaque fois qu'un attribut est modifi&eacute;. Cette exigence n'est pas requise par la sp&eacute;cification Java EE, mais elle est n&eacute;cessaire pour que ce mode fonctionne correctement.</p>
 </li>
-<li><p><tt>modified-attribute</tt>&#160;: seuls les attributs de session modifi&#233;s sont stock&#233;s. Pour que ce mode fonctionne correctement, suivez les recommandations ci-dessous&#160;:</p>
-
-
-<ul><li><p>Appelez <tt>setAttribute()</tt> &#224; chaque modification de l'&#233;tat de la session.</p>
-
+<li>
+<p><code>modified-attribute&nbsp;:</code> seuls les attributs de session modifi&eacute;s sont stock&eacute;s. Pour que ce mode fonctionne correctement, suivez les lignes directrices ci-dessous&nbsp;:</p>
+<ul>
+<li>
+<p>Appelez <code>setAttribute()</code> &agrave; chaque modification de l'&eacute;tat de la session.</p>
 </li>
-<li><p>Veillez &#224; ce qu&#8217;il n&#8217;y ait pas de r&#233;f&#233;rences crois&#233;es entre les attributs. Le graphe des objets sous chaque cl&#233; d&#8217;attribut distincte est s&#233;rialis&#233; et stock&#233; s&#233;par&#233;ment. S&#8217;il existe des r&#233;f&#233;rences crois&#233;es entre les objets sous chaque cl&#233; individuelle, ceux-ci ne seront pas s&#233;rialis&#233;s ni d&#233;s&#233;rialis&#233;s correctement.</p>
-
+<li>
+<p>Veillez &agrave; ce qu'il n'y ait pas de r&eacute;f&eacute;rences crois&eacute;es entre les attributs. Le graphique d'objet sous chaque cl&eacute; d'attribut distincte est s&eacute;rialis&eacute; et stock&eacute; s&eacute;par&eacute;ment. S'il existe des r&eacute;f&eacute;rences crois&eacute;es entre les objets situ&eacute;s sous chaque cl&eacute;, ceux-ci ne seront pas s&eacute;rialis&eacute;s ni d&eacute;s&eacute;rialis&eacute;s correctement.</p>
 </li>
-<li><p>R&#233;partissez l&#8217;&#233;tat de la session entre plusieurs attributs, ou au moins entre un attribut en lecture seule et un attribut modifiable.</p>
-
-</li></ul>
-</li></ul>
+<li>
+<p>Distribuez l'&eacute;tat de la session entre plusieurs attributs, ou au moins entre un attribut en lecture seule et un attribut modifiable.</p>
+</li>
+</ul>
+</li>
+</ul>
 </dd>
-<dt>&#201;tat Connexion unique</dt>
-<dd><p>Si la case Activ&#233; est coch&#233;e, l'&#233;tat de connexion unique est disponible pour le basculement. </p>
-
+<dt>Etat Connexion unique</dt>
+<dd>
+<p>Si la case Activ&eacute; est coch&eacute;e, l'&eacute;tat de connexion unique est disponible pour le basculement apr&egrave;s incident.</p>
 </dd>
-<dt>Autres propri&#233;t&#233;s</dt>
-<dd><p>Propri&#233;t&#233;s suppl&#233;mentaires de disponibilit&#233; du conteneur Web. </p>
-
-<p>GlassFish Server ne d&#233;finit aucune autre propri&#233;t&#233; de disponibilit&#233; du conteneur Web.</p>
-
+<dt>Autres propri&eacute;t&eacute;s</dt>
+<dd>
+<p>Propri&eacute;t&eacute;s suppl&eacute;mentaires de disponibilit&eacute; du conteneur Web.</p>
+<p>GlassFish&nbsp;Server ne d&eacute;finit aucune autre propri&eacute;t&eacute; de disponibilit&eacute; du conteneur Web.</p>
 </dd>
 </dl>
-<h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-webcontainergeneral.html">Configuration des propri&#233;t&#233;s g&#233;n&#233;rales du conteneur Web</a></p>
-
+<a id="sthref81" name="sthref81"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-webcontainergeneral.html">Configurer les propri&eacute;t&eacute;s g&eacute;n&eacute;rales du conteneur Web</a></p>
 </li>
-<li><p><a href="task-webcontainersessiontimeout.html">Configurer les propri&#233;t&#233;s de session pour le conteneur Web</a></p>
-
+<li>
+<p><a href="task-webcontainersessiontimeout.html">Configurer les propri&eacute;t&eacute;s de session du conteneur Web</a></p>
 </li>
-<li><p><a href="task-webcontainermanagerprops.html">Configurer les propri&#233;t&#233;s du gestionnaire pour le conteneur Web</a></p>
-
+<li>
+<p><a href="task-webcontainermanagerprops.html">Configurer les propri&eacute;t&eacute;s de gestionnaire du conteneur Web</a></p>
 </li>
-<li><p><a href="task-webcontainerstoreprops.html">Configurer les propri&#233;t&#233;s de stockage pour le conteneur Web</a></p>
-
+<li>
+<p><a href="task-webcontainerstoreprops.html">Configurer les propri&eacute;t&eacute;s de stockage du conteneur Web</a></p>
 </li>
-<li><p><a href="task-webcontaineravailability.html">Pour configurer les param&#232;tres de disponibilit&#233; du conteneur Web</a></p>
+<li>
+<p><a href="task-webcontaineravailability.html">Configurer les param&egrave;tres de disponibilit&eacute; du conteneur Web</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

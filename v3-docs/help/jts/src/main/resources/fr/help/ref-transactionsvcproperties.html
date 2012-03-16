@@ -1,48 +1,53 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-transactionsvcproperties"></a><h4>Propri&#233;t&#233;s sp&#233;cifiques au service de transaction</h4>
-<a name="indexterm-9"></a><a name="indexterm-10"></a><p>Les propri&#233;t&#233;s suivantes sont disponibles pour la configuration du service de transaction.</p>
+<p><a id="ref-transactionsvcproperties" name="ref-transactionsvcproperties"></a><a id="GHJTS00003" name="GHJTS00003"></a></p>
 
-<dl><dt><tt>oracle-xa-recovery-workaround</tt></dt>
-<dd><p>Si le param&#232;tre est d&#233;fini sur <tt>true</tt>, la solution de contournement Oracle XA Resource est utilis&#233;e dans la r&#233;cup&#233;ration de transaction. La valeur par d&#233;faut est <tt>true</tt>.</p>
-
+<h4><a id="sthref16" name="sthref16"></a><a id="sthref17" name="sthref17"></a>Propri&eacute;t&eacute;s propres au service de transaction</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Les propri&eacute;t&eacute;s suivantes sont disponibles pour la configuration du service de transaction.</p>
+<dl>
+<dt><code>oracle-xa-recovery-workaround</code></dt>
+<dd>
+<p>Si cette propri&eacute;t&eacute; a la valeur <code>True</code>, la solution de contournement Oracle XA Resource est utilis&eacute;e pour la r&eacute;cup&eacute;ration des transactions. La valeur par d&eacute;faut est <code>True</code>.</p>
 </dd>
-<dt><tt>disable-distributed-transaction-logging</tt></dt>
-<dd><p>Si l&#8217;attribut <tt>true</tt> est s&#233;lectionn&#233;, la journalisation des transactions est d&#233;sactiv&#233;e, ce qui peut am&#233;liorer les performances. Si la case Au red&#233;marrage est s&#233;lectionn&#233;e, cette propri&#233;t&#233; est ignor&#233;e. La valeur par d&#233;faut est <tt>false</tt>.</p>
-
+<dt><code>disable-distributed-transaction-logging</code></dt>
+<dd>
+<p>Si cette propri&eacute;t&eacute; a la valeur <code>True</code>, la journalisation des transactions est d&eacute;sactiv&eacute;e, ce qui peut am&eacute;liorer les performances. Si la case Activ&eacute; du champ Au red&eacute;marrage est coch&eacute;e, cette propri&eacute;t&eacute; est ignor&eacute;e. La valeur par d&eacute;faut est <code>False</code>.</p>
 </dd>
-<dt><tt>xaresource-txn-timeout</tt></dt>
-<dd><p>Modifie le d&#233;lai d&#8217;attente <tt>XAResource</tt> . Dans certains cas, le d&#233;lai d&#8217;attente <tt>XAResource</tt> par d&#233;faut peut entra&#238;ner l&#8217;abandon des transactions, il est donc souhaitable de le modifier. La valeur par d&#233;faut est sp&#233;cifique &#224; la <tt>XAResource</tt> utilis&#233;e.</p>
-
+<dt><code>xaresource-txn-timeout</code></dt>
+<dd>
+<p>Modifie la valeur de temporisation de l'&eacute;l&eacute;ment <code>XAResource</code>. Dans certains cas, la valeur de temporisation par d&eacute;faut de l'&eacute;l&eacute;ment <code>XAResource</code> peut entra&icirc;ner l'abandon de transactions, il est donc pr&eacute;f&eacute;rable de la modifier. La valeur par d&eacute;faut d&eacute;pend de l'&eacute;l&eacute;ment <code>XAResource</code> utilis&eacute;.</p>
 </dd>
-<dt><tt>pending-txn-cleanup-interval</tt></dt>
-<dd><p>Sp&#233;cifie l&#8217;intervalle, en secondes, auquel un thread asynchrone v&#233;rifie les transactions en attente et les termine. Si cette propri&#233;t&#233; n&#8217;est pas sp&#233;cifi&#233;e, il n&#8217;y a pas de valeur par d&#233;faut. Si cette propri&#233;t&#233; est pr&#233;sente mais n&#8217;a pas de valeur, la valeur par d&#233;faut est 60.</p>
-
+<dt><code>pending-txn-cleanup-interval</code></dt>
+<dd>
+<p>Sp&eacute;cifie l'intervalle, en secondes, auquel un thread asynchrone v&eacute;rifie les transactions en attente et les termine. Si cette propri&eacute;t&eacute; n'est pas sp&eacute;cifi&eacute;e, il n'y a pas de valeur par d&eacute;faut. Si cette propri&eacute;t&eacute; est pr&eacute;sente mais n'a pas de valeur, la valeur par d&eacute;faut est&nbsp;60.</p>
 </dd>
-<dt><tt>use-last-agent-optimization</tt></dt>
-<dd><p>Si l&#8217;attribut <tt>true</tt> est s&#233;lectionn&#233;, l&#8217;optimisation du dernier agent est activ&#233;e, ce qui am&#233;liore la capacit&#233; de traitement des transactions. Si une ressource non-XA est utilis&#233;e avec des ressources XA dans la m&#234;me transaction, la ressource non-XA est le dernier agent. La valeur par d&#233;faut est <tt>true</tt>.</p>
-
+<dt><code>use-last-agent-optimization</code></dt>
+<dd>
+<p>Si cette propri&eacute;t&eacute; a la valeur <code>True</code>, l'optimisation du dernier agent est activ&eacute;e, ce qui am&eacute;liore la capacit&eacute; de traitement des transactions. Si une ressource non-XA est utilis&eacute;e avec des ressources XA dans la m&ecirc;me transaction, la ressource non-XA est le dernier agent. La valeur par d&eacute;faut est <code>True</code>.</p>
 </dd>
-<dt><tt>delegated-recovery</tt></dt>
-<dd><p>Si l&#8217;attribut <tt>true</tt> est s&#233;lectionn&#233;, la r&#233;cup&#233;ration d&#233;l&#233;gu&#233;e &#224; l&#8217;&#233;chelle du cluster est activ&#233;e. La valeur par d&#233;faut est &#8217;false&#8217; (faux).</p>
-
+<dt><code>delegated-recovery</code></dt>
+<dd>
+<p>Si cette propri&eacute;t&eacute; a la valeur <code>True</code>, la r&eacute;cup&eacute;ration d&eacute;l&eacute;gu&eacute;e &agrave; l'&eacute;chelle du cluster est activ&eacute;e. La valeur par d&eacute;faut est False.</p>
 </dd>
-<dt><tt>wait-time-before-recovery-insec</tt></dt>
-<dd><p>Sp&#233;cifie le temps d&#8217;attente, en secondes, apr&#232;s lequel une instance lance la r&#233;cup&#233;ration pour une instance bloqu&#233;e.</p>
-
+<dt><code>wait-time-before-recovery-insec</code></dt>
+<dd>
+<p>Sp&eacute;cifie le d&eacute;lai d'attente, en secondes, au-del&agrave; duquel une instance lance la r&eacute;cup&eacute;ration d'une instance bloqu&eacute;e.</p>
 </dd>
-<dt><tt>db-logging-resource</tt></dt>
-<dd><p>Sp&#233;cifie le nom JNDI de la ressource JDBC pour la base de donn&#233;es dans laquelle les transactions sont journalis&#233;es. Pour de plus amples informations, reportez-vous au <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2418&id=beanm">Chapitre 14, Using the Transaction Service du <i>Oracle GlassFish Server 3.1 Application Development Guide</i></a>. Il n&#8217;y a pas de valeur par d&#233;faut.</p>
-
+<dt><code>db-logging-resource</code></dt>
+<dd>
+<p>Sp&eacute;cifie le nom JNDI de la ressource JDBC pour la base de donn&eacute;es dans laquelle les transactions sont journalis&eacute;es. Pour plus d'informations, reportez-vous au <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDVG00018">chapitre&nbsp;17, <i>Using the Transaction Service</i>, du manuel <i>Oracle GlassFish Server Application Development Guide</i></a>. Il n'y a pas de valeur par d&eacute;faut.</p>
 </dd>
-<dt><tt>xa-servername</tt></dt>
-<dd><p>Sp&#233;cifie le nom d&#8217;h&#244;te utilis&#233; par le service de transaction pour identifier les transactions g&#233;r&#233;es par le GlassFish Server install&#233;. Cela peut parfois &#234;tre utile pour la r&#233;cup&#233;ration de transactions dans le fichier journal cr&#233;&#233; sur un h&#244;te diff&#233;rent qui ex&#233;cute le GlassFish Server.</p>
-
+<dt><code>xa-servername</code></dt>
+<dd>
+<p>Sp&eacute;cifie le nom d'h&ocirc;te utilis&eacute; par le service de transaction pour identifier les transactions g&eacute;r&eacute;es par le serveur GlassFish&nbsp;Server install&eacute;. Cela peut parfois s'av&eacute;rer utile pour la r&eacute;cup&eacute;ration de transactions &agrave; partir d'un fichier journal cr&eacute;&eacute; sur un h&ocirc;te diff&eacute;rent ex&eacute;cutant GlassFish&nbsp;Server.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

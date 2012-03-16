@@ -1,108 +1,128 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-create-clustered-instance" name="task-create-clustered-instance"></a><a id="GHCLU00045" name="GHCLU00045"></a></p>
 
-
-<a name="task-create-clustered-instance"></a><h3>Ajouter une instance de GlassFish Server &#224; un cluster</h3><a name="indexterm-45"></a><a name="indexterm-46"></a><a name="indexterm-47"></a><p>Les instances de GlassFish Server forment la base d&#8217;un d&#233;ploiement d&#8217;application. Une
-instance clusteris&#233;e est un membre d'un cluster. Chacune d&#8217;elles appartient &#224; un
-domaine unique et poss&#232;de sa propre structure de r&#233;pertoire, configuration et ses
-propres applications d&#233;ploy&#233;es. Chaque instance comprend &#233;galement le conteneur Web Java Platform,
-Enterprise Edition (Java EE) et le conteneur Enterprise JavaBeans (technologie EJB). Chaque
-nouvelle instance doit contenir une r&#233;f&#233;rence &#224; un n&#339;ud qui d&#233;finit l'h&#244;te
-sur lequel l'instance va r&#233;sider.</p>
-
-
-<hr><p><b>Remarque - </b>Pour cr&#233;er une instance sur un n&#339;ud de type CONFIG repr&#233;sentant un
-h&#244;te distant, vous devez utiliser la sous-commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a>. Vous ne pouvez pas
-utiliser la Console d'administration  &#224; cette fin. </p>
-
+<h4><a id="sthref67" name="sthref67"></a><a id="sthref68" name="sthref68"></a><a id="sthref69" name="sthref69"></a>Ajouter une instance de GlassFish&nbsp;Server &agrave; un cluster</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Les instances de GlassFish&nbsp;Server forment la base d'un d&eacute;ploiement d'application. Une instance incluse dans un cluster est un membre d'un cluster. Chacune d'elles appartient &agrave; un domaine unique et poss&egrave;de une structure de r&eacute;pertoire, une configuration et des applications d&eacute;ploy&eacute;es qui lui sont propres. Chaque instance comprend &eacute;galement le conteneur Web Java Platform, Enterprise Edition (Java EE) et le conteneur Enterprise JavaBeans (technologie EJB). Chaque nouvelle instance doit contenir une r&eacute;f&eacute;rence &agrave; un noeud qui d&eacute;finit l'h&ocirc;te sur lequel elle r&eacute;sidera.</p>
 
 <hr>
-<p><b>Avant de commencer</b></p><p>Assurez-vous que les &#233;l&#233;ments suivants existent&#160;:</p>
+<p><b>Remarque:</b></p>
+Pour cr&eacute;er une instance sur un noeud de type CONFIG repr&eacute;sentant un h&ocirc;te distant, vous devez utiliser la sous-commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00044"><code>create-local-instance</code>(1)</a>. Vous ne pouvez pas utiliser la Console d'administration &agrave; cet effet.
+<hr>
 
-
-<ul><li><p><a href="task-create-cluster.html">The cluster to which you are adding the instance</a></p>
-
+<a id="sthref70" name="sthref70"></a>
+<h5>Avant de commencer</h5>
+<p>Assurez-vous que les &eacute;l&eacute;ments suivants existent&nbsp;:</p>
+<ul>
+<li>
+<p>Le cluster auquel ajouter l'instance. Pour plus d'informations, reportez-vous &agrave; <a href="task-create-cluster.html">Cr&eacute;er un cluster</a>.</p>
 </li>
-<li><p><a href="task-createnode.html">The node on which the instance is to reside</a></p>
-
-</li></ul>
+<li>
+<p>Le noeud sur lequel l'instance r&eacute;sidera. Pour plus d'informations, reportez-vous &agrave; <a href="task-createnode.html">Cr&eacute;er un noeud</a>.</p>
+</li>
+</ul>
 <ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Clusters.</b></li>
-<li><b>Sous le n&#339;ud Clusters d&#233;velopp&#233;, s&#233;lectionnez le n&#339;ud pour le cluster.</b><p>La page Informations g&#233;n&#233;rales du cluster s'ouvre.</p></li>
-<li><b>Dans la page Informations g&#233;n&#233;rales, cliquez sur l&#8217;onglet Instances. </b><p>La page Instances de serveur clusteris&#233;es du cluster s'ouvre.</p></li>
-<li><b>Sur la page Instances de serveur clusteris&#233;es, cliquez sur Nouveau.</b><p>La page Nouvelle instance de serveur clusteris&#233;e s'ouvre.</p></li>
-<li><b>Dans le champ Nom, entrez un nom d&#8217;instance.</b><p>Le nom doit respecter les exigences suivantes&#160;:</p>
-<ul><li><p>Le nom ne peut contenir que des caract&#232;res ASCII. </p>
-
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Clusters.</p>
 </li>
-<li><p>Le nom doit commencer par une lettre, un chiffre ou un caract&#232;re de soulignement.</p>
-
+<li>
+<p>Sous le noeud Clusters d&eacute;velopp&eacute;, s&eacute;lectionnez le noeud correspondant au cluster.</p>
+<p>La page Informations g&eacute;n&eacute;rales du cluster appara&icirc;t.</p>
 </li>
-<li><p>Le nom ne peut contenir que les caract&#232;res suivants&#160;:</p>
-
-
-<ul><li><p>Lettres minuscules</p>
-
+<li>
+<p>Dans la page Informations g&eacute;n&eacute;rales, cliquez sur l'onglet Instances.</p>
+<p>La page Instances de serveur clusteris&eacute;es du cluster appara&icirc;t.</p>
 </li>
-<li><p>Lettres majuscules</p>
-
+<li>
+<p>Sur la page Instances de serveur clusteris&eacute;es, cliquez sur Nouveau.</p>
+<p>La page Nouvelle instance de serveur clusteris&eacute;e appara&icirc;t.</p>
 </li>
-<li><p>Chiffres</p>
-
+<li>
+<p>Dans le champ Nom, attribuez un nom &agrave; l'instance.</p>
+<p>Le nom doit respecter les exigences suivantes&nbsp;:</p>
+<ul>
+<li>
+<p>Il ne peut contenir que des caract&egrave;res&nbsp;ASCII.</p>
 </li>
-<li><p>Trait d'union</p>
-
+<li>
+<p>Il doit commencer par une lettre, un chiffre ou un trait de soulignement.</p>
 </li>
-<li><p>Point</p>
-
+<li>
+<p>Il ne peut contenir que les caract&egrave;res suivants&nbsp;:</p>
+<ul>
+<li>
+<p>Lettres minuscules</p>
 </li>
-<li><p>Caract&#232;re de soulignement</p>
-
-</li></ul>
+<li>
+<p>Lettres majuscules</p>
 </li>
-<li><p>Le nom doit &#234;tre unique dans le domaine et ne doit pas &#234;tre le nom d'une autre instance de GlassFish Server, d'un cluster, d'une configuration nomm&#233;e ou d'un n&#339;ud.</p>
-
+<li>
+<p>Chiffres</p>
 </li>
-<li><p>Le nom ne doit pas &#234;tre <tt>domain</tt>, <tt>server</tt> ou tout autre mot-cl&#233; r&#233;serv&#233; par GlassFish Server.</p>
-
-</li></ul>
+<li>
+<p>Trait d'union</p>
 </li>
-<li><b>&#192; partir de la liste d&#233;roulante N&#339;uds, s&#233;lectionnez le n&#339;ud sur lequel
-l'instance va r&#233;sider.</b></li>
-<li><b>Cliquez sur OK.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-delete-clustered-instances.html">Supprimer les instances de GlassFish Server clusteris&#233;es</a></p>
-
+<li>
+<p>Point</p>
 </li>
-<li><p><a href="task-start-clustered-instances.html">D&#233;marrer les instances de GlassFish Server clusteris&#233;es</a></p>
-
+<li>
+<p>Trait de soulignement</p>
 </li>
-<li><p><a href="task-stop-clustered-instances.html">Arr&#234;ter les instances de GlassFish Server clusteris&#233;es</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-view-logs-clustered-instance.html">Afficher les journaux d'une instance de GlassFish Server clusteris&#233;e</a></p>
-
+<li>
+<p>Le nom du noeud doit &ecirc;tre unique dans le domaine&nbsp;; il ne doit pas appartenir &agrave; une autre instance de GlassFish&nbsp;Server, &agrave; une configuration nomm&eacute;e, &agrave; un cluster ou &agrave; un noeud.</p>
 </li>
-<li><p><a href="task-recovertransactions.html">R&#233;cup&#233;rer les transactions d'une instance de GlassFish Server clusteris&#233;e</a></p>
-
+<li>
+<p>Il ne doit pas &ecirc;tre <code>domain</code>, <code>server</code> ou tout autre mot-cl&eacute; r&eacute;serv&eacute; par GlassFish&nbsp;Server.</p>
 </li>
-<li><p><a href="task-change-clustered-instance-ports.html">Modifier les num&#233;ros de port d'une instance de GlassFish Server clusteris&#233;e</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-set-props-clustered-instance.html">Configurer des propri&#233;t&#233;s sp&#233;cifiques &#224; l'instance d'une instance de GlassFish Server clusteris&#233;e</a></p>
-
+<li>
+<p>Dans la liste d&eacute;roulante Noeuds, s&eacute;lectionnez le noeud sur lequel l'instance r&eacute;sidera.</p>
 </li>
-<li><p><a href="task-mon-app-clustered-instance.html">Afficher les donn&#233;es de contr&#244;le des applications pour une instance de GlassFish Server clusteris&#233;e</a></p>
-
+<li>
+<p>Cliquez sur OK.</p>
 </li>
-<li><p><a href="task-mon-server-clustered-instance.html">Afficher les donn&#233;es de contr&#244;le d'un serveur virtuel pour une instance de GlassFish Server clusteris&#233;e</a></p>
-
+</ol>
+<a id="sthref71" name="sthref71"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-delete-clustered-instances.html">Supprimer des instances de GlassFish&nbsp;Server incluses dans un cluster</a></p>
 </li>
-<li><p><a href="task-mon-resource-clustered-instance.html">Afficher les donn&#233;es de contr&#244;le des ressources pour une instance de GlassFish Server clusteris&#233;e</a></p>
+<li>
+<p><a href="task-start-clustered-instances.html">D&eacute;marrer des instances de GlassFish&nbsp;Server incluses dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-stop-clustered-instances.html">Arr&ecirc;ter des instances de GlassFish&nbsp;Server incluses dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-view-logs-clustered-instance.html">Afficher les fichiers journaux d'une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-recovertransactions.html">R&eacute;cup&eacute;rer des transactions d'une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-change-clustered-instance-ports.html">Modifier les num&eacute;ros de port d'une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-set-props-clustered-instance.html">D&eacute;finir les propri&eacute;t&eacute;s propres &agrave; une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-mon-app-clustered-instance.html">Visualiser les donn&eacute;es de surveillance des applications pour une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-mon-server-clustered-instance.html">Visualiser les donn&eacute;es de surveillance des serveurs virtuels pour une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+<li>
+<p><a href="task-mon-resource-clustered-instance.html">Visualiser les donn&eacute;es de surveillance des ressources pour une instance de GlassFish&nbsp;Server incluse dans un cluster</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

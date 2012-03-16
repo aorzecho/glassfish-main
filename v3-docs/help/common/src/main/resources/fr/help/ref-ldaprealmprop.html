@@ -1,58 +1,61 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-ldaprealmprop"></a><h4>Propri&#233;t&#233;s sp&#233;cifiques &#224; la classe <tt>LDAPRealm </tt></h4>
-<a name="indexterm-209"></a><a name="indexterm-210"></a><p>Les propri&#233;t&#233;s suivantes sont requises pour un domaine LDAP.</p>
+<p><a id="ref-ldaprealmprop" name="ref-ldaprealmprop"></a><a id="GHCOM00103" name="GHCOM00103"></a></p>
 
-<dl><dt>Contexte JAAS</dt>
-<dd><p>Contexte JAAS (Java Authentication and Authorization Service), identificateur du module de connexion &#224; utiliser pour ce domaine. La seule valeur valide est <tt>solarisRealm</tt>.</p>
-
+<h4><a id="sthref381" name="sthref381"></a><a id="sthref382" name="sthref382"></a>Propri&eacute;t&eacute;s propres &agrave; la classe <code>LDAPRealm</code></h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Les propri&eacute;t&eacute;s suivantes sont obligatoires pour un domaine&nbsp;LDAP.</p>
+<dl>
+<dt>Contexte&nbsp;JAAS</dt>
+<dd>
+<p>Contexte JAAS (Java Authentication and Authorization Service), identifiant le module de connexion &agrave; utiliser pour ce domaine. La seule valeur valide est <code>solarisRealm</code>.</p>
 </dd>
-<dt>R&#233;pertoire</dt>
-<dd><p>URL LDAP de votre serveur.</p>
-
+<dt>R&eacute;pertoire</dt>
+<dd>
+<p>URL LDAP du serveur.</p>
 </dd>
-<dt>DN de base</dt>
-<dd><p>Nom distinctif (DN) de base LDAP pour l&#8217;emplacement des donn&#233;es utilisateur. Ce DN de base peut se trouver &#224; n&#8217;importe quel niveau au-dessus des donn&#233;es utilisateur, &#233;tant donn&#233; qu&#8217;une recherche en arborescence est effectu&#233;e. Plus l&#8217;arbre de recherche est r&#233;duit, meilleures sont les performances.</p>
-
-</dd>
-</dl>
-<p>La propri&#233;t&#233; facultative suivante est disponible pour un domaine LDAP.</p>
-
-<dl><dt>Assignation de groupes</dt>
-<dd><p>Liste de noms de groupes s&#233;par&#233;s par une virgule. Tous les clients pr&#233;sentant un certificat valide sont affect&#233;s &#224; ces groupes, comme par exemple <tt>employee, manager </tt> qui sont des noms de groupes d&#8217;utilisateurs.</p>
-
+<dt>Nom distinctif (DN) de base</dt>
+<dd>
+<p>Nom distinctif (DN) de base LDAP pour l'emplacement des donn&eacute;es utilisateur. Ce DN de base peut se trouver &agrave; n'importe quel niveau au-dessus des donn&eacute;es utilisateur, &eacute;tant donn&eacute; qu'une recherche en arborescence est effectu&eacute;e. Plus l'arbre de recherche est r&eacute;duit, meilleures sont les performances.</p>
 </dd>
 </dl>
-<p>Les propri&#233;t&#233;s facultatives suivantes sont disponibles pour un domaine LDAP.</p>
-
-<dl><dt><tt>search-filter</tt></dt>
-<dd><p>Filtre de recherche &#224; utiliser pour trouver l&#8217;utilisateur. La valeur par d&#233;faut est <tt> uid=%s</tt> (<tt>%s</tt> s&#8217;&#233;tend au nom du sujet).</p>
-
+<p>La propri&eacute;t&eacute; facultative suivante est disponible pour un domaine&nbsp;LDAP.</p>
+<dl>
+<dt>Affecter des groupes</dt>
+<dd>
+<p>Liste de noms de groupes s&eacute;par&eacute;s par une virgule. Tous les clients pr&eacute;sentant un certificat valide sont affect&eacute;s &agrave; ces groupes, comme par exemple <code>employee, manager</code> qui sont des noms de groupes d'utilisateurs.</p>
 </dd>
-<dt><tt>group-base-dn</tt></dt>
-<dd><p>DN de base pour l&#8217;emplacement des donn&#233;es de groupe. Par d&#233;faut, il est identique &#224; la valeur du DN de base, mais il peut &#234;tre affin&#233; si n&#233;cessaire.</p>
-
+</dl>
+<p>Les propri&eacute;t&eacute;s facultatives suivantes sont disponibles pour un domaine&nbsp;LDAP.</p>
+<dl>
+<dt><code>search-filter</code></dt>
+<dd>
+<p>Filtre de recherche &agrave; utiliser pour trouver l'utilisateur. La valeur par d&eacute;faut est <code>uid=%s</code> (<code>%s</code> s'&eacute;tend au nom du sujet).</p>
 </dd>
-<dt><tt>group-search-filter</tt></dt>
-<dd><p>Filtre de recherche pour trouver les appartenances de l&#8217;utilisateur &#224; des groupes. La valeur par d&#233;faut est <tt>uniquemember=%d</tt> (<tt>%d</tt> s&#8217;&#233;tend au DN d&#8217;&#233;l&#233;ment de l&#8217;utilisateur).</p>
-
+<dt><code>group-base-dn</code></dt>
+<dd>
+<p>Nom distinctif (DN) de base pour l'emplacement des donn&eacute;es de groupe. Par d&eacute;faut, il est identique &agrave; la valeur du nom distinctif (DN) de base, mais il peut &ecirc;tre affin&eacute; si n&eacute;cessaire.</p>
 </dd>
-<dt><tt>group-target</tt></dt>
-<dd><p>Nom d&#8217;attribut LDAP contenant les entr&#233;es des noms de groupes. La valeur par d&#233;faut est <tt>CN</tt>.</p>
-
+<dt><code>group-search-filter</code></dt>
+<dd>
+<p>Filtre de recherche pour trouver les appartenances de l'utilisateur &agrave; des groupes. La valeur par d&eacute;faut est <code>uniquemember=%d</code> (<code>%d</code> s'&eacute;tend au nom distinctif (DN) d'&eacute;l&eacute;ment de l'utilisateur).</p>
 </dd>
-<dt><tt>search-bind-dn</tt></dt>
-<dd><p>DN facultatif utilis&#233; pour authentifier le r&#233;pertoire d&#8217;ex&#233;cution de la recherche <tt>search-filter</tt>. Requis uniquement pour les r&#233;pertoires ne permettant pas de recherche anonyme.</p>
-
+<dt><code>group-target</code></dt>
+<dd>
+<p>Nom d'attribut LDAP contenant les entr&eacute;es des noms de groupes. La valeur par d&eacute;faut est <code>CN</code>.</p>
 </dd>
-<dt><tt>search-bind-password</tt></dt>
-<dd><p>Mot de passe LDAP pour le DN donn&#233; dans <tt>search-bind-dn</tt>.</p>
-
+<dt><code>search-bind-dn</code></dt>
+<dd>
+<p>Nom distinctif (DN) facultatif utilis&eacute; pour l'authentification aupr&egrave;s du r&eacute;pertoire en vue de l'ex&eacute;cution de la recherche <code>search-filter</code>. Obligatoire uniquement pour les r&eacute;pertoires ne permettant pas de recherche anonyme.</p>
+</dd>
+<dt><code>search-bind-password</code></dt>
+<dd>
+<p>Mot de passe LDAP associ&eacute; au nom distinctif (DN) indiqu&eacute; dans <code>search-bind-dn</code>.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

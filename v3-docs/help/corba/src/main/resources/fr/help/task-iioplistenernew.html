@@ -1,47 +1,83 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-iioplistenernew" name="task-iioplistenernew"></a><a id="GHCOR00007" name="GHCOR00007"></a></p>
 
-
-<a name="task-iioplistenernew"></a><h3>Pour cr&#233;er un listener IIOP</h3><a name="indexterm-3"></a><ol>
-<li><b>Dans l&#8217;arborescence, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>S&#233;lectionnez l&#8217;instance &#224; configurer :</b><ul>
-<li><b>Pour configurer une instance en particulier, s&#233;lectionnez le n&#339;ud de configuration de
-l&#8217;instance. Par exemple, pour l&#8217;instance par d&#233;faut, <tt>server</tt>, s&#233;lectionnez le n&#339;ud <tt>server-config</tt>.</b></li>
-<li><b>Pour configurer les param&#232;tres par d&#233;faut des futures instances utilisant une copie
-de <tt>default-config</tt>, s&#233;lectionnez le n&#339;ud <tt>default-config</tt>.</b></li></ul></li>
-<li><b>Sous le n&#339;ud Configuration, d&#233;veloppez le n&#339;ud ORB.</b></li>
-<li><b>S&#233;lectionnez Listeners IIOP.</b><p>La page Modules d&#8217;&#233;coute IIOP s&#8217;affiche.</p></li>
-<li><b>Cliquez sur Nouveau.</b></li>
-<li><b>Dans le champ Nom, entrez un nom permettant d&#8217;identifier le listener. </b></li>
-<li><b>Dans le champ Adresse r&#233;seau, entrez l&#8217;adresse r&#233;seau du serveur.</b><p>Vous pouvez entrer une adresse IP ou un nom d&#8217;h&#244;te DNS pouvant
-&#234;tre r&#233;solu.</p></li>
-<li><b>Dans le champ Port du listener, entrez le num&#233;ro de port d&#8217;&#233;coute
-que le listener doit utiliser.</b></li>
-<li><b>Cochez la case Activ&#233; pour activer les connexions entrantes IIOP de l&#8217;ORB
-&#224; GlassFish Server.</b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
-<li><b>Cochez la case S&#233;curit&#233; permise pour activer la SSL pour le listener
-IIOP.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>GlassFish Server ne d&#233;finit aucune autre propri&#233;t&#233; pour les listeners IIOP.</p><p>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</p></li>
-<li><b>Cliquez sur OK.</b></li>
-<li><b>Si vous avez coch&#233; la case S&#233;curit&#233; permise, suivez la proc&#233;dure fournie
-&#224; la rubrique  <a href="task-editiiopssl.html">Pour modifier les param&#232;tres SSL d'un listener IIOP s&#233;curis&#233;</a>.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-orb.html">Pour configurer l'ORB </a></p>
-
+<h4><a id="sthref5" name="sthref5"></a>Cr&eacute;er un processus d'&eacute;coute IIOP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Dans l'arborescence, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p><a href="task-iioplisteneredit.html">Pour modifier un listener IIOP</a></p>
-
+<li>
+<p>S&eacute;lectionnez l'instance &agrave; configurer&nbsp;:</p>
+<ul>
+<li>
+<p>Pour configurer une instance sp&eacute;cifique, s&eacute;lectionnez le noeud de configuration de l'instance. Par exemple, pour l'instance par d&eacute;faut, <code>server</code>, s&eacute;lectionnez le noeud <code>server-config</code>.</p>
 </li>
-<li><p><a href="task-editiiopssl.html">Pour modifier les param&#232;tres SSL d'un listener IIOP s&#233;curis&#233;</a></p>
-
+<li>
+<p>Pour configurer les param&egrave;tres par d&eacute;faut des futures instances utilisant une copie de <code>default-config</code>, s&eacute;lectionnez le noeud <code>default-config</code>.</p>
 </li>
-<li><p><a href="task-iioplistenerdelete.html">Pour supprimer un listener IIOP</a></p>
+</ul>
+</li>
+<li>
+<p>Sous le noeud Configuration, d&eacute;veloppez le noeud ORB.</p>
+</li>
+<li>
+<p>S&eacute;lectionnez Processus d'&eacute;coute IIOP.</p>
+<p>La page Processus d'&eacute;coute IIOP appara&icirc;t.</p>
+</li>
+<li>
+<p>Cliquez sur Nouveau.</p>
+</li>
+<li>
+<p>Dans le champ Nom, entrez un nom permettant d'identifier le processus d'&eacute;coute.</p>
+</li>
+<li>
+<p>Dans le champ Adresse r&eacute;seau, entrez l'adresse r&eacute;seau du processus d'&eacute;coute.</p>
+<p>Vous pouvez indiquer une adresse IP ou un nom d'h&ocirc;te DNS pouvant &ecirc;tre r&eacute;solu.</p>
+</li>
+<li>
+<p>Dans le champ Port du processus d'&eacute;coute, entrez le num&eacute;ro de port d'&eacute;coute que le processus d'&eacute;coute IIOP doit utiliser.</p>
+</li>
+<li>
+<p>Cochez la case Activ&eacute; du champ Processus d'&eacute;coute pour activer les connexions entrantes IIOP de l'ORB &agrave; GlassFish&nbsp;Server.</p>
+<p>Cette option est activ&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case S&eacute;curit&eacute; activ&eacute;e pour activer le protocole SSL pour le processus d'&eacute;coute IIOP.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans la section Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les propri&eacute;t&eacute;s suppl&eacute;mentaires.</p>
+<p>GlassFish&nbsp;Server ne d&eacute;finit aucune autre propri&eacute;t&eacute; pour les processus d'&eacute;coute IIOP.</p>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+</li>
+<li>
+<p>Cliquez sur OK.</p>
+</li>
+<li>
+<p>Si vous avez coch&eacute; la case S&eacute;curit&eacute; activ&eacute;e, suivez la proc&eacute;dure d&eacute;crite dans <a href="task-editiiopssl.html">Modifier les param&egrave;tres SSL d'un processus d'&eacute;coute IIOP s&eacute;curis&eacute;</a>.</p>
+</li>
+</ol>
+<a id="sthref6" name="sthref6"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-orb.html">Configurer le programme ORB</a></p>
+</li>
+<li>
+<p><a href="task-iioplisteneredit.html">Modifier un processus d'&eacute;coute IIOP</a></p>
+</li>
+<li>
+<p><a href="task-editiiopssl.html">Modifier les param&egrave;tres SSL d'un processus d'&eacute;coute IIOP s&eacute;curis&eacute;</a></p>
+</li>
+<li>
+<p><a href="task-iioplistenerdelete.html">Supprimer un processus d'&eacute;coute IIOP</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

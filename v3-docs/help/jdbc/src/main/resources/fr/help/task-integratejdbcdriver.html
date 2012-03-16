@@ -1,66 +1,91 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-integratejdbcdriver" name="task-integratejdbcdriver"></a><a id="GHJDB00031" name="GHJDB00031"></a></p>
 
-
-<a name="task-integratejdbcdriver"></a><h3>Int&#233;grer un pilote JDBC</h3><a name="indexterm-3"></a><p>Un pilote prenant en charge l&#8217;API JDBC (pilote JDBC) convertit les appels
-JDBC d&#8217;une application en protocole du serveur de base de donn&#233;es.</p>
-
+<h4><a id="sthref4" name="sthref4"></a>Int&eacute;grer un pilote JDBC</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Un pilote prenant en charge l'API JDBC (pilote JDBC) convertit les appels JDBC d'une application en protocole du serveur de base de donn&eacute;es.</p>
+<p>Pour int&eacute;grer le pilote JDBC &agrave; un domaine GlassFish&nbsp;Server, effectuez l'une des op&eacute;rations suivantes&nbsp;:</p>
 <ul>
-<li><b>Pour int&#233;grer le pilote JDBC &#224; un domaine GlassFish Server, effectuez l&#8217;une
-des op&#233;rations suivantes&#160;:</b><ul>
-<li><b>Configurez le pilote afin qu&#8217;il soit accessible au chargeur de classe commun.</b><ol style="list-style-type: lower-alpha">
-<li><b>Copiez les fichiers JAR et ZIP du pilote dans le r&#233;pertoire <i>domain-dir</i><tt>/lib</tt>.</b>
-<hr><p><b>Remarque - </b>Il existe une exception &#224; cette r&#232;gle. Si vous utilisez le pilote
-Oracle JDBC et si vous souhaitez vous servir des extensions EclipseLink disponibles pour
-utilisation avec les bases de donn&#233;es Oracle, vous devez placer les fichiers
-JAR du pilote Oracle JDBC dans le r&#233;pertoire <i>domain-dir</i><tt>/lib/ext</tt>.</p>
-
+<li>
+<p>Configurez le pilote afin qu'il soit accessible au chargeur de classe commun.</p>
+<ol>
+<li>
+<p>Copiez les fichiers JAR et ZIP du pilote dans le r&eacute;pertoire <i>domain-dir</i><code>/lib</code>.</p>
 
 <hr>
-</li>
-<li><b>Red&#233;marrez le domaine.</b></li></ol></li>
-<li><b>Configurez le pilote afin qu&#8217;il soit accessible au chargeur de classe du
-syst&#232;me.</b><ol style="list-style-type: lower-alpha">
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>Sous le n&#339;ud Configuration, s&#233;lectionnez le n&#339;ud Param&#232;tres JVM.</b><p>La page Param&#232;tres JVM s&#8217;ouvre.</p></li>
-<li><b>Dans la page Param&#232;tres g&#233;n&#233;raux JVM, cliquez sur l&#8217;onglet Param&#232;tres du chemin.</b></li>
-<li><b>Dans le champ Suffixe de Classpath, saisissez le nom complet du chemin
-d&#8217;acc&#232;s au fichier JAR du pilote.</b></li>
-<li><b>Cliquez sur Enregistrer.</b></li>
-<li><b>Red&#233;marrez le serveur.</b></li></ol></li></ul></li></ul><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-setdbaccess.html">Configurer l'acc&#232;s &#224; la base de donn&#233;es</a></p>
+<p><b>Remarque:</b></p>
+Il existe une exception &agrave; cette r&egrave;gle. Si vous utilisez le pilote Oracle JDBC et que vous souhaitez vous servir des extensions EclipseLink disponibles pour utilisation avec les bases de donn&eacute;es Oracle, vous devez placer les fichiers JAR du pilote Oracle JDBC dans le r&eacute;pertoire <i>domain-dir</i><code>/lib/ext</code>.
+<hr>
 
 </li>
-<li><p><a href="task-jdbcresourcenew.html">Cr&#233;er une ressource JDBC</a></p>
-
+<li>
+<p>Red&eacute;marrez le domaine.</p>
 </li>
-<li><p><a href="task-jdbcresourcesedit.html">Modifier une ressource JDBC</a></p>
-
+</ol>
 </li>
-<li><p><a href="task-jdbcresourcesdelete.html">Supprimer une ressource JDBC</a></p>
-
+<li>
+<p>Configurez le pilote afin qu'il soit accessible au chargeur de classe syst&egrave;me.</p>
+<ol>
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolnew.html">Cr&#233;er un pool de connexions JDBC</a></p>
-
+<li>
+<p>Sous le noeud Configuration, s&eacute;lectionnez le noeud Param&egrave;tres&nbsp;JVM.</p>
+<p>La page Param&egrave;tres&nbsp;JVM appara&icirc;t.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooledit.html">Modifier les param&#232;tres g&#233;n&#233;raux du pool de connexions JDBC</a></p>
-
+<li>
+<p>Sur la page Param&egrave;tres g&eacute;n&eacute;raux JVM, cliquez sur l'onglet Param&egrave;tres du chemin.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooladvance.html">Modifier les attributs avanc&#233;s d'un pool de connexions JDBC</a></p>
-
+<li>
+<p>Dans le champ Suffixe de classpath, saisissez le nom qualifi&eacute; complet du chemin d'acc&egrave;s au fichier JAR du pilote.</p>
 </li>
-<li><p><a href="task-verifyconnpoolsettings.html">V&#233;rifier les param&#232;tres du pool de connexions</a></p>
-
+<li>
+<p>Cliquez sur Enregistrer.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpoolproperty.html">Modifier les propri&#233;t&#233;s d'un pool de connexions JDBC</a></p>
-
+<li>
+<p>Red&eacute;marrez le serveur.</p>
 </li>
-<li><p><a href="task-jdbcconnectionpooldelete.html">Supprimer un pool de connexions JDBC</a></p>
+</ol>
+</li>
+</ul>
+<a id="sthref5" name="sthref5"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-setdbaccess.html">Param&eacute;trer l'acc&egrave;s &agrave; une base de donn&eacute;es</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcenew.html">Cr&eacute;er une ressource JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcesedit.html">Modifier une ressource JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcresourcesdelete.html">Supprimer une ressource JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolnew.html">Cr&eacute;er un pool de connexions JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooledit.html">Modifier les param&egrave;tres g&eacute;n&eacute;raux d'un pool de connexions JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooladvance.html">Modifier les attributs avanc&eacute;s du pool de connexions JDBC</a></p>
+</li>
+<li>
+<p><a href="task-verifyconnpoolsettings.html">V&eacute;rifier les param&egrave;tres d'un pool de connexions</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpoolproperty.html">Modifier les propri&eacute;t&eacute;s d'un pool de connexions JDBC</a></p>
+</li>
+<li>
+<p><a href="task-jdbcconnectionpooldelete.html">Supprimer un pool de connexions JDBC</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

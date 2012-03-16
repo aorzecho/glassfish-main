@@ -1,61 +1,59 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-ejbtimerservice"></a><h4>Service d&#8217;horloge EJB</h4>
-<a name="indexterm-18"></a><a name="indexterm-19"></a><a name="indexterm-20"></a><p>Utilisez la page Service d&#8217;horloge EJB pour configurer le service d&#8217;horloge EJB.</p>
+<p><a id="ref-ejbtimerservice" name="ref-ejbtimerservice"></a><a id="GHEJB00003" name="GHEJB00003"></a></p>
 
-<p>Le service d&#8217;horloge est un service de notification persistant et transactionnel fourni
-par le conteneur de beans entreprise qui sert &#224; programmer des notifications
-ou des &#233;v&#233;nements utilis&#233;s par les beans entreprise. Tous les beans entreprise,
-&#224; l&#8217;exception des beans de session avec &#233;tat, peuvent recevoir des notifications
-du service d&#8217;horloge. Les horloges persistantes d&#233;finies par le service ne sont
-pas d&#233;truites lors de l&#8217;arr&#234;t ou du red&#233;marrage du serveur.</p>
-
-<p>La page Service d&#8217;horloge EJB contient les options suivantes&#160;:</p>
-
-<dl><dt>Restaurer les valeurs par d&#233;faut</dt>
-<dd><p>Bouton de restauration des valeurs par d&#233;faut des param&#232;tres qui ont des valeurs par d&#233;faut. Les param&#232;tres qui n'ont pas de valeurs par d&#233;faut ne sont pas modifi&#233;s.</p>
-
+<h4><a id="sthref23" name="sthref23"></a><a id="sthref24" name="sthref24"></a><a id="sthref25" name="sthref25"></a>Service d'horloge EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Service d'horloge EJB permet de configurer le service d'horloge EJB.</p>
+<p>Le service d'horloge est un service de notification persistant et transactionnel fourni par le conteneur d'Enterprise Beans qui sert &agrave; programmer des notifications ou des &eacute;v&eacute;nements utilis&eacute;s par les Enterprise Beans. Tous les Enterprise Beans, &agrave; l'exception des beans Session avec conservation de statut, peuvent recevoir des notifications du service d'horloge. Les horloges persistantes d&eacute;finies par le service ne sont pas d&eacute;truites lors de l'arr&ecirc;t ou du red&eacute;marrage du serveur.</p>
+<p>La page Service d'horloge EJB contient les options suivantes.</p>
+<dl>
+<dt>Charger les valeurs par d&eacute;faut</dt>
+<dd>
+<p>Bouton de restauration des valeurs par d&eacute;faut des param&egrave;tres qui ont des valeurs par d&eacute;faut. Les param&egrave;tres qui n'ont pas de valeurs par d&eacute;faut ne sont pas modifi&eacute;s.</p>
 </dd>
-<dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
 <dt>Intervalle de distribution minimal</dt>
-<dd><p>Nombre minimum de millisecondes autoris&#233;es avant l&#8217;expiration suivante d&#8217;une horloge donn&#233;e. La d&#233;finition de cet intervalle sur une valeur trop basse peut provoquer une surcharge du serveur. La valeur par d&#233;faut est 1000.</p>
-
+<dd>
+<p>D&eacute;lai minimal, en millisecondes, au-del&agrave; duquel la l'expiration suivante d'une horloge donn&eacute;e survient. La d&eacute;finition de cet intervalle sur une valeur trop basse peut provoquer une surcharge du serveur. La valeur par d&eacute;faut est&nbsp;1&nbsp;000.</p>
 </dd>
 <dt>Nombre maximal de redistributions</dt>
-<dd><p>Nombre maximal de tentatives effectu&#233;es par le service d&#8217;horloge pour transmettre une expiration d&#8217;horloge en raison d&#8217;une exception ou d&#8217;une annulation. La valeur par d&#233;faut est 1. </p>
-
+<dd>
+<p>Nombre maximal de tentatives effectu&eacute;es par le service d'horloge pour transmettre une expiration d'horloge en raison d'une exception ou d'une annulation. La valeur par d&eacute;faut est&nbsp;1.</p>
 </dd>
 <dt>Intervalle de redistribution</dt>
-<dd><p>Intervalle, exprim&#233; en millisecondes, entre deux tentatives de redistribution. La valeur par d&#233;faut est 5000.</p>
-
+<dd>
+<p>Intervalle, exprim&eacute; en millisecondes, entre deux tentatives de redistribution. La valeur par d&eacute;faut est&nbsp;5&nbsp;000.</p>
 </dd>
-<dt>Source de donn&#233;es de l&#8217;horloge</dt>
-<dd><p>Nom JNDI de la ressource JDBC devant &#234;tre utilis&#233;e comme source de donn&#233;es de l&#8217;horloge. Si elle est sp&#233;cifi&#233;e, cette valeur remplace la valeur par d&#233;faut de <tt>jdbc/__TimerPool</tt> de l&#8217;application du syst&#232;me de service d&#8217;horloge. </p>
-
+<dt>Source de donn&eacute;es de l'horloge</dt>
+<dd>
+<p>Nom JNDI de la ressource JDBC devant &ecirc;tre utilis&eacute;e comme source de donn&eacute;es de l'horloge. Si elle est sp&eacute;cifi&eacute;e, cette valeur remplace la valeur par d&eacute;faut de <code>jdbc/__TimerPool</code> de l'application du syst&egrave;me de service d'horloge.</p>
 </dd>
 </dl>
-<h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-ejbtimerservice.html">Pour configurer le service d'horloge EJB</a></p>
-
+<a id="sthref26" name="sthref26"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-ejbtimerservice.html">Configurer le service d'horloge EJB</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2964&id=task-ejbgeneral">To Configure EJB Settings</a></p>
-
+<li>
+<p><a href="../../../ejb-lite/fr/help/missingtopic.html">Configurer les param&egrave;tres EJB</a></p>
 </li>
-<li><p><a href="task-ejbmdbpoolsettings.html">Pour configurer les param&#232;tres du pool MDB</a></p>
+<li>
+<p><a href="task-ejbmdbpoolsettings.html">Configurer les param&egrave;tres de pool MDB</a></p>
+</li>
+</ul>
+<a id="sthref27" name="sthref27"></a>
+<h5>Commandes asadmin connexes</h5>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00205"><code>list-timers</code>(1)</a></p>
 
-</li></ul>
-<h5>Commandes <tt>asadmin</tt> connexes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-timers-1"><tt>list-timers</tt>(1)</a></p>
-
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

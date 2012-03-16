@@ -1,104 +1,110 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-virtualserveredit"></a><h4>Modification du serveur virtuel</h4>
-<a name="indexterm-63"></a><p>La page Modification du serveur virtuel vous permet de modifier les param&#232;tres
-d&#8217;un serveur virtuel.</p>
+<p><a id="ref-virtualserveredit" name="ref-virtualserveredit"></a><a id="GHWEB00013" name="GHWEB00013"></a></p>
 
-<p>La page Modification du serveur virtuel contient les options suivantes.</p>
-
-<dl><dt>Restaurer les valeurs par d&#233;faut</dt>
-<dd><p>Bouton de restauration des valeurs par d&#233;faut des param&#232;tres qui ont des valeurs par d&#233;faut. Les param&#232;tres qui n'ont pas de valeurs par d&#233;faut ne sont pas modifi&#233;s.</p>
-
+<h4><a id="sthref127" name="sthref127"></a>Modifier un serveur virtuel</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Modifier un serveur virtuel permet de modifier les param&egrave;tres d'un serveur virtuel.</p>
+<p>La page Modifier un serveur virtuel contient les options suivantes.</p>
+<dl>
+<dt>Charger les valeurs par d&eacute;faut</dt>
+<dd>
+<p>Bouton de restauration des valeurs par d&eacute;faut des param&egrave;tres qui ont des valeurs par d&eacute;faut. Les param&egrave;tres qui n'ont pas de valeurs par d&eacute;faut ne sont pas modifi&eacute;s.</p>
 </dd>
-<dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
 <dt>ID</dt>
-<dd><p>Identificateur de serveur virtuel visible en interne. Elle n&#8217;est pas visible des clients HTTP. Les noms d&#8217;h&#244;tes visibles des clients HTTP doivent &#234;tre sp&#233;cifi&#233;s dans le champ H&#244;tes.</p>
-
+<dd>
+<p>Identificateur de serveur virtuel visible en interne. Il n'est pas visible par les clients HTTP. Les noms d'h&ocirc;te visibles par les clients HTTP doivent &ecirc;tre sp&eacute;cifi&eacute;s dans le champ H&ocirc;tes.</p>
 </dd>
-<dt>H&#244;tes</dt>
-<dd><p>Nom(s) d&#8217;h&#244;te de la machine sur laquelle le serveur est ex&#233;cut&#233;. Utilisez des noms d&#8217;h&#244;te r&#233;els ou virtuels enregistr&#233;s dans le serveur DNS pour votre r&#233;seau (et, sous UNIX, dans votre fichier <tt>/etc/hosts</tt>). La valeur par d&#233;faut est la valeur de propri&#233;t&#233; syst&#232;me <tt>${com.sun.aas.hostName}</tt>.</p>
-
+<dt>H&ocirc;tes</dt>
+<dd>
+<p>Noms d'h&ocirc;te de l'ordinateur sur lequel le serveur est ex&eacute;cut&eacute;. Utilisez des noms d'h&ocirc;te r&eacute;els ou virtuels enregistr&eacute;s sur le serveur DNS pour votre r&eacute;seau (et, sous UNIX, dans le fichier <code>/etc/hosts</code>). La valeur par d&eacute;faut correspond &agrave; la valeur de propri&eacute;t&eacute; syst&egrave;me <code>${com.sun.aas.hostName}</code>.</p>
 </dd>
-<dt>&#201;tat</dt>
-<dd><p>&#201;tat d&#233;sir&#233; pour le serveur. La valeur peut &#234;tre l&#8217;une des suivantes&#160;:</p>
-
-<dl><dt>Activ&#233;</dt>
-<dd><p>Le serveur virtuel est actif. Il s&#8217;agit de la valeur par d&#233;faut.</p>
-
+<dt>Etat</dt>
+<dd>
+<p>Etat souhait&eacute; du serveur. Les valeurs possibles sont les suivantes&nbsp;:</p>
+<dl>
+<dt>Actif</dt>
+<dd>
+<p>Le serveur virtuel est actif. Il s'agit de la valeur par d&eacute;faut.</p>
 </dd>
-<dt>D&#233;sactiv&#233;</dt>
-<dd><p>Le serveur virtuel est inactif. Les tentatives d&#8217;acc&#232;s au serveur renvoient le code d&#8217;erreur 404 (ressource non disponible).</p>
-
+<dt>Inactif</dt>
+<dd>
+<p>Le serveur virtuel est inactif. Les tentatives d'acc&egrave;s au serveur renvoient le code d'erreur 404 (ressource non disponible).</p>
 </dd>
-<dt>D&#233;sactiv&#233;</dt>
-<dd><p>Le serveur virtuel est d&#233;sactiv&#233;. Les tentatives d&#8217;acc&#232;s au serveur renvoient le code d&#8217;erreur 403 (refus d&#8217;ex&#233;cuter la requ&#234;te).</p>
-
+<dt>D&eacute;sactiv&eacute;</dt>
+<dd>
+<p>Le serveur virtuel est d&eacute;sactiv&eacute;. Les tentatives d'acc&egrave;s au serveur renvoient le code d'erreur 403 (refus d'ex&eacute;cuter la demande).</p>
 </dd>
 </dl>
 </dd>
 <dt>SSO</dt>
-<dd><p>Sp&#233;cifie si un comportement de connexion unique est h&#233;rit&#233; du service HTTP, activ&#233; ou d&#233;sactiv&#233;. Par d&#233;faut, elle est h&#233;rit&#233;e du service HTTP. Si cette option est activ&#233;e, la connexion unique est activ&#233;e pour les applications Web sur ce serveur virtuel qui sont configur&#233;es pour le m&#234;me domaine. Si cette option est d&#233;sactiv&#233;e, la connexion unique est d&#233;sactiv&#233;e pour ce serveur virtuel et les utilisateurs doivent s&#8217;authentifier s&#233;par&#233;ment pour chaque application sur le serveur virtuel.</p>
-
+<dd>
+<p>Sp&eacute;cifie si un comportement de connexion unique est h&eacute;rit&eacute; du service HTTP, activ&eacute; ou d&eacute;sactiv&eacute;. Par d&eacute;faut, il est h&eacute;rit&eacute; du service HTTP. Si cette option est activ&eacute;e, la connexion unique est activ&eacute;e pour les applications Web sur ce serveur virtuel qui sont configur&eacute;es pour le m&ecirc;me domaine. Si cette option est d&eacute;sactiv&eacute;e, la connexion unique est d&eacute;sactiv&eacute;e pour ce serveur virtuel et les utilisateurs doivent s'authentifier s&eacute;par&eacute;ment pour chaque application sur le serveur virtuel.</p>
 </dd>
-<dt>Network Listeners</dt>
-<dd><p>L&#8217;auditeur ou les auditeurs de r&#233;seau associ&#233;s &#224; ce serveur. </p>
-
+<dt>Processus d'&eacute;coute r&eacute;seau</dt>
+<dd>
+<p>Processus d'&eacute;coute r&eacute;seau associ&eacute;s &agrave; ce serveur.</p>
 </dd>
-<dt>Module Web par d&#233;faut</dt>
-<dd><p>Module Web d&#233;ploy&#233; (le cas &#233;ch&#233;ant) qui doit r&#233;pondre &#224; toutes les requ&#234;tes ne pouvant pas &#234;tre mapp&#233;es &#224; d&#8217;autres modules Web d&#233;ploy&#233;s sur le serveur virtuel. Si aucun module Web par d&#233;faut n&#8217;est sp&#233;cifi&#233;, le module Web qui poss&#232;de une racine contexte vide est utilis&#233;. S&#8217;il n&#8217;existe aucun module Web avec une racine contexte vide, un module Web par d&#233;faut du syst&#232;me est cr&#233;&#233; et utilis&#233;.</p>
-
+<dt>Module Web par d&eacute;faut</dt>
+<dd>
+<p>Module Web d&eacute;ploy&eacute; (le cas &eacute;ch&eacute;ant) qui doit r&eacute;pondre &agrave; toutes les demandes ne pouvant pas &ecirc;tre mises en correspondance avec d'autres modules Web d&eacute;ploy&eacute;s sur le serveur virtuel. Si aucun module Web par d&eacute;faut n'est sp&eacute;cifi&eacute;, le module Web qui poss&egrave;de une racine de contexte vide est utilis&eacute;. S'il n'existe aucun module Web avec une racine de contexte vide, un module Web par d&eacute;faut du syst&egrave;me est cr&eacute;&eacute; et utilis&eacute;.</p>
 </dd>
 <dt>Fichier journal</dt>
-<dd><p>Nom de chemin du fichier o&#249; les messages de journalisation provenant de ce serveur virtuel doivent s&#8217;afficher. Par d&#233;faut, les messages de journalisation s&#8217;affichent dans <tt></tt><i>domain-dir</i><tt>/logs/server.log </tt>.</p>
-
+<dd>
+<p>Nom de chemin du fichier dans lequel les messages de journalisation provenant de ce serveur virtuel appara&icirc;tront. Par d&eacute;faut, les messages de journalisation appara&icirc;tront dans <i>domain-dir</i><code>/logs/server.log</code>.</p>
 </dd>
-<dt>Docroot</dt>
-<dd><p>Chemin d&#8217;acc&#232;s absolu au r&#233;pertoire de documents racine pour le serveur. La valeur par d&#233;faut est <tt></tt><i>domain-dir</i><tt>/docroot</tt>.</p>
-
+<dt>Racine doc.</dt>
+<dd>
+<p>Chemin d'acc&egrave;s absolu au r&eacute;pertoire de documents racine pour le serveur. La valeur par d&eacute;faut est <i>domain-dir</i><code>/docroot</code>.</p>
 </dd>
-<dt>Journalisation des acc&#232;s</dt>
-<dd><p>Sp&#233;cifie si la journalisation d&#8217;acc&#232;s est h&#233;rit&#233;e du service HTTP, activ&#233;e ou d&#233;sactiv&#233;e. Par d&#233;faut, elle est h&#233;rit&#233;e du service HTTP.</p>
-
+<dt>Journalisation des acc&egrave;s</dt>
+<dd>
+<p>Sp&eacute;cifie si la journalisation des acc&egrave;s est h&eacute;rit&eacute;e du service HTTP, activ&eacute;e ou d&eacute;sactiv&eacute;e. Par d&eacute;faut, il est h&eacute;rit&eacute; du service HTTP.</p>
 </dd>
-<dt>R&#233;pertoire</dt>
-<dd><p>Chemin d&#8217;acc&#232;s absolu aux journaux d&#8217;acc&#232;s du serveur. Le chemin par d&#233;faut est <i>domain-dir</i><tt>/logs/access</tt>.</p>
-
+<dt>R&eacute;pertoire</dt>
+<dd>
+<p>Chemin de r&eacute;pertoire absolu des journaux des acc&egrave;s du serveur. La valeur par d&eacute;faut est <i>domain-dir</i><code>/logs/access</code>.</p>
 </dd>
-<dt>Autres propri&#233;t&#233;s</dt>
-<dd><p>Propri&#233;t&#233;s suppl&#233;mentaires pour le serveur virtuel.</p>
-
-<p>Pour obtenir des informations sur les propri&#233;t&#233;s disponibles, consultez <a href="ref-virtualserverprops.html">Propri&#233;t&#233;s sp&#233;cifiques aux serveurs virtuels</a>.</p>
-
+<dt>Autres propri&eacute;t&eacute;s</dt>
+<dd>
+<p>Autres propri&eacute;t&eacute;s du serveur virtuel.</p>
+<p>Pour plus d'informations sur les propri&eacute;t&eacute;s disponibles, reportez-vous &agrave; <a href="ref-virtualserverprops.html">Propri&eacute;t&eacute;s propres aux serveurs virtuels</a>.</p>
 </dd>
 </dl>
-<h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-virtualservercreate.html">Cr&#233;er un serveur virtuel</a></p>
-
+<a id="sthref128" name="sthref128"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-virtualservercreate.html">Cr&eacute;er un serveur virtuel</a></p>
 </li>
-<li><p><a href="task-virtualserveredit.html">Modifier un serveur virtuel</a></p>
-
+<li>
+<p><a href="task-virtualserveredit.html">Modifier un serveur virtuel</a></p>
 </li>
-<li><p><a href="task-virtualserverdelete.html">Supprimer un serveur virtuel</a></p>
-
-</li></ul>
-<h5>Commandes <tt>asadmin</tt> connexes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-virtual-server-1"><tt>create-virtual-server</tt>(1)</a></p>
-
+<li>
+<p><a href="task-virtualserverdelete.html">Supprimer un serveur virtuel</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-virtual-servers-1"><tt>list-virtual-servers</tt>(1)</a></p>
-
+</ul>
+<a id="sthref129" name="sthref129"></a>
+<h5>Commandes asadmin connexes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00062"><code>create-virtual-server</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-virtual-server-1"><tt>delete-virtual-server</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00207"><code>list-virtual-servers</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00113"><code>delete-virtual-server</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

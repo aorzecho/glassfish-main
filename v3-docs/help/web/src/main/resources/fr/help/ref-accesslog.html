@@ -1,188 +1,180 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-accesslog"></a><h4>Service HTTP</h4>
-<a name="indexterm-55"></a><a name="indexterm-56"></a><p>Utilisez la page Service HTTP pour sp&#233;cifier la strat&#233;gie g&#233;n&#233;rale de journal
-d&#8217;acc&#232;s pour les applications Web.</p>
+<p><a id="ref-accesslog" name="ref-accesslog"></a><a id="GHWEB00008" name="GHWEB00008"></a></p>
 
-<p>Le service HTTP offre des fonctions pour le d&#233;ploiement des applications Web
-et pour permettre aux clients HTTP d&#8217;acc&#233;der aux applications Web d&#233;ploy&#233;es, avec
-des serveurs virtuels, des pools de threads et la fonction de configuration
-r&#233;seau.</p>
-
-<p>GlassFish Server utilise le journal d&#8217;acc&#232;s du service HTTP pour activer et
-configurer la rotation des journaux d&#8217;acc&#232;s pour les serveurs virtuels. Ces journaux
-sont situ&#233;s dans le r&#233;pertoire <tt><i>domain-dir</i>/logs/access</tt> et sont nomm&#233;s comme suit :
-<tt><i>virtual_server_name</i>_access_log.<i>aaaaMMjj</i>-<i>HH</i>h<i>mm</i>m<i>ss</i>s.txt</tt></p>
-
-<p>La page Service HTTP contient les options suivantes.</p>
-
-<dl><dt>Restaurer les valeurs par d&#233;faut</dt>
-<dd><p>Bouton de restauration des valeurs par d&#233;faut des param&#232;tres qui ont des valeurs par d&#233;faut. Les param&#232;tres qui n'ont pas de valeurs par d&#233;faut ne sont pas modifi&#233;s.</p>
-
+<h4><a id="sthref104" name="sthref104"></a><a id="sthref105" name="sthref105"></a>Service HTTP</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Service HTTP permet de sp&eacute;cifier la r&egrave;gle g&eacute;n&eacute;rale de journal des acc&egrave;s pour les applications Web.</p>
+<p>Le service HTTP offre des fonctions de d&eacute;ploiement des applications Web et d'autres permettant aux clients HTTP d'acc&eacute;der aux applications Web d&eacute;ploy&eacute;es, ainsi qu'aux serveurs virtuels, pools de threads et &agrave; la fonction de configuration r&eacute;seau.</p>
+<p>GlassFish&nbsp;Server utilise le journal des acc&egrave;s du service HTTP pour activer et configurer la rotation des journaux des acc&egrave;s pour les serveurs virtuels. Ces journaux sont situ&eacute;s dans le r&eacute;pertoire <i>domain-dir</i><code>/logs/access</code> et sont nomm&eacute;s comme suit&nbsp;: <i>virtual_server_name</i><code>_access_log.</code><i>yyyyMMdd</i><code>-</code><i>HH</i><code>h</code><i>mm</i><code>m</code><i>ss</i><code>s.txt</code></p>
+<p>La page Service HTTP contient les options suivantes&nbsp;:</p>
+<dl>
+<dt>Charger les valeurs par d&eacute;faut</dt>
+<dd>
+<p>Bouton de restauration des valeurs par d&eacute;faut des param&egrave;tres qui ont des valeurs par d&eacute;faut. Les param&egrave;tres qui n'ont pas de valeurs par d&eacute;faut ne sont pas modifi&eacute;s.</p>
 </dd>
-<dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
 <dt>SSO</dt>
-<dd><p>D&#233;termine si la connexion unique est activ&#233;e par d&#233;faut pour toutes les applications Web sur tous les serveurs virtuels de ce serveur qui sont configur&#233;s pour le m&#234;me domaine. Si cette option n&#8217;est pas activ&#233;e, la connexion unique est d&#233;sactiv&#233;e par d&#233;faut pour tous les serveurs virtuels et les utilisateurs doivent s&#8217;authentifier s&#233;par&#233;ment pour chaque application sur chaque serveur virtuel. Vous pouvez annuler ce param&#232;tre pour un serveur virtuel. La connexion unique peut &#234;tre activ&#233;e ou d&#233;sactiv&#233;e. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dd>
+<p>D&eacute;termine si la connexion unique est activ&eacute;e par d&eacute;faut pour l'ensemble des applications Web sur tous les serveurs virtuels de ce serveur qui sont configur&eacute;s pour le m&ecirc;me domaine. Si cette option n'est pas activ&eacute;e, la connexion unique est d&eacute;sactiv&eacute;e par d&eacute;faut pour tous les serveurs virtuels et les utilisateurs doivent s'authentifier s&eacute;par&eacute;ment pour toutes les applications sur chaque serveur virtuel. Vous pouvez annuler ce param&egrave;tre pour un serveur virtuel. La connexion unique peut &ecirc;tre activ&eacute;e ou d&eacute;sactiv&eacute;e. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Journalisation des acc&#232;s</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, la journalisation des acc&#232;s est activ&#233;e pour tous les sous-&#233;l&#233;ments de serveur virtuel qui ne sp&#233;cifient pas cette propri&#233;t&#233;. Si cette option n&#8217;est pas s&#233;lectionn&#233;e, ceci d&#233;sactive la journalisation des acc&#232;s pour tous les sous-&#233;l&#233;ments de serveur virtuel qui ne sp&#233;cifient pas cette propri&#233;t&#233;. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Journalisation des acc&egrave;s</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, la journalisation des acc&egrave;s est activ&eacute;e pour tous les sous-&eacute;l&eacute;ments de serveur virtuel qui ne sp&eacute;cifient pas cette propri&eacute;t&eacute;. Si cette option n'est pas s&eacute;lectionn&eacute;e, la journalisation des acc&egrave;s est d&eacute;sactiv&eacute;e pour tous les sous-&eacute;l&eacute;ments de serveur virtuel qui ne sp&eacute;cifient pas cette propri&eacute;t&eacute;. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
 <dt>Rotation</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, la rotation du fichier journal est activ&#233;e. Cette option est activ&#233;e par d&#233;faut.</p>
-
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, la rotation du fichier journal est activ&eacute;e. Cette option est activ&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Strat&#233;gie de rotation</dt>
-<dd><p>La seule strat&#233;gie de rotation disponible est <tt>time</tt>.</p>
-
+<dt>R&egrave;gle de rotation</dt>
+<dd>
+<p>La seule r&egrave;gle de rotation disponible est <code>time</code>.</p>
 </dd>
 <dt>Intervalle de rotation</dt>
-<dd><p>Nombre de minutes entre les rotations du journal d&#8217;acc&#232;s. Ce champ est valide uniquement si l&#8217;option Strat&#233;gie de rotation est d&#233;finie sur <tt>time</tt>. La valeur par d&#233;faut est 1440 minutes (24 heures).</p>
-
+<dd>
+<p>Nombre de minutes entre les rotations du journal des acc&egrave;s. Ce champ est valide uniquement si la r&egrave;gle de rotation est <code>time</code>. La valeur par d&eacute;faut est 1&nbsp;440&nbsp;minutes (24&nbsp;heures).</p>
 </dd>
 <dt>Suffixe de rotation</dt>
-<dd><p>Valeur de cha&#238;ne &#224; ajouter &#224; la fin du nom du fichier journal apr&#232;s la rotation. La valeur par d&#233;faut est <tt>yyyy-MM-dd</tt>.</p>
-
-<p>Assurez-vous que le suffixe de rotation contient suffisamment de valeurs pour cr&#233;er un suffixe unique pour chaque rotation de journal. Par exemple, si plus d&#8217;une rotation par jour est appliqu&#233;e au journal d&#8217;acc&#232;s, ajoutez l&#8217;heure dans le suffixe de rotation.</p>
-
-<p>Le suffixe doit &#234;tre unique pour s&#8217;assurer qu&#8217;une rotation est appliqu&#233;e au fichier du journal d&#8217;acc&#232;s chaque fois que l&#8217;intervalle de rotation arrive &#224; son terme. Si le suffixe de rotation du nouveau fichier du journal d&#8217;acc&#232;s est le m&#234;me que celui du fichier du journal d&#8217;acc&#232;s existant, aucune rotation n&#8217;est appliqu&#233;e au fichier.</p>
-
+<dd>
+<p>Valeur de cha&icirc;ne &agrave; ajouter &agrave; la fin du nom du fichier journal apr&egrave;s la rotation. La valeur par d&eacute;faut est <code>yyyy-MM-dd</code>.</p>
+<p>Assurez-vous que le suffixe de rotation contient suffisamment de valeurs pour cr&eacute;er un suffixe unique pour chaque rotation de journal. Par exemple, si le journal des acc&egrave;s fait l'objet de plusieurs rotations par jour, ajoutez l'heure dans le suffixe de rotation.</p>
+<p>Le suffixe doit &ecirc;tre unique pour s'assurer que le fichier journal des acc&egrave;s fait l'objet d'une rotation chaque fois que l'intervalle de rotation arrive &agrave; son terme. Si le suffixe de rotation du nouveau fichier journal des acc&egrave;s est le m&ecirc;me que celui du fichier existant, aucune rotation n'est appliqu&eacute;e au fichier.</p>
 </dd>
 <dt>Nombre max. de fichiers</dt>
-<dd><p>Nombre maximal de fichiers journaux d&#8217;acc&#232;s en rotation devant &#234;tre conserv&#233;s. Une valeur n&#233;gative signifie qu&#8217;il n&#8217;y a pas de limite pour le nombre de fichiers. La valeur par d&#233;faut est &#8211;1.</p>
-
+<dd>
+<p>Nombre maximal de fichiers journaux des acc&egrave;s en rotation &agrave; conserver. Une valeur n&eacute;gative signifie que le nombre de fichiers est illimit&eacute;. La valeur par d&eacute;faut est&nbsp;-1.</p>
 </dd>
 <dt>Taille du tampon</dt>
-<dd><p>La taille, en octets, du tampon de journal d&#8217;acc&#232;s ou une valeur inf&#233;rieure ou &#233;gale &#224; 0 pour les journaux d&#8217;acc&#232;s sans tampon. La valeur par d&#233;faut est 32768.</p>
-
+<dd>
+<p>Taille, en octets, du tampon de journal des acc&egrave;s, ou valeur inf&eacute;rieure ou &eacute;gale &agrave;&nbsp;0 pour les journaux des acc&egrave;s non plac&eacute;s en m&eacute;moire tampon. La valeur par d&eacute;faut est&nbsp;32&nbsp;768.</p>
 </dd>
-<dt>Intervalle de suppression</dt>
-<dd><p>Nombre de secondes &#233;coul&#233;es avant l&#8217;&#233;criture du journal sur le disque. Le journal d&#8217;acc&#232;s est &#233;crit lorsque le tampon est satur&#233; ou que l&#8217;intervalle expire. Si la valeur est inf&#233;rieure ou &#233;gale &#224; 0, le tampon est toujours &#233;crit m&#234;me s&#8217;il n&#8217;est pas plein. Autrement dit, chaque fois que l&#8217;utilisateur acc&#232;de au serveur, le message journal est directement enregistr&#233; dans le fichier. La valeur par d&#233;faut est 300.</p>
-
+<dt>Intervalle d'&eacute;criture</dt>
+<dd>
+<p>Nombre de secondes &eacute;coul&eacute;es avant l'&eacute;criture du journal sur le disque. Le journal des acc&egrave;s est &eacute;crit lorsque la m&eacute;moire tampon est pleine ou que l'intervalle expire. Si la valeur est inf&eacute;rieure ou &eacute;gale &agrave;&nbsp;0, l'&eacute;criture continue dans la m&eacute;moire tampon m&ecirc;me si elle n'est pas pleine. Autrement dit, chaque fois que l'utilisateur acc&egrave;de au serveur, le message du fichier journal est directement stock&eacute; dans le fichier. La valeur par d&eacute;faut est&nbsp;300.</p>
 </dd>
 <dt>Format</dt>
-<dd><p>Valeur de cha&#238;ne qui pr&#233;cise les informations &#224; enregistrer dans le journal d&#8217;acc&#232;s et l&#8217;ordre d&#8217;enregistrement. La valeur par d&#233;faut est la suivante :</p>
-
-<pre>%client.name% %auth-user-name% %datetime% %request% %status% %response.length%</pre><p>Les valeurs suivantes peuvent &#234;tre incluses dans la cha&#238;ne de format :</p>
-
-<dl><dt><tt>%attribute.<i>name</i>%</tt></dt>
-<dd><p>Enregistre la valeur (en appelant sa m&#233;thode <tt>toString</tt>) de l&#8217;attribut de requ&#234;te avec le <i>nom</i> sp&#233;cifi&#233;</p>
-
+<dd>
+<p>Valeur de cha&icirc;ne qui pr&eacute;cise les informations &agrave; capturer dans le journal des acc&egrave;s et l'ordre de capture. La valeur par d&eacute;faut est la suivante&nbsp;:</p>
+<pre>
+%client.name% %auth-user-name% %datetime% %request% %status% %response.length%
+</pre>
+<p>Les valeurs suivantes peuvent &ecirc;tre incluses dans la cha&icirc;ne de format&nbsp;:</p>
+<dl>
+<dt><code>%attribute.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Consigne la valeur (en appelant la m&eacute;thode <code>toString</code> associ&eacute;e) de l'attribut de demande avec le <i>nom</i> sp&eacute;cifi&eacute;.</p>
 </dd>
-<dt><tt>%auth-user-name%</tt></dt>
-<dd><p>Nom de l&#8217;utilisateur autoris&#233;</p>
-
+<dt><code>%auth-user-name%</code></dt>
+<dd>
+<p>Nom de l'utilisateur autoris&eacute;</p>
 </dd>
-<dt><tt>%client.name%</tt></dt>
-<dd><p>Nom de l&#8217;h&#244;te client</p>
-
+<dt><code>%client.name%</code></dt>
+<dd>
+<p>Nom de l'h&ocirc;te client</p>
 </dd>
-<dt><tt>%client.dns%</tt></dt>
-<dd><p>Client DNS</p>
-
+<dt><code>%client.dns%</code></dt>
+<dd>
+<p>Client DNS</p>
 </dd>
-<dt><tt>%cookie.<i>name</i>%</tt></dt>
-<dd><p>La valeur du cookie de la requ&#234;te portant le <i>nom</i> sp&#233;cifi&#233;</p>
-
+<dt><code>%cookie.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Valeur du cookie de demande portant le <i>nom</i> sp&eacute;cifi&eacute;</p>
 </dd>
-<dt><tt>%cookie.value%</tt></dt>
-<dd><p>La valeur du premier cookie d&#233;tect&#233; dans la requ&#234;te </p>
-
+<dt><code>%cookie.value%</code></dt>
+<dd>
+<p>Valeur du premier cookie d&eacute;tect&eacute; dans la demande</p>
 </dd>
-<dt><tt>%datetime%</tt></dt>
-<dd><p>Date du syst&#232;me</p>
-
+<dt><code>%datetime%</code></dt>
+<dd>
+<p>Date du syst&egrave;me</p>
 </dd>
-<dt><tt>%request%</tt></dt>
-<dd><p>Ligne de requ&#234;te HTTP compl&#232;te</p>
-
+<dt><code>%request%</code></dt>
+<dd>
+<p>Ligne de demande HTTP compl&egrave;te</p>
 </dd>
-<dt><tt>%status%</tt></dt>
-<dd><p>Statut</p>
-
+<dt><code>%status%</code></dt>
+<dd>
+<p>Statut</p>
 </dd>
-<dt><tt>%response.length%</tt></dt>
-<dd><p>Longueur du contenu de la r&#233;ponse</p>
-
+<dt><code>%response.length%</code></dt>
+<dd>
+<p>Longueur du contenu de la r&eacute;ponse</p>
 </dd>
-<dt><tt>%header.referer%</tt></dt>
-<dd><p>En-t&#234;te de r&#233;f&#233;rent</p>
-
+<dt><code>%header.referer%</code></dt>
+<dd>
+<p>En-t&ecirc;te Referer</p>
 </dd>
-<dt><tt>%header.user-agent%</tt></dt>
-<dd><p>En-t&#234;te agent utilisateur</p>
-
+<dt><code>%header.user-agent%</code></dt>
+<dd>
+<p>En-t&ecirc;te d'agent utilisateur</p>
 </dd>
-<dt><tt>%http-method%</tt></dt>
-<dd><p>M&#233;thode HTTP</p>
-
+<dt><code>%http-method%</code></dt>
+<dd>
+<p>M&eacute;thode HTTP</p>
 </dd>
-<dt><tt>%http-uri%</tt></dt>
-<dd><p>URI HTTP</p>
-
+<dt><code>%http-uri%</code></dt>
+<dd>
+<p>URI HTTP</p>
 </dd>
-<dt><tt>%query-str%</tt></dt>
-<dd><p>Cha&#238;ne de requ&#234;te HTTP</p>
-
+<dt><code>%query-str%</code></dt>
+<dd>
+<p>Cha&icirc;ne de requ&ecirc;te HTTP</p>
 </dd>
-<dt><tt>%http-version%</tt></dt>
-<dd><p>Version du protocole HTTP</p>
-
+<dt><code>%http-version%</code></dt>
+<dd>
+<p>Version du protocole HTTP</p>
 </dd>
-<dt><tt>%header.accept%</tt></dt>
-<dd><p>En-t&#234;te d&#8217;acceptation</p>
-
+<dt><code>%header.accept%</code></dt>
+<dd>
+<p>En-t&ecirc;te d'acceptation</p>
 </dd>
-<dt><tt>%header.date%</tt></dt>
-<dd><p>En-t&#234;te de date</p>
-
+<dt><code>%header.date%</code></dt>
+<dd>
+<p>En-t&ecirc;te de date</p>
 </dd>
-<dt><tt>%header.if-mod-since%</tt></dt>
-<dd><p>En-t&#234;te Si modifi&#233; depuis</p>
-
+<dt><code>%header.if-mod-since%</code></dt>
+<dd>
+<p>En-t&ecirc;te If-Modified-Since</p>
 </dd>
-<dt><tt>%header.auth%</tt></dt>
-<dd><p>En-t&#234;te d&#8217;autorisation</p>
-
+<dt><code>%header.auth%</code></dt>
+<dd>
+<p>En-t&ecirc;te d'autorisation</p>
 </dd>
-<dt><tt>%header.<i>any</i>%</tt></dt>
-<dd><p>Toute valeur d&#8217;en-t&#234;te HTTP valide d&#233;finie dans RFC 2616 (<tt>any</tt> est &#233;galement une valeur d&#8217;en-t&#234;te valide ; elle est indiqu&#233;e ici en tant que variable)</p>
-
+<dt><code>%header.</code><i>any</i><code>%</code></dt>
+<dd>
+<p>Toute valeur d'en-t&ecirc;te HTTP valide d&eacute;finie dans le document RFC&nbsp;2616 (<code>any</code> est &eacute;galement une valeur d'en-t&ecirc;te valide, qui est indiqu&eacute;e ici en tant que variable)</p>
 </dd>
-<dt><tt>%session.<i>name</i>%</tt></dt>
-<dd><p>La valeur de l&#8217;attribut de session avec le nom <i>name</i>, ou le nom <tt>NULL-session-attribute-<i></i></tt> si l&#8217;attribut sp&#233;cifi&#233; n&#8217;existe pas dans la session, ou <tt>NULL-session</tt> si aucune session existe</p>
-
+<dt><code>%session.</code><i>name</i><code>%</code></dt>
+<dd>
+<p>Valeur de l'attribut de session portant le nom <i>name</i>, ou <code>NULL-SESSION-ATTRIBUTE-</code><i>name</i> si l'attribut sp&eacute;cifi&eacute; n'existe pas dans la session, ou encore <code>NULL-SESSION</code> s'il n'existe aucune session.</p>
 </dd>
-<dt><tt>%time-taken%</tt></dt>
-<dd><p>Dur&#233;e (en millisecondes) de traitement de chaque requ&#234;te </p>
-
+<dt><code>%time-taken%</code></dt>
+<dd>
+<p>Dur&eacute;e (en millisecondes) de traitement de chaque demande</p>
 </dd>
-<dt><tt>%vs.id%</tt></dt>
-<dd><p>ID serveur virtuel</p>
-
-</dd>
-</dl>
-</dd>
-<dt>Autres propri&#233;t&#233;s</dt>
-<dd><p>Propri&#233;t&#233;s suppl&#233;mentaires du service HTTP. Pour une description des propri&#233;t&#233;s disponibles, reportez-vous &#224; la rubrique <a href="ref-httpserviceprops.html">Propri&#233;t&#233;s sp&#233;cifiques au service HTTP</a>.</p>
-
+<dt><code>%vs.id%</code></dt>
+<dd>
+<p>ID de serveur virtuel</p>
 </dd>
 </dl>
-<h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-accesslog.html">Configurer le service HTTP</a></p>
-
-</li></ul>
-<h5>Commandes <tt>asadmin</tt> connexes</h5>
+</dd>
+<dt>Autres propri&eacute;t&eacute;s</dt>
+<dd>
+<p>Propri&eacute;t&eacute;s suppl&eacute;mentaires du service HTTP. Pour obtenir une description des propri&eacute;t&eacute;s disponibles, reportez-vous &agrave; <a href="ref-httpserviceprops.html">Propri&eacute;t&eacute;s propres au service HTTP</a>.</p>
+</dd>
+</dl>
+<a id="sthref106" name="sthref106"></a>
+<h5>T&acirc;ches connexes</h5>
+<p><a href="task-accesslog.html">Configurer le service HTTP</a></p>
+<a id="sthref107" name="sthref107"></a>
+<h5>Commandes asadmin connexes</h5>
 <p>Aucune.</p>
 
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

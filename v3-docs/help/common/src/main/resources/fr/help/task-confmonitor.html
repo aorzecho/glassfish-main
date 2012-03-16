@@ -1,45 +1,71 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-confmonitor" name="task-confmonitor"></a><a id="GHCOM00213" name="GHCOM00213"></a></p>
 
-
-<a name="task-confmonitor"></a><h3>Configurer le contr&#244;le du service</h3><a name="indexterm-119"></a><ol>
-<li><b>Sous le n&#339;ud Configurations, d&#233;veloppez la configuration de l'instance de serveur ou
-de cluster pour lequel vous souhaitez configurer le contr&#244;le. </b></li>
-<li><b>D&#233;veloppez le n&#339;ud Contr&#244;le.</b><p>La page Service de contr&#244;le s&#8217;affiche.</p></li>
-<li><b>S&#233;lectionnez la case Service de contr&#244;le activ&#233; pour activer la fonction de
-contr&#244;le pour GlassFish Server, ou d&#233;s&#233;lectionnez cette case pour d&#233;sactiver le contr&#244;le.</b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
-<li><b>S&#233;lectionnez la case MBeans activ&#233;s pour d&#233;ployer tous les MBeans n&#233;cessaires pour le
-contr&#244;le, ou d&#233;s&#233;lectionnez cette case pour annuler le d&#233;ploiement de ces MBeans.</b><p>Cette option est activ&#233;e par d&#233;faut.</p><p>Si la case n&#8217;est pas coch&#233;e, vous ne pouvez pas afficher les
-donn&#233;es de contr&#244;le sous la Console d'administration , m&#234;me si la case Service
-de contr&#244;le est s&#233;lectionn&#233;e. Au lieu de cela, vous devez utiliser la ligne
-de commande pour afficher les donn&#233;es de contr&#244;le. Si vous d&#233;sactivez la
-case &#224; cocher, l&#8217;empreinte de m&#233;moire de GlassFish Server est r&#233;duite.</p></li>
-<li><b>S&#233;lectionnez la case DTrace activ&#233; pour activer l&#8217;utilisation de l&#8217;outil Solaris DTrace.</b><p>Pour pouvoir utiliser l&#8217;outil Solaris DTrace, vous devez &#233;galement disposer du contr&#244;le DTrace
-de Oracle Enterprise Manager. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>Dans le tableau, effectuez l&#8217;une des actions suivantes.</b><ul>
-<li><b>Dans la colonne Niveau de contr&#244;le, s&#233;lectionnez HAUT ou BAS dans la
-liste d&#233;roulante pour un ou plusieurs composants de la colonne Composant pour
-activer le contr&#244;le de ces composants.</b></li>
-<li><b>Cochez les cases en regard d&#8217;un ou de plusieurs composants, puis s&#233;lectionnez
-HAUT ou BAS dans la liste d&#233;roulante Niveau au sommet du tableau
-et cliquez sur le bouton Modifier le niveau pour d&#233;finir le niveau
-de contr&#244;le &#224; cette valeur pour tous ces composants.</b></li></ul><p>Dans cette version, il n&#8217;existe aucune diff&#233;rence entre les options BAS et
-HAUT. Pour d&#233;sactiver le contr&#244;le d&#8217;un ou de plusieurs composants, s&#233;lectionnez D&#201;SACTIV&#201;.
-La valeur par d&#233;faut est OFF.</p><p>Vous devez d&#233;ployer une application, un composant ou un service avant d&#8217;en
-configurer le contr&#244;le.</p></li>
-<li><b>Cliquez sur Enregistrer.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-appmonitoringdata.html">Pour afficher les donn&#233;es de contr&#244;le des applications</a></p>
-
+<h4><a id="sthref206" name="sthref206"></a>Configurer le service de surveillance</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Pour ouvrir la page Service de surveillance, effectuez l'une des op&eacute;rations suivantes&nbsp;:</p>
+<ul>
+<li>
+<p>S&eacute;lectionnez le noeud Donn&eacute;es de surveillance et cliquez sur le lien Configurer la surveillance de l'instance de serveur pour laquelle vous voulez configurer la surveillance. Pour configurer la surveillance d'un cluster, s&eacute;lectionnez une instance dans le cluster.</p>
 </li>
-<li><p><a href="task-servermonitoringdata.html">Pour afficher les donn&#233;es de contr&#244;le des serveurs</a></p>
-
+</ul>
+<ul>
+<li>
+<p>Sous le noeud Configurations, d&eacute;veloppez la configuration d'instance de serveur ou de cluster pour laquelle vous souhaitez configurer la surveillance, puis d&eacute;veloppez le noeud Surveillance.</p>
 </li>
-<li><p><a href="task-resourcemonitoringdata.html">Affichage des donn&#233;es de contr&#244;le des ressources</a></p>
+</ul>
+<p>La page Service de surveillance appara&icirc;t.</p>
+</li>
+<li>
+<p>S&eacute;lectionnez la case Service de surveillance activ&eacute; pour activer la surveillance sur GlassFish&nbsp;Server, ou d&eacute;s&eacute;lectionnez cette case pour la d&eacute;sactiver.</p>
+<p>Cette option est activ&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>S&eacute;lectionnez la case MBeans activ&eacute;s pour d&eacute;ployer tous les MBeans n&eacute;cessaires &agrave; la surveillance, ou d&eacute;s&eacute;lectionnez cette case pour annuler le d&eacute;ploiement de ces MBeans.</p>
+<p>Cette option est activ&eacute;e par d&eacute;faut.</p>
+<p>Si la case n'est pas coch&eacute;e, vous ne pouvez pas afficher les donn&eacute;es de surveillance dans la Console d'administration , m&ecirc;me si la case Service de surveillance est coch&eacute;e. Au lieu de cela, vous devez utiliser la ligne de commande pour afficher les donn&eacute;es de surveillance. Si vous d&eacute;sactivez la case &agrave; cocher, l'empreinte de m&eacute;moire de GlassFish&nbsp;Server est r&eacute;duite.</p>
+</li>
+<li>
+<p>S&eacute;lectionnez la case DTrace activ&eacute; pour activer l'utilisation de l'outil Solaris DTrace.</p>
+<p>Pour pouvoir utiliser l'outil Solaris DTrace, vous devez &eacute;galement disposer de la surveillance DTrace d'Oracle Enterprise&nbsp;Manager. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans la table, effectuez l'une des actions suivantes.</p>
+<ul>
+<li>
+<p>Dans la colonne Niveau de surveillance, s&eacute;lectionnez HIGH ou LOW dans la liste d&eacute;roulante pour les composants de la colonne Composant, afin d'activer la surveillance sur ces derniers.</p>
+</li>
+<li>
+<p>Cochez les cases en regard des composants, puis s&eacute;lectionnez HIGH ou LOW dans la liste d&eacute;roulante Niveau en haut de la table et cliquez sur le bouton Modifier le niveau afin de d&eacute;finir le niveau de surveillance sur cette valeur pour tous ces composants.</p>
+</li>
+</ul>
+<p>Dans cette version, il n'existe aucune diff&eacute;rence entre les options LOW et HIGH. Pour d&eacute;sactiver la surveillance des composants, s&eacute;lectionnez&nbsp;OFF. La valeur par d&eacute;faut est&nbsp;OFF.</p>
+<p>Vous devez d&eacute;ployer une application, un composant ou un service avant d'en configurer la surveillance.</p>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
+</li>
+</ol>
+<a id="sthref207" name="sthref207"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-appmonitoringdata.html">Surveillance d'application</a></p>
+</li>
+<li>
+<p><a href="task-servermonitoringdata.html">Visualiser les donn&eacute;es de surveillances du serveur</a></p>
+</li>
+<li>
+<p><a href="task-resourcemonitoringdata.html">Visualiser les donn&eacute;es de surveillance des ressources</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

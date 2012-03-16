@@ -1,78 +1,74 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-jaccproviders"></a><h4>Fournisseurs JACC</h4>
-<a name="indexterm-224"></a><p>Utilisez la page Fournisseurs JACC pour configurer les fournisseurs JACC (Java Authorization
-Contract for Containers) pour le cluster ou l'instance GlassFish Server s&#233;lectionn&#233;.</p>
+<p><a id="ref-jaccproviders" name="ref-jaccproviders"></a><a id="GHCOM00114" name="GHCOM00114"></a></p>
 
-<p>Les fournisseurs JACC peuvent &#234;tre utilis&#233;s par des modules d'autorisation tiers pour
-des applications s'ex&#233;cutant sur GlassFish Server. L'installation GlassFish Server par d&#233;faut inclut
-deux fournisseurs JACC nomm&#233;s <tt>default</tt> et <tt>simple </tt>. Ces fournisseurs par d&#233;faut mettent
-en &#339;uvre un moteur d'autorisation simple, bas&#233; sur des fichiers, et conforme
-&#224; la sp&#233;cification JACC. Vous pouvez &#233;galement cr&#233;er vos propres fournisseurs JACC
-personnalis&#233;s Reportez-vous &#224; la section <a href="task-jaccprovidernew.html">Pour cr&#233;er un fournisseur JACC</a>.</p>
-
-<p>Pour en savoir plus sur l&#8217;&#233;criture de classes d&#8217;impl&#233;mentation pour un fournisseur
-JACC, consultez la sp&#233;cification JACC sur <a href="http://jcp.org/en/jsr/detail?id=115">http://jcp.org/en/jsr/detail?id=115</a>.</p>
-
-<p>Pour chaque fournisseur JACC, les informations suivantes sont fournies.</p>
-
-<dl><dt>Nom</dt>
-<dd><p>Nom du fournisseur JACC. Ce nom est utilis&#233; pour r&#233;f&#233;rencer l'&#233;l&#233;ment <tt>jacc-provider</tt> dans <tt>domaine.xml</tt>. </p>
-
+<h4><a id="sthref409" name="sthref409"></a>Fournisseurs&nbsp;JACC</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Fournisseurs&nbsp;JACC permet de configurer les fournisseurs&nbsp;JACC (Java Authorization Contract for Containers) pour le cluster ou l'instance GlassFish&nbsp;Server s&eacute;lectionn&eacute;.</p>
+<p>Les fournisseurs&nbsp;JACC peuvent &ecirc;tre utilis&eacute;s par des modules d'autorisation tiers pour des applications ex&eacute;cut&eacute;es sur GlassFish&nbsp;Server. L'installation par d&eacute;faut de GlassFish&nbsp;Server comprend deux fournisseurs&nbsp;JACC, nomm&eacute;s <code>default</code> et <code>simple</code>. Ces fournisseurs par d&eacute;faut impl&eacute;mentent un moteur d'autorisation simple, bas&eacute; sur des fichiers, et conforme &agrave; la sp&eacute;cification&nbsp;JACC. Vous pouvez &eacute;galement cr&eacute;er des fournisseurs&nbsp;JACC personnalis&eacute;s. Reportez-vous &agrave; <a href="task-jaccprovidernew.html">Cr&eacute;er un fournisseur&nbsp;JACC</a>.</p>
+<p>Pour plus d'informations sur l'&eacute;criture de classes d'impl&eacute;mentation pour un fournisseur&nbsp;JACC, reportez-vous &agrave; la sp&eacute;cification&nbsp;JACC sur <code><a href="http://jcp.org/en/jsr/detail?id=;115">http://jcp.org/en/jsr/detail?id=;115</a></code>.</p>
+<p>Pour chaque fournisseur&nbsp;JACC, les informations suivantes sont fournies.</p>
+<dl>
+<dt>Nom</dt>
+<dd>
+<p>Nom du fournisseur&nbsp;JACC. Ce nom est utilis&eacute; pour r&eacute;f&eacute;rencer l'&eacute;l&eacute;ment <code>jacc-provider</code> dans <code>domaine.xml</code>.</p>
 </dd>
-<dt>Configuration de strat&#233;gies</dt>
-<dd><p>Nom complet du <tt>javax.security.jacc.PolicyConfigurationFactory.provider </tt> mettant en &#339;uvre le <tt>javax.security.jacc.PolicyConfigurationFactory </tt> sp&#233;cifique au fournisseur.</p>
-
+<dt>Configuration de r&egrave;gles</dt>
+<dd>
+<p>Nom qualifi&eacute; complet de l'&eacute;l&eacute;ment <code>javax.security.jacc.PolicyConfigurationFactory.provider</code> qui impl&eacute;mente l'&eacute;l&eacute;ment <code>javax.security.jacc.PolicyConfigurationFactory</code> propre au fournisseur.</p>
 </dd>
-<dt>Fournisseur de strat&#233;gies</dt>
-<dd><p>Nom complet du <tt>javax.security.jacc.policy.provider</tt> mettant en &#339;uvre le <tt>java.security.Policy</tt>.</p>
-
+<dt>Fournisseur de r&egrave;gles</dt>
+<dd>
+<p>Nom qualifi&eacute; complet de l'&eacute;l&eacute;ment <code>javax.security.jacc.policy.provider</code> qui impl&eacute;mente l'&eacute;l&eacute;ment <code>java.security.Policy</code>.</p>
 </dd>
 </dl>
-<p>Les fournisseurs JACC par d&#233;faut prennent &#233;galement en charge la propri&#233;t&#233; suivante.
-</p>
-
-<dl><dt>R&#233;f&#233;rentiel</dt>
-<dd><p>R&#233;pertoire contenant le fichier de strat&#233;gie JACC. Pour le fournisseur JACC GlassFish Server <tt>default </tt>, le r&#233;pertoire par d&#233;faut est <tt>${com.sun.aas.instanceRoot}/generated/policy</tt>. Cette propri&#233;t&#233; n'est pas d&#233;finie par d&#233;faut pour le fournisseur JACC GlassFish Server <tt>simple</tt>.</p>
-
+<p>Les fournisseurs&nbsp;JACC par d&eacute;faut prennent &eacute;galement en charge la propri&eacute;t&eacute; suivante.</p>
+<dl>
+<dt>repository</dt>
+<dd>
+<p>R&eacute;pertoire contenant le fichier de r&egrave;gles&nbsp;JACC. Pour le fournisseur&nbsp;JACC <code>default</code> de GlassFish&nbsp;Server le r&eacute;pertoire par d&eacute;faut est <code>${com.sun.aas.instanceRoot}/generated/policy</code>. Cette propri&eacute;t&eacute; n'est pas d&eacute;finie par d&eacute;faut pour le fournisseur&nbsp;JACC <code>simple</code> de GlassFish&nbsp;Server.</p>
 </dd>
 </dl>
-<p>Le tableau Fournisseurs JACC contient &#233;galement les options suivantes.</p>
-
-<dl><dt>Nouveau</dt>
-<dd><p>Bouton permettant de cr&#233;er un fournisseur JACC.</p>
-
+<p>La table Fournisseurs&nbsp;JACC contient &eacute;galement les options suivantes.</p>
+<dl>
+<dt>Nouveau</dt>
+<dd>
+<p>Bouton permettant de cr&eacute;er un fournisseur&nbsp;JACC.</p>
 </dd>
 <dt>Supprimer</dt>
-<dd><p>Bouton permettant de supprimer un ou plusieurs fournisseurs JACC s&#233;lectionn&#233;s.</p>
-
+<dd>
+<p>Bouton permettant de supprimer les fournisseurs&nbsp;JACC s&eacute;lectionn&eacute;s.</p>
 </dd>
 </dl>
-<a name="gkokq"></a><h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-jaccprovidernew.html">Pour cr&#233;er un fournisseur JACC</a></p>
-
+<a id="sthref410" name="sthref410"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-jaccprovidernew.html">Cr&eacute;er un fournisseur&nbsp;JACC</a></p>
 </li>
-<li><p><a href="task-jaccprovideredit.html">Pour modifier un fournisseur JACC</a></p>
-
+<li>
+<p><a href="task-jaccprovideredit.html">Modifier un fournisseur&nbsp;JACC</a></p>
 </li>
-<li><p><a href="task-jaccproviderdelete.html">Pour supprimer un fournisseur JACC</a></p>
-
-</li></ul>
-<a name="gkomu"></a><h5>Commandes <tt>asadmin</tt> connexes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-jacc-provider-1"><tt>create-jacc-provider</tt>(1)</a></p>
-
+<li>
+<p><a href="task-jaccproviderdelete.html">Supprimer un fournisseur&nbsp;JACC</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-jacc-provider-1"><tt>delete-jacc-provider</tt>(1)</a></p>
-
+</ul>
+<a id="sthref411" name="sthref411"></a>
+<h5>Commandes asadmin connexes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00034"><code>create-jacc-provider</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-jacc-providers-1"><tt>list-jacc-providers</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00086"><code>delete-jacc-provider</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00171"><code>list-jacc-providers</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

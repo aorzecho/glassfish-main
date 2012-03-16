@@ -1,147 +1,145 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-appdeployejb" name="task-appdeployejb"></a><a id="GHCOM00160" name="GHCOM00160"></a></p>
 
-
-<a name="task-appdeployejb"></a><h3>Pour d&#233;ployer un Jar EJB</h3><a name="indexterm-41"></a><a name="indexterm-42"></a><a name="indexterm-43"></a><ol>
-<li><b>Dans l&#8217;arborescence de navigation, s&#233;lectionnez le n&#339;ud Applications.</b><p>La page des applications s&#8217;affiche.</p></li>
-<li><b>Dans le tableau Applications d&#233;ploy&#233;es, cliquez sur le bouton D&#233;ployer.</b><p>La page D&#233;ploiement d&#8217;applications ou de modules s&#8217;affiche.</p></li>
-<li><b>Sp&#233;cifiez l&#8217;emplacement de l&#8217;application &#224; d&#233;ployer.</b><ul>
-<li><b>Si l&#8217;application est un fichier d&#8217;archive stock&#233; sur la machine client ou
-accessible depuis cette derni&#232;re, s&#233;lectionnez l&#8217;option Fichier empaquet&#233; &#224; t&#233;l&#233;charger sur le
-serveur.</b><p>L&#8217;ordinateur client est l&#8217;h&#244;te sur lequel vous visualisez la Console d'administration 
-via un navigateur.</p><p>Cliquez sur Parcourir pour acc&#233;der au fichier ou tapez le chemin d&#8217;acc&#232;s
-complet au fichier.</p></li>
-<li><b>Si l&#8217;application est un fichier d&#8217;archive stock&#233; sur la machine serveur ou
-une application non empaquet&#233;e dans un r&#233;pertoire &#233;clat&#233;, s&#233;lectionnez l&#8217;option Fichier local
-empaquet&#233; ou R&#233;pertoire accessible depuis GlassFish Server.</b><p>La machine serveur est l&#8217;h&#244;te sur lequel fonctionne le serveur d&#8217;administration du
-domaine. </p><p>Cliquez sur Parcourir les fichiers pour acc&#233;der &#224; un fichier ou Parcourir
-les dossiers pour acc&#233;der &#224; un r&#233;pertoire. Vous pouvez &#233;galement saisir le
-nom du chemin d&#8217;acc&#232;s complet au fichier ou au r&#233;pertoire. Le d&#233;ploiement
-&#224; partir d&#8217;un r&#233;pertoire &#233;clat&#233; est r&#233;serv&#233; aux d&#233;veloppeurs exp&#233;riment&#233;s et est
-d&#233;conseill&#233; pour les environnements de production.</p></li></ul></li>
-<li><b>Dans la liste d&#233;roulante Type, s&#233;lectionnez Jar EJB. </b><p>Si vous avez sp&#233;cifi&#233; un Fichier empaquet&#233; &#224; charger sur le serveur
-ou un Fichier local empaquet&#233; accessible depuis le GlassFish Server, le type
-d&#8217;application est d&#233;tect&#233; automatiquement. Si vous avez sp&#233;cifi&#233; un R&#233;pertoire accessible depuis
-le GlassFish Server, vous devez sp&#233;cifier le type manuellement.</p></li>
-<li><b>Dans le champ Nom de l&#8217;application, conservez le nom par d&#233;faut, qui
-correspond au nom du r&#233;pertoire ou au pr&#233;fixe du nom de fichier,
-ou bien saisissez un autre nom. </b><p>Le nom par d&#233;faut appara&#238;t si vous d&#233;cidez de t&#233;l&#233;charger un fichier.
-Le nom de l&#8217;application doit &#234;tre unique.</p><p>Le nom peut &#234;tre suivi d'un identificateur de version facultatif dont il
-est s&#233;par&#233; par un signe deux-points (<tt>:</tt>). L'identificateur de version doit commencer
-par une lettre ou un chiffre. Il peut contenir des caract&#232;res alphanum&#233;riques
-et des caract&#232;res de soulignement (<tt>_</tt>), des tirets (<tt>-</tt>) et des points
-(<tt>.</tt>). Pour plus d'informations sur le module et les versions d'application, reportez-vous
-&#224; la section <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2417&id=gkhhv">Module and Application Versions du <i>Oracle GlassFish Server 3.1 Application Deployment Guide</i></a>.</p></li>
-<li><b>Cochez la case &#201;tat activ&#233; pour activer l&#8217;application.</b><p>Cette option est s&#233;lectionn&#233;e par d&#233;faut. Si cette option est d&#233;sactiv&#233;e, l&#8217;application
-est indisponible.</p></li>
-<li><b>S&#233;lectionnez la case Disponibilit&#233; activ&#233;e pour activer la r&#233;alisation des points de
-contr&#244;le SFSB pour l'application.</b><p>Si la case Activ&#233; est coch&#233;e, la haute disponibilit&#233; est activ&#233;e pour
-la r&#233;alisation des points de contr&#244;le des beans de session avec &#233;tat
-(SFSB) et &#233;ventuellement leur mise en mode passif. Si elle est d&#233;finie
-sur false (valeur par d&#233;faut), la r&#233;alisation de tous les points de
-contr&#244;le est d&#233;sactiv&#233;e pour le module EJB sp&#233;cifi&#233;. Si cette valeur est
-d&#233;finie sur true, le module EJB sp&#233;cifi&#233; est activ&#233; pour la haute
-disponibilit&#233;. D&#233;finissez cette option sur true seulement si la haute disponibilit&#233; est
-configur&#233;e et activ&#233;e &#224; des niveaux sup&#233;rieurs, tels que les niveaux du
-serveur et du conteneur. </p><p>Cette option s'affiche si des clusters ou des instances de serveur autonomes
-existent en plus de l'instance de serveur par d&#233;faut (<tt>server</tt>). </p></li>
-<li><b>Cochez la case Ex&#233;cuter le v&#233;rificateur pour v&#233;rifier les descripteurs de d&#233;ploiement
-avant le d&#233;ploiement.</b><p>Si cette option est s&#233;lectionn&#233;e et que la v&#233;rification &#233;choue, le d&#233;ploiement
-n&#8217;a pas lieu. Le v&#233;rificateur examine la structure et le contenu des
-descripteurs de d&#233;ploiement. La v&#233;rification d&#8217;applications volumineuses est souvent une t&#226;che qui
-demande du temps. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p><p>Les packages du v&#233;rificateur doivent &#234;tre install&#233;s &#224; partir de l'outil de
-mise &#224; jour ou un avertissement est enregistr&#233; et cette option est
-ignor&#233;e. </p></li>
-<li><b>Cochez la case Compatibilit&#233; pour utiliser les exigences de visibilit&#233; JAR GlassFish
-Server v2 pour les applications au lieu des exigences Java EE 6
-plus strictes mises en &#339;uvre dans les versions GlassFish Server v3, y
-compris 3.1.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p><p>La sp&#233;cification de la plate-forme Java EE 6 impose des conditions plus
-strictes que Java EE 5 quant aux fichiers JAR qui peuvent &#234;tre
-visibles &#224; divers modules au sein d'un fichier EAR. En particulier, les
-clients d'application ne doivent pas avoir acc&#232;s aux fichiers JAR EJB ou
-&#224; d'autres fichiers JAR dans le fichier EAR, sauf si les r&#233;f&#233;rences
-utilisent les m&#233;canismes Java SE standard (les extensions, par exemple) ou le
-m&#233;canisme library-directory de Java EE. La s&#233;lection de cette case supprime ces
-restrictions Java EE 6. </p></li>
-<li><b>Cochez la case Forcer le red&#233;ploiement pour forcer le red&#233;ploiement si l&#8217;application
-a d&#233;j&#224; &#233;t&#233; d&#233;ploy&#233;e.</b><p>Si cette option n&#8217;est pas s&#233;lectionn&#233;e, toute tentative de d&#233;ploiement d&#8217;une application
-d&#233;j&#224; d&#233;ploy&#233;e g&#233;n&#232;re une erreur. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>S&#233;lectionnez la case Garder l'&#233;tat pour conserver des sessions Web, des instances
-SFSB et des horloges EJB cr&#233;&#233;es de fa&#231;on persistante entre les red&#233;ploiements.
-</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut. Cette option n'est prise en charge
-que sur l'instance de serveur par d&#233;faut, appel&#233;e <tt>server</tt>. Elle n'est pas
-prise en charge et est ignor&#233;e pour toute autre cible. </p><p>Certaines modifications apport&#233;es &#224; une application entre des red&#233;ploiements emp&#234;chent cette fonctionnalit&#233;
-de fonctionner correctement. Par exemple, ne modifiez pas l'ensemble des variables d'instance
-dans la classe de bean SFSB. </p><p>Pour les applications Web, cette fonction n'est applicable que si dans le
-fichier <tt>glassfish-web-app.xml </tt>, l'attribut <tt>persistence-type</tt> de l'&#233;l&#233;ment <tt> session-manager</tt> est <tt>file</tt>.</p><p>Pour les instances de bean de session avec &#233;tat, le type de
-persistance sans haute disponibilit&#233; est d&#233;fini dans le serveur (l'option Type de
-persistance SFSB) et doit &#234;tre d&#233;fini sur <tt>file</tt>, qui est la valeur
-par d&#233;faut et recommand&#233;e. </p><p>Si la conservation ou la restauration d'une session Web, d'une instance de
-SFSB ou d'une horloge EJB active &#233;choue, <b>aucune</b> d'entre elles ne sera
-disponible une fois le red&#233;ploiement termin&#233;. Toutefois, le red&#233;ploiement se poursuit et
-un avertissement est enregistr&#233;.</p><p>Pour conserver les donn&#233;es d'&#233;tat actives, GlassFish Server s&#233;rialise les donn&#233;es et
-les enregistre dans la m&#233;moire. Pour restaurer les donn&#233;es, le chargeur de
-classe de l&#8217;application qui vient d&#8217;&#234;tre red&#233;ploy&#233;e d&#233;s&#233;rialise les donn&#233;es qui ont
-&#233;t&#233; enregistr&#233;es.</p></li>
-<li><b>S&#233;lectionnez la case &#224; cocher Conserver les ressources limit&#233;es &#224; l&#8217;application pour
-conserver des ressources limit&#233;es &#224; l&#8217;application et les restaurer pendant le red&#233;ploiement.
-</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>Dans le champ Biblioth&#232;ques, saisissez une liste s&#233;par&#233;e par des virgules des
-fichiers JAR de biblioth&#232;que propres &#224; cette application.</b><p>Les chemins peuvent &#234;tre absolus ou relatifs. Un chemin relatif est relatif
-&#224; <tt></tt><i>domain-dir</i><tt>/lib/applibs</tt>. Si le chemin est absolu, il doit &#234;tre accessible au
-serveur d&#8217;administration du domaine (DAS), ce qui signifie qu&#8217;il doit &#234;tre sous
-<tt></tt><i>domain-dir</i><tt></tt>. Les biblioth&#232;ques sont rendues accessibles &#224; l&#8217;application dans l&#8217;ordre dans lequel
-elles sont sp&#233;cifi&#233;es.</p></li>
-<li><b>Dans le champ Description, entrez une br&#232;ve description de cette application.</b></li>
-<li><b>Pour ajouter des clusters et des instances de serveur cibles sur lesquels
-d&#233;ployer le module ou l'application, s&#233;lectionnez-les dans la liste Cibles disponibles et
-utilisez le bouton Ajouter pour les d&#233;placer vers la liste Cibles s&#233;lectionn&#233;es.
-</b><p>L'option Cible s'affiche si des clusters ou des instances de serveur autonomes
-existent en plus de l'instance de serveur par d&#233;faut (<tt>server</tt>). Par d&#233;faut,
-le module ou l'application est d&#233;ploy&#233; sur l'instance de serveur par d&#233;faut
-nomm&#233; <tt>server</tt>. Utilisez le bouton Tout Ajouter pour le/la d&#233;ployer sur toutes
-les cibles. Utilisez les boutons Supprimer et Tout Supprimer pour supprimer des
-cibles de la liste Cibles s&#233;lectionn&#233;es. </p></li>
-<li><b>Cliquez sur OK.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-applistdeployed.html">Pour afficher la liste des applications d&#233;ploy&#233;es</a></p>
-
+<h4><a id="sthref70" name="sthref70"></a><a id="sthref71" name="sthref71"></a><a id="sthref72" name="sthref72"></a>D&eacute;ployer un fichier JAR&nbsp;EJB</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Dans l'arborescence de navigation, s&eacute;lectionnez le noeud Applications.</p>
+<p>La page Applications appara&icirc;t.</p>
 </li>
-<li><p><a href="task-appdeployweb.html">D&#233;ployer une application Web</a></p>
-
+<li>
+<p>Dans la table Applications d&eacute;ploy&eacute;es, cliquez sur le bouton D&eacute;ployer.</p>
+<p>La page D&eacute;ployer des applications ou des modules appara&icirc;t.</p>
 </li>
-<li><p><a href="task-deployentapp.html">Pour d&#233;ployer une application d'entreprise</a></p>
-
+<li>
+<p>Sp&eacute;cifiez l'emplacement de l'application &agrave; d&eacute;ployer.</p>
+<ul>
+<li>
+<p>Si l'application est un fichier d'archive stock&eacute; sur l'ordinateur client ou accessible depuis ce dernier, s&eacute;lectionnez l'option Fichier packag&eacute; &agrave; t&eacute;l&eacute;charger sur le serveur.</p>
+<p>L'ordinateur client est l'h&ocirc;te sur lequel vous visualisez la Console d'administration via un navigateur.</p>
+<p>Cliquez sur Parcourir pour acc&eacute;der au fichier ou tapez le chemin d'acc&egrave;s complet.</p>
 </li>
-<li><p><a href="task-appdeployclient.html">Pour d&#233;ployer un client d'application</a></p>
-
+<li>
+<p>Si l'application est un fichier d'archive stock&eacute; sur l'ordinateur du serveur ou une application non packag&eacute;e situ&eacute;e dans un r&eacute;pertoire &eacute;clat&eacute;, s&eacute;lectionnez l'option R&eacute;pertoire ou fichier packag&eacute; local accessible &agrave; partir de GlassFish&nbsp;Server.</p>
+<p>L'ordinateur du serveur est l'h&ocirc;te qui ex&eacute;cute le serveur d'administration du domaine (DAS).</p>
+<p>Cliquez sur Parcourir les fichiers pour acc&eacute;der &agrave; un fichier ou sur Parcourir les dossiers pour acc&eacute;der &agrave; un r&eacute;pertoire. Vous pouvez &eacute;galement saisir le chemin d'acc&egrave;s complet au fichier ou au r&eacute;pertoire. Le d&eacute;ploiement &agrave; partir d'un r&eacute;pertoire &eacute;clat&eacute; est r&eacute;serv&eacute; aux d&eacute;veloppeurs exp&eacute;riment&eacute;s et est d&eacute;conseill&eacute; dans les environnements de production.</p>
 </li>
-<li><p><a href="task-appdeployconn.html">Pour d&#233;ployer un module connecteur</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-appedit.html">Modification d'une application d&#233;ploy&#233;e</a></p>
-
+<li>
+<p>Dans la liste d&eacute;roulante Type, s&eacute;lectionnez JAR&nbsp;EJB.</p>
+<p>Si vous avez sp&eacute;cifi&eacute; un fichier packag&eacute; &agrave; t&eacute;l&eacute;charger sur le serveur ou un fichier local packag&eacute; accessible &agrave; partir de GlassFish&nbsp;Server, le type d'application est d&eacute;tect&eacute; automatiquement. Si vous avez sp&eacute;cifi&eacute; un r&eacute;pertoire accessible &agrave; partir de GlassFish&nbsp;Server, vous devez sp&eacute;cifier le type manuellement.</p>
 </li>
-<li><p><a href="task-appviewdesc.html">Affichage des descripteurs d'une application</a></p>
-
+<li>
+<p>Dans le champ Nom de l'application, conservez le nom par d&eacute;faut, qui correspond au nom du r&eacute;pertoire ou au pr&eacute;fixe du nom de fichier, ou bien saisissez un autre nom.</p>
+<p>Le nom par d&eacute;faut appara&icirc;t si vous d&eacute;cidez de t&eacute;l&eacute;charger un fichier. Le nom de l'application doit &ecirc;tre unique.</p>
+<p>Le nom peut &ecirc;tre suivi d'un identificateur de version facultatif dont il est s&eacute;par&eacute; par un signe deux-points (<code>:</code>). L'identificateur de version doit commencer par une lettre ou un chiffre. Il peut contenir des caract&egrave;res alphanum&eacute;riques, des traits de soulignement (<code>_</code>), des tirets (<code>-</code>) et des points (<code>.</code>). Pour plus d'informations sur les versions des modules et des applications, reportez-vous &agrave; "<a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSDPG00324"><i>Module and Application Versions</i>" dans le manuel <i>Oracle GlassFish Server Application Deployment Guide</i></a>.</p>
 </li>
-<li><p><a href="task-endpoint.html">Affichage des informations relatives aux extr&#233;mit&#233;s des services Web</a></p>
-
+<li>
+<p>Cochez la case Etat activ&eacute; pour activer l'application.</p>
+<p>Cette option est s&eacute;lectionn&eacute;e par d&eacute;faut. Si cette option est d&eacute;sactiv&eacute;e, l'application est indisponible.</p>
 </li>
-<li><p><a href="task-applaunch.html">Lancement d'une application</a></p>
-
+<li>
+<p>Cochez la case Disponibilit&eacute; activ&eacute;e afin d'activer la r&eacute;alisation des points de contr&ocirc;le&nbsp;SFSB pour l'application.</p>
+<p>Si la case Activ&eacute; est coch&eacute;e, la haute disponibilit&eacute; est activ&eacute;e pour la r&eacute;alisation des points de contr&ocirc;le et, &eacute;ventuellement, la mise en mode passif des beans Session avec conservation de statut (SFSB). Si la valeur est False (valeur par d&eacute;faut), la r&eacute;alisation de tous les points de contr&ocirc;le&nbsp;SFSB est d&eacute;sactiv&eacute;e pour le module EJB sp&eacute;cifi&eacute;. Si cette valeur est True, le module&nbsp;EJB sp&eacute;cifi&eacute; est activ&eacute; pour la haute disponibilit&eacute;. D&eacute;finissez cette option sur True seulement si la haute disponibilit&eacute; est configur&eacute;e et activ&eacute;e &agrave; des niveaux sup&eacute;rieurs, tels que les niveaux du serveur et du conteneur.</p>
+<p>Cette option appara&icirc;t si des clusters ou des instances de serveur autonomes existent en plus de l'instance de serveur par d&eacute;faut (<code>server</code>).</p>
 </li>
-<li><p><a href="task-appclientlaunch.html">Lancer un client d'application</a></p>
-
+<li>
+<p>Cochez la case Ex&eacute;cuter le v&eacute;rificateur pour v&eacute;rifier les descripteurs de d&eacute;ploiement avant le d&eacute;ploiement.</p>
+<p>Si cette option est s&eacute;lectionn&eacute;e et que la v&eacute;rification &eacute;choue, le d&eacute;ploiement n'a pas lieu. Le v&eacute;rificateur examine la structure et le contenu des descripteurs de d&eacute;ploiement. La v&eacute;rification d'applications volumineuses est souvent une t&acirc;che qui demande du temps. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+<p>Les packages du v&eacute;rificateur doivent &ecirc;tre install&eacute;s &agrave; partir de l'outil de mise &agrave; jour&nbsp;; sinon, un avertissement est consign&eacute; et cette option est ignor&eacute;e.</p>
 </li>
-<li><p><a href="task-appredeploy.html">Red&#233;ploiement d'une application d&#233;ploy&#233;e</a></p>
-
+<li>
+<p>Cochez la case Compatibilit&eacute; afin d'utiliser les exigences de visibilit&eacute; JAR de GlassFish&nbsp;Server version&nbsp;2 pour les applications au lieu des exigences Java&nbsp;EE&nbsp;6 plus strictes impl&eacute;ment&eacute;es dans les versions ult&eacute;rieures de GlassFish&nbsp;Server, y compris 3.1.2.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+<p>La sp&eacute;cification de la plate-forme Java&nbsp;EE&nbsp;6 impose des exigences plus strictes que Java&nbsp;EE&nbsp;5 quant aux fichiers&nbsp;JAR visibles dans divers modules au sein d'un fichier&nbsp;EAR. Plus particuli&egrave;rement, les clients d'application ne doivent pas avoir acc&egrave;s aux fichiers JAR&nbsp;EJB ou &agrave; d'autres fichiers&nbsp;JAR dans le fichier&nbsp;EAR, sauf si les r&eacute;f&eacute;rences utilisent les m&eacute;canismes Java&nbsp;SE standard (les extensions, par exemple) ou le m&eacute;canisme library-directory de Java&nbsp;EE. La s&eacute;lection de cette case enl&egrave;ve ces restrictions Java&nbsp;EE&nbsp;6.</p>
 </li>
-<li><p><a href="task-apprestart.html">Recharger une application d&#233;ploy&#233;e</a></p>
+<li>
+<p>Cochez la case Forcer le red&eacute;ploiement si l'application a d&eacute;j&agrave; &eacute;t&eacute; d&eacute;ploy&eacute;e.</p>
+<p>Si cette option n'est pas s&eacute;lectionn&eacute;e, toute tentative de d&eacute;ploiement d'une application d&eacute;j&agrave; d&eacute;ploy&eacute;e g&eacute;n&egrave;re une erreur. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>S&eacute;lectionnez la case Conserver l'&eacute;tat pour conserver les sessions&nbsp;Web, les instances&nbsp;SFSB et les horloges&nbsp;EJB cr&eacute;&eacute;es de fa&ccedil;on persistante entre les red&eacute;ploiements.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut. Elle n'est prise en charge que sur l'instance de serveur par d&eacute;faut, appel&eacute;e <code>server</code>. Elle n'est pas prise en charge et est ignor&eacute;e pour toute autre cible.</p>
+<p>Certaines modifications apport&eacute;es &agrave; une application entre des red&eacute;ploiements emp&ecirc;chent cette option de fonctionner correctement. Par exemple, ne modifiez pas l'ensemble des variables d'instance dans la classe de bean&nbsp;SFSB.</p>
+<p>Pour les applications&nbsp;Web, cette fonctionnalit&eacute; n'est applicable que si, dans le fichier <code>glassfish-web-app.xml</code>, l'attribut <code>persistence-type</code> de l'&eacute;l&eacute;ment <code>session-manager</code> est <code>file</code>.</p>
+<p>Pour les instances&nbsp;SFSB, le type de persistance sans haute disponibilit&eacute; est d&eacute;fini dans le serveur (option Type de persistance SFSB) et doit &ecirc;tre d&eacute;fini sur <code>file</code>, qui est la valeur par d&eacute;faut recommand&eacute;e.</p>
+<p>Si la conservation ou la restauration d'une session&nbsp;Web, d'une instance&nbsp;SFSB ou d'une horloge&nbsp;EJB active &eacute;choue, <i>aucune</i> d'entre elles ne sera disponible une fois le red&eacute;ploiement termin&eacute;. Toutefois, le red&eacute;ploiement se poursuit et un avertissement est consign&eacute;.</p>
+<p>Pour conserver les donn&eacute;es d'&eacute;tat actives, GlassFish&nbsp;Server s&eacute;rialise les donn&eacute;es et les enregistre dans la m&eacute;moire. Pour restaurer les donn&eacute;es, le chargeur de classe de l'application qui vient d'&ecirc;tre red&eacute;ploy&eacute;e d&eacute;s&eacute;rialise les donn&eacute;es pr&eacute;c&eacute;demment enregistr&eacute;es.</p>
+</li>
+<li>
+<p>Cochez la case Conserver les ressources de niveau application pour conserver des ressources de niveau application et les restaurer pendant le red&eacute;ploiement.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans le champ Biblioth&egrave;ques, indiquez, sous forme de liste s&eacute;par&eacute;e par des virgules, les fichiers&nbsp;JAR de biblioth&egrave;que propres &agrave; cette application.</p>
+<p>Les chemins peuvent &ecirc;tre absolus ou relatifs. Un chemin est relatif par rapport &agrave; <i>domain-dir</i><code>/lib/applibs</code>. Si le chemin est absolu, il doit &ecirc;tre accessible au serveur d'administration du domaine (DAS), et donc se situer sous <i>domain-dir</i>. Les biblioth&egrave;ques sont rendues accessibles &agrave; l'application selon l'ordre dans lequel elles sont sp&eacute;cifi&eacute;es.</p>
+</li>
+<li>
+<p>Dans le champ Description, entrez une br&egrave;ve description de cette application.</p>
+</li>
+<li>
+<p>Pour ajouter des clusters et des instances de serveur cible sur lesquels d&eacute;ployer le module ou l'application, s&eacute;lectionnez-les dans la liste Cibles disponibles et utilisez le bouton Ajouter pour les d&eacute;placer vers la liste Cibles s&eacute;lectionn&eacute;es.</p>
+<p>L'option Cible appara&icirc;t si des clusters ou des instances de serveur autonomes existent en plus de l'instance de serveur par d&eacute;faut (<code>server</code>). Par d&eacute;faut, le module ou l'application est d&eacute;ploy&eacute; sur l'instance de serveur par d&eacute;faut nomm&eacute;e <code>server</code>. Utilisez le bouton Tout ajouter pour le/la d&eacute;ployer sur toutes les cibles. Utilisez les boutons Enlever et Tout enlever pour enlever des cibles de la liste Cibles s&eacute;lectionn&eacute;es.</p>
+</li>
+<li>
+<p>Cliquez sur OK.</p>
+</li>
+</ol>
+<a id="sthref73" name="sthref73"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-applistdeployed.html">Afficher la liste des applications d&eacute;ploy&eacute;es</a></p>
+</li>
+<li>
+<p><a href="task-appdeployweb.html">D&eacute;ployer une application&nbsp;Web</a></p>
+</li>
+<li>
+<p><a href="task-deployentapp.html">D&eacute;ployer une application d'entreprise</a></p>
+</li>
+<li>
+<p><a href="task-appdeployclient.html">D&eacute;ployer un client d'application</a></p>
+</li>
+<li>
+<p><a href="task-appdeployconn.html">D&eacute;ployer un module connecteur</a></p>
+</li>
+<li>
+<p><a href="task-appedit.html">Modifier une application d&eacute;ploy&eacute;e</a></p>
+</li>
+<li>
+<p><a href="task-appviewdesc.html">Afficher les descripteurs d'une application</a></p>
+</li>
+<li>
+<p><a href="task-endpoint.html">Afficher les informations relatives aux adresses d'un service&nbsp;Web</a></p>
+</li>
+<li>
+<p><a href="task-applaunch.html">Lancer une application</a></p>
+</li>
+<li>
+<p><a href="task-appclientlaunch.html">Lancer un client d'application</a></p>
+</li>
+<li>
+<p><a href="task-appclientstubs.html">T&eacute;l&eacute;charger des stubs de client d'application</a></p>
+</li>
+<li>
+<p><a href="task-appredeploy.html">Red&eacute;ployer une application d&eacute;ploy&eacute;e</a></p>
+</li>
+<li>
+<p><a href="task-apprestart.html">Recharger une application d&eacute;ploy&eacute;e</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesview.html">Afficher les ressources de niveau application</a></p>
+</li>
+<li>
+<p><a href="ref-appscopedresourcesedit.html">Modifier les ressources de niveau application</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

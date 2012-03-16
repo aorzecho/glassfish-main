@@ -1,43 +1,38 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-editfile-adminrealm"></a><h4>Propri&#233;t&#233;s sp&#233;cifiques de la classe <tt>FileRealm</tt></h4>
-<a name="indexterm-203"></a><a name="indexterm-204"></a><p>Les propri&#233;t&#233;s suivantes sont requises pour un domaine <tt>file</tt>.</p>
+<p><a id="ref-editfile-adminrealm" name="ref-editfile-adminrealm"></a><a id="GHCOM00100" name="GHCOM00100"></a></p>
 
-<dl><dt>Contexte JAAS</dt>
-<dd><p>Contexte JAAS (Java Authentication and Authorization Service), identificateur du module de connexion &#224; utiliser pour ce domaine. La seule valeur valide est <tt>fileRealm</tt>.</p>
-
+<h4><a id="sthref375" name="sthref375"></a><a id="sthref376" name="sthref376"></a>Propri&eacute;t&eacute;s propres &agrave; la classe<code>FileRealm</code></h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Les propri&eacute;t&eacute;s suivantes sont obligatoires pour un domaine <code>de fichiers</code>.</p>
+<dl>
+<dt>Contexte&nbsp;JAAS</dt>
+<dd>
+<p>Contexte JAAS (Java Authentication and Authorization Service), identifiant le module de connexion &agrave; utiliser pour ce domaine. La seule valeur valide est <code>fileRealm</code>.</p>
 </dd>
-<dt>Fichier cl&#233;</dt>
-<dd><p>Chemin d&#8217;acc&#232;s complet et nom du fichier o&#249; le serveur va stocker toutes les informations relatives &#224; l&#8217;utilisateur, au groupe et au mot de passe du domaine. La valeur par d&#233;faut est <i>domain-dir</i><tt>/config/keyfile</tt> pour le domaine <tt>file</tt> et <i>domain-dir</i><tt>/config/admin-keyfile</tt> pour le domaine <tt>admin-realm </tt>.</p>
-
+<dt>Fichier de cl&eacute;s</dt>
+<dd>
+<p>Chemin complet et nom du fichier o&ugrave; le serveur stockera toutes les informations relatives aux utilisateurs, groupes et mots de passe du domaine. La valeur par d&eacute;faut est <i>domain-dir</i><code>/config/keyfile</code> pour le domaine <code>file</code> et <i>domain-dir</i><code>/config/admin-keyfile</code> pour le domaine <code>admin-realm</code>.</p>
 </dd>
 </dl>
-<p>Au d&#233;part, le fichier cl&#233; du domaine <tt>file</tt> est vide, les utilisateurs
-doivent donc &#234;tre ajout&#233;s sur la page <a href="ref-managefilerealm.html">Utilisateurs de fichiers</a> avant d&#8217;utiliser le domaine
-<tt>file</tt>.</p>
-
-<p>Au d&#233;part, le fichier cl&#233; du domaine <tt>admin-realm</tt> contient le nom d&#8217;utilisateur
-de l&#8217;administrateur, le mot de passe associ&#233; dans un format chiffr&#233; et
-le groupe auquel appartient l&#8217;utilisateur (<tt>asadmin</tt> par d&#233;faut). Pour plus d&#8217;informations sur
-l&#8217;ajout d&#8217;utilisateurs au domaine <tt>admin-realm</tt>, consultez <a href="task-accessadmintools.html">Autoriser l'acc&#232;s aux outils d'administration</a>.</p>
-
-
-<hr><p><b>Remarque - </b>Les utilisateurs du groupe <tt>asadmin</tt> dans le domaine <tt>administrateur</tt> sont autoris&#233;s &#224;
-utiliser la Console d'administration  et les outils <tt>asadmin</tt>. N&#8217;ajoutez &#224; ce
-groupe que des utilisateurs ayant des privil&#232;ges d&#8217;administrateur.</p>
-
+<p>Au d&eacute;part, le fichier de cl&eacute;s du domaine <code>file</code> est vide. Les utilisateurs doivent donc &ecirc;tre ajout&eacute;s sur la page <a href="ref-managefilerealm.html">Utilisateurs de fichiers</a> avant toute utilisation du domaine <code>file</code>.</p>
+<p>Au d&eacute;part, le fichier de cl&eacute;s du domaine <code>admin-realm</code> contient le nom utilisateur de l'administrateur, le mot de passe associ&eacute; dans un format crypt&eacute; et le groupe auquel appartient l'utilisateur (<code>asadmin</code> par d&eacute;faut). Pour plus d'informations sur l'ajout d'utilisateurs au domaine <code>admin-realm</code>, reportez-vous &agrave; <a href="task-accessadmintools.html">Autoriser l'acc&egrave;s aux outils d'administration</a>.</p>
 
 <hr>
-<p>La propri&#233;t&#233; facultative suivante est disponible pour un domaine <tt>file</tt>.</p>
+<p><b>Remarque:</b></p>
+Les utilisateurs du groupe <code>asadmin</code> dans le domaine <code>admin-realm</code> sont autoris&eacute;s &agrave; employer la Console d'administration et les outils <code>asadmin</code>. N'ajoutez &agrave; ce groupe que des utilisateurs ayant des privil&egrave;ges d'administrateur.
+<hr>
 
-<dl><dt>Assignation de groupes</dt>
-<dd><p>Liste de noms de groupes s&#233;par&#233;s par une virgule. Tous les clients pr&#233;sentant un certificat valide sont affect&#233;s &#224; ces groupes, comme par exemple <tt>employee, manager </tt> qui sont des noms de groupes d&#8217;utilisateurs.</p>
-
+<p>La propri&eacute;t&eacute; facultative suivante est disponible pour un domaine <code>file</code>.</p>
+<dl>
+<dt>Affecter des groupes</dt>
+<dd>
+<p>Liste de noms de groupes s&eacute;par&eacute;s par une virgule. Tous les clients pr&eacute;sentant un certificat valide sont affect&eacute;s &agrave; ces groupes, comme par exemple <code>employee, manager</code> qui sont des noms de groupes d'utilisateurs.</p>
 </dd>
 </dl>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,50 +1,80 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-gms" name="task-gms"></a><a id="GHCLU00080" name="GHCLU00080"></a></p>
 
-
-<a name="task-gms"></a><h3>Configurer le service de gestion de groupes</h3><a name="indexterm-153"></a><p>Le service de gestion de groupes (GMS) est un service inclus dans
-un processus offrant des services de contr&#244;le de clusters, d'appartenance au cluster
-et de communication de groupe. Il ex&#233;cute les fonctions suivantes&#160;:</p>
-
-
-<ul><li><p>Signaler les modules enregistr&#233;s dans une instance de GlassFish Server lorsqu'une ou plusieurs instances membres sont ajout&#233;es ou supprim&#233;es d'un cluster ou lorsque leur &#233;chec est suspect&#233; ou a &#233;t&#233; confirm&#233;.</p>
-
+<h4><a id="sthref222" name="sthref222"></a>Configurer le service de gestion de groupes</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Le service de gestion de groupes (GMS) est un service inclus dans un processus offrant des services de surveillance de clusters, d'appartenance au cluster et de communication de groupe. Il ex&eacute;cute les fonctions suivantes&nbsp;:</p>
+<ul>
+<li>
+<p>Il signale les modules inscrits dans une instance GlassFish&nbsp;Server lorsqu'une ou plusieurs instances membres sont ajout&eacute;es &agrave; un cluster et enlev&eacute;es d'un cluster, ou lorsque leur &eacute;chec est suspect&eacute; ou a &eacute;t&eacute; confirm&eacute;.</p>
 </li>
-<li><p>Offrir la possibilit&#233; d'envoyer et recevoir des messages dans un groupe de processus.</p>
-
-</li></ul>
+<li>
+<p>Il permet d'envoyer et recevoir des messages dans un groupe de processus.</p>
+</li>
+</ul>
 <ol>
-<li><b>Dans l&#8217;arborescence de navigation, d&#233;veloppez le n&#339;ud Configuration.</b></li>
-<li><b>S&#233;lectionnez la configuration &#224; modifier pour le cluster.</b></li>
-<li><b>Sous le n&#339;ud Configuration, s&#233;lectionnez le n&#339;ud Service de gestion de groupes.</b><p>La page Service de gestion de groupes s'ouvre.</p></li>
-<li><b>Dans le champ Maximum Missed Heartbeats, entrez le nombre maximal de tentatives
-de contr&#244;le avant que le GMS ne confirme qu'une d&#233;faillance est suspect&#233;e.</b><p>La valeur par d&#233;faut est 3.</p></li>
-<li><b>Dans le champ Fr&#233;quence de pulsation, entrez la dur&#233;e entre les tentatives
-de contr&#244;le.</b><p>La valeur par d&#233;faut est 2000 millisecondes.</p></li>
-<li><b>Dans le champ Group Discovery Timeout field, entrez la dur&#233;e d'attente du
-GMS pour la d&#233;tection d'autres membres du cluster.</b><p>La valeur par d&#233;faut est 5000 millisecondes.</p></li>
-<li><b>Dans le champ Failure Verification Wait Time, entrez la dur&#233;e au bout
-de laquelle une d&#233;faillance suspect&#233;e est marqu&#233;e comme &#233;tant v&#233;rifi&#233;e.</b><p>La valeur par d&#233;faut est 1500 millisecondes.</p></li>
-<li><b>Pour restaurer les valeurs par d&#233;faut, cliquez sur le bouton Charger les
-valeurs par d&#233;faut.</b></li>
-<li>(Facultatif) <b>Dans la section Autres propri&#233;t&#233;s, sp&#233;cifiez d&#8217;autres propri&#233;t&#233;s.</b><p>GlassFish Server ne d&#233;finit pas d'autres propri&#233;t&#233;s GMS.</p><ul>
-<li><b>Pour ajouter une propri&#233;t&#233;, cliquez sur le bouton Ajouter propri&#233;t&#233;. Sur la
-ligne vide qui appara&#238;t, saisissez le nom de la propri&#233;t&#233; dans le
-champ Nom et la valeur de la propri&#233;t&#233; dans le champ Valeur.</b></li>
-<li><b>Pour modifier une propri&#233;t&#233;, modifiez le champ Valeur de cette propri&#233;t&#233;.</b></li>
-<li><b>Pour supprimer une propri&#233;t&#233;, cochez la case situ&#233;e &#224; gauche du champ
-Nom de la propri&#233;t&#233; que vous supprimez, puis cliquez sur le bouton
-Supprimer propri&#233;t&#233;s.</b></li></ul></li>
-<li><b>Cliquez sur Enregistrer.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-gmsenable.html">Activer le service de gestion de groupes</a></p>
-
+<li>
+<p>Dans l'arborescence de navigation, d&eacute;veloppez le noeud Configuration.</p>
 </li>
-<li><p><a href="task-gmscluster.html">Configurer les param&#232;tres du service de gestion de groupes pour un cluster</a></p>
+<li>
+<p>S&eacute;lectionnez la configuration &agrave; modifier pour le cluster.</p>
+</li>
+<li>
+<p>Sous le noeud Configuration, s&eacute;lectionnez le noeud Service de gestion de groupes.</p>
+<p>La page Service de gestion de groupes appara&icirc;t.</p>
+</li>
+<li>
+<p>Dans le champ Nb maximal de signaux d'activit&eacute; manqu&eacute;s, entrez le nombre maximal de tentatives de surveillance effectu&eacute;es avant que le service GMS ne confirme qu'une d&eacute;faillance est suspect&eacute;e.</p>
+<p>La valeur par d&eacute;faut est&nbsp;3.</p>
+</li>
+<li>
+<p>Dans le champ Fr&eacute;quence de signal, d&eacute;finissez le d&eacute;lai entre les tentatives de surveillance.</p>
+<p>La valeur par d&eacute;faut est 2&nbsp;000&nbsp;millisecondes.</p>
+</li>
+<li>
+<p>Dans le champ Temporisation de d&eacute;tection de groupe, indiquez le d&eacute;lai au-del&agrave; duquel le service GMS lance la d&eacute;tection d'autres membres du cluster.</p>
+<p>La valeur par d&eacute;faut est 5&nbsp;000&nbsp;millisecondes.</p>
+</li>
+<li>
+<p>Dans le champ Temps d'attente de v&eacute;rification d'&eacute;chec, indiquez le d&eacute;lai au-del&agrave; duquel une d&eacute;faillance suspect&eacute;e est marqu&eacute;e comme &eacute;tant v&eacute;rifi&eacute;e.</p>
+<p>La valeur par d&eacute;faut est 1&nbsp;500&nbsp;millisecondes.</p>
+</li>
+<li>
+<p>Pour restaurer les valeurs par d&eacute;faut, cliquez sur le bouton Charger les valeurs par d&eacute;faut.</p>
+</li>
+<li>
+<p>Dans la section Autres propri&eacute;t&eacute;s, sp&eacute;cifiez les propri&eacute;t&eacute;s suppl&eacute;mentaires.</p>
+<ul>
+<li>
+<p>Pour ajouter une propri&eacute;t&eacute;, cliquez sur le bouton Ajouter une propri&eacute;t&eacute;. Sur la ligne vide qui appara&icirc;t, saisissez le nom de la propri&eacute;t&eacute; dans le champ Nom et la valeur de la propri&eacute;t&eacute; dans le champ Valeur.</p>
+</li>
+<li>
+<p>Pour modifier une propri&eacute;t&eacute;, modifiez le champ Valeur de cette propri&eacute;t&eacute;.</p>
+</li>
+<li>
+<p>Pour supprimer une propri&eacute;t&eacute;, s&eacute;lectionnez la case situ&eacute;e &agrave; gauche du champ Nom de la propri&eacute;t&eacute; &agrave; supprimer, puis cliquez sur le bouton Supprimer des propri&eacute;t&eacute;s.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cliquez sur Enregistrer.</p>
+</li>
+</ol>
+<a id="sthref223" name="sthref223"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-gmsenable.html">Activer le service de gestion de groupes</a></p>
+</li>
+<li>
+<p><a href="task-gmscluster.html">Configurer les param&egrave;tres du service de gestion de groupes pour un cluster</a></p>
+</li>
+</ul>
 
-</li></ul>
 
 
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

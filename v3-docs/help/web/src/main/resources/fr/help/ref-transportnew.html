@@ -1,101 +1,104 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-transportnew"></a><h4>Nouveau transport</h4>
-<a name="indexterm-77"></a><p>Utilisez la page Nouveau transport pour cr&#233;er un nouveau transport.</p>
+<p><a id="ref-transportnew" name="ref-transportnew"></a><a id="GHWEB00025" name="GHWEB00025"></a></p>
 
-<p>Il n&#8217;est pas courant de n&#233;cessiter un autre transport en plus du
-transport <tt>tcp</tt> par d&#233;faut. </p>
-
-<p>La page Nouveau transport contient les options suivantes.</p>
-
-<dl><dt>Nom de la configuration</dt>
-<dd><p>Nom de la configuration &#224; laquelle les param&#232;tres de cette page s'appliquent. Ce champ est en lecture seule.</p>
-
+<h4><a id="sthref163" name="sthref163"></a>Nouveau transport</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Utilisez la page Nouveau transport pour cr&eacute;er un transport.</p>
+<p>Il est rare qu'un autre transport que celui par d&eacute;faut (<code>tcp</code>) soit n&eacute;cessaire.</p>
+<p>La page Nouveau transport contient les options suivantes&nbsp;:</p>
+<dl>
+<dt>Nom de configuration</dt>
+<dd>
+<p>Nom de la configuration &agrave; laquelle s'appliquent les param&egrave;tres de cette page. Ce champ est en lecture seule.</p>
 </dd>
 <dt>Nom du transport</dt>
-<dd><p>Un nom unique pour le transport. </p>
-
+<dd>
+<p>Nom unique du transport.</p>
 </dd>
-<dt>Nom de classe</dt>
-<dd><p>Le nom de classe de l&#8217;impl&#233;mentation du transport. La valeur par d&#233;faut est <tt>com.sun.grizzly.TCPSelectorHandler</tt>.</p>
-
+<dt>Nom de la classe</dt>
+<dd>
+<p>Nom de classe de l'impl&eacute;mentation de transport. La valeur par d&eacute;faut est <code>com.sun.grizzly.TCPSelectorHandler</code>.</p>
 </dd>
-<dt>Gestionnaires de cl&#233; de s&#233;lection</dt>
-<dd><p>Le nom de classe du gestionnaire cl&#233; de s&#233;lection. Le gestionnaire de cl&#233; de s&#233;lection est une classe abstraite qui g&#232;re le cycle de vie des touches de s&#233;lection. Si vous ne sp&#233;cifiez pas une valeur, une impl&#233;mentation par d&#233;faut est utilis&#233;e. </p>
-
+<dt>Gestionnaires de cl&eacute; de s&eacute;lection</dt>
+<dd>
+<p>Nom de classe du gestionnaire de cl&eacute;s de s&eacute;lection. Le gestionnaire de cl&eacute;s de s&eacute;lection est une classe abstraite qui g&egrave;re le cycle de vie des cl&eacute;s de s&eacute;lection. Si vous ne sp&eacute;cifiez pas de valeur, une impl&eacute;mentation par d&eacute;faut est utilis&eacute;e.</p>
 </dd>
-<dt>Type de tampon de byte</dt>
-<dd><p>Le type de <tt>tampon d&#8217;octet</tt> &#224; utiliser. Les choix disponibles sont <tt>HEAP</tt> et <tt>DIRECT</tt>. La valeur par d&#233;faut est <tt>HEAP</tt>.</p>
-
+<dt>Type de tampon d'octet</dt>
+<dd>
+<p>Type de <code>tampon d'octet</code> &agrave; utiliser. Les choix disponibles sont <code>HEAP</code> et <code>DIRECT</code>. La valeur par d&eacute;faut est <code>HEAP</code>.</p>
 </dd>
-<dt>Threads accepteur</dt>
-<dd><p>Le nombre de processeurs dans la machine. Une valeur de -1 indique que Grizzly &#233;valuera le nombre de threads accepteur lui-m&#234;me, en fonction du nombre de processeurs de la machine. La valeur par d&#233;faut est 1. </p>
-
-<p>Pour d&#233;finir le nombre de threads de traitement des requ&#234;tes, d&#233;finissez la valeur Taille max. du pool de threads du pool de threads utilis&#233; par un auditeur de r&#233;seau qui utilise ce transport. </p>
-
+<dt>Threads d'accepteur</dt>
+<dd>
+<p>Nombre de processeurs de l'ordinateur. La valeur&nbsp;-1 indique que Grizzly calculera lui-m&ecirc;me le nombre de threads d'accepteur, en fonction du nombre de processeurs de l'ordinateur. La valeur par d&eacute;faut est&nbsp;1.</p>
+<p>Pour d&eacute;finir le nombre de threads de traitement des demandes, d&eacute;finissez la taille maximale du pool de threads utilis&eacute; par un processus d'&eacute;coute r&eacute;seau qui se sert de ce transport.</p>
 </dd>
 <dt>Nombre max. de connexions</dt>
-<dd><p>Le nombre maximal de connexions en attente sur un auditeur de r&#233;seau qui utilise ce transport. La valeur par d&#233;faut est 4096.</p>
-
+<dd>
+<p>Nombre maximal de connexions en attente sur un processus d'&eacute;coute r&eacute;seau qui utilise ce transport. La valeur par d&eacute;faut est&nbsp;4&nbsp;096.</p>
 </dd>
 <dt>Taille du tampon</dt>
-<dd><p>La taille (en octets) du tampon &#224; fournir pour les flux d&#8217;entr&#233;e cr&#233;&#233;s par un auditeur de r&#233;seau qui utilise ce transport. La valeur par d&#233;faut est 8192.</p>
-
+<dd>
+<p>Taille (en octets) de la m&eacute;moire tampon &agrave; fournir pour les flux d'entr&eacute;e cr&eacute;&eacute;s par un processus d'&eacute;coute r&eacute;seau qui utilise ce transport. La valeur par d&eacute;faut est&nbsp;8&nbsp;192.</p>
 </dd>
-<dt>D&#233;lai d&#8217;expiration de la cl&#233; d&#8217;inactivit&#233;</dt>
-<dd><p>Le d&#233;lai (en secondes) apr&#232;s lequel la cl&#233; d&#8217;inactivit&#233; sera annul&#233;e et le canal ferm&#233;. La valeur par d&#233;faut est 30.</p>
-
+<dt>Temporisation de la cl&eacute; d'inactivit&eacute;</dt>
+<dd>
+<p>D&eacute;lai (en secondes) apr&egrave;s lequel la cl&eacute; d'inactivit&eacute; sera annul&eacute;e et le canal ferm&eacute;. La valeur par d&eacute;faut est&nbsp;30.</p>
 </dd>
-<dt>D&#233;lai d&#8217;expiration de lecture</dt>
-<dd><p>Le d&#233;lai (en millisecondes) pendant lequel GlassFish Server patiente lors de la phase d&#8217;analyse de l&#8217;en-t&#234;te et du corps d&#8217;une op&#233;ration de lecture. La valeur par d&#233;faut est 30000.</p>
-
+<dt>Temporisation de la lecture</dt>
+<dd>
+<p>D&eacute;lai d'attente (en millisecondes) de GlassFish&nbsp;Server lors de la phase d'analyse de l'en-t&ecirc;te et du corps d'une op&eacute;ration de lecture. La valeur par d&eacute;faut est&nbsp;30&nbsp;000.</p>
 </dd>
-<dt>D&#233;lai d&#8217;expiration de l&#8217;interrogation du s&#233;lecteur</dt>
-<dd><p>Le d&#233;lai (en millisecondes) pendant lequel un s&#233;lecteur NIO bloque l&#8217;attente d&#8217;&#233;v&#233;nements (requ&#234;tes utilisateur). La valeur par d&#233;faut est 1000.</p>
-
+<dt>Temporisation de l'interrogation du s&eacute;lecteur</dt>
+<dd>
+<p>Dur&eacute;e (en millisecondes) de blocage d'un s&eacute;lecteur NIO en attente d'&eacute;v&eacute;nements (demandes utilisateur). La valeur par d&eacute;faut est&nbsp;1&nbsp;000.</p>
 </dd>
-<dt>D&#233;lai d&#8217;expiration d&#8217;&#233;criture</dt>
-<dd><p>Le d&#233;lai (en millisecondes) pendant lequel GlassFish Server patiente avant de consid&#233;rer le client distant d&#233;connect&#233; lors de l&#8217;&#233;criture de la r&#233;ponse. La valeur par d&#233;faut est 30000.</p>
-
+<dt>Temporisation de l'&eacute;criture</dt>
+<dd>
+<p>D&eacute;lai d'attente (en millisecondes) de GlassFish&nbsp;Server avant qu'il ne consid&egrave;re que le client distant est d&eacute;connect&eacute; lors de l'&eacute;criture de la r&eacute;ponse. La valeur par d&eacute;faut est&nbsp;30&nbsp;000.</p>
 </dd>
-<dt>Configuration de l&#8217;affichage</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, la configuration interne de Grizzly est purg&#233;e vers les journaux du serveur. Cette option peut fournir des informations int&#233;ressantes pour le d&#233;bogage. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Configuration de l'affichage</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, la configuration interne de Grizzly est vid&eacute;e vers les journaux du serveur. Cette option peut fournir des informations int&eacute;ressantes pour le d&eacute;bogage. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Snoop</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, les informations requ&#234;te/r&#233;ponse sont purg&#233;es vers le journal du serveur. Cette option peut fournir des informations int&#233;ressantes pour le d&#233;bogage, mais peut r&#233;duire consid&#233;rablement les performances. Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p>
-
+<dt>Surveillance du trafic</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, les informations de demande/r&eacute;ponse sont vid&eacute;es vers le journal du serveur. Cette option peut fournir des informations int&eacute;ressantes pour le d&eacute;bogage, mais risque de r&eacute;duire consid&eacute;rablement les performances. Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
 </dd>
-<dt>Aucun d&#233;lai TCP</dt>
-<dd><p>Si cette option est s&#233;lectionn&#233;e, TCP_NODELAY (&#233;galement appel&#233; l&#8217;algorithme de Nagle) est activ&#233;. Cette option est activ&#233;e par d&#233;faut.</p>
-
+<dt>Aucun d&eacute;lai TCP</dt>
+<dd>
+<p>Si cette option est s&eacute;lectionn&eacute;e, TCP_NODELAY (&eacute;galement appel&eacute; algorithme de Nagle) est activ&eacute;. Cette option est activ&eacute;e par d&eacute;faut.</p>
 </dd>
 </dl>
-<h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-transportnew.html">Cr&#233;er un transport</a></p>
-
+<a id="sthref164" name="sthref164"></a>
+<h5>T&acirc;ches connexes</h5>
+<ul>
+<li>
+<p><a href="task-transportnew.html">Cr&eacute;er un transport</a></p>
 </li>
-<li><p><a href="task-transportedit.html">Modifier un transport</a></p>
-
+<li>
+<p><a href="task-transportedit.html">Modifier un transport</a></p>
 </li>
-<li><p><a href="task-transportdelete.html">Supprimer un transport</a></p>
-
-</li></ul>
-<h5>Commandes <tt>asadmin</tt> connexes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-transport-1"><tt>create-transport</tt>(1)</a></p>
-
+<li>
+<p><a href="task-transportdelete.html">Supprimer un transport</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=list-transports-1"><tt>list-transports</tt>(1)</a></p>
-
+</ul>
+<a id="sthref165" name="sthref165"></a>
+<h5>Commandes asadmin connexes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00061"><code>create-transport</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=delete-transport-1"><tt>delete-transport</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00206"><code>list-transports</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00112"><code>delete-transport</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

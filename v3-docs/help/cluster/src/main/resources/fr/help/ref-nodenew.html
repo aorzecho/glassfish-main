@@ -1,194 +1,312 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
-<a name="ref-nodenew"></a><h4>Nouveau n&#339;ud</h4>
-<a name="indexterm-197"></a><p>La page Nouveau n&#339;ud permet de cr&#233;er un n&#339;ud GlassFish Server. Un
-noeud repr&#233;sente un h&#244;te sur lequel le logiciel GlassFish Server est install&#233;.
-Un n&#339;ud doit &#234;tre pr&#233;sent sur chaque h&#244;te sur lequel r&#233;sident des
-instances GlassFish Server. </p>
+<p><a id="ref-nodenew" name="ref-nodenew"></a><a id="GHCLU00016" name="GHCLU00016"></a></p>
 
-<p>La page Nouveau n&#339;ud contient les options suivantes&#160;:</p>
-
-<dl><dt>Nom</dt>
-<dd><p>Nom du noeud.</p>
-
-<p>Le nom doit respecter les exigences suivantes&#160;:</p>
-
-
-<ul><li><p>Le nom ne peut contenir que des caract&#232;res ASCII. </p>
-
+<h4><a id="sthref307" name="sthref307"></a>Nouveau noeud</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>La page Nouveau noeud permet de cr&eacute;er un noeud GlassFish&nbsp;Server. Un noeud repr&eacute;sente un h&ocirc;te sur lequel le logiciel GlassFish&nbsp;Server est install&eacute;. Un noeud doit exister au niveau de chaque h&ocirc;te sur lequel r&eacute;sident des instances GlassFish&nbsp;Server.</p>
+<p>Les options pr&eacute;sentes sur la page Nouveau noeud d&eacute;pendent du type de noeud.</p>
+<a id="sthref308" name="sthref308"></a>
+<h5>Options pour tous les types de noeud</h5>
+<p>Les options suivantes sont disponibles pour tous les types de noeud&nbsp;:</p>
+<dl>
+<dt>Nom</dt>
+<dd>
+<p>Nom du noeud.</p>
+<p>Le nom doit respecter les exigences suivantes&nbsp;:</p>
+<ul>
+<li>
+<p>Il ne peut contenir que des caract&egrave;res&nbsp;ASCII.</p>
 </li>
-<li><p>Le nom doit commencer par une lettre, un chiffre ou un caract&#232;re de soulignement.</p>
-
+<li>
+<p>Il doit commencer par une lettre, un chiffre ou un trait de soulignement.</p>
 </li>
-<li><p>Le nom ne peut contenir que les caract&#232;res suivants&#160;:</p>
-
-
-<ul><li><p>Lettres minuscules</p>
-
+<li>
+<p>Il ne peut contenir que les caract&egrave;res suivants&nbsp;:</p>
+<ul>
+<li>
+<p>Lettres minuscules</p>
 </li>
-<li><p>Lettres majuscules</p>
-
+<li>
+<p>Lettres majuscules</p>
 </li>
-<li><p>Chiffres</p>
-
+<li>
+<p>Chiffres</p>
 </li>
-<li><p>Trait d'union</p>
-
+<li>
+<p>Trait d'union</p>
 </li>
-<li><p>Point</p>
-
+<li>
+<p>Point</p>
 </li>
-<li><p>Caract&#232;re de soulignement</p>
-
-</li></ul>
+<li>
+<p>Trait de soulignement</p>
 </li>
-<li><p>Le nom doit &#234;tre unique dans le domaine et ne doit pas &#234;tre le nom d'un autre n&#339;ud, d'un cluster, d'une configuration nomm&#233;e ou d'une instance de GlassFish Server.</p>
-
+</ul>
 </li>
-<li><p>Le nom ne doit pas &#234;tre <tt>domain</tt>, <tt>server</tt> ou tout autre mot-cl&#233; r&#233;serv&#233; par GlassFish Server.</p>
-
-</li></ul>
+<li>
+<p>Le nom du noeud doit &ecirc;tre unique dans le domaine&nbsp;; il ne doit pas appartenir &agrave; un autre noeud, &agrave; une configuration nomm&eacute;e, &agrave; un cluster ou &agrave; une instance de GlassFish&nbsp;Server.</p>
+</li>
+<li>
+<p>Il ne doit pas &ecirc;tre <code>domain</code>, <code>server</code> ou tout autre mot-cl&eacute; r&eacute;serv&eacute; par GlassFish&nbsp;Server.</p>
+</li>
+</ul>
 </dd>
 <dt>Type</dt>
-<dd><p>Liste d&#233;roulante permettant de sp&#233;cifier le type de n&#339;ud parmi les suivants&#160;:</p>
-
-<dl><dt>SSH</dt>
-<dd><p>Le n&#339;ud prend en charge la communication via le protocole SSH (shell s&#233;curis&#233;).</p>
-
-</dd>
+<dd>
+<p>Liste d&eacute;roulante permettant de sp&eacute;cifier le type de noeud parmi les suivants&nbsp;:</p>
+<dl>
 <dt>CONFIG</dt>
-<dd><p>Le n&#339;ud ne prend pas en charge la communication &#224; distance. Si CONFIG est s&#233;lectionn&#233;, aucune option de configuration SSH n'est affich&#233;e et le champ R&#233;pertoire d'installation est effac&#233;. </p>
-
+<dd>
+<p>Le noeud ne prend pas en charge la communication &agrave; distance. Si CONFIG est s&eacute;lectionn&eacute;, aucune option de configuration&nbsp;SSH ou&nbsp;DCOM n'est affich&eacute;e et le champ R&eacute;pertoire d'installation est vide.</p>
+</dd>
+<dt>DCOM</dt>
+<dd>
+<p>Le noeud prend en charge la communication via le protocole distant DCOM (Distributed Component Object Model). Le protocole DCOM est disponible uniquement pour les syst&egrave;mes Windows.</p>
+</dd>
+<dt>SSH</dt>
+<dd>
+<p>Le noeud prend en charge la communication via le protocole&nbsp;SSH (shell s&eacute;curis&eacute;).</p>
 </dd>
 </dl>
 </dd>
-<dt>H&#244;te du n&#339;ud</dt>
-<dd><p>Nom de l'h&#244;te que le noeud repr&#233;sente. Le caract&#232;re obligatoire de ce champ d&#233;pend du type du n&#339;ud&#160;:</p>
-
-
-<ul><li><p>Si le type du n&#339;ud est CONFIG, le nom de l'h&#244;te peut &#234;tre omis. Le nom de l'h&#244;te peut &#234;tre d&#233;termin&#233; lors de la cr&#233;ation d'instances r&#233;sidant sur le n&#339;ud. </p>
-
+<dt>H&ocirc;te du noeud</dt>
+<dd>
+<p>Nom de l'h&ocirc;te que le noeud repr&eacute;sente. Le caract&egrave;re obligatoire de ce champ d&eacute;pend du type du noeud&nbsp;:</p>
+<ul>
+<li>
+<p>Si le type du noeud est CONFIG, le nom de l'h&ocirc;te peut &ecirc;tre omis. Le nom de l'h&ocirc;te peut &ecirc;tre d&eacute;termin&eacute; lors de la cr&eacute;ation des instances r&eacute;sidant sur le noeud.</p>
 </li>
-<li><p>Si le type du n&#339;ud est SSH, le nom de l'h&#244;te doit &#234;tre sp&#233;cifi&#233;. Sinon, une erreur se produit. </p>
-
-</li></ul>
-</dd>
-<dt>R&#233;pertoire du n&#339;ud</dt>
-<dd><p>Chemin d'acc&#232;s complet au r&#233;pertoire devant contenir les instances de GlassFish Server cr&#233;&#233;es sur le n&#339;ud. Si un chemin d'acc&#232;s relatif est sp&#233;cifi&#233;, il est relatif au r&#233;pertoire <i>as-install</i>.</p>
-
-<p>La valeur par d&#233;faut d&#233;pend du type du n&#339;ud&#160;: </p>
-
-
-<ul><li><p>Si le type du n&#339;ud est CONFIG, aucun r&#233;pertoire d'instances n'est sp&#233;cifi&#233; pour le n&#339;ud dans la configuration du serveur d'administration de domaine (DAS). Le r&#233;pertoire du n&#339;ud peut &#234;tre d&#233;termin&#233; lors de la cr&#233;ation d'instances r&#233;sidant sur le n&#339;ud. </p>
-
+<li>
+<p>Si le type du noeud est DCOM ou SSH, le nom de l'h&ocirc;te doit &ecirc;tre sp&eacute;cifi&eacute;. Sinon, une erreur se produit.</p>
 </li>
-<li><p>Si le type du n&#339;ud est SSH, la valeur par d&#233;faut est <tt></tt><i>as-install</i><tt>/nodes</tt>, o&#249; <i>as-install</i> correspond au r&#233;pertoire d'installation de base du logiciel GlassFish Server sur l'h&#244;te. </p>
-
-</li></ul>
+</ul>
 </dd>
-<dt>R&#233;pertoire d&#8217;installation</dt>
-<dd><p>Chemin d'acc&#232;s complet au parent du r&#233;pertoire d'installation de base du logiciel GlassFish Server sur l'h&#244;te, par exemple, <tt>/export/glassfish3</tt>.</p>
-
-<p>La valeur par d&#233;faut d&#233;pend du type du n&#339;ud&#160;: </p>
-
-
-<ul><li><p>Si le type du n&#339;ud est CONFIG, aucun r&#233;pertoire d'installation n'est sp&#233;cifi&#233; pour le n&#339;ud dans la configuration DAS. Le r&#233;pertoire d'installation peut &#234;tre d&#233;termin&#233; lors de la cr&#233;ation d'instances r&#233;sidant sur le n&#339;ud. </p>
-
+<dt>R&eacute;pertoire du noeud</dt>
+<dd>
+<p>Chemin d'acc&egrave;s complet au r&eacute;pertoire devant contenir les instances de GlassFish&nbsp;Server cr&eacute;&eacute;es sur le noeud. Si vous indiquez un chemin d'acc&egrave;s relatif, il est relatif au r&eacute;pertoire <i>as-install</i>.</p>
+<p>La valeur par d&eacute;faut d&eacute;pend du type du noeud&nbsp;:</p>
+<ul>
+<li>
+<p>Si le type du noeud est CONFIG, aucun r&eacute;pertoire d'instances n'est sp&eacute;cifi&eacute; pour le noeud dans la configuration du serveur d'administration de domaine (DAS). Le r&eacute;pertoire du noeud peut &ecirc;tre d&eacute;termin&eacute; lors de la cr&eacute;ation des instances r&eacute;sidant sur le noeud.</p>
 </li>
-<li><p>Si le type du n&#339;ud est SSH, la valeur par d&#233;faut est le parent du r&#233;pertoire d'installation de base par d&#233;faut du logiciel GlassFish Server pour le serveur d'administration de domaine (DAS). Ce comportement par d&#233;faut n'est utile que si vous installez GlassFish Server dans le m&#234;me emplacement sur tous les h&#244;tes. </p>
-
-</li></ul>
+<li>
+<p>Si le type de noeud est DCOM, la valeur par d&eacute;faut est <i>as-install</i><code>\nodes</code>, o&ugrave; <i>as-install</i> est le r&eacute;pertoire d'installation de base du logiciel GlassFish&nbsp;Server sur l'h&ocirc;te.</p>
+</li>
+<li>
+<p>Si le type de noeud est SSH, la valeur par d&eacute;faut est <i>as-install</i><code>/nodes</code>, o&ugrave; <i>as-install</i> est le r&eacute;pertoire d'installation de base du logiciel GlassFish&nbsp;Server sur l'h&ocirc;te.</p>
+</li>
+</ul>
 </dd>
-<dt>Force</dt>
-<dd><p>Si l'option Activ&#233; est s&#233;lectionn&#233;e, le n&#339;ud est cr&#233;&#233; dans la configuration DAS m&#234;me si la validation des param&#232;tres du n&#339;ud &#233;choue. Pour valider les param&#232;tres d'un noeud, le serveur DAS doit &#234;tre capable de contacter l'h&#244;te du noeud via SSH. </p>
+<dt>R&eacute;pertoire d'installation</dt>
+<dd>
+<p>Chemin d'acc&egrave;s complet au <i>parent</i> du r&eacute;pertoire d'installation de base du logiciel GlassFish&nbsp;Server sur l'h&ocirc;te (par exemple, <code>/export/glassfish3</code>).</p>
+<p>La valeur par d&eacute;faut d&eacute;pend du type du noeud&nbsp;:</p>
+<ul>
+<li>
+<p>Si le type du noeud est CONFIG, aucun r&eacute;pertoire d'installation n'est sp&eacute;cifi&eacute; pour le noeud dans la configuration du serveur DAS. Le r&eacute;pertoire d'installation peut &ecirc;tre d&eacute;termin&eacute; lors de la cr&eacute;ation des instances r&eacute;sidant sur le noeud.</p>
+</li>
+<li>
+<p>Si le type du noeud est DCOM ou SSH, la valeur par d&eacute;faut est le parent du r&eacute;pertoire d'installation de base par d&eacute;faut du logiciel GlassFish&nbsp;Server pour le serveur d'administration de domaine (DAS). Ce comportement par d&eacute;faut n'est utile que si vous installez GlassFish&nbsp;Server au m&ecirc;me emplacement sur tous les h&ocirc;tes.</p>
+</li>
+</ul>
+</dd>
+</dl>
+<a id="sthref309" name="sthref309"></a>
+<h5>Options suppl&eacute;mentaires pour les noeuds DCOM</h5>
+<p>Les options suivantes sont disponibles uniquement si le champ Type a la valeur DCOM&nbsp;:</p>
+<dl>
+<dt>Installer GlassFish&nbsp;Server</dt>
+<dd>
+<p>Si l'option Activ&eacute; est s&eacute;lectionn&eacute;e, le serveur DAS copie le logiciel GlassFish&nbsp;Server &agrave; partir de l'h&ocirc;te de serveur DAS vers l'h&ocirc;te du noeud. Pour copier le logiciel GlassFish&nbsp;Server vers l'h&ocirc;te, le serveur DAS doit &ecirc;tre capable de contacter l'h&ocirc;te via DCOM.</p>
+</dd>
+<dt>Forcer</dt>
+<dd>
+<p>Si l'option Activ&eacute; est s&eacute;lectionn&eacute;e, le noeud est cr&eacute;&eacute; dans la configuration du serveur DAS m&ecirc;me si la validation des param&egrave;tres du noeud &eacute;choue. Pour valider les param&egrave;tres d'un noeud, le serveur DAS doit &ecirc;tre capable de contacter l'h&ocirc;te du noeud via DCOM.</p>
+</dd>
+<dt>Valider DCOM</dt>
+<dd>
+<p>Si l'option Activ&eacute; est s&eacute;lectionn&eacute;e, GlassFish&nbsp;Server teste la connexion via DCOM vers le noeud de l'h&ocirc;te avant de cr&eacute;er le noeud. Dans le cadre du test, GlassFish&nbsp;Server copie un script nomm&eacute; <code>delete_me.bat</code> vers l'h&ocirc;te.</p>
+<p>Si vous s&eacute;lectionnez cette option, le champ R&eacute;pertoire de test distant est activ&eacute; pour vous permettre d'indiquer le r&eacute;pertoire dans lequel GlassFish&nbsp;Server doit copier le script.</p>
+</dd>
+<dt>R&eacute;pertoire de test distant</dt>
+<dd>
+<p>Dossier de l'h&ocirc;te distant dans lequel GlassFish&nbsp;Server doit cr&eacute;er le fichier <code>delete_me.bat</code>. L'utilisateur indiqu&eacute; par l'option Nom utilisateur Windows doit disposer d'un acc&egrave;s en &eacute;criture &agrave; ce dossier. Sinon, une erreur se produit. La valeur par d&eacute;faut est <code>C:\</code>.</p>
+</dd>
+<dt>Domaine Windows</dt>
+<dd>
+<p>Nom du domaine Windows contenant l'utilisateur indiqu&eacute; par l'option Nom utilisateur Windows. La valeur par d&eacute;faut est le nom de l'h&ocirc;te sur lequel la Console d'administration est en cours d'ex&eacute;cution.</p>
+</dd>
+<dt>Nom utilisateur Windows</dt>
+<dd>
+<p>Utilisateur sur l'h&ocirc;te de ce noeud qui doit ex&eacute;cuter le processus de connexion &agrave; l'h&ocirc;te via DCOM. La valeur par d&eacute;faut est l'utilisateur qui ex&eacute;cute le processus de serveur&nbsp;DAS. Si la valeur de l'option H&ocirc;te du noeud est <code>localhost-</code><i>domain</i>, l'option Nom utilisateur Windows n'est pas prise en compte.</p>
+</dd>
+<dt>Authentification de l'utilisateur Windows</dt>
+<dd>
+<p>Liste d&eacute;roulante permettant d'indiquer la mani&egrave;re dont l'utilisateur&nbsp;Windows est authentifi&eacute; lors de la connexion &agrave; l'h&ocirc;te de ce noeud. Les m&eacute;thodes possibles pour l'authentification sont les suivantes&nbsp;:</p>
+<dl>
+<dt>Mot de passe</dt>
+<dd>
+<p>L'utilisateur Windows est authentifi&eacute; par le biais d'un mot de passe stock&eacute; dans la configuration du serveur DAS.</p>
 
+<hr>
+<p><b>Attention:</b></p>
+Ce mot de passe est stock&eacute; sous forme de texte en clair dans la configuration du serveur DAS. Pour une s&eacute;curit&eacute; accrue, utilisez un fichier de cl&eacute;s ou un alias de mot de passe.
+<hr>
+
+<p>Si vous s&eacute;lectionnez cette option, les champs Mot de passe utilisateur Windows et Confirmer le mot de passe sont activ&eacute;s pour vous permettre d'indiquer le mot de passe.</p>
+</dd>
+<dt>Alias de mot de passe</dt>
+<dd>
+<p>L'utilisateur Windows est authentifi&eacute; par le biais d'un alias de mot de passe. Si vous s&eacute;lectionnez cette option, choisissez l'alias de mot de passe dans la liste d&eacute;roulante correspondante.</p>
+</dd>
+</dl>
+</dd>
+<dt>Mot de passe utilisateur Windows</dt>
+<dd>
+<p>Mot de passe que l'utilisateur Windows doit utiliser lors de la connexion &agrave; l'h&ocirc;te de ce noeud.</p>
+</dd>
+<dt>Confirmer le mot de passe</dt>
+<dd>
+<p>Confirmation du mot de passe que l'utilisateur Windows doit utiliser lors de la connexion &agrave; l'h&ocirc;te de ce noeud. Le contenu de ce champ doit correspondre exactement au contenu du champ Mot de passe utilisateur Windows.</p>
+</dd>
+<dt>Alias de mot de passe</dt>
+<dd>
+<p>Liste d&eacute;roulante des alias de mot de passe d&eacute;finis pour ce domaine.</p>
+</dd>
+</dl>
+<a id="sthref310" name="sthref310"></a>
+<h5>Options suppl&eacute;mentaires pour les noeuds SSH</h5>
+<p>Les options suivantes sont disponibles uniquement si le champ Type a la valeur SSH&nbsp;:</p>
+<dl>
+<dt>Installer GlassFish&nbsp;Server</dt>
+<dd>
+<p>Si l'option Activ&eacute; est s&eacute;lectionn&eacute;e, le serveur DAS copie le logiciel GlassFish&nbsp;Server &agrave; partir de l'h&ocirc;te de serveur DAS vers l'h&ocirc;te du noeud. Pour copier le logiciel GlassFish&nbsp;Server sur l'h&ocirc;te, le serveur DAS doit &ecirc;tre capable de contacter l'h&ocirc;te via&nbsp;SSH.</p>
+</dd>
+<dt>Forcer</dt>
+<dd>
+<p>Si l'option Activ&eacute; est s&eacute;lectionn&eacute;e, le noeud est cr&eacute;&eacute; dans la configuration du serveur DAS m&ecirc;me si la validation des param&egrave;tres du noeud &eacute;choue. Pour valider les param&egrave;tres d'un noeud, le serveur DAS doit &ecirc;tre capable de contacter l'h&ocirc;te du noeud via&nbsp;SSH.</p>
 </dd>
 <dt>Port SSH</dt>
-<dd><p>Port &#224; utiliser pour les connexions SSH &#224; l'h&#244;te de ce n&#339;ud. La valeur par d&#233;faut est 22. Si l'option H&#244;te du n&#339;ud est d&#233;finie sur <tt>localhost-<i>domain</i></tt>, l'option Port SSH est ignor&#233;e.</p>
-
+<dd>
+<p>Port &agrave; utiliser pour les connexions SSH &agrave; l'h&ocirc;te de ce noeud. La valeur par d&eacute;faut est&nbsp;22. Si la valeur de l'option H&ocirc;te du noeud est <code>localhost-</code><i>domain</i>, l'option Port&nbsp;SSH n'est pas prise en compte.</p>
 </dd>
-<dt>Nom d'utilisateur SSH</dt>
-<dd><p>Utilisateur sur l'h&#244;te de ce n&#339;ud qui va ex&#233;cuter le processus de connexion &#224; l'h&#244;te via SSH. La valeur par d&#233;faut est l'utilisateur qui ex&#233;cute le processus DAS. Pour s'assurer que le serveur DAS peut lire le fichier de cl&#233;s priv&#233;es SSH de l'utilisateur, indiquez l'utilisateur qui ex&#233;cute le processus DAS. Si l'option H&#244;te du n&#339;ud est d&#233;finie sur <tt>localhost-<i>domain</i></tt>, l'option Nom d'utilisateur est ignor&#233;e.</p>
-
+<dt>Nom utilisateur SSH</dt>
+<dd>
+<p>Utilisateur sur l'h&ocirc;te de ce noeud qui doit ex&eacute;cuter le processus de connexion &agrave; l'h&ocirc;te via&nbsp;SSH. La valeur par d&eacute;faut est l'utilisateur qui ex&eacute;cute le processus de serveur&nbsp;DAS. Pour s'assurer que le serveur DAS peut lire le fichier de cl&eacute;s priv&eacute;es SSH de l'utilisateur, indiquez l'utilisateur qui ex&eacute;cute le processus de serveur DAS. Si la valeur de l'option H&ocirc;te du noeud est <code>localhost-</code><i>domain</i>, l'option Nom utilisateur n'est pas prise en compte.</p>
 </dd>
 <dt>Authentification de l'utilisateur SSH</dt>
-<dd><p>Liste d&#233;roulante pour indiquer la mani&#232;re dont l'utilisateur SSH est authentifi&#233; lors de la connexion &#224; l'h&#244;te de ce n&#339;ud. Les m&#233;thodes possibles pour l'authentification sont les suivantes&#160;:</p>
-
-<dl><dt>Fichier cl&#233;</dt>
-<dd><p>L'utilisateur SSH est authentifi&#233; par l'interm&#233;diaire d'un fichier de cl&#233;s priv&#233;es SSH. Si vous s&#233;lectionnez cette option, sp&#233;cifiez le chemin d'acc&#232;s absolu au fichier dans le champ Fichier de cl&#233;s. </p>
-
+<dd>
+<p>Liste d&eacute;roulante permettant d'indiquer la mani&egrave;re dont l'utilisateur SSH est authentifi&eacute; lors de la connexion &agrave; l'h&ocirc;te de ce noeud. Les m&eacute;thodes possibles pour l'authentification sont les suivantes&nbsp;:</p>
+<dl>
+<dt>Fichier de cl&eacute;s</dt>
+<dd>
+<p>L'utilisateur SSH est authentifi&eacute; par l'interm&eacute;diaire d'un fichier de cl&eacute;s priv&eacute;es SSH. Si vous s&eacute;lectionnez cette option, sp&eacute;cifiez le chemin d'acc&egrave;s absolu au fichier dans le champ Fichier de cl&eacute;s.</p>
 </dd>
 <dt>Mot de passe</dt>
-<dd><p>L'utilisateur SSH est authentifi&#233; par le biais d'un mot de passe stock&#233; dans la configuration DAS. </p>
-
-
-<hr><p><b>Attention - </b>Ce mot de passe est stock&#233; sous forme de texte en clair dans la configuration DAS. Pour une s&#233;curit&#233; accrue, utilisez un fichier de cl&#233;s ou un alias de mot de passe. </p>
-
+<dd>
+<p>L'utilisateur SSH est authentifi&eacute; par le biais d'un mot de passe stock&eacute; dans la configuration du serveur DAS.</p>
 
 <hr>
-<p>Si vous s&#233;lectionnez cette option, les champs Mot de passe SSH et Confirmer le mot de passe SSH sont activ&#233;s pour vous permettre d'indiquer le mot de passe. </p>
+<p><b>Attention:</b></p>
+Ce mot de passe est stock&eacute; sous forme de texte en clair dans la configuration du serveur DAS. Pour une s&eacute;curit&eacute; accrue, utilisez un fichier de cl&eacute;s ou un alias de mot de passe.
+<hr>
 
+<p>Si vous s&eacute;lectionnez cette option, les champs Mot de passe utilisateur SSH et Confirmer le mot de passe sont activ&eacute;s pour vous permettre d'indiquer le mot de passe.</p>
 </dd>
 <dt>Alias de mot de passe</dt>
-<dd><p>L'utilisateur SSH est authentifi&#233; par le biais d'un alias de mot de passe. Si vous s&#233;lectionnez cette option, choisissez l'alias de mot de passe dans la liste d&#233;roulante correspondante.</p>
-
+<dd>
+<p>L'utilisateur SSH est authentifi&eacute; par le biais d'un alias de mot de passe. Si vous s&eacute;lectionnez cette option, choisissez l'alias de mot de passe dans la liste d&eacute;roulante correspondante.</p>
 </dd>
 </dl>
 </dd>
-<dt>Mot de passe SSH</dt>
-<dd><p>Mot de passe que l'utilisateur SSH va utiliser lors de la connexion &#224; l'h&#244;te de ce n&#339;ud. </p>
-
+<dt>Configurer SSH</dt>
+<dd>
+<p>Si l'option Activ&eacute; est s&eacute;lectionn&eacute;e, GlassFish&nbsp;Server configure une cl&eacute; SSH sur l'h&ocirc;te du noeud. GlassFish&nbsp;Server configure la cl&eacute; SSH en copiant les fichiers de cl&eacute;s existants &agrave; partir de l'h&ocirc;te de serveur DAS ou, si n&eacute;cessaire, en g&eacute;n&eacute;rant les fichiers avant de les copier. Cette option est disponible uniquement si l'option Authentification de l'utilisateur SSH a la valeur Fichier de cl&eacute;s.</p>
 </dd>
-<dt>Confirmer le mot de passe SSH</dt>
-<dd><p>Confirmation du mot de passe que l'utilisateur SSH va utiliser lors de la connexion &#224; l'h&#244;te de ce n&#339;ud. Le contenu de ce champ doit correspondre exactement au contenu du champ Mot de passe SSH. </p>
-
+<dt>G&eacute;n&eacute;rer une cl&eacute;</dt>
+<dd>
+<p>Si l'option Activ&eacute; est s&eacute;lectionn&eacute;e, GlassFish&nbsp;Server g&eacute;n&egrave;re les fichiers de cl&eacute;s SSH avant de les copier vers l'h&ocirc;te du noeud.</p>
+</dd>
+<dt>Mot de passe utilisateur SSH</dt>
+<dd>
+<p>Mot de passe que l'utilisateur SSH doit utiliser lors de la connexion &agrave; l'h&ocirc;te de ce noeud.</p>
+</dd>
+<dt>Confirmer le mot de passe</dt>
+<dd>
+<p>Confirmation du mot de passe que l'utilisateur SSH doit utiliser lors de la connexion &agrave; l'h&ocirc;te de ce noeud. Le contenu de ce champ doit correspondre exactement au contenu du champ Mot de passe utilisateur SSH.</p>
 </dd>
 <dt>Alias de mot de passe</dt>
-<dd><p>Liste d&#233;roulante d'alias de mot de passe d&#233;finis pour ce domaine. </p>
-
+<dd>
+<p>Liste d&eacute;roulante des alias de mot de passe d&eacute;finis pour ce domaine.</p>
 </dd>
-<dt>Fichier cl&#233;</dt>
-<dd><p>Chemin d'acc&#232;s absolu au fichier de cl&#233;s priv&#233;es SSH sp&#233;cifi&#233; par l'option Nom d'utilisateur. Ce fichier est utilis&#233; pour l'authentification du d&#233;mon <tt>sshd</tt> sur l'h&#244;te du n&#339;ud.</p>
-
-
-<hr><p><b>Remarque - </b>GlassFish Server prend &#233;galement en charge l'authentification par mots de passe via l'entr&#233;e <tt>AS_ADMIN_SSHPASSWORD</tt> dans le fichier de mots de passe. Le fichier de mots de passe est sp&#233;cifi&#233; dans l'option <tt>--paswordfile</tt> de l'utilitaire <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=asadmin-1m"><tt>asadmin</tt>(1M)</a>.</p>
-
+<dt>Fichier de cl&eacute;s public</dt>
+<dd>
+<p>Chemin d'acc&egrave;s absolu au fichier de cl&eacute;s publiques&nbsp;SSH sp&eacute;cifi&eacute; par l'option Nom utilisateur&nbsp;SSH. Le contenu du fichier de cl&eacute;s publiques est ajout&eacute; au fichier <code>.ssh/authorized_keys</code> de l'utilisateur sur l'h&ocirc;te du noeud. Si le fichier <code>.ssh/authorized_keys</code> n'existe pas sur l'h&ocirc;te, GlassFish&nbsp;Server le cr&eacute;e.</p>
+<p>Le serveur DAS doit disposer de droits d'acc&egrave;s et de lecture sur le fichier de cl&eacute;s.</p>
+<p>La valeur par d&eacute;faut est un fichier de cl&eacute;s plac&eacute; dans le r&eacute;pertoire <code>.ssh</code> de l'utilisateur. Si plusieurs fichiers de cl&eacute;s sont disponibles, GlassFish&nbsp;Server utilise l'ordre de pr&eacute;f&eacute;rence suivant&nbsp;:</p>
+<ol>
+<li>
+<p><code>id_rsa</code></p>
+</li>
+<li>
+<p><code>id_dsa</code></p>
+</li>
+<li>
+<p><code>identity</code></p>
+</li>
+</ol>
+</dd>
+<dt>Fichier de cl&eacute;s</dt>
+<dd>
+<p>Chemin d'acc&egrave;s absolu au fichier de cl&eacute;s priv&eacute;es&nbsp;SSH sp&eacute;cifi&eacute; par l'option Nom utilisateur&nbsp;SSH. Ce fichier est utilis&eacute; pour l'authentification aupr&egrave;s du d&eacute;mon <code>sshd</code> sur l'h&ocirc;te du noeud.</p>
 
 <hr>
-<p>Si le fichier de cl&#233;s priv&#233;es SSH est prot&#233;g&#233; par une phrase de passe, le fichier de mots de passe doit contenir l'entr&#233;e <tt>AS_ADMIN_SSHKEYPASSPHRASE</tt>.</p>
+<p><b>Remarque:</b></p>
+GlassFish&nbsp;Server prend &eacute;galement en charge l'authentification par mot de passe via l'entr&eacute;e <code>AS_ADMIN_SSHPASSWORD</code> dans le fichier de mots de passe. Le fichier de mots de passe est sp&eacute;cifi&eacute; dans l'option <code>-paswordfile</code> de l'utilitaire <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00263"><code>asadmin</code>(1)</a>.
+<hr>
 
-<p>Le chemin d'acc&#232;s au fichier de cl&#233;s doit &#234;tre accessible par le serveur DAS et le fichier de cl&#233;s doit &#234;tre lisible par le serveur DAS. </p>
-
-<p>La valeur par d&#233;faut est un fichier de cl&#233;s plac&#233; dans le r&#233;pertoire <tt>.ssh</tt>. Si plusieurs fichiers de cl&#233;s sont disponibles, GlassFish Server utilise l'ordre de pr&#233;f&#233;rence suivant&#160;: </p>
-
-
-<ol><li><p><tt>id_rsa</tt></p>
-
+<p>Si le fichier de cl&eacute;s priv&eacute;es&nbsp;SSH est prot&eacute;g&eacute; par une phrase secr&egrave;te, le fichier de mots de passe doit contenir l'entr&eacute;e <code>AS_ADMIN_SSHKEYPASSPHRASE</code>.</p>
+<p>Le serveur DAS doit disposer de droits d'acc&egrave;s et de lecture sur le fichier de cl&eacute;s.</p>
+<p>La valeur par d&eacute;faut est un fichier de cl&eacute;s plac&eacute; dans le r&eacute;pertoire <code>.ssh</code> de l'utilisateur. Si plusieurs fichiers de cl&eacute;s sont disponibles, GlassFish&nbsp;Server utilise l'ordre de pr&eacute;f&eacute;rence suivant&nbsp;:</p>
+<ol>
+<li>
+<p><code>id_rsa</code></p>
 </li>
-<li><p><tt>id_dsa</tt></p>
-
+<li>
+<p><code>id_dsa</code></p>
 </li>
-<li><p><tt>identity</tt> </p>
-
-</li></ol>
+<li>
+<p><code>identity</code></p>
+</li>
+</ol>
 </dd>
 </dl>
-<h5>T&#226;ches connexes</h5>
-
-<ul><li><p><a href="task-createnode.html">Cr&#233;er un n<IMG alt="oelig" SRC="ents/oelig.gif" border="0">ud</a></p>
-
-</li></ul>
-<h5>Sous-commandes <tt>asadmin</tt> &#233;quivalentes</h5>
-
-<ul><li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-config-1"><tt>create-node-config</tt>(1)</a></p>
-
+<a id="sthref311" name="sthref311"></a>
+<h5>T&acirc;ches connexes</h5>
+<p><a href="task-createnode.html">Cr&eacute;er un noeud</a></p>
+<a id="sthref312" name="sthref312"></a>
+<h5>Sous-commandes asadmin &eacute;quivalentes</h5>
+<ul>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00047"><code>create-node-config</code>(1)</a></p>
 </li>
-<li><p><a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-node-ssh-1"><tt>create-node-ssh</tt>(1)</a></p>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM510"><code>create-node-dcom</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00048"><code>create-node-ssh</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00229"><code>setup-ssh</code>(1)</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM796"><code>validate-dcom</code>(1)</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

@@ -1,49 +1,65 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-lifecyclemodulenew" name="task-lifecyclemodulenew"></a><a id="GHCOM00169" name="GHCOM00169"></a></p>
 
-
-<a name="task-lifecyclemodulenew"></a><h3>Pour cr&#233;er un module de cycle de vie</h3><a name="indexterm-58"></a><ol>
-<li><b>Dans l&#8217;arborescence de navigation, s&#233;lectionnez le noeud Modules de cycle de vie.</b><p>La page Module de cycle de vie s&#8217;ouvre.</p></li>
-<li><b>Sur la page Modules de cycle de vie, cliquez sur Nouveau.</b><p>La page Nouveau module de cycle de vie s&#8217;ouvre.</p></li>
-<li><b>Dans le champ Nom, saisissez un nom de module de cycle de
-vie.</b></li>
-<li><b>Dans le champ Nom de la classe, saisissez le nom complet du
-fichier de classe du module de cycle de vie.</b><p>La classe doit impl&#233;menter l&#8217;interface <tt>com.sun.appserv.server.LifecycleListener</tt>.</p></li>
-<li><b>Dans le champ Classpath, saisissez le classpath du module de cycle de
-vie.</b><p>Le classpath indique l&#224; o&#249; se trouve le module de cycle de
-vie. La valeur par d&#233;faut est <tt></tt><i>domain-dir</i><tt>/applications</tt>. Si le module est d&#233;j&#224;
-dans ce r&#233;pertoire (c&#8217;est-&#224;-dire dans le classpath du serveur), ce champ peut
-&#234;tre laiss&#233; vierge.</p></li>
-<li><b>Dans le champ Ordre de chargement, saisissez une valeur indiquant l&#8217;ordre dans
-lequel ce module de cycle de vie doit &#234;tre charg&#233; au d&#233;marrage.</b><p>Les modules aux valeurs d&#8217;ordre de chargement &#224; petit nombre sont charg&#233;s
-plus t&#244;t. La valeur peut aller de 101 &#224; la valeur <tt>MAXINT</tt>
-du syst&#232;me d&#8217;exploitation. Les valeurs de 1 &#224; 100 sont r&#233;serv&#233;es.</p></li>
-<li><b>Dans le champ Description, saisissez une description du module de cycle de
-vie.</b></li>
-<li><b>Cochez la case &#201;tat activ&#233; pour activer le module de cycle de
-vie.</b><p>Cette option est activ&#233;e par d&#233;faut.</p></li>
-<li><b>Cochez la case Emp&#234;cher le d&#233;marrage de l&#8217;instance en cas d&#8217;&#233;chec du
-chargement pour indiquer que le serveur doit &#234;tre arr&#234;t&#233; en cas d&#8217;&#233;chec
-de chargement du module de cycle de vie.</b><p>Cette option est d&#233;sactiv&#233;e par d&#233;faut.</p></li>
-<li><b>Pour ajouter des clusters et des instances de serveur cibles sur lesquels
-activer le module de cycle de vie, s&#233;lectionnez-les dans la liste Cibles
-disponibles et utilisez le bouton Ajouter pour les d&#233;placer vers la liste
-Cibles s&#233;lectionn&#233;es. </b><p>L'option Cible s'affiche si des clusters ou des instances de serveur autonomes
-existent en plus de l'instance de serveur par d&#233;faut (<tt>server</tt>). Par d&#233;faut,
-le module de cycle de vie est activ&#233; sur l'instance de serveur
-par d&#233;faut, nomm&#233; <tt>server</tt>. Utilisez le bouton Tout Ajouter pour le/la d&#233;ployer
-sur toutes les cibles. Utilisez les boutons Supprimer et Tout Supprimer pour
-supprimer des cibles de la liste Cibles s&#233;lectionn&#233;es. </p></li>
-<li><b>Cliquez sur OK.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-lifecyclemoduleedit.html">Pour modifier un module de cycle de vie</a></p>
-
+<h4><a id="sthref104" name="sthref104"></a>Cr&eacute;er un module de cycle de vie</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<ol>
+<li>
+<p>Dans l'arborescence de navigation, s&eacute;lectionnez le noeud Modules de cycle de vie.</p>
+<p>La page Module de cycle de vie appara&icirc;t.</p>
 </li>
-<li><p><a href="task-lifecyclemoduledelete.html">Pour supprimer un module de cycle de vie</a></p>
+<li>
+<p>Sur la page Modules de cycle de vie, cliquez sur Nouveau.</p>
+<p>La page Nouveau module de cycle de vie appara&icirc;t.</p>
+</li>
+<li>
+<p>Dans le champ Nom, saisissez le nom du module de cycle de vie.</p>
+</li>
+<li>
+<p>Dans le champ Nom de la classe, saisissez le nom qualifi&eacute; complet du fichier de classe du module de cycle de vie.</p>
+<p>La classe doit impl&eacute;menter l'interface <code>com.sun.appserv.server.LifecycleListener</code>.</p>
+</li>
+<li>
+<p>Dans le champ Classpath, saisissez le classpath du module de cycle de vie.</p>
+<p>Le classpath indique l'emplacement du module de cycle de vie. La valeur par d&eacute;faut est <i>domain-dir</i><code>/applications</code>. Si le module est d&eacute;j&agrave; dans ce r&eacute;pertoire (c'est-&agrave;-dire dans le classpath du serveur), ce champ peut &ecirc;tre laiss&eacute; vide.</p>
+</li>
+<li>
+<p>Dans le champ Ordre de chargement, saisissez une valeur indiquant l'ordre dans lequel ce module de cycle de vie doit &ecirc;tre charg&eacute; au d&eacute;marrage.</p>
+<p>Les modules aux valeurs enti&egrave;res les plus faibles dans l'ordre de chargement sont charg&eacute;s en premier. Ce chiffre peut aller de 101 &agrave; la valeur <code>MAXINT</code> du syst&egrave;me d'exploitation. Les valeurs de&nbsp;1 &agrave;&nbsp;100 sont r&eacute;serv&eacute;es.</p>
+</li>
+<li>
+<p>Dans le champ Description, saisissez une description du module de cycle de vie.</p>
+</li>
+<li>
+<p>Cochez la case Statut activ&eacute; pour activer le module de cycle de vie.</p>
+<p>Cette option est activ&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Cochez la case Emp&ecirc;cher le d&eacute;marrage de l'instance en cas d'&eacute;chec du chargement pour indiquer que le serveur doit &ecirc;tre arr&ecirc;t&eacute; en cas d'&eacute;chec de chargement du module de cycle de vie.</p>
+<p>Cette option est d&eacute;sactiv&eacute;e par d&eacute;faut.</p>
+</li>
+<li>
+<p>Pour ajouter des clusters et des instances de serveur cible sur lesquels activer le module de cycle de vie, s&eacute;lectionnez-les dans la liste Cibles disponibles et utilisez le bouton Ajouter pour les d&eacute;placer vers la liste Cibles s&eacute;lectionn&eacute;es.</p>
+<p>L'option Cible appara&icirc;t si des clusters ou des instances de serveur autonomes existent en plus de l'instance de serveur par d&eacute;faut (<code>server</code>). Par d&eacute;faut, le module de cycle de vie est activ&eacute; sur l'instance de serveur par d&eacute;faut, nomm&eacute;e <code>server</code>. Utilisez le bouton Tout ajouter pour le/la d&eacute;ployer sur toutes les cibles. Utilisez les boutons Enlever et Tout enlever pour enlever des cibles de la liste Cibles s&eacute;lectionn&eacute;es.</p>
+</li>
+<li>
+<p>Cliquez sur OK.</p>
+</li>
+</ol>
+<a id="sthref105" name="sthref105"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-lifecyclemoduleedit.html">Modifier un module de cycle de vie</a></p>
+</li>
+<li>
+<p><a href="task-lifecyclemoduledelete.html">Supprimer un module de cycle de vie</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>

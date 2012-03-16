@@ -1,147 +1,168 @@
-<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-
-Copyright 2005, 2011 Oracle and/or its affiliates. All rights reserved.
- 
+<!--   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright 2005, 2012 Oracle and/or its affiliates. All rights reserved.
+
 Use is subject to License Terms  -->
+<p><a id="task-create-standalone-instance" name="task-create-standalone-instance"></a><a id="GHCLU00056" name="GHCLU00056"></a></p>
 
-
-<a name="task-create-standalone-instance"></a><h3>Cr&#233;er une instance de GlassFish Server autonome</h3><a name="indexterm-83"></a><a name="indexterm-84"></a><a name="indexterm-85"></a><p>Les instances de GlassFish Server forment la base d&#8217;un d&#233;ploiement d&#8217;application. Une
-instance autonome n'est pas un membre d'un cluster. Chacune d&#8217;elles appartient &#224;
-un domaine unique et poss&#232;de sa propre structure de r&#233;pertoire, configuration et
-ses propres applications d&#233;ploy&#233;es. Chaque instance comprend &#233;galement le conteneur Web Java
-Platform, Enterprise Edition (Java EE) et le conteneur Enterprise JavaBeans (technologie EJB).
-Chaque nouvelle instance doit contenir une r&#233;f&#233;rence &#224; un n&#339;ud qui d&#233;finit
-l'h&#244;te sur lequel l'instance va r&#233;sider.</p>
-
-
-<hr><p><b>Remarque - </b>Pour cr&#233;er une instance sur un n&#339;ud de type CONFIG repr&#233;sentant un
-h&#244;te distant, vous devez utiliser la sous-commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=821-2433&id=create-local-instance-1"><tt>create-local-instance</tt>(1)</a>. Vous ne pouvez pas
-utiliser la Console d'administration  &#224; cette fin. </p>
-
+<h4><a id="sthref122" name="sthref122"></a><a id="sthref123" name="sthref123"></a><a id="sthref124" name="sthref124"></a>Cr&eacute;ation d'une instance de GlassFish&nbsp;Server autonome</h4>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Les instances de GlassFish&nbsp;Server forment la base d'un d&eacute;ploiement d'application. Une instance autonome n'est pas un membre d'un cluster. Chacune d'elles appartient &agrave; un domaine unique et poss&egrave;de une structure de r&eacute;pertoire, une configuration et des applications d&eacute;ploy&eacute;es qui lui sont propres. Chaque instance comprend &eacute;galement le conteneur Web Java Platform, Enterprise Edition (Java EE) et le conteneur Enterprise JavaBeans (technologie EJB). Chaque nouvelle instance doit contenir une r&eacute;f&eacute;rence &agrave; un noeud qui d&eacute;finit l'h&ocirc;te sur lequel elle r&eacute;sidera.</p>
 
 <hr>
-<p><b>Avant de commencer</b></p><p>Assurez-vous que <a href="task-createnode.html">The node on which the instance is to reside</a> existe.</p>
+<p><b>Remarque:</b></p>
+Pour cr&eacute;er une instance sur un noeud de type CONFIG repr&eacute;sentant un h&ocirc;te distant, vous devez utiliser la sous-commande <a href="http://www.oracle.com/pls/topic/lookup?ctx=E26576_01&id=GSRFM00044"><code>create-local-instance</code>(1)</a>. Vous ne pouvez pas utiliser la Console d'administration &agrave; cet effet.
+<hr>
 
+<a id="sthref125" name="sthref125"></a>
+<h5>Avant de commencer</h5>
+<p>Assurez-vous que le noeud sur lequel l'instance r&eacute;sidera existe. Pour plus d'informations, reportez-vous &agrave; <a href="task-createnode.html">Cr&eacute;er un noeud</a>.</p>
 <ol>
-<li><b>Dans l&#8217;arborescence de navigation, s&#233;lectionnez le n&#339;ud Instances autonomes.</b><p>La page Instances de serveur autonomes s&#8217;ouvre.</p></li>
-<li><b>Sur la page Instances de serveur autonomes, cliquez sur Nouveau.</b><p>La page Nouvelle instance de serveur autonome s'ouvre.</p></li>
-<li><b>Dans le champ Nom, entrez un nom d&#8217;instance.</b><p>Le nom doit respecter les exigences suivantes&#160;:</p>
-<ul><li><p>Le nom ne peut contenir que des caract&#232;res ASCII. </p>
-
+<li>
+<p>Dans l'arborescence de navigation, s&eacute;lectionnez le noeud Instances autonomes.</p>
+<p>La page Instances de serveur autonomes appara&icirc;t.</p>
 </li>
-<li><p>Le nom doit commencer par une lettre, un chiffre ou un caract&#232;re de soulignement.</p>
-
+<li>
+<p>Sur la page Instances de serveur autonomes, cliquez sur Nouveau.</p>
+<p>La page Nouvelle instance de serveur autonome appara&icirc;t.</p>
 </li>
-<li><p>Le nom ne peut contenir que les caract&#232;res suivants&#160;:</p>
-
-
-<ul><li><p>Lettres minuscules</p>
-
+<li>
+<p>Dans le champ Nom, attribuez un nom &agrave; l'instance.</p>
+<p>Le nom doit respecter les exigences suivantes&nbsp;:</p>
+<ul>
+<li>
+<p>Il ne peut contenir que des caract&egrave;res&nbsp;ASCII.</p>
 </li>
-<li><p>Lettres majuscules</p>
-
+<li>
+<p>Il doit commencer par une lettre, un chiffre ou un trait de soulignement.</p>
 </li>
-<li><p>Chiffres</p>
-
+<li>
+<p>Il ne peut contenir que les caract&egrave;res suivants&nbsp;:</p>
+<ul>
+<li>
+<p>Lettres minuscules</p>
 </li>
-<li><p>Trait d'union</p>
-
+<li>
+<p>Lettres majuscules</p>
 </li>
-<li><p>Point</p>
-
+<li>
+<p>Chiffres</p>
 </li>
-<li><p>Caract&#232;re de soulignement</p>
-
-</li></ul>
+<li>
+<p>Trait d'union</p>
 </li>
-<li><p>Le nom doit &#234;tre unique dans le domaine et ne doit pas &#234;tre le nom d'une autre instance de GlassFish Server, d'un cluster, d'une configuration nomm&#233;e ou d'un n&#339;ud.</p>
-
+<li>
+<p>Point</p>
 </li>
-<li><p>Le nom ne doit pas &#234;tre <tt>domain</tt>, <tt>server</tt> ou tout autre mot-cl&#233; r&#233;serv&#233; par GlassFish Server.</p>
-
-</li></ul>
+<li>
+<p>Trait de soulignement</p>
 </li>
-<li><b>&#192; partir de la liste d&#233;roulante N&#339;uds, s&#233;lectionnez le n&#339;ud sur lequel
-l'instance va r&#233;sider.</b></li>
-<li><b>Dans la liste d&#233;roulante Configuration, s&#233;lectionnez la configuration nomm&#233;e que l'instance doit
-utiliser.</b>
-<hr><p><b>Remarque - </b>Si vous s&#233;lectionnez <tt>default-config</tt>, vous devez sp&#233;cifier dans l'&#233;tape suivante que la
-configuration n'est <b>pas</b> partag&#233;e. La configuration <tt>default-config</tt> ne peut pas &#234;tre partag&#233;e.</p>
-
+</ul>
+</li>
+<li>
+<p>Le nom du noeud doit &ecirc;tre unique dans le domaine&nbsp;; il ne doit pas appartenir &agrave; une autre instance de GlassFish&nbsp;Server, &agrave; une configuration nomm&eacute;e, &agrave; un cluster ou &agrave; un noeud.</p>
+</li>
+<li>
+<p>Il ne doit pas &ecirc;tre <code>domain</code>, <code>server</code> ou tout autre mot-cl&eacute; r&eacute;serv&eacute; par GlassFish&nbsp;Server.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante Noeuds, s&eacute;lectionnez le noeud sur lequel l'instance r&eacute;sidera.</p>
+</li>
+<li>
+<p>Dans la liste d&eacute;roulante Configuration, s&eacute;lectionnez la configuration nomm&eacute;e que l'instance doit utiliser.</p>
 
 <hr>
-</li>
-<li><b>Indiquez si la configuration que l'instance va utiliser est partag&#233;e.</b><ul>
-<li><b>Si la configuration n'est pas partag&#233;e, laissez l'option Cr&#233;er une copie de
-la configuration s&#233;lectionn&#233;e coch&#233;e. </b><p>La configuration s&#233;lectionn&#233;e est copi&#233;e lors de la cr&#233;ation de l'instance. Le
-nom <tt><i>instance-name</i>-config</tt> est affect&#233; &#224; la copie de la configuration, <i>instance-name</i> correspondant
-au nom de l'instance que vous cr&#233;ez.</p></li>
-<li><b>Si la configuration est partag&#233;e, s&#233;lectionnez l'option Utiliser la configuration s&#233;lectionn&#233;e comme
-r&#233;f&#233;rence.</b><p>L'instance utilise la configuration nomm&#233;e existante indiqu&#233;e.</p></li></ul></li>
-<li><b>Cliquez sur OK.</b></li></ol><p></b>Voir aussi</b></p>
-<ul><li><p><a href="task-delete-standalone-instances.html">Supprimer les instances de GlassFish Server autonomes</a></p>
+<p><b>Remarque:</b></p>
+Si vous s&eacute;lectionnez <code>default-config</code>, vous devez sp&eacute;cifier, &agrave; l'&eacute;tape suivante, que la configuration n'est <i>pas</i> partag&eacute;e. La configuration <code>default-config</code> ne peut pas &ecirc;tre partag&eacute;e.
+<hr>
 
 </li>
-<li><p><a href="task-start-standalone-instances.html">D&#233;marrer les instances de GlassFish Server autonomes</a></p>
-
+<li>
+<p>Indiquez si la configuration que l'instance va utiliser est partag&eacute;e.</p>
+<ul>
+<li>
+<p>Si la configuration n'est pas partag&eacute;e, laissez l'option Cr&eacute;er une copie de la configuration s&eacute;lectionn&eacute;e coch&eacute;e.</p>
+<p>La configuration s&eacute;lectionn&eacute;e sera ainsi copi&eacute;e lors de la cr&eacute;ation de l'instance. Le nom <i>instance-name</i><code>-config</code> est affect&eacute; &agrave; la copie de la configuration, <i>instance-name</i> correspondant au nom de l'instance que vous cr&eacute;ez.</p>
 </li>
-<li><p><a href="task-stop-standalone-instances.html">Arr&#234;ter les instances de GlassFish Server autonomes</a></p>
-
+<li>
+<p>Si la configuration est partag&eacute;e, s&eacute;lectionnez l'option Utiliser la configuration s&eacute;lectionn&eacute;e comme r&eacute;f&eacute;rence.</p>
+<p>L'instance utilisera la configuration nomm&eacute;e existante indiqu&eacute;e.</p>
 </li>
-<li><p><a href="task-view-logs-standalone-instance.html">Afficher les fichiers journaux d'une instance de GlassFish Server autonome</a></p>
-
+</ul>
 </li>
-<li><p><a href="task-recovertransactions-standalone-instance.html">R&#233;cup&#233;rer les transactions d'une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p>Cliquez sur OK.</p>
 </li>
-<li><p><a href="task-standalone-instance-app-deploy.html">D&#233;ployer une application sur une instance de GlassFish Server autonome</a></p>
-
+</ol>
+<a id="sthref126" name="sthref126"></a>
+<h5>Voir aussi</h5>
+<ul>
+<li>
+<p><a href="task-delete-standalone-instances.html">Supprimer des instances de GlassFish&nbsp;Server autonomes</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-list.html">R&#233;pertorier les applications d&#233;ploy&#233;es sur une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-start-standalone-instances.html">D&eacute;marrer des instances de GlassFish&nbsp;Server autonomes</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-undeploy.html">Annuler le d&#233;ploiement d'applications d'une instance GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-stop-standalone-instances.html">Arr&ecirc;ter des instances de GlassFish&nbsp;Server autonomes</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-remove.html">Supprimer des applications d'une instance autonome GlassFish Server </a></p>
-
+<li>
+<p><a href="task-view-logs-standalone-instance.html">Afficher les fichiers journaux d'une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-edit.html">Modifier une application d&#233;ploy&#233;e sur une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-recovertransactions-standalone-instance.html">R&eacute;cup&eacute;rer des transactions d'une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-enable-disable.html">Activer ou d&#233;sactiver une application d&#233;ploy&#233;e sur une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-deploy.html">D&eacute;ployer une application vers une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-standalone-instance-app-lb-enable-disable.html">Activer ou d&#233;sactiver l'&#233;quilibrage de charge pour une application d&#233;ploy&#233;e sur une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-list.html">Lister les applications d&eacute;ploy&eacute;es vers une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-create.html">Cr&#233;er une ressource pour une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-undeploy.html">Annuler le d&eacute;ploiement d'applications &agrave; partir d'une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-display.html">R&#233;pertorier les ressources pour une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-remove.html">Enlever des applications d'une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-enable-disable.html">Activer ou d&#233;sactiver une ressource pour une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-edit.html">Modifier une application d&eacute;ploy&eacute;e vers une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-standalone-instance-resource-edit.html">Modifier une ressource pour une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-enable-disable.html">Activer ou d&eacute;sactiver une application d&eacute;ploy&eacute;e vers une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-change-standalone-instance-ports.html">Modifier les num&#233;ros de port d'une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-app-lb-enable-disable.html">Activer ou d&eacute;sactiver l'&eacute;quilibrage de charge pour une application d&eacute;ploy&eacute;e vers une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-set-props-standalone-instance.html">Configurer des propri&#233;t&#233;s sp&#233;cifiques &#224; l'instance d'une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-resource-create.html">Cr&eacute;er une ressource pour une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-mon-app-standalone-instance.html">Afficher les donn&#233;es de contr&#244;le des applications pour une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-resource-display.html">Lister les ressources d'une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-mon-server-standalone-instance.html">Afficher les donn&#233;es de contr&#244;les d'un serveur virtuel pour une instance de GlassFish Server autonome</a></p>
-
+<li>
+<p><a href="task-standalone-instance-resource-enable-disable.html">Activer ou d&eacute;sactiver une ressource d'une instance de GlassFish&nbsp;Server autonome</a></p>
 </li>
-<li><p><a href="task-mon-resource-standalone-instance.html">Afficher les donn&#233;es de contr&#244;le des ressources pour une instance de GlassFish Server autonome</a></p>
+<li>
+<p><a href="task-standalone-instance-resource-edit.html">Modifier une ressource d'une instance de GlassFish&nbsp;Server autonome</a></p>
+</li>
+<li>
+<p><a href="task-change-standalone-instance-ports.html">Modifier les num&eacute;ros de port d'une instance de GlassFish&nbsp;Server autonome</a></p>
+</li>
+<li>
+<p><a href="task-set-props-standalone-instance.html">D&eacute;finir les propri&eacute;t&eacute;s propres &agrave; une instance de GlassFish&nbsp;Server autonome</a></p>
+</li>
+<li>
+<p><a href="task-mon-app-standalone-instance.html">Visualiser les donn&eacute;es de surveillance des applications pour une instance de GlassFish&nbsp;Server autonome</a></p>
+</li>
+<li>
+<p><a href="task-mon-server-standalone-instance.html">Visualiser les donn&eacute;es de surveillance des serveurs virtuels pour une instance de GlassFish&nbsp;Server autonome</a></p>
+</li>
+<li>
+<p><a href="task-mon-resource-standalone-instance.html">Visualiser les donn&eacute;es de surveillance des ressources pour une instance de GlassFish&nbsp;Server autonome</a></p>
+</li>
+</ul>
 
-</li></ul>
 
-
-<small>Copyright &#169; 2005, 2011, Oracle et/ou ses affili&#233;s. Tous droits r&#233;serv&#233;s. <a href="docinfo.html">Notice l&#233;gale</a></small>
+<small>Copyright &#169; 2005, 2012, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></small>
