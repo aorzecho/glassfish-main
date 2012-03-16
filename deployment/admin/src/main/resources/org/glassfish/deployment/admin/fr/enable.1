@@ -1,0 +1,77 @@
+ENABLE(1)                                                            ENABLE(1)
+
+NOM
+       enable - active le composant
+
+SYNOPSIS
+           enable [--help] [--target target_name] component_name
+
+DESCRIPTION
+       La sous-commande enable active le composant déployé spécifié. Si le
+       composant est déjà activé, il est réactivé. S'il n'a pas été déployé,
+       un message d'erreur est renvoyé.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --target
+           Cette option indique la cible sur laquelle vous activez le
+           composant. Les valeurs valides sont les suivantes :
+
+           server
+               Active l'instance de serveur par défaut server et constitue la
+               valeur par défaut.
+
+           domain_name
+               Active le domaine nommé.
+
+           cluster_name
+               Active chaque instance de serveur dans le cluster.
+
+           instance_name
+               Active une instance de serveur incluse dans un cluster ou
+               autonome particulière.
+
+OPÉRANDES
+       component_name
+           Nom du composant à activer.
+
+           Le nom peut être suivi d'un identificateur de version facultatif
+           dont il est séparé par un signe deux-points (:). L'identificateur
+           de version doit commencer par une lettre ou un chiffre. Il peut
+           contenir des caractères alphanumériques, des traits de soulignement
+           (_), des tirets (-) et des points (.). Pour plus d'informations sur
+           les versions des modules et des applications, reportez-vous à
+           "Module and Application Versions" dans le manuel Oracle GlassFish
+           Server Application Deployment Guide.
+
+           Une seule version d'un module ou d'une application peut être
+           activée sur une instance de serveur. Toutes les autres versions
+           sont désactivées. L'activation automatique d'une version désactive
+           toutes les autres.
+
+EXEMPLES
+       Exemple 1, Activation d'un composant
+           Dans cet exemple, le composant désactivé sampleApp est activé.
+
+               asadmin> enable sampleApp
+               Command enable executed successfully
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       deploy(1), , undeploy(1), disable(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server Application Deployment Guide
+
+                                 17 nov. 2010                        ENABLE(1)

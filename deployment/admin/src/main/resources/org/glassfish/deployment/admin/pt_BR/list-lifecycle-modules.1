@@ -1,0 +1,56 @@
+LIST-LIFECYCLE-MOD(1)                                    LIST-LIFECYCLE-MOD(1)
+
+NOME
+       list-lifecycle-modules - lista os módulos de ciclo de vida
+
+SINOPSE
+           list-lifecycle-modules [--help] [target]
+
+DESCRIçãO
+       O subcomando list-lifecycle-modules lista módulos de ciclo de vida. Um
+       módulo de ciclo de vida fornece um meio de executar uma tarefa baseada
+       em Java de curta ou longa duração em um estágio específico do ciclo de
+       vida do servidor. Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+OPERANDOS
+       target
+           Indica o local em que o módulo de ciclo de vida deverá ser listado.
+           Valores válidos são
+
+           ·   server - Especifica a instância do servidor default como o
+               destino para listar módulos de ciclo de vida.  server é o nome
+               da instância do servidor default e é o valor default para este
+               operando.
+
+           ·   cluster_name - Especifica um cluster particular como destino
+               para listar módulos de ciclo de vida.
+
+           ·   instance_name - Especifica uma instância do servidor particular
+               como destino para listar módulos de ciclo de vida.
+
+EXEMPLOS
+       Exemplo 1, Listando módulos de ciclo de vida
+
+               asadmin> list-lifecycle-modules
+               WSTCPConnectorLCModule
+               Command list-lifecycle-modules executed successfully
+           O WSTCPConnectorLCModule é o único módulo de ciclo de vida listado
+           para o destino default, servidor.
+
+STATUS DE SAíDA
+       0
+           comando executado com sucesso
+
+       1
+           erro ao executar o comando
+
+CONSULTE TAMBéM
+       create-lifecycle-module(1), delete-lifecycle-module(1)
+
+       asadmin(1M)
+
+                            16 de novembro de 2010       LIST-LIFECYCLE-MOD(1)

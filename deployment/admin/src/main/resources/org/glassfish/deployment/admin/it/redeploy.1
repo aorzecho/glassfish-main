@@ -1,0 +1,443 @@
+REDEPLOY(1)                                                        REDEPLOY(1)
+
+NOME
+       redeploy - ridistribuisce il componente specificato
+
+SINTASSI
+           redeploy [--help]
+           --name component_name
+           [--upload={true|false}]
+           [--retrieve local_dirpath]
+           [--dbvendorname dbvendorname]
+           [--createtables={true|false}|--dropandcreatetables={true|false}]
+           [--uniquetablenames={true|false}]
+           [--deploymentplan deployment_plan]
+           [--enabled={true|false}]
+           [--generatermistubs={false|true}]
+           [--contextroot context_root]
+           [--precompilejsp={true|false}]
+           [--verify={false|true}]
+           [--virtualservers virtual_servers]
+           [--availabilityenabled={false|true}]
+           [--asyncreplication={true|false}]
+           [--lbenabled={true|false}]
+           [--keepstate={false|true}]
+           [--libraries jar_file[,jar_file]*]
+           [--target target]
+           [--type pkg-type]
+           [--properties(name=value)[:name=value]*]
+           [file_archive|filepath]
+
+DESCRIZIONE
+       Il comando secondario redeploy ridistribuisce un'applicazione
+       aziendale, un'applicazione Web, un modulo basato sulla specifica
+       Enterprise JavaBeans (EJB) (modulo EJB), un modulo connettore o un
+       modulo client dell'applicazione già distribuito o già esistente. Il
+       comando secondario redeploy mantiene le impostazioni e altre opzioni
+       con cui è stata originariamente distribuita l'applicazione.
+       L'applicazione deve essere già distribuita. Altrimenti si verifica un
+       errore.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --virtualservers
+           ID di uno o più server virtuali. Gli ID sono separati da virgole.
+
+       --contextroot
+           Opzione valida solo se l'archivio è un modulo Web. Per gli altri
+           tipi di archivi viene ignorata; per impostazione predefinita è il
+           nome file senza estensione.
+
+       --precompilejsp
+           Per impostazione predefinita, l'opzione non consente la
+           precompilazione di pagine JSP durante la distribuzione. Le pagine
+           JSP vengono compilate durante la fase di esecuzione. Il valore
+           predefinito è false.
+
+       --verify
+           Se si imposta true e i necessari package di verifica sono
+           installati dallo strumento di aggiornamento, la sintassi e la
+           semantica del descrittore di distribuzione vengono verificate. Il
+           valore predefinito è false.
+
+       --name
+           Nome del componente distribuibile.
+
+           Il nome può includere un identificativo di versione opzionale, che
+           segue il nome ed è separato da questo da due punti (:).
+           L'identificativo di versione deve iniziare con una lettera o un
+           numero. Può contenere caratteri alfanumerici più caratteri di
+           sottolineatura (_), trattini (-) e punti (.). Per ulteriori
+           informazioni sulle versioni di moduli e applicazioni, vedere
+           "Module and Application Versions" in Oracle GlassFish Server
+           Application Deployment Guide.
+
+       --upload
+           Specifica se il comando secondario carica il file nel DAS. In molti
+           casi, è possibile omettere l'opzione.
+
+           I valori validi sono i seguenti:
+
+           false
+               Il comando secondario non carica il file e tenta di accedervi
+               tramite il nome file specificato. Se il DAS non è in grado di
+               accedere al file, il comando secondario ha esito negativo.
+
+               Ad esempio, potrebbe essere necessario eseguire il DAS come un
+               utente diverso dall'utente di amministrazione e senza accesso
+               in lettura al file. In questa situazione, il comando secondario
+               ha esito negativo se l'opzione --upload è false.
+
+           true
+               Il comando secondario carica il file nel DAS sulla connessione
+               di rete.
+
+           Il valore predefinito dipende dal fatto che il DAS sia nell'host
+           nel quale il comando secondario viene eseguito o si trovi nell'host
+           remoto.
+
+           ·   Se il DAS si trova nell'host nel quale il comando secondario
+               viene eseguito, il valore predefinito è false.
+
+           ·   Se il DAS si trova in un host remoto, il valore predefinito è
+               true.
+
+           Se viene specificata una directory filepath, tale opzione viene
+           ignorata.
+
+       --retrieve
+           Recupera il file JAR dello stub client dal computer server e lo
+           inserisce nella directory locale.
+
+       --dbvendorname
+           Specifica il nome del fornitore del database per cui vengono create
+           tabelle. I valori supportati includono db2, mssql,
+            oracle, derby, javadb, postgresql e sybase senza differenziazione
+           tra maiuscole e minuscole. Se non viene specificato alcun valore,
+           viene utilizzato il valore dell'attributo database-vendor-name in
+           glassfish-ejb-jar.xml. Se non viene specificato alcun valore, viene
+           stabilita una connessione alla risorsa specificata dall'elemento
+           secondario jndi-name dell'elemento cmp-resource nel file
+           glassfish-ejb-jar.xml e il nome del fornitore del database viene
+           letto. Se non è possibile stabilire la connessione, o se il valore
+           non viene riconosciuto, si presume la conformità a SQL-92.
+
+       --createtables
+           Se si specifica il valore true, al momento della distribuzione di
+           un'applicazione con bean CMP non mappati vengono create tabelle. Se
+           si specifica false, le tabelle non vengono create. Se non viene
+           specificato alcun valore, la creazione delle tabelle viene
+           determinata dal valore della voce create-tables-at-deploy
+           dell'elemento cmp-resource del file glassfish-ejb-jar.xml. Nessuna
+           limitazione univoca viene creata per le tabelle.
+
+       --dropandcreatetables
+           Se si specifica il valore true, quando il componente viene
+           ridistribuito le tabelle create nella precedente distribuzione
+           vengono scartate prima della creazione delle nuove tabelle. Si
+           applica alla distribuzione di applicazioni con bean CMP non
+           mappati. Se si specifica false, non vengono scartate né create
+           tabelle. Se non viene specificato alcun valore, le tabelle vengono
+           scartate se la voce drop-tables-at-undeploy dell'elemento
+           cmp-resource del file glassfish-ejb-jar.xml è impostata su true e
+           vengono create nuove tabelle se la voce create-tables-at-deploy
+           dell'elemento cmp-resource del file glassfish-ejb-jar.xml è
+           impostata su true.
+
+       --uniquetablenames
+           Garantisce nomi di tabella univoci per tutti i bean e determina
+           l'aggiunta di un codice hash ai nomi delle tabelle. È utile nel
+           caso di applicazioni con nomi bean che differenziano maiuscole e
+           minuscole. Si applica alle applicazioni con bean CMP non mappati.
+
+       --deploymentplan
+           Distribuisce il piano di distribuzione, che è un file JAR
+           contenente i descrittori di GlassFish Server. Specificare questa
+           opzione per la distribuzione di un file EAR puro. Un file EAR puro
+           è un EAR senza descrittori di GlassFish Server.
+
+       --enabled
+           Consente agli utenti di accedere all'applicazione. Se si imposta
+           false, gli utenti non potranno accedere all'applicazione. Questa
+           opzione abilita l'applicazione nell'istanza o nel cluster di
+           destinazione specificati. Se la distribuzione viene eseguita nel
+           domain di destinazione, l'opzione viene ignorata, poiché in questo
+           caso la distribuzione non avviene in una specifica istanza o
+           cluster. Il valore predefinito è true.
+
+       --generatermistubs
+           L'impostazione true determina la generazione di stub RMI-IIOP
+           statici e il loro inserimento in client.jar. Se si imposta false,
+           gli stub non vengono generati. Il valore predefinito è false.
+
+       --availabilityenabled
+           Questa opzione controlla l'abilitazione dell'alta disponibilità per
+           le sessioni Web e per la definizione di checkpoint e potenzialmente
+           la passivazione dei bean di sessione con conservazione dello stato
+           (SFSB). Se si imposta false (valore predefinito), il salvataggio
+           delle sessioni Web e la definizione di checkpoint SFSB vengono
+           disabilitati per l'applicazione, l'applicazione Web o il modulo EJB
+           specificato. Se si imposta true, l'applicazione o il modulo
+           specificato viene abilitato per l'alta disponibilità. Impostare
+           l'opzione su true solo se l'alta disponibilità è configurata e
+           abilitata ai livelli superiori, ad esempio al livello del server e
+           del contenitore.
+
+       --asyncreplication
+           Questa opzione determina se la sessione Web e gli stati SFSB per
+           cui è abilitata l'alta disponibilità vengono prima memorizzati nel
+           buffer e poi replicati usando un thread asincrono separato. Se si
+           imposta true (valore predefinito) le prestazioni migliorano, ma la
+           disponibilità si riduce. Se l'istanza in cui gli stati sono
+           memorizzati nel buffer ma non ancora replicati non riesce, gli
+           stati vengono persi. Se si imposta false, le prestazioni si
+           riducono, ma la disponibilità è garantita. Gli stati non vengono
+           memorizzati nel buffer, ma immediatamente trasmessi alle altre
+           istanze del cluster.
+
+       --lbenabled
+           Questa opzione determina se l'applicazione distribuita è
+           disponibile per il bilanciamento del carico. Il valore predefinito
+           è true.
+
+       --keepstate
+           Questa opzione determina de le sessioni Web, le istanze SFSB e i
+           timer EJB creati in modo persistente vengono conservati tra le
+           ridistribuzioni.
+
+           Il valore predefinito è false. È supportata solo nell'istanza
+           server predefinita, denominata server. Non è supportata e viene
+           ignorata per qualsiasi altra destinazione.
+
+           Alcune modifiche apportate a un'applicazione tra le ridistribuzioni
+           impediscono a questa funzione di operare correttamente. Ad esempio,
+           non modificare l'insieme di variabili delle istanze nella classe
+           bean SFSB.
+
+           Per le applicazioni Web, questa funzione è applicabile solo se nel
+           file glassfish-web-app.xml l'attributo persistence-type
+           dell'elemento session-manager è file.
+
+           Per le istanze bean di sessione con conservazione dello stato, il
+           tipo di persistenza senza elevata disponibilità è impostato nel
+           server (l'attributo sfsb-persistence-type) e deve essere impostato
+           su file, ovvero il valore predefinito e raccomandato.
+
+           Se un elemento attivo quale una sessione Web, un'istanza SFSB o un
+           timer EJB non viene preservato o ripristinato, nessuno di tali
+           elementi sarà disponibile una volta completata la ridistribuzione.
+           La ridistribuzione, tuttavia, prosegue e viene registrata
+           un'avvertenza.
+
+           Per preservare i dati con stato attivo, GlassFish Server li
+           serializza e li salva nella memoria. Per ripristinare i dati, il
+           classloader dell'applicazione appena ridistribuita deserializza i
+           dati precedentemente salvati.
+
+       --libraries
+           Elenco separato da virgole di file JAR di libreria. Specificare i
+           file JAR di libreria mediante i rispettivi percorsi relativi o
+           assoluti. Specificare i percorsi relativi rispetto a
+           domain-dir/lib/applibs. Le librerie vengono rese disponibili per
+           l'applicazione nell'ordine specificato.
+
+       --target
+           Specifica la destinazione della distribuzione. I valori validi
+           sono:
+
+           server
+               Distribuisce il componente all'istanza server predefinita
+               server ed è il valore predefinito.
+
+           domain
+               Distribuisce il componente al dominio. Se la destinazione per
+               una distribuzione iniziale è domain, l'applicazione viene
+               distribuita nel dominio, ma non è referenziata da alcuna
+               istanza server o cluster. Se domain è la destinazione di una
+               ridistribuzione e la riconfigurazione dinamica è abilitata per
+               i cluster o le istanze server che fanno riferimento
+               all'applicazione, i cluster e le istanze in questione ottengono
+               automaticamente la nuova versione dell'applicazione. Se la
+               configurazione dinamica è disabilitata, i cluster o le istanze
+               server che fanno riferimento all'applicazione non acquisiscono
+               la nuova versione dell'applicazione fino al riavvio delle
+               istanze server in cluster o standalone.
+
+           cluster_name
+               Distribuisce il componente a ogni istanza server del cluster.
+
+           instance_name
+               Distribuisce il componente in un'istanza server standalone
+               specifica.
+
+       --type
+           Il tipo di archivio di packaging del componente che viene
+           distribuito. I possibili valori sono i seguenti:
+
+           osgi
+               Il componente viene pacchettizzato come bundle OSGi Alliance.
+
+           L'opzione --type è opzionale. Se il componente viene pacchettizzato
+           come un normale archivio, omettere l'opzione.
+
+       --properties o --property
+           Coppie parola chiave-valore opzionali che specificano proprietà
+           aggiuntive per la distribuzione. Le proprietà disponibili sono
+           determinate dall'implementazione del componente che viene
+           distribuito o ridistribuito. Le opzioni --properties e --property
+           sono equivalenti. È possibile usare l'una o l'altra
+           indipendentemente dal numero di proprietà da specificare.
+
+           Per una distribuzione è possibile specificare le proprietà
+           seguenti:
+
+           jar-signing-alias
+               Specifica l'alias per il certificato di sicurezza con cui è
+               firmato il file JAR contenitore del client di applicazioni. In
+               Java Web Start non verrà eseguito codice che richiede
+               autorizzazioni elevate a meno che non risieda in un file JAR
+               firmato con un certificato considerato attendibile dal sistema
+               dell'utente. Per maggiore praticità, GlassFish Server firma
+               automaticamente il file JAR usando il certificato con questo
+               alias dal keystore del dominio. Quindi all'utente di Java Web
+               Start viene chiesto se il codice deve essere considerato
+               attendibile e vengono visualizzate le informazioni sul
+               certificato GlassFish Server. Per firmare il file JAR con un
+               diverso certificato, aggiungere il certificato al keystore del
+               dominio, quindi usare questa proprietà. Ad esempio, è possibile
+               usare un certificato di un'autorità attendibile, che evita il
+               prompt Java Web Start, o della propria società, che gli utenti
+               sanno di poter considerare attendibile. Il valore predefinito è
+               s1as, l'alias per il certificato autofirmato creato per ogni
+               dominio.
+
+           java-web-start-enabled
+               Specifica se a un modulo di un client di applicazioni è
+               consentito l'accesso a Java Web Start. Il valore predefinito è
+               true.
+
+           compatibility
+               Specifica la release di GlassFish Server con cui è richiesta la
+               compatibilità con versioni precedenti in termini di requisiti
+               di visibilità JAR per le applicazioni. L'unico valore
+               consentito è v2, che si riferisce a Sun Java System Application
+               Server versione 2 o Sun Java System Application Server versione
+               9.1 o 9.1.1. La specifica della piattaforma Java EE 6 impone
+               requisiti più rigidi rispetto a Java EE 5, per cui i file JAR
+               possono essere visibili per diversi moduli in un file EAR. In
+               particolare, i client di applicazioni non devono avere accesso
+               ai file JAR EJB o ad altri file JAR nel file EAR a meno che per
+               i riferimenti non sia utilizzato il meccanismo Java SE standard
+               (ad esempio, estensioni) o il meccanismo libreria-directory di
+               Java EE. Se la proprietà viene impostata su v2 tali restrizioni
+               Java EE 6 vengono rimosse.
+
+           keepSessions={false|true}
+               Sostituita dall'opzione --keepstate.
+
+               È possibile utilizzare tale proprietà per specificare se le
+               sessioni attive dell'applicazione che viene ridistribuita
+               devono essere preservate e quindi ripristinate al completamento
+               della ridistribuzione. Si applica alle sessioni HTTP di un
+               contenitore Web. Il valore predefinito è false.
+
+               false
+                   Le sessioni attive dell'applicazione non vengono preservate
+                   e ripristinate (valore predefinito).
+
+               true
+                   Le sessioni attive dell'applicazione vengono preservate e
+                   ripristinate.
+
+                   Se non è possibile salvare o ripristinare una sessione
+                   attiva, nessuna delle sessioni sarà disponibile al termine
+                   della ridistribuzione. La ridistribuzione, tuttavia,
+                   prosegue e viene registrata un'avvertenza.
+
+                   Per preservare le sessioni attive, GlassFish Server le
+                   serializza e le salva nella memoria. Per ripristinare le
+                   sessioni, il classloader dell'applicazione appena
+                   ridistribuita deserializza tutte le sessioni salvate in
+                   precedenza.
+
+            preserveAppScopedResources
+               Se si imposta true, le risorse con ambito a livello di
+               applicazione vengono preservate e ripristinate durante la
+               redistribuzione. Il valore predefinito è false.
+
+           Le altre proprietà disponibili sono determinate
+           dall'implementazione del componente che viene ridistribuito.
+
+OPERANDI
+       file_archive|filepath
+           Percorso dell'archivio contenente l'applicazione che viene
+           ridistribuita. Questo percorso può essere relativo o assoluto.
+
+           L'archivio può essere in uno dei seguenti formati:
+
+           ·   Un file di archivio, ad esempio /export/JEE_apps/hello.war.
+
+               Se l'opzione --upload è impostata su true, indica il percorso
+               del file distribuibile nel client locale. Se l'opzione --upload
+               è impostata su false, indica il percorso assoluto del file nel
+               computer server.
+
+           ·   Directory contenente il formato espanso dell'archivio
+               distribuibile. Indica il percorso assoluto della directory nel
+               server.
+
+               Se viene specificata una directory, l'opzione --upload viene
+               ignorata.
+
+           L'operando è obbligatorio oppure opzionale a seconda di come è
+           stata originariamente distribuita l'applicazione:
+
+           ·   Se l'applicazione è stata originariamente distribuita da un
+               file, l'operando archive-path è obbligatorio. L'operando deve
+               specificare un file archivio.
+
+           ·   Se invece l'applicazione è stata originariamente distribuita da
+               una directory, l'operando archive-path è opzionale.
+
+               L'operando può specificare una directory o un file archivio.
+
+ESEMPI
+       Esempio 1, Ridistribuzione di un'applicazione Web da un file
+           In questo esempio viene ridistribuita l'applicazione Web hello dal
+           file hello.war della directory di lavoro corrente. L'applicazione è
+           stata originariamente distribuita da un file. Le sessioni attive
+           dell'applicazione devono essere mantenute e quindi ripristinate al
+           termine della ridistribuzione.
+
+               asadmin> redeploy --name hello --properties keepSessions=true hello.war
+               Application deployed successfully with name hello.
+               Command redeploy executed successfully
+
+       Esempio 2, Ridistribuzione di un'applicazione Web da una directory
+           In questo esempio viene ridistribuita l'applicazione Web hellodir.
+           L'applicazione è stata originariamente distribuita da una
+           directory.
+
+               asadmin> redeploy --name hellodir
+               Application deployed successfully with name hellodir.
+               Command redeploy executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       deploy(1), undeploy(1), list-components(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server Application Deployment Guide
+
+                               23 dicembre 2010                    REDEPLOY(1)

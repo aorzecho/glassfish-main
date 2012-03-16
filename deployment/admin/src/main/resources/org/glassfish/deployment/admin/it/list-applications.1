@@ -1,0 +1,109 @@
+LIST-APPLICATIONS(1)                                      LIST-APPLICATIONS(1)
+
+NOME
+       list-applications - elenca le applicazioni distribuite
+
+SINTASSI
+           list-applications [--help]
+           [--long={false|true}] [--resources] [--subcomponents]
+           [--type type] [target]
+
+DESCRIZIONE
+       Il comando secondario list-applications elenca le applicazioni Java EE
+       distribuite e il tipo di ogni applicazione elencata.
+
+       Se non si specifica l'opzione --type, vengono elencate tutte le
+       applicazioni. Se è specificata l'opzione type, è necessario specificare
+       un tipo. I tipi possibili sono elencati nella sezione relativa alle
+       opzioni in questa pagina della Guida.
+
+       Se vengono distribuite più versioni di un modulo o di un'applicazione,
+       questo comando secondario le elenca tutte. Per un elenco delle versioni
+       abilitate, impostare l'opzione --long su true. Per ulteriori
+       informazioni sulle versioni di moduli e applicazioni, vedere "Module
+       and Application Versions" in Oracle GlassFish Server Application
+       Deployment Guide.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --long
+           Se true, consente di visualizzare se le applicazioni o i moduli
+           elencati sono abilitati. Il valore predefinito è false.
+
+       --resources
+           Elenca le risorse con ambito a livello di applicazione per ciascuna
+           applicazione. Se si utilizza anche l'opzione --subcomponents,
+           vengono elencate le risorse con ambito a livello di applicazione di
+           ciascun componente dell'applicazione.
+
+       --subcomponents
+           Elenca i componenti secondari di ciascuna applicazione. I
+           componenti secondari elencati dipendono dal tipo di applicazione.
+           Ad esempio, per un'applicazione Java EE (file EAR) vengono elencati
+           i moduli. Per un'applicazione Web vengono elencati servlet e pagine
+           JSP. Per un modulo EJB vengono elencati i componenti secondari EJB.
+
+       --type
+           Specifica il tipo di applicazioni che devono essere elencate. Le
+           opzioni sono le seguenti:
+
+           ·   application
+
+           ·   appclient
+
+           ·   connector
+
+           ·   ejb
+
+           ·   web
+
+           ·   webservice
+
+           Se non si specifica un tipo, vengono elencate tutte le
+           applicazioni.
+
+OPERANDI
+       --target
+           Nome della destinazione su cui agisce il comando secondario. I
+           valori validi sono i seguenti:
+
+           server
+               Elenca le applicazioni dell'istanza server predefinita server
+               ed è il valore predefinito.
+
+           domain
+               Elenca le applicazioni del dominio.
+
+           cluster_name
+               Elenca le applicazioni del cluster.
+
+           instance_name
+               Elenca le applicazioni di un'istanza server standalone
+               specifica.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco delle applicazioni Web
+
+               asadmin> list-applications --type web
+               hellojsp <web>
+               Command list-applications executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       list-components(1), list-sub-components(1), show-component-status(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server Application Deployment Guide
+
+                               29 novembre 2010           LIST-APPLICATIONS(1)

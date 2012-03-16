@@ -1,0 +1,60 @@
+DELETE-LIFECYCLE-M(1)                                    DELETE-LIFECYCLE-M(1)
+
+NOME
+       delete-lifecycle-module - rimuove il modulo del ciclo di vita
+
+SINTASSI
+           delete-lifecycle-module [--help] [--target target] module_name
+
+DESCRIZIONE
+       Il comando secondario delete-lifecycle-module rimuove un modulo del
+       ciclo di vita. Un modulo del ciclo di vita consente di eseguire un task
+       basato su Java di breve o lunga durata in una fase specifica del ciclo
+       di vita del server. Questo comando secondario è supportato solo in
+       modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Indica la posizione in cui deve essere eliminato il modulo del
+           ciclo di vita. I valori validi sono
+
+           ·   server- Specifica l'istanza server predefinita come
+               destinazione per l'eliminazione del modulo del ciclo di vita.
+                server è il nome dell'istanza del server predefinita ed è il
+               valore predefinito per questa opzione.
+
+           ·   cluster_name- Specifica un determinato cluster come
+               destinazione per l'eliminazione del modulo del ciclo di vita.
+
+           ·   instance_name- Specifica una determinata istanza server come
+               destinazione per l'eliminazione del modulo del ciclo di vita.
+
+OPERANDI
+       module_name
+           Questo operando è un identificativo univoco per il modulo listener
+           di eventi del ciclo di vita del server distribuito.
+
+ESEMPI
+       Esempio 1, Eliminazione di un modulo del ciclo di vita
+           Nell'esempio riportato di seguito viene eliminato un modulo del
+           ciclo di vita denominato customSetup.
+
+               asadmin> delete-lifecycle-module customSetup
+               Command delete-lifecycle-module executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-lifecycle-module(1), list-lifecycle-modules(1)
+
+       asadmin(1M)
+
+                               16 novembre 2010          DELETE-LIFECYCLE-M(1)

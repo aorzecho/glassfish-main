@@ -1,0 +1,120 @@
+LIST-COMPONENTS(1)                                          LIST-COMPONENTS(1)
+
+NOME
+       list-components - elenca i componenti distribuiti
+
+SINTASSI
+           list-components [--help]
+           [--long={false|true}] [--resources] [--subcomponents]
+           [--type type] [target]
+
+DESCRIZIONE
+           Nota
+           ┌───────────────────────────────────────┐
+           │Nota                                   │
+           │                                       │
+           │           Il comando secondario       │
+           │           list-components è obsoleto. │
+           │           Utilizzare piuttosto il     │
+           │           comando secondario          │
+           │           list-applications.          │
+           └───────────────────────────────────────┘
+
+       Il comando secondario list-components elenca tutti i componenti Java EE
+       distribuiti.
+
+       Se non si specifica l'opzione --type, vengono elencati tutti i
+       componenti. Se è specificata l'opzione type, è necessario specificare
+       un tipo. I tipi possibili sono elencati nella sezione relativa alle
+       opzioni in questa pagina della Guida.
+
+       Se vengono distribuite più versioni di un modulo o di un'applicazione,
+       questo comando secondario le elenca tutte. Per un elenco delle versioni
+       abilitate, impostare l'opzione --long su true. Per ulteriori
+       informazioni sulle versioni di moduli e applicazioni, vedere "Module
+       and Application Versions" in Oracle GlassFish Server Application
+       Deployment Guide.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --long
+           Se true, consente di visualizzare se le applicazioni o i moduli
+           elencati sono abilitati. Il valore predefinito è false.
+
+       --resources
+           Elenca le risorse con ambito a livello di applicazione per ciascun
+           componente. Se si utilizza anche l'opzione --subcomponents, vengono
+           elencate le risorse con ambito a livello di applicazione di ciascun
+           componente di un'applicazione.
+
+       --subcomponents
+           Elenca i componenti secondari di ciascun componente. I componenti
+           secondari elencati dipendono dal tipo di componente. Ad esempio,
+           per un'applicazione Java EE (file EAR) vengono elencati i moduli.
+           Per un'applicazione Web vengono elencati servlet e pagine JSP. Per
+           un modulo EJB vengono elencati i componenti secondari EJB.
+
+       --type
+           Specifica il tipo di componenti che devono essere elencati. Le
+           opzioni sono le seguenti:
+
+           ·   application
+
+           ·   appclient
+
+           ·   connector
+
+           ·   ejb
+
+           ·   web
+
+           ·   webservice
+
+           Se non si specifica un tipo, vengono elencati tutti i componenti.
+
+OPERANDI
+       target
+           Nome della destinazione su cui agisce il comando secondario. I
+           valori validi sono:
+
+           server
+               Elenca i componenti dell'istanza server predefinita server ed è
+               il valore predefinito.
+
+           domain
+               Elenca i componenti del dominio.
+
+           cluster_name
+               Elenca i componenti del cluster.
+
+           instance_name
+               Elenca i componenti di un'istanza server standalone specifica.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco dei componenti
+           In questo esempio vengono elencati i componenti connettore. (è
+           stato distribuito cciblackbox-tx.rar ).
+
+               asadmin> list-components --type connector
+               cciblackbox-tx <connector>
+               Command list-components executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       list-applications(1), show-component-status(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server Application Deployment Guide
+
+                               29 novembre 2010             LIST-COMPONENTS(1)

@@ -1,0 +1,75 @@
+LIST-LIBRARIES(1)                                            LIST-LIBRARIES(1)
+
+NOM
+       list-libraries - répertorie les fichiers JAR de bibliothèque sur
+       GlassFish Server
+
+SYNOPSIS
+           list-libraries [--help] [--type={common|ext|app}]
+
+DESCRIPTION
+       La sous-commande list-libraries répertorie les fichiers d'archive de
+       bibliothèque sur GlassFish Server.
+
+       L'option --typeindique le type de bibliothèque et le répertoire
+       GlassFish Server pour lequel les bibliothèques doivent être
+       répertoriées.
+
+       Cette sous-commande est prise en charge en mode distant uniquement.
+
+OPTIONS
+       --help, -?
+           Affiche le texte d'aide de la sous-commande.
+
+       --type
+           Indique le type de bibliothèque et le répertoire GlassFish Server
+           pour lequel les bibliothèques doivent être répertoriées. Les
+           valeurs valides sont les suivantes :
+
+           common
+               Répertorie les fichiers de bibliothèque du répertoire du
+               chargeur de classe commun, domain-dir/lib. Il s'agit de la
+               valeur par défaut.
+
+           ext
+               Répertorie les fichiers de bibliothèque du répertoire de
+               package Java en option, domain-dir/lib/ext.
+
+           app
+               Répertorie les fichiers de bibliothèque du répertoire du
+               chargeur de classe propre à l'application,
+               domain-dir/lib/applibs.
+
+           Pour plus d'informations sur ces répertoires, reportez-vous à Class
+           Loaders dans le manuel Oracle GlassFish Server Application
+           Development Guide.
+
+EXEMPLES
+       Exemple 1, Liste des bibliothèques
+           Cet exemple répertorie les bibliothèques dans le répertoire du
+           chargeur de classe propre à l'application sur l'instance de serveur
+           par défaut.
+
+               asadmin> list-libraries --type app
+               mylib.jar
+               xlib.jar
+               ylib.jar
+               zlib.jar
+               Command list-libraries executed successfully.
+
+STATUT DE SORTIE
+       0
+           sous-commande correctement exécutée
+
+       1
+           erreur lors de l'exécution de la sous-commande
+
+VOIR AUSSI
+       add-library(1), remove-library(1)
+
+       asadmin(1M)
+
+       "Class Loaders" dans le manuel Oracle GlassFish Server Application
+       Development Guide
+
+                                 16 nov. 2011                LIST-LIBRARIES(1)

@@ -1,0 +1,113 @@
+UNDEPLOY(1)                                                        UNDEPLOY(1)
+
+NOME
+       undeploy - remove um componente implantado
+
+SINOPSE
+           undeploy [--help] [--target target] [--droptables={true|false}]
+           [--cascade={false|true}] name
+
+DESCRIçãO
+       O subcomando undeploy desinstala uma aplicação ou um módulo implantado
+       e os remove do repositório.
+
+       Esse subcomando só é suportado no modo remoto.
+
+OPçõES
+       --help, -?
+           Exibe o texto de ajuda do subcomando.
+
+       --cascade
+           Se definida como true, deleta todos os pools de conexões e recursos
+           do conector associados ao adaptador de recursos cuja implantação
+           está sendo cancelada. Se definida como false, o cancelamento da
+           implantação falhará se os pools e os recursos ainda estão
+           associados com o adaptador de recursos. Em seguida, os pools e
+           recursos devem ser deletados explicitamente ou a opção deve ser
+           definida como true. Se a opção tiver sido definida como false, e se
+           não houver pools e recursos associados ao adaptador de recursos,
+           ele terá sua implantação cancelada. Essa opção é aplicável para
+           conectores (adaptadores de recurso) e aplicações. O valor default é
+           falso.
+
+       --droptables
+           Se definida esta opção estiver como verdadeira, elimina as tabelas
+           criadas pela aplicação utilizando beans CPM durante a implantação.
+           Se definida como falsa, as tabelas não são eliminadas. Caso não
+           seja especificada, a entrada drop-tables-at-deploy no elemento
+           cmp-resource do arquivo glassfish-ejb-jar.xml determina se as
+           tabelas são ou não eliminadas. O valor default é verdadeiro.
+
+       --target
+           Especifica o destino onde você está cancelando a implantação. Os
+           valores válidos são:
+
+           servidor
+               Cancela a implantação do componente a partir da instância de
+               servidor default server e é o valor default.
+
+           domain
+               Cancela a implantação do componente a partir do domínio.
+
+           cluster_name
+               Cancela a implantação do componente a partir de cada instância
+               de servidor no cluster.
+
+           instance_name
+               Cancela a implantação do componentes de uma determinada
+               instância independente do servidor.
+
+OPERANDOS
+       name
+           Nome do componente implantado.
+
+           O nome pode incluir um identificador de versão opcional, que segue
+           o nome e é separado do nome por dois-pontos (:). O identificador de
+           versão deve começar com uma letra ou número. Contém caracteres
+           alfanuméricos e caracteres de sublinhado (_), travessão (-) e ponto
+           final (.). Para deletar várias versões, é possível utilizar um
+           asterisco (*) como caractere curinga. Para obter mais informações
+           sobre versões de módulo e da aplicação, consulte "Module and
+           Application Versions" no Oracle GlassFish Server Application
+           Deployment Guide.
+
+EXEMPLOS
+       Exemplo 1, Cancelando a implantação de uma aplicação corporativa
+           Este exemplo cancela a implantação de uma aplicação corporativa
+           denominada Cart.ear .
+
+               asadmin> undeploy Cart
+               Command undeploy executed successfully.
+
+       Exemplo 2, Cancelando a Implantação de um Enterprise Bean com CPM
+       (Container-Managed Persistence)
+           Este exemplo cancela a implantação de um bean CPM denominado myejb
+           e eliminada as tabelas de banco de dados correspondentes.
+
+               asadmin> undeploy --droptables=true myejb
+               Command undeploy executed successfully.
+
+       Exemplo 3, Cancelando a implantação de um conector (adaptador de
+       recursos)
+           Este exemplo cancela a implantação do módulo conector denominado
+           como jdbcra e efetua uma deleção em cascata para remover os
+           recursos associados e os pools de conexões.
+
+               asadmin> undeploy --cascade=true jdbcra
+               Command undeploy executed successfully.
+
+STATUS DE SAíDA
+       0
+           subcomando executado com sucesso
+
+       1
+           erro ao executar o subcomando
+
+CONSULTE TAMBéM
+       implantar(1), redeploy(1), list-components(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server Application Deployment Guide
+
+                            17 de novembro de 2010                 UNDEPLOY(1)

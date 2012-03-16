@@ -1,0 +1,63 @@
+LIST-APPLICATION-R(1)                                    LIST-APPLICATION-R(1)
+
+名前
+       list-application-refs - 既存のアプリケーション参照を一覧表示します
+
+概要
+           list-application-refs [--help] [--long={false|true}] [target]
+
+説明
+       list-application-refsサブコマンドは、クラスタまたはクラスタ化されていないサーバー・インスタンスのすべてのアプリケーション参照を一覧表示します。これによって、指定したターゲットにデプロイされているモジュール(J2EEアプリケーション、Webモジュール、およびエンタープライズBeanモジュールなど)をすべて一覧表示できます。
+
+       複数のバージョンのモジュールまたはアプリケーションがデプロイされている場合、このサブコマンドはすべてのバージョンを一覧表示します。有効なバージョンを一覧表示するには、--longオプションをtrueに設定します。モジュールとアプリケーションのバージョンについては、Oracle
+       GlassFish
+       Serverア
+
+       このサブコマンドを正常に実行するために、クラスタを構成しているターゲットのインスタンスを実行するまたは使用可能である必要はありません。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --long
+           trueの場合、一覧表示される各モジュールまたはアプリケーションが有効になっているかどうかが表示されます。デフォルトはfalseです。
+
+オペランド
+       target
+           アプリケーション参照を一覧表示するターゲット。有効な値は次のとおりです:
+
+           ·   server-
+               デフォルトのサーバー・インスタンスをターゲットとして指定します。serverは、デフォルトのサーバー・インスタンスの名前で、デフォルト値です。
+
+           ·   cluster_name- 特定のクラスタをターゲットとして指定します。
+
+           ·   instance_name-
+               特定のサーバー・インスタンスをターゲットとして指定します。
+
+例
+       例 1, アプリケーション参照の一覧表示
+           次の例では、クラスタ化されていないサーバー・インスタンスNewServerのアプリケーション参照を一覧表示します。
+
+               asadmin> list-application-refs NewServer
+               ClientSessionMDBApp
+               MEjbApp
+               __ejb_container_timer_app
+               Command list-application-refs executed successfully.
+
+終了ステータス
+       0
+           コマンドは正常に実行されました
+
+       1
+           コマンドの実行時にエラーが発生しました
+
+関連項目
+       create-application-ref(1), delete-application-ref(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Serverア
+
+                                 2010年9月22日           LIST-APPLICATION-R(1)

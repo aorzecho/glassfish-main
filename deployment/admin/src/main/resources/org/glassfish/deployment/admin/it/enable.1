@@ -1,0 +1,78 @@
+ENABLE(1)                                                            ENABLE(1)
+
+NOME
+       enable - abilita il componente
+
+SINTASSI
+           enable [--help] [--target target_name] component_name
+
+DESCRIZIONE
+       Il comando secondario enable abilita il componente distribuito
+       specificato. Se il componente è già abilitato, viene riabilitato. Se
+       invece non è stato distribuito, viene restituito un messaggio di
+       errore.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --target
+           Questa opzione specifica la destinazione in cui viene abilitato il
+           componente. I valori validi sono:
+
+           server
+               Abilita l'istanza server predefinita server ed è il valore
+               predefinito.
+
+           domain_name
+               Abilita il dominio denominato.
+
+           cluster_name
+               Abilita tutte le istanze server del cluster.
+
+           instance_name
+               Abilita una particolare istanza server in cluster o standalone.
+
+OPERANDI
+       component_name
+           Nome del componente da abilitare.
+
+           Il nome può includere un identificativo di versione opzionale, che
+           segue il nome ed è separato da questo da due punti (:).
+           L'identificativo di versione deve iniziare con una lettera o un
+           numero. Può contenere caratteri alfanumerici più caratteri di
+           sottolineatura (_), trattini (-) e punti (.). Per ulteriori
+           informazioni sulle versioni di moduli e applicazioni, vedere
+           "Module and Application Versions" in Oracle GlassFish Server
+           Application Deployment Guide.
+
+           È possibile abilitare al massimo una versione di un modulo o di
+           un'applicazione in un'istanza server. Tutte le altre versioni sono
+           disabilitate. Abilitando una versione vengono automaticamente
+           disabilitate tutte le altre.
+
+ESEMPI
+       Esempio 1, Abilitazione di un componente
+           In questo esempio viene abilitato il componente disabilitato
+           sampleApp.
+
+               asadmin> enable sampleApp
+               Command enable executed successfully
+
+STATO DI USCITA
+       0
+           esecuzione del comando secondario riuscita
+
+       1
+           errore durante l'esecuzione del comando secondario
+
+VEDERE ANCHE
+       deploy(1), , undeploy(1), disable(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server Application Deployment Guide
+
+                               17 novembre 2010                      ENABLE(1)

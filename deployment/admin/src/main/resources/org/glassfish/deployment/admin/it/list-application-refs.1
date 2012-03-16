@@ -1,0 +1,79 @@
+LIST-APPLICATION-R(1)                                    LIST-APPLICATION-R(1)
+
+NOME
+       list-application-refs - elenca i riferimenti esistenti all'applicazione
+
+SINTASSI
+           list-application-refs [--help] [--long={false|true}] [target]
+
+DESCRIZIONE
+       Il comando secondario list-application-refs elenca tutti i riferimenti
+       alle applicazioni di un cluster o di un'istanza server non inclusa in
+       un cluster. In questo modo vengono elencati tutti i moduli distribuiti
+       nella destinazione specificata (ad esempio le applicazioni J2EE, i
+       moduli Web e i moduli bean aziendali).
+
+       Se vengono distribuite più versioni di un modulo o di un'applicazione,
+       questo comando secondario le elenca tutte. Per un elenco delle versioni
+       abilitate, impostare l'opzione --long su true. Per ulteriori
+       informazioni sulle versioni di moduli e applicazioni, vedere "Module
+       and Application Versions" in Oracle GlassFish Server Application
+       Deployment Guide.
+
+       Non è necessario che l'istanza di destinazione o le istanze che
+       compongono il cluster siano in esecuzione perché questo comando
+       secondario venga eseguito correttamente.
+
+       Questo comando secondario è supportato solo in modalità remota.
+
+OPZIONI
+       --help, -?
+           Visualizza il testo della Guida per il comando secondario.
+
+       --long
+           Se true, consente di visualizzare se le applicazioni o i moduli
+           elencati sono abilitati. Il valore predefinito è false.
+
+OPERANDI
+       target
+           Destinazione per cui vengono elencati i riferimenti alle
+           applicazioni. I valori validi sono
+
+           ·   server: specifica come destinazione l'istanza server
+               predefinita.  server è il nome dell'istanza server predefinita
+               e il valore predefinito.
+
+           ·   cluster_name- Specifica un determinato cluster come
+               destinazione.
+
+           ·   instance_name- Specifica una determinata istanza server come
+               destinazione.
+
+ESEMPI
+       Esempio 1, Visualizzazione dell'elenco dei riferimenti alle
+       applicazioni
+           Nell'esempio riportato di seguito vengono elencati i riferimenti
+           alle applicazioni per l'istanza server NewServer non inclusa in un
+           cluster.
+
+               asadmin> list-application-refs NewServer
+               ClientSessionMDBApp
+               MEjbApp
+               __ejb_container_timer_app
+               Command list-application-refs executed successfully.
+
+STATO DI USCITA
+       0
+           esecuzione del comando riuscita
+
+       1
+           errore durante l'esecuzione del comando
+
+VEDERE ANCHE
+       create-application-ref(1), delete-application-ref(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Server Application Deployment Guide
+
+                               22 settembre 2010         LIST-APPLICATION-R(1)

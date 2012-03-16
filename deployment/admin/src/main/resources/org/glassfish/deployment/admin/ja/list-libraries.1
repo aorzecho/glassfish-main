@@ -1,0 +1,64 @@
+LIST-LIBRARIES(1)                                            LIST-LIBRARIES(1)
+
+名前
+       list-libraries - GlassFish
+       ServerのライブラリJARファイルを一覧表示します
+
+概要
+           list-libraries [--help] [--type={common|ext|app}]
+
+説明
+       list-librariesサブコマンドは、GlassFish
+       Serverのライブラリ・アーカイブ・ファイルを一覧表示します。
+
+       --typeオプションは、ライブラリ・タイプおよびライブラリを一覧表示するGlassFish
+       Serverディレクトリを指定します。
+
+       このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+       --type
+           ライブラリ・タイプおよびライブラリを一覧表示するGlassFish
+           Serverディレクトリを指定します。有効な値は次のとおりです:
+
+           common
+               Commonクラス・ローダー・ディレクトリdomain-dir/libのライブラリ・ファイルを一覧表示します。これはデフォルトです。
+
+           ext
+               Javaオプション・パッケージ・ディレクトリdomain-dir/lib/extのライブラリ・ファイルを一覧表示します。
+
+           app
+               アプリケーション固有のクラス・ローダー・ディレクトリdomain-dir/lib/applibsのライブラリ・ファイルを一覧表示します。
+
+           これらのディレクトリの詳細は、Oracle GlassFish
+           Serverア
+
+例
+       例 1, ライブラリの一覧表示
+           この例では、デフォルトのサーバー・インスタンスに対するアプリケーション固有のクラス・ローダーのディレクトリにあるライブラリを一覧表示します。
+
+               asadmin> list-libraries --type app
+               mylib.jar
+               xlib.jar
+               ylib.jar
+               zlib.jar
+               Command list-libraries executed successfully.
+
+終了ステータス
+       0
+           サブコマンドは正常に実行されました
+
+       1
+           サブコマンドの実行時にエラーが発生しました
+
+関連項目
+       add-library(1), remove-library(1)
+
+       asadmin(1M)
+
+       Oracle GlassFish Serverア
+
+                                2011年11月16日               LIST-LIBRARIES(1)

@@ -1,0 +1,49 @@
+LIST-LIFECYCLE-MOD(1)                                    LIST-LIFECYCLE-MOD(1)
+
+名前
+       list-lifecycle-modules - ライフサイクル・モジュールを一覧表示します
+
+概要
+           list-lifecycle-modules [--help] [target]
+
+説明
+       list-lifecycle-modulesサブコマンドは、ライフサイクル・モジュールを一覧表示します。ライフサイクル・モジュールによって、サーバーのライフサイクルの特定のステージで短期または長期のJavaベースのタスクを実行する手段が提供されます。このサブコマンドは、リモート・モードでのみサポートされています。
+
+オプション
+       --help, -?
+           サブコマンドに関するヘルプ・テキストが表示されます。
+
+オペランド
+       target
+           ライフサイクル・モジュールを一覧表示する場所を示します。有効な値は次のとおりです:
+
+           ·   server-
+               ライフサイクル・モジュールを一覧表示するターゲットとして、デフォルトのサーバー・インスタンスを指定します。serverは、デフォルトのサーバー・インスタンスの名前で、このオペランドのデフォルト値です。
+
+           ·   cluster_name-
+               ライフサイクル・モジュールを一覧表示するターゲットとして、特定のクラスタを指定します。
+
+           ·   instance_name-
+               ライフサイクル・モジュールを一覧表示するターゲットとして、特定のサーバー・インスタンスを指定します。
+
+例
+       例 1, ライフサイクル・モジュールの一覧表示
+
+               asadmin> list-lifecycle-modules
+               WSTCPConnectorLCModule
+               Command list-lifecycle-modules executed successfully
+           WSTCPConnectorLCModuleは、デフォルトのターゲットserverについて一覧表示される唯一のライフサイクル・モジュールです。
+
+終了ステータス
+       0
+           コマンドは正常に実行されました
+
+       1
+           コマンドの実行時にエラーが発生しました
+
+関連項目
+       create-lifecycle-module(1), delete-lifecycle-module(1)
+
+       asadmin(1M)
+
+                                2010年11月16日           LIST-LIFECYCLE-MOD(1)
