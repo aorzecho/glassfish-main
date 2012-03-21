@@ -45,7 +45,7 @@
     <parent>
         <groupId>org.glassfish.external</groupId>
         <artifactId>external</artifactId>
-        <version>4.0-SNAPSHOT</version>
+        <version>4.0-b29</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -63,11 +63,10 @@
                         <phase>process-classes</phase>
                         <configuration>
                             <tasks>
-                                <resolveArtifact artifactId="jaxr-ra" property="jaxr-ra.rar"/>
-				<mkdir dir="target/tmp"/>
-				<mkdir dir="target/classes/glassfish/lib/install/applications/jaxr-ra"/>
-				<unjar src="${jaxr-ra.rar}" 
-                                       dest="target/classes/glassfish/lib/install/applications/jaxr-ra">
+                                <resolveArtifact artifactId="jaxr-ra" property="jaxr-ra.rar" />
+				<mkdir dir="target/tmp" />
+				<mkdir dir="target/classes/glassfish/lib/install/applications/jaxr-ra" />
+				<unjar src="${jaxr-ra.rar}" dest="target/classes/glassfish/lib/install/applications/jaxr-ra">
                                 </unjar>
                             </tasks>
                         </configuration>
