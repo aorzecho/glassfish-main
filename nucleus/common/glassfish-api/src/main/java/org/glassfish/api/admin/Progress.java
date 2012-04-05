@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2011-2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -37,61 +37,41 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package org.glassfish.paas.tenantmanager.impl;
+package org.glassfish.api.admin;
 
-import java.util.logging.Logger;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.glassfish.api.ActionReport;
-import org.glassfish.api.admin.CommandRunner;
-import org.glassfish.api.admin.ParameterMap;
-import org.glassfish.api.admin.CommandRunner.CommandInvocation;
-import org.jvnet.hk2.annotations.Service;
-
-/**
- * Default implementation for file realm.
- * 
- * @author Andriy Zhdanov
+/** ProgressStatus of a command.  Indicates this command generates 
+ * progress status as it executes.  Use this annotation to inject a 
+ * {@link org.glassfish.api.admin.ProgressStatus} instance.  The 
+ * ProgressStatus object can be used to asynchronously generate ongoing 
+ * progress messages and command completion information.
  *
+ * @see org.glassfish.api.admin.ProgressStatus
+ * @author mmares
  */
-@Service
-public class SecurityStoreImpl implements SecurityStore {
-
-    /**
-     * Creates file-user in default realm.
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD, ElementType.FIELD})
+public @interface Progress {
+    
+    /** Optional: Context of the progress.   Generally this is the command
+     * name.  The name will be included in the command's progress output.  
+     * Default: command name or the server instance name for replicated 
+     * commands.  
      */
-    @Override
-    public void create(String name, char[] password) {
-
-        CommandInvocation cmd = commandRunner.getCommandInvocation("create-file-user", actionReport);
-        ParameterMap map = new ParameterMap();
-        map.add("userpassword", password.toString());
-        map.add("username", name);
-        // TODO: map.add("authrealmname", "file"); if default-realm differs from 'file'? 
-        cmd.parameters(map);
-        cmd.execute();
-        if (actionReport.getActionExitCode() == ActionReport.ExitCode.FAILURE) {
-            Throwable cause = actionReport.getFailureCause();
-            // minimize end error message
-            if (cause instanceof IllegalArgumentException) {
-                throw (IllegalArgumentException) cause;
-            } else {
-                throw new RuntimeException(cause);
-            }
-        } else if (actionReport.getActionExitCode() == ActionReport.ExitCode.FAILURE) {
-            logger.fine(actionReport.getMessage());
-        }
-    }
-
-    @Inject
-    private CommandRunner commandRunner;
-
-    @Inject
-    @Named("plain")
-    private ActionReport actionReport;
-
-    @Inject
-    private Logger logger;
+    public String name() default "";
+    
+    /** Number of steps necessary to complete the operation. 
+     * Value is used to determine percentage of work completed and can be 
+     * changed using {@code ProgressStatus.setTotalStepCount}
+     * If the step count is not established then a completion percentage
+     * will not be included in the progress output.
+     * 
+     * @see org.glassfish.api.admin.ProgressStatus
+     */
+    public int totalStepCount() default -1;
+    
 }

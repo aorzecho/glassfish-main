@@ -39,6 +39,10 @@
  */
 package org.glassfish.paas.tenantmanager.entity;
 
+import java.util.List;
+
+import javax.validation.constraints.NotNull;
+
 import org.glassfish.paas.tenantmanager.api.TenantScoped;
 import org.jvnet.hk2.config.Attribute;
 import org.jvnet.hk2.config.ConfigBeanProxy;
@@ -68,6 +72,7 @@ public interface Tenant extends ConfigBeanProxy {
     void setEnvironments(Environments environments);
 
     @Element
+    @NotNull
     TenantServices getServices();
     void setServices(TenantServices services);
 
