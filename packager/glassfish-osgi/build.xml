@@ -41,32 +41,39 @@
 
 -->
 
-<project name="glassfish JPA package creation" default="create.package" basedir=".">
+<project name="osgi package creation" default="create.package" basedir=".">
     <import file="${basedir}/../common-targets.xml"/>
 
-   <target name="create.package">
-	 
-     	  <property name="package.name" value="glassfish-jpa"/> 
-          <property name="previous.package.name" value="glassfish-osgi" />
-        
+    <target name="create.package">
+       <property name="package.name" value="glassfish-osgi"/>
+       <property name="previous.package.name" value="glassfish-jca"/>
+       
        <antcall target="filter-module-artifacts"/>
-        
-
        
        <stage-module-jars/>
-
+       
+       <!-- BEGIN: move osgi-web-container and its dependencies to autostart -->
+       <mkdir dir="target/stage/${install.dir.name}/glassfish/modules/autostart"/>
+       
+       <move file="target/stage/${install.dir.name}/glassfish/modules/osgi-web-container.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
+       <move file="target/stage/${install.dir.name}/glassfish/modules/osgi-javaee-base.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
+       <move file="target/stage/${install.dir.name}/glassfish/modules/osgi-cdi.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
+       <move file="target/stage/${install.dir.name}/glassfish/modules/osgi-ee-resources.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
+       <move file="target/stage/${install.dir.name}/glassfish/modules/osgi-ejb-container.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
+       <move file="target/stage/${install.dir.name}/glassfish/modules/osgi-jdbc.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
        <move file="target/stage/${install.dir.name}/glassfish/modules/osgi-jpa.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
-
-       <stage-distribution-fragments/>
-
+       <move file="target/stage/${install.dir.name}/glassfish/modules/osgi-jta.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
+       <move file="target/stage/${install.dir.name}/glassfish/modules/org.apache.felix.eventadmin.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
+       <move file="target/stage/${install.dir.name}/glassfish/modules/org.apache.felix.scr.jar" todir="target/stage/${install.dir.name}/glassfish/modules/autostart" failonerror="false"/>
+       <!-- END: move osgi-web-container and its dependencies to autostart -->
 
        <if test="${compression}">
 	       <antcall target="pack.compression" />
        </if>
 
-       <antcall target="create-zip-artifact"/>	
-       <antcall target="create-list-artifact"/>		
-		     
+       <antcall target="create-zip-artifact"/>
+       <antcall target="create-list-artifact"/>
    </target>
+
 </project>
 

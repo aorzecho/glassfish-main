@@ -41,6 +41,9 @@
 package com.sun.enterprise.container.common.spi.util;
 
 import org.jvnet.hk2.annotations.Contract;
+
+import com.sun.enterprise.container.common.spi.util.GlassFishOutputStreamHandler;
+
 import java.io.*;
 
 /**
@@ -59,6 +62,13 @@ import java.io.*;
 @Contract
 public interface JavaEEIOUtils {
 
+	/**
+	 * A token object that can be returned by handlers to 
+	 * signal that a null value to be placed / replaced to / from a stream
+	 *  
+	 */
+	public static final Object NULL_OBJECT = new Object();
+	
     public ObjectInputStream createObjectInputStream(InputStream is, boolean resolveObject, ClassLoader loader)
 	    throws Exception;
 
@@ -70,5 +80,13 @@ public interface JavaEEIOUtils {
 
     public Object deserializeObject(byte[] data, boolean resolveObject, ClassLoader appClassLoader)
             throws Exception;
+    
+    public void addGlassFishOutputStreamHandler(GlassFishOutputStreamHandler handler);
+    
+    public void removeGlassFishOutputStreamHandler(GlassFishOutputStreamHandler handler);
+    
+    public void addGlassFishInputStreamHandler(GlassFishInputStreamHandler handler);
+    
+    public void removeGlassFishInputStreamHandler(GlassFishInputStreamHandler handler);
 
 }

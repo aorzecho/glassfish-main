@@ -46,13 +46,31 @@
     <property name="source.distribution.name" value="GlassFish Open Source Edition 3.1.2 Minnow"/>
     <target name="create.distribution">
         <echo message="Creating distribution: minnow"/>
+
         <unzip dest="target/stage">
             <fileset dir="target/stage">
                 <include name="*.zip"/>
             </fileset>
         </unzip>
-       
         <delete dir="target/stage" includes="*.zip"/>
+
+        <!-- BEGIN: excluding content of glassfish-osgi -->
+        <resolveArtifact property="glassfish-osgi-zip"
+                         groupId="org.glassfish.main.packager"
+                         artifactId="glassfish-osgi"
+                         type="zip" />
+
+        <zipfileset id="glassfish-osgi.artifacts" src="${glassfish-osgi-zip}" includes="**"/>
+        <echo file="target/glassfish-osgi-artifacts.properties" append="true" message="${toString:glassfish-osgi.artifacts}"/>
+        <replace file="target/glassfish-osgi-artifacts.properties" token=";">
+            <replacevalue><![CDATA[
+]]></replacevalue>
+        </replace>
+       
+        <delete quiet="false">
+            <fileset dir="target/stage" includesfile="target/glassfish-osgi-artifacts.properties" />
+        </delete>
+        <!-- END: excluding content of glassfish-osgi -->
 
         <chmod file="target/stage/${install.dir.name}/bin/*" perm="ugo+rx"/>
 	<chmod file="target/stage/${install.dir.name}/glassfish/bin/*" perm="ugo+rx"/>

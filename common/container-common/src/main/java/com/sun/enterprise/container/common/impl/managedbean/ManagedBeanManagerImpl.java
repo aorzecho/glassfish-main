@@ -589,7 +589,11 @@ public class ManagedBeanManagerImpl implements ManagedBeanManager, PostStartup, 
         JavaEEInterceptorBuilderFactory interceptorBuilderFactory =
                             habitat.getByContract(JavaEEInterceptorBuilderFactory.class);
 
-        return interceptorBuilderFactory.isClientProxy(object);
+        if (interceptorBuilderFactory != null) {
+            return interceptorBuilderFactory.isClientProxy(object);
+        } else {
+            return false;
+        }
 
     }
 
