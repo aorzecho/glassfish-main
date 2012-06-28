@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -189,6 +189,12 @@ class PartItem
      */
     private Multipart multipart;
 
+    /**
+     * The request character encoding;
+     */
+    private String requestCharEncoding;
+
+
     // ----------------------------------------------------------- Constructors
 
 
@@ -204,10 +210,13 @@ class PartItem
      *                      opposed to a file upload.
      * @param fileName      The original filename in the user's filesystem, or
      *                      <code>null</code> if not specified.
+     * @param requestCharEncoding
+     *                      The request character encoding.
      */
     public PartItem(Multipart multipart, PartHeaders headers,
                     String fieldName, String contentType,
-                    boolean isFormField, String fileName) {
+                    boolean isFormField, String fileName,
+                    String requestCharEncoding) {
 
         this.multipart = multipart;
         this.headers = headers;
@@ -215,6 +224,7 @@ class PartItem
         this.contentType = contentType;
         this.isFormField = isFormField;
         this.fileName = fileName;
+        this.requestCharEncoding = requestCharEncoding;
         this.sizeThreshold = multipart.getFileSizeThreshold();
         this.repository = multipart.getRepository();
     }
@@ -387,11 +397,15 @@ class PartItem
         byte[] rawdata = get();
         String charset = getCharSet();
         if (charset == null) {
-            /*
-             * Media subtypes of type "text" are defined to have a default
-             * charset value of "ISO-8859-1" when received via HTTP
-             */
-            charset = Globals.ISO_8859_1_ENCODING;
+            // If content-type does not specify a charset, use the request
+            // character encoding if it is non-null;
+            if (requestCharEncoding != null) {
+                charset = requestCharEncoding;
+            } else {
+                // Media subtypes of type "text" are defined to have a default
+                // charset value of "ISO-8859-1" when received via HTTP
+                charset = Globals.ISO_8859_1_ENCODING;
+            }
         }
         try {
             return new String(rawdata, RequestUtil.lookupCharset(charset));

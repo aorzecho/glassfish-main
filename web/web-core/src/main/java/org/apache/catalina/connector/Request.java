@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -78,6 +78,7 @@ import org.apache.catalina.core.ApplicationHttpRequest;
 import org.apache.catalina.core.ApplicationHttpResponse;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.core.StandardHost;
+import org.apache.catalina.core.StandardWrapper;
 import org.apache.catalina.deploy.LoginConfig;
 import org.apache.catalina.fileupload.Multipart;
 import org.apache.catalina.security.SecurityUtil;
@@ -3147,7 +3148,8 @@ public class Request
         } else {
             contentType = contentType.trim();
         }
-        if ("multipart/form-data".equals(contentType)) {
+        if (isMultipartConfigured() &&
+                    "multipart/form-data".equals(contentType)) {
             getMultipart().init();
         }
         if (!("application/x-www-form-urlencoded".equals(contentType))) {
@@ -4063,13 +4065,29 @@ public class Request
         return multipart;
     }
 
+    private boolean isMultipartConfigured() {
+        if (wrapper instanceof StandardWrapper) {
+            return ((StandardWrapper)wrapper).isMultipartConfigured();
+        }
+        return false;
+    }
+
+    private void checkMultipartConfiguration(String name) {
+        if (! isMultipartConfigured()) {
+            throw new IllegalStateException(
+                sm.getString("coyoteRequest.multipart.not.configured", name));
+        }
+    }
+
     @Override
     public Collection<Part> getParts() throws IOException, ServletException {
+        checkMultipartConfiguration("getParts");
         return getMultipart().getParts();
     }
 
     @Override
     public Part getPart(String name) throws IOException, ServletException {
+        checkMultipartConfiguration("getPart");
         return getMultipart().getPart(name);
     }
 

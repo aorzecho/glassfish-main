@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -314,6 +314,7 @@ public class StandardWrapper
     /**
      * File upload (multipart) support 
      */
+    private boolean multipartConfigured = false;
     private String multipartLocation = null;
     private long multipartMaxFileSize = -1L;
     private long multipartMaxRequestSize = -1L;
@@ -768,11 +769,15 @@ public class StandardWrapper
         return allow.toArray(methodNames);
     }
 
+    public boolean isMultipartConfigured() {
+        return multipartConfigured;
+    }
 
     /**
      * Sets the multipart location
      */
     public void setMultipartLocation(String location) {
+        multipartConfigured = true;
         multipartLocation = location;
     }
 
@@ -789,6 +794,7 @@ public class StandardWrapper
      * Sets the multipart max-file-size
      */
     public void setMultipartMaxFileSize(long maxFileSize) {
+        multipartConfigured = true;
         multipartMaxFileSize = maxFileSize;
     }
 
@@ -805,6 +811,7 @@ public class StandardWrapper
      * Sets the multipart max-request-size
      */
     public void setMultipartMaxRequestSize(long maxRequestSize) {
+        multipartConfigured = true;
         multipartMaxRequestSize = maxRequestSize;
     }
 
@@ -821,6 +828,7 @@ public class StandardWrapper
      * Sets the multipart file-size-threshold
      */
     public void setMultipartFileSizeThreshold(int fileSizeThreshold) {
+        multipartConfigured = true;
         multipartFileSizeThreshold = fileSizeThreshold;
     }
 
