@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -201,7 +201,9 @@ public class DeploymentHandler {
                 List clusters = TargetUtil.getClusters();
                 List standalone = TargetUtil.getStandaloneInstances();
                 for(int i=0; i< appRefs.size(); i++){
-                    AppUtil.manageAppTarget((String)attrMap.get("name"), appRefs.get(i), true, (String)attrMap.get("enabled"), clusters, standalone, handlerCtx);
+                    AppUtil.manageAppTarget((String)attrMap.get("name"), 
+                            appRefs.get(i), true, (String)attrMap.get("enabled"), 
+                            clusters, standalone, handlerCtx);
                 }
             }
         } catch (Exception ex) {
@@ -270,7 +272,12 @@ public class DeploymentHandler {
                 payload.put("properties", sb.toString());
              }
 
-             payload.put("target", "domain");
+             List<String> targetList = DeployUtil.getApplicationTarget(appName, "application-ref");
+             if ( (targetList == null) || targetList.size() != 1){
+                payload.put("target", "domain");
+             }else{
+                payload.put("target",  targetList.get(0));
+	     }
              String prefix = (String) GuiUtil.getSessionValue("REST_URL");
              RestUtil.restRequest(prefix +  "/applications/application", payload, "POST", null, true);
          } catch (Exception ex) {
