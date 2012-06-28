@@ -37,34 +37,6 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
+package org.glassfish.nucleus.admin;
 
-package org.glassfish.jdbc.config.validators;
-
-import javax.validation.Constraint;
-import javax.validation.Payload;
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-import org.glassfish.connectors.config.validators.ConnectionPoolErrorMessages;
-
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-/**
- * User defined constraint for Jdbc/Connector Connection Pools. 
- * 
- * Different validations are done based on the value and appropriate error 
- * messages are displayed in case of failure.
- * 
- * @author Shalini M
- */
-@Retention(RUNTIME)
-@Target({METHOD, FIELD, TYPE})
-@Documented
-@Constraint(validatedBy = JdbcConnectionPoolValidator.class)
-public @interface JdbcConnectionPoolConstraint {
-    String message() default "{value}";
-    Class<?>[] groups() default {};
-    Class<? extends Payload>[] payload() default {};
-    ConnectionPoolErrorMessages value();
-}
+public class NucleusStartStopTest extends org.glassfish.tests.utils.NucleusStartStopTest { }

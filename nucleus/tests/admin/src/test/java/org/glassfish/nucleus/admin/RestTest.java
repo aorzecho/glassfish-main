@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2010-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -38,33 +38,49 @@
  * holder.
  */
 
-package org.glassfish.jdbc.config.validators;
+package org.glassfish.nucleus.admin;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-import org.glassfish.connectors.config.validators.ConnectionPoolErrorMessages;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.fail;
+import org.testng.annotations.Test;
 
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+@Test
+public class RestTest {
+    public void testManagementEndpoint() {
+        try {
+            HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:4848/management/domain.xml").openConnection();
+            assertEquals(200, connection.getResponseCode());
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
 
-/**
- * User defined constraint for Jdbc/Connector Connection Pools. 
- * 
- * Different validations are done based on the value and appropriate error 
- * messages are displayed in case of failure.
- * 
- * @author Shalini M
- */
-@Retention(RUNTIME)
-@Target({METHOD, FIELD, TYPE})
-@Documented
-@Constraint(validatedBy = JdbcConnectionPoolValidator.class)
-public @interface JdbcConnectionPoolConstraint {
-    String message() default "{value}";
-    Class<?>[] groups() default {};
-    Class<? extends Payload>[] payload() default {};
-    ConnectionPoolErrorMessages value();
+    public void testMonitoringEndpoint() {
+        try {
+            HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:4848/monitoring/domain.xml").openConnection();
+            assertEquals(200, connection.getResponseCode());
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+
+    public void testAdminCommandEndpoint() {
+        try {
+            HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:4848/management/domain/version.xml").openConnection();
+            assertEquals(200, connection.getResponseCode());
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+
+    public void testChildConfigBeanEndpoint() {
+        try {
+            HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:4848/management/domain/applications.xml").openConnection();
+            assertEquals(200, connection.getResponseCode());
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
 }
