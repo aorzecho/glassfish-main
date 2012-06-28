@@ -228,10 +228,6 @@ public class GFFileHandler extends StreamHandler implements PostConstruct, PreDe
             LogRotationTimer.getInstance().startTimer(
                     new LogRotationTimerTask(rotationTask,
                             rotationTimeLimitValue / 60000));
-            // Disable the Size Based Rotation if the Time Based
-            // Rotation is set.
-            setLimitForRotation(0);
-
         } else {
 
             Long rotationTimeLimitValue = 0L;
@@ -261,26 +257,23 @@ public class GFFileHandler extends StreamHandler implements PostConstruct, PreDe
                 LogRotationTimer.getInstance().startTimer(
                         new LogRotationTimerTask(rotationTask,
                                 rotationTimeLimitValue));
-                // Disable the Size Based Rotation if the Time Based
-                // Rotation is set.
-                setLimitForRotation(0);
-            } else {
-                Integer rotationLimitAttrValue = 0;
-
-                try {
-                    rotationLimitAttrValue = Integer.parseInt(manager.getProperty(cname + ".rotationLimitInBytes"));
-                } catch (NumberFormatException e) {
-                    lr = new LogRecord(Level.WARNING,
-                            "Can't find rotationLimitInBytes property from logging config file so using default.");
-                    lr.setThreadID((int) Thread.currentThread().getId());
-                    lr.setLoggerName(getClass().getName());
-                    EarlyLogHandler.earlyMessages.add(lr);
-                }
-                // We set the LogRotation limit here. The rotation limit is the
-                // Threshold for the number of bytes in the log file after which
-                // it will be rotated.
-                setLimitForRotation(rotationLimitAttrValue);
             }
+            //Always set size limit
+            Integer rotationLimitAttrValue = 0;
+
+            try {
+                rotationLimitAttrValue = Integer.parseInt(manager.getProperty(cname + ".rotationLimitInBytes"));
+            } catch (NumberFormatException e) {
+                lr = new LogRecord(Level.WARNING,
+                        "Can't find rotationLimitInBytes property from logging config file so using default.");
+                lr.setThreadID((int) Thread.currentThread().getId());
+                lr.setLoggerName(getClass().getName());
+                EarlyLogHandler.earlyMessages.add(lr);
+            }
+            // We set the LogRotation limit here. The rotation limit is the
+            // Threshold for the number of bytes in the log file after which
+            // it will be rotated.
+            setLimitForRotation(rotationLimitAttrValue);
         }
 
         //setLevel(Level.ALL);
