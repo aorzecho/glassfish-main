@@ -177,7 +177,9 @@ public abstract class TemplateListOfResource {
        *
        * */
         HashMap<String, String> data = TemplateResource.createDataBasedOnForm(formData);
-        return createResource(data, data.get("name")); //execute the deploy command with a copy of the file locally
+        Response response = createResource(data, data.get("name")); //execute the deploy command with a copy of the file locally
+        TemplateResource.deleteDataBasedOnForm(formData);
+        return response;
 
     }
 

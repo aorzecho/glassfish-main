@@ -292,6 +292,46 @@ public class TemplateResource {
         }
     }
 
+    public static void deleteDataBasedOnForm(FormDataMultiPart formData) {
+        HashMap<String, String> data = new HashMap<String, String>();
+        try {
+            Map<String, List<FormDataBodyPart>> m1 = formData.getFields();
+            //String gkFileName = data.get("GK_TMP_FILE");
+             //           System.out.println("GAJANAN>>in delete filename>> " + gkFileName );
+
+
+            Set<String> ss = m1.keySet();
+            for (String fieldName : ss) {
+                for (FormDataBodyPart bodyPart : formData.getFields(fieldName)) {
+
+                    if (bodyPart.getContentDisposition().getFileName() != null) {//we have a file
+                        //save it and mark it as delete on exit.
+                        InputStream fileStream = bodyPart.getValueAs(InputStream.class);
+                        String mimeType = bodyPart.getMediaType().toString();
+
+                        //Use just the filename without complete path. File creation
+                        //in case of remote deployment failing because fo this.
+                        String fileName = bodyPart.getContentDisposition().getFileName();
+                        if (fileName.contains("/")) {
+                            fileName = Util.getName(fileName, '/');
+                        } else {
+                            if (fileName.contains("\\")) {
+                                fileName = Util.getName(fileName, '\\');
+                            }
+                        }
+
+                        Util.deleteFile(fileName, mimeType, fileStream);
+                        return;
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemplateResource.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            formData.cleanup();
+        }
+    }
+
     /**
      * allows for remote files to be put in a tmp area and we pass the
      * local location of this file to the corresponding command instead of the content of the file
@@ -338,7 +378,7 @@ public class TemplateResource {
         } catch (Exception ex) {
             Logger.getLogger(TemplateResource.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            formData.cleanup();
+            ;//formData.cleanup();
         }
         return data;
 

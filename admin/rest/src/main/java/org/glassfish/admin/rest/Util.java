@@ -350,12 +350,24 @@ public class Util {
         return values;
     }
 
+    public static void deleteFile(String fileName, String mimeType, InputStream fileStream) {
+        System.out.println("Deleting file....");
+        if (fileName.contains(".")) {
+                File f = new File(new File(System.getProperty("java.io.tmpdir"), System.getProperty("user.name")), fileName);
+              f.delete();
+        }
+    }
+
     public static File saveFile(String fileName, String mimeType, InputStream fileStream) {
         BufferedOutputStream out = null;
         File f = null;
         try {
             if (fileName.contains(".")) {
-                f = new File(new File(System.getProperty("java.io.tmpdir")), fileName);
+                File tmpFile = new File(System.getProperty("java.io.tmpdir"), System.getProperty("user.name"));
+                if(!tmpFile.exists()) {
+                    tmpFile.mkdir();
+                }
+                f = new File(tmpFile, fileName);
             }
 
             out = new BufferedOutputStream(new FileOutputStream(f));

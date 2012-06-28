@@ -273,6 +273,9 @@ public class PropertiesBagResource {
     }
 
     public void setParentAndTagName(Dom parent, String tagName) {
+        if(parent == null) {
+            return;
+        }
         this.parent = parent;
         this.tagName = tagName;
         entity = parent.nodeElements(tagName);
