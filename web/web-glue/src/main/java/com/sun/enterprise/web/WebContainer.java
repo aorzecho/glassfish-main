@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -125,7 +125,6 @@ import java.net.BindException;
 import java.net.MalformedURLException;
 import java.text.MessageFormat;
 import java.util.*;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -382,236 +381,229 @@ public class WebContainer implements org.glassfish.api.container.Container, Post
 
     public void postConstruct() {
 
-        ReentrantReadWriteLock mapperLock = grizzlyService.obtainMapperLock(null);
-        mapperLock.writeLock().lock();
-        
+        createProbeProviders();
+
+        injectionMgr = habitat.getByContract(InjectionManager.class);
+        invocationMgr = habitat.getByContract(InvocationManager.class);
+        tldProviders = habitat.getAllByContract(TldProvider.class);
+
+        //createMonitoringConfig();
+        createStatsProviders();
+
+        setJspFactory();
+
+        _appsWorkRoot =
+                instance.getApplicationCompileJspPath().getAbsolutePath();
+        _modulesRoot = instance.getApplicationRepositoryPath();
+
+        // START S1AS 6178005
+        appsStubRoot = instance.getApplicationStubPath().getAbsolutePath();
+        // END S1AS 6178005
+
+        // TODO: ParserUtils should become a @Service and it should initialize itself.
+        // TODO: there should be only one EntityResolver for both DigesterFactory
+        // and ParserUtils
+        File root = _serverContext.getInstallRoot();
+        File libRoot = new File(root, "lib");
+        File schemas = new File(libRoot, "schemas");
+        File dtds = new File(libRoot, "dtds");
+
         try {
-            createProbeProviders();
+            ParserUtils.setSchemaResourcePrefix(schemas.toURI().toURL().toString());
+            ParserUtils.setDtdResourcePrefix(dtds.toURI().toURL().toString());
+            ParserUtils.setEntityResolver(habitat.getComponent(EntityResolver.class, "web"));
+        } catch (MalformedURLException e) {
+            _logger.log(Level.SEVERE, "webContainer.exceptionSetSchemasDtdsLocation", e);
+        }
 
-            injectionMgr = habitat.getByContract(InjectionManager.class);
-            invocationMgr = habitat.getByContract(InvocationManager.class);
-            tldProviders = habitat.getAllByContract(TldProvider.class);
+        instanceName = _serverContext.getInstanceName();
 
-            //createMonitoringConfig();
-            createStatsProviders();
+        webContainerFeatureFactory = getWebContainerFeatureFactory();
 
-            setJspFactory();
+        configureDynamicReloadingSettings();
+        setDebugLevel();
 
-            _appsWorkRoot =
-                    instance.getApplicationCompileJspPath().getAbsolutePath();
-            _modulesRoot = instance.getApplicationRepositoryPath();
-
-            // START S1AS 6178005
-            appsStubRoot = instance.getApplicationStubPath().getAbsolutePath();
-            // END S1AS 6178005
-
-            // TODO: ParserUtils should become a @Service and it should initialize itself.
-            // TODO: there should be only one EntityResolver for both DigesterFactory
-            // and ParserUtils
-            File root = _serverContext.getInstallRoot();
-            File libRoot = new File(root, "lib");
-            File schemas = new File(libRoot, "schemas");
-            File dtds = new File(libRoot, "dtds");
-
+        String maxDepth = null;
+        if (serverConfig.getWebContainer() != null)
+            maxDepth = serverConfig.getWebContainer().getPropertyValue(DISPATCHER_MAX_DEPTH);
+        if (maxDepth != null) {
+            int depth = -1;
             try {
-                ParserUtils.setSchemaResourcePrefix(schemas.toURI().toURL().toString());
-                ParserUtils.setDtdResourcePrefix(dtds.toURI().toURL().toString());
-                ParserUtils.setEntityResolver(habitat.getComponent(EntityResolver.class, "web"));
-            } catch (MalformedURLException e) {
-                _logger.log(Level.SEVERE, "webContainer.exceptionSetSchemasDtdsLocation", e);
+                depth = Integer.parseInt(maxDepth);
+            } catch (NumberFormatException e) {
             }
 
-            instanceName = _serverContext.getInstanceName();
-
-            webContainerFeatureFactory = getWebContainerFeatureFactory();
-
-            configureDynamicReloadingSettings();
-            setDebugLevel();
-
-            String maxDepth = null;
-            if (serverConfig.getWebContainer() != null)
-                maxDepth = serverConfig.getWebContainer().getPropertyValue(DISPATCHER_MAX_DEPTH);
-            if (maxDepth != null) {
-                int depth = -1;
-                try {
-                    depth = Integer.parseInt(maxDepth);
-                } catch (NumberFormatException e) {
-                }
-
-                if (depth > 0) {
-                    Request.setMaxDispatchDepth(depth);
-                    if (_logger.isLoggable(Level.FINE)) {
-                        _logger.fine("Maximum depth for nested request "
-                                + "dispatches set to "
-                                + maxDepth);
-                    }
+            if (depth > 0) {
+                Request.setMaxDispatchDepth(depth);
+                if (_logger.isLoggable(Level.FINE)) {
+                    _logger.fine("Maximum depth for nested request "
+                            + "dispatches set to "
+                            + maxDepth);
                 }
             }
+        }
 
-            logServiceFile = null;
-            Map<String, String> logProps = null;
-            try {
-                logProps = logConfig.getLoggingProperties();
-                if (logProps != null) {
-                    logServiceFile = logProps.get("com.sun.enterprise.server.logging.GFFileHandler.file");
+        logServiceFile = null;
+        Map<String, String> logProps = null;
+        try {
+            logProps = logConfig.getLoggingProperties();
+            if (logProps != null) {
+                logServiceFile = logProps.get("com.sun.enterprise.server.logging.GFFileHandler.file");
 
-                    if (logServiceFile.contains("${com.sun.aas.instanceRoot}")) {
-                        String instanceRoot = System.getProperty("com.sun.aas.instanceRoot");
-                        String f = logServiceFile.replace("${com.sun.aas.instanceRoot}", instanceRoot);
-                        logServiceFile = f;
-                    }
-
-                    logLevel = logProps.get("org.apache.catalina.level");
+                if (logServiceFile.contains("${com.sun.aas.instanceRoot}")) {
+                    String instanceRoot = System.getProperty("com.sun.aas.instanceRoot");
+                    String f = logServiceFile.replace("${com.sun.aas.instanceRoot}", instanceRoot);
+                    logServiceFile = f;
                 }
-            } catch (IOException ioe) {
-                _logger.log(Level.SEVERE, "webContainer.unableDetermineServerLogLocation", ioe);
+
+                logLevel = logProps.get("org.apache.catalina.level");
             }
+        } catch (IOException ioe) {
+            _logger.log(Level.SEVERE, "webContainer.unableDetermineServerLogLocation", ioe);
+        }
 
-            _embedded = habitat.getByType(EmbeddedWebContainer.class);
-            _embedded.setWebContainer(this);
-            _embedded.setLogServiceFile(logServiceFile);
-            _embedded.setLogLevel(logLevel);
-            _embedded.setFileLoggerHandlerFactory(fileLoggerHandlerFactory);
-            _embedded.setWebContainerFeatureFactory(webContainerFeatureFactory);
+        _embedded = habitat.getByType(EmbeddedWebContainer.class);
+        _embedded.setWebContainer(this);
+        _embedded.setLogServiceFile(logServiceFile);
+        _embedded.setLogLevel(logLevel);
+        _embedded.setFileLoggerHandlerFactory(fileLoggerHandlerFactory);
+        _embedded.setWebContainerFeatureFactory(webContainerFeatureFactory);
 
-            _embedded.setCatalinaHome(instance.getDomainRoot().getAbsolutePath());
-            _embedded.setCatalinaBase(instance.getDomainRoot().getAbsolutePath());
-            _embedded.setUseNaming(false);
-            if (_debug > 1)
-                _embedded.setDebug(_debug);
-            _embedded.setLogger(new IASLogger(_logger));
+        _embedded.setCatalinaHome(instance.getDomainRoot().getAbsolutePath());
+        _embedded.setCatalinaBase(instance.getDomainRoot().getAbsolutePath());
+        _embedded.setUseNaming(false);
+        if (_debug > 1)
+            _embedded.setDebug(_debug);
+        _embedded.setLogger(new IASLogger(_logger));
 
-            engine = _embedded.createEngine();
-            engine.setParentClassLoader(EmbeddedWebContainer.class.getClassLoader());
-            _embedded.addEngine(engine);
-            ((StandardEngine) engine).setDomain(_serverContext.getDefaultDomainName());
-            engine.setName(_serverContext.getDefaultDomainName());
+        engine = _embedded.createEngine();
+        engine.setParentClassLoader(EmbeddedWebContainer.class.getClassLoader());
+        _embedded.addEngine(engine);
+        ((StandardEngine) engine).setDomain(_serverContext.getDefaultDomainName());
+        engine.setName(_serverContext.getDefaultDomainName());
 
-            /*
-            * Set the server info.
-            * By default, the server info is taken from Version#getVersion.
-            * However, customers may override it via the product.name system
-            * property.
-            * Some customers prefer not to disclose the server info
-            * for security reasons, in which case they would set the value of the
-            * product.name system property to the empty string. In this case,
-            * the server name will not be publicly disclosed via the "Server"
-            * HTTP response header (which will be suppressed) or any container
-            * generated error pages. However, it will still appear in the
-            * server logs (see IT 6900).
-            */
-            String serverInfo = System.getProperty("product.name");
-            if (serverInfo == null) {
-                ServerInfo.setServerInfo(Version.getVersion());
-                ServerInfo.setPublicServerInfo(Version.getVersion());
-            } else if (serverInfo.isEmpty()) {
-                ServerInfo.setServerInfo(Version.getVersion());
-                ServerInfo.setPublicServerInfo(serverInfo);
-            } else {
-                ServerInfo.setServerInfo(serverInfo);
-                ServerInfo.setPublicServerInfo(serverInfo);
-            }
+        /*
+        * Set the server info.
+        * By default, the server info is taken from Version#getVersion.
+        * However, customers may override it via the product.name system
+        * property.
+        * Some customers prefer not to disclose the server info
+        * for security reasons, in which case they would set the value of the
+        * product.name system property to the empty string. In this case,
+        * the server name will not be publicly disclosed via the "Server"
+        * HTTP response header (which will be suppressed) or any container
+        * generated error pages. However, it will still appear in the
+        * server logs (see IT 6900).
+        */
+        String serverInfo = System.getProperty("product.name");
+        if (serverInfo == null) {
+            ServerInfo.setServerInfo(Version.getVersion());
+            ServerInfo.setPublicServerInfo(Version.getVersion());
+        } else if (serverInfo.isEmpty()) {
+            ServerInfo.setServerInfo(Version.getVersion());
+            ServerInfo.setPublicServerInfo(serverInfo);
+        } else {
+            ServerInfo.setServerInfo(serverInfo);
+            ServerInfo.setPublicServerInfo(serverInfo);
+        }
 
-            initInstanceSessionProperties();
+        initInstanceSessionProperties();
 
-            ConstructorCreator<WebConfigListener> womb =
-                    new ConstructorCreator<WebConfigListener>(
-                            WebConfigListener.class,
-                            habitat,
-                            null);
-            configListener = womb.get(null);
+        ConstructorCreator<WebConfigListener> womb =
+                new ConstructorCreator<WebConfigListener>(
+                        WebConfigListener.class,
+                        habitat,
+                        null);
+        configListener = womb.get(null);
 
-            ObservableBean bean = (ObservableBean) ConfigSupport.getImpl(
-                    serverConfig.getHttpService());
-            bean.addListener(configListener);
+        ObservableBean bean = (ObservableBean) ConfigSupport.getImpl(
+                serverConfig.getHttpService());
+        bean.addListener(configListener);
 
+        bean = (ObservableBean) ConfigSupport.getImpl(
+                serverConfig.getNetworkConfig().getNetworkListeners());
+        bean.addListener(configListener);
+
+        if (serverConfig.getAvailabilityService() != null) {
             bean = (ObservableBean) ConfigSupport.getImpl(
-                    serverConfig.getNetworkConfig().getNetworkListeners());
+                    serverConfig.getAvailabilityService());
             bean.addListener(configListener);
+        }
 
-            if (serverConfig.getAvailabilityService() != null) {
-                bean = (ObservableBean) ConfigSupport.getImpl(
-                        serverConfig.getAvailabilityService());
-                bean.addListener(configListener);
-            }
+        transactions.addListenerForType(SystemProperty.class, configListener);
 
-            transactions.addListenerForType(SystemProperty.class, configListener);
+        configListener.setNetworkConfig(serverConfig.getNetworkConfig());
 
-            configListener.setNetworkConfig(serverConfig.getNetworkConfig());
+        // embedded mode does not have manager-propertie in domain.xml
+        if (configListener.managerProperties != null) {
+            ObservableBean managerBean = (ObservableBean) ConfigSupport.getImpl(
+                    configListener.managerProperties);
+            managerBean.addListener(configListener);
+        }
 
-            // embedded mode does not have manager-propertie in domain.xml
-            if (configListener.managerProperties != null) {
-                ObservableBean managerBean = (ObservableBean) ConfigSupport.getImpl(
-                        configListener.managerProperties);
-                managerBean.addListener(configListener);
-            }
+        configListener.setContainer(this);
+        configListener.setLogger(_logger);
 
-            configListener.setContainer(this);
-            configListener.setLogger(_logger);
+        events.register(this);
 
-            events.register(this);
+        grizzlyService.addMapperUpdateListener(configListener);
 
-            grizzlyService.addMapperUpdateListener(configListener);
+        HttpService httpService = serverConfig.getHttpService();
+        NetworkConfig networkConfig = serverConfig.getNetworkConfig();
+        if (networkConfig != null) {
+            //continue;
+            securityService = serverConfig.getSecurityService();
 
-            HttpService httpService = serverConfig.getHttpService();
-            NetworkConfig networkConfig = serverConfig.getNetworkConfig();
-            if (networkConfig != null) {
-                //continue;
-                securityService = serverConfig.getSecurityService();
-
-                // Configure HTTP listeners
-                NetworkListeners networkListeners = networkConfig.getNetworkListeners();
-                if (networkListeners != null) {
-                    List<NetworkListener> listeners = networkListeners.getNetworkListener();
-                    for (NetworkListener listener : listeners) {
-    //                    if (ConfigBeansUtilities.toBoolean(listener.getJkEnabled())) {
-    //                        createJKConnector(listener, httpService);
-    //                    } else {
-                        createHttpListener(listener, httpService);
-    //                    }
-                    }
+            // Configure HTTP listeners
+            NetworkListeners networkListeners = networkConfig.getNetworkListeners();
+            if (networkListeners != null) {
+                List<NetworkListener> listeners = networkListeners.getNetworkListener();
+                for (NetworkListener listener : listeners) {
+//                    if (ConfigBeansUtilities.toBoolean(listener.getJkEnabled())) {
+//                        createJKConnector(listener, httpService);
+//                    } else {
+                    createHttpListener(listener, httpService);
+//                    }
                 }
-                createJKConnector(null, httpService);
-
-                setDefaultRedirectPort(defaultRedirectPort);
-
-                // Configure virtual servers
-                createHosts(httpService, securityService);
             }
+            createJKConnector(null, httpService);
 
-            loadSystemDefaultWebModules();
+            setDefaultRedirectPort(defaultRedirectPort);
 
-            //_lifecycle.fireLifecycleEvent(START_EVENT, null);
-            _started = true;
+            // Configure virtual servers
+            createHosts(httpService, securityService);
+        }
 
+        loadSystemDefaultWebModules();
+
+        //_lifecycle.fireLifecycleEvent(START_EVENT, null);
+        _started = true;
+
+        /*
+         * Start the embedded container.
+         * Make sure to set the thread's context classloader to the
+         * classloader of this class (see IT 8866 for details)
+         */
+        ClassLoader current = Thread.currentThread().getContextClassLoader();
+        Thread.currentThread().setContextClassLoader(
+                getClass().getClassLoader());
+        try {
             /*
-            * Start the embedded container.
-            * Make sure to set the thread's context classloader to the
-            * classloader of this class (see IT 8866 for details)
-            */
-            ClassLoader current = Thread.currentThread().getContextClassLoader();
-            Thread.currentThread().setContextClassLoader(
-                    getClass().getClassLoader());
-            try {
-                /*
-                * Trigger a call to sun.awt.AppContext.getAppContext().
-                * This will pin the classloader of this class in memory
-                * and fix a memory leak affecting instances of WebappClassLoader
-                * that was caused by a JRE implementation change in 1.6.0_15
-                * onwards. See IT 11110
-                */
-                ImageIO.getCacheDirectory();
-                _embedded.start();
-            } catch (LifecycleException le) {
-                _logger.log(Level.SEVERE,
-                        "webcontainer.exceptionDuringEmbeddedStart", le);
-                return;
-            } finally {
-                // Restore original context classloader
-                Thread.currentThread().setContextClassLoader(current);
-            }
+             * Trigger a call to sun.awt.AppContext.getAppContext().
+             * This will pin the classloader of this class in memory
+             * and fix a memory leak affecting instances of WebappClassLoader
+             * that was caused by a JRE implementation change in 1.6.0_15
+             * onwards. See IT 11110
+             */
+            ImageIO.getCacheDirectory();
+            _embedded.start();
+        } catch (LifecycleException le) {
+            _logger.log(Level.SEVERE,
+                    "webcontainer.exceptionDuringEmbeddedStart", le);
+            return;
         } finally {
-            mapperLock.writeLock().unlock();
+            // Restore original context classloader
+            Thread.currentThread().setContextClassLoader(current);
         }
     }
 

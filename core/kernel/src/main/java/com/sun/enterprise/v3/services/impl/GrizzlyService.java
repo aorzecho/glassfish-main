@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2007-2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2007-2011 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -52,10 +52,6 @@ import java.util.concurrent.Future;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.glassfish.api.event.EventListener;
-import org.glassfish.api.event.EventTypes;
-import org.glassfish.api.event.RestrictTo;
-
 import com.sun.enterprise.config.serverbeans.Config;
 import com.sun.enterprise.config.serverbeans.HttpService;
 import com.sun.enterprise.config.serverbeans.IiopListener;
@@ -72,19 +68,15 @@ import com.sun.grizzly.config.dom.NetworkListener;
 import com.sun.grizzly.config.dom.NetworkListeners;
 import com.sun.grizzly.config.dom.Protocol;
 import com.sun.grizzly.tcp.Adapter;
-import com.sun.grizzly.util.FutureImpl;
 import com.sun.grizzly.util.http.mapper.Mapper;
 import com.sun.logging.LogDomains;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.glassfish.api.FutureProvider;
 import org.glassfish.api.Startup;
 import org.glassfish.api.admin.ServerEnvironment;
 import org.glassfish.api.container.EndpointRegistrationException;
 import org.glassfish.api.container.RequestDispatcher;
 import org.glassfish.api.deployment.ApplicationContainer;
-import org.glassfish.api.event.Events;
 import org.glassfish.flashlight.provider.ProbeProviderFactory;
 import org.jvnet.hk2.annotations.Inject;
 import org.jvnet.hk2.annotations.Scoped;
@@ -108,7 +100,7 @@ import org.jvnet.hk2.config.Transactions;
  */
 @Service
 @Scoped(Singleton.class)
-public class GrizzlyService implements Startup, RequestDispatcher, PostConstruct, PreDestroy, EventListener, FutureProvider<Result<Thread>> {
+public class GrizzlyService implements Startup, RequestDispatcher, PostConstruct, PreDestroy, FutureProvider<Result<Thread>> {
 
     @Inject(name=ServerEnvironment.DEFAULT_INSTANCE_NAME)
     Config config;
@@ -125,9 +117,6 @@ public class GrizzlyService implements Startup, RequestDispatcher, PostConstruct
     @Inject
     ProbeProviderFactory probeProviderFactory;
 
-    @Inject
-    Events events;
-    
     final Logger logger = LogDomains.getLogger(GrizzlyService.class, LogDomains.CORE_LOGGER);
 
     private final Collection<NetworkProxy> proxies = new LinkedBlockingQueue<NetworkProxy>();
@@ -147,8 +136,6 @@ public class GrizzlyService implements Startup, RequestDispatcher, PostConstruct
 
     private DynamicConfigListener configListener;
 
-    private FutureImpl<Boolean> serverReadyFuture = new FutureImpl<Boolean>();
-    
     public GrizzlyService() {
         futures = new ArrayList<Future<Result<Thread>>>();
         monitoring = new GrizzlyMonitoring();
@@ -305,30 +292,6 @@ public class GrizzlyService implements Startup, RequestDispatcher, PostConstruct
         }
     }
 
-    private final ConcurrentHashMap<String, ReentrantReadWriteLock> mapperLockMap =
-            new ConcurrentHashMap<String, ReentrantReadWriteLock>();
-    
-    private final ReentrantReadWriteLock mapperLock = new ReentrantReadWriteLock();
-    
-    public ReentrantReadWriteLock obtainMapperLock(String name) {
-//        ReentrantReadWriteLock lock = mapperLockMap.get(name);
-//        
-//        if (lock == null) {
-//            final ReentrantReadWriteLock tmpLock = new ReentrantReadWriteLock();
-//            lock = mapperLockMap.putIfAbsent(name, tmpLock);
-//            if (lock == null) {
-//                lock = tmpLock;
-//            }
-//        }
-//        
-//        return lock;
-        return mapperLock;
-    }
-
-    void removeMapperLock(String name) {
-//        mapperLockMap.remove(name);
-    }
-    
     /**
      * Gets the logger.
      *
@@ -352,10 +315,6 @@ public class GrizzlyService implements Startup, RequestDispatcher, PostConstruct
         return monitoring;
     }
 
-    final Future<Boolean> getServerReadyFuture() {
-        return serverReadyFuture;
-    }
-
     /**
      * Returns the life expectency of the service
      *
@@ -366,12 +325,6 @@ public class GrizzlyService implements Startup, RequestDispatcher, PostConstruct
         return Lifecycle.SERVER;                
     }
 
-    @Override
-    public void event(@RestrictTo(EventTypes.SERVER_READY_NAME) Event event) {
-        if (event.is(EventTypes.SERVER_READY)) {
-            serverReadyFuture.setResult(Boolean.TRUE);
-        }
-    }
 
     /**
      * The component has been injected with any dependency and
@@ -379,8 +332,6 @@ public class GrizzlyService implements Startup, RequestDispatcher, PostConstruct
      */
     @Override
     public void postConstruct() {
-        events.register(this);
-        
         NetworkConfig networkConfig = config.getNetworkConfig();
         configListener = new DynamicConfigListener(config);
 
