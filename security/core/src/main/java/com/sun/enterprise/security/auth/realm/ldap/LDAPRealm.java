@@ -480,7 +480,7 @@ public final class LDAPRealm extends IASRealm
         // attempt to bind as the user
         DirContext ctx = null;
         String srcFilter = null;
-        String[] grpList = null;
+        String[] grpList = new String[0];
         try {
             ctx = new InitialDirContext(getLdapBindProps());
             String realUserDN = userSearch(ctx, getProperty(PARAM_USERDN), userid);
@@ -494,7 +494,7 @@ public final class LDAPRealm extends IASRealm
                 String msg = sm.getString("ldaprealm.bindfailed", realUserDN);
                 throw new LoginException(msg);
             }
-
+           if(!Boolean.getBoolean("com.oracle.enterprise.security.auth.realm.ldap.DISABLEGROUP_SEARCH")) {
             // search groups using above connection, substituting %d (and %s)
             sb = new StringBuffer(getProperty(PARAM_GRP_SEARCH_FILTER));
             substitute(sb, SUBST_SUBJECT_NAME, _username);
@@ -509,6 +509,7 @@ public final class LDAPRealm extends IASRealm
                 realUserDN));          
             grpList = new String[groupsList.size()];
             groupsList.toArray(grpList);
+            }
         } catch (Exception e) {
             LoginException le=new LoginException(e.toString());
             le.initCause(e);
@@ -522,6 +523,7 @@ public final class LDAPRealm extends IASRealm
             }
         }
 
+           if(!Boolean.getBoolean("com.oracle.enterprise.security.auth.realm.ldap.DISABLEGROUP_SEARCH")) {
         if (_logger.isLoggable(Level.FINE)) {
             _logger.log(Level.FINE, "LDAP:Group search filter: " + srcFilter);
             StringBuffer gb = new StringBuffer();
@@ -544,7 +546,7 @@ public final class LDAPRealm extends IASRealm
         if(_logger.isLoggable(Level.FINE)){
              _logger.log(Level.FINE, "LDAP: login succeeded for: " + _username);
         }
-
+        }
         return grpList;
     }
 
