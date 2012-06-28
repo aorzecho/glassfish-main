@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2010 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -41,6 +41,7 @@
 package org.glassfish.web.ha.session.management;
 
 import com.sun.logging.LogDomains;
+import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Session;
 import org.apache.catalina.session.PersistentManagerBase;
 import org.glassfish.ha.store.api.BackingStore;
@@ -49,6 +50,8 @@ import org.glassfish.ha.store.api.BackingStoreException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -59,6 +62,9 @@ public abstract class ReplicationManagerBase extends PersistentManagerBase {
 
     protected BackingStore backingStore;
     protected SessionFactory sessionFactory;
+    protected final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock(true);
+
+    private AtomicBoolean alreadyClosed = new AtomicBoolean(false);
 
     protected static final String name = "ReplicationManagerBase";
 
@@ -104,71 +110,78 @@ public abstract class ReplicationManagerBase extends PersistentManagerBase {
     }
 
     public Session findSession(String id, String version) throws IOException {
-        if(logger.isLoggable(Level.FINE)) {
-            logger.fine("in findSession: version=" + version);
-        }
-        if(!this.isSessionIdValid(id) || version == null) {
-            return null;
-        }
-        Session loadedSession = null;
-        long requiredVersion = 0L;
-        long cachedVersion = -1L;
         try {
-            requiredVersion = (Long.valueOf(version)).longValue();
+            acquireReadLock();
+            if (alreadyClosed.get()) {
+                throw new IOException("Store already closed");
+            }
             if (logger.isLoggable(Level.FINE)) {
-                logger.fine("Required version " + requiredVersion);
+                logger.fine("in findSession: version=" + version);
             }
-        } catch (NumberFormatException ex) {
-             logger.log(Level.INFO,"required version nfe ", ex);
-            //deliberately do nothing
-        }
-        if(logger.isLoggable(Level.FINE)) {
-            logger.fine("findSession:requiredVersion=" + requiredVersion);
-        }
-        Session cachedSession = sessions.get(id);
-        if(cachedSession != null) {
-            cachedVersion = cachedSession.getVersion();
-        }
-        if(logger.isLoggable(Level.FINE)) {
-            logger.fine("findSession:cachedVersion=" + cachedVersion);
-        }
-        //if version match return cached session else purge it from cache
-        //if relaxCacheVersionSemantics is set true then we return the
-        //cached version even if it is greater than the required version
-        if(cachedVersion == requiredVersion || (isRelaxCacheVersionSemantics() && (cachedVersion > requiredVersion))) {
-            return cachedSession;
-        } else {
-            //if relaxCacheVersionSemantics - we do not remove because even
-            //though stale we might return it as the best we can do
-            if(cachedVersion < requiredVersion && (!isRelaxCacheVersionSemantics())) {
-                this.removeSessionFromManagerCache(cachedSession);
-                cachedSession = null;
-                cachedVersion = -1L;
+            if (!this.isSessionIdValid(id) || version == null) {
+                return null;
             }
-        }
-        // See if the Session is in the Store
-        if(requiredVersion != -1L) {
-            loadedSession = swapIn(id, version);
-        } else {
-            loadedSession = swapIn(id);
-        }
-        if(logger.isLoggable(Level.FINE)) {
-            logger.fine("findSession:swappedInSession=" + loadedSession);
+            Session loadedSession = null;
+            long requiredVersion = 0L;
+            long cachedVersion = -1L;
+            try {
+                requiredVersion = (Long.valueOf(version)).longValue();
+                if (logger.isLoggable(Level.FINE)) {
+                    logger.fine("Required version " + requiredVersion);
+                }
+
+                Session cachedSession = sessions.get(id);
+                if (cachedSession != null) {
+                    cachedVersion = cachedSession.getVersion();
+                }
+                if (logger.isLoggable(Level.FINE)) {
+                    logger.fine("findSession:cachedVersion=" + cachedVersion);
+                }
+                //if version match return cached session else purge it from cache
+                //if relaxCacheVersionSemantics is set true then we return the
+                //cached version even if it is greater than the required version
+                if (cachedVersion == requiredVersion || (isRelaxCacheVersionSemantics() && (cachedVersion > requiredVersion))) {
+                    return cachedSession;
+                } else {
+                    //if relaxCacheVersionSemantics - we do not remove because even
+                    //though stale we might return it as the best we can do
+                    if (cachedVersion < requiredVersion && (!isRelaxCacheVersionSemantics())) {
+                        this.removeSessionFromManagerCache(cachedSession);
+                        cachedSession = null;
+                        cachedVersion = -1L;
+                    }
+                }
+                // See if the Session is in the Store
+                if (requiredVersion != -1L) {
+                    loadedSession = swapIn(id, version);
+                } else {
+                    loadedSession = swapIn(id);
+                }
+                if (logger.isLoggable(Level.FINE)) {
+                    logger.fine("findSession:swappedInSession=" + loadedSession);
+                }
+
+                if (loadedSession == null || loadedSession.getVersion() < cachedVersion) {
+                    if (logger.isLoggable(Level.FINE)) {
+                        logger.fine("ReplicationManagerBase>>findSession:returning cached version:" + cachedVersion);
+                    }
+                    return cachedSession;
+                }
+                if (loadedSession.getVersion() < requiredVersion && (!isRelaxCacheVersionSemantics())) {
+                    loadedSession = null;
+                }
+                if (logger.isLoggable(Level.FINE)) {
+                    logger.fine("ReplicationManagerBase>>findSession:returning:" + loadedSession);
+                }
+            } catch (NumberFormatException ex) {
+                logger.log(Level.INFO, "required version nfe ", ex);
+            }
+
+            return (loadedSession);
+        } finally {
+            releaseReadLock();
         }
 
-        if(loadedSession == null || loadedSession.getVersion() < cachedVersion) {
-            if(logger.isLoggable(Level.FINE)) {
-                logger.fine("ReplicationManagerBase>>findSession:returning cached version:" + cachedVersion);
-            }
-            return cachedSession;
-        }
-        if(loadedSession.getVersion() < requiredVersion && (!isRelaxCacheVersionSemantics())) {
-            loadedSession = null;
-        }
-        if(logger.isLoggable(Level.FINE)) {
-            logger.fine("ReplicationManagerBase>>findSession:returning:" + loadedSession);
-        }
-        return (loadedSession);
 
     }
 
@@ -193,11 +206,7 @@ public abstract class ReplicationManagerBase extends PersistentManagerBase {
         if(session == null) {
             return;
         }
-        Session removed = null;
-        // TBD: Call super.remove instead?
-        synchronized (sessions) {
-            removed = sessions.remove(session.getIdInternal());
-        }
+        Session removed = sessions.remove(session.getIdInternal());
         if (removed != null && logger.isLoggable(Level.FINE)){
             logger.fine("Remove from manager cache id=" + session.getId());
         }
@@ -212,6 +221,30 @@ public abstract class ReplicationManagerBase extends PersistentManagerBase {
     }
 
 
+    public void acquireReadLock() throws IOException {
+        rwl.readLock().lock();
+    }
+    public void releaseReadLock() {
+        rwl.readLock().unlock();
+    }
+    public void acquireWriteLock() {
+        rwl.writeLock().lock();
+
+    }
+    public void releaseWriteLock() {
+        rwl.writeLock().unlock();
+    }
+    public void stop() throws LifecycleException {
+        try {
+            acquireWriteLock();
+            if (alreadyClosed.compareAndSet(false,true)) {
+                super.stop();
+            }
+
+        } finally {
+            releaseWriteLock();
+        }
+    }
 
     public abstract void doValveSave(Session session);
 
