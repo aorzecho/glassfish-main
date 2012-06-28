@@ -54,6 +54,7 @@ pkg = {
                       },
     "depends"       : { 
 	                "pkg:/glassfish-common@" + conf.glassfish_version : {"type" : "require" },
+                        "pkg:/glassfish-osgi@" + conf.glassfish_version : {"type" : "require" },
 			"pkg:/glassfish-jpa@" + conf.glassfish_version : {"type" : "require" },
 			"pkg:/glassfish-jta@" + conf.glassfish_version : {"type" : "require" },
 			"pkg:/glassfish-jdbc@" + conf.glassfish_version : {"type" : "require" },
