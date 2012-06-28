@@ -57,6 +57,8 @@ pkg = {
                         "pkg:/glassfish-management" : {"type" : "require" },
                         "pkg:/glassfish-web" : {"type" : "require" },
 			"pkg:/glassfish-jsf" : {"type" : "require" },
+			"pkg:/glassfish-osgi" : {"type" : "require" },
+			"pkg:/glassfish-jmx" : {"type" : "require" },
                       },
     "dirtrees"      : [ "glassfish" ],
     "licenses"      : {
