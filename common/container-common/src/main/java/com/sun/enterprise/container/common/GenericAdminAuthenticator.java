@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -56,10 +56,8 @@ import com.sun.enterprise.config.serverbeans.SecurityService;
 import com.sun.enterprise.config.serverbeans.AuthRealm;
 import com.sun.enterprise.config.serverbeans.AdminService;
 import com.sun.enterprise.config.serverbeans.SecureAdminInternalUser;
-import com.sun.enterprise.security.auth.realm.BadRealmException;
 import com.sun.enterprise.security.ssl.SSLUtils;
 import com.sun.enterprise.util.net.NetUtils;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -78,6 +76,8 @@ import java.util.logging.Logger;
 import java.util.Enumeration;
 import java.util.Set;
 import java.io.File;
+import java.rmi.server.RemoteServer;
+import java.rmi.server.ServerNotActiveException;
 import java.security.KeyStore;
 import java.security.Principal;
 import java.util.Collections;
@@ -249,7 +249,7 @@ public class GenericAdminAuthenticator implements AdminAccessController, JMXAuth
          */
         Access access = checkRemoteAccess(originHost, 
                 adminIndicatorChecker.result() == SpecialAdminIndicatorChecker.Result.MATCHED);
-        if (access != Access.FULL) {
+        if (! access.isOK()) {
             logger.log(Level.FINE, "Rejected remote access attempt, returning {0}", access.name());
             return access;
         }
@@ -264,13 +264,13 @@ public class GenericAdminAuthenticator implements AdminAccessController, JMXAuth
                         logger.log(Level.FINE, "Granting access to this instance; user is set up as an internal admin user");
                     } else {
                         /*
-                         * Reject normal admin user/password log-in to an instance.
+                         * Restrict normal admin user/password log-in to an instance.
                          */
-                        access = Access.NONE;
-                        logger.log(Level.FINE, "Rejecting the admin request to this instance; using user/password admin auth but the user is not set up as an internal admin user");
+                        access = Access.READONLY;
+                        logger.log(Level.FINE, "Restricting the admin request to this instance to read-only access");
                     }
                 } else {
-                    logger.log(Level.FINE, "Granting admin access for this request to the DAS; user/password authenticated as a valid admin account");
+                    logger.log(Level.FINE, "Granting admin access for this request; user/password authenticated as a valid admin account");
                 }
             } else {
                 /*
@@ -355,14 +355,15 @@ public class GenericAdminAuthenticator implements AdminAccessController, JMXAuth
         } else {
             /*
              * This is an instance.  Insist that the admin identifier was
-             * present in the request and matched ours.
+             * present in the request and matched ours in order to grant full
+             * access.
              */
             if (adminIndicatorCheckerMatched) {
                 grantedAccess = Access.FULL;
                 logger.log(Level.FINE, "Granting access for the admin request to this instance; the request contained the correct unique ID");
             } else {
-                grantedAccess = Access.NONE;
-                logger.log(Level.FINE, "Rejecting access for the admin request to this instance; the request lacked the unique ID or contained an incorrect one");
+                grantedAccess = Access.READONLY;
+                logger.log(Level.FINE, "Granting read-only access for the admin request to this instance; full access was refused because the request lacked the unique ID or contained an incorrect one");
             }
         }
         return grantedAccess;
@@ -547,6 +548,16 @@ public class GenericAdminAuthenticator implements AdminAccessController, JMXAuth
             }
             if (up.length > 2) {
                 host = up[2];
+            } else {
+                try {
+                    /*
+                     * This method is used for JMX over RMI authentication, so
+                     * we can find out the host from RMI.
+                     */
+                    host = RemoteServer.getClientHost();
+                } catch (ServerNotActiveException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         }
 
@@ -556,9 +567,10 @@ public class GenericAdminAuthenticator implements AdminAccessController, JMXAuth
 
         try {
             AdminAccessController.Access result = this.loginAsAdmin(user, password, realm, host);
-            if (result == AdminAccessController.Access.NONE) {
+            if (! result.isOK()) {
                 String msg = lsm.getLocalString("authentication.failed",
                         "User [{0}] from host {1} does not have administration access", user, host);
+                logger.log(Level.INFO, msg);
                 throw new SecurityException(msg);
             }
             // TODO Do we need to build a Subject so JMX can enforce monitor-only vs. manage permissions?

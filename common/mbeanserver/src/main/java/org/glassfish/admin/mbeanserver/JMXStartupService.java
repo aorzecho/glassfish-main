@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2010 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -79,6 +79,7 @@ import javax.management.remote.JMXServiceURL;
 import java.io.IOException;
 import java.util.Set;
 import javax.management.JMException;
+import org.glassfish.api.admin.ServerEnvironment;
 
 import org.glassfish.api.event.EventListener;
 import org.glassfish.api.event.EventTypes;
@@ -108,6 +109,10 @@ public final class JMXStartupService implements PostStartup, PostConstruct {
     Events mEvents;
     @Inject
     volatile static Habitat habitat;
+    
+    @Inject
+    private static ServerEnvironment serverEnv;
+    
     private volatile BootAMX mBootAMX;
     private volatile JMXConnectorsStarterThread mConnectorsStarterThread;
     private final Logger mLogger = LogDomains.getLogger(JMXStartupService.class, LogDomains.JMX_LOGGER);
@@ -134,7 +139,8 @@ public final class JMXStartupService implements PostStartup, PostConstruct {
         final AmxPref amxPref = mDomain.getAmxPref();
         final boolean autoStart = amxPref == null ? AmxPref.AUTO_START_DEFAULT : Boolean.valueOf(amxPref.getAutoStart());
 
-        mConnectorsStarterThread = new JMXConnectorsStarterThread(mMBeanServer, configuredConnectors, mBootAMX, !autoStart);
+        mConnectorsStarterThread = new JMXConnectorsStarterThread(
+                AdminAuthorizedMBeanServer.newInstance(mMBeanServer, serverEnv.isInstance(), mBootAMX), configuredConnectors, mBootAMX, !autoStart);
         mConnectorsStarterThread.start();
 
         // start AMX *first* (if auto start) so that it's ready

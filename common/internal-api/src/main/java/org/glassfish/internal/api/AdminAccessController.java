@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -47,18 +47,19 @@ import javax.security.auth.login.LoginException;
 
 /** Determines the behavior of administrative access to GlassFish v3. It should be enhanced to take into account
  *  Role-based Access Control. As of GlassFish v3, this takes care of authentication alone.
- * @author &#2325;&#2375;&#2342;&#2366;&#2352 (km@dev.java.net) 
+ * @author &#2325;&#2375;&#2342;&#2366;&#2352 (km@dev.java.net)
  */
 @Contract
 public interface AdminAccessController {
 
     /**
-     * Represents the possible types of access granted as the result of 
+     * Represents the possible types of access granted as the result of
      * logging in as an admin user.
      * <p>
      * <ul>
      * <li>FULL - the connection should be permitted full admin access, including
      * the ability to change the configuration
+     * <li>READONLY - the connection should be permitted read but not write access
      * <li>FORBIDDEN - the connection is rejected because it is remote, secure admin
      * is not enabled, and the connection is not from the DAS to an instance
      * <li>NONE - no access permitted
@@ -72,8 +73,13 @@ public interface AdminAccessController {
      */
     public static enum Access {
         FULL,
+        READONLY,
         FORBIDDEN,
-        NONE
+        NONE;
+        
+        public boolean isOK() {
+            return this == FULL || this == READONLY;
+        }
     }
 
     /** Authenticates the admin user by delegating to the underlying realm. The implementing classes
@@ -97,7 +103,7 @@ public interface AdminAccessController {
      *  <p>
      *  This variant also logs the requester in as an admin if the specified Principal
      *  matches the Principal from the certificate in the truststore associated with
-     *  the alias configured in the domain configuration.  
+     *  the alias configured in the domain configuration.
      *
      *  Typically, methods invoking
      *  this variant should pass the Principal associated with the request as

@@ -142,7 +142,7 @@ public abstract class RestAdapter extends GrizzlyAdapter implements Adapter, Pos
                 }
 
                 AdminAccessController.Access access = authenticate(req);
-                if (access == AdminAccessController.Access.FULL) {
+                if (access.isOK()) {
                     exposeContext();
                     //delegate to adapter managed by Jersey.
                     ((GrizzlyAdapter)adapter).service(req, res);
