@@ -3,7 +3,7 @@
 
     DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
-    Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
+    Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
 
     The contents of this file are subject to the terms of either the GNU
     General Public License Version 2 only ("GPL") or the Common Development
@@ -41,175 +41,118 @@
 
 -->
 
+<!--
+  modules used to build glassfish packages
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.glassfish.main.packager</groupId>
-        <artifactId>packages</artifactId>
-        <version>3.1.2.1-SNAPSHOT</version>
+        <groupId>org.glassfish.main</groupId>
+        <artifactId>glassfish-parent</artifactId>
+        <version>3.1.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>glassfish-osgi</artifactId>
-    <name>GlassFish OSGi Optional Package</name>
-    <packaging>distribution-base-zip</packaging>
-    <description>This pom describes how to assemble the OSGi optional package</description>
+
+    <developers>
+        <developer>
+            <id>snjezana</id>
+            <name>Snjezana Sevo-Zenzerovic</name>
+            <url>http://blogs.sun.com/snjezana</url>
+            <organization>Oracle, Inc.</organization>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+
+    <packaging>pom</packaging>
+    <groupId>org.glassfish.main.packager</groupId>
+    <artifactId>packages</artifactId>
+    <name>Glassfish packages</name>
 
     <properties>
-        <temp.stagedir>${project.build.directory}/artifacts/jars/</temp.stagedir>
+        <install.dir.name>glassfish3</install.dir.name>
+        <findbugs.skip>true</findbugs.skip>
+        <packager.artifact.excludes>stax-api,stax,junit,jtype,tiger-types,class-model,servlet-api,jstl-api,jstl-impl,el-api,el-impl,jsp-api,jsp-impl,org.osgi.core,org.osgi.compendium,concurrent,amx-core,amx-core-impl,amx-config,amx-config-impl,amx-j2ee,amx-j2ee-impl,amx-ext-impl,gmbal-api-only,jsf-api,jsf-impl,javax.servlet</packager.artifact.excludes>
     </properties>
+
+    <modules>
+	<module>external</module>
+	<module>nucleus-base</module>
+	<module>legal</module>
+	<module>felix</module>
+	<module>glassfish-hk2</module>
+	<module>glassfish-grizzly</module>
+        <module>glassfish-nucleus</module>
+        <module>glassfish-grizzly-full</module>
+	<module>glassfish-corba-base</module>
+	<module>glassfish-common-tmp</module>
+	<module>shoal</module>
+	<module>glassfish-cluster</module>
+        <module>glassfish-ha</module>
+	<module>glassfish-javahelp</module>
+	<module>glassfish-upgrade</module>
+	<module>glassfish-registration</module>
+	<module>glassfish-management</module>
+	<module>glassfish-jca</module>
+	<module>glassfish-jpa</module>
+	<module>glassfish-corba</module>
+	<module>glassfish-jta</module>
+	<module>glassfish-jsf</module>
+	<module>glassfish-jmx</module>
+	<module>glassfish-web</module>
+	<module>glassfish-osgi-http</module>
+	<module>glassfish-osgi-gui</module>
+	<!--module>glassfish-jcdi</module-->
+	<module>glassfish-jdbc</module>
+	<module>glassfish-gui</module>
+	<module>glassfish-ejb-lite</module>
+	<module>glassfish-common-full</module>
+	<module>glassfish-jts</module>
+	<module>glassfish-jms</module>
+	<module>glassfish-ejb</module>
+	<module>glassfish-cmp</module>
+	<module>metro</module>
+        <module>glassfish-verifier</module>	
+	<module>glassfish-appclient</module>
+	<module>javadb</module>
+	<module>jersey</module>
+	<module>glassfish-jcdi</module>
+	<module>mq</module>
+	<module>glassfish-common</module>
+	<module>glassfish-web-incorporation</module>
+	<module>glassfish-full-incorporation</module>
+	<module>glassfish-web-profile</module>
+	<module>glassfish-full-profile</module>
+        <module>glassfish-osgi-incorporation</module>
+        <module>glassfish-osgi-feature-pack</module>
+	<module>glassfish-ant-tasks</module>
+	<module>glassfish-osgi</module>
+    </modules>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.jvnet.maven-antrun-extended-plugin</groupId>
-                <artifactId>maven-antrun-extended-plugin</artifactId>
-                <configuration>
-                    <tasks>
-                        <if test="${do.compression}">
-			    <property name="compression" value="true" />
-			</if>
-                        <ant dir="." antfile="build.xml" target="create.package" />
-                    </tasks>
-                </configuration>               
-             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <!-- automatically invokes clean during initialize phase -->
                 <executions>
                     <execution>
-                        <goals>
-                           <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <stripVersion>true</stripVersion>
-                            <artifactItems>
-                             <artifactItem>
-                               <groupId>org.apache.felix</groupId>
-                               <artifactId>org.apache.felix.shell.remote</artifactId>
-                               <version>1.1.2</version>
-                               <type>jar</type>
-                               <outputDirectory>${temp.stagedir}</outputDirectory>
-                             </artifactItem>
-                             <artifactItem>
-                               <groupId>org.apache.felix</groupId>
-                               <artifactId>org.apache.felix.gogo.runtime</artifactId>
-                               <version>0.8.0</version>
-                               <type>jar</type>
-                               <outputDirectory>${temp.stagedir}</outputDirectory>
-                             </artifactItem>
-                             <artifactItem>
-                               <groupId>org.apache.felix</groupId>
-                               <artifactId>org.apache.felix.gogo.shell</artifactId>
-                               <version>0.8.0</version>
-                               <type>jar</type>
-                               <outputDirectory>${temp.stagedir}</outputDirectory>
-                             </artifactItem>
-                             <artifactItem>
-                               <groupId>org.apache.felix</groupId>
-                               <artifactId>org.apache.felix.gogo.command</artifactId>
-                               <version>0.8.0</version>
-                               <type>jar</type>
-                               <outputDirectory>${temp.stagedir}</outputDirectory>
-                             </artifactItem>
-                             <!-- We install fileinstall bundle which monitors modules
-                                  dir and autodeploy dir for addition/removal/updation of bundles -->
-                             <artifactItem>
-                               <groupId>org.apache.felix</groupId>
-                               <artifactId>org.apache.felix.fileinstall</artifactId>
-                               <version>3.1.10</version>
-                               <type>jar</type>
-                               <outputDirectory>${temp.stagedir}</outputDirectory>
-                             </artifactItem>
-                             <!-- fileinstall needs configadmin service -->
-                             <artifactItem>
-                               <groupId>org.apache.felix</groupId>
-                               <artifactId>org.apache.felix.configadmin</artifactId>
-                               <version>1.2.4</version>
-                               <type>jar</type>
-                               <outputDirectory>${temp.stagedir}</outputDirectory>
-                             </artifactItem>
-                             <artifactItem>
-                               <groupId>org.apache.felix</groupId>
-                               <artifactId>org.apache.felix.scr</artifactId>
-                               <version>1.4.0</version>
-                               <type>jar</type>
-                               <outputDirectory>${temp.stagedir}</outputDirectory>
-                             </artifactItem>                          
-                           </artifactItems>
-                         </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/artifacts</outputDirectory>
-                            <useSubDirectoryPerType>true</useSubDirectoryPerType>
-                            <overWriteReleases>false</overWriteReleases>
-                            <overWriteSnapshots>true</overWriteSnapshots>
-                            <includeScope>runtime</includeScope>
-                            <excludeArtifactIds>${packager.artifact.excludes}</excludeArtifactIds>
-                            <includeGroupIds>org.glassfish.fighterfish,org.apache.felix</includeGroupIds>
-                            <stripVersion>true</stripVersion>
-                        </configuration>
+                        <id>auto-clean</id>
+                        <phase>initialize</phase>
+                        <goals><goal>clean</goal></goals>
                     </execution>
                 </executions>
-            </plugin>         
-        </plugins>
+            </plugin>
+        </plugins> 
+        <extensions>
+            <extension>
+                <groupId>org.glassfish.build</groupId>
+                <artifactId>maven-glassfishbuild-extension</artifactId>
+                <version>${glassfishbuild.version}</version>
+            </extension>
+        </extensions>
     </build>
-    
-    <dependencies>
-        <dependency>
-            <groupId>org.glassfish.fighterfish</groupId>
-            <artifactId>osgi-web-container</artifactId>
-        </dependency>
-        <dependency>
-            <!-- Add the dependency here so that packager bundles this as well. 
-                 This is needed by osgi-web-container to function correctly -->
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.eventadmin</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.fighterfish</groupId>
-            <artifactId>osgi-ee-resources</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.fighterfish</groupId>
-            <artifactId>osgi-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.fighterfish</groupId>
-            <artifactId>osgi-jpa-extension</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.fighterfish</groupId>
-            <artifactId>osgi-jta</artifactId>
-        </dependency>
-        <dependency>        
-            <groupId>org.glassfish.fighterfish</groupId>
-            <artifactId>osgi-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.fighterfish</groupId>
-            <artifactId>osgi-cdi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.fighterfish</groupId>
-            <artifactId>osgi-ejb-container</artifactId>
-        </dependency>
-
-        <!-- now, listing package dependencies so that their content
-             can be excluded during staging -->	
-       <dependency>        
-           <groupId>org.glassfish.main.packager</groupId>
-           <artifactId>glassfish-jca</artifactId>
-           <version>${project.version}</version>
-           <classifier>artifacts</classifier>
-	   <type>properties</type>
-           <scope>provided</scope>
-	</dependency>        
-    </dependencies>
 
     <profiles>
         <profile>
@@ -218,31 +161,48 @@
              -->
             <id>ips</id>
 	    <activation>
-	         <activeByDefault>false</activeByDefault>  
+	     <activeByDefault>false</activeByDefault>  
 	    </activation>
-	    <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.jvnet.updatecenter2</groupId>
-                    <artifactId>maven-makepkgs-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>package</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <remoteRepository>${repo.url}</remoteRepository>
-                        <python>${python}</python>
-                        <proto>src/main/resources/pkg_proto.py</proto>
-                        <baseDirectory>target/stage/${install.dir.name}/</baseDirectory>
-                     </configuration>
-                </plugin>
-            </plugins>
-	    </build>
-        </profile>
-   </profiles>        
+            <properties>
+                <install.dir.name>glassfish3</install.dir.name>
+                <!-- if profile is ips then set property to do pack200 compression -->
+                <do.compression>true</do.compression>
+            </properties>
 
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-resources</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${basedir}/..</outputDirectory>
+                                    <overwrite>true</overwrite>
+                                    <resources>          
+                                        <resource>
+                                            <directory>${basedir}/../resources</directory>
+                                            <filtering>true</filtering>
+                                            <includes>
+                                                <include>pkg_conf.py</include>
+                                           </includes>
+                                        </resource>
+                                    </resources>              
+                                </configuration>            
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                    </plugin>	
+                </plugins>
+            </build>
+        </profile>
+    </profiles>        
 </project>
 
