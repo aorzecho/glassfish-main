@@ -68,6 +68,7 @@ import org.jvnet.hk2.component.PerLookup;
 import org.jvnet.hk2.config.ConfigSupport;
 import org.jvnet.hk2.config.SingleConfigCode;
 import org.jvnet.hk2.config.TransactionFailure;
+import org.jvnet.hk2.config.types.Property;
 
 /**
  * Create Jacc Provider Command
@@ -167,6 +168,7 @@ public class CreateJACCProvider implements AdminCommand {
                     newJacc.setName(jaccProviderName);
                     newJacc.setPolicyConfigurationFactoryProvider(polConfFactoryClass);
                     newJacc.setPolicyProvider(polProviderClass);
+                    populateJaccProviderElement(newJacc);
                     param.getJaccProvider().add(newJacc);
                     return newJacc;
                 }
@@ -182,4 +184,17 @@ public class CreateJACCProvider implements AdminCommand {
         }
         report.setActionExitCode(ActionReport.ExitCode.SUCCESS);
     }
+    
+    private void populateJaccProviderElement(JaccProvider newJacc) 
+    throws PropertyVetoException, TransactionFailure {
+        if (properties != null) {
+            for (Object propname: properties.keySet()) {
+                Property newprop = newJacc.createChild(Property.class);
+                newprop.setName((String) propname);
+                String propValue = properties.getProperty((String) propname);
+                newprop.setValue(propValue);
+                newJacc.getProperty().add(newprop);    
+}
+        }
+    }    
 }
