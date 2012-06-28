@@ -42,8 +42,7 @@ package com.sun.ejb.containers.util.cache;
 
 import com.sun.appserv.util.cache.CacheListener;
 
-import com.sun.ejb.base.io.IOUtils;
-
+import com.sun.ejb.containers.EjbContainerUtilImpl;
 import com.sun.ejb.spi.container.SFSBContainerCallback;
 import com.sun.ejb.spi.container.StatefulEJBContext;
 

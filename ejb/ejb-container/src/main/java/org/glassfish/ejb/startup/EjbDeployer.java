@@ -48,7 +48,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 import java.security.MessageDigest;
 
+import com.sun.ejb.base.io.EJBObjectInputStreamHandler;
+import com.sun.ejb.base.io.EJBObjectOutputStreamHandler;
 import com.sun.enterprise.config.serverbeans.Domain;
+import com.sun.enterprise.container.common.spi.util.JavaEEIOUtils;
 import com.sun.enterprise.deployment.Application;
 import com.sun.enterprise.deployment.EjbBundleDescriptor;
 import com.sun.enterprise.deployment.EjbDescriptor;
@@ -130,6 +133,9 @@ public class EjbDeployer
 
     @Inject
     StartupContext startupContext;
+
+    @Inject
+    JavaEEIOUtils javaEEIOUtils;
 
     private Object lock = new Object();
     private volatile CMPDeployer cmpDeployer = null;
