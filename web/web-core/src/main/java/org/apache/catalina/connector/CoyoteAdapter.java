@@ -337,7 +337,7 @@ public class CoyoteAdapter
                 try {
                     connector.requestEndEvent(request.getRequest(),
                         request.getHost(), request.getContext(),
-                        response.getStatus());
+                        response.getStatus(), req.getRequestProcessor());
                 } finally {
                     request.unlockSession();
                 }

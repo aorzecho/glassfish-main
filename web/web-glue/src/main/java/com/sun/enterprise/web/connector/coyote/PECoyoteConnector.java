@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -48,6 +48,7 @@ import com.sun.enterprise.web.WebModule;
 import com.sun.enterprise.web.connector.extension.GrizzlyConfig;
 import com.sun.enterprise.web.pwc.connector.coyote.PwcCoyoteRequest;
 import com.sun.grizzly.config.dom.*;
+import com.sun.grizzly.tcp.RequestInfo;
 import com.sun.grizzly.util.IntrospectionUtils;
 import com.sun.logging.LogDomains;
 import org.apache.catalina.*;
@@ -1211,7 +1212,7 @@ public class PECoyoteConnector extends Connector {
      */
     @Override
     public void requestEndEvent(HttpServletRequest request, Host host,
-            Context context, int statusCode) {
+            Context context, int statusCode, RequestInfo reqInfo) {
         if (requestProbeProvider != null) {
             String appName = null;
             if (context != null) {
@@ -1225,7 +1226,7 @@ public class PECoyoteConnector extends Connector {
                 appName, hostName,
                 request.getServerName(), request.getServerPort(), 
                 request.getContextPath(), request.getServletPath(),
-                statusCode);
+                statusCode, request.getMethod(), request.getRequestURI(), reqInfo);
         }
     };
 

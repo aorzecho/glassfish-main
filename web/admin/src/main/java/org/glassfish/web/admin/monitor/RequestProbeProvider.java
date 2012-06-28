@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2010 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -41,6 +41,7 @@
 package org.glassfish.web.admin.monitor;
 
 import org.glassfish.external.probe.provider.annotations.*;
+import com.sun.grizzly.tcp.RequestInfo;
 
 /**
  * Provider interface for HTTP request/response related probes.
@@ -65,5 +66,9 @@ public class RequestProbeProvider {
         @ProbeParam("serverPort") int serverPort,
         @ProbeParam("contextPath") String contextPath,
         @ProbeParam("servletPath") String servletPath,
-        @ProbeParam("statusCode") int statusCode) {}
+        @ProbeParam("statusCode") int statusCode,
+        @ProbeParam("method") String method,
+        @ProbeParam("uri") String uri,
+        @ProbeParam("reqInfo") RequestInfo reqInfo) {}
+
 }

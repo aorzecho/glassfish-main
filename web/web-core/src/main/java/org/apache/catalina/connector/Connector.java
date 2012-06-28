@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -61,6 +61,7 @@ package org.apache.catalina.connector;
 import com.sun.appserv.ProxyHandler;
 import com.sun.grizzly.tcp.Adapter;
 import com.sun.grizzly.tcp.ProtocolHandler;
+import com.sun.grizzly.tcp.RequestInfo;
 import com.sun.grizzly.util.IntrospectionUtils;
 import com.sun.grizzly.util.http.mapper.Mapper;
 import org.apache.catalina.*;
@@ -1238,7 +1239,7 @@ public class Connector
      * @param statusCode the response status code
      */
     public void requestEndEvent(HttpServletRequest request, Host host,
-            Context context, int statusCode) {
+            Context context, int statusCode, RequestInfo info) {
         // Deliberate noop
     };
 
