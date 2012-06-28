@@ -40,6 +40,9 @@
 
 package com.sun.ejb.containers;
 
+import com.sun.ejb.base.io.EJBObjectInputStreamHandler;
+import com.sun.ejb.base.io.EJBObjectOutputStreamHandler;
+import com.sun.enterprise.container.common.spi.util.JavaEEIOUtils;
 import com.sun.enterprise.transaction.api.JavaEETransaction;
 import com.sun.enterprise.transaction.api.JavaEETransactionManager;
 import com.sun.enterprise.container.common.spi.util.ComponentEnvManager;
@@ -128,6 +131,9 @@ public class EjbContainerUtilImpl
 
     @Inject
     private ServerContext serverContext;
+
+    @Inject
+    JavaEEIOUtils javaEEIOUtils;
 
     // Flag that allows to load EJBTimerService on the 1st access and
     // distinguish between not available and not loaded
@@ -229,6 +235,10 @@ public class EjbContainerUtilImpl
                 Utility.setContextClassLoader(originalClassLoader);
             }
         }
+
+        EJBObjectOutputStreamHandler.setJavaEEIOUtils(javaEEIOUtils);
+        javaEEIOUtils.addGlassFishInputStreamHandler(new EJBObjectInputStreamHandler());
+        javaEEIOUtils.addGlassFishOutputStreamHandler(new EJBObjectOutputStreamHandler());
 
         _me = this;
     }
@@ -689,16 +699,47 @@ public class EjbContainerUtilImpl
     private ThreadPoolExecutor createThreadPoolExecutor(String poolName) {
         ThreadPoolExecutor result = null;
         String val = ejbContainer.getPropertyValue(RuntimeTagNames.THREAD_CORE_POOL_SIZE);
-        int corePoolSize = val != null ? Integer.parseInt(val.trim())
-                : EjbContainer.DEFAULT_THREAD_CORE_POOL_SIZE;
+        int corePoolSize = EjbContainer.DEFAULT_THREAD_CORE_POOL_SIZE;
+        if(val != null){
+            int configCorePoolSize = Integer.parseInt(val.trim());
+            if(configCorePoolSize >= 0) 
+                 corePoolSize = configCorePoolSize;
+            else _logger.warning(RuntimeTagNames.THREAD_CORE_POOL_SIZE 
+                 + " < 0 using default value " 
+                 + EjbContainer.DEFAULT_THREAD_CORE_POOL_SIZE);          
+        }
 
         val = ejbContainer.getPropertyValue(RuntimeTagNames.THREAD_MAX_POOL_SIZE);
-        int maxPoolSize = val != null ? Integer.parseInt(val.trim())
-                : EjbContainer.DEFAULT_THREAD_MAX_POOL_SIZE;
+        int maxPoolSize = EjbContainer.DEFAULT_THREAD_MAX_POOL_SIZE;
+        if(val != null){
+            int configMaxPoolSize = Integer.parseInt(val.trim());
+            if((configMaxPoolSize > 0)) 
+                 maxPoolSize = configMaxPoolSize;
+            else _logger.warning(RuntimeTagNames.THREAD_MAX_POOL_SIZE 
+                 + " <= 0 using default value " 
+                 +  EjbContainer.DEFAULT_THREAD_MAX_POOL_SIZE );
+        }
 
+        if (corePoolSize > maxPoolSize) {
+            maxPoolSize = corePoolSize;
+            _logger.warning(RuntimeTagNames.THREAD_MAX_POOL_SIZE
+               + " < " + RuntimeTagNames.THREAD_CORE_POOL_SIZE
+               + " using " + RuntimeTagNames.THREAD_MAX_POOL_SIZE 
+               + "=" + corePoolSize);
+        }
+               
         val = ejbContainer.getPropertyValue(RuntimeTagNames.THREAD_KEEP_ALIVE_SECONDS);
-        long keepAliveSeconds = val != null ? Long.parseLong(val.trim())
-                : EjbContainer.DEFAULT_THREAD_KEEP_ALIVE_SECONDS;
+        long keepAliveSeconds = EjbContainer.DEFAULT_THREAD_KEEP_ALIVE_SECONDS;
+        if(val != null){
+            long configKeepAliveSeconds = Long.parseLong(val.trim());
+            if(configKeepAliveSeconds >= 0) 
+                 keepAliveSeconds = configKeepAliveSeconds;
+            else if (_logger.isLoggable(Level.WARNING)){ 
+                 _logger.warning(RuntimeTagNames.THREAD_KEEP_ALIVE_SECONDS 
+                 + " < 0  using default value " 
+                 + EjbContainer.DEFAULT_THREAD_KEEP_ALIVE_SECONDS);
+            }
+        }       
 
         val = ejbContainer.getPropertyValue(RuntimeTagNames.THREAD_QUEUE_CAPACITY);
         int queueCapacity = val != null ? Integer.parseInt(val.trim())
@@ -738,6 +779,10 @@ public class EjbContainerUtilImpl
         } 
         return null;
 //        TODO retrieve the named ThreadPoolExecutor
+    }
+
+    public JavaEEIOUtils getJavaEEIOUtils() {
+        return javaEEIOUtils;
     }
 
 }
