@@ -780,7 +780,7 @@ public class GMSAdapterImpl implements GMSAdapter, PostConstruct, CallBack {
                             // handle cases where gms is not set and for some reason this handler did not get unregistered.
                             return;
                         }
-                        if (event.is(EventTypes.PREPARE_SHUTDOWN)) {
+                        if (event.is(EventTypes.SERVER_SHUTDOWN)) {
                             logger.log(Level.INFO, "gmsservice.server_shutdown.received",
                                        new Object[]{gms.getInstanceName(), gms.getGroupName(), event.name()});
 
