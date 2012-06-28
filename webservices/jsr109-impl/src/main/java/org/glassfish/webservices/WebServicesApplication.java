@@ -67,7 +67,7 @@ import com.sun.logging.LogDomains;
 import com.sun.enterprise.deployment.*;
 import com.sun.enterprise.deployment.util.WebServerInfo;
 import org.jvnet.hk2.component.Habitat;
-
+import org.glassfish.api.deployment.DeployCommandParameters;
 
 /**
  * This class implements the ApplicationContainer and will be used
@@ -123,7 +123,8 @@ public class WebServicesApplication implements ApplicationContainer {
 
         try {
             app = deploymentCtx.getModuleMetaData(Application.class);
-
+            DeployCommandParameters commandParams = ((DeploymentContext)startupContext).getCommandParameters(DeployCommandParameters.class);
+            String virtualServers = commandParams.virtualservers;
             Iterator<EjbEndpoint> iter = ejbendpoints.iterator();
             EjbEndpoint ejbendpoint = null;
             while(iter.hasNext()) {
@@ -131,7 +132,7 @@ public class WebServicesApplication implements ApplicationContainer {
                 String contextRoot = ejbendpoint.contextRoot;
                 WebServerInfo wsi = new WsUtil().getWebServerInfoForDAS();
                 URL rootURL = wsi.getWebServerRootURL(ejbendpoint.isSecure);
-                dispatcher.registerEndpoint(contextRoot, (com.sun.grizzly.tcp.Adapter)adapter, this);
+                dispatcher.registerEndpoint(contextRoot, (com.sun.grizzly.tcp.Adapter)adapter, this, virtualServers);
                 //Fix for issue 13107490 and 17648
                 if (wsi.getHttpVS() != null && wsi.getHttpVS().getPort()!=0)
                     logger.info(format(rb.getString("enterprise.deployment.ejbendpoint.registration"),
