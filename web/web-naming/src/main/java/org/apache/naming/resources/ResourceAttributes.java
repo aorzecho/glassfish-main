@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -281,6 +281,13 @@ public class ResourceAttributes implements Attributes {
      */
     protected String mimeType = null;
     
+
+    /**
+     * MIME type set flag.
+     * To distinguish between init to null or not initialized
+     */
+    private boolean mimeTypeInitialized = false;
+
 
     /**
      * Name.
@@ -691,9 +698,15 @@ public class ResourceAttributes implements Attributes {
      */
     public void setMimeType(String mimeType) {
         this.mimeType = mimeType;
+        this.mimeTypeInitialized = true;
     }
 
     
+    public boolean isMimeTypeInitialized() {
+        return mimeTypeInitialized;
+    }
+
+
     /**
      * Get name.
      * 
