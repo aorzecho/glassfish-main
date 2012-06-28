@@ -70,7 +70,7 @@ import java.security.Principal;
  *
  */
 
-public abstract class AppservPasswordLoginModule
+public abstract class AppservPasswordLoginModule implements LoginModule
 {
     // The _subject, _sharedState and _options satisfy LoginModule and are
     // shared across sub-classes
