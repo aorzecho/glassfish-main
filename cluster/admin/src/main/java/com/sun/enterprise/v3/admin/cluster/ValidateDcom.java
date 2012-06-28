@@ -1,7 +1,7 @@
 /*
  *  DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- *  Copyright (c) 2011 Oracle and/or its affiliates. All rights reserved.
+ *  Copyright (c) 2011-2012 Oracle and/or its affiliates. All rights reserved.
  *
  *  The contents of this file are subject to the terms of either the GNU
  *  General Public License Version 2 only ("GPL") or the Common Development
@@ -39,6 +39,7 @@
  */
 package com.sun.enterprise.v3.admin.cluster;
 
+import com.sun.enterprise.config.serverbeans.Nodes;
 import com.sun.enterprise.util.cluster.windows.process.WindowsException;
 import com.sun.enterprise.universal.glassfish.TokenResolver;
 import com.sun.enterprise.util.cluster.windows.process.WindowsCredentials;
@@ -50,6 +51,7 @@ import java.io.IOException;
 import java.net.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.glassfish.api.admin.*;
 import org.glassfish.api.admin.CommandValidationException;
 import static com.sun.enterprise.util.StringUtils.ok;
 import com.sun.enterprise.util.cluster.windows.io.WindowsRemoteFile;
@@ -107,6 +109,7 @@ public class ValidateDcom implements AdminCommand {
         try {
             // try/finally is least messy way of making sure partial success news
             // is delivered back to caller
+
             if (!init(context))
                 return;
 
@@ -132,7 +135,7 @@ public class ValidateDcom implements AdminCommand {
                 return;
         }
         finally {
-            if(report.getActionExitCode() != ActionReport.ExitCode.SUCCESS || verbose)
+            if (report.getActionExitCode() != ActionReport.ExitCode.SUCCESS || verbose)
                 report.setMessage(out.toString());
         }
     }
@@ -158,7 +161,14 @@ public class ValidateDcom implements AdminCommand {
             windowsdomain = host;
 
         creds = new WindowsCredentials(host, windowsdomain, user, password);
-        wrfs = new WindowsRemoteFileSystem(creds);
+        try {
+            wrfs = new WindowsRemoteFileSystem(creds);
+        }
+        catch (WindowsException ex) {
+            // probably the j-interop-repackagted.jar is missing
+            setError(ex.getMessage());
+            return false;
+        }
         scriptFullPath = testdir + "\\" + SCRIPT_NAME;
         return true;
     }
@@ -205,7 +215,7 @@ public class ValidateDcom implements AdminCommand {
             }
         }
         catch (WindowsException ex) {
-            setError(ex, Strings.get("dcom.no.remote.file", testdir, host));
+            setError(ex, Strings.get("dcom.no.remote.file.access", testdir, host));
             return false;
         }
         out.append(Strings.get("dcom.access.ok", testdir, host)).append('\n');
