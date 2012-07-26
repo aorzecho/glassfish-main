@@ -47,17 +47,17 @@
     <parent>
         <groupId>net.java</groupId>
         <artifactId>jvnet-parent</artifactId>
-        <version>1</version>
+        <version>3</version>
     </parent>
      
     <groupId>org.glassfish.main</groupId>
     <artifactId>glassfish-parent</artifactId>
     <packaging>pom</packaging>
-    <version>3.1.2-SNAPSHOT</version>
+    <version>3.1.2.2-SNAPSHOT</version>
     <name>GlassFish Parent Project</name>
     <scm>
-        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/v3</connection>
-        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/v3</developerConnection>
+        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/branches/3.1.2.2</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/branches/3.1.2.2</developerConnection>
     </scm>
     <issueManagement>
         <system>IssueTracker</system>
@@ -67,7 +67,7 @@
     <licenses>
       <license>
         <name>CDDL + GPLv2 with classpath exception</name>
-        <url>https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html</url>
+        <url>http://glassfish.java.net/nonav/public/CDDL+GPL.html</url>
         <distribution>repo</distribution>
         <comments>A business-friendly OSS license</comments>
       </license>
@@ -395,7 +395,9 @@
                 <module>sun-glassfish/packager</module>
                 <module>sun-glassfish/distributions</module>
                 <module>sun-glassfish/installer</module>
+<!--
                 <module>javaee-sdk</module>
+-->
                 <module>appclient</module>
                 <module>verifier/verifier-impl</module>
                 <module>verifier/verifier-scripts</module>
@@ -446,7 +448,9 @@
                 <module>sun-glassfish/packager</module>
                 <module>sun-glassfish/distributions</module>
                 <module>sun-glassfish/installer</module>
+<!--
                 <module>javaee-sdk</module>
+-->
                 <module>sun-glassfish/distributions/web-ri</module>
                 <module>sun-glassfish/distributions/glassfish-ri</module>
                 <module>appclient</module>
@@ -797,12 +801,12 @@ comment out since it's causing OutOfMemory error in AIX
             <plugin>
                 <groupId>org.glassfish.hk2</groupId>
                 <artifactId>osgiversion-maven-plugin</artifactId>
-                <executions>
-                    <!-- Since we don't want qualifier like b05 or SNAPSHOT to appear
+                <!--executions>
+                    < Since we don't want qualifier like b05 or SNAPSHOT to appear
                          in package version attribute, we use the following goal to
                          populate a project property with an OSGi version which is
                          equivalent to maven version without qualifier and then use that
-                         property in osgi.bundle while exporting. -->
+                         property in osgi.bundle while exporting. >
                     <execution>
                         <id>compute-osgi-version</id>
                         <goals>
@@ -813,7 +817,7 @@ comment out since it's causing OutOfMemory error in AIX
                             <versionPropertyName>project.osgi.version</versionPropertyName>
                         </configuration>
                     </execution>
-                </executions>
+                </executions-->
             </plugin>
 
             <!--

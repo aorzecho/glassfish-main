@@ -46,7 +46,7 @@
     <parent>
         <groupId>org.glassfish.main</groupId>
         <artifactId>glassfish-parent</artifactId>
-        <version>3.1.2-SNAPSHOT</version>
+        <version>3.1.2.2-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>        
     </parent>
     <groupId>org.glassfish.main.core</groupId>
@@ -64,16 +64,15 @@
                         <phase>process-sources</phase>
                         <configuration>
                             <tasks>
-                                <delete file="src/main/java/org/glassfish/branding/GlassFishBranding.java"/>
-                                <copy file="src/main/java/org/glassfish/branding/GlassFishBrandingTemplate"
-                                      tofile="src/main/java/org/glassfish/branding/GlassFishBranding.java">
+                                <delete file="src/main/java/org/glassfish/branding/GlassFishBranding.java" />
+                                <copy file="src/main/java/org/glassfish/branding/GlassFishBrandingTemplate" tofile="src/main/java/org/glassfish/branding/GlassFishBranding.java">
                                     <filterset>
-                                        <filter token="BRAND_NAME" value="${brand_name}"/>
-                                        <filter token="PRODUCT_NAME" value="${product.name}"/>
-                                        <filter token="ABBREV_PRODUCT_NAME" value="${abbrev_product_name}"/>
-                                        <filter token="FULL_VERSION" value="${project.version}"/>
-                                        <filter token="MAJOR_VERSION" value="${major_version}"/>
-                                        <filter token="MINOR_VERSION" value="${minor_version}"/>
+                                        <filter token="BRAND_NAME" value="${brand_name}" />
+                                        <filter token="PRODUCT_NAME" value="${product.name}" />
+                                        <filter token="ABBREV_PRODUCT_NAME" value="${abbrev_product_name}" />
+                                        <filter token="FULL_VERSION" value="${project.version}" />
+                                        <filter token="MAJOR_VERSION" value="${major_version}" />
+                                        <filter token="MINOR_VERSION" value="${minor_version}" />
                                         <filter token="UPDATE_VERSION" value="${update_version}" />
                                         <filter token="BUILD_ID" value="${build.id}"/>
                                         <filter token="VERSION_PREFIX" value="${version_prefix}"/>
