@@ -551,9 +551,7 @@
     <property name="sourcebuild-ant-tasks.jar" value="${sourcebuild-ant-tasks.dir}/target/sourcebuild-ant-tasks-1.0.jar"/>
 
     <target name="sourcebuild-ant-tasks.build" unless="sourcebuild-ant-tasks.built">
-    	<exec executable="${mvn2.home}/bin/mvn" dir="${sourcebuild-ant-tasks.dir}">
-	    	<arg line="clean install"/>
-    	</exec>
+        <mvn.install dir="${sourcebuild-ant-tasks.dir}" />
     </target>
 
     <target name="sourcebuild-ant-tasks.init">
