@@ -101,9 +101,9 @@
         <attribute name="artifact" />
         <sequential>
             <echo message="[mvn.get] @{artifact} from @{repourl}"/>
-            <mvn2 goal="org.apache.maven.plugins:maven-dependency-plugin:2.3:get">
+            <mvn2 goal="org.apache.maven.plugins:maven-dependency-plugin:2.5:get">
                 <args>
-                    <arg line="-DrepoUrl=@{repourl}"/>
+                    <arg line="-DremoteRepositories=@{repourl}"/>
                     <arg line="-Dartifact=@{artifact}"/>
                 </args>
             </mvn2>
@@ -551,7 +551,9 @@
     <property name="sourcebuild-ant-tasks.jar" value="${sourcebuild-ant-tasks.dir}/target/sourcebuild-ant-tasks-1.0.jar"/>
 
     <target name="sourcebuild-ant-tasks.build" unless="sourcebuild-ant-tasks.built">
-        <mvn.install dir="${sourcebuild-ant-tasks.dir}"/>
+    	<exec executable="mvn" dir="${sourcebuild-ant-tasks.dir}">
+	    	<arg line="clean install"/>
+    	</exec>
     </target>
 
     <target name="sourcebuild-ant-tasks.init">
