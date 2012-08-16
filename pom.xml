@@ -188,6 +188,7 @@
           in your ~/.m2/settings.xml
         -->
         <java.net.username>${user.name}</java.net.username>
+	<project.osgi.version>3.1.2.2</project.osgi.version>
     </properties>
 
 
@@ -806,6 +807,7 @@ comment out since it's causing OutOfMemory error in AIX
                          populate a project property with an OSGi version which is
                          equivalent to maven version without qualifier and then use that
                          property in osgi.bundle while exporting. -->
+		    <!--
                     <execution>
                         <id>compute-osgi-version</id>
                         <goals>
@@ -816,6 +818,7 @@ comment out since it's causing OutOfMemory error in AIX
                             <versionPropertyName>project.osgi.version</versionPropertyName>
                         </configuration>
                     </execution>
+		    -->
                 </executions>
             </plugin>
 
