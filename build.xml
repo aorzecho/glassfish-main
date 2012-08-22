@@ -88,6 +88,7 @@
 	<build-module antfile="antlr.xml" />
 	<build-module antfile="bcel.xml" />
         <build-module antfile="bean-validator.xml" />
+        <build-module antfile="btrace.xml" />
 	<build-module antfile="commons-codec.xml" />
 	<build-module antfile="dbschema.xml" />
         <build-module target="eclipselink" />
@@ -99,6 +100,7 @@
         <build-module target="ha-api" />
 	<build-module target="hk2" />
 	<build-module antfile="jakarta-regexp.xml" />
+        <build-module target="javahelp" />
 	<build-module target="javax-jms" />
 	<build-module antfile="jsftemplating.xml" />
 	<build-module target="jsp" />
@@ -115,6 +117,7 @@
         <build-module antfile="mq.xml" />
         <build-module antfile="opendmk.xml" />
         <build-module antfile="schema2beans.xml" />
+        <build-module antfile="scripting.xml" />
       	<build-module antfile="shoal.xml" />
 	<build-module target="slf4j" />
 	<build-module target="tiger-types" />
@@ -156,6 +159,10 @@
 
     <target name="hk2" depends="metainf-services">
 	<build-module antfile="hk2.xml" />
+    </target>
+
+    <target name="javahelp" depends="jsp,wsit">
+        <build-module antfile="javahelp.xml" />
     </target>
 
     <target name="javax-jms">

@@ -4,13 +4,16 @@
 
     <!-- import build.xml for init target and inherited properties -->
     <import file="${basedir}/build.xml"/>
+
     <property name="mq.dir" value="${glassfish.external.dir}/mq"/>
     
     <!-- checkout mq source and build -->
     <target name="checkout" depends="init,check.svn" unless="skipCheckout">
-        <mvn.get artifact="${mq.groupid}:${mq.artifactid}:${mq.version}:zip:sources" />     
+        <echo message="checkout mq from ${mq.src.zip.url}."/>
         <mkdir dir="${mq.dir}" />
-        <unzip src="${maven.repo.local}/${mq.groupid.path}/${mq.artifactid}/${mq.version}/${mq.src.zip}" dest="${mq.dir}"/>
+        <get src="${mq.src.zip.url}" dest="${mq.dir}/${mq.src.zip}"/>
+        <echo message="expand mq zip"/>
+        <unzip src="${mq.dir}/${mq.src.zip}" dest="${mq.dir}"/>
 
         <!-- Download external dependences for MQ -->
         <antcall target="mq.dep1"/>
