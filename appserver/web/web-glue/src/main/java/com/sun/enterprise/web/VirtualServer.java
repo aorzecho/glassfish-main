@@ -2630,6 +2630,7 @@ public class VirtualServer extends StandardHost
 //                    org.glassfish.grizzly.http.server.Response response = org.glassfish.grizzly.http.server.Response.create();
                     org.glassfish.grizzly.http.server.Response response = request.getResponse();
 
+//                    request.initialize(response, requestPacket, FilterChainContext.create(connection), null);
                     request.initialize(/*response,*/ requestPacket, FilterChainContext.create(connection), null);
                     response.initialize(request, responsePacket, FilterChainContext.create(connection), null, null);
 

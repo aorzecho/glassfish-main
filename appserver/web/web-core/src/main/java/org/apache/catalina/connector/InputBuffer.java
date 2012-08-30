@@ -151,7 +151,7 @@ public class InputBuffer extends Reader
     public void setRequest(Request grizzlyRequest) {
 	this.grizzlyRequest = grizzlyRequest;
         this.grizzlyInputBuffer = grizzlyRequest.getInputBuffer();
-        //XXX set false for SAAJ CTS, need to enable when Grizzly 2.3.x is integrated
+        //XXX revert to false temporary per request
         this.grizzlyInputBuffer.setAsyncEnabled(false);
     }
 
