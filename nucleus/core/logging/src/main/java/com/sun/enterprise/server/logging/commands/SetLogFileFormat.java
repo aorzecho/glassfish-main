@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2010-2012 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -56,6 +56,7 @@ import org.glassfish.api.admin.ExecuteOn;
 import org.glassfish.api.admin.RestEndpoint;
 import org.glassfish.api.admin.RestEndpoints;
 import org.glassfish.api.admin.RuntimeType;
+import org.glassfish.api.admin.ServerEnvironment;
 import org.glassfish.config.support.CommandTarget;
 import org.glassfish.config.support.TargetType;
 import org.glassfish.hk2.api.PerLookup;
@@ -78,21 +79,20 @@ import com.sun.enterprise.util.SystemPropertyConstants;
  * Updates the formatter for the log file to either ODL, ULF or a custom name.
  */
 @ExecuteOn( { RuntimeType.DAS, RuntimeType.INSTANCE })
-@TargetType( { CommandTarget.DAS, CommandTarget.STANDALONE_INSTANCE,
-    CommandTarget.CLUSTER, CommandTarget.CONFIG })
-    @CommandLock(CommandLock.LockType.NONE)
-    @Service(name = "set-log-file-format")
-    @PerLookup
-    @I18n("set.log.file.format")
-    @RestEndpoints( { @RestEndpoint(configBean = Domain.class, opType = RestEndpoint.OpType.POST, path = "set-log-file-format", description = "set-log-file-format") })
-    public class SetLogFileFormat implements AdminCommand {
+@TargetType( { CommandTarget.DAS, CommandTarget.STANDALONE_INSTANCE, CommandTarget.CLUSTER, CommandTarget.CONFIG })
+@CommandLock(CommandLock.LockType.NONE)
+@Service(name = "set-log-file-format")
+@PerLookup
+@I18n("set.log.file.format")
+@RestEndpoints( { @RestEndpoint(configBean = Domain.class, opType = RestEndpoint.OpType.POST, path = "set-log-file-format", description = "set-log-file-format") })
+public class SetLogFileFormat implements AdminCommand {
 
     private static final String ODL_FORMATTER_NAME = "ODL";
     
     private static final String ULF_FORMATTER_NAME = "ULF";
 
     @Param(optional = true)
-    String targets = SystemPropertyConstants.DAS_SERVER_NAME;
+    String target = SystemPropertyConstants.DAS_SERVER_NAME;
     
     @Param(optional = true, defaultValue=ODL_FORMATTER_NAME, primary=true)
     String formatter = ODL_FORMATTER_NAME;
@@ -108,8 +108,11 @@ import com.sun.enterprise.util.SystemPropertyConstants;
 
     @Inject
     Clusters clusters;
+    
+    @Inject
+    ServerEnvironment env;
 
-    final private static LocalStringManagerImpl localStrings = new LocalStringManagerImpl(
+    final private static LocalStringManagerImpl LOCAL_STRINGS = new LocalStringManagerImpl(
             SetLogFileFormat.class);
 
     public void execute(AdminCommandContext context) {
@@ -130,84 +133,69 @@ import com.sun.enterprise.util.SystemPropertyConstants;
         Map<String, String> loggingProperties = new HashMap<String, String>();
         loggingProperties.put("com.sun.enterprise.server.logging.GFFileHandler.formatter", formatterClassName);
         
-        String[] targetNames = targets.split(",");
-        
-        for (String targetName : targetNames) {
-                        
-            final ActionReport report = context.getActionReport();
-            boolean isCluster = false;
-            boolean isDas = false;
-            boolean isInstance = false;
-            StringBuffer sbfSuccessMsg = new StringBuffer();
-            boolean success = false;
-            boolean isConfig = false;
-            String targetConfigName = "";
-            
-            report.addSubActionsReport().setMessage("Setting formatter for target:" + targetName);
-            
-            try {
-                Config config = domain.getConfigNamed(targetName);
-                if (config != null) {
-                    targetConfigName = targetName;
-                    isConfig = true;
-                } else {
-                    Server targetServer = domain.getServerNamed(targetName);                    
-                    if (targetServer != null) {
-                        if (targetServer.isDas()) {
-                            isDas = true;
-                        } else {
-                            isInstance = true;
-                            Cluster clusterForInstance = targetServer.getCluster();
-                            if (clusterForInstance != null) {
-                                targetConfigName = clusterForInstance.getConfigRef();
-                            } else {
-                                targetConfigName = targetServer.getConfigRef();
-                            }
-                        }
+        final ActionReport report = context.getActionReport();
+        boolean isCluster = false;
+        boolean isDas = false;
+        boolean isInstance = false;
+        boolean isConfig = false;
+        String targetConfigName = "";
+                
+        try {
+            Config config = domain.getConfigNamed(target);
+            if (config != null) {
+                targetConfigName = target;
+                isConfig = true;
+            } else {
+                Server targetServer = domain.getServerNamed(target);                    
+                if (targetServer != null) {
+                    if (targetServer.isDas()) {
+                        isDas = true;
                     } else {
-                        com.sun.enterprise.config.serverbeans.Cluster cluster = domain.getClusterNamed(targetName);
-                        if (cluster != null) {
-                            isCluster = true;
-                            targetConfigName = cluster.getConfigRef();
+                        isInstance = true;
+                        Cluster clusterForInstance = targetServer.getCluster();
+                        if (clusterForInstance != null) {
+                            targetConfigName = clusterForInstance.getConfigRef();
+                        } else {
+                            targetConfigName = targetServer.getConfigRef();
                         }
                     }
-                }
-
-                if (isDas) {
-                    loggingConfig.updateLoggingProperties(loggingProperties);
-                    success = true;
-                } else if ((targetConfigName != null && !targetConfigName.isEmpty()) && 
-                        (isCluster || isInstance || isConfig)) {
-                    loggingConfig.updateLoggingProperties(loggingProperties, targetConfigName);
-                    success = true;
                 } else {
-                    report.setActionExitCode(ActionReport.ExitCode.FAILURE);
-                    String msg = localStrings.getLocalString(
-                            "invalid.target.sys.props",
-                            "Invalid target: {0}. Valid default target is a server named ''server'' (default) or cluster name.",
-                            targetConfigName);
-                    report.setMessage(msg);
-                    return;
+                    com.sun.enterprise.config.serverbeans.Cluster cluster = domain.getClusterNamed(target);
+                    if (cluster != null) {
+                        isCluster = true;
+                        targetConfigName = cluster.getConfigRef();
+                    }
                 }
-
-                if (success) {
-                    sbfSuccessMsg.append(localStrings.getLocalString(
-                                    "set.log.file.format.success",
-                                    "The log file formatter is set to {0} for target {1}.",
-                                    formatterClassName,
-                                    targetName));
-                    ActionReport subReport = report.addSubActionsReport();
-                    subReport.setMessage(sbfSuccessMsg.toString());
-                    subReport.setActionExitCode(ActionReport.ExitCode.SUCCESS);
-                }
-            } catch (IOException e) {
-                ActionReport subReport = report.addSubActionsReport();
-                subReport.setMessage(localStrings.getLocalString(
-                        "set.log.file.format.failed",
-                        "Could not set log file formatter for {0}.", targetName));
-                subReport.setActionExitCode(ActionReport.ExitCode.FAILURE);
             }
-        }
 
+            if (isDas) {
+                loggingConfig.updateLoggingProperties(loggingProperties);
+            } else if ((targetConfigName != null && !targetConfigName.isEmpty()) && 
+                    (isCluster || isInstance || isConfig)) {
+                loggingConfig.updateLoggingProperties(loggingProperties, targetConfigName);
+            } else {
+                report.setActionExitCode(ActionReport.ExitCode.FAILURE);
+                String msg = LOCAL_STRINGS.getLocalString(
+                        "invalid.target.sys.props",
+                        "Invalid target: {0}. Valid default target is a server named ''server'' (default) or cluster name.",
+                        targetConfigName);
+                report.setMessage(msg);
+                return;
+            }
+            
+            String successMsg = LOCAL_STRINGS.getLocalString("set.log.file.format.success",
+                    "The log file formatter is set to {0} for {1}.",
+                    formatterClassName,
+                    env.getInstanceName());
+           report.setMessage(successMsg);
+           report.setActionExitCode(ActionReport.ExitCode.SUCCESS);            
+
+        } catch (IOException e) {
+            report.setMessage(LOCAL_STRINGS.getLocalString(
+                    "set.log.file.format.failed",
+                    "Could not set log file formatter for {0}.", target));
+            report.setActionExitCode(ActionReport.ExitCode.FAILURE);
+        }
     }
+    
 }

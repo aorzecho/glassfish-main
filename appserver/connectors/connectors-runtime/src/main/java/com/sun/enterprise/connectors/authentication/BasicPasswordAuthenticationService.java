@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -40,24 +40,24 @@
 
 package com.sun.enterprise.connectors.authentication;
 
+import com.sun.appserv.connectors.internal.api.ConnectorConstants;
+import com.sun.enterprise.connectors.ConnectorRegistry;
+import com.sun.enterprise.connectors.ConnectorRuntime;
+import com.sun.enterprise.container.common.spi.util.ComponentEnvManager;
+import com.sun.enterprise.deployment.WebBundleDescriptor;
+import com.sun.logging.LogDomains;
+import org.glassfish.api.invocation.ComponentInvocation;
 import org.glassfish.deployment.common.SecurityRoleMapper;
 import org.glassfish.deployment.common.SecurityRoleMapperFactory;
-import com.sun.enterprise.connectors.*;
-import com.sun.logging.LogDomains;
-
-import java.security.Principal;
-import java.util.logging.*;
-import java.util.*;
-import javax.security.auth.Subject;
-import javax.ejb.EJBContext;
-
-
-import com.sun.enterprise.deployment.WebBundleDescriptor;
-import com.sun.enterprise.container.common.spi.util.ComponentEnvManager;
-import com.sun.appserv.connectors.internal.api.ConnectorConstants;
-import org.glassfish.api.invocation.ComponentInvocation;
 import org.glassfish.ejb.api.EJBInvocation;
-import org.glassfish.resources.api.PoolInfo;
+import org.glassfish.resourcebase.resources.api.PoolInfo;
+
+import javax.ejb.EJBContext;
+import javax.security.auth.Subject;
+import java.security.Principal;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**

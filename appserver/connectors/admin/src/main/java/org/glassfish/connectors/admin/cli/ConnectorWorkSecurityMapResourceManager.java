@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2009-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2009-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -45,12 +45,12 @@ import com.sun.enterprise.config.serverbeans.Resource;
 import com.sun.enterprise.config.serverbeans.Resources;
 import com.sun.enterprise.util.LocalStringManagerImpl;
 import org.glassfish.api.I18n;
-import org.glassfish.connectors.config.WorkSecurityMap;
-import org.glassfish.connectors.config.PrincipalMap;
 import org.glassfish.connectors.config.GroupMap;
+import org.glassfish.connectors.config.PrincipalMap;
+import org.glassfish.connectors.config.WorkSecurityMap;
 import org.glassfish.resources.admin.cli.ResourceConstants;
 import org.glassfish.resources.admin.cli.ResourceManager;
-import org.glassfish.resources.api.ResourceStatus;
+import org.glassfish.resourcebase.resources.api.ResourceStatus;
 import org.jvnet.hk2.annotations.Service;
 import org.jvnet.hk2.config.ConfigSupport;
 import org.jvnet.hk2.config.SingleConfigCode;

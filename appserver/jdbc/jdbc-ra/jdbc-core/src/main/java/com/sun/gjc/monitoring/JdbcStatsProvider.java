@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 2010-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2010-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -40,6 +40,8 @@
 
 package com.sun.gjc.monitoring;
 
+import com.sun.gjc.util.SQLTrace;
+import com.sun.gjc.util.SQLTraceCache;
 import org.glassfish.external.probe.provider.annotations.ProbeListener;
 import org.glassfish.external.probe.provider.annotations.ProbeParam;
 import org.glassfish.external.statistics.CountStatistic;
@@ -48,12 +50,10 @@ import org.glassfish.external.statistics.impl.CountStatisticImpl;
 import org.glassfish.external.statistics.impl.StatisticImpl;
 import org.glassfish.external.statistics.impl.StringStatisticImpl;
 import org.glassfish.gmbal.AMXMetadata;
-import org.glassfish.gmbal.ManagedObject;
 import org.glassfish.gmbal.Description;
 import org.glassfish.gmbal.ManagedAttribute;
-import com.sun.gjc.util.SQLTrace;
-import com.sun.gjc.util.SQLTraceCache;
-import org.glassfish.resources.api.PoolInfo;
+import org.glassfish.gmbal.ManagedObject;
+import org.glassfish.resourcebase.resources.api.PoolInfo;
 
 /**
  * Provides the monitoring data for JDBC RA module

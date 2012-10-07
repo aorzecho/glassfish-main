@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -41,8 +41,8 @@
 package com.sun.enterprise.resource.pool;
 
 import com.sun.appserv.connectors.internal.api.ConnectorConstants.PoolType;
-import com.sun.appserv.connectors.internal.api.TransactedPoolManager;
 import com.sun.appserv.connectors.internal.api.PoolingException;
+import com.sun.appserv.connectors.internal.api.TransactedPoolManager;
 import com.sun.enterprise.connectors.ConnectorConnectionPool;
 import com.sun.enterprise.deployment.ResourceReferenceDescriptor;
 import com.sun.enterprise.resource.ClientSecurityInfo;
@@ -50,7 +50,7 @@ import com.sun.enterprise.resource.ResourceHandle;
 import com.sun.enterprise.resource.ResourceSpec;
 import com.sun.enterprise.resource.allocator.ResourceAllocator;
 import com.sun.enterprise.resource.listener.PoolLifeCycle;
-import org.glassfish.resources.api.PoolInfo;
+import org.glassfish.resourcebase.resources.api.PoolInfo;
 import org.jvnet.hk2.annotations.Contract;
 
 import javax.resource.ResourceException;

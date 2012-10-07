@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -42,6 +42,7 @@ package org.glassfish.resources.beans;
 
 import org.glassfish.resources.api.JavaEEResource;
 import org.glassfish.resources.api.JavaEEResourceBase;
+import org.glassfish.resourcebase.resources.api.ResourceInfo;
 
 /**
  * Resource info for CustomResourcel.
@@ -54,11 +55,11 @@ public class CustomResource extends JavaEEResourceBase {
     private String resType_;
     private String factoryClass_;
 
-    public CustomResource(org.glassfish.resources.api.ResourceInfo resourceInfo) {
+    public CustomResource(ResourceInfo resourceInfo) {
         super(resourceInfo);
     }
 
-    protected JavaEEResource doClone(org.glassfish.resources.api.ResourceInfo resourceInfo) {
+    protected JavaEEResource doClone(ResourceInfo resourceInfo) {
         CustomResource clone = new CustomResource(resourceInfo);
         clone.setResType(getResType());
         clone.setFactoryClass(getFactoryClass());

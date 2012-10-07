@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2010 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -40,20 +40,15 @@
 
 package com.sun.enterprise.web.connector.coyote;
 
-import com.sun.logging.LogDomains;
 import org.apache.catalina.connector.CoyoteWriter;
 import org.apache.catalina.connector.OutputBuffer;
 import org.apache.catalina.connector.Response;
 
-import java.util.logging.Logger;
 
 /**
  * Customized version of the Tomcat 5 CoyoteResponse
  */
 public class PECoyoteResponse extends Response {
-
-    private static final Logger logger = LogDomains.getLogger(
-        PECoyoteResponse.class, LogDomains.WEB_LOGGER);
 
     /*
      * Constructor.

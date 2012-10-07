@@ -124,14 +124,17 @@ public class GFServerConfigProvider implements AuthConfigProvider {
     protected static final ReadWriteLock rwLock = new ReentrantReadWriteLock();
     protected static final Map<String, String> layerDefaultRegisIDMap = 
         new HashMap<String, String>();
-    protected static int epoch; 
-    protected static String parserClassName = null;
-    protected static ConfigParser parser;
-    protected static boolean parserInitialized = false;
-    protected static AuthConfigFactory slaveFactory = null;
+    
+    // mutable statics should be kept package private to eliminate
+    // the ability for subclasses to access them
+    static int epoch; 
+    static String parserClassName = null;
+    static ConfigParser parser;
+    static boolean parserInitialized = false;
+    static AuthConfigFactory slaveFactory = null;
 
     // keep the slave from being visible outside
-    protected static AuthConfigProvider slaveProvider = null;
+    static AuthConfigProvider slaveProvider = null;
 
     protected AuthConfigFactory factory = null;
     private WebServicesDelegate wsdelegate = null;
@@ -452,8 +455,6 @@ public class GFServerConfigProvider implements AuthConfigProvider {
         private MessagePolicy requestPolicy;
         private MessagePolicy responsePolicy;
         private Map options;
-        Object module;        // convenience location to store instance -
-                        // package private for AuthContext
 
         /**
          * Construct a ConfigFile entry.
@@ -841,7 +842,7 @@ public class GFServerConfigProvider implements AuthConfigProvider {
         protected String providerID = null;
         protected boolean init = false;
         protected boolean onePolicy = false;
-        protected boolean newHandler = false;
+//        protected boolean newHandler = false;
 	protected MessageSecurityBindingDescriptor binding = null;
         protected SunWebApp sunWebApp = null;
 
@@ -854,7 +855,7 @@ public class GFServerConfigProvider implements AuthConfigProvider {
             this.type = type;
             if (handler == null) {
                 handler = AuthMessagePolicy.getDefaultCallbackHandler();
-		this.newHandler = true;
+//		this.newHandler = true;
             }
             this.handler = handler;
         }

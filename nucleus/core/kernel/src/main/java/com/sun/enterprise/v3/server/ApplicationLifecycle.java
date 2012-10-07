@@ -369,6 +369,8 @@ public class ApplicationLifecycle implements Deployment, PostConstruct {
             }
 
             context.createDeploymentClassLoader(clh, handler);
+            events.send(new Event<DeploymentContext>(Deployment.AFTER_DEPLOYMENT_CLASSLOADER_CREATION, context), false);
+            
             if (tracing!=null) {
                 tracing.addMark(DeploymentTracing.Mark.CLASS_LOADER_CREATED);
             }
@@ -423,6 +425,9 @@ public class ApplicationLifecycle implements Deployment, PostConstruct {
                 events.send(new Event<DeploymentContext>(Deployment.DEPLOYMENT_BEFORE_CLASSLOADER_CREATION, context), false);
 
                 context.createApplicationClassLoader(clh, handler);
+                
+                events.send(new Event<DeploymentContext>(Deployment.AFTER_APPLICATION_CLASSLOADER_CREATION, context), false);
+                
                 if (tracing!=null) {
                     tracing.addMark(DeploymentTracing.Mark.CLASS_LOADER_CREATED);
                 }
@@ -1759,8 +1764,12 @@ public class ApplicationLifecycle implements Deployment, PostConstruct {
         if (archiveHandler == null) {
             String type = null;
             OpsParams params = builder.params();
-            if (params != null && params instanceof DeployCommandParameters) {
-                type = ((DeployCommandParameters)params).type;
+            if (params != null) { 
+                if (params instanceof DeployCommandParameters) {
+                    type = ((DeployCommandParameters)params).type;
+                } else if (params instanceof UndeployCommandParameters) {
+                    type = ((UndeployCommandParameters)params)._type;
+                }
             }
             archiveHandler = getArchiveHandler(archive, type);
         }
@@ -2087,7 +2096,7 @@ public class ApplicationLifecycle implements Deployment, PostConstruct {
     public ExtendedDeploymentContext disable(UndeployCommandParameters commandParams, 
         Application app, ApplicationInfo appInfo, ActionReport report, 
         Logger logger) throws Exception {
-        if (appInfo == null) {
+        if (appInfo == null || app == null) {
             report.failure(logger, "Application not registered", null);
             return null;
         }
@@ -2098,15 +2107,15 @@ public class ApplicationLifecycle implements Deployment, PostConstruct {
             return null;
         }
 
+        commandParams._type = app.archiveType();
+
         final ExtendedDeploymentContext deploymentContext =
                 getBuilder(logger, commandParams, report).source(appInfo.getSource()).build();
 
-        if (app != null) {
-            deploymentContext.getAppProps().putAll(
-                app.getDeployProperties());
-            deploymentContext.setModulePropsMap(
-                app.getModulePropertiesMap());
-        }
+        deploymentContext.getAppProps().putAll(
+            app.getDeployProperties());
+        deploymentContext.setModulePropsMap(
+            app.getModulePropertiesMap());
 
         if (commandParams.properties != null) {
             deploymentContext.getAppProps().putAll(commandParams.properties);
@@ -2130,9 +2139,6 @@ public class ApplicationLifecycle implements Deployment, PostConstruct {
             commandParams.command = DeployCommandParameters.Command.enable;
             commandParams.target = target;
             commandParams.enabled = Boolean.TRUE;
-            if (app.containsSnifferType(ServerTags.OSGI)) {
-                commandParams.type = DeploymentProperties.OSGI;
-            }
             Properties contextProps = app.getDeployProperties();
             Map<String, Properties> modulePropsMap = app.getModulePropertiesMap();
             ApplicationConfigInfo savedAppConfig = new ApplicationConfigInfo(app);

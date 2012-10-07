@@ -44,5 +44,5 @@ package org.glassfish.admin.rest.composite;
  * @author jdlee
  */
 public interface RestModel<T> {
-
+    boolean isSet(String fieldName);
 }

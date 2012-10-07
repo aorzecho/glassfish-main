@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2010 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -87,13 +87,6 @@ public final class ObjectNameBuilder {
         return (mJMXDomain);
     }
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
-
-    /**
-    Append the formatted props to the JMX domain and return the ObjectName
-     */
-    private ObjectName newObjectName(String props) {
-        return (Util.newObjectName(getJMXDomain(), props));
-    }
 
     public static String makeWild(String props) {
         return (Util.concatenateProps(props, JMXUtil.WILD_PROP));
@@ -191,10 +184,6 @@ public final class ObjectNameBuilder {
             final ObjectName parent,
             final Class<?> intf) {
         return buildChildObjectName(server, parent, intf, null);
-    }
-
-    private static String toString(final Object o) {
-        return (SmartStringifier.toString(o));
     }
 }
 

@@ -47,13 +47,15 @@ import com.sun.enterprise.admin.monitor.registry.MonitoringRegistry;
 import com.sun.enterprise.config.serverbeans.Config;
 import com.sun.enterprise.config.serverbeans.ModuleMonitoringLevels;
 import com.sun.enterprise.web.WebContainer;
-import com.sun.logging.LogDomains;
 import org.glassfish.api.admin.ServerEnvironment;
+import org.glassfish.logging.annotation.LogMessageInfo;
+import org.glassfish.logging.annotation.LoggerInfo;
 import org.jvnet.hk2.component.Habitat;
 import org.glassfish.j2ee.statistics.Stats;
 
 import javax.management.MBeanServerFactory;
 import javax.management.ObjectName;
+import java.lang.String;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -67,9 +69,25 @@ import java.util.logging.Logger;
  * @author Jeanfrancois Arcand 
  */ 
 public class GrizzlyConfig implements MonitoringLevelListener{
-    private final static Logger logger
-        = LogDomains.getLogger(GrizzlyConfig.class, LogDomains.WEB_LOGGER);
+
+    private static final Logger logger = com.sun.enterprise.web.WebContainer.logger;
+
     private static final ResourceBundle rb = logger.getResourceBundle();
+
+    @LogMessageInfo(
+            message = "Exception when initializing monitoring for network-listener [{0}]",
+            level = "WARNING")
+    public static final String INIT_MONITORING_EXCEPTION = "AS-WEB-00270";
+
+    @LogMessageInfo(
+            message = "InvokeGrizzly method={0} objectName={1}",
+            level = "FINE")
+    public static final String INVOKE_GRIZZLY = "AS-WEB-00271";
+
+    @LogMessageInfo(
+            message = "Exception while invoking mebean server operation [{0}]",
+            level = "WARNING")
+    public static final String INVOKE_MBEAN_EXCEPTION = "AS-WEB-00272";
 
     /**
      * Is monitoring already started.
@@ -152,7 +170,7 @@ public class GrizzlyConfig implements MonitoringLevelListener{
                 "disableMonitoring";
             invokeGrizzly(methodToInvoke);
         } catch (Exception ex) {
-            String msg = rb.getString("selectorThread.initMonitoringException");
+            String msg = rb.getString(INIT_MONITORING_EXCEPTION);
             msg = MessageFormat.format(msg, Integer.valueOf(port));
             logger.log(Level.WARNING, msg, ex);
         }
@@ -213,13 +231,13 @@ public class GrizzlyConfig implements MonitoringLevelListener{
             String onStr = domain + ":type=Selector,name=http" + port;
             ObjectName objectName = new ObjectName(onStr);
             if (logger.isLoggable(Level.FINE)) {
-                logger.log(Level.FINE, "invokeGrizzly method={0} objectName={1}",
+                logger.log(Level.FINE, INVOKE_GRIZZLY,
                         new Object[] {methodToInvoke, objectName});
             }
             
         } catch ( Exception ex ){
-            String msg = rb.getString("grizzlyConfig.invokeMBeanException");
-            msg = MessageFormat.format(msg, methodToInvoke); 
+            String msg = rb.getString(INVOKE_MBEAN_EXCEPTION);
+            msg = MessageFormat.format(msg, methodToInvoke);
             logger.log(Level.SEVERE, msg, ex);
             //throw new RuntimeException(ex);
         }

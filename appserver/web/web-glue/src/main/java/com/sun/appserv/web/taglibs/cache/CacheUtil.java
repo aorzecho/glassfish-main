@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2010 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -41,26 +41,30 @@
 package com.sun.appserv.web.taglibs.cache;
 
 import com.sun.appserv.util.cache.Cache;
-import com.sun.logging.LogDomains;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
+import org.glassfish.logging.annotation.LogMessageInfo;
+import org.glassfish.logging.annotation.LoggerInfo;
 
 /**
  * CacheUtil has utility methods used by the cache tag library.
  */
 public class CacheUtil {
 
+    private static final Logger _logger = com.sun.enterprise.web.WebContainer.logger;
+
     /**
      * The resource bundle containing the localized message strings.
      */
-    private static final Logger logger = LogDomains.getLogger(
-        CacheUtil.class, LogDomains.WEB_LOGGER);
+    private static final ResourceBundle _rb = _logger.getResourceBundle();
 
-    private static final ResourceBundle _rb = logger.getResourceBundle();
+    @LogMessageInfo(
+            message = "Illegal value ([{0}]) for scope attribute of cache tag",
+            level = "WARNING")
+    private static final String ILLEGAL_SCOPE = "AS-WEB-00365";
 
     private static final String PAGE_SCOPE = "page";   
     private static final String REQUEST_SCOPE = "request";   
@@ -128,7 +132,7 @@ public class CacheUtil {
         } else if (APPLICATION_SCOPE.equalsIgnoreCase(scope)) {
             ret = PageContext.APPLICATION_SCOPE;
         } else {
-            String msg = _rb.getString("taglibs.cache.illegalScope");
+            String msg = _rb.getString(ILLEGAL_SCOPE);
             msg = MessageFormat.format(msg, new Object[] { scope });
             throw new IllegalArgumentException(msg);
         }

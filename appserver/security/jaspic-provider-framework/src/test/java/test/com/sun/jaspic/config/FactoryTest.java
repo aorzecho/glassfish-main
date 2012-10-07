@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -312,6 +312,7 @@ public class FactoryTest {
         AuthConfigProvider previousAcp = null;
         previousAcp = AuthConfigFactory.getFactory().getConfigProvider(layer, appContext, null);
     	assertNotNull("Registration Should Have Succeeded returning a nonNULL ACP but did not.", previousAcp);
+    	String previousRegId = regId;
 
         // now for an invalid configuration
         properties = new HashMap();
@@ -330,6 +331,8 @@ public class FactoryTest {
         AuthConfigProvider acp = null;
     	acp = AuthConfigFactory.getFactory().getConfigProvider(layer, appContext, null);
         assertTrue("Registration Should Have Failed for Invalid Config and Therefore returned the Previously Registered ACP", previousAcp == acp);
+        
+        assertTrue("Failed to remove the previously registered provider.", AuthConfigFactory.getFactory().removeRegistration(previousRegId));
     }
 
     @Test

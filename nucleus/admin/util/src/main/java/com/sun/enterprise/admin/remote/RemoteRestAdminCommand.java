@@ -109,6 +109,7 @@ import com.sun.enterprise.admin.remote.sse.GfSseEventReceiverReader;
 import com.sun.enterprise.admin.remote.sse.GfSseInboundEvent;
 import com.sun.enterprise.admin.remote.writer.ParameterMapFormWriter;
 import com.sun.enterprise.admin.remote.writer.PayloadPartProvider;
+import com.sun.enterprise.admin.util.AdminLoggerInfo;
 import com.sun.enterprise.admin.util.AsadminTrustManager;
 import com.sun.enterprise.admin.util.AuthenticationInfo;
 import com.sun.enterprise.admin.util.CachedCommandModel;
@@ -991,12 +992,6 @@ public class RemoteRestAdminCommand extends AdminCommandEventBrokerImpl<GfSseInb
         boolean shouldTryCommandAgain;
 
         /*
-         * Do not send caller-provided credentials the first time unless
-         * we know we will send the first request securely.
-         */
-        boolean shouldSendCredentials = secure;
-
-        /*
          * If the DAS challenges us for credentials and we've already sent
          * the caller-provided ones, we might ask the user for a new set
          * and use them.  But we want to ask only once.
@@ -1036,7 +1031,7 @@ public class RemoteRestAdminCommand extends AdminCommandEventBrokerImpl<GfSseInb
                             new Object[]{user, ok(password) ? "<non-null>" : "<null>"});
                 }
                 final AuthenticationInfo authInfo = authenticationInfo();
-                if (authInfo != null && shouldSendCredentials) {
+                if (authInfo != null) {
                     HttpBasicAuthFilter besicAuth = new HttpBasicAuthFilter(authInfo.getUser(), authInfo.getPassword() == null ? "" : authInfo.getPassword());
                     target.configuration().register(besicAuth);
                 }
@@ -1140,14 +1135,6 @@ public class RemoteRestAdminCommand extends AdminCommandEventBrokerImpl<GfSseInb
                      */
                     secure = true;
 
-                    /*
-                     * If we have been redirected to https then we can send
-                     * the credentials - if we have them - on the next
-                     * request we send because the request and therefore the
-                     * credentials will be encrypted.
-                     */
-                    shouldSendCredentials = shouldUseSecure;
-
                     continue;
                 }
                 processHeaders(response);
@@ -1167,7 +1154,6 @@ public class RemoteRestAdminCommand extends AdminCommandEventBrokerImpl<GfSseInb
                 if ( ! usedCallerProvidedCredentials) {
                     logger.log(Level.FINER, "Have not tried caller-supplied credentials yet; will do that next");
                     usedCallerProvidedCredentials = true;
-                    shouldSendCredentials = true;
                     shouldTryCommandAgain = true;
                     continue;
                 }
@@ -1202,7 +1188,6 @@ public class RemoteRestAdminCommand extends AdminCommandEventBrokerImpl<GfSseInb
                  */
                 logger.log(Level.FINER, "Was able to update the credentials so will retry with the updated ones");
                 askedUserForCredentials = true;
-                shouldSendCredentials = true;
                 shouldTryCommandAgain = true;
                 continue;
 
@@ -1231,7 +1216,6 @@ public class RemoteRestAdminCommand extends AdminCommandEventBrokerImpl<GfSseInb
                         if (retryUsingSecureConnection(host, port)) {
                             // retry using secure connection
                             shouldUseSecure = true;
-                            shouldSendCredentials = true;
                             usedCallerProvidedCredentials = true;
                             shouldTryCommandAgain = true;
                             continue;
@@ -1249,8 +1233,8 @@ public class RemoteRestAdminCommand extends AdminCommandEventBrokerImpl<GfSseInb
                 try {
                     boolean serverAppearsSecure = NetUtils.isSecurePort(host, port);
                     if (!serverAppearsSecure && secure) {
-                        logger.severe(strings.get("ServerIsNotSecure",
-                                                    host, port + ""));
+                        logger.log(Level.SEVERE, AdminLoggerInfo.mServerIsNotSecure, 
+                                new Object[] { host, port });
                     }
                     throw new CommandException(se);
                 } catch(IOException io) {
@@ -1609,7 +1593,8 @@ public class RemoteRestAdminCommand extends AdminCommandEventBrokerImpl<GfSseInb
                     AdminCacheUtils.getCache().put(createCommandCacheKey(), forCache.toString());
                 } catch (Exception ex) {
                     if (logger.isLoggable(Level.WARNING)) {
-                        logger.log(Level.WARNING, strings.get("CantPutToCache", createCommandCacheKey()), ex);
+                        logger.log(Level.WARNING, AdminLoggerInfo.mCantPutToCache, 
+                                new Object[] { createCommandCacheKey() });
                     }
                 }
             } else {

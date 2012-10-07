@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -40,19 +40,21 @@
 
 package com.sun.enterprise.resource.pool.resizer;
 
-import com.sun.enterprise.resource.ResourceState;
-import com.sun.enterprise.resource.ResourceHandle;
-import com.sun.enterprise.resource.pool.PoolProperties;
 import com.sun.appserv.connectors.internal.api.PoolingException;
+import com.sun.enterprise.resource.ResourceHandle;
+import com.sun.enterprise.resource.ResourceState;
 import com.sun.enterprise.resource.allocator.ResourceAllocator;
+import com.sun.enterprise.resource.pool.PoolProperties;
 import com.sun.enterprise.resource.pool.ResourceHandler;
 import com.sun.enterprise.resource.pool.datastructure.DataStructure;
 import com.sun.logging.LogDomains;
-import org.glassfish.resources.api.PoolInfo;
+import org.glassfish.resourcebase.resources.api.PoolInfo;
 
 import javax.resource.ResourceException;
 import javax.resource.spi.ManagedConnection;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -43,7 +43,8 @@ package com.sun.appserv.web.cache;
 import com.sun.appserv.web.cache.mapping.CacheMapping;
 import com.sun.appserv.web.cache.mapping.ConstraintField;
 import com.sun.appserv.web.cache.mapping.Field;
-import com.sun.logging.LogDomains;
+import org.glassfish.logging.annotation.LogMessageInfo;
+import org.glassfish.logging.annotation.LoggerInfo;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -66,14 +67,18 @@ public class DefaultCacheHelper implements CacheHelper {
                                 "com.sun.ias.web.cachingFilterName";
     public static final String PROP_KEY_GENERATOR_ATTR_NAME = 
                                 "cacheKeyGeneratorAttrName";
-    // PWC_LOGGER
-    private static final Logger _logger = LogDomains.getLogger(
-        DefaultCacheHelper.class, LogDomains.WEB_LOGGER);
 
-    /**
-     * The resource bundle containing the localized message strings.
-     */
-    private static final ResourceBundle _rb = _logger.getResourceBundle();
+    private static final Logger _logger = com.sun.enterprise.web.WebContainer.logger;
+
+    @LogMessageInfo(
+            message = "Illegal CacheKeyGenerator",
+            level = "WARNING")
+    private static final String CACHE_DEFAULT_HELP_ILLEGAL_KET_GENERATOR = "AS-WEB-00202";
+
+    @LogMessageInfo(
+            message = "DefaultCacheHelper: cannot find all the required key fields in the request {0}",
+            level = "FINE")
+    private static final String REQUIRED_KEY_FIELDS_NOT_FOUND = "AS-WEB-00203";
 
     ServletContext context;
 
@@ -131,7 +136,7 @@ public class DefaultCacheHelper implements CacheHelper {
                 keyGenerator = (CacheKeyGenerator) 
                                 context.getAttribute(attrKeyGenerator);
             } catch (ClassCastException cce){
-                _logger.log(Level.WARNING, "cache.defaultHelp.illegalKeyGenerator", cce);
+                _logger.log(Level.WARNING, CACHE_DEFAULT_HELP_ILLEGAL_KET_GENERATOR, cce);
             }
 
             isKeyGeneratorChecked = true;
@@ -154,7 +159,7 @@ public class DefaultCacheHelper implements CacheHelper {
             // all defined key field must be present
             if (value == null) {
                 if (_logger.isLoggable(Level.FINE)) {
-                    _logger.fine("DefaultCacheHelper: cannot find all the required key fields in the request " + request.getServletPath());
+                    _logger.log(Level.FINE, REQUIRED_KEY_FIELDS_NOT_FOUND, request.getServletPath());
                 }
                 return null;
             }

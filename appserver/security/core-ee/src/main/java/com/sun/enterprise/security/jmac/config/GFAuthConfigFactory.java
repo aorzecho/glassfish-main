@@ -57,7 +57,7 @@ import java.util.logging.Logger;
 public class GFAuthConfigFactory extends BaseAuthConfigFactory {
 
  // MUST "hide" regStore in derived class.
-    protected static RegStoreFileParser regStore = null;
+     static RegStoreFileParser regStore = null;
 
     /**
      * to specialize the defaultEntries passed to the RegStoreFileParser
@@ -89,15 +89,22 @@ public class GFAuthConfigFactory extends BaseAuthConfigFactory {
         wLock.lock();
         try {
             if (regStore == null) {
-                regStore = new RegStoreFileParser(userDir,
-                        BaseAuthConfigFactory.CONF_FILE_NAME,
-                        getDefaultProviders());
+            	initializeRegStore(userDir);
                 _loadFactory();
             }
         } finally {
             wLock.unlock();
         }
     }
+
+	/**
+	 * @param userDir
+	 */
+	private static void initializeRegStore(String userDir) {
+		regStore = new RegStoreFileParser(userDir,
+		        BaseAuthConfigFactory.CONF_FILE_NAME,
+		        getDefaultProviders());
+	}
 
     @Override
     protected RegStoreFileParser getRegStore() {

@@ -401,10 +401,11 @@ public class SecServerRequestInterceptor
         sc.authcls  = PasswordCredential.class;
     }     
     
-    private void handle_null_service_context(ServerRequestInfo ri, ServiceContext sc, ORB orb) {
+    private void handle_null_service_context(ServerRequestInfo ri, ORB orb) {
         if(_logger.isLoggable(Level.FINE)){
             _logger.log(Level.FINE,"No SAS context element found in service context list for operation: " + ri.operation());
         }
+	ServiceContext sc = null;
         int secStatus = secContextUtil.setSecurityContext(null, ri.object_id(),
                 ri.operation(), getServerSocket());
         
@@ -439,11 +440,11 @@ public class SecServerRequestInterceptor
         try {
             sc = ri.get_request_service_context(SECURITY_ATTRIBUTE_SERVICE_ID);
             if (sc == null) {
-                handle_null_service_context(ri, sc, orb);
+                handle_null_service_context(ri, orb);
                 return;
             }
         } catch (org.omg.CORBA.BAD_PARAM e) {
-            handle_null_service_context(ri,sc, orb);
+            handle_null_service_context(ri, orb);
             return;
         }
 
@@ -451,7 +452,7 @@ public class SecServerRequestInterceptor
 		_logger.log(Level.FINE,"Received a non null SAS context element");
         }
         /* Decode the service context field */
-        Any SasAny = orb.create_any();
+        Any SasAny;
         try {        
             SasAny = codec.decode_value(sc.context_data, SASContextBodyHelper.type());
         } catch (Exception e) {
@@ -625,8 +626,10 @@ public class SecServerRequestInterceptor
         cntr.increment();
 
         Socket s = null;
-        Connection c = ((RequestInfoExt)ri).connection();
-        
+	Connection c = null;
+	if (ri instanceof RequestInfoExt) {
+            c = ((RequestInfoExt)ri).connection();
+        }
         ServerConnectionContext scc = null;
         if (c != null) {
             s = c.getSocket();

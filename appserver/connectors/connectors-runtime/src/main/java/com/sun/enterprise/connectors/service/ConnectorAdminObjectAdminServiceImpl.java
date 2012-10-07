@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -40,16 +40,16 @@
 
 package com.sun.enterprise.connectors.service;
 
+import com.sun.appserv.connectors.internal.api.ConnectorRuntimeException;
 import com.sun.enterprise.connectors.ActiveOutboundResourceAdapter;
 import com.sun.enterprise.connectors.ActiveResourceAdapter;
+import org.glassfish.resourcebase.resources.api.ResourceInfo;
+import org.glassfish.resourcebase.resources.naming.ResourceNamingService;
 
-import java.util.*;
-import java.util.logging.*;
-import javax.naming.*;
-
-import com.sun.appserv.connectors.internal.api.ConnectorRuntimeException;
-import org.glassfish.resources.api.ResourceInfo;
-import org.glassfish.resources.naming.ResourceNamingService;
+import javax.naming.NameNotFoundException;
+import javax.naming.NamingException;
+import java.util.Properties;
+import java.util.logging.Level;
 
 /**
  * AdminObject administration service. It performs the functionality of

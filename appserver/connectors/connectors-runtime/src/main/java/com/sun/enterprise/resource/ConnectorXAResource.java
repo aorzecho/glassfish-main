@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -40,28 +40,29 @@
 
 package com.sun.enterprise.resource;
 
-import javax.transaction.xa.*;
-import javax.resource.spi.*;
-import javax.transaction.SystemException;
-
-import com.sun.enterprise.transaction.api.JavaEETransactionManager;
-import com.sun.enterprise.transaction.api.JavaEETransaction;
-import com.sun.enterprise.transaction.api.TransactionConstants;
+import com.sun.appserv.connectors.internal.api.PoolingException;
 import com.sun.enterprise.connectors.ConnectorRuntime;
 import com.sun.enterprise.resource.allocator.ResourceAllocator;
-import com.sun.appserv.connectors.internal.api.PoolingException;
-import com.sun.enterprise.resource.pool.PoolManager;
 import com.sun.enterprise.resource.listener.ConnectionEventListener;
 import com.sun.enterprise.resource.listener.LocalTxConnectionEventListener;
-
-import java.util.logging.Logger;
-import java.util.logging.Level;
-import java.util.Hashtable;
-import java.util.Set;
-import java.util.Map;
-
+import com.sun.enterprise.resource.pool.PoolManager;
+import com.sun.enterprise.transaction.api.JavaEETransaction;
+import com.sun.enterprise.transaction.api.JavaEETransactionManager;
+import com.sun.enterprise.transaction.api.TransactionConstants;
 import com.sun.logging.LogDomains;
-import org.glassfish.resources.api.PoolInfo;
+import org.glassfish.resourcebase.resources.api.PoolInfo;
+
+import javax.resource.spi.ManagedConnection;
+import javax.resource.spi.ResourceAllocationException;
+import javax.transaction.SystemException;
+import javax.transaction.xa.XAException;
+import javax.transaction.xa.XAResource;
+import javax.transaction.xa.Xid;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Tony Ng, Jagadish Ramu

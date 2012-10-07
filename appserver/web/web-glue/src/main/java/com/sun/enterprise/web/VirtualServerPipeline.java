@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright (c) 1997-2011 Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1997-2012 Oracle and/or its affiliates. All rights reserved.
  *
  * The contents of this file are subject to the terms of either the GNU
  * General Public License Version 2 only ("GPL") or the Common Development
@@ -40,15 +40,17 @@
 
 package com.sun.enterprise.web;
 
-import com.sun.logging.LogDomains;
 import org.apache.catalina.Request;
 import org.apache.catalina.Response;
 import org.apache.catalina.core.StandardPipeline;
+import org.glassfish.logging.annotation.LogMessageInfo;
+import org.glassfish.logging.annotation.LoggerInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.String;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.MessageFormat;
@@ -68,9 +70,24 @@ import org.glassfish.grizzly.http.util.CharChunk;
  */
 public class VirtualServerPipeline extends StandardPipeline {
 
-    private static final Logger logger =
-        LogDomains.getLogger(VirtualServerPipeline.class, LogDomains.WEB_LOGGER);
+    private static final Logger logger = com.sun.enterprise.web.WebContainer.logger;
+
     private static final ResourceBundle rb = logger.getResourceBundle();
+
+    @LogMessageInfo(
+            message = "Virtual server {0} has been turned off",
+            level = "FINE")
+    public static final String VS_VALVE_OFF = "AS-WEB-00320";
+
+    @LogMessageInfo(
+            message = "Virtual server {0} has been disabled",
+            level = "FINE")
+    public static final String VS_VALVE_DISABLED = "AS-WEB-00321";
+
+    @LogMessageInfo(
+            message = "Invalid redirect URL [{0}]: Impossible to URL encode",
+            level = "WARNING")
+    public static final String INVALID_REDIRECTION_LOCATION = "AS-WEB-00322";
 
     private VirtualServer vs;
 
@@ -105,19 +122,19 @@ public class VirtualServerPipeline extends StandardPipeline {
             throws IOException, ServletException {
 
         if (isOff) {
-            String msg = rb.getString("virtualServerValve.vsOff");
+            String msg = rb.getString(VS_VALVE_OFF);
             msg = MessageFormat.format(msg, new Object[] { vs.getName() });
             if (logger.isLoggable(Level.FINE)) {
-                logger.fine(msg);
+                logger.log(Level.FINE, msg);
             }
             ((HttpServletResponse) response.getResponse()).sendError(
                                             HttpServletResponse.SC_NOT_FOUND,
                                             msg);
         } else if (isDisabled) {
-            String msg = rb.getString("virtualServerValve.vsDisabled");
+            String msg = rb.getString(VS_VALVE_DISABLED);
             msg = MessageFormat.format(msg, new Object[] { vs.getName() });
             if (logger.isLoggable(Level.FINE)) {
-                logger.fine(msg);
+                logger.log(Level.FINE, msg);
             }
             ((HttpServletResponse) response.getResponse()).sendError(
                                             HttpServletResponse.SC_FORBIDDEN,
@@ -293,12 +310,12 @@ public class VirtualServerPipeline extends StandardPipeline {
                 } catch (MalformedURLException mue) {
                     if (redirectMatch.validURI) {
                         logger.log(Level.WARNING,
-                            "virtualServerPipeline.invalidRedirectLocation",
+                            INVALID_REDIRECTION_LOCATION,
                             location);
                     } else {
                         if (logger.isLoggable(Level.FINE)) {
                             logger.log(Level.FINE,
-                                "virtualServerPipeline.invalidRedirectLocation",
+                                INVALID_REDIRECTION_LOCATION,
                                 location);
                         }
                     }
