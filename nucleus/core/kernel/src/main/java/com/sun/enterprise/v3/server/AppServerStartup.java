@@ -529,10 +529,8 @@ public class AppServerStartup implements ModuleStartup {
                         futures.addAll(((FutureProvider) startup).getFutures());
                     }
                 } catch(RuntimeException e) {
-                    logger.log(level, e.getMessage(), e);
                     logger.log(Level.SEVERE, localStrings.getLocalString("startupservicefailure",
-                            "Startup service failed to start {0} due to {1} ",
-                            activeDescriptor, e.getMessage()));
+                            "Startup service failed to start " + activeDescriptor), e);
                     events.send(new Event(EventTypes.SERVER_SHUTDOWN), false);
                     forceShutdown();
                     return;

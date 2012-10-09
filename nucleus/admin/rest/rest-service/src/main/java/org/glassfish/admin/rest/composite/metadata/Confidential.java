@@ -37,22 +37,22 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
+package org.glassfish.admin.rest.composite.metadata;
 
-package com.sun.enterprise.config.modularity.tests;
-
-import org.glassfish.api.admin.config.ConfigExtension;
-import org.glassfish.api.admin.config.Named;
-import org.jvnet.hk2.config.Configured;
-import org.jvnet.hk2.config.Element;
-
-import java.util.List;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import javax.inject.Qualifier;
 
 /**
- * @author Masoud Kalali
+ *
+ * @author tmoreau
  */
-@Configured
-public interface SimpleConfigExtension extends ConfigExtension, Named{
-
-    @Element("*")
-    List<SimpleConfigExtensionExtensionPoint> getExtensions();
+@Qualifier
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface Confidential {
 }
