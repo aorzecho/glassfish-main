@@ -125,11 +125,6 @@ public class WebModuleContextConfig extends ContextConfig {
     public final static int MIME_MAPPINGS = 13;
     
     protected Habitat services;
-    
-    /**
-     * The <code>File</code> reffering to the default-web.xml 
-     */
-    protected File file; 
         
     
     /**
@@ -150,13 +145,16 @@ public class WebModuleContextConfig extends ContextConfig {
     private Collection<EnvironmentProperty> envProps =
             new HashSet<EnvironmentProperty>();
 
-    
+
     /**
      * Customized <code>ContextConfig</code> which use the DOL for deployment.
      */
-    public WebModuleContextConfig(){
+    public WebModuleContextConfig(Habitat services){
+        synchronized (this) {
+            this.services = services;
+        }
     }
-    
+
     
     /**
      * Set the DOL object associated with this class.
@@ -171,16 +169,7 @@ public class WebModuleContextConfig extends ContextConfig {
     public WebBundleDescriptorImpl getDescriptor() {
         return webBundleDescriptor;
     }
-   
-    /**
-     * Set the DOL object associated with this class.
-     */
-    public void setServices(Habitat services){
-        synchronized (this) {
-            this.services = services;
-        }
-    }
-    
+
     
     protected synchronized void configureResource()
             throws LifecycleException {
