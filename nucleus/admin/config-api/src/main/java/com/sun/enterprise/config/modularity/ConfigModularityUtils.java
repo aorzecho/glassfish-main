@@ -60,8 +60,8 @@ import org.glassfish.api.admin.ServerEnvironment;
 import org.glassfish.api.admin.config.Named;
 import org.glassfish.config.support.GlassFishConfigBean;
 import org.glassfish.hk2.api.ActiveDescriptor;
+import org.glassfish.hk2.api.ServiceLocator;
 import org.glassfish.hk2.utilities.BuilderHelper;
-import org.jvnet.hk2.component.Habitat;
 import org.jvnet.hk2.config.Attribute;
 import org.jvnet.hk2.config.ConfigBeanProxy;
 import org.jvnet.hk2.config.ConfigInjector;
@@ -223,7 +223,7 @@ public final class ConfigModularityUtils {
         return false;
     }
 
-    public static Class getOwningClassForLocation(String location, Habitat habitat) {
+    public static Class getOwningClassForLocation(String location, ServiceLocator habitat) {
         StringTokenizer tokenizer = new StringTokenizer(location, "/", false);
         if (!tokenizer.hasMoreElements()) return null;
         if (!tokenizer.nextToken().equalsIgnoreCase("domain")) return null;
@@ -240,7 +240,7 @@ public final class ConfigModularityUtils {
     }
 
 
-    public static ConfigBeanProxy getOwningObject(String location, Habitat habitat) {
+    public static ConfigBeanProxy getOwningObject(String location, ServiceLocator habitat) {
         if (!location.startsWith("domain/configs")) {
             if (!location.startsWith("domain")) {
                 //Sorry only know domain and below :D
@@ -286,7 +286,7 @@ public final class ConfigModularityUtils {
             location = location.substring(location.indexOf("/", "domain/configs".length()) + 1);
             tokenizer = new StringTokenizer(location, "/", false);
             String curLevel = tokenizer.nextToken();
-            String expression = curLevel.substring(curLevel.lastIndexOf("[") + 1, curLevel.length()-1);
+            String expression = curLevel.substring(curLevel.lastIndexOf("[") + 1, curLevel.length() - 1);
             String configName = resolveExpression(expression, habitat);
             ConfigBeanProxy parent = habitat.<Domain>getService(Domain.class).getConfigNamed(configName);
 
@@ -306,7 +306,7 @@ public final class ConfigModularityUtils {
     }
 
     private static ConfigBeanProxy getOwner(ConfigBeanProxy parent, String parentElement, String childElement,
-                                            Habitat habitat) throws InvocationTargetException, IllegalAccessException {
+                                            ServiceLocator habitat) throws InvocationTargetException, IllegalAccessException {
         if (childElement.endsWith("]")) {
             String componentName;
             String elementName;
@@ -365,7 +365,7 @@ public final class ConfigModularityUtils {
         return Collections.emptyList();
     }
 
-    public static <T extends ConfigBeanProxy> T setConfigBean(T finalConfigBean, ConfigBeanDefaultValue configBeanDefaultValue, Habitat habitat, ConfigBeanProxy parent) {
+    public static <T extends ConfigBeanProxy> T setConfigBean(T finalConfigBean, ConfigBeanDefaultValue configBeanDefaultValue, ServiceLocator habitat, ConfigBeanProxy parent) {
 
         Class owningClassForLocation = ConfigModularityUtils.getOwningClassForLocation(configBeanDefaultValue.getLocation(), habitat);
         Class configBeanClass = ConfigModularityUtils.getClassForFullName(configBeanDefaultValue.getConfigBeanClassName(), habitat);
@@ -492,7 +492,7 @@ public final class ConfigModularityUtils {
     }
 
     public static <T extends ConfigBeanProxy> T getCurrentConfigBeanForDefaultValue(ConfigBeanDefaultValue defaultValue,
-                                                                                    Habitat habitat)
+                                                                                    ServiceLocator habitat)
             throws InvocationTargetException, IllegalAccessException {
         Class parentClass = ConfigModularityUtils.getOwningClassForLocation(defaultValue.getLocation(), habitat);
         Class configBeanClass = ConfigModularityUtils.getClassForFullName(defaultValue.getConfigBeanClassName(), habitat);
@@ -501,7 +501,8 @@ public final class ConfigModularityUtils {
             ConfigParser configParser = new ConfigParser(habitat);
             // I don't use the GlassFish document here as I don't need persistence
             final DomDocument doc = new DomDocument<GlassFishConfigBean>(habitat) {
-                public Dom make(final Habitat habitat, XMLStreamReader xmlStreamReader, GlassFishConfigBean dom,
+                @Override
+                public Dom make(final ServiceLocator habitat, XMLStreamReader xmlStreamReader, GlassFishConfigBean dom,
                                 ConfigModel configModel) {
                     // by default, people get the translated view.
                     return new GlassFishConfigBean(habitat, this, dom, configModel, xmlStreamReader);
@@ -610,10 +611,13 @@ public final class ConfigModularityUtils {
     }
 
 
-    public static Class getClassFor(String serviceName, Habitat habitat) {
+    public static Class getClassFor(String serviceName, ServiceLocator habitat) {
         serviceName = getServiceTypeNameIfNamedComponent(serviceName);
         ConfigInjector injector = habitat.getService(ConfigInjector.class, serviceName.toLowerCase());
+        return getClassFromInjector(injector);
+    }
 
+    private static Class getClassFromInjector(ConfigInjector injector) {
         if (injector != null) {
             String clzName = injector.getClass().getName().substring(0, injector.getClass().getName().length() - 8);
             try {
@@ -632,7 +636,7 @@ public final class ConfigModularityUtils {
         return serviceName;
     }
 
-    public static String resolveExpression(String expression, Habitat habitat) {
+    public static String resolveExpression(String expression, ServiceLocator habitat) {
         if (expression.startsWith("$")) {
             String name = expression.substring(1, expression.length());
             if (name.equalsIgnoreCase("CURRENT_INSTANCE_CONFIG_NAME")) {
@@ -645,12 +649,12 @@ public final class ConfigModularityUtils {
         return expression;
     }
 
-    public static String serializeConfigBeanByType(Class configBeanType, Habitat habitat) {
+    public static String serializeConfigBeanByType(Class configBeanType, ServiceLocator habitat) {
         ConfigBeanProxy configBeanProxy = getConfigBeanInstanceFor(configBeanType, habitat);
         return serializeConfigBean(configBeanProxy);
     }
 
-    private static ConfigBeanProxy getConfigBeanInstanceFor(Class configBeanType, Habitat habitat) {
+    private static ConfigBeanProxy getConfigBeanInstanceFor(Class configBeanType, ServiceLocator habitat) {
         return (ConfigBeanProxy) habitat.getService(configBeanType);
     }
 
@@ -733,7 +737,7 @@ public final class ConfigModularityUtils {
         return m;
     }
 
-    public static boolean deleteConfigurationForConfigBean(ConfigBeanProxy configBean, Collection col, ConfigBeanDefaultValue defaultValue, Habitat habitat) {
+    public static boolean deleteConfigurationForConfigBean(ConfigBeanProxy configBean, Collection col, ConfigBeanDefaultValue defaultValue, ServiceLocator habitat) {
         String name;
         ConfigBeanProxy itemToRemove;
         try {
@@ -750,11 +754,24 @@ public final class ConfigModularityUtils {
         return false;
     }
 
-    public static Class getClassForFullName(String configBeanClassName, Habitat habitat) {
+    public static Class getClassForFullName(String configBeanClassName, ServiceLocator habitat) {
         ActiveDescriptor<?> descriptor = habitat.getBestDescriptor(BuilderHelper.createContractFilter(configBeanClassName));
-        if (!descriptor.isReified()) {
-            descriptor = habitat.reifyDescriptor(descriptor);
+        if (descriptor != null) {
+            if (!descriptor.isReified()) {
+                descriptor = habitat.reifyDescriptor(descriptor);
+            }
+            return getClassFromDescriptor(descriptor);
+        } else {
+            descriptor = habitat.getBestDescriptor(BuilderHelper.createContractFilter(configBeanClassName + "Injector"));
+            if (!descriptor.isReified()) {
+                descriptor = habitat.reifyDescriptor(descriptor);
+            }
+            ConfigInjector injector = (ConfigInjector) habitat.getServiceHandle(descriptor).getService();
+            return getClassFromInjector(injector);
         }
+    }
+
+    private static Class getClassFromDescriptor(ActiveDescriptor<?> descriptor) {
 
         Class<?> defaultReturnValue = descriptor.getImplementationClass();
 
@@ -776,8 +793,7 @@ public final class ConfigModularityUtils {
         return foundContract;
     }
 
-
-    public static String replacePropertiesWithCurrentValue(String xmlConfiguration, ConfigBeanDefaultValue value, Habitat habitat) throws InvocationTargetException, IllegalAccessException {
+    public static String replacePropertiesWithCurrentValue(String xmlConfiguration, ConfigBeanDefaultValue value, ServiceLocator habitat) throws InvocationTargetException, IllegalAccessException {
         for (ConfigCustomizationToken token : value.getCustomizationTokens()) {
             String toReplace = "${" + token.getKey() + "}";
             ConfigBeanProxy current = ConfigModularityUtils.getCurrentConfigBeanForDefaultValue(value, habitat);

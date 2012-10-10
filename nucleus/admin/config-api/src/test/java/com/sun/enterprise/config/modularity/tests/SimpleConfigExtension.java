@@ -42,6 +42,7 @@ package com.sun.enterprise.config.modularity.tests;
 
 import org.glassfish.api.admin.config.ConfigExtension;
 import org.glassfish.api.admin.config.Named;
+import org.jvnet.hk2.config.ConfigExtensionMethod;
 import org.jvnet.hk2.config.Configured;
 import org.jvnet.hk2.config.Element;
 
@@ -51,8 +52,11 @@ import java.util.List;
  * @author Masoud Kalali
  */
 @Configured
-public interface SimpleConfigExtension extends ConfigExtension, Named{
+public interface SimpleConfigExtension extends ConfigExtension, Named {
 
     @Element("*")
     List<SimpleConfigExtensionExtensionPoint> getExtensions();
+
+    @ConfigExtensionMethod
+    <T extends  SimpleConfigExtensionExtensionPoint> T getExtensionByType(Class extensionType);
 }
