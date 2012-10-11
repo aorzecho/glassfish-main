@@ -194,6 +194,4 @@ public interface WebServiceEndpoint extends ApplicationExtension {
     @Element
     public List<TransformationRule> getTransformationRule();
 
-
-
 }
