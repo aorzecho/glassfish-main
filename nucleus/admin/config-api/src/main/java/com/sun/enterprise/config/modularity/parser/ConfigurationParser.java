@@ -46,7 +46,7 @@ import com.sun.enterprise.util.LocalStringManager;
 import com.sun.enterprise.util.LocalStringManagerImpl;
 import org.glassfish.config.support.GlassFishConfigBean;
 import org.glassfish.hk2.api.ServiceLocator;
-import org.jvnet.hk2.component.Habitat;
+import org.jvnet.hk2.annotations.Service;
 import org.jvnet.hk2.config.ConfigBeanProxy;
 import org.jvnet.hk2.config.ConfigModel;
 import org.jvnet.hk2.config.ConfigParser;
@@ -56,6 +56,7 @@ import org.jvnet.hk2.config.DomDocument;
 import org.jvnet.hk2.config.SingleConfigCode;
 import org.jvnet.hk2.config.TransactionFailure;
 
+import javax.inject.Inject;
 import javax.xml.stream.XMLStreamReader;
 import java.beans.PropertyVetoException;
 import java.util.List;
@@ -68,36 +69,39 @@ import java.util.logging.Logger;
  * @author Bhakti Mehta
  * @author Masoud Kalali
  */
+@Service
 public class ConfigurationParser<C extends ConfigLoader> {
     private static final Logger LOG = Logger.getLogger(ConfigurationParser.class.getName());
     //TODO Until the TranslatedView issue is fixed this remain true.
     private static boolean replaceSystemProperties = false;
 
-    /**
-     * @param habitat The Habitat object to add the config to
-     * @param <T>     the ConfigBeanProxy type we are looking for
-     */
-    public <T extends ConfigBeanProxy> void parseAndSetConfigBean(final ServiceLocator habitat, List<ConfigBeanDefaultValue> values) {
+    @Inject
+    private ServiceLocator serviceLocator;
 
-        ConfigParser configParser = new ConfigParser(habitat);
+    /**
+     * @param <T> the ConfigBeanProxy type we are looking for
+     */
+    public <T extends ConfigBeanProxy> void parseAndSetConfigBean(List<ConfigBeanDefaultValue> values) {
+
+        ConfigParser configParser = new ConfigParser(serviceLocator);
         // I don't use the GlassFish document here as I don't need persistence
-        final DomDocument doc = new DomDocument<GlassFishConfigBean>(habitat) {
+        final DomDocument doc = new DomDocument<GlassFishConfigBean>(serviceLocator) {
             @Override
-            public Dom make(final ServiceLocator habitat, XMLStreamReader xmlStreamReader, GlassFishConfigBean dom, ConfigModel configModel) {
-                return new GlassFishConfigBean(habitat, this, dom, configModel, xmlStreamReader);
+            public Dom make(final ServiceLocator serviceLocator, XMLStreamReader xmlStreamReader, GlassFishConfigBean dom, ConfigModel configModel) {
+                return new GlassFishConfigBean(serviceLocator, this, dom, configModel, xmlStreamReader);
             }
         };
 
         //TODO requires rework to put all the changes that a service may introduce into one transaction
         //the solution is to put the loop into the apply method...  But it would be some fine amount of work
         for (final ConfigBeanDefaultValue configBeanDefaultValue : values) {
-            final ConfigBeanProxy parent = ConfigModularityUtils.getOwningObject(configBeanDefaultValue.getLocation(), habitat);
+            final ConfigBeanProxy parent = ConfigModularityUtils.getOwningObject(configBeanDefaultValue.getLocation(), serviceLocator);
             ConfigurationPopulator populator = null;
             if (replaceSystemProperties)
                 try {
                     populator = new ConfigurationPopulator(
                             ConfigModularityUtils.replacePropertiesWithCurrentValue(
-                                    configBeanDefaultValue.getXmlConfiguration(), configBeanDefaultValue, habitat)
+                                    configBeanDefaultValue.getXmlConfiguration(), configBeanDefaultValue, serviceLocator)
                             , doc, parent);
                 } catch (Exception e) {
                     LocalStringManager localStrings =
@@ -112,16 +116,16 @@ public class ConfigurationParser<C extends ConfigLoader> {
             }
             populator.run(configParser);
             try {
-                Class configBeanClass = ConfigModularityUtils.getClassForFullName(configBeanDefaultValue.getConfigBeanClassName(), habitat);
+                Class configBeanClass = ConfigModularityUtils.getClassForFullName(configBeanDefaultValue.getConfigBeanClassName(), serviceLocator);
                 final ConfigBeanProxy pr = doc.getRoot().createProxy(configBeanClass);
                 ConfigSupport.apply(new SingleConfigCode<ConfigBeanProxy>() {
                     public Object run(ConfigBeanProxy param) throws PropertyVetoException, TransactionFailure {
-                        boolean writeDefaultElementsToXml = Boolean.parseBoolean(System.getProperty("writeDefaultElementsToXml","true"));
+                        boolean writeDefaultElementsToXml = Boolean.parseBoolean(System.getProperty("writeDefaultElementsToXml", "true"));
                         if (!writeDefaultElementsToXml) {
                             //Do not write default snippets to domain.xml
                             doc.getRoot().skipFromXml();
                         }
-                        ConfigModularityUtils.setConfigBean(pr, configBeanDefaultValue, habitat, param);
+                        ConfigModularityUtils.setConfigBean(pr, configBeanDefaultValue, serviceLocator, param);
                         return param;
                     }
                 }, parent);
