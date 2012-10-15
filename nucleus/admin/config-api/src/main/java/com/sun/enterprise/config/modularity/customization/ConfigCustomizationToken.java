@@ -51,13 +51,38 @@ public class ConfigCustomizationToken {
     private String title;
     private String description;
     private String defaultValue;
+    private String validationExpression;
+    private TokenTypeDetails tokenTypeDetails;
+    private CustomizationType customizationType;
 
+    public String getValidationExpression() {
+        return validationExpression;
+    }
+
+    public TokenTypeDetails getTokenTypeDetails() {
+        return tokenTypeDetails;
+    }
+
+    public CustomizationType getCustomizationType() {
+        return customizationType;
+    }
 
     public ConfigCustomizationToken(String key, String title, String description, String defaultValue) {
         this.key = key;
         this.title = title;
         this.description = description;
         this.defaultValue = defaultValue;
+    }
+
+    public ConfigCustomizationToken(String key, String title, String description, String defaultValue,
+                                    String validationExpression, TokenTypeDetails tokenTypeDetails, CustomizationType customizationType) {
+        this.key = key;
+        this.title = title;
+        this.description = description;
+        this.defaultValue = defaultValue;
+        this.validationExpression = validationExpression;
+        this.tokenTypeDetails = tokenTypeDetails;
+        this.customizationType = customizationType;
     }
 
     public String getKey() {
@@ -75,4 +100,7 @@ public class ConfigCustomizationToken {
     public String getDefaultValue() {
         return defaultValue;
     }
+
+    public static enum CustomizationType {PORT, FILE, STRING}
 }
+
