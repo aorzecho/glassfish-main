@@ -46,7 +46,7 @@
     <parent>
         <groupId>org.glassfish.main.packager</groupId>
         <artifactId>packages</artifactId>
-        <version>4.0-b58</version>
+        <version>4.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>glassfish-osgi-gui</artifactId>
@@ -64,7 +64,7 @@
                         <if test="${do.compression}">
 			    <property name="compression" value="true" />
 			</if>
-                        <ant dir="." antfile="build.xml" target="create.package" />
+                        <ant dir="." antfile="build.xml" target="create.package"/>
                     </tasks>
                 </configuration>               
              </plugin>
@@ -75,19 +75,34 @@
                     <execution>
                         <id>copy-dependencies</id>
                         <goals>
-                            <goal>copy-dependencies</goal>
+                           <goal>copy</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/stage/${install.dir.name}/glassfish/modules/autostart</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
                             <excludeTransitive>true</excludeTransitive>
-                            <includeScope>compile</includeScope>
-                            <includeScope>runtime</includeScope>
                             <stripVersion>true</stripVersion>
-                        </configuration>
-                   </execution>
-               </executions>
+                            <artifactItems>
+                             <artifactItem>
+                               <groupId>org.apache.felix</groupId>
+                               <artifactId>org.apache.felix.webconsole</artifactId>
+                               <outputDirectory>${project.build.directory}/stage/${install.dir.name}/glassfish/modules/autostart</outputDirectory>
+                             </artifactItem>
+                             <artifactItem>
+                               <groupId>org.glassfish.main.osgi-platforms</groupId>
+                               <artifactId>felix-webconsole-extension</artifactId>
+                               <outputDirectory>${project.build.directory}/stage/${install.dir.name}/glassfish/modules/autostart</outputDirectory>
+                             </artifactItem>
+                             <!-- glassfish-osgi-console-plugin.jar must be kept in modules/. See GLASSFISH-18880 -->
+                             <artifactItem>
+                               <groupId>org.glassfish.main.admingui</groupId>
+                               <artifactId>glassfish-osgi-console-plugin</artifactId>
+                               <outputDirectory>${project.build.directory}/stage/${install.dir.name}/glassfish/modules</outputDirectory>
+                             </artifactItem>
+                           </artifactItems>
+                         </configuration>
+                    </execution>
+                </executions>
            </plugin>
         </plugins>
     </build>
