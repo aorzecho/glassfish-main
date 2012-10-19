@@ -187,9 +187,12 @@ public final class ConfigModularityUtils {
                         if (Collection.class.isAssignableFrom(m.getReturnType())) {
                             if (actualGenericParameter instanceof Class) {
                                 if (typeToSet.isAssignableFrom((Class) actualGenericParameter)) {
-                                    if ((m.getAnnotation(DuckTyped.class) == null) && (findDeeperSuitableCollectionGetter(owner, typeToSet) == null))
+                                    if ((m.getAnnotation(DuckTyped.class) == null)) {
                                         return m;
-                                    else return findDeeperSuitableCollectionGetter(owner, typeToSet);
+                                    } else {
+                                        Method deepM = findDeeperSuitableCollectionGetter(owner, typeToSet);
+                                        return deepM != null ? deepM : m;
+                                    }
                                 }
                             }
                         }
