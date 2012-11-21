@@ -47,18 +47,18 @@
         <groupId>net.java</groupId>
         <artifactId>jvnet-parent</artifactId>
         <version>3</version>
-	<relativePath />
+	<relativePath></relativePath>
     </parent>
 
     <groupId>org.glassfish.main</groupId>
     <artifactId>glassfish-nucleus-parent</artifactId>
-    <version>4.0-b64</version>
+    <version>4.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>GlassFish Nucleus Parent Project</name>
 
     <scm>
-        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/tags/4.0-b64/main/nucleus</connection>
-        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/tags/4.0-b64/main/nucleus</developerConnection>
+        <connection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/main/nucleus</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/glassfish~svn/trunk/main/nucleus</developerConnection>
     </scm>
     <issueManagement>
         <system>IssueTracker</system>
@@ -98,7 +98,7 @@
         <build.id>${user.name}-private</build.id>
         <findbugs.skip>false</findbugs.skip>
         <findbugs.threshold>High</findbugs.threshold>
-        <findbugs.exclude />
+        <findbugs.exclude></findbugs.exclude>
         <findbugs.version>2.4.0</findbugs.version>
         
         <glassfish-corba.version>4.0.0-b002</glassfish-corba.version>
@@ -108,8 +108,8 @@
         <grizzly.version>2.3-beta8</grizzly.version>
         <jsr181-api.version>1.0-MR1</jsr181-api.version>
         <saaj-api.version>1.3.4</saaj-api.version>
-        <hk2.version>2.1.45</hk2.version>
-        <hk2.plugin.version>2.1.45</hk2.plugin.version>
+        <hk2.version>2.1.47</hk2.version>
+        <hk2.plugin.version>2.1.47</hk2.plugin.version>
         <trilead-ssh2.version>build212-hudson-6</trilead-ssh2.version>
         <pfl.version>3.2.0-b001</pfl.version>
         <gmbal.version>3.2.0-b003</gmbal.version>
@@ -480,7 +480,7 @@
                 <configuration>
                     <!-- By default, we don't export anything.
                     -->
-                    <Export-Package />
+                    <Export-Package></Export-Package>
                     <instructions>
                         <!-- Read all the configuration from osgi.bundle file, if it exists.
                              See Felix-699 to find out why we use ${basedir}.
