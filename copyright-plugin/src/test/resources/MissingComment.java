@@ -1,5 +1,0 @@
-/**
- * comment
- */
-
-package test;
