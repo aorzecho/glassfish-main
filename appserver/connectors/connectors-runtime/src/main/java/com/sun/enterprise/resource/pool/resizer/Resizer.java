@@ -200,6 +200,7 @@ public class
                         //preferValidateOverrecreate true and connection is valid within SPS
                         validConnectionsCounter++;
                         idleConnKeptInSteadyCounter++;
+                        activeResources.add(h);
                         debug("PreferValidateOverRecreate: Keeping idle resource "
                                 + h + " in the steady part of the free pool "
                                 + "as the RA reports it to be valid (" + validConnectionsCounter
